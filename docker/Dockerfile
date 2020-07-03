@@ -7,8 +7,9 @@ WORKDIR /openfisca_main
 COPY openfisca_pf ./openfisca_pf
 COPY Makefile .
 COPY *.py ./
+# TODO: fix libyaml missing : NOT WORKING YET. Is it a false alarm ?
+# RUN pip uninstall -y pyyaml && pip install pyyaml --no-cache-dir
 RUN make install
-RUN ls -ltra /
 
 FROM python:3.7-slim
 COPY --from=build /opt/venv /opt/venv
@@ -17,6 +18,6 @@ ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /openfisca_main
 COPY --from=build /openfisca_main/config.py .
 COPY --from=build /openfisca_main/openfisca_pf ./openfisca_pf
-
+VOLUME /openfisca_main
 CMD ["openfisca", "serve", "--configuration-file", "config.py"]
 EXPOSE 5000/tcp
