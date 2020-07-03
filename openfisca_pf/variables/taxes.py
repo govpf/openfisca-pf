@@ -9,6 +9,46 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 
+class cst_s_totale_par_employes(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = MONTH
+    label = "Sum of the taxes paid by a household"
+    reference = "https://stats.gov.example/taxes"
+
+    def formula(entreprise, period, parameters):
+        cst_s_i = entreprise.members('cst_s', period)
+        return entreprise.sum(cst_s_i)
+
+class cst_s_totale(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = MONTH
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés par tranche"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    # The formula to compute the income tax for a given person at a given period
+    def formula(entreprise, period, parameters):
+        # print(parameters(period).taxes.taux_cst_s.rates[0])
+        value = 0
+        for i, taux in enumerate(parameters(period).taxes.taux_cst_s.rates):
+            value += taux * entreprise('salaires_tranche_' + str(i), period)
+        return value
+
+class cst_s(Variable):
+    value_type = float
+    entity = Person
+    definition_period = MONTH
+    label = u"CST-S due par l'employé sur son salaire mensuel"
+    reference = "https://law.gov.example/social_security_contribution"  # Always use the most official source
+
+    def formula_1980_01_01(person, period, parameters):
+        salaire = person('salaire', period)
+        # Quels sont les salaires >= 150000
+        salaire_sup_150000 = person('salaire', period) >= 150000
+        echelle = parameters(period).taxes.taux_cst_s
+        # Si le salaire est < 150000 alors retourne 0
+        return echelle.calc(where(salaire_sup_150000, salaire, 0))
 
 class income_tax(Variable):
     value_type = float

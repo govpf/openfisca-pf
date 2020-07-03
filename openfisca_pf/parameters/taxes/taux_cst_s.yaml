@@ -1,0 +1,72 @@
+# The social_security_contribution is calculated with a marginal scale. Marginal scales are represented with a specific structure.
+description: Taux de la CST-S
+metadata:
+  threshold_unit: currency-XPF
+  rate_unit: /1
+brackets:
+- rate:
+    1950-01-01:
+      value: 0.005
+  threshold:
+    1950-01-01:
+      value: 0
+- rate:
+    1950-01-01:
+      value: 0.03
+  threshold:
+    1950-01-01:
+      value: 150000
+- rate:
+    1950-01-01:
+      value: 0.05
+  threshold:
+    1950-01-01:
+      value: 250000
+- rate:
+    1950-01-01:
+      value: 0.07
+  threshold:
+    1950-01-01:
+      value: 400000
+- rate:
+    1950-01-01:
+      value: 0.09
+  threshold:
+    1950-01-01:
+      value: 700000
+- rate:
+    1950-01-01:
+      value: 0.12
+  threshold:
+    1950-01-01:
+      value: 1000000
+- rate:
+    1950-01-01:
+      value: 0.15
+  threshold:
+    1950-01-01:
+      value: 1250000
+- rate:
+    1950-01-01:
+      value: 0.18
+  threshold:
+    1950-01-01:
+      value: 1500000
+- rate:
+    1950-01-01:
+      value: 0.21
+  threshold:
+    1950-01-01:
+      value: 1750000
+- rate:
+    1950-01-01:
+      value: 0.23
+  threshold:
+    1950-01-01:
+      value: 2000000
+- rate:
+    1950-01-01:
+      value: 0.25
+  threshold:
+    1950-01-01:
+      value: 2500000
