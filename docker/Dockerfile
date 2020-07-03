@@ -23,4 +23,3 @@ COPY *.py ./
 RUN make install
 CMD ["openfisca", "serve", "--configuration-file", "config.py"]
 EXPOSE 5000/tcp
-EXPOSE 5000/udp
