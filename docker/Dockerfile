@@ -1,6 +1,6 @@
 FROM python:3.7-slim AS build
-RUN apt-get update
-RUN apt-get install -y --no-install-recommends build-essential gcc
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends build-essential gcc
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /openfisca_main
@@ -18,6 +18,8 @@ ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /openfisca_main
 COPY --from=build /openfisca_main/config.py .
 COPY --from=build /openfisca_main/openfisca_pf ./openfisca_pf
+
 VOLUME /openfisca_main
-CMD ["openfisca", "serve", "--configuration-file", "config.py"]
 EXPOSE 5000/tcp
+
+CMD ["openfisca", "serve", "--configuration-file", "config.py"]
