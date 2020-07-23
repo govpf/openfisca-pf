@@ -62,7 +62,7 @@ class cst_s_tranche_0(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[0] * entreprise('salaires_tranche_0', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[0] * entreprise('salaires_tranche_0', period))
 
 class cst_s_tranche_1(Variable):
     value_type = float
@@ -73,7 +73,7 @@ class cst_s_tranche_1(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[1] * entreprise('salaires_tranche_1', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[1] * entreprise('salaires_tranche_1', period))
 
 class cst_s_tranche_2(Variable):
     value_type = float
@@ -84,7 +84,7 @@ class cst_s_tranche_2(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[2] * entreprise('salaires_tranche_2', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[2] * entreprise('salaires_tranche_2', period))
 
 class cst_s_tranche_3(Variable):
     value_type = float
@@ -95,7 +95,7 @@ class cst_s_tranche_3(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[3] * entreprise('salaires_tranche_3', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[3] * entreprise('salaires_tranche_3', period))
 
 class cst_s_tranche_4(Variable):
     value_type = float
@@ -106,7 +106,7 @@ class cst_s_tranche_4(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[4] * entreprise('salaires_tranche_4', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[4] * entreprise('salaires_tranche_4', period))
 
 class cst_s_tranche_5(Variable):
     value_type = float
@@ -117,7 +117,7 @@ class cst_s_tranche_5(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[5] * entreprise('salaires_tranche_5', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[5] * entreprise('salaires_tranche_5', period))
 
 class cst_s_tranche_6(Variable):
     value_type = float
@@ -128,7 +128,7 @@ class cst_s_tranche_6(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[6] * entreprise('salaires_tranche_6', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[6] * entreprise('salaires_tranche_6', period))
 
 class cst_s_tranche_7(Variable):
     value_type = float
@@ -139,7 +139,7 @@ class cst_s_tranche_7(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[7] * entreprise('salaires_tranche_7', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[7] * entreprise('salaires_tranche_7', period))
 
 class cst_s_tranche_8(Variable):
     value_type = float
@@ -150,7 +150,7 @@ class cst_s_tranche_8(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[8] * entreprise('salaires_tranche_8', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[8] * entreprise('salaires_tranche_8', period))
 
 class cst_s_tranche_9(Variable):
     value_type = float
@@ -161,7 +161,7 @@ class cst_s_tranche_9(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[9] * entreprise('salaires_tranche_9', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[9] * entreprise('salaires_tranche_9', period))
 
 class cst_s_tranche_10(Variable):
     value_type = float
@@ -172,7 +172,7 @@ class cst_s_tranche_10(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        return parameters(period).taxes.taux_cst_s.rates[10] * entreprise('salaires_tranche_10', period)
+        return round_(parameters(period).taxes.taux_cst_s.rates[10] * entreprise('salaires_tranche_10', period))
 
 class income_tax(Variable):
     value_type = float
