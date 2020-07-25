@@ -1,0 +1,111 @@
+description: Taux d'abattement applicables pour le calcul de l'IT
+metadata:
+  reference: https://law.gov.example/basic-income/amount
+ventes:
+  apport_en_societe:
+    description: APPORT EN SOCIETE
+    coeff_assiette:
+      values:
+        2020-01-01: 1
+    coeff_droits:
+      values:
+        2020-01-01: 0
+    coeff_droits_si_charge_sup_50_pourcents:
+      values:
+        2020-01-01: 0
+    eligible_tpe:
+      values:
+        2020-01-01: 1
+  bagettes_revente_au_detail:
+    coeff_assiette:
+      values:
+        2020-01-01: 0.7
+    coeff_droits:
+      values:
+        2020-01-01: 0
+    coeff_droits_si_charge_sup_50_pourcents:
+      values:
+        2020-01-01: 0
+    eligible_tpe:
+      values:
+        2020-01-01: 1
+  ventes_sans_abattement:
+    coeff_assiette:
+      values:
+        2020-01-01: 0
+    coeff_droits:
+      values:
+        2020-01-01: 0
+    coeff_droits_si_charge_sup_50_pourcents:
+      values:
+        2020-01-01: 0
+    eligible_tpe:
+      values:
+        2020-01-01: 1
+prestations:
+  acconage_de_coprah:
+    coeff_assiette:
+      values:
+        2020-01-01: 1
+    coeff_droits:
+      values:
+        2020-01-01: 0
+    coeff_droits_si_charge_sup_50_pourcents:
+      values:
+        2020-01-01: 0
+    eligible_tpe:
+      values:
+        2020-01-01: 1
+  armateurs:
+    coeff_assiette:
+      values:
+        2020-01-01: 0
+    coeff_droits:
+      values:
+        2020-01-01: 0.5
+    coeff_droits_si_charge_sup_50_pourcents:
+      values:
+        2020-01-01: 0
+    eligible_tpe:
+      values:
+        2020-01-01: 1
+  boulangeries_autres:
+    coeff_assiette:
+      values:
+        2020-01-01: 0
+    coeff_droits:
+      values:
+        2020-01-01: 0
+    coeff_droits_si_charge_sup_50_pourcents:
+      values:
+        2020-01-01: 0
+    eligible_tpe:
+      values:
+        2020-01-01: 1
+  autres_natures_de_prestation_de_services:
+    coeff_assiette:
+      values:
+        2020-01-01: 0
+    coeff_droits:
+      values:
+        2020-01-01: 0
+    coeff_droits_si_charge_sup_50_pourcents:
+      values:
+        2020-01-01: 0.5
+    eligible_tpe:
+      values:
+        2020-01-01: 1
+  location_meublee:
+    coeff_assiette:
+      values:
+        2020-01-01: 0
+    coeff_droits:
+      values:
+        2020-01-01: 0.5
+    coeff_droits_si_charge_sup_50_pourcents:
+      values:
+        2020-01-01: 0
+    eligible_tpe:
+      values:
+        2020-01-01: 0
+                
