@@ -8,6 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
+import numpy
 
 class it_ventes(Variable):
     value_type = float
@@ -32,7 +33,7 @@ class it(Variable):
         it_ventes = entreprise('it_ventes', period)
         it_prestations = entreprise('it_prestations', period)
         it_total = it_ventes + it_prestations
-        return where(it_total < 6000, 0, it_total)
+        return where(it_total < 6000, 0, numpy.floor(it_total))
 
 class it_ventes_regularisation_prestations(Variable):
     value_type = float

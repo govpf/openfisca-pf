@@ -40,3 +40,9 @@ class chiffre_affaire_ventes_sans_abattement(Variable):
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie ventes sans abattement"
+
+class chiffre_affaire_ventes_inferieur_20_millions(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = "Chiffre d'affaire dans la catégorie ventes inferieur à 20 millions"
