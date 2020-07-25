@@ -2,6 +2,7 @@ description: Taux d'abattement applicables pour le calcul de l'IT
 metadata:
   reference: https://law.gov.example/basic-income/amount
 acconage_de_coprah:
+  description: Acconage de coprah
   coeff_assiette:
     values:
       2020-01-01: 1
@@ -15,6 +16,7 @@ acconage_de_coprah:
     values:
       2020-01-01: 1
 armateurs:
+  description: Armateurs
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -28,6 +30,7 @@ armateurs:
     values:
       2020-01-01: 1
 armateurs_de_goelettes:
+  description: Armateurs de goelettes
   coeff_assiette:
     values:
       2020-01-01: 0.5
@@ -41,6 +44,7 @@ armateurs_de_goelettes:
     values:
       2020-01-01: 1
 artisans:
+  description: Artisans
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -54,6 +58,7 @@ artisans:
     values:
       2020-01-01: 1
 atelier_de_mecanique:
+  description: Atelier de mécanique
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -67,6 +72,7 @@ atelier_de_mecanique:
     values:
       2020-01-01: 1
 blanchisseur:
+  description: Blanchisseur
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -80,6 +86,7 @@ blanchisseur:
     values:
       2020-01-01: 1
 boucher_en_detail:
+  description: Boucher en détail
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -93,6 +100,7 @@ boucher_en_detail:
     values:
       2020-01-01: 1
 boulangeries_autres:
+  description: Boulangeries autres
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -106,6 +114,7 @@ boulangeries_autres:
     values:
       2020-01-01: 1
 boulangeries_baguettes_detail:
+  description: Boulangeries baguettes détail
   coeff_assiette:
     values:
       2020-01-01: 0.7
@@ -119,6 +128,7 @@ boulangeries_baguettes_detail:
     values:
       2020-01-01: 1
 autres_natures_de_prestation_de_services:
+  description: Autre natures de prestation de services
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -132,6 +142,7 @@ autres_natures_de_prestation_de_services:
     values:
       2020-01-01: 1
 location_meublee:
+  description: Location meublée
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -145,6 +156,7 @@ location_meublee:
     values:
       2020-01-01: 0
 location_non_meublee:
+  description: Location non meublée
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -158,6 +170,7 @@ location_non_meublee:
     values:
       2020-01-01: 0
 location_terrain_nu:
+  description: Location terrain nu
   coeff_assiette:
     values:
       2020-01-01: 0
@@ -170,4 +183,3 @@ location_terrain_nu:
   eligible_tpe:
     values:
       2020-01-01: 0
-            
