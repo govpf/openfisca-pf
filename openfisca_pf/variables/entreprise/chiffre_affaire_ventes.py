@@ -29,11 +29,23 @@ class chiffre_affaire_apport_en_societe(Variable):
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie apport en société"
 
+class charges_apport_en_societe(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = "Charges dans la catégorie apport en société"
+
 class chiffre_affaire_bagettes_revente_au_detail(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie revente au étail"
+
+class charges_bagettes_revente_au_detail(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = "Charges dans la catégorie revente au étail"
 
 class chiffre_affaire_ventes_sans_abattement(Variable):
     value_type = float
@@ -41,8 +53,20 @@ class chiffre_affaire_ventes_sans_abattement(Variable):
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie ventes sans abattement"
 
+class charges_ventes_sans_abattement(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = "Charges dans la catégorie ventes sans abattement"
+
 class chiffre_affaire_ventes_inferieur_20_millions(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie ventes inferieur à 20 millions"
+
+class charges_ventes_inferieur_20_millions(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = "Charges dans la catégorie ventes inferieur à 20 millions"
