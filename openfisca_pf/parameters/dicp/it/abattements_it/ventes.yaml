@@ -29,11 +29,179 @@ bagettes_revente_au_detail:
   eligible_tpe:
     values:
       2020-01-01: 1
+coprah:
+  description: Coprah
+  coeff_assiette:
+    values:
+      2020-01-01: 1
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+farine_riz_sucre:
+  description: Farine, riz, sucre
+  coeff_assiette:
+    values:
+      2020-01-01: 1
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+hydrocarbures_au_detail:
+  description: Hydrcarbures au détail
+  coeff_assiette:
+    values:
+      2020-01-01: 0.95
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+importateurs_grossistes:
+  description: Importateurs grossistes
+  coeff_assiette:
+    values:
+      2020-01-01: 0.7
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+lait_frais:
+  description: Lait frais
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+negociants_detaillants_ca_sup_20_millions:
+  description: Négociants détaillants CA > 20M
+  coeff_assiette:
+    values:
+      2020-01-01: 0.2
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+tabacs:
+  description: Tabacs
+  coeff_assiette:
+    values:
+      2020-01-01: 0.4
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+timbres_postes_et_fiscaux:
+  description: Timbres postes et fiscaux
+  coeff_assiette:
+    values:
+      2020-01-01: 1
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
 ventes_sans_abattement:
   description: Ventes sans abattement
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_a_l_aventure_armateurs:
+  description: Ventes à l'aventure (armateurs)
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_a_l_aventure_goelettes:
+  description: Ventes à l'aventure (goelettes)
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_en_gros:
+  description: Ventes en gros
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_en_gros_lait_frais_origine_local:
+  description: Ventes en gros lait frais d'origine local
+  coeff_assiette:
+    values:
+      2020-01-01: 0.9
   coeff_droits:
     values:
       2020-01-01: 0
