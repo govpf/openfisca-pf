@@ -1,0 +1,6 @@
+.circleci
+.github
+.git
+*Dockerfile*
+*docker-compose*
+*__pycache__*
