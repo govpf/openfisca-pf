@@ -85,7 +85,6 @@ class it_prestations(Variable):
         it_ventes_regularisation_prestations = entreprise('it_ventes_regularisation_prestations', period)
         it_prestations_avant_abattement_droits = entreprise('it_prestations_avant_abattement_droits', period)
         it_prestations_sans_abattement_droits = entreprise('it_prestations_sans_abattement_droits', period)
-        ca_abattements = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattement_droits', period)
         it = (it_prestations_avant_abattement_droits - it_prestations_sans_abattement_droits) / 2 + it_prestations_sans_abattement_droits - it_ventes_regularisation_prestations
         return select(
         [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
