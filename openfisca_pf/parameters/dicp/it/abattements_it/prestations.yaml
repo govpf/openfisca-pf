@@ -127,6 +127,62 @@ boulangeries_baguettes_detail:
   eligible_tpe:
     values:
       2020-01-01: 1
+boulangeries_baguettes_gros:
+  description: Boulangeries baguettes gros
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+bourrelier:
+  description: Bourrelier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+charcutier:
+  description: Charcutier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+coiffeur:
+  description: Coiffeur
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 1
 autres_natures_de_prestation_de_services:
   description: Autre natures de prestation de services
   coeff_assiette:
@@ -180,6 +236,454 @@ location_terrain_nu:
   coeff_droits_si_charge_sup_50_pourcents:
     values:
       2020-01-01: 0.5
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+cordonnier_reparateur:
+  description: Cordonnier réparateur
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+couturier:
+  description: Couturier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+cuisine_a_emporter_en_detail:
+  description: Cuisine à emporter en détail
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+debitant_de_boissons_hygieniques_sur_place:
+  description: "Débitant de boissons hygiéniques sur place "
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+denrees_emporter_ou_sur_place:
+  description: " Denrées emporter ou sur place"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+electricien:
+  description: Electricien
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+entreprise_de_travaux_publics:
+  description: " Entreprise de travaux publics"
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+fabricant_de_boissons_gazeuses:
+  description: " Fabricant de boissons gazeuses"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+ferblantier:
+  description: Ferblantier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+garagiste:
+  description: Garagiste
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+hotel_pension_famille_:
+  description: Hôtel, pension famille, ...
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+loueur_de_meubles_objets_ou_ustensiles:
+  description: " Loueur de meubles, objets ou ustensiles"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+marchand_ambulant:
+  description: " Marchand ambulant"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+matelassier:
+  description: Matelassier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+mecanicien_reparateur:
+  description: " Mécanicien réparateur"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+menuisier:
+  description: Menuisier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+patissier:
+  description: Patissier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+photographe_ambulant:
+  description: " Photographe ambulant"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+plomberie_et_installation_sanitaire:
+  description: Plomberie et installation sanitaire
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+prestations_avec_reduction:
+  description: Prestations avec réduction
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+prestations_sans_reduction:
+  description: " Prestations sans réduction"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0.5
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+profession_liberale:
+  description: " Profession libérale"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0.5
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+reparateur_de_cycles_et_pneumatiques:
+  description: " Réparateur de cycles et pneumatiques"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+restaurants_hors_licence_classe_4:
+  description: " Restaurants hors licence classe 4"
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+serrurier:
+  description: Serrurier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+soudeur:
+  description: Soudeur
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+tailleur:
+  description: Tailleur
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+toliercarossier:
+  description: Tolier-carossier
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+torrefacteur_de_cafe:
+  description: Torrefacteur de café
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+transporteur_de_marchandises:
+  description: Transporteur de marchandises
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+transporteur_de_voyageurs_et_marchandises:
+  description: Transporteur de voyageurs et marchandises
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+vannerie:
+  description: Vannerie
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  coeff_droits:
+    values:
+      2020-01-01: 0.5
+  coeff_droits_si_charge_sup_50_pourcents:
+    values:
+      2020-01-01: 0
   eligible_tpe:
     values:
       2020-01-01: 0

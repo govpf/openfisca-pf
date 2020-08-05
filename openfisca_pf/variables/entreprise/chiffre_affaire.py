@@ -32,3 +32,17 @@ class chiffre_affaire_total(Variable):
     def formula(entreprise, period, parameters):
         return entreprise('chiffre_affaire_total_ventes', period) + entreprise('chiffre_affaire_total_prestations', period)
  
+class chiffre_affaire_total_prestations(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant total du chiffre d'affaire concernant des prestations avant abattement"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    # The formula to compute the income tax for a given person at a given period
+    def formula(entreprise, period, parameters):
+        value = 0
+        for nom in [*parameters(period).dicp.it.abattements_it.prestations]:
+            value += entreprise('chiffre_affaire_' + nom, period)
+        return value
+
