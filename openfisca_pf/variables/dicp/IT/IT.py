@@ -33,7 +33,11 @@ class it(Variable):
         it_ventes = entreprise('it_ventes', period)
         it_prestations = entreprise('it_prestations', period)
         it_total = it_ventes + it_prestations
-        return where(it_total < 6000, 0, numpy.floor(it_total))
+        it = select(
+        [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
+        [25000, 45000, it_total],
+        )
+        return where(it < 6000, 0, numpy.floor(it))
 
 class it_ventes_regularisation_prestations(Variable):
     value_type = float
@@ -86,10 +90,7 @@ class it_prestations(Variable):
         it_prestations_avant_abattement_droits = entreprise('it_prestations_avant_abattement_droits', period)
         it_prestations_sans_abattement_droits = entreprise('it_prestations_sans_abattement_droits', period)
         it = (it_prestations_avant_abattement_droits - it_prestations_sans_abattement_droits) / 2 + it_prestations_sans_abattement_droits - it_ventes_regularisation_prestations
-        return select(
-        [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
-        [25000, 45000, it],
-        )
+        return it
 
 class eligible_tpe_1(Variable):
     value_type = bool
