@@ -36,10 +36,10 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattemen
         for nom in [*parameters(period).dicp.it.abattements_it.prestations]:
             pas_abattement_droits = parameters(period).dicp.it.abattements_it.prestations[nom].coeff_droits == 0
             pas_abattement_droits_charges = parameters(period).dicp.it.abattements_it.prestations[nom].coeff_droits_si_charge_sup_50_pourcents == 0
-            charges_inferieures_50_pourcents = entreprise('charges_' + nom, period) < (entreprise('chiffre_affaire_' + nom, period) / 2)
+            charges_inferieures_50_pourcents = entreprise('charges_total', period) < (entreprise('chiffre_affaire_total', period) / 2)
             justificatif_depose = entreprise('justificatif_charges_depose', period)
             # Here we only take into account CA with no 'abattement'
-            value += where(pas_abattement_droits & (not_(justificatif_depose) + pas_abattement_droits_charges + charges_inferieures_50_pourcents + entreprise('abattement_droits_applique', period)), 
+            value += where(pas_abattement_droits & (not_(justificatif_depose) + pas_abattement_droits_charges + charges_inferieures_50_pourcents), 
                 entreprise('chiffre_affaire_' + nom, period) * (1 - parameters(period).dicp.it.abattements_it.prestations[nom].coeff_assiette), 0)
         return value
 
