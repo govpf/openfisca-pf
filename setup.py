@@ -4,20 +4,20 @@ from setuptools import setup, find_packages
 
 setup(
     name = "OpenFisca-PF",
-    version = "3.9.10",
-    author = "OpenFisca Team",
-    author_email = "contact@openfisca.org",
+    version = "0.1.0",
+    author = "SIPf",
+    author_email = "matthieu.bosc@informatique.gov.pf",
     classifiers=[
-        "Development Status :: 5 - Production/Stable",
+        "Development Status :: 1 - Planning",
         "License :: OSI Approved :: GNU Affero General Public License v3",
         "Operating System :: POSIX",
         "Programming Language :: Python",
         "Topic :: Scientific/Engineering :: Information Analysis",
         ],
-    description = "OpenFisca tax and benefit system for PF",
-    keywords = "benefit microsimulation social tax",
+    description = "OpenFisca tax system for PF",
+    keywords = "microsimulation tax calculation",
     license ="http://www.fsf.org/licensing/licenses/agpl-3.0.html",
-    url = "https://github.com/openfisca/country-template",
+    url = "https://github.com/govpf/openfisca-pf",
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
         ("share/openfisca/openfisca-country-template", ["CHANGELOG.md", "LICENSE", "README.md"]),
