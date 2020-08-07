@@ -3,6 +3,9 @@ metadata:
   reference: https://law.gov.example/basic-income/amount
 acconage_de_coprah:
   description: Acconage de coprah
+  metadata:
+    code: http://law.reference.org/universal_income
+    cca: 0
   coeff_assiette:
     values:
       2020-01-01: 1
@@ -15,6 +18,9 @@ acconage_de_coprah:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
 armateurs:
   description: Armateurs
   coeff_assiette:
@@ -29,6 +35,11 @@ armateurs:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 armateurs_de_goelettes:
   description: Armateurs de goelettes
   coeff_assiette:
@@ -43,6 +54,11 @@ armateurs_de_goelettes:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 artisans:
   description: Artisans
   coeff_assiette:
@@ -57,6 +73,11 @@ artisans:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 atelier_de_mecanique:
   description: Atelier de mécanique
   coeff_assiette:
@@ -71,6 +92,11 @@ atelier_de_mecanique:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 blanchisseur:
   description: Blanchisseur
   coeff_assiette:
@@ -85,6 +111,11 @@ blanchisseur:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 boucher_en_detail:
   description: Boucher en détail
   coeff_assiette:
@@ -99,6 +130,11 @@ boucher_en_detail:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 boulangeries_autres:
   description: Boulangeries autres
   coeff_assiette:
@@ -113,6 +149,11 @@ boulangeries_autres:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 boulangeries_baguettes_detail:
   description: Boulangeries baguettes détail
   coeff_assiette:
@@ -127,6 +168,11 @@ boulangeries_baguettes_detail:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 boulangeries_baguettes_gros:
   description: Boulangeries baguettes gros
   coeff_assiette:
@@ -141,6 +187,11 @@ boulangeries_baguettes_gros:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 bourrelier:
   description: Bourrelier
   coeff_assiette:
@@ -155,6 +206,11 @@ bourrelier:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 charcutier:
   description: Charcutier
   coeff_assiette:
@@ -169,6 +225,11 @@ charcutier:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 coiffeur:
   description: Coiffeur
   coeff_assiette:
@@ -183,6 +244,11 @@ coiffeur:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 autres_natures_de_prestation_de_services:
   description: Autre natures de prestation de services
   coeff_assiette:
@@ -197,6 +263,11 @@ autres_natures_de_prestation_de_services:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 location_meublee:
   description: Location meublée
   coeff_assiette:
@@ -211,6 +282,11 @@ location_meublee:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 location_non_meublee:
   description: Location non meublée
   coeff_assiette:
@@ -225,6 +301,11 @@ location_non_meublee:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 location_terrain_nu:
   description: Location terrain nu
   coeff_assiette:
@@ -239,6 +320,11 @@ location_terrain_nu:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 cordonnier_reparateur:
   description: Cordonnier réparateur
   coeff_assiette:
@@ -253,6 +339,11 @@ cordonnier_reparateur:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 couturier:
   description: Couturier
   coeff_assiette:
@@ -267,6 +358,11 @@ couturier:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 cuisine_a_emporter_en_detail:
   description: Cuisine à emporter en détail
   coeff_assiette:
@@ -281,6 +377,11 @@ cuisine_a_emporter_en_detail:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 debitant_de_boissons_hygieniques_sur_place:
   description: "Débitant de boissons hygiéniques sur place "
   coeff_assiette:
@@ -295,6 +396,11 @@ debitant_de_boissons_hygieniques_sur_place:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 denrees_emporter_ou_sur_place:
   description: " Denrées emporter ou sur place"
   coeff_assiette:
@@ -309,6 +415,11 @@ denrees_emporter_ou_sur_place:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 electricien:
   description: Electricien
   coeff_assiette:
@@ -323,6 +434,11 @@ electricien:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 entreprise_de_travaux_publics:
   description: " Entreprise de travaux publics"
   coeff_assiette:
@@ -337,6 +453,11 @@ entreprise_de_travaux_publics:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 fabricant_de_boissons_gazeuses:
   description: " Fabricant de boissons gazeuses"
   coeff_assiette:
@@ -351,6 +472,11 @@ fabricant_de_boissons_gazeuses:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 ferblantier:
   description: Ferblantier
   coeff_assiette:
@@ -365,6 +491,11 @@ ferblantier:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 garagiste:
   description: Garagiste
   coeff_assiette:
@@ -379,6 +510,11 @@ garagiste:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 hotel_pension_famille_:
   description: Hôtel, pension famille, ...
   coeff_assiette:
@@ -393,6 +529,11 @@ hotel_pension_famille_:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 loueur_de_meubles_objets_ou_ustensiles:
   description: " Loueur de meubles, objets ou ustensiles"
   coeff_assiette:
@@ -407,6 +548,11 @@ loueur_de_meubles_objets_ou_ustensiles:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 marchand_ambulant:
   description: " Marchand ambulant"
   coeff_assiette:
@@ -421,6 +567,11 @@ marchand_ambulant:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 matelassier:
   description: Matelassier
   coeff_assiette:
@@ -435,6 +586,11 @@ matelassier:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 mecanicien_reparateur:
   description: " Mécanicien réparateur"
   coeff_assiette:
@@ -449,6 +605,11 @@ mecanicien_reparateur:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 menuisier:
   description: Menuisier
   coeff_assiette:
@@ -463,6 +624,11 @@ menuisier:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 patissier:
   description: Patissier
   coeff_assiette:
@@ -477,6 +643,11 @@ patissier:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 photographe_ambulant:
   description: " Photographe ambulant"
   coeff_assiette:
@@ -491,6 +662,11 @@ photographe_ambulant:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 plomberie_et_installation_sanitaire:
   description: Plomberie et installation sanitaire
   coeff_assiette:
@@ -505,6 +681,11 @@ plomberie_et_installation_sanitaire:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 prestations_avec_reduction:
   description: Prestations avec réduction
   coeff_assiette:
@@ -519,6 +700,11 @@ prestations_avec_reduction:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 prestations_sans_reduction:
   description: " Prestations sans réduction"
   coeff_assiette:
@@ -533,6 +719,11 @@ prestations_sans_reduction:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 profession_liberale:
   description: " Profession libérale"
   coeff_assiette:
@@ -547,6 +738,11 @@ profession_liberale:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 reparateur_de_cycles_et_pneumatiques:
   description: " Réparateur de cycles et pneumatiques"
   coeff_assiette:
@@ -561,6 +757,11 @@ reparateur_de_cycles_et_pneumatiques:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 restaurants_hors_licence_classe_4:
   description: " Restaurants hors licence classe 4"
   coeff_assiette:
@@ -575,6 +776,11 @@ restaurants_hors_licence_classe_4:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 serrurier:
   description: Serrurier
   coeff_assiette:
@@ -589,6 +795,11 @@ serrurier:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 soudeur:
   description: Soudeur
   coeff_assiette:
@@ -603,6 +814,11 @@ soudeur:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 tailleur:
   description: Tailleur
   coeff_assiette:
@@ -617,6 +833,11 @@ tailleur:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 toliercarossier:
   description: Tolier-carossier
   coeff_assiette:
@@ -631,6 +852,11 @@ toliercarossier:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 torrefacteur_de_cafe:
   description: Torrefacteur de café
   coeff_assiette:
@@ -645,6 +871,11 @@ torrefacteur_de_cafe:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 transporteur_de_marchandises:
   description: Transporteur de marchandises
   coeff_assiette:
@@ -659,6 +890,11 @@ transporteur_de_marchandises:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 transporteur_de_voyageurs_et_marchandises:
   description: Transporteur de voyageurs et marchandises
   coeff_assiette:
@@ -673,6 +909,11 @@ transporteur_de_voyageurs_et_marchandises:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 vannerie:
   description: Vannerie
   coeff_assiette:
@@ -687,3 +928,8 @@ vannerie:
   eligible_tpe:
     values:
       2020-01-01: 0
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0

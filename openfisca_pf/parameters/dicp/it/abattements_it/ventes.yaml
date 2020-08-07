@@ -15,6 +15,11 @@ apport_en_societe:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 bagettes_revente_au_detail:
   description: Bagettes revente au détail
   coeff_assiette:
@@ -29,6 +34,11 @@ bagettes_revente_au_detail:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 coprah:
   description: Coprah
   coeff_assiette:
@@ -43,6 +53,11 @@ coprah:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 farine_riz_sucre:
   description: Farine, riz, sucre
   coeff_assiette:
@@ -57,6 +72,11 @@ farine_riz_sucre:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 hydrocarbures_au_detail:
   description: Hydrcarbures au détail
   coeff_assiette:
@@ -71,6 +91,11 @@ hydrocarbures_au_detail:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 importateurs_grossistes:
   description: Importateurs grossistes
   coeff_assiette:
@@ -85,6 +110,11 @@ importateurs_grossistes:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 lait_frais:
   description: Lait frais
   coeff_assiette:
@@ -99,6 +129,11 @@ lait_frais:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 negociants_detaillants_ca_sup_20_millions:
   description: Négociants détaillants CA > 20M
   coeff_assiette:
@@ -113,6 +148,11 @@ negociants_detaillants_ca_sup_20_millions:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 20000000
+  metadata:
+    cca: 0
 tabacs:
   description: Tabacs
   coeff_assiette:
@@ -127,6 +167,11 @@ tabacs:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 timbres_postes_et_fiscaux:
   description: Timbres postes et fiscaux
   coeff_assiette:
@@ -141,6 +186,11 @@ timbres_postes_et_fiscaux:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 ventes_sans_abattement:
   description: Ventes sans abattement
   coeff_assiette:
@@ -155,6 +205,11 @@ ventes_sans_abattement:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 ventes_a_l_aventure_armateurs:
   description: Ventes à l'aventure (armateurs)
   coeff_assiette:
@@ -169,6 +224,11 @@ ventes_a_l_aventure_armateurs:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 ventes_a_l_aventure_goelettes:
   description: Ventes à l'aventure (goelettes)
   coeff_assiette:
@@ -183,6 +243,11 @@ ventes_a_l_aventure_goelettes:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 ventes_en_gros:
   description: Ventes en gros
   coeff_assiette:
@@ -197,6 +262,11 @@ ventes_en_gros:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 ventes_en_gros_lait_frais_origine_local:
   description: Ventes en gros lait frais d'origine local
   coeff_assiette:
@@ -211,6 +281,11 @@ ventes_en_gros_lait_frais_origine_local:
   eligible_tpe:
     values:
       2020-01-01: 1
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
 ventes_inferieur_20_millions:
   description: Ventes < 20 millions
   coeff_assiette:
@@ -225,4 +300,8 @@ ventes_inferieur_20_millions:
   eligible_tpe:
     values:
       2020-01-01: 1
-      
+  seuil_abattement:
+    values:
+      2020-01-01: 0
+  metadata:
+    cca: 0
