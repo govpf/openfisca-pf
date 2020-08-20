@@ -10,7 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 
 # This variable is a pure input: it doesn't have a formula
-class personne_physique(Variable):
+class entreprise_est_personne_physique(Variable):
     value_type = bool
     entity = Entreprise
     default_value = False

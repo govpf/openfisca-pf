@@ -53,7 +53,7 @@ class chiffre_affaire_total_prestations(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         value = 0
-        for nom in [*parameters(period).dicp.it.abattements_it.prestations]:
+        for nom in [*parameters(period).dicp.it.abattements_it.activites_prestations]:
             value += entreprise('chiffre_affaire_' + nom, period)
         return value
 
@@ -67,7 +67,7 @@ class charges_total_prestations(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         value = 0
-        for nom in [*parameters(period).dicp.it.abattements_it.prestations]:
+        for nom in [*parameters(period).dicp.it.abattements_it.activites_prestations]:
             value += entreprise('charges_' + nom, period)
         return value
 
@@ -81,7 +81,7 @@ class chiffre_affaire_total_ventes(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         value = 0
-        for nom in [*parameters(period).dicp.it.abattements_it.ventes]:
+        for nom in [*parameters(period).dicp.it.abattements_it.activites_ventes]:
             value += entreprise('chiffre_affaire_' + nom, period)
         return value
 
@@ -95,7 +95,7 @@ class charges_total_ventes(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         value = 0
-        for nom in [*parameters(period).dicp.it.abattements_it.ventes]:
+        for nom in [*parameters(period).dicp.it.abattements_it.activites_ventes]:
             value += entreprise('charges_' + nom, period)
         return value
 

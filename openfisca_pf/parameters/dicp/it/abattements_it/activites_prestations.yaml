@@ -1,0 +1,395 @@
+description: Taux d'abattement applicables pour le calcul de l'IT pour les activités de type prestation
+metadata:
+  reference: https://law.gov.example/basic-income/amount
+acconage_de_coprah:
+  description: Acconage de coprah
+  cca:
+    values:
+      2020-01-01: 13
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+armateurs:
+  description: Armateurs
+  cca:
+    values:
+      2020-01-01: 25
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+armateurs_de_goelettes:
+  description: Armateurs de goelettes
+  cca:
+    values:
+      2020-01-01: 14
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+artisans:
+  description: Artisans
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+atelier_de_mecanique:
+  description: Atelier de mécanique
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+blanchisseur:
+  description: Blanchisseur
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+boucher_en_detail:
+  description: Boucher en détail
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+boulangeries_autres:
+  description: Boulangeries autres
+  cca:
+    values:
+      2020-01-01: 96
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+boulangeries_baguettes_detail:
+  description: Boulangeries baguettes détail
+  cca:
+    values:
+      2020-01-01: 95
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+boulangeries_baguettes_gros:
+  description: Boulangeries baguettes gros
+  cca:
+    values:
+      2020-01-01: 22
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+bourrelier:
+  description: Bourrelier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+charcutier:
+  description: Charcutier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+coiffeur:
+  description: Coiffeur
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+autres_natures_de_prestation_de_services:
+  description: Autre natures de prestation de services
+  cca:
+    values:
+      2020-01-01: 17
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+location_meublee:
+  description: Location meublée
+  cca:
+    values:
+      2020-01-01: 19
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+location_non_meublee:
+  description: Location non meublée
+  cca:
+    values:
+      2020-01-01: 18
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+location_terrain_nu:
+  description: Location terrain nu
+  cca:
+    values:
+      2020-01-01: 99
+  eligible_tpe:
+    values:
+      2020-01-01: 0
+cordonnier_reparateur:
+  description: Cordonnier réparateur
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+couturier:
+  description: Couturier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+cuisine_a_emporter_en_detail:
+  description: Cuisine à emporter en détail
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+debitant_de_boissons_hygieniques_sur_place:
+  description: "Débitant de boissons hygiéniques sur place "
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+denrees_emporter_ou_sur_place:
+  description: " Denrées emporter ou sur place"
+  cca:
+    values:
+      2020-01-01: 97
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+electricien:
+  description: Electricien
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+entreprise_de_travaux_publics:
+  description: " Entreprise de travaux publics"
+  cca:
+    values:
+      2020-01-01: 15
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+fabricant_de_boissons_gazeuses:
+  description: " Fabricant de boissons gazeuses"
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ferblantier:
+  description: Ferblantier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+garagiste:
+  description: Garagiste
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+hotel_pension_famille_:
+  description: Hôtel, pension famille, ...
+  cca:
+    values:
+      2020-01-01: 98
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+loueur_de_meubles_objets_ou_ustensiles:
+  description: " Loueur de meubles, objets ou ustensiles"
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+marchand_ambulant:
+  description: " Marchand ambulant"
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+matelassier:
+  description: Matelassier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+mecanicien_reparateur:
+  description: " Mécanicien réparateur"
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+menuisier:
+  description: Menuisier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+patissier:
+  description: Patissier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+photographe_ambulant:
+  description: " Photographe ambulant"
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+plomberie_et_installation_sanitaire:
+  description: Plomberie et installation sanitaire
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+prestations_avec_reduction:
+  description: Prestations avec réduction
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+prestations_sans_reduction:
+  description: " Prestations sans réduction"
+  cca:
+    values:
+      2020-01-01: 91
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+profession_liberale:
+  description: " Profession libérale"
+  cca:
+    values:
+      2020-01-01: 93
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+reparateur_de_cycles_et_pneumatiques:
+  description: " Réparateur de cycles et pneumatiques"
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+restaurants_hors_licence_classe_4:
+  description: " Restaurants hors licence classe 4"
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+serrurier:
+  description: Serrurier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+soudeur:
+  description: Soudeur
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+tailleur:
+  description: Tailleur
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+toliercarossier:
+  description: Tolier-carossier
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+torrefacteur_de_cafe:
+  description: Torrefacteur de café
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+transporteur_de_marchandises:
+  description: Transporteur de marchandises
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+transporteur_de_voyageurs_et_marchandises:
+  description: Transporteur de voyageurs et marchandises
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+vannerie:
+  description: Vannerie
+  cca:
+    values:
+      2020-01-01: 92
+  eligible_tpe:
+    values:
+      2020-01-01: 1

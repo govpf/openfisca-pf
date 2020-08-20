@@ -1,0 +1,131 @@
+description: Taux d'abattement applicables pour le calcul de l'IT pour les activités de type vente
+metadata:
+  reference: https://law.gov.example/basic-income/amount
+apport_en_societe:
+  description: Apport en société
+  cca:
+    values:
+      2020-01-01: 94
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+bagettes_revente_au_detail:
+  description: Bagettes revente au détail
+  cca:
+    values:
+      2020-01-01: 20
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+coprah:
+  description: Coprah
+  cca:
+    values:
+      2020-01-01: 12
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+farine_riz_sucre:
+  description: Farine, riz, sucre
+  cca:
+    values:
+      2020-01-01: 7
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+hydrocarbures_au_detail:
+  description: Hydrcarbures au détail
+  cca:
+    values:
+      2020-01-01: 3
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+importateurs_grossistes:
+  description: Importateurs grossistes
+  cca:
+    values:
+      2020-01-01: 1
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+lait_frais:
+  description: Lait frais
+  cca:
+    values:
+      2020-01-01: 5
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+negociants_detaillants_ca_sup_20_millions:
+  description: Négociants détaillants CA > 20M
+  cca:
+    values:
+      2020-01-01: 10
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+tabacs:
+  description: Tabacs
+  cca:
+    values:
+      2020-01-01: 6
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+timbres_postes_et_fiscaux:
+  description: Timbres postes et fiscaux
+  cca:
+    values:
+      2020-01-01: 9
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_sans_abattement:
+  description: Ventes sans abattement
+  cca:
+    values:
+      2020-01-01: 11
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_a_l_aventure_armateurs:
+  description: Ventes à l'aventure (armateurs)
+  cca:
+    values:
+      2020-01-01: 24
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_a_l_aventure_goelettes:
+  description: Ventes à l'aventure (goelettes)
+  cca:
+    values:
+      2020-01-01: 23
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_en_gros:
+  description: Ventes en gros
+  cca:
+    values:
+      2020-01-01: 2
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_en_gros_lait_frais_origine_local:
+  description: Ventes en gros lait frais d'origine local
+  cca:
+    values:
+      2020-01-01: 8
+  eligible_tpe:
+    values:
+      2020-01-01: 1
+ventes_inferieur_20_millions:
+  description: Ventes < 20 millions
+  cca:
+    values:
+      2020-01-01: 90
+  eligible_tpe:
+    values:
+      2020-01-01: 1

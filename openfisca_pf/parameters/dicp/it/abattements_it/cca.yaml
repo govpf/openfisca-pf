@@ -1,0 +1,899 @@
+"1":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.7
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"2":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"3":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.95
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"5":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"6":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.4
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"7":
+  coeff_assiette:
+    values:
+      2020-01-01: 1
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"8":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.9
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"9":
+  coeff_assiette:
+    values:
+      2020-01-01: 1
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"10":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.2
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 20000000
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"11":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"12":
+  coeff_assiette:
+    values:
+      2020-01-01: 1
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"13":
+  coeff_assiette:
+    values:
+      2020-01-01: 1
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"14":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  abattement_de_droit:
+    values:
+      2020-01-01: true
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 6000000
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"15":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"17":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"18":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: false
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: false
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"19":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: true
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 6000000
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: false
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"20":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.7
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"22":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: true
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 6000000
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"23":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.5
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"24":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: true
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 15000000
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 15000000
+"25":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: true
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 6000000
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"90":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"91":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"92":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: true
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 6000000
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"93":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"94":
+  coeff_assiette:
+    values:
+      2020-01-01: 1
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: false
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 0
+"95":
+  coeff_assiette:
+    values:
+      2020-01-01: 0.7
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 15000000
+"96":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"97":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: true
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 15000000
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 15000000
+"98":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+"99":
+  coeff_assiette:
+    values:
+      2020-01-01: 0
+  abattement_de_droit:
+    values:
+      2020-01-01: false
+  abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_abattement_d_assiette:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit:
+    values:
+      2020-01-01: 0
+  seuil_abattement_de_droit_applicable_aux_personnes_physiques:
+    values:
+      2020-01-01: false
+  justificatifs_a_fournir_abattement_de_droit:
+    values:
+      2020-01-01: true
+  justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: true
+  seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
+    values:
+      2020-01-01: 6000000
+description: Catégories de chiffre d'affaire
+metadata:
+  reference: https://law.gov.example/basic-income/amount
