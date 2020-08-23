@@ -58,7 +58,7 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattemen
             abattement_de_droit_de_charge_applicable = abattement_droits_charges & (ca > seuil_bascule_abattement_de_droit) & charges_superieures_50_pourcents & releve_de_charges_fourni & (annexes_IT_fournies + (ca <= seuil_annexe) + (entreprise_est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)))
             
             value += where(abattement_de_droit_applicable + abattement_de_droit_de_charge_applicable, 0, ca_apres_abattement_assiette)
-        return numpy.floor(value/1000)*1000
+        return value
 
 class releve_de_charges_fourni(Variable):
     value_type = bool
