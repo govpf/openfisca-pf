@@ -9,7 +9,7 @@
     persons:
       Alicia: {}
   output:
-    it: 893720
+    it_calcule: 893720
 - name: 97 - Denrées emporter ou sur place avec annexes avec releve
   period: 2020
   input:
@@ -21,7 +21,7 @@
     persons:
       Alicia: {}
   output:
-    it: 280525
+    it_calcule: 280525
 - name: 97 - Denrées emporter ou sur place avec annexes avec releve 60 000 000
   period: 2020
   input:
@@ -33,7 +33,7 @@
     persons:
       Alicia: {}
   output:
-    it: 1635650
+    it_calcule: 1635650
 - name: 97 - Denrées emporter ou sur place sans annexe avec releve
   period: 2020
   input:
@@ -45,7 +45,7 @@
     persons:
       Alicia: {}
   output:
-    it: 9879650
+    it_calcule: 9879650
 - name: 93 - profession liberale sans annexe avec releve
   period: 2020
   input:
@@ -57,7 +57,7 @@
     persons:
       Alicia: {}
   output:
-    it: 43190
+    it_calcule: 43190
 - name: 93 - profession liberale avec annexe avec releve
   period: 2020
   input:
@@ -69,7 +69,7 @@
     persons:
       Alicia: {}
   output:
-    it: 132570
+    it_calcule: 132570
 - name: 10 - Négociants détaillants CA > 20M avec annexe avec releve
   period: 2020
   input:
@@ -81,7 +81,7 @@
     persons:
       Alicia: {}
   output:
-    it: 0
+    it_calcule: 0
 - name: 14 - Armateurs de goelettes	 avec annexe avec releve
   period: 2020
   input:
@@ -93,7 +93,7 @@
     persons:
       Alicia: {}
   output:
-    it: 1449430
+    it_calcule: 1449430
 - name: 15 - entreprise de travaux publics avec annexe avec releve
   period: 2020
   input:
@@ -105,7 +105,7 @@
     persons:
       Alicia: {}
   output:
-    it: 1064635
+    it_calcule: 1064635
 - name: 15 - entreprise de travaux publics avec annexe avec releve
   period: 2020
   input:
@@ -117,7 +117,7 @@
     persons:
       Alicia: {}
   output:
-    it: 20433985
+    it_calcule: 20433985
 - name: 95 - entreprise de travaux publics avec annexe avec releve
   period: 2020
   input:
@@ -129,7 +129,7 @@
     persons:
       Alicia: {}
   output:
-    it: 74842
+    it_calcule: 74842
 - name: 22 - Boulangeries baguettes gros avec annexe avec releve
   period: 2020
   input:
@@ -141,4 +141,4 @@
     persons:
       Alicia: {}
   output:
-    it: 1209430
+    it_calcule: 1209430
