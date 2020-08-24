@@ -8,7 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-
+import numpy
 class chiffre_affaire_total_prestations_apres_abattement_assiette(Variable):
     value_type = float
     entity = Entreprise
@@ -23,7 +23,7 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette(Variable):
             cca = str(parameters(period).dicp.it.abattements_it.activites_prestations[nom].cca)
             coeff_assiette = parameters(period).dicp.it.abattements_it.cca[cca].coeff_assiette
             seuil_abattement_assiette = parameters(period).dicp.it.abattements_it.cca[cca].seuil_abattement_d_assiette
-            ca = entreprise('chiffre_affaire_' + nom, period)
+            ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
             value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette)) 
         return value
@@ -40,7 +40,7 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattemen
         value = 0
         for nom in [*parameters(period).dicp.it.abattements_it.activites_prestations]:
             cca = str(parameters(period).dicp.it.abattements_it.activites_prestations[nom].cca)
-            ca = entreprise('chiffre_affaire_' + nom, period)
+            ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             coeff_assiette = parameters(period).dicp.it.abattements_it.cca[cca].coeff_assiette
             seuil_abattement_assiette = parameters(period).dicp.it.abattements_it.cca[cca].seuil_abattement_d_assiette
             ca_apres_abattement_assiette = where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette)) 
@@ -58,7 +58,7 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattemen
             abattement_de_droit_de_charge_applicable = abattement_droits_charges & (ca > seuil_bascule_abattement_de_droit) & charges_superieures_50_pourcents & releve_de_charges_fourni & (annexes_IT_fournies + (ca <= seuil_annexe) + (entreprise_est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)))
             
             value += where(abattement_de_droit_applicable + abattement_de_droit_de_charge_applicable, 0, ca_apres_abattement_assiette)
-        return value
+        return numpy.floor(value/1000)*1000
 
 class releve_de_charges_fourni(Variable):
     value_type = bool

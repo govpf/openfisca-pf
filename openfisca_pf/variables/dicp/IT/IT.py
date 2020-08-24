@@ -10,18 +10,6 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 import numpy
 
-class it_ventes(Variable):
-    value_type = float
-    entity = Entreprise
-    definition_period = YEAR
-    label = u"Montant IT sur les ventes"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    def formula(entreprise, period, parameters):
-        echelle = parameters(period).dicp.it.taux_ventes
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
-        return echelle.calc(ca)
-
 class it(Variable):
     value_type = float
     entity = Entreprise
@@ -50,6 +38,44 @@ class it_ventes_regularisation_prestations(Variable):
         echelle = parameters(period).dicp.it.taux_prestations
         ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
         return echelle.calc(ca)
+
+class it_ventes_avant_abattement_droits(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        echelle = parameters(period).dicp.it.taux_ventes
+        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        return echelle.calc(ca)
+
+class it_ventes_sans_abattement_droits(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT sur les ventes ne bénéficiant pas de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        echelle = parameters(period).dicp.it.taux_ventes
+        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_droits', period)
+        return echelle.calc(ca)
+
+class it_ventes(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT sur les ventes, suite à application de l'abattement sur les droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        echelle = parameters(period).dicp.it.taux_ventes
+        it_ventes_avant_abattement_droits = entreprise('it_ventes_avant_abattement_droits', period)
+        it_ventes_sans_abattement_droits = entreprise('it_ventes_sans_abattement_droits', period)
+        it = (it_ventes_avant_abattement_droits - it_ventes_sans_abattement_droits) / 2 + it_ventes_sans_abattement_droits
+        return it
 
 class it_prestations_avant_abattement_droits(Variable):
     value_type = float
@@ -91,7 +117,6 @@ class it_prestations(Variable):
         it_prestations_sans_abattement_droits = entreprise('it_prestations_sans_abattement_droits', period)
         it = (it_prestations_avant_abattement_droits - it_prestations_sans_abattement_droits) / 2 + it_prestations_sans_abattement_droits - it_ventes_regularisation_prestations
         return it
-
 class eligible_tpe_1(Variable):
     value_type = bool
     entity = Entreprise
@@ -105,7 +130,8 @@ class eligible_tpe_1(Variable):
         ca_inferieur_a_2000000 = ca_total < 2000000
         eligible_tpe = True
         for nom in [*parameters(period).dicp.it.abattements_it.activites_prestations]:
-            eligible_tpe = eligible_tpe * ((parameters(period).dicp.it.abattements_it.activites_prestations[nom].eligible_tpe == 1) + (entreprise('chiffre_affaire_' + nom, period) == 0))
+            ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
+            eligible_tpe = eligible_tpe * ((parameters(period).dicp.it.abattements_it.activites_prestations[nom].eligible_tpe == 1) + (ca == 0))
         return est_personne_pysique * eligible_tpe * ca_inferieur_a_2000000
 
 class eligible_tpe_2(Variable):

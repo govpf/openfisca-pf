@@ -8,7 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-
+import numpy
 # class activitesVentes(Enum):
 #     __order__ = "apport_en_societe bagettes_revente_au_detail ventes_sans_abattement"
 #     apport_en_societe = u'APPORT EN SOCIÉTÉ'
@@ -54,7 +54,8 @@ class chiffre_affaire_total_prestations(Variable):
     def formula(entreprise, period, parameters):
         value = 0
         for nom in [*parameters(period).dicp.it.abattements_it.activites_prestations]:
-            value += entreprise('chiffre_affaire_' + nom, period)
+            ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
+            value += ca
         return value
 
 class charges_total_prestations(Variable):
@@ -82,7 +83,8 @@ class chiffre_affaire_total_ventes(Variable):
     def formula(entreprise, period, parameters):
         value = 0
         for nom in [*parameters(period).dicp.it.abattements_it.activites_ventes]:
-            value += entreprise('chiffre_affaire_' + nom, period)
+            ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
+            value += ca
         return value
 
 class charges_total_ventes(Variable):
