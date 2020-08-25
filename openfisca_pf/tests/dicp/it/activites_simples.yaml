@@ -1,0 +1,144 @@
+- name: 97 - Denrées emporter ou sur place sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_denrees_emporter_ou_sur_place: 22687952
+      charges_denrees_emporter_ou_sur_place: 15598825
+    persons:
+      Alicia: {}
+  output:
+    it: 893720
+- name: 97 - Denrées emporter ou sur place avec annexes avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_denrees_emporter_ou_sur_place: 16171607
+      charges_denrees_emporter_ou_sur_place: 16799692
+    persons:
+      Alicia: {}
+  output:
+    it: 280525
+- name: 97 - Denrées emporter ou sur place avec annexes avec releve 60 000 000
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_denrees_emporter_ou_sur_place: 60485971
+      charges_denrees_emporter_ou_sur_place: 48489692
+    persons:
+      Alicia: {}
+  output:
+    it: 1635650
+- name: 97 - Denrées emporter ou sur place sans annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_denrees_emporter_ou_sur_place: 126565780
+      charges_denrees_emporter_ou_sur_place: 86390456
+    persons:
+      Alicia: {}
+  output:
+    it: 9879650
+- name: 93 - profession liberale sans annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_profession_liberale: 5597503
+      charges_profession_liberale: 3801187
+    persons:
+      Alicia: {}
+  output:
+    it: 43190
+- name: 93 - profession liberale avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_profession_liberale: 10066080
+      charges_profession_liberale: 7744534
+    persons:
+      Alicia: {}
+  output:
+    it: 132570
+- name: 10 - Négociants détaillants CA > 20M avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 20892282
+      charges_negociants_detaillants_ca_sup_20_millions: 20772330
+    persons:
+      Alicia: {}
+  output:
+    it: 0
+- name: 14 - Armateurs de goelettes	 avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_armateurs_de_goelettes: 111659288
+      charges_armateurs_de_goelettes: 199349501
+    persons:
+      Alicia: {}
+  output:
+    it: 1449430
+- name: 15 - entreprise de travaux publics avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_entreprise_de_travaux_publics: 86559517
+      charges_entreprise_de_travaux_publics: 66196589
+    persons:
+      Alicia: {}
+  output:
+    it: 1064635
+- name: 15 - entreprise de travaux publics avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_entreprise_de_travaux_publics: 816554761
+      charges_entreprise_de_travaux_publics: 518095798
+    persons:
+      Alicia: {}
+  output:
+    it: 20433985
+- name: 95 - entreprise de travaux publics avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_baguettes_detail: 23932100
+      charges_boulangeries_baguettes_detail: 15076733
+    persons:
+      Alicia: {}
+  output:
+    it: 74842
+- name: 22 - Boulangeries baguettes gros avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_baguettes_gros: 48106250
+      charges_boulangeries_baguettes_gros: 36318543
+    persons:
+      Alicia: {}
+  output:
+    it: 1209430
