@@ -54,9 +54,8 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattemen
             annexes_IT_fournies = entreprise('annexes_IT_fournies', period)
             seuil_annexe = parameters(period).dicp.it.abattements_it.cca[cca].seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges
             # Here we only take into account CA with no 'abattement de droit'
-            abattement_de_droit_applicable = abattement_droits & (not_(abattement_droits_charges) + (entreprise_est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)) + ca <= seuil_bascule_abattement_de_droit)
+            abattement_de_droit_applicable = abattement_droits & (not_(abattement_droits_charges) + (entreprise_est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)) + (ca <= seuil_bascule_abattement_de_droit))
             abattement_de_droit_de_charge_applicable = abattement_droits_charges & (ca > seuil_bascule_abattement_de_droit) & charges_superieures_50_pourcents & releve_de_charges_fourni & (annexes_IT_fournies + (ca <= seuil_annexe) + (entreprise_est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)))
-            
             value += where(abattement_de_droit_applicable + abattement_de_droit_de_charge_applicable, 0, ca_apres_abattement_assiette)
         return value
 
