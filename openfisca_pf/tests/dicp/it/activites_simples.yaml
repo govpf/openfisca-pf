@@ -70,18 +70,18 @@
       Alicia: {}
   output:
     it_calcule: 132570
-- name: 10 - Négociants détaillants CA > 20M avec annexe avec releve
-  period: 2020
-  input:
-    entreprise:
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 20892282
-      charges_negociants_detaillants_ca_sup_20_millions: 20772330
-    persons:
-      Alicia: {}
-  output:
-    it_calcule: 0
+# - name: 10 - Négociants détaillants CA > 20M avec annexe avec releve
+#   period: 2020
+#   input:
+#     entreprise:
+#       releve_de_charges_fourni: true
+#       annexes_IT_fournies: true
+#       chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 20892282
+#       charges_negociants_detaillants_ca_sup_20_millions: 20772330
+#     persons:
+#       Alicia: {}
+#   output:
+#     it_calcule: 0
 - name: 14 - Armateurs de goelettes	 avec annexe avec releve
   period: 2020
   input:
