@@ -34,7 +34,7 @@ farine_riz_sucre:
     values:
       2020-01-01: 1
 hydrocarbures_au_detail:
-  description: Hydrcarbures au détail
+  description: Hydrocarbures au détail
   cca:
     values:
       2020-01-01: 3
