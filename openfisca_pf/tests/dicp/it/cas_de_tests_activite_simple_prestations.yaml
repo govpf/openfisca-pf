@@ -1,0 +1,154 @@
+- name: 18 - Location non meublée sans annexe sans releve est pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_location_non_meublee: 50000000
+      charges_location_non_meublee: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 2532500
+    it_a_payer: 2532500
+- name: 18 - Location non meublée avec annexe avec releve est pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_non_meublee: 50000000
+      charges_location_non_meublee: 30000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 1266250
+    it_a_payer: 1266250
+- name: 18 - Location non meublée sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_location_non_meublee: 50000000
+      charges_location_non_meublee: 30000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 2532500
+    it_a_payer: 2532500
+- name: 18 - Location non meublée sans annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_location_non_meublee: 5500000
+      charges_location_non_meublee: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 18 - Location non meublée sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_location_non_meublee: 5500000
+      charges_location_non_meublee: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 82500
+    it_a_payer: 82500
+- name: 18 - Location non meublée sans annexe sans releve sup seuil annexe
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_location_non_meublee: 6500000
+      charges_location_non_meublee: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 122500
+    it_a_payer: 122500
+- name: 18 - Location non meublée avec annexe avec releve sup seuil annexe
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_non_meublee: 6500000
+      charges_location_non_meublee: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 61250
+    it_a_payer: 61250
+- name: 18 - Location non meublée sans annexe avec releve sup seuil annexe
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_location_non_meublee: 6500000
+      charges_location_non_meublee: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 122500
+    it_a_payer: 122500
+- name: 18 - Location non meublée avec annexe sans releve sup seuil annexe
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: true
+      chiffre_affaire_location_non_meublee: 6500000
+      charges_location_non_meublee: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 122500
+    it_a_payer: 122500
+- name: 18 - Location non meublée sans annexe avec releve sup seuil annexe est pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_location_non_meublee: 6500000
+      charges_location_non_meublee: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 61250
+    it_a_payer: 61250
+- name: 19 - Location meublée sans annexe sans releve est pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_location_meublee: 100000000
+      charges_location_meublee: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 3478750
+    it_a_payer: 3478750

@@ -1,0 +1,207 @@
+- name: 07 - farine_riz_sucre sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_farine_riz_sucre: 16000000
+      charges_farine_riz_sucre: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 0
+- name: 03 - Hydrocarbures au détail sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_hydrocarbures_au_detail: 16000000
+      charges_hydrocarbures_au_detail: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 4000
+    it_a_payer: 0
+- name: 03 - Hydrocarbures au détail sans annexe sans releve 6000 à payer
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_hydrocarbures_au_detail: 24000000
+      charges_hydrocarbures_au_detail: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 6000
+    it_a_payer: 6000
+- name: 08 - Ventes en gros lait frais d'origine local sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 16000000
+      charges_ventes_en_gros_lait_frais_origine_local: 16000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 8000
+    it_a_payer: 8000
+- name: 01 - Importateurs grossistes sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_importateurs_grossistes: 16000000
+      charges_importateurs_grossistes: 16000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 24000
+    it_a_payer: 24000
+- name: 02 - Ventes en gros sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_en_gros: 16000000
+      charges_ventes_en_gros: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 40000
+    it_a_payer: 40000
+- name: 06 - Tabacs sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_tabacs: 16000000
+      charges_tabacs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 48000
+    it_a_payer: 48000
+- name: 10 - Négociants détaillants CA > 20M sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
+      charges_negociants_detaillants_ca_sup_20_millions: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 200000
+    it_a_payer: 200000
+- name: 90 - Ventes < 20 millions sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_inferieur_20_millions: 16000000
+      charges_ventes_inferieur_20_millions: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 80000
+    it_a_payer: 80000
+- name: 24 - Ventes à l'aventure (armateurs) sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 15000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 37500
+    it_a_payer: 37500
+- name: 24 - Ventes à l'aventure (armateurs) avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 80000
+    it_a_payer: 80000
+- name: 24 - Ventes à l'aventure (armateurs) sans annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
+      charges_ventes_a_l_aventure_armateurs: 10000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 80000
+    it_a_payer: 80000
+- name: 24 - Ventes à l'aventure (armateurs) sans annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
+      charges_ventes_a_l_aventure_armateurs: 10000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 80000
+    it_a_payer: 80000
+- name: 24 - Ventes à l'aventure (armateurs) avec annexe sans releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
+      charges_ventes_a_l_aventure_armateurs: 10000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 80000
+    it_a_payer: 80000
+- name: 24 - Ventes à l'aventure (armateurs) avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
+      charges_ventes_a_l_aventure_armateurs: 10000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 40000
+    it_a_payer: 40000
+- name: 11 - Ventes sans abattement avec annexe avec releve
+  period: 2020
+  input:
+    entreprise:
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_sans_abattement: 100000000
+      charges_ventes_sans_abattement: 100000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 1960000
+    it_a_payer: 1960000
