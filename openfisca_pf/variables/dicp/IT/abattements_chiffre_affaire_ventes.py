@@ -48,7 +48,7 @@ class chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_dro
             seuil_bascule_abattement_de_droit = parameters(period).dicp.it.abattements_it.cca[cca].seuil_abattement_de_droit
             seuils_abattement_de_droit_applicable_aux_personnes_physiques = parameters(period).dicp.it.abattements_it.cca[cca].seuil_abattement_de_droit_applicable_aux_personnes_physiques
             abattement_droits_charges = parameters(period).dicp.it.abattements_it.cca[cca].abattement_de_droit_avec_condition_de_charges
-            charges_superieures_50_pourcents = entreprise('charges_total', period) > (entreprise('chiffre_affaire_total', period) / 2)
+            charges_superieures_50_pourcents = entreprise('charges_total', period) >= (entreprise('chiffre_affaire_total', period) / 2)
             releve_de_charges_fourni = entreprise('releve_de_charges_fourni', period)
             entreprise_est_personne_physique = entreprise('entreprise_est_personne_physique', period)
             annexes_IT_fournies = entreprise('annexes_IT_fournies', period)
