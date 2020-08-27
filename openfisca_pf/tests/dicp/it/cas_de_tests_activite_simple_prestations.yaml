@@ -1,4 +1,4 @@
-- name: 18 - Location non meublée sans annexe sans releve est pers phys
+- name: 18 - Location non meublée - sans annexe - sans releve - pers phys
   period: 2020
   input:
     entreprise:
@@ -12,7 +12,7 @@
   output:
     it_calcule: 2532500
     it_a_payer: 2532500
-- name: 18 - Location non meublée avec annexe avec releve est pers phys
+- name: 18 - Location non meublée - avec annexe - avec releve - pers phys
   period: 2020
   input:
     entreprise:
@@ -26,7 +26,7 @@
   output:
     it_calcule: 1266250
     it_a_payer: 1266250
-- name: 18 - Location non meublée sans annexe sans releve
+- name: 18 - Location non meublée - sans annexe - sans releve
   period: 2020
   input:
     entreprise:
@@ -40,7 +40,7 @@
   output:
     it_calcule: 2532500
     it_a_payer: 2532500
-- name: 18 - Location non meublée sans annexe avec releve
+- name: 18 - Location non meublée - sans annexe - avec releve
   period: 2020
   input:
     entreprise:
@@ -54,7 +54,7 @@
   output:
     it_calcule: 41250
     it_a_payer: 41250
-- name: 18 - Location non meublée sans annexe sans releve
+- name: 18 - Location non meublée - sans annexe - sans releve
   period: 2020
   input:
     entreprise:
@@ -68,7 +68,7 @@
   output:
     it_calcule: 82500
     it_a_payer: 82500
-- name: 18 - Location non meublée sans annexe sans releve sup seuil annexe
+- name: 18 - Location non meublée - sans annexe - sans releve - sup seuil annexe
   period: 2020
   input:
     entreprise:
@@ -82,7 +82,7 @@
   output:
     it_calcule: 122500
     it_a_payer: 122500
-- name: 18 - Location non meublée avec annexe avec releve sup seuil annexe
+- name: 18 - Location non meublée - avec annexe - avec releve - sup seuil annexe
   period: 2020
   input:
     entreprise:
@@ -96,7 +96,7 @@
   output:
     it_calcule: 61250
     it_a_payer: 61250
-- name: 18 - Location non meublée sans annexe avec releve sup seuil annexe
+- name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe
   period: 2020
   input:
     entreprise:
@@ -110,7 +110,7 @@
   output:
     it_calcule: 122500
     it_a_payer: 122500
-- name: 18 - Location non meublée avec annexe sans releve sup seuil annexe
+- name: 18 - Location non meublée - avec annexe - sans releve - sup seuil annexe
   period: 2020
   input:
     entreprise:
@@ -124,7 +124,7 @@
   output:
     it_calcule: 122500
     it_a_payer: 122500
-- name: 18 - Location non meublée sans annexe avec releve sup seuil annexe est pers phys
+- name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe - pers phys
   period: 2020
   input:
     entreprise:
@@ -138,7 +138,7 @@
   output:
     it_calcule: 61250
     it_a_payer: 61250
-- name: 19 - Location meublée sans annexe sans releve est pers phys
+- name: 19 - Location meublée - sans annexe - sans releve - est pers phys
   period: 2020
   input:
     entreprise:
@@ -152,3 +152,353 @@
   output:
     it_calcule: 3478750
     it_a_payer: 3478750
+- name: 19 - Location meublée - avec annexe - avec releve - pas de charges
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_meublee: 7000000
+      charges_location_meublee: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 142500
+    it_a_payer: 142500
+- name: 19 - Location meublée - avec annexe - avec releve - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_meublee: 7000000
+      charges_location_meublee: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 71250
+    it_a_payer: 71250
+- name: 99 - Location terrain nu - avec annexe - avec releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_terrain_nu: 6500000
+      charges_location_terrain_nu: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 122500
+    it_a_payer: 122500
+- name: 99 - Location terrain nu - avec annexe - avec releve - pers phys - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_terrain_nu: 6500000
+      charges_location_terrain_nu: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 61250
+    it_a_payer: 61250
+- name: 99 - Location terrain nu - sans annexe - avec releve - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_location_terrain_nu: 6500000
+      charges_location_terrain_nu: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 122500
+    it_a_payer: 122500
+- name: 91 - Prestations sans réduction - avec annexe - avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_prestations_sans_reduction: 5500000
+      charges_prestations_sans_reduction: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 82500
+    it_a_payer: 82500
+- name: 91 - Prestations sans réduction - avec annexe - avec releve - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_prestations_sans_reduction: 5500000
+      charges_prestations_sans_reduction: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_plomberie_et_installation_sanitaire: 5500000
+      charges_plomberie_et_installation_sanitaire: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_plomberie_et_installation_sanitaire: 5500000
+      charges_plomberie_et_installation_sanitaire: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 92 - Plomberie et installation sanitaire - avec annexe - sans releve - pers phys - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: true
+      chiffre_affaire_plomberie_et_installation_sanitaire: 5500000
+      charges_plomberie_et_installation_sanitaire: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - sup seuil
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_plomberie_et_installation_sanitaire: 7000000
+      charges_plomberie_et_installation_sanitaire: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 142500
+    it_a_payer: 142500
+- name: 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - sup seuil - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_plomberie_et_installation_sanitaire: 7000000
+      charges_plomberie_et_installation_sanitaire: 5000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 71250
+    it_a_payer: 71250
+- name: 22 - Boulangeries baguettes gros - avec annexe - avec releve - pers phys - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_baguettes_gros: 5500000
+      charges_boulangeries_baguettes_gros: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 22 - Boulangeries baguettes gros - avec annexe - avec releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_baguettes_gros: 5500000
+      charges_boulangeries_baguettes_gros: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 22 - Boulangeries baguettes gros - avec annexe - avec releve - pers phys - sup seuil
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_baguettes_gros: 7000000
+      charges_boulangeries_baguettes_gros: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 142500
+    it_a_payer: 142500
+- name: 25 - Armateurs - avec annexe - sans releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: true
+      chiffre_affaire_armateurs: 5500000
+      charges_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 25 - Armateurs - avec annexe - sans releve - pers phys - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: true
+      chiffre_affaire_armateurs: 5500000
+      charges_armateurs: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 25 - Armateurs - avec annexe - avec releve - pers phys - charges > 50% - sup seuil
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_armateurs: 7000000
+      charges_armateurs: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 71250
+    it_a_payer: 71250
+- name: 25 - Armateurs - avec annexe - avec releve - pers phys - sup seuil
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_armateurs: 7000000
+      charges_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 142500
+    it_a_payer: 142500
+- name: 96 - Boulangeries autres - avec annexe - sans releve - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_autres: 5500000
+      charges_boulangeries_autres: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 82500
+    it_a_payer: 82500
+- name: 96 - Boulangeries autres - avec annexe - avec releve - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_autres: 5500000
+      charges_boulangeries_autres: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 96 - Boulangeries autres - avec annexe - sans releve - charges > 50% - sup seuil
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_autres: 7000000
+      charges_boulangeries_autres: 4000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 142500
+    it_a_payer: 142500
+- name: 98 - Hôtel, pension famille, ... - avec annexe - avec releve - pers phys - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_hotel_pension_famille_: 5500000
+      charges_hotel_pension_famille_: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 41250
+    it_a_payer: 41250
+- name: 15 - Entreprise de travaux publics - avec annexe - avec releve - pers phys - charges > 50% - sup seuil
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_entreprise_de_travaux_publics: 16000000
+      charges_entreprise_de_travaux_publics: 9000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 20000
+    it_a_payer: 20000
+- name: 15 - Entreprise de travaux publics - sans annexe - sans releve - sup seuil
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_entreprise_de_travaux_publics: 16000000
+      charges_entreprise_de_travaux_publics: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 40000
+    it_a_payer: 40000
