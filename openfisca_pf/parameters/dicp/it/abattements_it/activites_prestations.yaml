@@ -186,7 +186,7 @@ electricien:
     values:
       2020-01-01: 1
 entreprise_de_travaux_publics:
-  description: " Entreprise de travaux publics"
+  description: Entreprise de travaux publics
   cca:
     values:
       2020-01-01: 15
@@ -194,7 +194,7 @@ entreprise_de_travaux_publics:
     values:
       2020-01-01: 1
 fabricant_de_boissons_gazeuses:
-  description: " Fabricant de boissons gazeuses"
+  description: Fabricant de boissons gazeuses
   cca:
     values:
       2020-01-01: 92
@@ -298,7 +298,7 @@ prestations_avec_reduction:
     values:
       2020-01-01: 1
 prestations_sans_reduction:
-  description: " Prestations sans réduction"
+  description: Prestations sans réduction
   cca:
     values:
       2020-01-01: 91
@@ -306,7 +306,7 @@ prestations_sans_reduction:
     values:
       2020-01-01: 1
 profession_liberale:
-  description: " Profession libérale"
+  description: Profession libérale
   cca:
     values:
       2020-01-01: 93
@@ -314,7 +314,7 @@ profession_liberale:
     values:
       2020-01-01: 1
 reparateur_de_cycles_et_pneumatiques:
-  description: " Réparateur de cycles et pneumatiques"
+  description: Réparateur de cycles et pneumatiques
   cca:
     values:
       2020-01-01: 92
@@ -322,7 +322,7 @@ reparateur_de_cycles_et_pneumatiques:
     values:
       2020-01-01: 1
 restaurants_hors_licence_classe_4:
-  description: " Restaurants hors licence classe 4"
+  description: Restaurants hors licence classe 4
   cca:
     values:
       2020-01-01: 92
