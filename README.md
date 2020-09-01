@@ -4,6 +4,7 @@ This is the package modelling the French Polynesia tax system.
 What is currently modelled:
 - CST-S
 - IT
+- CST-NS
 
 But this is a work in progress and none of those taxes are validated yet.
 
