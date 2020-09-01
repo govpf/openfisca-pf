@@ -8,6 +8,7 @@
 * Details:
   - `IT` tax calculation refactor and corrections
   - `CST-NS` tax calculation
+  - Removed all examples from template
 
 ## 0.1.0
 
