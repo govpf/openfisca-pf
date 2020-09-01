@@ -1,0 +1,42 @@
+# The social_security_contribution is calculated with a marginal scale. Marginal scales are represented with a specific structure.
+description: Taux de l'IT pour les prestations
+metadata:
+  threshold_unit: currency-XPF
+  rate_unit: /1
+brackets:
+- rate:
+    2020-01-01:
+      value: 0.0075
+  threshold:
+    2020-01-01:
+      value: 0
+- rate:
+    2020-01-01:
+      value: 0.0175
+  threshold:
+    2020-01-01:
+      value: 5000000
+- rate:
+    2020-01-01:
+      value: 0.0225
+  threshold:
+    2020-01-01:
+      value: 10000000
+- rate:
+    2020-01-01:
+      value: 0.0275
+  threshold:
+    2020-01-01:
+      value: 20000000
+- rate:
+    2020-01-01:
+      value: 0.035
+  threshold:
+    2020-01-01:
+      value: 50000000
+- rate:
+    2020-01-01:
+      value: 0.04
+  threshold:
+    2020-01-01:
+      value: 75000000

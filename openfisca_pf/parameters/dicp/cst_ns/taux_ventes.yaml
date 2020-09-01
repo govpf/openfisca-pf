@@ -1,0 +1,41 @@
+description: Taux de la CST-NS pour les ventes
+metadata:
+  threshold_unit: currency-XPF
+  rate_unit: /1
+brackets:
+- rate:
+    2020-01-01:
+      value: 0.004
+  threshold:
+    2020-01-01:
+      value: 0
+- rate:
+    2020-01-01:
+      value: 0.0075
+  threshold:
+    2020-01-01:
+      value: 20000000
+- rate:
+    2020-01-01:
+      value: 0.01
+  threshold:
+    2020-01-01:
+      value: 40000000
+- rate:
+    2020-01-01:
+      value: 0.0125
+  threshold:
+    2020-01-01:
+      value: 80000000
+- rate:
+    2020-01-01:
+      value: 0.0175
+  threshold:
+    2020-01-01:
+      value: 200000000
+- rate:
+    2020-01-01:
+      value: 0.0225
+  threshold:
+    2020-01-01:
+      value: 300000000

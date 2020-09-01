@@ -53,7 +53,7 @@ class chiffre_affaire_total_prestations(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         value = 0
-        for nom in [*parameters(period).dicp.it.abattements_it.activites_prestations]:
+        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
             ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             value += ca
         return value
@@ -68,7 +68,7 @@ class charges_total_prestations(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         value = 0
-        for nom in [*parameters(period).dicp.it.abattements_it.activites_prestations]:
+        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
             value += entreprise('charges_' + nom, period)
         return value
 
@@ -82,7 +82,7 @@ class chiffre_affaire_total_ventes(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         value = 0
-        for nom in [*parameters(period).dicp.it.abattements_it.activites_ventes]:
+        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
             ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             value += ca
         return value
@@ -97,7 +97,7 @@ class charges_total_ventes(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         value = 0
-        for nom in [*parameters(period).dicp.it.abattements_it.activites_ventes]:
+        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
             value += entreprise('charges_' + nom, period)
         return value
 
