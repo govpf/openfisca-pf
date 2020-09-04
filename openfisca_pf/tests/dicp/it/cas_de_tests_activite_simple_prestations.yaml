@@ -486,8 +486,8 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 20000
-    it_a_payer: 20000
+    it_calcule: 91250
+    it_a_payer: 91250
 - name: 15 - Entreprise de travaux publics - sans annexe - sans releve - sup seuil
   period: 2020
   input:
@@ -500,5 +500,145 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 40000
-    it_a_payer: 40000
+    it_calcule: 182500
+    it_a_payer: 182500
+- name: 15 - Entreprise de travaux publics - sans annexe - avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_entreprise_de_travaux_publics: 6000000
+      charges_entreprise_de_travaux_publics: 3000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 22500
+    it_a_payer: 22500
+- name: 95 - Boulangeries baguettes détail - sans annexe - sans releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_boulangeries_baguettes_detail: 16000000
+      charges_boulangeries_baguettes_detail: 16000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 72000
+    it_a_payer: 72000
+- name: 95 - Boulangeries baguettes détail - avec annexe - avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_boulangeries_baguettes_detail: 16000000
+      charges_boulangeries_baguettes_detail: 16000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 36000
+    it_a_payer: 36000
+- name: 14 - Armateurs de goelettes - sans annexe - sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_armateurs_de_goelettes: 16000000
+      charges_armateurs_de_goelettes: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 182500
+    it_a_payer: 182500
+- name: 14 - Armateurs de goelettes - sans annexe - sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_armateurs_de_goelettes: 6000000
+      charges_armateurs_de_goelettes: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 22500
+    it_a_payer: 22500
+- name: 14 - Armateurs de goelettes - avec annexe - avec releve - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_armateurs_de_goelettes: 16000000
+      charges_armateurs_de_goelettes: 10000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 91250
+    it_a_payer: 91250
+- name: 97 - Denrées emporter ou sur place - sans annexe - sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_denrees_emporter_ou_sur_place: 16000000
+      charges_denrees_emporter_ou_sur_place: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 552500
+    it_a_payer: 552500
+- name: 97 - Denrées emporter ou sur place - sans annexe - sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_denrees_emporter_ou_sur_place: 15000000
+      charges_denrees_emporter_ou_sur_place: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 251250
+    it_a_payer: 251250
+- name: 97 - Denrées emporter ou sur place - sans annexe - sans releve - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_denrees_emporter_ou_sur_place: 16000000
+      charges_denrees_emporter_ou_sur_place: 10000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 276250
+    it_a_payer: 276250
+- name: 13 - Acconage de coprah - sans annexe - sans releve - charges > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_acconage_de_coprah: 40000000
+      charges_acconage_de_coprah: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 0
+    it_a_payer: 0

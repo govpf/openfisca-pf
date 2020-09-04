@@ -445,7 +445,7 @@
       2020-01-01: true
   seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
     values:
-      2020-01-01: 6000000
+      2020-01-01: 15000000
 "19":
   coeff_assiette:
     values:
@@ -461,7 +461,7 @@
       2020-01-01: 0
   seuil_abattement_de_droit:
     values:
-      2020-01-01: 6000000
+      2020-01-01: 15000000
   seuil_abattement_de_droit_applicable_aux_personnes_physiques:
     values:
       2020-01-01: false
@@ -473,7 +473,7 @@
       2020-01-01: true
   seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
     values:
-      2020-01-01: 6000000
+      2020-01-01: 15000000
 "20":
   coeff_assiette:
     values:
@@ -865,7 +865,7 @@
       2020-01-01: true
   seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges:
     values:
-      2020-01-01: 6000000
+      2020-01-01: 15000000
 "99":
   coeff_assiette:
     values:

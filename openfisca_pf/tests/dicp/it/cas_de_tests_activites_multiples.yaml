@@ -1,0 +1,277 @@
+- name: 25 + 7 - avec annexe - avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_armateurs: 10000000
+      charges_armateurs: 0
+      chiffre_affaire_farine_riz_sucre: 10000000
+      charges_farine_riz_sucre: 10000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 131250
+    it_a_payer: 131250
+    chiffre_affaire_total: 20000000
+- name: 23 + 90 - sans annexe - sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_a_l_aventure_goelettes: 15000000
+      charges_ventes_a_l_aventure_goelettes: 10000000
+      chiffre_affaire_ventes_inferieur_20_millions: 15000000
+      charges_ventes_inferieur_20_millions: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 117500
+    it_a_payer: 117500
+    chiffre_affaire_total: 30000000
+- name: 8 + 10 + 20 - sans annexe - sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
+      charges_ventes_en_gros_lait_frais_origine_local: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
+      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_bagettes_revente_au_detail: 20000000
+      charges_bagettes_revente_au_detail: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 320000
+    it_a_payer: 320000
+    chiffre_affaire_total: 70000000
+- name: 8 + 10 + 20 + 24 - sans annexe - sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
+      charges_ventes_en_gros_lait_frais_origine_local: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
+      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_bagettes_revente_au_detail: 20000000
+      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 20000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 740000
+    it_a_payer: 740000
+    chiffre_affaire_total: 90000000
+- name: 8 + 10 + 20 + 24 - avec annexe - avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
+      charges_ventes_en_gros_lait_frais_origine_local: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
+      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_bagettes_revente_au_detail: 20000000
+      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 15000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 467500
+    it_a_payer: 467500
+    chiffre_affaire_total: 85000000
+- name: 8 + 10 + 20 + 24 - avec annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
+      charges_ventes_en_gros_lait_frais_origine_local: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
+      charges_negociants_detaillants_ca_sup_20_millions: 50000000
+      chiffre_affaire_bagettes_revente_au_detail: 20000000
+      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 20000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 530000
+    it_a_payer: 530000
+    chiffre_affaire_total: 90000000
+- name: 8 + 10 + 20 + 24 - avec annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
+      charges_ventes_en_gros_lait_frais_origine_local: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
+      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_bagettes_revente_au_detail: 20000000
+      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 20000000
+      charges_ventes_a_l_aventure_armateurs: 40000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 740000
+    it_a_payer: 740000
+    chiffre_affaire_total: 90000000
+- name: 8 + 10 + 20 + 24 - sans annexe - sans releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
+      charges_ventes_en_gros_lait_frais_origine_local: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
+      charges_negociants_detaillants_ca_sup_20_millions: 50000000
+      chiffre_affaire_bagettes_revente_au_detail: 20000000
+      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 20000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 740000
+    it_a_payer: 740000
+    chiffre_affaire_total: 90000000
+- name: 92 + 96 - avec annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_artisans: 10000000
+      charges_artisans: 10000000
+      chiffre_affaire_boulangeries_autres: 5000000
+      charges_boulangeries_autres: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 251250
+    it_a_payer: 251250
+    chiffre_affaire_total: 15000000
+- name: 92 + 96 - avec annexe - avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_artisans: 5000000
+      charges_artisans: 0
+      chiffre_affaire_boulangeries_autres: 10000000
+      charges_boulangeries_autres: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 382500
+    it_a_payer: 382500
+    chiffre_affaire_total: 15000000
+- name: 92 + 96 - avec annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_artisans: 5000000
+      charges_artisans: 10000000
+      chiffre_affaire_boulangeries_autres: 10000000
+      charges_boulangeries_autres: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 251250
+    it_a_payer: 251250
+    chiffre_affaire_total: 15000000
+- name: 97 + 25 - sans annexe - sans releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: false
+      annexes_IT_fournies: false
+      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+      charges_denrees_emporter_ou_sur_place: 0
+      chiffre_affaire_armateurs: 10000000
+      charges_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 1332500
+    it_a_payer: 1332500
+    chiffre_affaire_total: 30000000
+- name: 97 + 25 - avec annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+      charges_denrees_emporter_ou_sur_place: 20000000
+      chiffre_affaire_armateurs: 10000000
+      charges_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 666250
+    it_a_payer: 666250
+    chiffre_affaire_total: 30000000
+- name: 97 + 25 - sans annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+      charges_denrees_emporter_ou_sur_place: 20000000
+      chiffre_affaire_armateurs: 10000000
+      charges_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 1332500
+    it_a_payer: 1332500
+    chiffre_affaire_total: 30000000
+- name: 97 + 25 - sans annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_denrees_emporter_ou_sur_place: 10000000
+      charges_denrees_emporter_ou_sur_place: 0
+      chiffre_affaire_armateurs: 5000000
+      charges_armateurs: 15000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 251250
+    it_a_payer: 251250
+    chiffre_affaire_total: 15000000
