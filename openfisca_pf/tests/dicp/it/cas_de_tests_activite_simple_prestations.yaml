@@ -467,8 +467,8 @@
       entreprise_est_personne_physique: true
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_hotel_pension_famille_: 5500000
-      charges_hotel_pension_famille_: 3000000
+      chiffre_affaire_hotel_pension_famille: 5500000
+      charges_hotel_pension_famille: 3000000
     persons:
       Alicia: {}
   output:

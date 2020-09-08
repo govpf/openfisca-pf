@@ -275,3 +275,58 @@
     it_calcule: 251250
     it_a_payer: 251250
     chiffre_affaire_total: 15000000
+- name: 14 + 98 - sans annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_armateurs_de_goelettes: 5000000
+      charges_armateurs_de_goelettes: 15000000
+      chiffre_affaire_hotel_pension_famille: 10000000
+      charges_hotel_pension_famille: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 320000
+    it_a_payer: 320000
+    chiffre_affaire_total: 15000000
+- name: 18 + 19 + 99 - avec annexe - avec releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_non_meublee: 10000000
+      charges_location_non_meublee: 0
+      chiffre_affaire_location_meublee: 10000000
+      charges_location_meublee: 0
+      chiffre_affaire_location_terrain_nu: 6000000
+      charges_location_terrain_nu: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 822500
+    it_a_payer: 822500
+    chiffre_affaire_total: 26000000
+- name: 18 + 19 + 99 - avec annexe - avec releve - ch > 50% - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_non_meublee: 10000000
+      charges_location_non_meublee: 15000000
+      chiffre_affaire_location_meublee: 10000000
+      charges_location_meublee: 0
+      chiffre_affaire_location_terrain_nu: 6000000
+      charges_location_terrain_nu: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 546250
+    it_a_payer: 546250
+    chiffre_affaire_total: 26000000

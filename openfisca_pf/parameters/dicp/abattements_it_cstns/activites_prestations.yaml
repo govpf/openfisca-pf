@@ -217,7 +217,7 @@ garagiste:
   eligible_tpe:
     values:
       2020-01-01: 1
-hotel_pension_famille_:
+hotel_pension_famille:
   description: Hôtel, pension famille, ...
   cca:
     values:

@@ -335,13 +335,13 @@ class charges_garagiste(Variable):
     definition_period = YEAR
     label = "Charges dans la catégorie Garagiste"
 
-class chiffre_affaire_hotel_pension_famille_(Variable):
+class chiffre_affaire_hotel_pension_famille(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Hôtel, pension famille, ..."
 
-class charges_hotel_pension_famille_(Variable):
+class charges_hotel_pension_famille(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
