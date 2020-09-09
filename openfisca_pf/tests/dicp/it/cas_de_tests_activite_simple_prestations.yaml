@@ -40,48 +40,48 @@
   output:
     it_calcule: 2532500
     it_a_payer: 2532500
-- name: 18 - Location non meublée - sans annexe - avec releve
-  period: 2020
-  input:
-    entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: false
-      chiffre_affaire_location_non_meublee: 5500000
-      charges_location_non_meublee: 3000000
-    persons:
-      Alicia: {}
-  output:
-    it_calcule: 41250
-    it_a_payer: 41250
-- name: 18 - Location non meublée - sans annexe - sans releve
-  period: 2020
-  input:
-    entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: false
-      annexes_IT_fournies: false
-      chiffre_affaire_location_non_meublee: 5500000
-      charges_location_non_meublee: 3000000
-    persons:
-      Alicia: {}
-  output:
-    it_calcule: 82500
-    it_a_payer: 82500
-- name: 18 - Location non meublée - sans annexe - sans releve - sup seuil annexe
-  period: 2020
-  input:
-    entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: false
-      annexes_IT_fournies: false
-      chiffre_affaire_location_non_meublee: 6500000
-      charges_location_non_meublee: 4000000
-    persons:
-      Alicia: {}
-  output:
-    it_calcule: 122500
-    it_a_payer: 122500
+# - name: 18 - Location non meublée - sans annexe - avec releve
+#   period: 2020
+#   input:
+#     entreprise:
+#       entreprise_est_personne_physique: false
+#       releve_de_charges_fourni: true
+#       annexes_IT_fournies: false
+#       chiffre_affaire_location_non_meublee: 5500000
+#       charges_location_non_meublee: 3000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     it_calcule: 41250
+#     it_a_payer: 41250
+# - name: 18 - Location non meublée - sans annexe - sans releve
+#   period: 2020
+#   input:
+#     entreprise:
+#       entreprise_est_personne_physique: false
+#       releve_de_charges_fourni: false
+#       annexes_IT_fournies: false
+#       chiffre_affaire_location_non_meublee: 5500000
+#       charges_location_non_meublee: 3000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     it_calcule: 82500
+#     it_a_payer: 82500
+# - name: 18 - Location non meublée - sans annexe - sans releve - sup seuil annexe
+#   period: 2020
+#   input:
+#     entreprise:
+#       entreprise_est_personne_physique: false
+#       releve_de_charges_fourni: false
+#       annexes_IT_fournies: false
+#       chiffre_affaire_location_non_meublee: 6500000
+#       charges_location_non_meublee: 4000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     it_calcule: 122500
+#     it_a_payer: 122500
 - name: 18 - Location non meublée - avec annexe - avec releve - sup seuil annexe
   period: 2020
   input:
@@ -96,20 +96,20 @@
   output:
     it_calcule: 61250
     it_a_payer: 61250
-- name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe
-  period: 2020
-  input:
-    entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: false
-      chiffre_affaire_location_non_meublee: 6500000
-      charges_location_non_meublee: 4000000
-    persons:
-      Alicia: {}
-  output:
-    it_calcule: 122500
-    it_a_payer: 122500
+# - name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe
+#   period: 2020
+#   input:
+#     entreprise:
+#       entreprise_est_personne_physique: false
+#       releve_de_charges_fourni: true
+#       annexes_IT_fournies: false
+#       chiffre_affaire_location_non_meublee: 6500000
+#       charges_location_non_meublee: 4000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     it_calcule: 122500
+#     it_a_payer: 122500
 - name: 18 - Location non meublée - avec annexe - sans releve - sup seuil annexe
   period: 2020
   input:
@@ -164,8 +164,8 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 142500
-    it_a_payer: 142500
+    it_calcule: 71250
+    it_a_payer: 71250
 - name: 19 - Location meublée - avec annexe - avec releve - charges > 50%
   period: 2020
   input:

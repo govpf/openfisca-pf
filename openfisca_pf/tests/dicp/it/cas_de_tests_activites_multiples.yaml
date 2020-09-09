@@ -275,7 +275,7 @@
     it_calcule: 251250
     it_a_payer: 251250
     chiffre_affaire_total: 15000000
-- name: 14 + 98 - sans annexe - avec releve - ch > 50%
+- name: 14 + 98 - sans annexe - avec releve
   period: 2020
   input:
     entreprise:
@@ -283,7 +283,7 @@
       releve_de_charges_fourni: true
       annexes_IT_fournies: false
       chiffre_affaire_armateurs_de_goelettes: 5000000
-      charges_armateurs_de_goelettes: 15000000
+      charges_armateurs_de_goelettes: 0
       chiffre_affaire_hotel_pension_famille: 10000000
       charges_hotel_pension_famille: 0
     persons:
@@ -330,3 +330,203 @@
     it_calcule: 546250
     it_a_payer: 546250
     chiffre_affaire_total: 26000000
+- name: 18 + 19 + 99 - sans annexe - avec releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: false
+      chiffre_affaire_location_non_meublee: 10000000
+      charges_location_non_meublee: 0
+      chiffre_affaire_location_meublee: 10000000
+      charges_location_meublee: 0
+      chiffre_affaire_location_terrain_nu: 6000000
+      charges_location_terrain_nu: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 822500
+    it_a_payer: 822500
+    chiffre_affaire_total: 26000000
+- name: 18 + 19 + 99 - avec annexe - avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_non_meublee: 10000000
+      charges_location_non_meublee: 0
+      chiffre_affaire_location_meublee: 10000000
+      charges_location_meublee: 0
+      chiffre_affaire_location_terrain_nu: 6000000
+      charges_location_terrain_nu: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 822500
+    it_a_payer: 822500
+    chiffre_affaire_total: 26000000
+- name: 18 + 19 + 99 - avec annexe - avec releve - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_non_meublee: 10000000
+      charges_location_non_meublee: 15000000
+      chiffre_affaire_location_meublee: 10000000
+      charges_location_meublee: 0
+      chiffre_affaire_location_terrain_nu: 6000000
+      charges_location_terrain_nu: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 546250
+    it_a_payer: 546250
+    chiffre_affaire_total: 26000000
+- name: 11 + 22 - avec annexe - avec releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_sans_abattement: 22000000
+      charges_ventes_sans_abattement: 0
+      chiffre_affaire_location_meublee: 6000000
+      charges_location_meublee: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 232500
+    it_a_payer: 232500
+    chiffre_affaire_total: 28000000
+- name: 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_sans_abattement: 22000000
+      charges_ventes_sans_abattement: 0
+      chiffre_affaire_location_meublee: 6000000
+      charges_location_meublee: 15000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 232500
+    it_a_payer: 232500
+    chiffre_affaire_total: 28000000
+- name: 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_sans_abattement: 22000000
+      charges_ventes_sans_abattement: 0
+      chiffre_affaire_boulangeries_baguettes_gros: 10000000
+      charges_boulangeries_baguettes_gros: 20000000
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 332500
+    it_a_payer: 332500
+    chiffre_affaire_total: 32000000
+- name: 11 + 22 - avec annexe - avec releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_ventes_sans_abattement: 22000000
+      charges_ventes_sans_abattement: 0
+      chiffre_affaire_boulangeries_baguettes_gros: 10000000
+      charges_boulangeries_baguettes_gros: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 555000
+    it_a_payer: 555000
+    chiffre_affaire_total: 32000000
+- name: 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_meublee: 50000000
+      charges_location_meublee: 0
+      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+      charges_denrees_emporter_ou_sur_place: 0
+      chiffre_affaire_entreprise_de_travaux_publics: 10000000
+      charges_entreprise_de_travaux_publics: 0
+      chiffre_affaire_artisans: 5000000
+      charges_artisans: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 25000000
+      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 3630000
+    it_a_payer: 3630000
+    chiffre_affaire_total: 120000000
+- name: 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys - charge > 50%
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: true
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_meublee: 50000000
+      charges_location_meublee: 0
+      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+      charges_denrees_emporter_ou_sur_place: 0
+      chiffre_affaire_entreprise_de_travaux_publics: 10000000
+      charges_entreprise_de_travaux_publics: 60000000
+      chiffre_affaire_artisans: 5000000
+      charges_artisans: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 25000000
+      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 2960000
+    it_a_payer: 2960000
+    chiffre_affaire_total: 120000000
+- name: 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve
+  period: 2020
+  input:
+    entreprise:
+      entreprise_est_personne_physique: false
+      releve_de_charges_fourni: true
+      annexes_IT_fournies: true
+      chiffre_affaire_location_meublee: 50000000
+      charges_location_meublee: 0
+      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+      charges_denrees_emporter_ou_sur_place: 0
+      chiffre_affaire_entreprise_de_travaux_publics: 10000000
+      charges_entreprise_de_travaux_publics: 0
+      chiffre_affaire_artisans: 5000000
+      charges_artisans: 0
+      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 25000000
+      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
+      charges_ventes_a_l_aventure_armateurs: 0
+    persons:
+      Alicia: {}
+  output:
+    it_calcule: 5430000
+    it_a_payer: 5430000
+    chiffre_affaire_total: 120000000
