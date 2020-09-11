@@ -1,4 +1,4 @@
-- name: 07 - farine_riz_sucre sans annexe sans releve
+- name: 1. 07 - farine_riz_sucre sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -10,7 +10,10 @@
       Alicia: {}
   output:
     it_calcule: 0
-- name: 03 - Hydrocarbures au détail sans annexe sans releve
+    it_a_payer: 0
+    cstns_calcule: 0
+    cstns_a_payer: 0
+- name: 2. 03 - Hydrocarbures au détail sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -23,7 +26,9 @@
   output:
     it_calcule: 4000
     it_a_payer: 0
-- name: 03 - Hydrocarbures au détail sans annexe sans releve 6000 à payer
+    cstns_calcule: 3200
+    cstns_a_payer: 0
+- name: 3. 03 - Hydrocarbures au détail sans annexe sans releve 6000 à payer
   period: 2020
   input:
     entreprise:
@@ -36,7 +41,9 @@
   output:
     it_calcule: 6000
     it_a_payer: 6000
-- name: 08 - Ventes en gros lait frais d'origine local sans annexe sans releve
+    cstns_calcule: 4800
+    cstns_a_payer: 0
+- name: 4. 08 - Ventes en gros lait frais d'origine local sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -49,7 +56,9 @@
   output:
     it_calcule: 8000
     it_a_payer: 8000
-- name: 01 - Importateurs grossistes sans annexe sans releve
+    cstns_calcule: 6400
+    cstns_a_payer: 6400
+- name: 5. 01 - Importateurs grossistes sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -62,7 +71,9 @@
   output:
     it_calcule: 24000
     it_a_payer: 24000
-- name: 02 - Ventes en gros sans annexe sans releve
+    cstns_calcule: 19200
+    cstns_a_payer: 19200
+- name: 6. 02 - Ventes en gros sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -75,7 +86,9 @@
   output:
     it_calcule: 40000
     it_a_payer: 40000
-- name: 06 - Tabacs sans annexe sans releve
+    cstns_calcule: 32000
+    cstns_a_payer: 32000
+- name: 7. 06 - Tabacs sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -88,7 +101,9 @@
   output:
     it_calcule: 48000
     it_a_payer: 48000
-- name: 10 - Négociants détaillants CA > 20M sans annexe sans releve
+    cstns_calcule: 38400
+    cstns_a_payer: 38400
+- name: 8. 10 - Négociants détaillants CA > 20M sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -101,7 +116,9 @@
   output:
     it_calcule: 200000
     it_a_payer: 200000
-- name: 90 - Ventes < 20 millions sans annexe sans releve
+    cstns_calcule: 140000
+    cstns_a_payer: 140000
+- name: 9. 90 - Ventes < 20 millions sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -114,7 +131,9 @@
   output:
     it_calcule: 80000
     it_a_payer: 80000
-- name: 24 - Ventes à l'aventure (armateurs) sans annexe sans releve
+    cstns_calcule: 64000
+    cstns_a_payer: 64000
+- name: 10. 24 - Ventes à l'aventure (armateurs) sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -127,7 +146,9 @@
   output:
     it_calcule: 37500
     it_a_payer: 37500
-- name: 24 - Ventes à l'aventure (armateurs) avec annexe avec releve
+    cstns_calcule: 30000
+    cstns_a_payer: 30000
+- name: 11. 24 - Ventes à l'aventure (armateurs) avec annexe avec releve
   period: 2020
   input:
     entreprise:
@@ -140,7 +161,9 @@
   output:
     it_calcule: 80000
     it_a_payer: 80000
-- name: 24 - Ventes à l'aventure (armateurs) sans annexe sans releve
+    cstns_calcule: 64000
+    cstns_a_payer: 64000
+- name: 12. 24 - Ventes à l'aventure (armateurs) sans annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -153,7 +176,9 @@
   output:
     it_calcule: 80000
     it_a_payer: 80000
-- name: 24 - Ventes à l'aventure (armateurs) sans annexe avec releve
+    cstns_calcule: 64000
+    cstns_a_payer: 64000
+- name: 13. 24 - Ventes à l'aventure (armateurs) sans annexe avec releve
   period: 2020
   input:
     entreprise:
@@ -166,7 +191,9 @@
   output:
     it_calcule: 80000
     it_a_payer: 80000
-- name: 24 - Ventes à l'aventure (armateurs) avec annexe sans releve
+    cstns_calcule: 64000
+    cstns_a_payer: 64000
+- name: 14. 24 - Ventes à l'aventure (armateurs) avec annexe sans releve
   period: 2020
   input:
     entreprise:
@@ -179,7 +206,9 @@
   output:
     it_calcule: 80000
     it_a_payer: 80000
-- name: 24 - Ventes à l'aventure (armateurs) avec annexe avec releve
+    cstns_calcule: 64000
+    cstns_a_payer: 64000
+- name: 15. 24 - Ventes à l'aventure (armateurs) avec annexe avec releve
   period: 2020
   input:
     entreprise:
@@ -192,7 +221,9 @@
   output:
     it_calcule: 40000
     it_a_payer: 40000
-- name: 11 - Ventes sans abattement avec annexe avec releve
+    cstns_calcule: 32000
+    cstns_a_payer: 32000
+- name: 16. 11 - Ventes sans abattement avec annexe avec releve
   period: 2020
   input:
     entreprise:
@@ -205,3 +236,5 @@
   output:
     it_calcule: 1960000
     it_a_payer: 1960000
+    cstns_calcule: 880000
+    cstns_a_payer: 880000
