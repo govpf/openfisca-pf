@@ -33,7 +33,6 @@ class cst_s_totale(Variable):
         # print(parameters(period).dicp.cst_s.taux.rates[0])
         value = 0
         for i, taux in enumerate(parameters(period).dicp.cst_s.taux.rates):
-            # value += taux * entreprise('salaires_tranche_' + str(i), period)
             value += entreprise('cst_s_tranche_' + str(i), period)
         return value
 
@@ -50,7 +49,7 @@ class cst_s(Variable):
         salaire_sup_150000 = person('salaire', period) >= 150000
         echelle = parameters(period).dicp.cst_s.taux
         # Si le salaire est < 150000 alors retourne 0
-        return echelle.calc(where(salaire_sup_150000, salaire, 0))
+        return round_(echelle.calc(where(salaire_sup_150000, salaire, 0)))
 
 # CSTS par tranche
 
