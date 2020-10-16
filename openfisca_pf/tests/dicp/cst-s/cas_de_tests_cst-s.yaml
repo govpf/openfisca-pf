@@ -1,0 +1,329 @@
+- name: 01 - Montant négatif
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: -1000
+    persons:
+      Alicia: {}
+  output:
+    cst_s_totale: 0
+- name: 02 - Montant nul
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 0
+    persons:
+      Alicia: {}
+  output:
+    cst_s_totale: 0
+- name: 03 - Toutes les tranches à 1000000
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 1000000
+      salaires_tranche_1: 1000000
+      salaires_tranche_2: 1000000
+      salaires_tranche_3: 1000000
+      salaires_tranche_4: 1000000
+      salaires_tranche_5: 1000000
+      salaires_tranche_6: 1000000
+      salaires_tranche_7: 1000000
+      salaires_tranche_8: 1000000
+      salaires_tranche_9: 1000000
+      salaires_tranche_10: 1000000
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 5000
+    cst_s_tranche_1: 30000
+    cst_s_tranche_2: 50000
+    cst_s_tranche_3: 70000
+    cst_s_tranche_4: 90000
+    cst_s_tranche_5: 120000
+    cst_s_tranche_6: 150000
+    cst_s_tranche_7: 180000
+    cst_s_tranche_8: 210000
+    cst_s_tranche_9: 230000
+    cst_s_tranche_10: 250000
+    cst_s_totale: 1385000
+- name: 04 - 3 tranches
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 3000000
+      salaires_tranche_1: 0
+      salaires_tranche_2: 0
+      salaires_tranche_3: 0
+      salaires_tranche_4: 0
+      salaires_tranche_5: 3000000
+      salaires_tranche_6: 0
+      salaires_tranche_7: 0
+      salaires_tranche_8: 0
+      salaires_tranche_9: 0
+      salaires_tranche_10: 10000000
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 15000
+    cst_s_tranche_1: 0
+    cst_s_tranche_2: 0
+    cst_s_tranche_3: 0
+    cst_s_tranche_4: 0
+    cst_s_tranche_5: 360000
+    cst_s_tranche_6: 0
+    cst_s_tranche_7: 0
+    cst_s_tranche_8: 0
+    cst_s_tranche_9: 0
+    cst_s_tranche_10: 2500000
+    cst_s_totale: 2875000
+- name: 05 - 7 dernières tranches
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 0
+      salaires_tranche_1: 0
+      salaires_tranche_2: 0
+      salaires_tranche_3: 0
+      salaires_tranche_4: 2000000
+      salaires_tranche_5: 3000000
+      salaires_tranche_6: 4000000
+      salaires_tranche_7: 5000000
+      salaires_tranche_8: 6000000
+      salaires_tranche_9: 7000000
+      salaires_tranche_10: 8000000
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 0
+    cst_s_tranche_1: 0
+    cst_s_tranche_2: 0
+    cst_s_tranche_3: 0
+    cst_s_tranche_4: 180000
+    cst_s_tranche_5: 360000
+    cst_s_tranche_6: 600000
+    cst_s_tranche_7: 900000
+    cst_s_tranche_8: 1260000
+    cst_s_tranche_9: 1610000
+    cst_s_tranche_10: 2000000
+    cst_s_totale: 6910000
+- name: 06 - small values
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 150
+      salaires_tranche_1: 40
+      salaires_tranche_2: 80
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 0
+    cst_s_tranche_1: 1
+    cst_s_tranche_2: 4
+    cst_s_tranche_3: 0
+    cst_s_tranche_4: 0
+    cst_s_tranche_5: 0
+    cst_s_tranche_6: 0
+    cst_s_tranche_7: 0
+    cst_s_tranche_8: 0
+    cst_s_tranche_9: 0
+    cst_s_tranche_10: 0
+    cst_s_totale: 5
+- name: 07 - big values with low precision
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 15000000000
+      salaires_tranche_6: 1050005005
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 75000000
+    cst_s_tranche_1: 0
+    cst_s_tranche_2: 0
+    cst_s_tranche_3: 0
+    cst_s_tranche_4: 0
+    cst_s_tranche_5: 0
+    cst_s_tranche_6: 157500750
+    cst_s_tranche_7: 0
+    cst_s_tranche_8: 0
+    cst_s_tranche_9: 0
+    cst_s_tranche_10: 0
+    cst_s_totale: 232500750
+- name: 08 - big values with high precision - fails in float32
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_6: 987654321
+      salaires_tranche_7: 987654321
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 0
+    cst_s_tranche_1: 0
+    cst_s_tranche_2: 0
+    cst_s_tranche_3: 0
+    cst_s_tranche_4: 0
+    cst_s_tranche_5: 0
+    cst_s_tranche_6: 148148148
+    cst_s_tranche_7: 177777777
+    cst_s_tranche_8: 0
+    cst_s_tranche_9: 0
+    cst_s_tranche_10: 0
+    cst_s_totale: 325925925
+- name: 09 - big values with low precision again
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_6: 150000150
+      salaires_tranche_7: 160006000
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 0
+    cst_s_tranche_1: 0
+    cst_s_tranche_2: 0
+    cst_s_tranche_3: 0
+    cst_s_tranche_4: 0
+    cst_s_tranche_5: 0
+    cst_s_tranche_6: 22500022
+    cst_s_tranche_7: 28801080
+    cst_s_tranche_8: 0
+    cst_s_tranche_9: 0
+    cst_s_tranche_10: 0
+    cst_s_totale: 51301102
+- name: 10 - checking roundings
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_9: 999999999
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 0
+    cst_s_tranche_1: 0
+    cst_s_tranche_2: 0
+    cst_s_tranche_3: 0
+    cst_s_tranche_4: 0
+    cst_s_tranche_5: 0
+    cst_s_tranche_6: 0
+    cst_s_tranche_7: 0
+    cst_s_tranche_8: 0
+    cst_s_tranche_9: 229999999
+    cst_s_tranche_10: 0
+    cst_s_totale: 229999999
+- name: 11 - checking roundings again
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_9: 9999999
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 0
+    cst_s_tranche_1: 0
+    cst_s_tranche_2: 0
+    cst_s_tranche_3: 0
+    cst_s_tranche_4: 0
+    cst_s_tranche_5: 0
+    cst_s_tranche_6: 0
+    cst_s_tranche_7: 0
+    cst_s_tranche_8: 0
+    cst_s_tranche_9: 2299999
+    cst_s_tranche_10: 0
+    cst_s_totale: 2299999
+- name: 12 - random values
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 1000000
+      salaires_tranche_1: 8000000
+      salaires_tranche_2: 800500
+      salaires_tranche_3: 154300
+      salaires_tranche_4: 142865
+      salaires_tranche_5: 3655
+      salaires_tranche_6: 41111
+      salaires_tranche_7: 3700
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 5000
+    cst_s_tranche_1: 240000
+    cst_s_tranche_2: 40025
+    cst_s_tranche_3: 10801
+    cst_s_tranche_4: 12857
+    cst_s_tranche_5: 438
+    cst_s_tranche_6: 6166
+    cst_s_tranche_7: 666
+    cst_s_totale: 315953
+- name: 13 - two big values on higher brackets
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_9: 1600060000
+      salaires_tranche_10: 1600000000
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_9: 368013800
+    cst_s_tranche_10: 400000000
+    cst_s_totale: 768013800
+- name: 14 - all at 452555
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 452555
+      salaires_tranche_1: 452555
+      salaires_tranche_2: 452555
+      salaires_tranche_3: 452555
+      salaires_tranche_4: 452555
+      salaires_tranche_5: 452555
+      salaires_tranche_6: 452555
+      salaires_tranche_7: 452555
+      salaires_tranche_8: 452555
+      salaires_tranche_9: 452555
+      salaires_tranche_10: 452555
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 2262
+    cst_s_tranche_1: 13576
+    cst_s_tranche_2: 22627
+    cst_s_tranche_3: 31678
+    cst_s_tranche_4: 40729
+    cst_s_tranche_5: 54306
+    cst_s_tranche_6: 67883
+    cst_s_tranche_7: 81459
+    cst_s_tranche_8: 95036
+    cst_s_tranche_9: 104087
+    cst_s_tranche_10: 113138
+    cst_s_totale: 626781
+- name: 15 - the evil one
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 133200
+      salaires_tranche_1: 22200
+      salaires_tranche_2: 13320
+      salaires_tranche_3: 9515
+      salaires_tranche_4: 7400
+      salaires_tranche_5: 5550
+      salaires_tranche_6: 4440
+      salaires_tranche_7: 3700
+      salaires_tranche_8: 3172
+      salaires_tranche_9: 2896
+      salaires_tranche_10: 2664
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 666
+    cst_s_tranche_1: 666
+    cst_s_tranche_2: 666
+    cst_s_tranche_3: 666
+    cst_s_tranche_4: 666
+    cst_s_tranche_5: 666
+    cst_s_tranche_6: 666
+    cst_s_tranche_7: 666
+    cst_s_tranche_8: 666
+    cst_s_tranche_9: 666
+    cst_s_tranche_10: 666
+    cst_s_totale: 7326
