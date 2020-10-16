@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.1
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `dicp` and `entreprise`
+* Details:
+  - `IT` tax calculation : added rounds (no impact in float32)
+  - `CST-NS` tax calculation : added rounds (no impact in float32)
+  - `CST-S` tax calculation : added rounds for personal CST-S
+  - `CST-S` : added tests cases
+
 ## 0.2.0
 
 * Tax and benefit system evolution.
