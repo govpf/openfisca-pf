@@ -48,7 +48,7 @@ class cstns_ventes_regularisation_prestations(Variable):
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.cst_ns.taux_prestations
         ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
-        return echelle.calc(ca)
+        return round_(echelle.calc(ca))
 
 class cstns_ventes_avant_abattement_droits(Variable):
     value_type = float
@@ -60,7 +60,7 @@ class cstns_ventes_avant_abattement_droits(Variable):
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.cst_ns.taux_ventes
         ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
-        return echelle.calc(ca)
+        return round_(echelle.calc(ca))
 
 class cstns_ventes_sans_abattement_droits(Variable):
     value_type = float
@@ -72,7 +72,7 @@ class cstns_ventes_sans_abattement_droits(Variable):
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.cst_ns.taux_ventes
         ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_droits', period)
-        return echelle.calc(ca)
+        return round_(echelle.calc(ca))
 
 class cstns_ventes(Variable):
     value_type = float
@@ -99,7 +99,7 @@ class cstns_prestations_avant_abattement_droits(Variable):
         chiffre_affaire_total_ventes_apres_abattement_assiette = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
         echelle = parameters(period).dicp.cst_ns.taux_prestations
         ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period)
-        return echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca)
+        return round_(echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca))
 
 class cstns_prestations_sans_abattement_droits(Variable):
     value_type = float
@@ -112,7 +112,7 @@ class cstns_prestations_sans_abattement_droits(Variable):
         chiffre_affaire_total_ventes_apres_abattement_assiette = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
         echelle = parameters(period).dicp.cst_ns.taux_prestations
         ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattement_droits', period)
-        return echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca)
+        return round_(echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca))
 
 class cstns_prestations(Variable):
     value_type = float
