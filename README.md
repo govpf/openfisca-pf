@@ -41,6 +41,14 @@ echo "export PATH=$HOME/.local/bin:${PATH}:" >> ~/.bashrc
 source ~/.bashrc
 ```
 
+## Running all the tests
+
+To run all non regression tests you have to execute :
+```sh
+openfisca test --country-package openfisca_pf openfisca_pf/tests
+```
+
+
 ## Serve this Country Package with the OpenFisca Web API
 
 To serve the Openfisca Web API locally, run:
@@ -69,4 +77,24 @@ Substitute your package's country name for `openfisca_pf` below:
 curl -X POST -H "Content-Type: application/json" \
   -d @./openfisca_pf/situation_examples/couple.json \
   http://localhost:5000/calculate
+```
+
+## Run or Build an Openfisca-pf docker image
+
+To run the offical latest Openfisca-pf image simply run :
+
+```sh
+docker run -p 5000:5000 govpf/openfisca-pf:latest
+```
+
+But if you want to build it yourself, while being in the main directory of the project run :
+
+```sh
+docker build --tag openfisca-pf-mytag . -f docker/Dockerfile
+```
+
+Then you may run this image :
+
+```sh
+docker run -p 5000:5000 openfisca-pf-mytag
 ```
