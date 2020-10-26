@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.2
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `all.
+* Details:
+  - Changed float32 to float34 in openfisca-core (sed in Dockerfile)
+
 ## 0.2.1
 
 * Tax and benefit system evolution.

@@ -1,8 +1,13 @@
 FROM python:3.7-slim AS build
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential gcc
+    apt-get install -y --no-install-recommends build-essential gcc git
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
+WORKDIR /openfisca_main
+RUN git clone https://github.com/openfisca/openfisca-core.git
+WORKDIR /openfisca_main/openfisca-core
+RUN sed -i s/float32/float64/ openfisca_core/variables.py
+RUN pip install .
 WORKDIR /openfisca_main
 COPY openfisca_pf ./openfisca_pf
 COPY Makefile .
