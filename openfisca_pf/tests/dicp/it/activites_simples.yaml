@@ -82,7 +82,7 @@
 #       Alicia: {}
 #   output:
 #     it_calcule: 0
-- name: 14 - Armateurs de goelettes	 avec annexe avec releve
+- name: 14 - Armateurs de goelettes avec annexe avec releve
   period: 2020
   input:
     entreprise:
