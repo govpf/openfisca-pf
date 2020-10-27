@@ -42,7 +42,7 @@ jobs:
       name: Extract tag name
       if: github.event_name == 'push' && github.ref != 'refs/heads/master'
       shell: bash
-      run: echo "##[set-output name=tag;]$(echo ${GITHUB_REF#refs/heads/})"
+      run: echo "##[set-output name=tag;]$(echo ${GITHUB_REF#refs/tags/})"
       id: extract_tag
     -
       name: Build and push (tags)
