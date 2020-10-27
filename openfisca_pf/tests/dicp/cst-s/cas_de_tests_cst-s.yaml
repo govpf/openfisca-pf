@@ -327,3 +327,19 @@
     cst_s_tranche_9: 666
     cst_s_tranche_10: 666
     cst_s_totale: 7326
+- name: 16 - the bigger one
+  period: 2020-01
+  input:
+    entreprise:
+      salaires_tranche_0: 3186218341
+      salaires_tranche_1: 3186218341
+      salaires_tranche_2: 3186218341
+      salaires_tranche_3: 11123456789
+    persons:
+      Alicia: {}
+  output:
+    cst_s_tranche_0: 15931091
+    cst_s_tranche_1: 95586550
+    cst_s_tranche_2: 159310917
+    cst_s_tranche_3: 778641975
+    cst_s_totale: 1049470533
