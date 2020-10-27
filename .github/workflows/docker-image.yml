@@ -10,6 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      repo: "govpf/openfisca-pf"
     steps:
     -
       name: Checkout
@@ -34,7 +36,7 @@ jobs:
         pull: true
         push: true
         tags: |
-          govpf/openfisca-pf:latest
+          ${{ env.repo }}:latest
     -
       name: Extract tag name
       if: github.event_name == 'push' && github.ref != 'refs/heads/master'
@@ -52,10 +54,10 @@ jobs:
         pull: true
         push: true
         tags: |
-          govpf/openfisca-pf:${{ steps.extract_tag.outputs.tag }}
+          ${{ env.repo }}:${{ steps.extract_tag.outputs.tag }}
     - name: Update repo description
       uses: peter-evans/dockerhub-description@v2
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        repository: govpf/openfisca-pf
+        repository: "${{ env.repo }}"
