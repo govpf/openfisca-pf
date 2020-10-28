@@ -10,7 +10,8 @@ But this is a work in progress and none of those taxes are validated yet.
 
 ## Installation for developpers and maintainers
 
-Installation does not work on windows despite using Python, but it is working well in a WSL.
+Installation does not work on windows despite using Python, but it is working well in a WSL. To install WSL on Windows 10: https://docs.microsoft.com/fr-fr/windows/wsl/install-win10
+
 To install it first get the git repo :
 ```sh
 git clone https://github.com/govpf/openfisca-pf.git
