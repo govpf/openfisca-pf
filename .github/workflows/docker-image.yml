@@ -27,11 +27,11 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     -
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
       name: Tests
-      run: |
-        alias pip='pip3'
-        alias python='python3'
-        make test
+      run: make test
     -
       name: Build and push (master)
       uses: docker/build-push-action@v2
