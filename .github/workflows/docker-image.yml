@@ -26,11 +26,11 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-    -
+    - name: Setup python 3
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-      name: Tests
+    - name: tests
       run: make test
     -
       name: Build and push (master)
