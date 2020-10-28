@@ -27,7 +27,7 @@ class chiffre_affaire_total_ventes_apres_abattement_assiette(Variable):
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
             ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
-            value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette)) 
+            value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette))
         return value
 
 

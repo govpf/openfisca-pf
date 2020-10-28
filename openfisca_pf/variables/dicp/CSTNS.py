@@ -23,9 +23,9 @@ class cstns_calcule(Variable):
         cstns_prestations = entreprise('cstns_prestations', period)
         cstns_total = cstns_ventes + cstns_prestations
         cstns = select(
-        [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
-        [0, 0, cstns_total],
-        )
+            [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
+            [0, 0, cstns_total],
+            )
         return numpy.floor(cstns)
 
 
@@ -40,6 +40,7 @@ class cstns_a_payer(Variable):
         cstns_calcule = numpy.floor(entreprise('cstns_calcule', period))
         return where(cstns_calcule < 6000, 0, cstns_calcule)
 
+
 class cstns_ventes_regularisation_prestations(Variable):
     value_type = float
     entity = Entreprise
@@ -51,6 +52,7 @@ class cstns_ventes_regularisation_prestations(Variable):
         echelle = parameters(period).dicp.cst_ns.taux_prestations
         ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
         return round_(echelle.calc(ca))
+
 
 class cstns_ventes_avant_abattement_droits(Variable):
     value_type = float
@@ -64,6 +66,7 @@ class cstns_ventes_avant_abattement_droits(Variable):
         ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
         return round_(echelle.calc(ca))
 
+
 class cstns_ventes_sans_abattement_droits(Variable):
     value_type = float
     entity = Entreprise
@@ -75,6 +78,7 @@ class cstns_ventes_sans_abattement_droits(Variable):
         echelle = parameters(period).dicp.cst_ns.taux_ventes
         ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_droits', period)
         return round_(echelle.calc(ca))
+
 
 class cstns_ventes(Variable):
     value_type = float
@@ -126,7 +130,6 @@ class cstns_prestations(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        echelle = parameters(period).dicp.cst_ns.taux_prestations
         cstns_ventes_regularisation_prestations = entreprise('cstns_ventes_regularisation_prestations', period)
         cstns_prestations_avant_abattement_droits = entreprise('cstns_prestations_avant_abattement_droits', period)
         cstns_prestations_sans_abattement_droits = entreprise('cstns_prestations_sans_abattement_droits', period)

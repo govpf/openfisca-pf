@@ -27,7 +27,7 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette(Variable):
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
             ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
-            value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette)) 
+            value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette))
         return value
 
 
@@ -46,7 +46,7 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattemen
             ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             coeff_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
-            ca_apres_abattement_assiette = where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette)) 
+            ca_apres_abattement_assiette = where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette))
             abattement_droits = parameters(period).dicp.abattements_it_cstns.cca[cca].abattement_de_droit
             seuil_bascule_abattement_de_droit = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_de_droit
             seuils_abattement_de_droit_applicable_aux_personnes_physiques = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_de_droit_applicable_aux_personnes_physiques

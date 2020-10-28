@@ -32,7 +32,7 @@ class chiffre_affaire_total(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         return entreprise('chiffre_affaire_total_ventes', period) + entreprise('chiffre_affaire_total_prestations', period)
- 
+
 
 class charges_total(Variable):
     value_type = float
@@ -44,7 +44,7 @@ class charges_total(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
         return entreprise('charges_total_ventes', period) + entreprise('charges_total_prestations', period)
- 
+
 
 class chiffre_affaire_total_prestations(Variable):
     value_type = float

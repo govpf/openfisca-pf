@@ -106,7 +106,7 @@ class salaires_tranche_3(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 3 de CST"
     reference = "https://law.gov.example/salary"  # Always use the most official source
-    
+
     # def formula(entreprise, period, parameters):
     #     index_tranche = 3
     #     seuil = parameters(period).dicp.cst_s.taux.thresholds[index_tranche + 1]

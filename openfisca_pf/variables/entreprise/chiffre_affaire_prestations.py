@@ -536,6 +536,7 @@ class chiffre_affaire_prestations_sans_reduction(Variable):
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie  Prestations sans réduction"
 
+
 class charges_prestations_sans_reduction(Variable):
     value_type = float
     entity = Entreprise
