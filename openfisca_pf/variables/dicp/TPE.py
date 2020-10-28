@@ -10,6 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 import numpy
 
+
 class eligible_tpe_1(Variable):
     value_type = bool
     entity = Entreprise
@@ -26,6 +27,7 @@ class eligible_tpe_1(Variable):
             ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             eligible_tpe = eligible_tpe * ((parameters(period).dicp.abattements_it_cstns.activites_prestations[nom].eligible_tpe == 1) + (ca == 0))
         return est_personne_pysique * eligible_tpe * ca_inferieur_a_2000000
+
 
 class eligible_tpe_2(Variable):
     value_type = bool

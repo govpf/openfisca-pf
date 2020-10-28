@@ -9,6 +9,8 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 import numpy
+
+
 class chiffre_affaire_total_ventes_apres_abattement_assiette(Variable):
     value_type = float
     entity = Entreprise
@@ -27,6 +29,7 @@ class chiffre_affaire_total_ventes_apres_abattement_assiette(Variable):
             # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
             value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette)) 
         return value
+
 
 class chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_droits(Variable):
     value_type = float
@@ -53,9 +56,10 @@ class chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_dro
             entreprise_est_personne_physique = entreprise('entreprise_est_personne_physique', period)
             annexes_IT_fournies = entreprise('annexes_IT_fournies', period)
             seuil_annexe = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges
+
             # Here we only take into account CA with no 'abattement de droit'
             abattement_de_droit_applicable = abattement_droits & (not_(abattement_droits_charges) + (entreprise_est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)) + (ca <= seuil_bascule_abattement_de_droit))
             abattement_de_droit_de_charge_applicable = abattement_droits_charges & (ca > seuil_bascule_abattement_de_droit) & charges_superieures_50_pourcents & releve_de_charges_fourni & (annexes_IT_fournies + (ca <= seuil_annexe) + (entreprise_est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)))
-            
+
             value += where(abattement_de_droit_applicable + abattement_de_droit_de_charge_applicable, 0, ca_apres_abattement_assiette)
         return value

@@ -10,6 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 import numpy
 
+
 class cst_s_totale_par_employes(Variable):
     value_type = float
     entity = Entreprise
@@ -20,6 +21,7 @@ class cst_s_totale_par_employes(Variable):
     def formula(entreprise, period, parameters):
         cst_s_i = entreprise.members('cst_s', period)
         return entreprise.sum(cst_s_i)
+
 
 class cst_s_totale(Variable):
     value_type = float
@@ -36,6 +38,7 @@ class cst_s_totale(Variable):
             value += entreprise('cst_s_tranche_' + str(i), period)
         return value
 
+
 class cst_s(Variable):
     value_type = float
     entity = Person
@@ -51,8 +54,8 @@ class cst_s(Variable):
         # Si le salaire est < 150000 alors retourne 0
         return round_(echelle.calc(where(salaire_sup_150000, salaire, 0)))
 
-# CSTS par tranche
 
+# CSTS par tranche
 class cst_s_tranche_0(Variable):
     value_type = float
     entity = Entreprise
@@ -65,6 +68,7 @@ class cst_s_tranche_0(Variable):
         salaires_tranche = entreprise('salaires_tranche_0', period)
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[0] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+
 
 class cst_s_tranche_1(Variable):
     value_type = float
@@ -79,6 +83,7 @@ class cst_s_tranche_1(Variable):
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[1] * where(salaires_tranche_inf_0, 0, salaires_tranche))
 
+
 class cst_s_tranche_2(Variable):
     value_type = float
     entity = Entreprise
@@ -91,6 +96,7 @@ class cst_s_tranche_2(Variable):
         salaires_tranche = entreprise('salaires_tranche_2', period)
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[2] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+
 
 class cst_s_tranche_3(Variable):
     value_type = float
@@ -105,6 +111,7 @@ class cst_s_tranche_3(Variable):
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[3] * where(salaires_tranche_inf_0, 0, salaires_tranche))
 
+
 class cst_s_tranche_4(Variable):
     value_type = float
     entity = Entreprise
@@ -117,6 +124,7 @@ class cst_s_tranche_4(Variable):
         salaires_tranche = entreprise('salaires_tranche_4', period)
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[4] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+
 
 class cst_s_tranche_5(Variable):
     value_type = float
@@ -131,6 +139,7 @@ class cst_s_tranche_5(Variable):
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[5] * where(salaires_tranche_inf_0, 0, salaires_tranche))
 
+
 class cst_s_tranche_6(Variable):
     value_type = float
     entity = Entreprise
@@ -143,6 +152,7 @@ class cst_s_tranche_6(Variable):
         salaires_tranche = entreprise('salaires_tranche_6', period)
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[6] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+
 
 class cst_s_tranche_7(Variable):
     value_type = float
@@ -157,6 +167,7 @@ class cst_s_tranche_7(Variable):
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[7] * where(salaires_tranche_inf_0, 0, salaires_tranche))
 
+
 class cst_s_tranche_8(Variable):
     value_type = float
     entity = Entreprise
@@ -170,6 +181,7 @@ class cst_s_tranche_8(Variable):
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[8] * where(salaires_tranche_inf_0, 0, salaires_tranche))
 
+
 class cst_s_tranche_9(Variable):
     value_type = float
     entity = Entreprise
@@ -182,6 +194,7 @@ class cst_s_tranche_9(Variable):
         salaires_tranche = entreprise('salaires_tranche_9', period)
         salaires_tranche_inf_0 = salaires_tranche < 0
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[9] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+
 
 class cst_s_tranche_10(Variable):
     value_type = float

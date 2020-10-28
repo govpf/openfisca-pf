@@ -10,6 +10,8 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 
 # This variable is a pure input: it doesn't have a formula
+
+
 class salaire(Variable):
     value_type = float
     entity = Person
@@ -18,6 +20,7 @@ class salaire(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaire"
     reference = "https://law.gov.example/salary"  # Always use the most official source
+
 
 class salaires_tranche_0(Variable):
     value_type = float
@@ -51,6 +54,7 @@ class salaires_tranche_0(Variable):
 #         # Les salaires < 150000 ne sont pas comptabilisés
 #         return entreprise.sum(where(salaire_sup_150000, 0, salaires_i))
 
+
 class salaires_tranche_1(Variable):
     value_type = float
     entity = Entreprise
@@ -70,6 +74,7 @@ class salaires_tranche_1(Variable):
     #     for i in range(0, index_tranche):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
+
 
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_2(Variable):
@@ -91,6 +96,7 @@ class salaires_tranche_2(Variable):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
 
+
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_3(Variable):
     value_type = float
@@ -110,6 +116,7 @@ class salaires_tranche_3(Variable):
     #     for i in range(0, index_tranche):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
+
 
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_4(Variable):
@@ -131,6 +138,7 @@ class salaires_tranche_4(Variable):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
 
+
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_5(Variable):
     value_type = float
@@ -150,6 +158,7 @@ class salaires_tranche_5(Variable):
     #     for i in range(0, index_tranche):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
+
 
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_6(Variable):
@@ -171,6 +180,7 @@ class salaires_tranche_6(Variable):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
 
+
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_7(Variable):
     value_type = float
@@ -190,6 +200,7 @@ class salaires_tranche_7(Variable):
     #     for i in range(0, index_tranche):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
+
 
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_8(Variable):
@@ -211,6 +222,7 @@ class salaires_tranche_8(Variable):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
 
+
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_9(Variable):
     value_type = float
@@ -231,6 +243,7 @@ class salaires_tranche_9(Variable):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
 
+
 # This variable is a pure input: it doesn't have a formula
 class salaires_tranche_10(Variable):
     value_type = float
@@ -249,6 +262,7 @@ class salaires_tranche_10(Variable):
     #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
     #     return valeur
 
+
 class salaires_totaux(Variable):
     value_type = float
     entity = Entreprise
@@ -259,4 +273,3 @@ class salaires_totaux(Variable):
     def formula(entreprise, period, parameters):
         salaires_i = entreprise.members('salaire', period)
         return entreprise.sum(salaires_i)
-

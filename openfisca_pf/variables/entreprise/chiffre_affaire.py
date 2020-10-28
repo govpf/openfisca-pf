@@ -21,6 +21,7 @@ import numpy
 #     armateurs = u'ARMATEURS'
 #     boulangeries_autres = u'BOULANGERIE - AUTRES'
 
+
 class chiffre_affaire_total(Variable):
     value_type = float
     entity = Entreprise
@@ -32,6 +33,7 @@ class chiffre_affaire_total(Variable):
     def formula(entreprise, period, parameters):
         return entreprise('chiffre_affaire_total_ventes', period) + entreprise('chiffre_affaire_total_prestations', period)
  
+
 class charges_total(Variable):
     value_type = float
     entity = Entreprise
@@ -43,6 +45,7 @@ class charges_total(Variable):
     def formula(entreprise, period, parameters):
         return entreprise('charges_total_ventes', period) + entreprise('charges_total_prestations', period)
  
+
 class chiffre_affaire_total_prestations(Variable):
     value_type = float
     entity = Entreprise
@@ -58,6 +61,7 @@ class chiffre_affaire_total_prestations(Variable):
             value += ca
         return value
 
+
 class charges_total_prestations(Variable):
     value_type = float
     entity = Entreprise
@@ -71,6 +75,7 @@ class charges_total_prestations(Variable):
         for nom in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
             value += entreprise('charges_' + nom, period)
         return value
+
 
 class chiffre_affaire_total_ventes(Variable):
     value_type = float
@@ -87,6 +92,7 @@ class chiffre_affaire_total_ventes(Variable):
             value += ca
         return value
 
+
 class charges_total_ventes(Variable):
     value_type = float
     entity = Entreprise
@@ -100,4 +106,3 @@ class charges_total_ventes(Variable):
         for nom in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
             value += entreprise('charges_' + nom, period)
         return value
-

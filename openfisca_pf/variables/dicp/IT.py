@@ -10,6 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 import numpy
 
+
 class it_calcule(Variable):
     value_type = float
     entity = Entreprise
@@ -22,10 +23,11 @@ class it_calcule(Variable):
         it_prestations = entreprise('it_prestations', period)
         it_total = it_ventes + it_prestations
         it = select(
-        [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
-        [25000, 45000, it_total],
+            [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
+            [25000, 45000, it_total],
         )
         return numpy.floor(it)
+
 
 class it_a_payer(Variable):
     value_type = float
@@ -38,6 +40,7 @@ class it_a_payer(Variable):
         it_calcule = numpy.floor(entreprise('it_calcule', period))
         return where(it_calcule < 6000, 0, it_calcule)
 
+
 class it_ventes_regularisation_prestations(Variable):
     value_type = float
     entity = Entreprise
@@ -49,6 +52,7 @@ class it_ventes_regularisation_prestations(Variable):
         echelle = parameters(period).dicp.it.taux_prestations
         ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
         return round_(echelle.calc(ca))
+
 
 class it_ventes_avant_abattement_droits(Variable):
     value_type = float

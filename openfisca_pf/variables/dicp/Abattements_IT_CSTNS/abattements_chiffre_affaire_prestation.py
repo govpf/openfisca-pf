@@ -9,6 +9,8 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 import numpy
+
+
 class chiffre_affaire_total_prestations_apres_abattement_assiette(Variable):
     value_type = float
     entity = Entreprise
@@ -27,6 +29,7 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette(Variable):
             # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
             value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette)) 
         return value
+
 
 class chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattement_droits(Variable):
     value_type = float
@@ -59,12 +62,14 @@ class chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattemen
             value += where(abattement_de_droit_applicable + abattement_de_droit_de_charge_applicable, 0, ca_apres_abattement_assiette)
         return value
 
+
 class releve_de_charges_fourni(Variable):
     value_type = bool
     entity = Entreprise
     definition_period = YEAR
     label = u"Mettre a true si l'entreprise a deposé un justificatif de charges, afin de bénéficier de l'abattement correspondant"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
 
 class annexes_IT_fournies(Variable):
     value_type = bool

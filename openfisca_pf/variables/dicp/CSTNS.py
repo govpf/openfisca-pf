@@ -10,6 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 import numpy
 
+
 class cstns_calcule(Variable):
     value_type = float
     entity = Entreprise
@@ -26,6 +27,7 @@ class cstns_calcule(Variable):
         [0, 0, cstns_total],
         )
         return numpy.floor(cstns)
+
 
 class cstns_a_payer(Variable):
     value_type = float
@@ -82,11 +84,11 @@ class cstns_ventes(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        echelle = parameters(period).dicp.cst_ns.taux_ventes
         cstns_ventes_avant_abattement_droits = entreprise('cstns_ventes_avant_abattement_droits', period)
         cstns_ventes_sans_abattement_droits = entreprise('cstns_ventes_sans_abattement_droits', period)
         cstns = (cstns_ventes_avant_abattement_droits - cstns_ventes_sans_abattement_droits) / 2 + cstns_ventes_sans_abattement_droits
         return cstns
+
 
 class cstns_prestations_avant_abattement_droits(Variable):
     value_type = float
@@ -101,6 +103,7 @@ class cstns_prestations_avant_abattement_droits(Variable):
         ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period)
         return round_(echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca))
 
+
 class cstns_prestations_sans_abattement_droits(Variable):
     value_type = float
     entity = Entreprise
@@ -113,6 +116,7 @@ class cstns_prestations_sans_abattement_droits(Variable):
         echelle = parameters(period).dicp.cst_ns.taux_prestations
         ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattement_droits', period)
         return round_(echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca))
+
 
 class cstns_prestations(Variable):
     value_type = float
