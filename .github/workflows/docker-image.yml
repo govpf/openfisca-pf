@@ -28,7 +28,10 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     -
       name: Tests
-      run: make test
+      run: |
+        alias pip='pip3'
+        alias python='python3'
+        make test
     -
       name: Build and push (master)
       uses: docker/build-push-action@v2
