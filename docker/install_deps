@@ -1,0 +1,16 @@
+#!/bin/bash -xe
+
+
+apt-get update
+apt-get install -y --no-install-recommends build-essential gcc git
+
+if [[ "$1" == "--test" ]]
+then
+   pip install flake8 pytest
+fi
+
+git clone https://github.com/openfisca/openfisca-core.git
+cd openfisca-core
+sed -i s/float32/float64/ openfisca_core/variables.py
+pip install wheel
+pip install .
