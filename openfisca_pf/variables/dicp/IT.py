@@ -93,6 +93,7 @@ class it_ventes(Variable):
         it = (it_ventes_avant_abattement_droits - it_ventes_sans_abattement_droits) / 2 + it_ventes_sans_abattement_droits
         return it
 
+
 class abattement_it_ventes(Variable):
     value_type = float
     entity = Entreprise
@@ -119,6 +120,7 @@ class it_prestations_avant_abattement_droits(Variable):
         echelle = parameters(period).dicp.it.taux_prestations
         ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period)
         return round_(echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca))
+
 
 class it_prestations_sans_abattement_droits(Variable):
     value_type = float
