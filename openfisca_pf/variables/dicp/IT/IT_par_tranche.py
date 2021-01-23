@@ -6,10 +6,8 @@
 
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
-from openfisca_core.taxscales import MarginalRateTaxScale
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-import numpy
 
 
 class it_ventes_avant_abattement_droits_tranche_0(Variable):
@@ -41,6 +39,7 @@ class it_ventes_avant_abattement_droits_tranche_1(Variable):
         # return round_(bareme.calc(ca))
         ca = entreprise('chiffre_affaire_ventes_tranche_1_it', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[1])
+
 
 class it_ventes_avant_abattement_droits_tranche_2(Variable):
     value_type = float

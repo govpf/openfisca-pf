@@ -6,10 +6,8 @@
 
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
-from openfisca_core.taxscales import MarginalRateTaxScale
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-import numpy
 
 
 class it_ventes_regularisation_prestations(Variable):
