@@ -52,6 +52,9 @@ class cst_s(Variable):
         salaire_sup_150000 = salaire >= 150000
         echelle = parameters(period).dicp.cst_s.taux
         # Si le salaire est < 150000 alors retourne 0
+        print(echelle.bracket_indices(salaire))
+        print(echelle.multiply_rates(salaire, 1))
+        print(echelle.to_dict())
         return round_(echelle.calc(where(salaire_sup_150000, salaire, 0)))
 
 

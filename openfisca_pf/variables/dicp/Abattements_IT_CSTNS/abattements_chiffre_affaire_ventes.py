@@ -28,7 +28,7 @@ class chiffre_affaire_total_ventes_apres_abattement_assiette(Variable):
             ca = numpy.floor(entreprise('chiffre_affaire_' + nom, period) / 1000) * 1000
             # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
             value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette))
-        return value
+        return round_(value)
 
 
 class chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_droits(Variable):
@@ -62,4 +62,4 @@ class chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_dro
             abattement_de_droit_de_charge_applicable = abattement_droits_charges & (ca > seuil_bascule_abattement_de_droit) & charges_superieures_50_pourcents & releve_de_charges_fourni & (annexes_IT_fournies + (ca <= seuil_annexe) + (entreprise_est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)))
 
             value += where(abattement_de_droit_applicable + abattement_de_droit_de_charge_applicable, 0, ca_apres_abattement_assiette)
-        return value
+        return round_(value)

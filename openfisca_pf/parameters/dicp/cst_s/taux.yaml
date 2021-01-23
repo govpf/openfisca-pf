@@ -1,4 +1,3 @@
-# The social_security_contribution is calculated with a marginal scale. Marginal scales are represented with a specific structure.
 description: Taux de la CST-S
 metadata:
   threshold_unit: currency-XPF

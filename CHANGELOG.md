@@ -1,12 +1,20 @@
 # Changelog
 
+## 0.2.4
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `dicp`.
+* Details:
+  - IT Adding all intermediate calculation for avis edition
+
 ## 0.2.3
 
 * Tax and benefit system evolution.
 * Impacted periods: all.
 * Impacted areas: `dicp`.
 * Details:
-  - CST-S ignorse negative values
+  - CST-S ignore negative values
 
 ## 0.2.2
 
