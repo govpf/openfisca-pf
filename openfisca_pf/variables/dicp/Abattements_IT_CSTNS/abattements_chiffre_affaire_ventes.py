@@ -11,7 +11,7 @@ from openfisca_pf.entities import *
 import numpy
 
 
-class chiffre_affaire_total_ventes_apres_abattement_assiette(Variable):
+class base_imposable_it_ventes(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -31,7 +31,7 @@ class chiffre_affaire_total_ventes_apres_abattement_assiette(Variable):
         return round_(value)
 
 
-class chiffre_affaire_total_ventes_apres_abattement_assiette_sans_abattement_droits(Variable):
+class base_imposable_it_ventes_sans_abattement_droits(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR

@@ -9,7 +9,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 0
+    montant_it_du: 0
     it_a_payer: 0
     cstns_calcule: 0
     cstns_a_payer: 0
@@ -24,7 +24,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 4000
+    montant_it_du: 4000
     it_a_payer: 0
     cstns_calcule: 3200
     cstns_a_payer: 0
@@ -39,7 +39,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 6000
+    montant_it_du: 6000
     it_a_payer: 6000
     cstns_calcule: 4800
     cstns_a_payer: 0
@@ -54,7 +54,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 8000
+    montant_it_du: 8000
     it_a_payer: 8000
     cstns_calcule: 6400
     cstns_a_payer: 6400
@@ -69,7 +69,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 24000
+    montant_it_du: 24000
     it_a_payer: 24000
     cstns_calcule: 19200
     cstns_a_payer: 19200
@@ -84,7 +84,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 40000
+    montant_it_du: 40000
     it_a_payer: 40000
     cstns_calcule: 32000
     cstns_a_payer: 32000
@@ -99,7 +99,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 48000
+    montant_it_du: 48000
     it_a_payer: 48000
     cstns_calcule: 38400
     cstns_a_payer: 38400
@@ -114,7 +114,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 200000
+    montant_it_du: 200000
     it_a_payer: 200000
     cstns_calcule: 140000
     cstns_a_payer: 140000
@@ -129,7 +129,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 80000
+    montant_it_du: 80000
     it_a_payer: 80000
     cstns_calcule: 64000
     cstns_a_payer: 64000
@@ -144,7 +144,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 37500
+    montant_it_du: 37500
     it_a_payer: 37500
     cstns_calcule: 30000
     cstns_a_payer: 30000
@@ -159,7 +159,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 80000
+    montant_it_du: 80000
     it_a_payer: 80000
     cstns_calcule: 64000
     cstns_a_payer: 64000
@@ -174,7 +174,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 80000
+    montant_it_du: 80000
     it_a_payer: 80000
     cstns_calcule: 64000
     cstns_a_payer: 64000
@@ -189,7 +189,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 80000
+    montant_it_du: 80000
     it_a_payer: 80000
     cstns_calcule: 64000
     cstns_a_payer: 64000
@@ -204,7 +204,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 80000
+    montant_it_du: 80000
     it_a_payer: 80000
     cstns_calcule: 64000
     cstns_a_payer: 64000
@@ -219,7 +219,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 40000
+    montant_it_du: 40000
     it_a_payer: 40000
     cstns_calcule: 32000
     cstns_a_payer: 32000
@@ -234,7 +234,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 1960000
+    montant_it_du: 1960000
     it_a_payer: 1960000
     cstns_calcule: 880000
     cstns_a_payer: 880000

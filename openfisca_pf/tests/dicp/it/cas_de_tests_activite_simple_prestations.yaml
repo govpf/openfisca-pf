@@ -10,7 +10,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 2532500
+    montant_it_du: 2532500
     it_a_payer: 2532500
     cstns_calcule: 1175000
     cstns_a_payer: 1175000
@@ -26,7 +26,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 1266250
+    montant_it_du: 1266250
     it_a_payer: 1266250
     cstns_calcule: 587500
     cstns_a_payer: 587500
@@ -42,7 +42,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 2532500
+    montant_it_du: 2532500
     it_a_payer: 2532500
     cstns_calcule: 1175000
     cstns_a_payer: 1175000
@@ -58,7 +58,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 82500
+    montant_it_du: 82500
     it_a_payer: 82500
     cstns_calcule: 46250
     cstns_a_payer: 46250
@@ -74,7 +74,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 61250
+    montant_it_du: 61250
     it_a_payer: 61250
     cstns_calcule: 31875
     cstns_a_payer: 31875
@@ -90,7 +90,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 552500
+    montant_it_du: 552500
     it_a_payer: 552500
     cstns_calcule: 260000
     cstns_a_payer: 260000
@@ -106,7 +106,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 276250
+    montant_it_du: 276250
     it_a_payer: 276250
     cstns_calcule: 130000
     cstns_a_payer: 130000
@@ -122,7 +122,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 552500
+    montant_it_du: 552500
     it_a_payer: 552500
     cstns_calcule: 260000
     cstns_a_payer: 260000
@@ -138,7 +138,7 @@
 #     persons:
 #       Alicia: {}
 #   output:
-#     it_calcule: 122500
+#     montant_it_du: 122500
 #     it_a_payer: 122500
 # - name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe
 #   period: 2020
@@ -152,7 +152,7 @@
 #     persons:
 #       Alicia: {}
 #   output:
-#     it_calcule: 122500
+#     montant_it_du: 122500
 #     it_a_payer: 122500
 # - name: 18 - Location non meublée - avec annexe - sans releve - sup seuil annexe
 #   period: 2020
@@ -166,7 +166,7 @@
 #     persons:
 #       Alicia: {}
 #   output:
-#     it_calcule: 122500
+#     montant_it_du: 122500
 #     it_a_payer: 122500
 # - name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe - pers phys
 #   period: 2020
@@ -180,7 +180,7 @@
 #     persons:
 #       Alicia: {}
 #   output:
-#     it_calcule: 61250
+#     montant_it_du: 61250
 #     it_a_payer: 61250
 - name: 25. 19 - Location meublée - sans annexe - sans releve - est pers phys
   period: 2020
@@ -194,7 +194,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 3478750
+    montant_it_du: 3478750
     it_a_payer: 3478750
     cstns_calcule: 1525000
     cstns_a_payer: 1525000
@@ -210,7 +210,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 71250
+    montant_it_du: 71250
     it_a_payer: 71250
     cstns_calcule: 36250
     cstns_a_payer: 36250
@@ -226,7 +226,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 276250
+    montant_it_du: 276250
     it_a_payer: 276250
     cstns_calcule: 130000
     cstns_a_payer: 130000
@@ -242,7 +242,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 552500
+    montant_it_du: 552500
     it_a_payer: 552500
     cstns_calcule: 260000
     cstns_a_payer: 260000
@@ -258,7 +258,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 71250
+    montant_it_du: 71250
     it_a_payer: 71250
     cstns_calcule: 36250
     cstns_a_payer: 36250
@@ -274,7 +274,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 122500
+    montant_it_du: 122500
     it_a_payer: 122500
     cstns_calcule: 63750
     cstns_a_payer: 63750
@@ -290,7 +290,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 61250
+    montant_it_du: 61250
     it_a_payer: 61250
     cstns_calcule: 31875
     cstns_a_payer: 31875
@@ -306,7 +306,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 122500
+    montant_it_du: 122500
     it_a_payer: 122500
     cstns_calcule: 63750
     cstns_a_payer: 63750
@@ -322,7 +322,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 82500
+    montant_it_du: 82500
     it_a_payer: 82500
     cstns_calcule: 46250
     cstns_a_payer: 46250
@@ -338,7 +338,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -354,7 +354,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -370,7 +370,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -386,7 +386,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -402,7 +402,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 142500
+    montant_it_du: 142500
     it_a_payer: 142500
     cstns_calcule: 72500
     cstns_a_payer: 72500
@@ -418,7 +418,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 71250
+    montant_it_du: 71250
     it_a_payer: 71250
     cstns_calcule: 36250
     cstns_a_payer: 36250
@@ -434,7 +434,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -450,7 +450,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -466,7 +466,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 142500
+    montant_it_du: 142500
     it_a_payer: 142500
     cstns_calcule: 72500
     cstns_a_payer: 72500
@@ -482,7 +482,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -498,7 +498,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -514,7 +514,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 71250
+    montant_it_du: 71250
     it_a_payer: 71250
     cstns_calcule: 36250
     cstns_a_payer: 36250
@@ -530,7 +530,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 142500
+    montant_it_du: 142500
     it_a_payer: 142500
     cstns_calcule: 72500
     cstns_a_payer: 72500
@@ -546,7 +546,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 82500
+    montant_it_du: 82500
     it_a_payer: 82500
     cstns_calcule: 46250
     cstns_a_payer: 46250
@@ -562,7 +562,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -578,7 +578,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 142500
+    montant_it_du: 142500
     it_a_payer: 142500
     cstns_calcule: 72500
     cstns_a_payer: 72500
@@ -594,7 +594,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 41250
+    montant_it_du: 41250
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
@@ -610,7 +610,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 91250
+    montant_it_du: 91250
     it_a_payer: 91250
     cstns_calcule: 45000
     cstns_a_payer: 45000
@@ -626,7 +626,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 182500
+    montant_it_du: 182500
     it_a_payer: 182500
     cstns_calcule: 90000
     cstns_a_payer: 90000
@@ -642,7 +642,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 22500
+    montant_it_du: 22500
     it_a_payer: 22500
     cstns_calcule: 11250
     cstns_a_payer: 11250
@@ -658,7 +658,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 72000
+    montant_it_du: 72000
     it_a_payer: 72000
     cstns_calcule: 36000
     cstns_a_payer: 36000
@@ -674,7 +674,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 36000
+    montant_it_du: 36000
     it_a_payer: 36000
     cstns_calcule: 18000
     cstns_a_payer: 18000
@@ -690,7 +690,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 182500
+    montant_it_du: 182500
     it_a_payer: 182500
     cstns_calcule: 90000
     cstns_a_payer: 90000
@@ -706,7 +706,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 22500
+    montant_it_du: 22500
     it_a_payer: 22500
     cstns_calcule: 11250
     cstns_a_payer: 11250
@@ -722,7 +722,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 91250
+    montant_it_du: 91250
     it_a_payer: 91250
     cstns_calcule: 45000
     cstns_a_payer: 45000
@@ -738,7 +738,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 552500
+    montant_it_du: 552500
     it_a_payer: 552500
     cstns_calcule: 260000
     cstns_a_payer: 260000
@@ -754,7 +754,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 251250
+    montant_it_du: 251250
     it_a_payer: 251250
     cstns_calcule: 118750
     cstns_a_payer: 118750
@@ -770,7 +770,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 276250
+    montant_it_du: 276250
     it_a_payer: 276250
     cstns_calcule: 130000
     cstns_a_payer: 130000
@@ -786,7 +786,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 0
+    montant_it_du: 0
     it_a_payer: 0
     cstns_calcule: 0
     cstns_a_payer: 0

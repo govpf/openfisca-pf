@@ -11,7 +11,7 @@ from openfisca_pf.entities import *
 import numpy
 
 
-class it_calcule(Variable):
+class montant_it_du(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -37,5 +37,5 @@ class it_a_payer(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_calcule = numpy.floor(entreprise('it_calcule', period))
-        return where(it_calcule < 6000, 0, it_calcule)
+        montant_it_du = numpy.floor(entreprise('montant_it_du', period))
+        return where(montant_it_du < 6000, 0, montant_it_du)

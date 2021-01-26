@@ -12,7 +12,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 131250
+    montant_it_du: 131250
     it_a_payer: 131250
     chiffre_affaire_total: 20000000
     cstns_calcule: 62500
@@ -31,7 +31,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 117500
+    montant_it_du: 117500
     it_a_payer: 117500
     chiffre_affaire_total: 30000000
     cstns_calcule: 98750
@@ -52,7 +52,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 320000
+    montant_it_du: 320000
     it_a_payer: 320000
     chiffre_affaire_total: 70000000
     cstns_calcule: 200000
@@ -75,7 +75,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 740000
+    montant_it_du: 740000
     it_a_payer: 740000
     chiffre_affaire_total: 90000000
     cstns_calcule: 390000
@@ -98,7 +98,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 467500
+    montant_it_du: 467500
     it_a_payer: 467500
     chiffre_affaire_total: 85000000
     cstns_calcule: 270000
@@ -121,7 +121,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 530000
+    montant_it_du: 530000
     it_a_payer: 530000
     chiffre_affaire_total: 90000000
     cstns_calcule: 295000
@@ -144,7 +144,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 740000
+    montant_it_du: 740000
     it_a_payer: 740000
     chiffre_affaire_total: 90000000
     cstns_calcule: 390000
@@ -167,7 +167,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 740000
+    montant_it_du: 740000
     it_a_payer: 740000
     chiffre_affaire_total: 90000000
     cstns_calcule: 390000
@@ -186,7 +186,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 502500
+    montant_it_du: 502500
     it_a_payer: 502500
     chiffre_affaire_total: 15000000
     cstns_calcule: 237500
@@ -205,7 +205,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 251250
+    montant_it_du: 251250
     it_a_payer: 251250
     chiffre_affaire_total: 15000000
     cstns_calcule: 118750
@@ -224,7 +224,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 382500
+    montant_it_du: 382500
     it_a_payer: 382500
     chiffre_affaire_total: 15000000
     cstns_calcule: 181250
@@ -243,7 +243,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 251250
+    montant_it_du: 251250
     it_a_payer: 251250
     chiffre_affaire_total: 15000000
     cstns_calcule: 118750
@@ -262,7 +262,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 1332500
+    montant_it_du: 1332500
     it_a_payer: 1332500
     chiffre_affaire_total: 30000000
     cstns_calcule: 625000
@@ -281,7 +281,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 666250
+    montant_it_du: 666250
     it_a_payer: 666250
     chiffre_affaire_total: 30000000
     cstns_calcule: 312500
@@ -300,7 +300,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 1332500
+    montant_it_du: 1332500
     it_a_payer: 1332500
     chiffre_affaire_total: 30000000
     cstns_calcule: 625000
@@ -319,7 +319,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 251250
+    montant_it_du: 251250
     it_a_payer: 251250
     chiffre_affaire_total: 15000000
     cstns_calcule: 118750
@@ -338,7 +338,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 320000
+    montant_it_du: 320000
     it_a_payer: 320000
     chiffre_affaire_total: 15000000
     cstns_calcule: 153125
@@ -359,7 +359,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 822500
+    montant_it_du: 822500
     it_a_payer: 822500
     chiffre_affaire_total: 26000000
     cstns_calcule: 387500
@@ -380,7 +380,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 546250
+    montant_it_du: 546250
     it_a_payer: 546250
     chiffre_affaire_total: 26000000
     cstns_calcule: 257500
@@ -401,7 +401,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 822500
+    montant_it_du: 822500
     it_a_payer: 822500
     chiffre_affaire_total: 26000000
     cstns_calcule: 387500
@@ -422,7 +422,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 822500
+    montant_it_du: 822500
     it_a_payer: 822500
     chiffre_affaire_total: 26000000
     cstns_calcule: 387500
@@ -443,7 +443,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 546250
+    montant_it_du: 546250
     it_a_payer: 546250
     chiffre_affaire_total: 26000000
     cstns_calcule: 257500
@@ -462,7 +462,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 232500
+    montant_it_du: 232500
     it_a_payer: 232500
     chiffre_affaire_total: 28000000
     cstns_calcule: 151250
@@ -481,7 +481,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 232500
+    montant_it_du: 232500
     it_a_payer: 232500
     chiffre_affaire_total: 28000000
     cstns_calcule: 151250
@@ -500,7 +500,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 332500
+    montant_it_du: 332500
     it_a_payer: 332500
     chiffre_affaire_total: 32000000
     cstns_calcule: 196250
@@ -519,7 +519,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 555000
+    montant_it_du: 555000
     it_a_payer: 555000
     chiffre_affaire_total: 32000000
     cstns_calcule: 297500
@@ -546,7 +546,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 3630000
+    montant_it_du: 3630000
     it_a_payer: 3630000
     chiffre_affaire_total: 120000000
     cstns_calcule: 1704375
@@ -573,7 +573,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 2960000
+    montant_it_du: 2960000
     it_a_payer: 2960000
     chiffre_affaire_total: 120000000
     cstns_calcule: 1393125
@@ -600,7 +600,7 @@
     persons:
       Alicia: {}
   output:
-    it_calcule: 5430000
+    montant_it_du: 5430000
     it_a_payer: 5430000
     chiffre_affaire_total: 120000000
     cstns_calcule: 2538750

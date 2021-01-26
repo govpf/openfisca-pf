@@ -10,7 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 
 
-class it_ventes_avant_abattement_droits_tranche_0(Variable):
+class montant_it_ventes_du_tranche_1(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -18,11 +18,11 @@ class it_ventes_avant_abattement_droits_tranche_0(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_ventes_tranche_0_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_1', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[0])
 
 
-class it_ventes_avant_abattement_droits_tranche_1(Variable):
+class montant_it_ventes_du_tranche_2(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -35,13 +35,13 @@ class it_ventes_avant_abattement_droits_tranche_1(Variable):
         # bareme.add_bracket(parameters(period).dicp.it.taux_ventes.thresholds[tranche - 1], 0)
         # bareme.add_bracket(parameters(period).dicp.it.taux_ventes.thresholds[tranche], parameters(period).dicp.it.taux_ventes.rates[tranche])
         # bareme.add_bracket(parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1], 0)
-        # ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        # ca = entreprise('base_imposable_it_ventes', period)
         # return round_(bareme.calc(ca))
-        ca = entreprise('chiffre_affaire_ventes_tranche_1_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_2', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[1])
 
 
-class it_ventes_avant_abattement_droits_tranche_2(Variable):
+class montant_it_ventes_du_tranche_3(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -49,11 +49,11 @@ class it_ventes_avant_abattement_droits_tranche_2(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_ventes_tranche_2_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_3', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[2])
 
 
-class it_ventes_avant_abattement_droits_tranche_3(Variable):
+class montant_it_ventes_du_tranche_4(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -61,11 +61,11 @@ class it_ventes_avant_abattement_droits_tranche_3(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_ventes_tranche_3_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_4', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[3])
 
 
-class it_ventes_avant_abattement_droits_tranche_4(Variable):
+class montant_it_ventes_du_tranche_5(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -73,11 +73,11 @@ class it_ventes_avant_abattement_droits_tranche_4(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_ventes_tranche_4_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_5', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[4])
 
 
-class it_ventes_avant_abattement_droits_tranche_5(Variable):
+class montant_it_ventes_du_tranche_6(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -85,11 +85,11 @@ class it_ventes_avant_abattement_droits_tranche_5(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_ventes_tranche_5_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_6', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[5])
 
 
-class it_ventes_avant_abattement_droits_tranche_6(Variable):
+class montant_it_ventes_du_tranche_7(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -97,11 +97,11 @@ class it_ventes_avant_abattement_droits_tranche_6(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_ventes_tranche_6_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_7', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[6])
 
 
-class it_ventes_avant_abattement_droits_tranche_7(Variable):
+class montant_it_ventes_du_tranche_8(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -109,11 +109,11 @@ class it_ventes_avant_abattement_droits_tranche_7(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_ventes_tranche_7_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_8', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[7])
 
 
-class it_ventes_avant_abattement_droits_tranche_8(Variable):
+class montant_it_ventes_du_tranche_9(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -121,11 +121,11 @@ class it_ventes_avant_abattement_droits_tranche_8(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_ventes_tranche_8_it', period)
+        ca = entreprise('base_imposable_it_ventes_tranche_9', period)
         return round_(ca * parameters(period).dicp.it.taux_ventes.rates[8])
 
 
-class it_prestations_avant_abattement_droits_tranche_0(Variable):
+class montant_it_prestations_du_tranche_1(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -133,11 +133,11 @@ class it_prestations_avant_abattement_droits_tranche_0(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_prestations_tranche_0_it', period)
+        ca = entreprise('base_imposable_it_prestations_tranche_1', period)
         return round_(ca * parameters(period).dicp.it.taux_prestations.rates[0])
 
 
-class it_prestations_avant_abattement_droits_tranche_1(Variable):
+class montant_it_prestations_du_tranche_2(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -145,11 +145,11 @@ class it_prestations_avant_abattement_droits_tranche_1(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_prestations_tranche_1_it', period)
+        ca = entreprise('base_imposable_it_prestations_tranche_2', period)
         return round_(ca * parameters(period).dicp.it.taux_prestations.rates[1])
 
 
-class it_prestations_avant_abattement_droits_tranche_2(Variable):
+class montant_it_prestations_du_tranche_3(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -157,11 +157,11 @@ class it_prestations_avant_abattement_droits_tranche_2(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_prestations_tranche_2_it', period)
+        ca = entreprise('base_imposable_it_prestations_tranche_3', period)
         return round_(ca * parameters(period).dicp.it.taux_prestations.rates[2])
 
 
-class it_prestations_avant_abattement_droits_tranche_3(Variable):
+class montant_it_prestations_du_tranche_4(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -169,11 +169,11 @@ class it_prestations_avant_abattement_droits_tranche_3(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_prestations_tranche_3_it', period)
+        ca = entreprise('base_imposable_it_prestations_tranche_4', period)
         return round_(ca * parameters(period).dicp.it.taux_prestations.rates[3])
 
 
-class it_prestations_avant_abattement_droits_tranche_4(Variable):
+class montant_it_prestations_du_tranche_5(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -181,11 +181,11 @@ class it_prestations_avant_abattement_droits_tranche_4(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_prestations_tranche_4_it', period)
+        ca = entreprise('base_imposable_it_prestations_tranche_5', period)
         return round_(ca * parameters(period).dicp.it.taux_prestations.rates[4])
 
 
-class it_prestations_avant_abattement_droits_tranche_5(Variable):
+class montant_it_prestations_du_tranche_6(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -193,11 +193,11 @@ class it_prestations_avant_abattement_droits_tranche_5(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        ca = entreprise('chiffre_affaire_prestations_tranche_5_it', period)
+        ca = entreprise('base_imposable_it_prestations_tranche_6', period)
         return round_(ca * parameters(period).dicp.it.taux_prestations.rates[5])
 
 
-class it_avant_abattement_droits_tranche_0(Variable):
+class montant_du_it_tranche_1(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -205,12 +205,12 @@ class it_avant_abattement_droits_tranche_0(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_prestations_tranche = entreprise('it_prestations_avant_abattement_droits_tranche_0', period)
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_0', period)
+        it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_1', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_1', period)
         return round_(it_prestations_tranche + it_ventes_tranche)
 
 
-class it_avant_abattement_droits_tranche_1(Variable):
+class montant_du_it_tranche_2(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -218,12 +218,12 @@ class it_avant_abattement_droits_tranche_1(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_prestations_tranche = entreprise('it_prestations_avant_abattement_droits_tranche_1', period)
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_1', period)
+        it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_2', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_2', period)
         return round_(it_prestations_tranche + it_ventes_tranche)
 
 
-class it_avant_abattement_droits_tranche_2(Variable):
+class montant_du_it_tranche_3(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -231,12 +231,12 @@ class it_avant_abattement_droits_tranche_2(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_prestations_tranche = entreprise('it_prestations_avant_abattement_droits_tranche_2', period)
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_2', period)
+        it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_3', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_3', period)
         return round_(it_prestations_tranche + it_ventes_tranche)
 
 
-class it_avant_abattement_droits_tranche_3(Variable):
+class montant_du_it_tranche_4(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -244,12 +244,12 @@ class it_avant_abattement_droits_tranche_3(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_prestations_tranche = entreprise('it_prestations_avant_abattement_droits_tranche_3', period)
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_3', period)
+        it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_4', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_4', period)
         return round_(it_prestations_tranche + it_ventes_tranche)
 
 
-class it_avant_abattement_droits_tranche_4(Variable):
+class montant_du_it_tranche_5(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -257,12 +257,12 @@ class it_avant_abattement_droits_tranche_4(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_prestations_tranche = entreprise('it_prestations_avant_abattement_droits_tranche_4', period)
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_4', period)
+        it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_5', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_5', period)
         return round_(it_prestations_tranche + it_ventes_tranche)
 
 
-class it_avant_abattement_droits_tranche_5(Variable):
+class montant_du_it_tranche_6(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -270,12 +270,12 @@ class it_avant_abattement_droits_tranche_5(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_prestations_tranche = entreprise('it_prestations_avant_abattement_droits_tranche_5', period)
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_5', period)
+        it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_6', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_6', period)
         return round_(it_prestations_tranche + it_ventes_tranche)
 
 
-class it_avant_abattement_droits_tranche_6(Variable):
+class montant_du_it_tranche_7(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -283,11 +283,11 @@ class it_avant_abattement_droits_tranche_6(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_6', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_7', period)
         return round_(it_ventes_tranche)
 
 
-class it_avant_abattement_droits_tranche_7(Variable):
+class montant_du_it_tranche_8(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -295,11 +295,11 @@ class it_avant_abattement_droits_tranche_7(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_7', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_8', period)
         return round_(it_ventes_tranche)
 
 
-class it_avant_abattement_droits_tranche_8(Variable):
+class montant_du_it_tranche_9(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -307,5 +307,5 @@ class it_avant_abattement_droits_tranche_8(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        it_ventes_tranche = entreprise('it_ventes_avant_abattement_droits_tranche_8', period)
+        it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_9', period)
         return round_(it_ventes_tranche)

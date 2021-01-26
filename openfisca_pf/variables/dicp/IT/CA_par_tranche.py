@@ -10,7 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 
 
-class chiffre_affaire_ventes_tranche_0_it(Variable):
+class base_imposable_it_ventes_tranche_1(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -21,14 +21,14 @@ class chiffre_affaire_ventes_tranche_0_it(Variable):
         tranche = 0
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_ventes_tranche_1_it(Variable):
+class base_imposable_it_ventes_tranche_2(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -39,14 +39,14 @@ class chiffre_affaire_ventes_tranche_1_it(Variable):
         tranche = 1
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_ventes_tranche_2_it(Variable):
+class base_imposable_it_ventes_tranche_3(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -57,14 +57,14 @@ class chiffre_affaire_ventes_tranche_2_it(Variable):
         tranche = 2
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_ventes_tranche_3_it(Variable):
+class base_imposable_it_ventes_tranche_4(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -75,14 +75,14 @@ class chiffre_affaire_ventes_tranche_3_it(Variable):
         tranche = 3
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_ventes_tranche_4_it(Variable):
+class base_imposable_it_ventes_tranche_5(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -93,14 +93,14 @@ class chiffre_affaire_ventes_tranche_4_it(Variable):
         tranche = 4
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_ventes_tranche_5_it(Variable):
+class base_imposable_it_ventes_tranche_6(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -111,14 +111,14 @@ class chiffre_affaire_ventes_tranche_5_it(Variable):
         tranche = 5
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_ventes_tranche_6_it(Variable):
+class base_imposable_it_ventes_tranche_7(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -129,14 +129,14 @@ class chiffre_affaire_ventes_tranche_6_it(Variable):
         tranche = 6
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_ventes_tranche_7_it(Variable):
+class base_imposable_it_ventes_tranche_8(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -147,14 +147,14 @@ class chiffre_affaire_ventes_tranche_7_it(Variable):
         tranche = 7
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_ventes_tranche_8_it(Variable):
+class base_imposable_it_ventes_tranche_9(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -164,14 +164,14 @@ class chiffre_affaire_ventes_tranche_8_it(Variable):
     def formula(entreprise, period, parameters):
         tranche = 8
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
-        ca = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period)
+        ca = entreprise('base_imposable_it_ventes', period)
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
             [0, ca - seuil_tranche_inferieure],
             ))
 
 
-class chiffre_affaire_prestations_tranche_0_it(Variable):
+class base_imposable_it_prestations_tranche_1(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -182,15 +182,15 @@ class chiffre_affaire_prestations_tranche_0_it(Variable):
         tranche = 0
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period) + entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
-        caVenteTranche = entreprise('chiffre_affaire_ventes_tranche_0_it', period) / 4
+        ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
+        caVenteTranche = entreprise('base_imposable_it_ventes_tranche_1', period) / 4
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
             ))
 
 
-class chiffre_affaire_prestations_tranche_1_it(Variable):
+class base_imposable_it_prestations_tranche_2(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -201,15 +201,15 @@ class chiffre_affaire_prestations_tranche_1_it(Variable):
         tranche = 1
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period) + entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
-        caVenteTranche = entreprise('chiffre_affaire_ventes_tranche_1_it', period) / 4
+        ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
+        caVenteTranche = entreprise('base_imposable_it_ventes_tranche_2', period) / 4
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
             ))
 
 
-class chiffre_affaire_prestations_tranche_2_it(Variable):
+class base_imposable_it_prestations_tranche_3(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -220,15 +220,15 @@ class chiffre_affaire_prestations_tranche_2_it(Variable):
         tranche = 2
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period) + entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
-        caVenteTranche = entreprise('chiffre_affaire_ventes_tranche_2_it', period) / 4
+        ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
+        caVenteTranche = entreprise('base_imposable_it_ventes_tranche_3', period) / 4
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
             ))
 
 
-class chiffre_affaire_prestations_tranche_3_it(Variable):
+class base_imposable_it_prestations_tranche_4(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -239,15 +239,15 @@ class chiffre_affaire_prestations_tranche_3_it(Variable):
         tranche = 3
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period) + entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
-        caVenteTranche = entreprise('chiffre_affaire_ventes_tranche_3_it', period) / 4
+        ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
+        caVenteTranche = entreprise('base_imposable_it_ventes_tranche_4', period) / 4
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
             ))
 
 
-class chiffre_affaire_prestations_tranche_4_it(Variable):
+class base_imposable_it_prestations_tranche_5(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -258,15 +258,15 @@ class chiffre_affaire_prestations_tranche_4_it(Variable):
         tranche = 4
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche + 1]
-        ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period) + entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
-        caVenteTranche = entreprise('chiffre_affaire_ventes_tranche_4_it', period) / 4
+        ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
+        caVenteTranche = entreprise('base_imposable_it_ventes_tranche_5', period) / 4
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
             ))
 
 
-class chiffre_affaire_prestations_tranche_5_it(Variable):
+class base_imposable_it_prestations_tranche_6(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -276,8 +276,8 @@ class chiffre_affaire_prestations_tranche_5_it(Variable):
     def formula(entreprise, period, parameters):
         tranche = 5
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche]
-        ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period) + entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
-        caVenteTranche = entreprise('chiffre_affaire_ventes_tranche_5_it', period) / 4
+        ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
+        caVenteTranche = entreprise('base_imposable_it_ventes_tranche_6', period) / 4
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche],

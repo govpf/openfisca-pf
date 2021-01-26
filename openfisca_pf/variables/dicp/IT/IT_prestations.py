@@ -18,10 +18,10 @@ class it_prestations_avant_abattement_droits(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        chiffre_affaire_total_ventes_apres_abattement_assiette = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
+        base_imposable_it_ventes = entreprise('base_imposable_it_ventes', period) / 4
         echelle = parameters(period).dicp.it.taux_prestations
-        ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette', period)
-        return round_(echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca))
+        ca = entreprise('base_imposable_it_prestations', period)
+        return round_(echelle.calc(base_imposable_it_ventes + ca))
 
 
 class it_prestations_sans_abattement_droits(Variable):
@@ -32,10 +32,10 @@ class it_prestations_sans_abattement_droits(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        chiffre_affaire_total_ventes_apres_abattement_assiette = entreprise('chiffre_affaire_total_ventes_apres_abattement_assiette', period) / 4
+        base_imposable_it_ventes = entreprise('base_imposable_it_ventes', period) / 4
         echelle = parameters(period).dicp.it.taux_prestations
-        ca = entreprise('chiffre_affaire_total_prestations_apres_abattement_assiette_sans_abattement_droits', period)
-        return round_(echelle.calc(chiffre_affaire_total_ventes_apres_abattement_assiette + ca))
+        ca = entreprise('base_imposable_it_prestations_sans_abattement_droits', period)
+        return round_(echelle.calc(base_imposable_it_ventes + ca))
 
 
 class it_prestations(Variable):
