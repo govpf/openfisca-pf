@@ -10,6 +10,171 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 
 
+class taux_it_ventes_tranche_1(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[0])
+
+
+class taux_it_ventes_tranche_2(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[1])
+
+
+class taux_it_ventes_tranche_3(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[2])
+
+
+class taux_it_ventes_tranche_4(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[3])
+
+
+class taux_it_ventes_tranche_5(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[4])
+
+
+class taux_it_ventes_tranche_6(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[5])
+
+
+class taux_it_ventes_tranche_7(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[6])
+
+
+class taux_it_ventes_tranche_8(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[7])
+
+
+class taux_it_ventes_tranche_9(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_ventes.rates[8])
+
+
+class taux_it_prestations_tranche_1(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_prestations.rates[0])
+
+
+class taux_it_prestations_tranche_2(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_prestations.rates[1])
+
+
+class taux_it_prestations_tranche_3(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_prestations.rates[2])
+
+
+class taux_it_prestations_tranche_4(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_prestations.rates[3])
+
+
+class taux_it_prestations_tranche_5(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_prestations.rates[4])
+
+
+class taux_it_prestations_tranche_6(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant IT tranche 0 sur les ventes sans tenir compte de l'abattement de droits"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        return (parameters(period).dicp.it.taux_prestations.rates[5])
+
+
 class montant_it_ventes_du_tranche_1(Variable):
     value_type = float
     entity = Entreprise
