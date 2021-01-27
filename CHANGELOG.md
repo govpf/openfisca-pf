@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.6
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `dicp`.
+* Details:
+  - IT Adding penalites
+
 ## 0.2.5
 
 * Tax and benefit system evolution.
