@@ -8,7 +8,6 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-import numpy
 
 
 class montant_amendes_it(Variable):
@@ -30,6 +29,7 @@ class montant_majoration_it(Variable):
     entity = Entreprise
     definition_period = YEAR
     label = u"Montant de la majoration appliquée a l'IT"
+
     def formula(entreprise, period, parameters):
         taux_majoration_it = entreprise('taux_majoration_it', period)
         it_a_payer = entreprise('it_a_payer', period)

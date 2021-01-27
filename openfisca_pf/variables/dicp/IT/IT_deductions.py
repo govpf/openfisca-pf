@@ -8,7 +8,6 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-import numpy
 
 
 class abattement_it(Variable):
