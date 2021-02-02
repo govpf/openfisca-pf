@@ -22,7 +22,7 @@ class salaire(Variable):
     reference = "https://law.gov.example/salary"  # Always use the most official source
 
 
-class salaires_tranche_0(Variable):
+class revenus_tranche_1(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -55,7 +55,7 @@ class salaires_tranche_0(Variable):
 #         return entreprise.sum(where(salaire_sup_150000, 0, salaires_i))
 
 
-class salaires_tranche_1(Variable):
+class revenus_tranche_2(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -72,12 +72,12 @@ class salaires_tranche_1(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_2(Variable):
+class revenus_tranche_3(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -93,12 +93,12 @@ class salaires_tranche_2(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_3(Variable):
+class revenus_tranche_4(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -114,12 +114,12 @@ class salaires_tranche_3(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_4(Variable):
+class revenus_tranche_5(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -135,12 +135,12 @@ class salaires_tranche_4(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_5(Variable):
+class revenus_tranche_6(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -156,12 +156,12 @@ class salaires_tranche_5(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_6(Variable):
+class revenus_tranche_7(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -177,12 +177,12 @@ class salaires_tranche_6(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_7(Variable):
+class revenus_tranche_8(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -198,12 +198,12 @@ class salaires_tranche_7(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_8(Variable):
+class revenus_tranche_9(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -219,12 +219,12 @@ class salaires_tranche_8(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_9(Variable):
+class revenus_tranche_10(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -240,12 +240,12 @@ class salaires_tranche_9(Variable):
     #     tranche = min_(salaires_i, seuil)
     #     valeur = entreprise.sum(tranche)
     #     for i in range(0, index_tranche):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 
 # This variable is a pure input: it doesn't have a formula
-class salaires_tranche_10(Variable):
+class revenus_tranche_11(Variable):
     value_type = float
     entity = Entreprise
     default_value = 0
@@ -259,7 +259,7 @@ class salaires_tranche_10(Variable):
     #     salaires_i = entreprise.members('salaire', period)
     #     valeur = entreprise.sum(salaires_i)
     #     for i in range(0, index_tranche - 1):
-    #         valeur = valeur - entreprise('salaires_tranche_' + str(i), period)
+    #         valeur = valeur - entreprise('revenus_tranche_' + str(i), period)
     #     return valeur
 
 

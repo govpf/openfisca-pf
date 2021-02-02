@@ -26,6 +26,6 @@ class CountryTaxBenefitSystem(TaxBenefitSystem):
 
         # We define which variable, parameter and simulation example will be used in the OpenAPI specification
         self.open_api_config = {
-            "variable_example": "cst_s_totale",
+            "variable_example": "cst_s_due_totale",
             "parameter_example": "dicp.cst_s.taux",
             }

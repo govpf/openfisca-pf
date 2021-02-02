@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.7
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: `dicp`.
+* Details:
+  - CST-S renaming var
+
 ## 0.2.6
 
 * Tax and benefit system evolution.

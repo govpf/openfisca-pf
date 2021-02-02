@@ -11,7 +11,7 @@ from openfisca_pf.entities import *
 import numpy
 
 
-class cst_s_totale_par_employes(Variable):
+class cst_s_due_totale_par_employes(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -23,7 +23,7 @@ class cst_s_totale_par_employes(Variable):
         return entreprise.sum(cst_s_i)
 
 
-class cst_s_totale(Variable):
+class cst_s_due_totale(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -35,7 +35,7 @@ class cst_s_totale(Variable):
         # print(parameters(period).dicp.cst_s.taux.rates[0])
         value = 0
         for i, taux in enumerate(parameters(period).dicp.cst_s.taux.rates):
-            value += entreprise('cst_s_tranche_' + str(i), period)
+            value += entreprise('cst_s_du_tranche_' + str(i+1), period)
         return value
 
 
@@ -56,7 +56,7 @@ class cst_s(Variable):
 
 
 # CSTS par tranche
-class cst_s_tranche_0(Variable):
+class cst_s_du_tranche_1(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -65,12 +65,12 @@ class cst_s_tranche_0(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_0', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[0] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_1', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[0] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_1(Variable):
+class cst_s_du_tranche_2(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -79,12 +79,12 @@ class cst_s_tranche_1(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_1', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[1] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_2', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[1] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_2(Variable):
+class cst_s_du_tranche_3(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -93,12 +93,12 @@ class cst_s_tranche_2(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_2', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[2] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_3', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[2] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_3(Variable):
+class cst_s_du_tranche_4(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -107,12 +107,12 @@ class cst_s_tranche_3(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_3', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[3] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_4', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[3] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_4(Variable):
+class cst_s_du_tranche_5(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -121,12 +121,12 @@ class cst_s_tranche_4(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_4', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[4] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_5', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[4] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_5(Variable):
+class cst_s_du_tranche_6(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -135,12 +135,12 @@ class cst_s_tranche_5(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_5', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[5] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_6', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[5] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_6(Variable):
+class cst_s_du_tranche_7(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -149,12 +149,12 @@ class cst_s_tranche_6(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_6', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[6] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_7', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[6] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_7(Variable):
+class cst_s_du_tranche_8(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -163,12 +163,12 @@ class cst_s_tranche_7(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_7', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[7] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_8', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[7] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_8(Variable):
+class cst_s_du_tranche_9(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -177,12 +177,12 @@ class cst_s_tranche_8(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_8', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[8] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_9', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[8] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_9(Variable):
+class cst_s_du_tranche_10(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -191,12 +191,12 @@ class cst_s_tranche_9(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_9', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[9] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_10', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[9] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_tranche_10(Variable):
+class cst_s_du_tranche_11(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -205,6 +205,6 @@ class cst_s_tranche_10(Variable):
 
     # The formula to compute the income tax for a given person at a given period
     def formula(entreprise, period, parameters):
-        salaires_tranche = entreprise('salaires_tranche_10', period)
-        salaires_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[10] * where(salaires_tranche_inf_0, 0, salaires_tranche))
+        salaires_tranche = entreprise('revenus_tranche_11', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[10] * where(revenus_tranche_inf_0, 0, salaires_tranche))
