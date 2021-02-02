@@ -35,7 +35,7 @@ class cst_s_due_totale(Variable):
         # print(parameters(period).dicp.cst_s.taux.rates[0])
         value = 0
         for i, taux in enumerate(parameters(period).dicp.cst_s.taux.rates):
-            value += entreprise('cst_s_du_tranche_' + str(i+1), period)
+            value += entreprise('cst_s_du_tranche_' + str(i + 1), period)
         return value
 
 
