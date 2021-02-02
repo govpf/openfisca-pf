@@ -35,7 +35,7 @@ class cst_s_due_totale(Variable):
         # print(parameters(period).dicp.cst_s.taux.rates[0])
         value = 0
         for i, taux in enumerate(parameters(period).dicp.cst_s.taux.rates):
-            value += entreprise('cst_s_du_tranche_' + str(i + 1), period)
+            value += entreprise('cst_s_due_tranche_' + str(i + 1), period)
         return value
 
 
@@ -56,7 +56,7 @@ class cst_s(Variable):
 
 
 # CSTS par tranche
-class cst_s_du_tranche_1(Variable):
+class cst_s_due_tranche_1(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -70,7 +70,7 @@ class cst_s_du_tranche_1(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[0] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_2(Variable):
+class cst_s_due_tranche_2(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -84,7 +84,7 @@ class cst_s_du_tranche_2(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[1] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_3(Variable):
+class cst_s_due_tranche_3(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -98,7 +98,7 @@ class cst_s_du_tranche_3(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[2] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_4(Variable):
+class cst_s_due_tranche_4(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -112,7 +112,7 @@ class cst_s_du_tranche_4(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[3] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_5(Variable):
+class cst_s_due_tranche_5(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -126,7 +126,7 @@ class cst_s_du_tranche_5(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[4] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_6(Variable):
+class cst_s_due_tranche_6(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -140,7 +140,7 @@ class cst_s_du_tranche_6(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[5] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_7(Variable):
+class cst_s_due_tranche_7(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -154,7 +154,7 @@ class cst_s_du_tranche_7(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[6] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_8(Variable):
+class cst_s_due_tranche_8(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -168,7 +168,7 @@ class cst_s_du_tranche_8(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[7] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_9(Variable):
+class cst_s_due_tranche_9(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -182,7 +182,7 @@ class cst_s_du_tranche_9(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[8] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_10(Variable):
+class cst_s_due_tranche_10(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
@@ -196,7 +196,7 @@ class cst_s_du_tranche_10(Variable):
         return numpy.floor(parameters(period).dicp.cst_s.taux.rates[9] * where(revenus_tranche_inf_0, 0, salaires_tranche))
 
 
-class cst_s_du_tranche_11(Variable):
+class cst_s_due_tranche_11(Variable):
     value_type = float
     entity = Entreprise
     definition_period = MONTH
