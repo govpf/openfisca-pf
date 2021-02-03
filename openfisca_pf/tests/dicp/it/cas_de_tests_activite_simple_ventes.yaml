@@ -49,8 +49,8 @@
     entreprise:
       releve_de_charges_fourni: false
       annexes_IT_fournies: false
-      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 16000000
-      charges_ventes_en_gros_lait_frais_origine_local: 16000000
+      chiffre_affaire_vente_gros_lait_frais: 16000000
+      charges_vente_gros_lait_frais: 16000000
     persons:
       Alicia: {}
   output:
@@ -109,8 +109,8 @@
     entreprise:
       releve_de_charges_fourni: false
       annexes_IT_fournies: false
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
-      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
+      charges_negociants_detaillants_ca_superieur_20mf: 0
     persons:
       Alicia: {}
   output:

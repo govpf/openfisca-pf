@@ -67,7 +67,8 @@ class cst_s_due_tranche_1(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_1', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[0] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[0] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_2(Variable):
@@ -81,7 +82,8 @@ class cst_s_due_tranche_2(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_2', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[1] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[1] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_3(Variable):
@@ -95,7 +97,8 @@ class cst_s_due_tranche_3(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_3', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[2] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[2] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_4(Variable):
@@ -109,7 +112,8 @@ class cst_s_due_tranche_4(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_4', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[3] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[3] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_5(Variable):
@@ -123,7 +127,8 @@ class cst_s_due_tranche_5(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_5', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[4] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[4] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_6(Variable):
@@ -137,7 +142,8 @@ class cst_s_due_tranche_6(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_6', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[5] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[5] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_7(Variable):
@@ -151,7 +157,8 @@ class cst_s_due_tranche_7(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_7', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[6] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[6] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_8(Variable):
@@ -165,7 +172,8 @@ class cst_s_due_tranche_8(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_8', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[7] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[7] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_9(Variable):
@@ -179,7 +187,8 @@ class cst_s_due_tranche_9(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_9', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[8] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[8] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_10(Variable):
@@ -193,7 +202,8 @@ class cst_s_due_tranche_10(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_10', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[9] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[9] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
 
 
 class cst_s_due_tranche_11(Variable):
@@ -207,4 +217,5 @@ class cst_s_due_tranche_11(Variable):
     def formula(entreprise, period, parameters):
         salaires_tranche = entreprise('revenus_tranche_11', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        return numpy.floor(parameters(period).dicp.cst_s.taux.rates[10] * where(revenus_tranche_inf_0, 0, salaires_tranche))
+        cst_s_tranche = parameters(period).dicp.cst_s.taux.rates[10] * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))

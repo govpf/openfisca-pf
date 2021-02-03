@@ -26,14 +26,14 @@ class charges_apport_en_societe(Variable):
     label = "Charges dans la catégorie Apport en société"
 
 
-class chiffre_affaire_bagettes_revente_au_detail(Variable):
+class chiffre_affaire_baguettes_revente_au_detail(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Bagettes revente au détail"
 
 
-class charges_bagettes_revente_au_detail(Variable):
+class charges_baguettes_revente_au_detail(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -110,14 +110,14 @@ class charges_lait_frais(Variable):
     label = "Charges dans la catégorie Lait frais"
 
 
-class chiffre_affaire_negociants_detaillants_ca_sup_20_millions(Variable):
+class chiffre_affaire_negociants_detaillants_ca_superieur_20mf(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Négociants détaillants CA > 20M"
 
 
-class charges_negociants_detaillants_ca_sup_20_millions(Variable):
+class charges_negociants_detaillants_ca_superieur_20mf(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
@@ -208,14 +208,14 @@ class charges_ventes_en_gros(Variable):
     label = "Charges dans la catégorie Ventes en gros"
 
 
-class chiffre_affaire_ventes_en_gros_lait_frais_origine_local(Variable):
+class chiffre_affaire_vente_gros_lait_frais(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Ventes en gros lait frais d'origine local"
 
 
-class charges_ventes_en_gros_lait_frais_origine_local(Variable):
+class charges_vente_gros_lait_frais(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR

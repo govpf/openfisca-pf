@@ -269,8 +269,8 @@
       entreprise_est_personne_physique: true
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_location_terrain_nu: 6500000
-      charges_location_terrain_nu: 0
+      chiffre_affaire_location_terrains_nus: 6500000
+      charges_location_terrains_nus: 0
     persons:
       Alicia: {}
   output:
@@ -285,8 +285,8 @@
       entreprise_est_personne_physique: true
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_location_terrain_nu: 6500000
-      charges_location_terrain_nu: 4000000
+      chiffre_affaire_location_terrains_nus: 6500000
+      charges_location_terrains_nus: 4000000
     persons:
       Alicia: {}
   output:
@@ -301,8 +301,8 @@
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: true
       annexes_IT_fournies: false
-      chiffre_affaire_location_terrain_nu: 6500000
-      charges_location_terrain_nu: 4000000
+      chiffre_affaire_location_terrains_nus: 6500000
+      charges_location_terrains_nus: 4000000
     persons:
       Alicia: {}
   output:
@@ -422,15 +422,15 @@
     it_a_payer: 71250
     cstns_calcule: 36250
     cstns_a_payer: 36250
-- name: 40. 22 - Boulangeries baguettes gros - avec annexe - avec releve - pers phys - charges > 50%
+- name: 40. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
   input:
     entreprise:
       entreprise_est_personne_physique: true
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_baguettes_gros: 5500000
-      charges_boulangeries_baguettes_gros: 3000000
+      chiffre_affaire_boulangerie_baguettes_gros: 5500000
+      charges_boulangerie_baguettes_gros: 3000000
     persons:
       Alicia: {}
   output:
@@ -438,15 +438,15 @@
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
-- name: 41. 22 - Boulangeries baguettes gros - avec annexe - avec releve - pers phys
+- name: 41. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys
   period: 2020
   input:
     entreprise:
       entreprise_est_personne_physique: true
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_baguettes_gros: 5500000
-      charges_boulangeries_baguettes_gros: 0
+      chiffre_affaire_boulangerie_baguettes_gros: 5500000
+      charges_boulangerie_baguettes_gros: 0
     persons:
       Alicia: {}
   output:
@@ -454,15 +454,15 @@
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
-- name: 42. 22 - Boulangeries baguettes gros - avec annexe - avec releve - pers phys - sup seuil
+- name: 42. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys - sup seuil
   period: 2020
   input:
     entreprise:
       entreprise_est_personne_physique: true
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_baguettes_gros: 7000000
-      charges_boulangeries_baguettes_gros: 0
+      chiffre_affaire_boulangerie_baguettes_gros: 7000000
+      charges_boulangerie_baguettes_gros: 0
     persons:
       Alicia: {}
   output:
@@ -534,15 +534,15 @@
     it_a_payer: 142500
     cstns_calcule: 72500
     cstns_a_payer: 72500
-- name: 47. 96 - Boulangeries autres - avec annexe - sans releve - charges > 50%
+- name: 47. 96 - boulangerie autres - avec annexe - sans releve - charges > 50%
   period: 2020
   input:
     entreprise:
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: false
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_autres: 5500000
-      charges_boulangeries_autres: 3000000
+      chiffre_affaire_boulangerie_autres: 5500000
+      charges_boulangerie_autres: 3000000
     persons:
       Alicia: {}
   output:
@@ -550,15 +550,15 @@
     it_a_payer: 82500
     cstns_calcule: 46250
     cstns_a_payer: 46250
-- name: 48. 96 - Boulangeries autres - avec annexe - avec releve - charges > 50%
+- name: 48. 96 - boulangerie autres - avec annexe - avec releve - charges > 50%
   period: 2020
   input:
     entreprise:
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_autres: 5500000
-      charges_boulangeries_autres: 3000000
+      chiffre_affaire_boulangerie_autres: 5500000
+      charges_boulangerie_autres: 3000000
     persons:
       Alicia: {}
   output:
@@ -566,15 +566,15 @@
     it_a_payer: 41250
     cstns_calcule: 23125
     cstns_a_payer: 23125
-- name: 49. 96 - Boulangeries autres - avec annexe - sans releve - charges > 50% - sup seuil
+- name: 49. 96 - boulangerie autres - avec annexe - sans releve - charges > 50% - sup seuil
   period: 2020
   input:
     entreprise:
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: false
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_autres: 7000000
-      charges_boulangeries_autres: 4000000
+      chiffre_affaire_boulangerie_autres: 7000000
+      charges_boulangerie_autres: 4000000
     persons:
       Alicia: {}
   output:
@@ -646,15 +646,15 @@
     it_a_payer: 22500
     cstns_calcule: 11250
     cstns_a_payer: 11250
-- name: 54. 95 - Boulangeries baguettes détail - sans annexe - sans releve - pers phys
+- name: 54. 95 - boulangerie baguettes détail - sans annexe - sans releve - pers phys
   period: 2020
   input:
     entreprise:
       entreprise_est_personne_physique: true
       releve_de_charges_fourni: false
       annexes_IT_fournies: false
-      chiffre_affaire_boulangeries_baguettes_detail: 16000000
-      charges_boulangeries_baguettes_detail: 16000000
+      chiffre_affaire_boulangerie_baguettes_detail: 16000000
+      charges_boulangerie_baguettes_detail: 16000000
     persons:
       Alicia: {}
   output:
@@ -662,15 +662,15 @@
     it_a_payer: 72000
     cstns_calcule: 36000
     cstns_a_payer: 36000
-- name: 55. 95 - Boulangeries baguettes détail - avec annexe - avec releve
+- name: 55. 95 - boulangerie baguettes détail - avec annexe - avec releve
   period: 2020
   input:
     entreprise:
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_baguettes_detail: 16000000
-      charges_boulangeries_baguettes_detail: 16000000
+      chiffre_affaire_boulangerie_baguettes_detail: 16000000
+      charges_boulangerie_baguettes_detail: 16000000
     persons:
       Alicia: {}
   output:

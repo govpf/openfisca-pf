@@ -110,46 +110,46 @@ class charges_boucher_en_detail(Variable):
     label = "Charges dans la catégorie Boucher en détail"
 
 
-class chiffre_affaire_boulangeries_autres(Variable):
+class chiffre_affaire_boulangerie_autres(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = "Chiffre d'affaire dans la catégorie Boulangeries autres"
+    label = "Chiffre d'affaire dans la catégorie boulangerie autres"
 
 
-class charges_boulangeries_autres(Variable):
+class charges_boulangerie_autres(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = "Charges dans la catégorie Boulangeries autres"
+    label = "Charges dans la catégorie boulangerie autres"
 
 
-class chiffre_affaire_boulangeries_baguettes_detail(Variable):
+class chiffre_affaire_boulangerie_baguettes_detail(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = "Chiffre d'affaire dans la catégorie Boulangeries baguettes détail"
+    label = "Chiffre d'affaire dans la catégorie boulangerie baguettes détail"
 
 
-class charges_boulangeries_baguettes_detail(Variable):
+class charges_boulangerie_baguettes_detail(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = "Charges dans la catégorie Boulangeries baguettes détail"
+    label = "Charges dans la catégorie boulangerie baguettes détail"
 
 
-class chiffre_affaire_boulangeries_baguettes_gros(Variable):
+class chiffre_affaire_boulangerie_baguettes_gros(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = "Chiffre d'affaire dans la catégorie Boulangeries baguettes gros"
+    label = "Chiffre d'affaire dans la catégorie boulangerie baguettes gros"
 
 
-class charges_boulangeries_baguettes_gros(Variable):
+class charges_boulangerie_baguettes_gros(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = "Charges dans la catégorie Boulangeries baguettes gros"
+    label = "Charges dans la catégorie boulangerie baguettes gros"
 
 
 class chiffre_affaire_bourrelier(Variable):
@@ -236,14 +236,14 @@ class charges_location_non_meublee(Variable):
     label = "Charges dans la catégorie Location non meublée"
 
 
-class chiffre_affaire_location_terrain_nu(Variable):
+class chiffre_affaire_location_terrains_nus(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Location terrain nu"
 
 
-class charges_location_terrain_nu(Variable):
+class charges_location_terrains_nus(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR

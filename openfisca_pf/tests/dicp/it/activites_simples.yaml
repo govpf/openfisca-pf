@@ -76,8 +76,8 @@
 #     entreprise:
 #       releve_de_charges_fourni: true
 #       annexes_IT_fournies: true
-#       chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 20892282
-#       charges_negociants_detaillants_ca_sup_20_millions: 20772330
+#       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 20892282
+#       charges_negociants_detaillants_ca_superieur_20mf: 20772330
 #     persons:
 #       Alicia: {}
 #   output:
@@ -124,20 +124,20 @@
     entreprise:
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_baguettes_detail: 23932100
-      charges_boulangeries_baguettes_detail: 15076733
+      chiffre_affaire_boulangerie_baguettes_detail: 23932100
+      charges_boulangerie_baguettes_detail: 15076733
     persons:
       Alicia: {}
   output:
     montant_it_du: 74842
-- name: 22 - Boulangeries baguettes gros avec annexe avec releve
+- name: 22 - boulangerie baguettes gros avec annexe avec releve
   period: 2020
   input:
     entreprise:
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_boulangeries_baguettes_gros: 48106250
-      charges_boulangeries_baguettes_gros: 36318543
+      chiffre_affaire_boulangerie_baguettes_gros: 48106250
+      charges_boulangerie_baguettes_gros: 36318543
     persons:
       Alicia: {}
   output:

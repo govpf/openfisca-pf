@@ -57,24 +57,24 @@ boucher_en_detail:
   eligible_tpe:
     values:
       2020-01-01: 1
-boulangeries_autres:
-  description: Boulangeries autres
+boulangerie_autres:
+  description: boulangerie autres
   cca:
     values:
       2020-01-01: 96
   eligible_tpe:
     values:
       2020-01-01: 1
-boulangeries_baguettes_detail:
-  description: Boulangeries baguettes détail
+boulangerie_baguettes_detail:
+  description: boulangerie baguettes détail
   cca:
     values:
       2020-01-01: 95
   eligible_tpe:
     values:
       2020-01-01: 1
-boulangeries_baguettes_gros:
-  description: Boulangeries baguettes gros
+boulangerie_baguettes_gros:
+  description: boulangerie baguettes gros
   cca:
     values:
       2020-01-01: 22
@@ -129,8 +129,8 @@ location_non_meublee:
   eligible_tpe:
     values:
       2020-01-01: 0
-location_terrain_nu:
-  description: Location terrain nu
+location_terrains_nus:
+  description: Location terrains nus
   cca:
     values:
       2020-01-01: 99

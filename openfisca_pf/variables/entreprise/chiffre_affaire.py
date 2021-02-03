@@ -10,16 +10,16 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 import numpy
 # class activitesVentes(Enum):
-#     __order__ = "apport_en_societe bagettes_revente_au_detail ventes_sans_abattement"
+#     __order__ = "apport_en_societe baguettes_revente_au_detail ventes_sans_abattement"
 #     apport_en_societe = u'APPORT EN SOCIÉTÉ'
-#     bagettes_revente_au_detail = u'BAGUETTES (REVENTE AU DETAIL)'
+#     baguettes_revente_au_detail = u'BAGUETTES (REVENTE AU DETAIL)'
 #     ventes_sans_abattement = u'VENTES SANS ABATTEMENT'
 
 # class activitesPrestations(Enum):
-#     __order__ = "acconage_de_coprah armateurs boulangeries_autres"
+#     __order__ = "acconage_de_coprah armateurs boulangerie_autres"
 #     acconage_de_coprah = u'ACCONAGE DE COPRAH'
 #     armateurs = u'ARMATEURS'
-#     boulangeries_autres = u'BOULANGERIE - AUTRES'
+#     boulangerie_autres = u'BOULANGERIE - AUTRES'
 
 
 class chiffre_affaire_total(Variable):

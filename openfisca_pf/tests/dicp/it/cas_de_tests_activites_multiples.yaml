@@ -43,12 +43,12 @@
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: false
       annexes_IT_fournies: false
-      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
-      charges_ventes_en_gros_lait_frais_origine_local: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
-      charges_negociants_detaillants_ca_sup_20_millions: 0
-      chiffre_affaire_bagettes_revente_au_detail: 20000000
-      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_vente_gros_lait_frais: 20000000
+      charges_vente_gros_lait_frais: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
+      charges_negociants_detaillants_ca_superieur_20mf: 0
+      chiffre_affaire_baguettes_revente_au_detail: 20000000
+      charges_baguettes_revente_au_detail: 0
     persons:
       Alicia: {}
   output:
@@ -64,12 +64,12 @@
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: false
       annexes_IT_fournies: false
-      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
-      charges_ventes_en_gros_lait_frais_origine_local: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
-      charges_negociants_detaillants_ca_sup_20_millions: 0
-      chiffre_affaire_bagettes_revente_au_detail: 20000000
-      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_vente_gros_lait_frais: 20000000
+      charges_vente_gros_lait_frais: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
+      charges_negociants_detaillants_ca_superieur_20mf: 0
+      chiffre_affaire_baguettes_revente_au_detail: 20000000
+      charges_baguettes_revente_au_detail: 0
       chiffre_affaire_ventes_a_l_aventure_armateurs: 20000000
       charges_ventes_a_l_aventure_armateurs: 0
     persons:
@@ -87,12 +87,12 @@
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
-      charges_ventes_en_gros_lait_frais_origine_local: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
-      charges_negociants_detaillants_ca_sup_20_millions: 0
-      chiffre_affaire_bagettes_revente_au_detail: 20000000
-      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_vente_gros_lait_frais: 20000000
+      charges_vente_gros_lait_frais: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
+      charges_negociants_detaillants_ca_superieur_20mf: 0
+      chiffre_affaire_baguettes_revente_au_detail: 20000000
+      charges_baguettes_revente_au_detail: 0
       chiffre_affaire_ventes_a_l_aventure_armateurs: 15000000
       charges_ventes_a_l_aventure_armateurs: 0
     persons:
@@ -110,12 +110,12 @@
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
-      charges_ventes_en_gros_lait_frais_origine_local: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
-      charges_negociants_detaillants_ca_sup_20_millions: 50000000
-      chiffre_affaire_bagettes_revente_au_detail: 20000000
-      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_vente_gros_lait_frais: 20000000
+      charges_vente_gros_lait_frais: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
+      charges_negociants_detaillants_ca_superieur_20mf: 50000000
+      chiffre_affaire_baguettes_revente_au_detail: 20000000
+      charges_baguettes_revente_au_detail: 0
       chiffre_affaire_ventes_a_l_aventure_armateurs: 20000000
       charges_ventes_a_l_aventure_armateurs: 0
     persons:
@@ -133,12 +133,12 @@
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: true
       annexes_IT_fournies: true
-      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
-      charges_ventes_en_gros_lait_frais_origine_local: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
-      charges_negociants_detaillants_ca_sup_20_millions: 0
-      chiffre_affaire_bagettes_revente_au_detail: 20000000
-      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_vente_gros_lait_frais: 20000000
+      charges_vente_gros_lait_frais: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
+      charges_negociants_detaillants_ca_superieur_20mf: 0
+      chiffre_affaire_baguettes_revente_au_detail: 20000000
+      charges_baguettes_revente_au_detail: 0
       chiffre_affaire_ventes_a_l_aventure_armateurs: 20000000
       charges_ventes_a_l_aventure_armateurs: 40000000
     persons:
@@ -156,12 +156,12 @@
       entreprise_est_personne_physique: false
       releve_de_charges_fourni: false
       annexes_IT_fournies: false
-      chiffre_affaire_ventes_en_gros_lait_frais_origine_local: 20000000
-      charges_ventes_en_gros_lait_frais_origine_local: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 30000000
-      charges_negociants_detaillants_ca_sup_20_millions: 50000000
-      chiffre_affaire_bagettes_revente_au_detail: 20000000
-      charges_bagettes_revente_au_detail: 0
+      chiffre_affaire_vente_gros_lait_frais: 20000000
+      charges_vente_gros_lait_frais: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
+      charges_negociants_detaillants_ca_superieur_20mf: 50000000
+      chiffre_affaire_baguettes_revente_au_detail: 20000000
+      charges_baguettes_revente_au_detail: 0
       chiffre_affaire_ventes_a_l_aventure_armateurs: 20000000
       charges_ventes_a_l_aventure_armateurs: 0
     persons:
@@ -181,8 +181,8 @@
       annexes_IT_fournies: true
       chiffre_affaire_artisans: 10000000
       charges_artisans: 0
-      chiffre_affaire_boulangeries_autres: 5000000
-      charges_boulangeries_autres: 0
+      chiffre_affaire_boulangerie_autres: 5000000
+      charges_boulangerie_autres: 0
     persons:
       Alicia: {}
   output:
@@ -200,8 +200,8 @@
       annexes_IT_fournies: true
       chiffre_affaire_artisans: 10000000
       charges_artisans: 10000000
-      chiffre_affaire_boulangeries_autres: 5000000
-      charges_boulangeries_autres: 0
+      chiffre_affaire_boulangerie_autres: 5000000
+      charges_boulangerie_autres: 0
     persons:
       Alicia: {}
   output:
@@ -219,8 +219,8 @@
       annexes_IT_fournies: true
       chiffre_affaire_artisans: 5000000
       charges_artisans: 0
-      chiffre_affaire_boulangeries_autres: 10000000
-      charges_boulangeries_autres: 0
+      chiffre_affaire_boulangerie_autres: 10000000
+      charges_boulangerie_autres: 0
     persons:
       Alicia: {}
   output:
@@ -238,8 +238,8 @@
       annexes_IT_fournies: true
       chiffre_affaire_artisans: 5000000
       charges_artisans: 10000000
-      chiffre_affaire_boulangeries_autres: 10000000
-      charges_boulangeries_autres: 0
+      chiffre_affaire_boulangerie_autres: 10000000
+      charges_boulangerie_autres: 0
     persons:
       Alicia: {}
   output:
@@ -354,8 +354,8 @@
       charges_location_non_meublee: 0
       chiffre_affaire_location_meublee: 10000000
       charges_location_meublee: 0
-      chiffre_affaire_location_terrain_nu: 6000000
-      charges_location_terrain_nu: 0
+      chiffre_affaire_location_terrains_nus: 6000000
+      charges_location_terrains_nus: 0
     persons:
       Alicia: {}
   output:
@@ -375,8 +375,8 @@
       charges_location_non_meublee: 15000000
       chiffre_affaire_location_meublee: 10000000
       charges_location_meublee: 0
-      chiffre_affaire_location_terrain_nu: 6000000
-      charges_location_terrain_nu: 0
+      chiffre_affaire_location_terrains_nus: 6000000
+      charges_location_terrains_nus: 0
     persons:
       Alicia: {}
   output:
@@ -396,8 +396,8 @@
       charges_location_non_meublee: 0
       chiffre_affaire_location_meublee: 10000000
       charges_location_meublee: 0
-      chiffre_affaire_location_terrain_nu: 6000000
-      charges_location_terrain_nu: 0
+      chiffre_affaire_location_terrains_nus: 6000000
+      charges_location_terrains_nus: 0
     persons:
       Alicia: {}
   output:
@@ -417,8 +417,8 @@
       charges_location_non_meublee: 0
       chiffre_affaire_location_meublee: 10000000
       charges_location_meublee: 0
-      chiffre_affaire_location_terrain_nu: 6000000
-      charges_location_terrain_nu: 0
+      chiffre_affaire_location_terrains_nus: 6000000
+      charges_location_terrains_nus: 0
     persons:
       Alicia: {}
   output:
@@ -438,8 +438,8 @@
       charges_location_non_meublee: 15000000
       chiffre_affaire_location_meublee: 10000000
       charges_location_meublee: 0
-      chiffre_affaire_location_terrain_nu: 6000000
-      charges_location_terrain_nu: 0
+      chiffre_affaire_location_terrains_nus: 6000000
+      charges_location_terrains_nus: 0
     persons:
       Alicia: {}
   output:
@@ -495,8 +495,8 @@
       annexes_IT_fournies: true
       chiffre_affaire_ventes_sans_abattement: 22000000
       charges_ventes_sans_abattement: 0
-      chiffre_affaire_boulangeries_baguettes_gros: 10000000
-      charges_boulangeries_baguettes_gros: 20000000
+      chiffre_affaire_boulangerie_baguettes_gros: 10000000
+      charges_boulangerie_baguettes_gros: 20000000
     persons:
       Alicia: {}
   output:
@@ -514,8 +514,8 @@
       annexes_IT_fournies: true
       chiffre_affaire_ventes_sans_abattement: 22000000
       charges_ventes_sans_abattement: 0
-      chiffre_affaire_boulangeries_baguettes_gros: 10000000
-      charges_boulangeries_baguettes_gros: 0
+      chiffre_affaire_boulangerie_baguettes_gros: 10000000
+      charges_boulangerie_baguettes_gros: 0
     persons:
       Alicia: {}
   output:
@@ -539,8 +539,8 @@
       charges_entreprise_de_travaux_publics: 0
       chiffre_affaire_artisans: 5000000
       charges_artisans: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 25000000
-      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
+      charges_negociants_detaillants_ca_superieur_20mf: 0
       chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
       charges_ventes_a_l_aventure_armateurs: 0
     persons:
@@ -566,8 +566,8 @@
       charges_entreprise_de_travaux_publics: 60000000
       chiffre_affaire_artisans: 5000000
       charges_artisans: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 25000000
-      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
+      charges_negociants_detaillants_ca_superieur_20mf: 0
       chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
       charges_ventes_a_l_aventure_armateurs: 0
     persons:
@@ -593,8 +593,8 @@
       charges_entreprise_de_travaux_publics: 0
       chiffre_affaire_artisans: 5000000
       charges_artisans: 0
-      chiffre_affaire_negociants_detaillants_ca_sup_20_millions: 25000000
-      charges_negociants_detaillants_ca_sup_20_millions: 0
+      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
+      charges_negociants_detaillants_ca_superieur_20mf: 0
       chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
       charges_ventes_a_l_aventure_armateurs: 0
     persons:

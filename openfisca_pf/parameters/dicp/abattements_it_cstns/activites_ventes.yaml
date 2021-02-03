@@ -9,7 +9,7 @@ apport_en_societe:
   eligible_tpe:
     values:
       2020-01-01: 1
-bagettes_revente_au_detail:
+baguettes_revente_au_detail:
   description: Bagettes revente au détail
   cca:
     values:
@@ -57,7 +57,7 @@ lait_frais:
   eligible_tpe:
     values:
       2020-01-01: 1
-negociants_detaillants_ca_sup_20_millions:
+negociants_detaillants_ca_superieur_20mf:
   description: Négociants détaillants CA > 20M
   cca:
     values:
@@ -113,7 +113,7 @@ ventes_en_gros:
   eligible_tpe:
     values:
       2020-01-01: 1
-ventes_en_gros_lait_frais_origine_local:
+vente_gros_lait_frais:
   description: Ventes en gros lait frais d'origine local
   cca:
     values:
