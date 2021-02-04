@@ -1,22 +1,64 @@
-- name: 01 - Montant négatif
+- name: 1
   period: 2020-01
   input:
     entreprise:
       revenus_tranche_1: -1000
+      revenus_tranche_2: 0
+      revenus_tranche_3: 0
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
+      revenus_tranche_7: 0
+      revenus_tranche_8: 0
+      revenus_tranche_9: 0
+      revenus_tranche_10: 0
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
+    cst_s_due_tranche_1: 0
+    cst_s_due_tranche_2: 0
+    cst_s_due_tranche_3: 0
+    cst_s_due_tranche_4: 0
+    cst_s_due_tranche_5: 0
+    cst_s_due_tranche_6: 0
+    cst_s_due_tranche_7: 0
+    cst_s_due_tranche_8: 0
+    cst_s_due_tranche_9: 0
+    cst_s_due_tranche_10: 0
+    cst_s_due_tranche_11: 0
     cst_s_due_totale: 0
-- name: 02 - Montant nul
+- name: 2
   period: 2020-01
   input:
     entreprise:
       revenus_tranche_1: 0
+      revenus_tranche_2: 0
+      revenus_tranche_3: 0
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
+      revenus_tranche_7: 0
+      revenus_tranche_8: 0
+      revenus_tranche_9: 0
+      revenus_tranche_10: 0
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
+    cst_s_due_tranche_1: 0
+    cst_s_due_tranche_2: 0
+    cst_s_due_tranche_3: 0
+    cst_s_due_tranche_4: 0
+    cst_s_due_tranche_5: 0
+    cst_s_due_tranche_6: 0
+    cst_s_due_tranche_7: 0
+    cst_s_due_tranche_8: 0
+    cst_s_due_tranche_9: 0
+    cst_s_due_tranche_10: 0
+    cst_s_due_tranche_11: 0
     cst_s_due_totale: 0
-- name: 03 - Toutes les tranches à 1000000
+- name: 3
   period: 2020-01
   input:
     entreprise:
@@ -32,7 +74,7 @@
       revenus_tranche_10: 1000000
       revenus_tranche_11: 1000000
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 5000
     cst_s_due_tranche_2: 30000
@@ -46,7 +88,7 @@
     cst_s_due_tranche_10: 230000
     cst_s_due_tranche_11: 250000
     cst_s_due_totale: 1385000
-- name: 04 - 3 tranches
+- name: 4
   period: 2020-01
   input:
     entreprise:
@@ -62,7 +104,7 @@
       revenus_tranche_10: 0
       revenus_tranche_11: 10000000
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 15000
     cst_s_due_tranche_2: 0
@@ -76,7 +118,7 @@
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 2500000
     cst_s_due_totale: 2875000
-- name: 05 - 7 dernières tranches
+- name: 5
   period: 2020-01
   input:
     entreprise:
@@ -92,7 +134,7 @@
       revenus_tranche_10: 7000000
       revenus_tranche_11: 8000000
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -106,17 +148,25 @@
     cst_s_due_tranche_10: 1610000
     cst_s_due_tranche_11: 2000000
     cst_s_due_totale: 6910000
-- name: 06 - small values
+- name: 6
   period: 2020-01
   input:
     entreprise:
       revenus_tranche_1: 150
       revenus_tranche_2: 40
       revenus_tranche_3: 80
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
+      revenus_tranche_7: 0
+      revenus_tranche_8: 0
+      revenus_tranche_9: 0
+      revenus_tranche_10: 0
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
-    cst_s_due_tranche_1: 0
+    cst_s_due_tranche_1: 1
     cst_s_due_tranche_2: 1
     cst_s_due_tranche_3: 4
     cst_s_due_tranche_4: 0
@@ -127,15 +177,24 @@
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 5
-- name: 07 - big values with low precision
+    cst_s_due_totale: 6
+- name: 7
   period: 2020-01
   input:
     entreprise:
       revenus_tranche_1: 15000000000
+      revenus_tranche_2: 0
+      revenus_tranche_3: 0
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
       revenus_tranche_7: 1050005005
+      revenus_tranche_8: 0
+      revenus_tranche_9: 0
+      revenus_tranche_10: 0
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 75000000
     cst_s_due_tranche_2: 0
@@ -143,20 +202,29 @@
     cst_s_due_tranche_4: 0
     cst_s_due_tranche_5: 0
     cst_s_due_tranche_6: 0
-    cst_s_due_tranche_7: 157500750
+    cst_s_due_tranche_7: 157500751
     cst_s_due_tranche_8: 0
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 232500750
-- name: 08 - big values with high precision - fails in float32
+    cst_s_due_totale: 232500751
+- name: 8
   period: 2020-01
   input:
     entreprise:
+      revenus_tranche_1: 0
+      revenus_tranche_2: 0
+      revenus_tranche_3: 0
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
       revenus_tranche_7: 987654321
       revenus_tranche_8: 987654321
+      revenus_tranche_9: 0
+      revenus_tranche_10: 0
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -165,19 +233,28 @@
     cst_s_due_tranche_5: 0
     cst_s_due_tranche_6: 0
     cst_s_due_tranche_7: 148148148
-    cst_s_due_tranche_8: 177777777
+    cst_s_due_tranche_8: 177777778
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 325925925
-- name: 09 - big values with low precision again
+    cst_s_due_totale: 325925926
+- name: 9
   period: 2020-01
   input:
     entreprise:
+      revenus_tranche_1: 0
+      revenus_tranche_2: 0
+      revenus_tranche_3: 0
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
       revenus_tranche_7: 150000150
       revenus_tranche_8: 160006000
+      revenus_tranche_9: 0
+      revenus_tranche_10: 0
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -185,19 +262,29 @@
     cst_s_due_tranche_4: 0
     cst_s_due_tranche_5: 0
     cst_s_due_tranche_6: 0
-    cst_s_due_tranche_7: 22500022
+    cst_s_due_tranche_7: 22500023
     cst_s_due_tranche_8: 28801080
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 51301102
-- name: 10 - checking roundings
+    cst_s_due_totale: 51301103
+- name: 10
   period: 2020-01
   input:
     entreprise:
+      revenus_tranche_1: 0
+      revenus_tranche_2: 0
+      revenus_tranche_3: 0
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
+      revenus_tranche_7: 0
+      revenus_tranche_8: 0
+      revenus_tranche_9: 0
       revenus_tranche_10: 999999999
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -208,16 +295,26 @@
     cst_s_due_tranche_7: 0
     cst_s_due_tranche_8: 0
     cst_s_due_tranche_9: 0
-    cst_s_due_tranche_10: 229999999
+    cst_s_due_tranche_10: 230000000
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 229999999
-- name: 11 - checking roundings again
+    cst_s_due_totale: 230000000
+- name: 11
   period: 2020-01
   input:
     entreprise:
+      revenus_tranche_1: 0
+      revenus_tranche_2: 0
+      revenus_tranche_3: 0
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
+      revenus_tranche_7: 0
+      revenus_tranche_8: 0
+      revenus_tranche_9: 0
       revenus_tranche_10: 9999999
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -228,10 +325,10 @@
     cst_s_due_tranche_7: 0
     cst_s_due_tranche_8: 0
     cst_s_due_tranche_9: 0
-    cst_s_due_tranche_10: 2299999
+    cst_s_due_tranche_10: 2300000
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 2299999
-- name: 12 - random values
+    cst_s_due_totale: 2300000
+- name: 12
   period: 2020-01
   input:
     entreprise:
@@ -243,31 +340,55 @@
       revenus_tranche_6: 3655
       revenus_tranche_7: 41111
       revenus_tranche_8: 3700
+      revenus_tranche_9: 0
+      revenus_tranche_10: 0
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 5000
     cst_s_due_tranche_2: 240000
     cst_s_due_tranche_3: 40025
     cst_s_due_tranche_4: 10801
-    cst_s_due_tranche_5: 12857
-    cst_s_due_tranche_6: 438
-    cst_s_due_tranche_7: 6166
+    cst_s_due_tranche_5: 12858
+    cst_s_due_tranche_6: 439
+    cst_s_due_tranche_7: 6167
     cst_s_due_tranche_8: 666
-    cst_s_due_totale: 315953
-- name: 13 - two big values on higher brackets
+    cst_s_due_tranche_9: 0
+    cst_s_due_tranche_10: 0
+    cst_s_due_tranche_11: 0
+    cst_s_due_totale: 315956
+- name: 13
   period: 2020-01
   input:
     entreprise:
+      revenus_tranche_1: 0
+      revenus_tranche_2: 0
+      revenus_tranche_3: 0
+      revenus_tranche_4: 0
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
+      revenus_tranche_7: 0
+      revenus_tranche_8: 0
+      revenus_tranche_9: 0
       revenus_tranche_10: 1600060000
       revenus_tranche_11: 1600000000
     persons:
-      Alicia: {}
+      personne: {}
   output:
+    cst_s_due_tranche_1: 0
+    cst_s_due_tranche_2: 0
+    cst_s_due_tranche_3: 0
+    cst_s_due_tranche_4: 0
+    cst_s_due_tranche_5: 0
+    cst_s_due_tranche_6: 0
+    cst_s_due_tranche_7: 0
+    cst_s_due_tranche_8: 0
+    cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 368013800
     cst_s_due_tranche_11: 400000000
     cst_s_due_totale: 768013800
-- name: 14 - all at 452555
+- name: 14
   period: 2020-01
   input:
     entreprise:
@@ -283,21 +404,21 @@
       revenus_tranche_10: 452555
       revenus_tranche_11: 452555
     persons:
-      Alicia: {}
+      personne: {}
   output:
-    cst_s_due_tranche_1: 2262
-    cst_s_due_tranche_2: 13576
-    cst_s_due_tranche_3: 22627
-    cst_s_due_tranche_4: 31678
-    cst_s_due_tranche_5: 40729
-    cst_s_due_tranche_6: 54306
+    cst_s_due_tranche_1: 2263
+    cst_s_due_tranche_2: 13577
+    cst_s_due_tranche_3: 22628
+    cst_s_due_tranche_4: 31679
+    cst_s_due_tranche_5: 40730
+    cst_s_due_tranche_6: 54307
     cst_s_due_tranche_7: 67883
-    cst_s_due_tranche_8: 81459
-    cst_s_due_tranche_9: 95036
-    cst_s_due_tranche_10: 104087
-    cst_s_due_tranche_11: 113138
-    cst_s_due_totale: 626781
-- name: 15 - the evil one
+    cst_s_due_tranche_8: 81460
+    cst_s_due_tranche_9: 95037
+    cst_s_due_tranche_10: 104088
+    cst_s_due_tranche_11: 113139
+    cst_s_due_totale: 626791
+- name: 15
   period: 2020-01
   input:
     entreprise:
@@ -313,7 +434,7 @@
       revenus_tranche_10: 2896
       revenus_tranche_11: 2664
     persons:
-      Alicia: {}
+      personne: {}
   output:
     cst_s_due_tranche_1: 666
     cst_s_due_tranche_2: 666
@@ -327,7 +448,7 @@
     cst_s_due_tranche_10: 666
     cst_s_due_tranche_11: 666
     cst_s_due_totale: 7326
-- name: 16 - the bigger one
+- name: 16
   period: 2020-01
   input:
     entreprise:
@@ -335,11 +456,25 @@
       revenus_tranche_2: 3186218341
       revenus_tranche_3: 3186218341
       revenus_tranche_4: 11123456789
+      revenus_tranche_5: 0
+      revenus_tranche_6: 0
+      revenus_tranche_7: 0
+      revenus_tranche_8: 0
+      revenus_tranche_9: 0
+      revenus_tranche_10: 0
+      revenus_tranche_11: 0
     persons:
-      Alicia: {}
+      personne: {}
   output:
-    cst_s_due_tranche_1: 15931091
+    cst_s_due_tranche_1: 15931092
     cst_s_due_tranche_2: 95586550
     cst_s_due_tranche_3: 159310917
     cst_s_due_tranche_4: 778641975
-    cst_s_due_totale: 1049470533
+    cst_s_due_tranche_5: 0
+    cst_s_due_tranche_6: 0
+    cst_s_due_tranche_7: 0
+    cst_s_due_tranche_8: 0
+    cst_s_due_tranche_9: 0
+    cst_s_due_tranche_10: 0
+    cst_s_due_tranche_11: 0
+    cst_s_due_totale: 1049470534
