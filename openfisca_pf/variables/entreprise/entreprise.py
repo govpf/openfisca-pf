@@ -10,6 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 from openfisca_pf.base import *
 
+
 class type_personne(Variable):
     value_type = Enum
     possible_values = TypePersonne
