@@ -11,4 +11,4 @@ class TypePersonne(Enum):
 
 class OuiNon(Enum):
     O = u'Oui'
-    N = u'N'
+    N = u'Non'
