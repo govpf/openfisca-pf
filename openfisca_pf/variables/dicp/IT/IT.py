@@ -22,11 +22,11 @@ class montant_it_du(Variable):
         it_ventes = entreprise('it_ventes', period)
         it_prestations = entreprise('it_prestations', period)
         it_total = it_ventes + it_prestations
-        it = select(
-            [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
-            [25000, 45000, it_total],
-            )
-        return numpy.floor(it)
+        # it = select(
+        #     [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
+        #     [25000, 45000, it_total],
+        #     )
+        return numpy.floor(it_total)
 
 
 class it_a_payer(Variable):
