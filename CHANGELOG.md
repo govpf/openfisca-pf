@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.8
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: all.
+* Details:
+  - moving from bool to enum to ensure it is well set
+
 ## 0.2.7
 
 * Tax and benefit system evolution.

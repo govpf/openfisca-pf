@@ -2,9 +2,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_armateurs: 10000000
       charges_armateurs: 0
       chiffre_affaire_farine_riz_sucre: 10000000
@@ -21,9 +21,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: false
-      annexes_IT_fournies: false
+      type_personne: M
+      releve_de_charges_fourni: N
+      annexes_IT_fournies: N
       chiffre_affaire_ventes_a_l_aventure_goelettes: 15000000
       charges_ventes_a_l_aventure_goelettes: 10000000
       chiffre_affaire_ventes_inferieur_20_millions: 15000000
@@ -40,9 +40,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: false
-      annexes_IT_fournies: false
+      type_personne: M
+      releve_de_charges_fourni: N
+      annexes_IT_fournies: N
       chiffre_affaire_vente_gros_lait_frais: 20000000
       charges_vente_gros_lait_frais: 0
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
@@ -61,9 +61,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: false
-      annexes_IT_fournies: false
+      type_personne: M
+      releve_de_charges_fourni: N
+      annexes_IT_fournies: N
       chiffre_affaire_vente_gros_lait_frais: 20000000
       charges_vente_gros_lait_frais: 0
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
@@ -84,9 +84,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_vente_gros_lait_frais: 20000000
       charges_vente_gros_lait_frais: 0
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
@@ -107,9 +107,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_vente_gros_lait_frais: 20000000
       charges_vente_gros_lait_frais: 0
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
@@ -130,9 +130,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_vente_gros_lait_frais: 20000000
       charges_vente_gros_lait_frais: 0
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
@@ -153,9 +153,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: false
-      annexes_IT_fournies: false
+      type_personne: M
+      releve_de_charges_fourni: N
+      annexes_IT_fournies: N
       chiffre_affaire_vente_gros_lait_frais: 20000000
       charges_vente_gros_lait_frais: 0
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
@@ -176,9 +176,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_artisans: 10000000
       charges_artisans: 0
       chiffre_affaire_boulangerie_autres: 5000000
@@ -195,9 +195,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_artisans: 10000000
       charges_artisans: 10000000
       chiffre_affaire_boulangerie_autres: 5000000
@@ -214,9 +214,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_artisans: 5000000
       charges_artisans: 0
       chiffre_affaire_boulangerie_autres: 10000000
@@ -233,9 +233,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_artisans: 5000000
       charges_artisans: 10000000
       chiffre_affaire_boulangerie_autres: 10000000
@@ -252,9 +252,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: false
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       charges_denrees_emporter_ou_sur_place: 20000000
       chiffre_affaire_armateurs: 10000000
@@ -271,9 +271,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       charges_denrees_emporter_ou_sur_place: 20000000
       chiffre_affaire_armateurs: 10000000
@@ -290,9 +290,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: false
-      annexes_IT_fournies: false
+      type_personne: M
+      releve_de_charges_fourni: N
+      annexes_IT_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       charges_denrees_emporter_ou_sur_place: 0
       chiffre_affaire_armateurs: 10000000
@@ -309,9 +309,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: false
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 10000000
       charges_denrees_emporter_ou_sur_place: 0
       chiffre_affaire_armateurs: 5000000
@@ -328,9 +328,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: false
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: N
       chiffre_affaire_armateurs_de_goelettes: 5000000
       charges_armateurs_de_goelettes: 0
       chiffre_affaire_hotel_pension_famille: 10000000
@@ -347,9 +347,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_location_non_meublee: 10000000
       charges_location_non_meublee: 0
       chiffre_affaire_location_meublee: 10000000
@@ -368,9 +368,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_location_non_meublee: 10000000
       charges_location_non_meublee: 15000000
       chiffre_affaire_location_meublee: 10000000
@@ -389,9 +389,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: false
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: N
       chiffre_affaire_location_non_meublee: 10000000
       charges_location_non_meublee: 0
       chiffre_affaire_location_meublee: 10000000
@@ -410,9 +410,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_location_non_meublee: 10000000
       charges_location_non_meublee: 0
       chiffre_affaire_location_meublee: 10000000
@@ -431,9 +431,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_location_non_meublee: 10000000
       charges_location_non_meublee: 15000000
       chiffre_affaire_location_meublee: 10000000
@@ -452,9 +452,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_ventes_sans_abattement: 22000000
       charges_ventes_sans_abattement: 0
       chiffre_affaire_location_meublee: 6000000
@@ -471,9 +471,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_ventes_sans_abattement: 22000000
       charges_ventes_sans_abattement: 0
       chiffre_affaire_location_meublee: 6000000
@@ -490,9 +490,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_ventes_sans_abattement: 22000000
       charges_ventes_sans_abattement: 0
       chiffre_affaire_boulangerie_baguettes_gros: 10000000
@@ -509,9 +509,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_ventes_sans_abattement: 22000000
       charges_ventes_sans_abattement: 0
       chiffre_affaire_boulangerie_baguettes_gros: 10000000
@@ -528,9 +528,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_location_meublee: 50000000
       charges_location_meublee: 0
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
@@ -555,9 +555,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: true
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: P
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_location_meublee: 50000000
       charges_location_meublee: 0
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
@@ -582,9 +582,9 @@
   period: 2020
   input:
     entreprise:
-      entreprise_est_personne_physique: false
-      releve_de_charges_fourni: true
-      annexes_IT_fournies: true
+      type_personne: M
+      releve_de_charges_fourni: O
+      annexes_IT_fournies: O
       chiffre_affaire_location_meublee: 50000000
       charges_location_meublee: 0
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
