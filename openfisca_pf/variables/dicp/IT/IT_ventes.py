@@ -20,7 +20,7 @@ class it_ventes_regularisation_prestations(Variable):
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.it.taux_prestations
         ca = entreprise('base_imposable_it_ventes', period) / 4
-        return round_(echelle.calc(ca))
+        return echelle.calc(ca)
 
 
 class it_ventes_avant_abattement_droits(Variable):
@@ -33,7 +33,7 @@ class it_ventes_avant_abattement_droits(Variable):
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.it.taux_ventes
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(echelle.calc(ca))
+        return echelle.calc(ca)
 
 
 class it_ventes_sans_abattement_droits(Variable):
@@ -46,7 +46,7 @@ class it_ventes_sans_abattement_droits(Variable):
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.it.taux_ventes
         ca = entreprise('base_imposable_it_ventes_sans_abattement_droits', period)
-        return round_(echelle.calc(ca))
+        return echelle.calc(ca)
 
 
 class it_ventes(Variable):
@@ -60,7 +60,7 @@ class it_ventes(Variable):
         it_ventes_avant_abattement_droits = entreprise('it_ventes_avant_abattement_droits', period)
         it_ventes_sans_abattement_droits = entreprise('it_ventes_sans_abattement_droits', period)
         it = (it_ventes_avant_abattement_droits - it_ventes_sans_abattement_droits) / 2 + it_ventes_sans_abattement_droits
-        return round_(it)
+        return it
 
 
 class abattement_it_ventes(Variable):
@@ -74,4 +74,4 @@ class abattement_it_ventes(Variable):
         it_ventes_avant_abattement_droits = entreprise('it_ventes_avant_abattement_droits', period)
         it_ventes = entreprise('it_ventes', period)
         it = (it_ventes_avant_abattement_droits - it_ventes)
-        return round_(it)
+        return it
