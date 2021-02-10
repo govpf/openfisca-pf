@@ -8,6 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
+from openfisca_pf.base import *
 
 
 class cst_s_due_totale_par_employes(Variable):
@@ -51,4 +52,4 @@ class cst_s(Variable):
         salaire_sup_150000 = salaire >= 150000
         echelle = parameters(period).dicp.cst_s.taux
         # Si le salaire est < 150000 alors retourne 0
-        return round_(echelle.calc(where(salaire_sup_150000, salaire, 0)))
+        return arrondiSup(echelle.calc(where(salaire_sup_150000, salaire, 0)))

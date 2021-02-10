@@ -8,7 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-import numpy
+from openfisca_pf.base import *
 
 
 # CSTS par tranche
@@ -25,7 +25,7 @@ class cst_s_due_tranche_1(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_1', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_2(Variable):
@@ -41,7 +41,7 @@ class cst_s_due_tranche_2(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_2', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_3(Variable):
@@ -57,7 +57,7 @@ class cst_s_due_tranche_3(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_3', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_4(Variable):
@@ -73,7 +73,7 @@ class cst_s_due_tranche_4(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_4', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_5(Variable):
@@ -89,7 +89,7 @@ class cst_s_due_tranche_5(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_5', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_6(Variable):
@@ -105,7 +105,7 @@ class cst_s_due_tranche_6(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_6', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_7(Variable):
@@ -121,7 +121,7 @@ class cst_s_due_tranche_7(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_7', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_8(Variable):
@@ -137,7 +137,7 @@ class cst_s_due_tranche_8(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_8', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_9(Variable):
@@ -153,7 +153,7 @@ class cst_s_due_tranche_9(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_9', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_10(Variable):
@@ -169,7 +169,7 @@ class cst_s_due_tranche_10(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_10', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class cst_s_due_tranche_11(Variable):
@@ -185,7 +185,7 @@ class cst_s_due_tranche_11(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = entreprise('taux_cst_s_tranche_11', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return numpy.rint(numpy.nextafter(cst_s_tranche, cst_s_tranche + 1))
+        return arrondiSup(cst_s_tranche)
 
 
 class taux_cst_s_tranche_1(Variable):

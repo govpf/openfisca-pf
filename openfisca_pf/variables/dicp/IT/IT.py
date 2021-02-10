@@ -8,7 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-import numpy
+from openfisca_pf.base import *
 
 
 class montant_it_du(Variable):
@@ -26,7 +26,7 @@ class montant_it_du(Variable):
         #     [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
         #     [25000, 45000, it_total],
         #     )
-        return numpy.floor(it_total)
+        return arrondiInf(it_total)
 
 
 class it_a_payer(Variable):
@@ -37,7 +37,7 @@ class it_a_payer(Variable):
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        montant_it_du = numpy.floor(entreprise('montant_it_du', period))
+        montant_it_du = entreprise('montant_it_du', period)
         return where(montant_it_du < 6000, 0, montant_it_du)
 
 
