@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.9
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: all.
+* Details:
+  - Round rules are aligned with CDI
+
 ## 0.2.8
 
 * Tax and benefit system evolution.
