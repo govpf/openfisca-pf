@@ -277,7 +277,7 @@ class base_imposable_it_prestations_tranche_6(Variable):
         tranche = 5
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_prestations.thresholds[tranche]
         ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
-        caVenteTranche = entreprise('base_imposable_it_ventes_tranche_6', period) / 4
+        caVenteTranche = (entreprise('base_imposable_it_ventes_tranche_6', period) + entreprise('base_imposable_it_ventes_tranche_7', period) + entreprise('base_imposable_it_ventes_tranche_8', period) + entreprise('base_imposable_it_ventes_tranche_9', period)) / 4
         return round_(select(
             [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche],
