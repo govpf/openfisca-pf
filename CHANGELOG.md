@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.10
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - tuning to rounds
+  - raw It  is now based on tranche calculatiion so that the "avis" is coherent
+
 ## 0.2.9
 
 * Tax and benefit system evolution.
