@@ -22,7 +22,7 @@ class base_imposable_it_ventes_tranche_1(Variable):
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -40,7 +40,7 @@ class base_imposable_it_ventes_tranche_2(Variable):
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -58,7 +58,7 @@ class base_imposable_it_ventes_tranche_3(Variable):
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -76,7 +76,7 @@ class base_imposable_it_ventes_tranche_4(Variable):
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -94,7 +94,7 @@ class base_imposable_it_ventes_tranche_5(Variable):
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -112,7 +112,7 @@ class base_imposable_it_ventes_tranche_6(Variable):
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -130,7 +130,7 @@ class base_imposable_it_ventes_tranche_7(Variable):
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -148,7 +148,7 @@ class base_imposable_it_ventes_tranche_8(Variable):
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         seuil_tranche_superieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche + 1]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -165,7 +165,7 @@ class base_imposable_it_ventes_tranche_9(Variable):
         tranche = 8
         seuil_tranche_inferieure = parameters(period).dicp.it.taux_ventes.thresholds[tranche]
         ca = entreprise('base_imposable_it_ventes', period)
-        return round_(select(
+        return (select(
             [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
             [0, ca - seuil_tranche_inferieure],
             ))
