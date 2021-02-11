@@ -15,8 +15,8 @@ class montant_it_du(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Montant IT total calculé"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"Montant IT total calculé.\n\n#montant_it_du = #it_ventes + #it_prestations"
+    reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         it_ventes = entreprise('it_ventes', period)
@@ -33,8 +33,8 @@ class it_a_payer(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Montant IT à payer"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"Montant IT à payer.\n\nSi #montant_it_du < 6000\n    alors #it_a_payer = 0,\n    sinon #it_a_payer = #montant_it_du"
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         montant_it_du = entreprise('montant_it_du', period)
@@ -45,8 +45,8 @@ class montant_it_total_a_payer(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Montant IT total à payer"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"Montant IT total à payer, en prenant compte des déductions et des pénalités :\n\n#montant_it_total_a_payer = #montant_it_du - #montant_total_deductions_it + montant_total_penalites_it"
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         montant_it_du = entreprise('montant_it_du', period)

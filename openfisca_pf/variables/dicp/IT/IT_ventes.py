@@ -14,8 +14,8 @@ class it_ventes_regularisation_prestations(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Montant IT pour compenser le montant de l'IT des prestations"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"Montant IT à déduire de l'IT des prestations si l'entreprise déclare aussi des CA en vente :\n\n#it_ventes_regularisation_prestations = IT(#base_imposable_it_ventes / 4)"
+    reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.it.taux_prestations
@@ -27,8 +27,8 @@ class it_ventes_avant_abattement_droits(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Montant IT sur les ventes sans tenir compte de l'abattement de droits"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"Montant IT sur les ventes sans tenir compte de l'abattement de droits éventuel :\n\n#it_ventes_avant_abattement_droits = IT(#base_imposable_it_ventes)"
+    reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.it.taux_ventes
@@ -40,8 +40,8 @@ class it_ventes_sans_abattement_droits(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Montant IT sur les ventes ne bénéficiant pas de l'abattement de droits"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"Montant IT sur les ventes ne bénéficiant pas de l'abattement de droits :\n\n#it_ventes_sans_abattement_droits = IT(#base_imposable_it_ventes_sans_abattement_droits)"
+    reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         echelle = parameters(period).dicp.it.taux_ventes
@@ -53,8 +53,8 @@ class it_ventes(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Montant IT sur les ventes, suite à application de l'abattement sur les droits"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"Montant IT sur les ventes, suite à application de l'abattement sur les droits :\n\n#it_ventes = (#it_ventes_avant_abattement_droits - #it_ventes_sans_abattement_droits) / 2 + #it_ventes_sans_abattement_droits"
+    reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         it_ventes_avant_abattement_droits = entreprise('it_ventes_avant_abattement_droits', period)
@@ -67,8 +67,8 @@ class abattement_it_ventes(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Abattement de droit applique sur l'IT des ventes"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"Abattement de droit applique sur l'IT des ventes :\n\n#abattement_it_ventes = #it_ventes_avant_abattement_droits - #it_ventes"
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         it_ventes_avant_abattement_droits = entreprise('it_ventes_avant_abattement_droits', period)
