@@ -185,7 +185,7 @@ class montant_it_ventes_du_tranche_1(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_ventes_tranche_1', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[0]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[0])
 
 
 class montant_it_ventes_du_tranche_2(Variable):
@@ -204,7 +204,7 @@ class montant_it_ventes_du_tranche_2(Variable):
         # ca = entreprise('base_imposable_it_ventes', period)
         # return round_(bareme.calc(ca))
         ca = entreprise('base_imposable_it_ventes_tranche_2', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[1]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[1])
 
 
 class montant_it_ventes_du_tranche_3(Variable):
@@ -216,7 +216,7 @@ class montant_it_ventes_du_tranche_3(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_ventes_tranche_3', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[2]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[2])
 
 
 class montant_it_ventes_du_tranche_4(Variable):
@@ -228,7 +228,7 @@ class montant_it_ventes_du_tranche_4(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_ventes_tranche_4', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[3]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[3])
 
 
 class montant_it_ventes_du_tranche_5(Variable):
@@ -240,7 +240,7 @@ class montant_it_ventes_du_tranche_5(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_ventes_tranche_5', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[4]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[4])
 
 
 class montant_it_ventes_du_tranche_6(Variable):
@@ -252,7 +252,7 @@ class montant_it_ventes_du_tranche_6(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_ventes_tranche_6', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[5]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[5])
 
 
 class montant_it_ventes_du_tranche_7(Variable):
@@ -264,7 +264,7 @@ class montant_it_ventes_du_tranche_7(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_ventes_tranche_7', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[6]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[6])
 
 
 class montant_it_ventes_du_tranche_8(Variable):
@@ -276,7 +276,7 @@ class montant_it_ventes_du_tranche_8(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_ventes_tranche_8', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[7]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[7])
 
 
 class montant_it_ventes_du_tranche_9(Variable):
@@ -288,7 +288,7 @@ class montant_it_ventes_du_tranche_9(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_ventes_tranche_9', period)
-        return ca * parameters(period).dicp.it.taux_ventes.rates[8]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_ventes.rates[8])
 
 
 class montant_it_prestations_du_tranche_1(Variable):
@@ -300,7 +300,7 @@ class montant_it_prestations_du_tranche_1(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_prestations_tranche_1', period)
-        return ca * parameters(period).dicp.it.taux_prestations.rates[0]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_prestations.rates[0])
 
 
 class montant_it_prestations_du_tranche_2(Variable):
@@ -312,7 +312,7 @@ class montant_it_prestations_du_tranche_2(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_prestations_tranche_2', period)
-        return ca * parameters(period).dicp.it.taux_prestations.rates[1]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_prestations.rates[1])
 
 
 class montant_it_prestations_du_tranche_3(Variable):
@@ -324,7 +324,7 @@ class montant_it_prestations_du_tranche_3(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_prestations_tranche_3', period)
-        return ca * parameters(period).dicp.it.taux_prestations.rates[2]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_prestations.rates[2])
 
 
 class montant_it_prestations_du_tranche_4(Variable):
@@ -336,7 +336,7 @@ class montant_it_prestations_du_tranche_4(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_prestations_tranche_4', period)
-        return ca * parameters(period).dicp.it.taux_prestations.rates[3]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_prestations.rates[3])
 
 
 class montant_it_prestations_du_tranche_5(Variable):
@@ -348,7 +348,7 @@ class montant_it_prestations_du_tranche_5(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_prestations_tranche_5', period)
-        return ca * parameters(period).dicp.it.taux_prestations.rates[4]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_prestations.rates[4])
 
 
 class montant_it_prestations_du_tranche_6(Variable):
@@ -360,7 +360,7 @@ class montant_it_prestations_du_tranche_6(Variable):
 
     def formula(entreprise, period, parameters):
         ca = entreprise('base_imposable_it_prestations_tranche_6', period)
-        return ca * parameters(period).dicp.it.taux_prestations.rates[5]
+        return arrondiInf(ca * parameters(period).dicp.it.taux_prestations.rates[5])
 
 
 class montant_du_it_tranche_1(Variable):
@@ -373,7 +373,7 @@ class montant_du_it_tranche_1(Variable):
     def formula(entreprise, period, parameters):
         it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_1', period)
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_1', period)
-        return arrondiInf(it_prestations_tranche + it_ventes_tranche)
+        return it_prestations_tranche + it_ventes_tranche
 
 
 class montant_du_it_tranche_2(Variable):
@@ -386,7 +386,7 @@ class montant_du_it_tranche_2(Variable):
     def formula(entreprise, period, parameters):
         it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_2', period)
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_2', period)
-        return arrondiInf(it_prestations_tranche + it_ventes_tranche)
+        return it_prestations_tranche + it_ventes_tranche
 
 
 class montant_du_it_tranche_3(Variable):
@@ -399,7 +399,7 @@ class montant_du_it_tranche_3(Variable):
     def formula(entreprise, period, parameters):
         it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_3', period)
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_3', period)
-        return arrondiInf(it_prestations_tranche + it_ventes_tranche)
+        return it_prestations_tranche + it_ventes_tranche
 
 
 class montant_du_it_tranche_4(Variable):
@@ -412,7 +412,7 @@ class montant_du_it_tranche_4(Variable):
     def formula(entreprise, period, parameters):
         it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_4', period)
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_4', period)
-        return arrondiInf(it_prestations_tranche + it_ventes_tranche)
+        return it_prestations_tranche + it_ventes_tranche
 
 
 class montant_du_it_tranche_5(Variable):
@@ -425,7 +425,7 @@ class montant_du_it_tranche_5(Variable):
     def formula(entreprise, period, parameters):
         it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_5', period)
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_5', period)
-        return arrondiInf(it_prestations_tranche + it_ventes_tranche)
+        return it_prestations_tranche + it_ventes_tranche
 
 
 class montant_du_it_tranche_6(Variable):
@@ -438,7 +438,7 @@ class montant_du_it_tranche_6(Variable):
     def formula(entreprise, period, parameters):
         it_prestations_tranche = entreprise('montant_it_prestations_du_tranche_6', period)
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_6', period)
-        return arrondiInf(it_prestations_tranche + it_ventes_tranche)
+        return it_prestations_tranche + it_ventes_tranche
 
 
 class montant_du_it_tranche_7(Variable):
@@ -450,7 +450,7 @@ class montant_du_it_tranche_7(Variable):
 
     def formula(entreprise, period, parameters):
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_7', period)
-        return arrondiInf(it_ventes_tranche)
+        return it_ventes_tranche
 
 
 class montant_du_it_tranche_8(Variable):
@@ -462,7 +462,7 @@ class montant_du_it_tranche_8(Variable):
 
     def formula(entreprise, period, parameters):
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_8', period)
-        return arrondiInf(it_ventes_tranche)
+        return it_ventes_tranche
 
 
 class montant_du_it_tranche_9(Variable):
@@ -474,4 +474,4 @@ class montant_du_it_tranche_9(Variable):
 
     def formula(entreprise, period, parameters):
         it_ventes_tranche = entreprise('montant_it_ventes_du_tranche_9', period)
-        return arrondiInf(it_ventes_tranche)
+        return it_ventes_tranche
