@@ -368,4 +368,3 @@ class chiffre_affaire_vannerie(Variable):
     entity = Entreprise
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Vannerie"
-
