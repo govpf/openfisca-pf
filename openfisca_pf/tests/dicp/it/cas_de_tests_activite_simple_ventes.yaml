@@ -5,7 +5,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_farine_riz_sucre: 16000000
-      charges_farine_riz_sucre: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -20,7 +20,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_hydrocarbures_au_detail: 16000000
-      charges_hydrocarbures_au_detail: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -35,7 +35,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_hydrocarbures_au_detail: 24000000
-      charges_hydrocarbures_au_detail: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -50,7 +50,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_vente_gros_lait_frais: 16000000
-      charges_vente_gros_lait_frais: 16000000
+      total_charges_releve_detaille: 16000000
     persons:
       Alicia: {}
   output:
@@ -65,7 +65,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_importateurs_grossistes: 16000000
-      charges_importateurs_grossistes: 16000000
+      total_charges_releve_detaille: 16000000
     persons:
       Alicia: {}
   output:
@@ -80,7 +80,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_ventes_en_gros: 16000000
-      charges_ventes_en_gros: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -95,7 +95,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_tabacs: 16000000
-      charges_tabacs: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -110,7 +110,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
-      charges_negociants_detaillants_ca_superieur_20mf: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -125,7 +125,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_ventes_inferieur_20_millions: 16000000
-      charges_ventes_inferieur_20_millions: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -140,7 +140,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_ventes_a_l_aventure_armateurs: 15000000
-      charges_ventes_a_l_aventure_armateurs: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -155,7 +155,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
-      charges_ventes_a_l_aventure_armateurs: 0
+      total_charges_releve_detaille: 0
     persons:
       Alicia: {}
   output:
@@ -170,7 +170,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
-      charges_ventes_a_l_aventure_armateurs: 10000000
+      total_charges_releve_detaille: 10000000
     persons:
       Alicia: {}
   output:
@@ -185,7 +185,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
-      charges_ventes_a_l_aventure_armateurs: 10000000
+      total_charges_releve_detaille: 10000000
     persons:
       Alicia: {}
   output:
@@ -200,7 +200,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: O
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
-      charges_ventes_a_l_aventure_armateurs: 10000000
+      total_charges_releve_detaille: 10000000
     persons:
       Alicia: {}
   output:
@@ -215,7 +215,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
-      charges_ventes_a_l_aventure_armateurs: 10000000
+      total_charges_releve_detaille: 10000000
     persons:
       Alicia: {}
   output:
@@ -230,7 +230,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_ventes_sans_abattement: 100000000
-      charges_ventes_sans_abattement: 100000000
+      total_charges_releve_detaille: 100000000
     persons:
       Alicia: {}
   output:

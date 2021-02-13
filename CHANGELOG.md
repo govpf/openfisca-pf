@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.12
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - corrected 2 point in IT calculation that were wrong
+
 ## 0.2.11
 
 * Tax and benefit system evolution.

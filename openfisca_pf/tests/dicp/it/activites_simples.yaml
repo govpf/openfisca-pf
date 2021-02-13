@@ -5,7 +5,7 @@
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 22687952
-      charges_denrees_emporter_ou_sur_place: 15598825
+      total_charges_releve_detaille: 15598825
     persons:
       Alicia: {}
   output:
@@ -17,7 +17,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_denrees_emporter_ou_sur_place: 16171607
-      charges_denrees_emporter_ou_sur_place: 16799692
+      total_charges_releve_detaille: 16799692
     persons:
       Alicia: {}
   output:
@@ -29,7 +29,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_denrees_emporter_ou_sur_place: 60485971
-      charges_denrees_emporter_ou_sur_place: 48489692
+      total_charges_releve_detaille: 48489692
     persons:
       Alicia: {}
   output:
@@ -41,7 +41,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 126565780
-      charges_denrees_emporter_ou_sur_place: 86390456
+      total_charges_releve_detaille: 86390456
     persons:
       Alicia: {}
   output:
@@ -53,7 +53,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
       chiffre_affaire_profession_liberale: 5597503
-      charges_profession_liberale: 3801187
+      total_charges_releve_detaille: 3801187
     persons:
       Alicia: {}
   output:
@@ -65,7 +65,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_profession_liberale: 10066080
-      charges_profession_liberale: 7744534
+      total_charges_releve_detaille: 7744534
     persons:
       Alicia: {}
   output:
@@ -89,7 +89,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_armateurs_de_goelettes: 111659288
-      charges_armateurs_de_goelettes: 199349501
+      total_charges_releve_detaille: 199349501
     persons:
       Alicia: {}
   output:
@@ -101,7 +101,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_entreprise_de_travaux_publics: 86559517
-      charges_entreprise_de_travaux_publics: 66196589
+      total_charges_releve_detaille: 66196589
     persons:
       Alicia: {}
   output:
@@ -113,7 +113,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_entreprise_de_travaux_publics: 816554761
-      charges_entreprise_de_travaux_publics: 518095798
+      total_charges_releve_detaille: 518095798
     persons:
       Alicia: {}
   output:
@@ -125,7 +125,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_boulangerie_baguettes_detail: 23932100
-      charges_boulangerie_baguettes_detail: 15076733
+      total_charges_releve_detaille: 15076733
     persons:
       Alicia: {}
   output:
@@ -137,7 +137,7 @@
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_boulangerie_baguettes_gros: 48106250
-      charges_boulangerie_baguettes_gros: 36318543
+      total_charges_releve_detaille: 36318543
     persons:
       Alicia: {}
   output:
