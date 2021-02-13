@@ -10,7 +10,6 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 
 
-
 class charges_total(Variable):
     value_type = float
     entity = Entreprise
@@ -29,4 +28,3 @@ class total_charges_releve_detaille(Variable):
     definition_period = YEAR
     label = u"Montant total des charges déclaré dans le relevé détaillé"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
