@@ -8,6 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
+from openfisca_core.taxscales import MarginalRateTaxScale
 
 
 class it_ventes_avant_abattement_droits(Variable):
@@ -24,8 +25,9 @@ class it_ventes_avant_abattement_droits(Variable):
     #     return echelle.calc(ca)
     def formula(entreprise, period, parameters):
         value = 0
-        for i, taux in enumerate(parameters(period).dicp.it.taux_ventes.rates):
-            value += entreprise('montant_it_ventes_du_tranche_' + str(i + 1), period)
+        nombre_tranches_it_ventes = entreprise('nombre_tranches_it_ventes', period)[0]
+        for i in range(1, nombre_tranches_it_ventes + 1):
+            value += entreprise(f'montant_it_ventes_du_tranche_{i}', period)
         return value
 
 
@@ -37,9 +39,13 @@ class it_ventes_sans_abattement_droits(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        echelle = parameters(period).dicp.it.taux_ventes
+        # echelle = parameters(period).dicp.it.taux_ventes
         ca = entreprise('base_imposable_it_ventes_sans_abattement_droits', period)
-        return echelle.calc(ca)
+        nombre_tranches_it_ventes = entreprise('nombre_tranches_it_ventes', period)[0]
+        bareme = MarginalRateTaxScale(name = 'IT ventes tranche 1')
+        for tranche in range(1, nombre_tranches_it_ventes + 1):
+            bareme.add_bracket(entreprise(f'seuil_it_ventes_tranche_{tranche}', period)[0], entreprise(f'taux_it_ventes_tranche_{tranche}', period)[0])
+        return bareme.calc(ca)
 
 
 class it_ventes(Variable):

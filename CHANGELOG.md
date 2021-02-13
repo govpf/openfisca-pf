@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.11
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - mode doc
+  - More intermediate variables in IT to allow simulations from Web API
+
 ## 0.2.10
 
 * Tax and benefit system evolution.
