@@ -14,13 +14,13 @@ class abattement_it(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Abattement total de droit applique sur l'IT :\n\n#abattement_it = #abattement_it_prestations + #abattement_it_ventes"
+    label = u"Abattement total de droit applique sur l'IT :\n\n#abattement_it = #it_prestations_abattement_droits + #it_ventes_abattement_droits"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(entreprise, period, parameters):
-        abattement_it_ventes = entreprise('abattement_it_ventes', period)
-        abattement_it_prestations = entreprise('abattement_it_prestations', period)
-        return round_(abattement_it_prestations + abattement_it_ventes)
+        it_ventes_abattement_droits = entreprise('it_ventes_abattement_droits', period)
+        it_prestations_abattement_droits = entreprise('it_prestations_abattement_droits', period)
+        return round_(it_prestations_abattement_droits + it_ventes_abattement_droits)
 
 
 # class montant_acompte_it_1(Variable):

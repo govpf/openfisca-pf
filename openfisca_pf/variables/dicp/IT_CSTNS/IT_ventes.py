@@ -56,21 +56,19 @@ class it_ventes(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(entreprise, period, parameters):
+        it_ventes_abattement_droits = entreprise('it_ventes_abattement_droits', period)
         it_ventes_avant_abattement_droits = entreprise('it_ventes_avant_abattement_droits', period)
-        it_ventes_sans_abattement_droits = entreprise('it_ventes_sans_abattement_droits', period)
-        it = (it_ventes_avant_abattement_droits - it_ventes_sans_abattement_droits) / 2 + it_ventes_sans_abattement_droits
-        return it
+        return it_ventes_avant_abattement_droits - it_ventes_abattement_droits
 
 
-class abattement_it_ventes(Variable):
+class it_ventes_abattement_droits(Variable):
     value_type = float
     entity = Entreprise
     definition_period = YEAR
-    label = u"Abattement de droit applique sur l'IT des ventes :\n\n#abattement_it_ventes = #it_ventes_avant_abattement_droits - #it_ventes"
+    label = u"Abattement de droit applique sur l'IT des ventes :\n\n#it_ventes_abattement_droits = ( #it_ventes_avant_abattement_droits - #it_ventes_sans_abattement_droits ) / 2"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(entreprise, period, parameters):
         it_ventes_avant_abattement_droits = entreprise('it_ventes_avant_abattement_droits', period)
-        it_ventes = entreprise('it_ventes', period)
-        it = (it_ventes_avant_abattement_droits - it_ventes)
-        return it
+        it_ventes_sans_abattement_droits = entreprise('it_ventes_sans_abattement_droits', period)
+        return (it_ventes_avant_abattement_droits - it_ventes_sans_abattement_droits) / 2
