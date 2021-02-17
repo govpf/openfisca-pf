@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - Adding evaluation of which tax the company is due, and it's available options
+
 ## 0.3.0
 
 * Tax and benefit system evolution.
