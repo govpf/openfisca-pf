@@ -23,8 +23,9 @@ class redevable_tva_franchise_en_base(Variable):
         pas_option_tva_regime_simplifie = (entreprise('option_tva_regime_simplifie', period) == OuiNon.N) * entreprise('option_tva_regime_simplifie_possible', period)
         pas_option_tva_regime_reel_trimestriel = (entreprise('option_tva_regime_reel_trimestriel', period) == OuiNon.N) * entreprise('option_tva_regime_reel_trimestriel_possible', period)
         pas_option_tva_regime_reel_mensuel = (entreprise('option_tva_regime_reel_mensuel', period) == OuiNon.N) * entreprise('option_tva_regime_reel_mensuel_possible', period)
-        ca_inferieur_a_5000000 = ca_total < 5000000
-        return ca_inferieur_a_5000000 * pas_option_tva_regime_simplifie * pas_option_tva_regime_reel_trimestriel * pas_option_tva_regime_reel_mensuel
+        seuil_tva_franchise_en_base = entreprise.pays('seuil_tva_franchise_en_base', period)
+        ca_inferieur_a_seuil = ca_total < seuil_tva_franchise_en_base
+        return ca_inferieur_a_seuil * pas_option_tva_regime_simplifie * pas_option_tva_regime_reel_trimestriel * pas_option_tva_regime_reel_mensuel
 
 
 class redevable_tva_regime_simplifie(Variable):
@@ -39,10 +40,12 @@ class redevable_tva_regime_simplifie(Variable):
         pas_redevable_tva_franchise_en_base = not_(entreprise('redevable_tva_franchise_en_base', period))
         pas_option_tva_regime_reel_trimestriel = (entreprise('option_tva_regime_reel_trimestriel', period) == OuiNon.N) * entreprise('option_tva_regime_reel_trimestriel_possible', period)
         pas_option_tva_regime_reel_mensuel = (entreprise('option_tva_regime_reel_mensuel', period) == OuiNon.N) * entreprise('option_tva_regime_reel_mensuel_possible', period)
-        ca_inferieur_a_15000000 = ca_total < 15000000
-        ca_inferieur_a_6000000 = ca_total < 6000000
+        seuil_tva_regime_simplifiee_activite_commerciale = entreprise.pays('seuil_tva_regime_simplifiee_activite_commerciale', period)
+        seuil_tva_regime_simplifiee_activite_prestation = entreprise.pays('seuil_tva_regime_simplifiee_activite_prestation', period)
+        ca_inferieur_a_seuil_activite_commerciale = ca_total < seuil_tva_regime_simplifiee_activite_commerciale
+        ca_inferieur_a_seuil_activite_prestations = ca_total < seuil_tva_regime_simplifiee_activite_prestation
         activite_commerciale = entreprise('activite_commerciale', period)
-        inferieur_seuil = where(activite_commerciale, ca_inferieur_a_15000000, ca_inferieur_a_6000000)
+        inferieur_seuil = where(activite_commerciale, ca_inferieur_a_seuil_activite_commerciale, ca_inferieur_a_seuil_activite_prestations)
         return inferieur_seuil * pas_redevable_tva_franchise_en_base * pas_option_tva_regime_reel_trimestriel * pas_option_tva_regime_reel_mensuel
 
 
@@ -58,8 +61,9 @@ class redevable_tva_regime_reel_trimestriel(Variable):
         pas_redevable_tva_franchise_en_base = not_(entreprise('redevable_tva_franchise_en_base', period))
         pas_redevable_tva_regime_simplifie = not_(entreprise('redevable_tva_regime_simplifie', period))
         pas_option_tva_regime_reel_mensuel = (entreprise('option_tva_regime_reel_mensuel', period) == OuiNon.N) * entreprise('option_tva_regime_reel_mensuel_possible', period)
-        ca_inferieur_a_150000000 = ca_total < 150000000
-        return ca_inferieur_a_150000000 * pas_redevable_tva_franchise_en_base * pas_redevable_tva_regime_simplifie * pas_option_tva_regime_reel_mensuel
+        seuil_tva_regime_reel_trimestriel = entreprise.pays('seuil_tva_regime_reel_trimestriel', period)
+        ca_inferieur_seuil = ca_total < seuil_tva_regime_reel_trimestriel
+        return ca_inferieur_seuil * pas_redevable_tva_franchise_en_base * pas_redevable_tva_regime_simplifie * pas_option_tva_regime_reel_mensuel
 
 
 class redevable_tva_regime_reel_mensuel(Variable):
@@ -85,8 +89,9 @@ class option_tva_regime_simplifie_possible(Variable):
 
     def formula(entreprise, period, parameters):
         ca_total = entreprise('chiffre_affaire_total', period)
-        ca_inferieur_a_5000000 = ca_total < 5000000
-        return ca_inferieur_a_5000000
+        seuil_tva_franchise_en_base = entreprise.pays('seuil_tva_franchise_en_base', period)
+        ca_inferieur_a_seuil = ca_total < seuil_tva_franchise_en_base
+        return ca_inferieur_a_seuil
 
 
 class option_tva_regime_simplifie(Variable):
@@ -108,10 +113,12 @@ class option_tva_regime_reel_trimestriel_possible(Variable):
 
     def formula(entreprise, period, parameters):
         ca_total = entreprise('chiffre_affaire_total', period)
-        ca_inferieur_a_15000000 = ca_total < 15000000
-        ca_inferieur_a_6000000 = ca_total < 6000000
+        seuil_tva_regime_simplifiee_activite_commerciale = entreprise.pays('seuil_tva_regime_simplifiee_activite_commerciale', period)
+        seuil_tva_regime_simplifiee_activite_prestation = entreprise.pays('seuil_tva_regime_simplifiee_activite_prestation', period)
+        ca_inferieur_a_seuil_activite_commerciale = ca_total < seuil_tva_regime_simplifiee_activite_commerciale
+        ca_inferieur_a_seuil_activite_prestations = ca_total < seuil_tva_regime_simplifiee_activite_prestation
         activite_commerciale = entreprise('activite_commerciale', period)
-        inferieur_seuil = where(activite_commerciale, ca_inferieur_a_15000000, ca_inferieur_a_6000000)
+        inferieur_seuil = where(activite_commerciale, ca_inferieur_a_seuil_activite_commerciale, ca_inferieur_a_seuil_activite_prestations)
         return inferieur_seuil
 
 
@@ -134,8 +141,9 @@ class option_tva_regime_reel_mensuel_possible(Variable):
 
     def formula(entreprise, period, parameters):
         ca_total = entreprise('chiffre_affaire_total', period)
-        ca_inferieur_a_150000000 = ca_total < 150000000
-        return ca_inferieur_a_150000000
+        seuil_tva_regime_reel_trimestriel = entreprise.pays('seuil_tva_regime_reel_trimestriel', period)
+        ca_inferieur_seuil = ca_total < seuil_tva_regime_reel_trimestriel
+        return ca_inferieur_seuil
 
 
 class option_tva_regime_reel_mensuel(Variable):

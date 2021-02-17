@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - TVA thresholds are now parameters
+
 ## 0.3.1
 
 * Tax and benefit system evolution.
