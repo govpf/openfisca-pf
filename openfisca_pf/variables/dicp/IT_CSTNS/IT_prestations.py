@@ -9,7 +9,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 from openfisca_pf.base import *
-from openfisca_core.taxscales import MarginalRateTaxScale
 
 
 class it_prestations_avant_abattement_droits(Variable):
