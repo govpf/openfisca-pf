@@ -9,6 +9,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefcstns system
 from openfisca_pf.entities import *
 import numpy
+# from openfisca_pf.base import *
 
 
 class cstns_calcule(Variable):
@@ -22,11 +23,7 @@ class cstns_calcule(Variable):
         cstns_ventes = entreprise('cstns_ventes', period)
         cstns_prestations = entreprise('cstns_prestations', period)
         cstns_total = cstns_ventes + cstns_prestations
-        cstns = select(
-            [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
-            [0, 0, cstns_total],
-            )
-        return numpy.floor(cstns)
+        return round_(cstns_total)
 
 
 class cstns_a_payer(Variable):

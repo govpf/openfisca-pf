@@ -11,6 +11,16 @@ class TypePersonne(Enum):
     M = u'Personne morale'
 
 
+class TypeSociete(Enum):
+    EI = u'Entreprise Individuelle'
+    EURL = u'Entreprise Unipersonnelle à Responsabilité Limitée'
+    SARL = u'Société à Responsabilité Limitée'
+    SNC = u'Société en Nom Collectif'
+    SA = u'Société Anonyme'
+    SAS = u'Société par Action Simplifiée'
+    SCI = u'Société Civile Immobilière'
+
+
 class OuiNon(Enum):
     O = u'Oui'
     N = u'Non'

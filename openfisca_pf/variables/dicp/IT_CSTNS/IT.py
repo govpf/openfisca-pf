@@ -23,7 +23,7 @@ class montant_it_du(Variable):
         it_prestations = entreprise('it_prestations', period)
         it_total = it_ventes + it_prestations
         # it = select(
-        #     [entreprise('eligible_tpe_1', period), entreprise('eligible_tpe_2', period), not_(entreprise('eligible_tpe_1', period)) * not_(entreprise('eligible_tpe_1', period))],
+        #     [entreprise('redevable_tpe_1', period), entreprise('redevable_tpe_2', period), not_(entreprise('redevable_tpe_1', period)) * not_(entreprise('redevable_tpe_1', period))],
         #     [25000, 45000, it_total],
         #     )
         return arrondiInf(it_total)
@@ -64,3 +64,43 @@ class montant_it_total_pays(Variable):
     def formula(pays, period, parameters):
         it_du = pays.members('montant_it_du', period)
         return pays.sum(it_du)
+
+
+class redevable_it(Variable):
+    value_type = bool
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Défini si l'entreprise est éligible à l'IT"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        redevable_tpe = entreprise('redevable_tpe', period)
+        type_societe = entreprise('type_societe', period)
+        option_is = entreprise('option_is', period) == OuiNon.O
+        option_it = entreprise('option_it', period) == OuiNon.O
+        SNC_sans_option_IS = (type_societe == TypeSociete.SNC) * not_(option_is)
+        EI_non_redevable_tpe = not_(redevable_tpe) * (type_societe == TypeSociete.EI)
+        EURL_avec_option_IT = (type_societe == TypeSociete.EURL) * option_it
+        return SNC_sans_option_IS + EI_non_redevable_tpe + EURL_avec_option_IT
+
+
+class option_it(Variable):
+    value_type = Enum
+    entity = Entreprise
+    possible_values = OuiNon
+    default_value = OuiNon.N
+    definition_period = YEAR
+    label = u"Défini si l'entreprise à opté pour l'IT plutot que l'IS (applicable aux EURL)"
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+
+class option_it_possible(Variable):
+    value_type = bool
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Indique que l'entreprise peut opter pour l'IT plutot que l'IT"
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    def formula(entreprise, period, parameters):
+        type_societe = entreprise('type_societe', period)
+        return type_societe == TypeSociete.EURL
