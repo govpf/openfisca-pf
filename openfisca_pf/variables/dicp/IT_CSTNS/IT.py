@@ -53,3 +53,14 @@ class montant_it_total_a_payer(Variable):
         montant_total_deductions_it = entreprise('montant_total_deductions_it', period)
         montant_total_penalites_it = entreprise('montant_total_penalites_it', period)
         return montant_it_du - montant_total_deductions_it + montant_total_penalites_it
+
+
+class montant_it_total_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Montant total d'IT du par les entreprises du pays"
+
+    def formula(pays, period, parameters):
+        it_du = pays.members('montant_it_du', period)
+        return pays.sum(it_du)

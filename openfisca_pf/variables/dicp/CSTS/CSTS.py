@@ -39,17 +39,17 @@ class cst_s_due_totale(Variable):
         return value
 
 
-class cst_s(Variable):
-    value_type = float
-    entity = Person
-    definition_period = MONTH
-    label = u"CST-S due par l'employé sur son salaire mensuel"
-    reference = "https://law.gov.example/social_security_contribution"  # Always use the most official source
+# class cst_s(Variable):
+#     value_type = float
+#     entity = Person
+#     definition_period = MONTH
+#     label = u"CST-S due par l'employé sur son salaire mensuel"
+#     reference = "https://law.gov.example/social_security_contribution"  # Always use the most official source
 
-    def formula_1950_01_01(person, period, parameters):
-        salaire = person('salaire', period)
-        # Quels sont les salaires >= 150000
-        salaire_sup_150000 = salaire >= 150000
-        echelle = parameters(period).dicp.cst_s.taux
-        # Si le salaire est < 150000 alors retourne 0
-        return arrondiSup(echelle.calc(where(salaire_sup_150000, salaire, 0)))
+#     def formula_1950_01_01(person, period, parameters):
+#         salaire = person('salaire', period)
+#         # Quels sont les salaires >= 150000
+#         salaire_sup_150000 = salaire >= 150000
+#         echelle = parameters(period).dicp.cst_s.taux
+#         # Si le salaire est < 150000 alors retourne 0
+#         return arrondiSup(echelle.calc(where(salaire_sup_150000, salaire, 0)))

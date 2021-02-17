@@ -8,7 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_core.taxscales import MarginalRateTaxScale
+from openfisca_pf.base import *
 
 
 class it_ventes_avant_abattement_droits(Variable):
@@ -25,7 +25,7 @@ class it_ventes_avant_abattement_droits(Variable):
     #     return echelle.calc(ca)
     def formula(entreprise, period, parameters):
         value = 0
-        nombre_tranches_it_ventes = entreprise('nombre_tranches_it_ventes', period)[0]
+        nombre_tranches_it_ventes = entreprise.pays('nombre_tranches_it_ventes', period)[0]
         for i in range(1, nombre_tranches_it_ventes + 1):
             value += entreprise(f'montant_it_ventes_du_tranche_{i}', period)
         return value
@@ -41,10 +41,7 @@ class it_ventes_sans_abattement_droits(Variable):
     def formula(entreprise, period, parameters):
         # echelle = parameters(period).dicp.it.taux_ventes
         ca = entreprise('base_imposable_it_ventes_sans_abattement_droits', period)
-        nombre_tranches_it_ventes = entreprise('nombre_tranches_it_ventes', period)[0]
-        bareme = MarginalRateTaxScale(name = 'IT ventes tranche 1')
-        for tranche in range(1, nombre_tranches_it_ventes + 1):
-            bareme.add_bracket(entreprise(f'seuil_it_ventes_tranche_{tranche}', period)[0], entreprise(f'taux_it_ventes_tranche_{tranche}', period)[0])
+        bareme = creerBaremeIT(entreprise, period, 'ventes')
         return bareme.calc(ca)
 
 

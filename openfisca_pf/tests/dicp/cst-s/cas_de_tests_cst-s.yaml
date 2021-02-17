@@ -13,8 +13,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -43,8 +41,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -73,8 +69,6 @@
       revenus_tranche_9: 1000000
       revenus_tranche_10: 1000000
       revenus_tranche_11: 1000000
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 5000
     cst_s_due_tranche_2: 30000
@@ -103,8 +97,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 10000000
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 15000
     cst_s_due_tranche_2: 0
@@ -133,8 +125,6 @@
       revenus_tranche_9: 6000000
       revenus_tranche_10: 7000000
       revenus_tranche_11: 8000000
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -163,8 +153,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 1
     cst_s_due_tranche_2: 1
@@ -193,8 +181,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 75000000
     cst_s_due_tranche_2: 0
@@ -223,8 +209,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -253,8 +237,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -283,8 +265,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 999999999
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -313,8 +293,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 9999999
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -343,8 +321,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 5000
     cst_s_due_tranche_2: 240000
@@ -373,8 +349,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 1600060000
       revenus_tranche_11: 1600000000
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -403,8 +377,6 @@
       revenus_tranche_9: 452555
       revenus_tranche_10: 452555
       revenus_tranche_11: 452555
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 2263
     cst_s_due_tranche_2: 13577
@@ -433,8 +405,6 @@
       revenus_tranche_9: 3172
       revenus_tranche_10: 2896
       revenus_tranche_11: 2664
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 666
     cst_s_due_tranche_2: 666
@@ -463,8 +433,6 @@
       revenus_tranche_9: 0
       revenus_tranche_10: 0
       revenus_tranche_11: 0
-    persons:
-      personne: {}
   output:
     cst_s_due_tranche_1: 15931092
     cst_s_due_tranche_2: 95586550

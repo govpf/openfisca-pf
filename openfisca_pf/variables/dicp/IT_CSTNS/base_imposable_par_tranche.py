@@ -19,8 +19,8 @@ class base_imposable_it_ventes_tranche_1(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 1
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
@@ -37,8 +37,8 @@ class base_imposable_it_ventes_tranche_2(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 2
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
@@ -55,8 +55,8 @@ class base_imposable_it_ventes_tranche_3(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 3
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
@@ -73,8 +73,8 @@ class base_imposable_it_ventes_tranche_4(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 4
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
@@ -91,8 +91,8 @@ class base_imposable_it_ventes_tranche_5(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 5
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
@@ -109,8 +109,8 @@ class base_imposable_it_ventes_tranche_6(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 6
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
@@ -127,8 +127,8 @@ class base_imposable_it_ventes_tranche_7(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 7
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
@@ -145,8 +145,8 @@ class base_imposable_it_ventes_tranche_8(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 8
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
@@ -163,7 +163,7 @@ class base_imposable_it_ventes_tranche_9(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 9
-        seuil_tranche_inferieure = entreprise(f'seuil_it_ventes_tranche_{tranche}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_ventes_tranche_{tranche}', period)
         ca = entreprise('base_imposable_it_ventes', period)
         return (select(
             [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
@@ -180,8 +180,8 @@ class base_imposable_it_prestations_tranche_1(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 1
-        seuil_tranche_inferieure = entreprise(f'seuil_it_prestations_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_prestations_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
         caVenteTranche = entreprise('base_imposable_it_ventes_tranche_1', period) / 4
         return round_(select(
@@ -199,8 +199,8 @@ class base_imposable_it_prestations_tranche_2(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 2
-        seuil_tranche_inferieure = entreprise(f'seuil_it_prestations_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_prestations_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
         caVenteTranche = entreprise('base_imposable_it_ventes_tranche_2', period) / 4
         return round_(select(
@@ -218,8 +218,8 @@ class base_imposable_it_prestations_tranche_3(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 3
-        seuil_tranche_inferieure = entreprise(f'seuil_it_prestations_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_prestations_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
         caVenteTranche = entreprise('base_imposable_it_ventes_tranche_3', period) / 4
         return round_(select(
@@ -237,8 +237,8 @@ class base_imposable_it_prestations_tranche_4(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 4
-        seuil_tranche_inferieure = entreprise(f'seuil_it_prestations_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_prestations_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
         caVenteTranche = entreprise('base_imposable_it_ventes_tranche_4', period) / 4
         return round_(select(
@@ -256,8 +256,8 @@ class base_imposable_it_prestations_tranche_5(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 5
-        seuil_tranche_inferieure = entreprise(f'seuil_it_prestations_tranche_{tranche}', period)
-        seuil_tranche_superieure = entreprise(f'seuil_it_prestations_tranche_{tranche + 1}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche}', period)
+        seuil_tranche_superieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche + 1}', period)
         ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
         caVenteTranche = entreprise('base_imposable_it_ventes_tranche_5', period) / 4
         return round_(select(
@@ -275,7 +275,7 @@ class base_imposable_it_prestations_tranche_6(Variable):
 
     def formula(entreprise, period, parameters):
         tranche = 6
-        seuil_tranche_inferieure = entreprise(f'seuil_it_prestations_tranche_{tranche}', period)
+        seuil_tranche_inferieure = entreprise.pays(f'seuil_it_prestations_tranche_{tranche}', period)
         ca = entreprise('base_imposable_it_prestations', period) + entreprise('base_imposable_it_ventes', period) / 4
         caVenteTranche = (entreprise('base_imposable_it_ventes_tranche_6', period) + entreprise('base_imposable_it_ventes_tranche_7', period) + entreprise('base_imposable_it_ventes_tranche_8', period) + entreprise('base_imposable_it_ventes_tranche_9', period)) / 4
         return round_(select(

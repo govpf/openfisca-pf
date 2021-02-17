@@ -28,8 +28,8 @@ class it_prestations_avant_abattement_droits(Variable):
     #     return echelle.calc(base_imposable_it_ventes + ca) - echelle.calc(base_imposable_it_ventes)
     def formula(entreprise, period, parameters):
         value = 0
-        nombre_tranches_it_ventes = entreprise('nombre_tranches_it_prestations', period)[0]
-        for i in range(1, nombre_tranches_it_ventes + 1):
+        nombre_tranches_it_prestations = entreprise.pays('nombre_tranches_it_prestations', period)[0]
+        for i in range(1, nombre_tranches_it_prestations + 1):
             value += entreprise(f'montant_it_prestations_du_tranche_{i}', period)
         return value
 
@@ -43,11 +43,7 @@ class it_prestations_sans_abattement_droits(Variable):
 
     def formula(entreprise, period, parameters):
         base_imposable_it_ventes = entreprise('base_imposable_it_ventes', period) / 4
-        nombre_tranches_it_prestations = entreprise('nombre_tranches_it_prestations', period)[0]
-        bareme = MarginalRateTaxScale(name = 'IT prestations tranche 1')
-        for tranche in range(1, nombre_tranches_it_prestations + 1):
-            bareme.add_bracket(entreprise(f'seuil_it_prestations_tranche_{tranche}', period)[0], entreprise(f'taux_it_prestations_tranche_{tranche}', period)[0])
-        # echelle = parameters(period).dicp.it.taux_prestations
+        bareme = creerBaremeIT(entreprise, period, 'prestations')
         ca = entreprise('base_imposable_it_prestations_sans_abattement_droits', period)
         return bareme.calc(base_imposable_it_ventes + ca) - bareme.calc(base_imposable_it_ventes)
 

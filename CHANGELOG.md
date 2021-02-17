@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: all.
+* Details:
+  - new entity pays that is holding the "taux" and "seuils"
+  - Pays also have calculation about all "entreprises"
+
 ## 0.2.12
 
 * Tax and benefit system evolution.
