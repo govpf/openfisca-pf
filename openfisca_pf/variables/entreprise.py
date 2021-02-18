@@ -61,3 +61,13 @@ class activite_prestations(Variable):
     def formula(entreprise, period, parameters):
         chiffre_affaire_total_ventes = entreprise('chiffre_affaire_total_prestations', period)
         return chiffre_affaire_total_ventes > 0
+
+
+class nombre_entreprises_contribuables_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    label = u"Nombre d'entreprises du pays"
+
+    def formula(pays, period, parameters):
+        return pays.nb_persons(Pays.CONTRIBUABLES)

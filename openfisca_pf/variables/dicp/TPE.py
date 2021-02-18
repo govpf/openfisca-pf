@@ -44,3 +44,14 @@ class montant_tpe_du(Variable):
             [redevable_tpe * ca_inferieur_a_2000000, redevable_tpe * ca_superieur_a_2000000, not_(redevable_tpe)],
             [25000, 45000, 0]
             )
+
+
+class nombre_entreprises_redevables_TPE_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    label = u"Nombre d'entreprises du pays redevables de la TPE"
+
+    def formula(pays, period, parameters):
+        redevable_tpe = pays.members('redevable_tpe', period)
+        return pays.sum(redevable_tpe * 1)

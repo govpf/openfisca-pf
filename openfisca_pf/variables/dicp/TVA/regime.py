@@ -154,3 +154,47 @@ class option_tva_regime_reel_mensuel(Variable):
     definition_period = YEAR
     label = u"Défini si l'entreprise à opté pour le régime réel mensuel alors qu'elle est éligible à un régime plus favorable"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+
+class nombre_entreprises_redevables_franchise_base_TVA_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    label = u"Nombre d'entreprises du pays redevables de la franchise en base de TVA"
+
+    def formula(pays, period, parameters):
+        redevable_tva_franchise_en_base = pays.members('redevable_tva_franchise_en_base', period)
+        return pays.sum(redevable_tva_franchise_en_base * 1)
+
+
+class nombre_entreprises_redevables_regime_simplifie_TVA_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    label = u"Nombre d'entreprises du pays redevables du régime simplfié de TVA"
+
+    def formula(pays, period, parameters):
+        redevable_tva_regime_simplifie = pays.members('redevable_tva_regime_simplifie', period)
+        return pays.sum(redevable_tva_regime_simplifie * 1)
+
+
+class nombre_entreprises_redevables_regime_reel_trimestriel_TVA_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    label = u"Nombre d'entreprises du pays redevables du régime réel trimestriel de TVA"
+
+    def formula(pays, period, parameters):
+        redevable_tva_regime_reel_trimestriel = pays.members('redevable_tva_regime_reel_trimestriel', period)
+        return pays.sum(redevable_tva_regime_reel_trimestriel * 1)
+
+
+class nombre_entreprises_redevables_regime_reel_mensuel_TVA_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    label = u"Nombre d'entreprises du pays redevables du régime réel trimestriel de TVA"
+
+    def formula(pays, period, parameters):
+        redevable_tva_regime_reel_mensuel = pays.members('redevable_tva_regime_reel_mensuel', period)
+        return pays.sum(redevable_tva_regime_reel_mensuel * 1)

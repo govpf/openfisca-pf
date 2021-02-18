@@ -104,3 +104,14 @@ class option_it_possible(Variable):
     def formula(entreprise, period, parameters):
         type_societe = entreprise('type_societe', period)
         return type_societe == TypeSociete.EURL
+
+
+class nombre_entreprises_redevables_IT_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    label = u"Nombre d'entreprises du pays redevables de la IT"
+
+    def formula(pays, period, parameters):
+        redevable_it = pays.members('redevable_it', period)
+        return pays.sum(redevable_it * 1)

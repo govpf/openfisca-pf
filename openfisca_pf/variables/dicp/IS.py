@@ -44,3 +44,14 @@ class redevable_is(Variable):
         redevable_tpe = entreprise('redevable_tpe', period)
         redevable_it = entreprise('redevable_it', period)
         return not_(redevable_tpe + redevable_it)
+
+
+class nombre_entreprises_redevables_IS_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    label = u"Nombre d'entreprises du pays redevable de l'IS"
+
+    def formula(pays, period, parameters):
+        redevable_is = pays.members('redevable_is', period)
+        return pays.sum(redevable_is * 1)

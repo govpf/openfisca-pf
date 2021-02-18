@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.3
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - some statistics ont companies
+
 ## 0.3.2
 
 * Tax and benefit system evolution.
