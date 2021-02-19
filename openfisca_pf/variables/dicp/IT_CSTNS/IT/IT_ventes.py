@@ -41,7 +41,7 @@ class it_ventes_sans_abattement_droits(Variable):
     def formula(entreprise, period, parameters):
         # echelle = parameters(period).dicp.it.taux_ventes
         ca = entreprise('base_imposable_it_ventes_sans_abattement_droits', period)
-        bareme = creerBaremeIT(entreprise, period, 'ventes')
+        bareme = creerBareme(entreprise, period, 'it', 'ventes')
         return bareme.calc(ca)
 
 

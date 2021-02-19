@@ -12,7 +12,7 @@
   output:
     montant_it_du: 2532500
     it_a_payer: 2532500
-    cstns_calcule: 1175000
+    montant_cstns_du: 1175000
     cstns_a_payer: 1175000
 - name: 18. 18 - Location non meublée - avec annexe - avec releve - pers phys
   period: 2020
@@ -28,7 +28,7 @@
   output:
     montant_it_du: 1266250
     it_a_payer: 1266250
-    cstns_calcule: 587500
+    montant_cstns_du: 587500
     cstns_a_payer: 587500
 - name: 19. 18 - Location non meublée - sans annexe - sans releve
   period: 2020
@@ -44,7 +44,7 @@
   output:
     montant_it_du: 2532500
     it_a_payer: 2532500
-    cstns_calcule: 1175000
+    montant_cstns_du: 1175000
     cstns_a_payer: 1175000
 - name: 20. 18 - Location non meublée - sans annexe - sans releve
   period: 2020
@@ -60,7 +60,7 @@
   output:
     montant_it_du: 82500
     it_a_payer: 82500
-    cstns_calcule: 46250
+    montant_cstns_du: 46250
     cstns_a_payer: 46250
 - name: 21. 18 - Location non meublée - avec annexe - avec releve - sup seuil annexe - pers phys - ch > 50%
   period: 2020
@@ -76,7 +76,7 @@
   output:
     montant_it_du: 61250
     it_a_payer: 61250
-    cstns_calcule: 31875
+    montant_cstns_du: 31875
     cstns_a_payer: 31875
 - name: 22. 18 - Location non meublée - sans annexe - avec releve - pers phys
   period: 2020
@@ -92,7 +92,7 @@
   output:
     montant_it_du: 552500
     it_a_payer: 552500
-    cstns_calcule: 260000
+    montant_cstns_du: 260000
     cstns_a_payer: 260000
 - name: 23. 18 - Location non meublée - sans annexe - avec releve - pers phys - ch > 50%
   period: 2020
@@ -108,7 +108,7 @@
   output:
     montant_it_du: 276250
     it_a_payer: 276250
-    cstns_calcule: 130000
+    montant_cstns_du: 130000
     cstns_a_payer: 130000
 - name: 24. 18 - Location non meublée - sans annexe - avec releve
   period: 2020
@@ -124,7 +124,7 @@
   output:
     montant_it_du: 552500
     it_a_payer: 552500
-    cstns_calcule: 260000
+    montant_cstns_du: 260000
     cstns_a_payer: 260000
 # - name: 18 - Location non meublée - sans annexe - sans releve - sup seuil annexe
 #   period: 2020
@@ -196,7 +196,7 @@
   output:
     montant_it_du: 3478750
     it_a_payer: 3478750
-    cstns_calcule: 1525000
+    montant_cstns_du: 1525000
     cstns_a_payer: 1525000
 - name: 26. 19 - Location meublée - avec annexe - avec releve - pas de charges
   period: 2020
@@ -212,7 +212,7 @@
   output:
     montant_it_du: 71250
     it_a_payer: 71250
-    cstns_calcule: 36250
+    montant_cstns_du: 36250
     cstns_a_payer: 36250
 - name: 27. 19 - Location meublée - sans annexe - sans releve - pas de charges - pers phys - sup seuil
   period: 2020
@@ -228,7 +228,7 @@
   output:
     montant_it_du: 276250
     it_a_payer: 276250
-    cstns_calcule: 130000
+    montant_cstns_du: 130000
     cstns_a_payer: 130000
 - name: 28. 19 - Location meublée - avec annexe - avec releve - pas de charges -sup seuil
   period: 2020
@@ -244,7 +244,7 @@
   output:
     montant_it_du: 552500
     it_a_payer: 552500
-    cstns_calcule: 260000
+    montant_cstns_du: 260000
     cstns_a_payer: 260000
 - name: 29. 19 - Location meublée - avec annexe - avec releve - charges > 50%
   period: 2020
@@ -260,7 +260,7 @@
   output:
     montant_it_du: 71250
     it_a_payer: 71250
-    cstns_calcule: 36250
+    montant_cstns_du: 36250
     cstns_a_payer: 36250
 - name: 30. 99 - Location terrain nu - avec annexe - avec releve - pers phys
   period: 2020
@@ -276,7 +276,7 @@
   output:
     montant_it_du: 122500
     it_a_payer: 122500
-    cstns_calcule: 63750
+    montant_cstns_du: 63750
     cstns_a_payer: 63750
 - name: 31. 99 - Location terrain nu - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
@@ -292,7 +292,7 @@
   output:
     montant_it_du: 61250
     it_a_payer: 61250
-    cstns_calcule: 31875
+    montant_cstns_du: 31875
     cstns_a_payer: 31875
 - name: 32. 99 - Location terrain nu - sans annexe - avec releve - charges > 50%
   period: 2020
@@ -308,7 +308,7 @@
   output:
     montant_it_du: 122500
     it_a_payer: 122500
-    cstns_calcule: 63750
+    montant_cstns_du: 63750
     cstns_a_payer: 63750
 - name: 33. 91 - Prestations sans réduction - avec annexe - avec releve
   period: 2020
@@ -324,7 +324,7 @@
   output:
     montant_it_du: 82500
     it_a_payer: 82500
-    cstns_calcule: 46250
+    montant_cstns_du: 46250
     cstns_a_payer: 46250
 - name: 34. 91 - Prestations sans réduction - avec annexe - avec releve - charges > 50%
   period: 2020
@@ -340,7 +340,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 35. 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys
   period: 2020
@@ -356,7 +356,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 36. 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
@@ -372,7 +372,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 37. 92 - Plomberie et installation sanitaire - avec annexe - sans releve - pers phys - charges > 50%
   period: 2020
@@ -388,7 +388,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 38. 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - sup seuil
   period: 2020
@@ -404,7 +404,7 @@
   output:
     montant_it_du: 142500
     it_a_payer: 142500
-    cstns_calcule: 72500
+    montant_cstns_du: 72500
     cstns_a_payer: 72500
 - name: 39. 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - sup seuil - charges > 50%
   period: 2020
@@ -420,7 +420,7 @@
   output:
     montant_it_du: 71250
     it_a_payer: 71250
-    cstns_calcule: 36250
+    montant_cstns_du: 36250
     cstns_a_payer: 36250
 - name: 40. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
@@ -436,7 +436,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 41. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys
   period: 2020
@@ -452,7 +452,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 42. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys - sup seuil
   period: 2020
@@ -468,7 +468,7 @@
   output:
     montant_it_du: 142500
     it_a_payer: 142500
-    cstns_calcule: 72500
+    montant_cstns_du: 72500
     cstns_a_payer: 72500
 - name: 43. 25 - Armateurs - avec annexe - sans releve - pers phys
   period: 2020
@@ -484,7 +484,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 44. 25 - Armateurs - avec annexe - sans releve - pers phys - charges > 50%
   period: 2020
@@ -500,7 +500,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 45. 25 - Armateurs - avec annexe - avec releve - pers phys - charges > 50% - sup seuil
   period: 2020
@@ -516,7 +516,7 @@
   output:
     montant_it_du: 71250
     it_a_payer: 71250
-    cstns_calcule: 36250
+    montant_cstns_du: 36250
     cstns_a_payer: 36250
 - name: 46. 25 - Armateurs - avec annexe - avec releve - pers phys - sup seuil
   period: 2020
@@ -532,7 +532,7 @@
   output:
     montant_it_du: 142500
     it_a_payer: 142500
-    cstns_calcule: 72500
+    montant_cstns_du: 72500
     cstns_a_payer: 72500
 - name: 47. 96 - boulangerie autres - avec annexe - sans releve - charges > 50%
   period: 2020
@@ -548,7 +548,7 @@
   output:
     montant_it_du: 82500
     it_a_payer: 82500
-    cstns_calcule: 46250
+    montant_cstns_du: 46250
     cstns_a_payer: 46250
 - name: 48. 96 - boulangerie autres - avec annexe - avec releve - charges > 50%
   period: 2020
@@ -564,7 +564,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 49. 96 - boulangerie autres - avec annexe - sans releve - charges > 50% - sup seuil
   period: 2020
@@ -580,7 +580,7 @@
   output:
     montant_it_du: 142500
     it_a_payer: 142500
-    cstns_calcule: 72500
+    montant_cstns_du: 72500
     cstns_a_payer: 72500
 - name: 50. 98 - Hôtel, pension famille, ... - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
@@ -596,7 +596,7 @@
   output:
     montant_it_du: 41250
     it_a_payer: 41250
-    cstns_calcule: 23125
+    montant_cstns_du: 23125
     cstns_a_payer: 23125
 - name: 51. 15 - Entreprise de travaux publics - avec annexe - avec releve - pers phys - charges > 50% - sup seuil
   period: 2020
@@ -612,7 +612,7 @@
   output:
     montant_it_du: 91250
     it_a_payer: 91250
-    cstns_calcule: 45000
+    montant_cstns_du: 45000
     cstns_a_payer: 45000
 - name: 52. 15 - Entreprise de travaux publics - sans annexe - sans releve - sup seuil
   period: 2020
@@ -628,7 +628,7 @@
   output:
     montant_it_du: 182500
     it_a_payer: 182500
-    cstns_calcule: 90000
+    montant_cstns_du: 90000
     cstns_a_payer: 90000
 - name: 53. 15 - Entreprise de travaux publics - sans annexe - avec releve
   period: 2020
@@ -644,7 +644,7 @@
   output:
     montant_it_du: 22500
     it_a_payer: 22500
-    cstns_calcule: 11250
+    montant_cstns_du: 11250
     cstns_a_payer: 11250
 - name: 54. 95 - boulangerie baguettes détail - sans annexe - sans releve - pers phys
   period: 2020
@@ -660,7 +660,7 @@
   output:
     montant_it_du: 72000
     it_a_payer: 72000
-    cstns_calcule: 36000
+    montant_cstns_du: 36000
     cstns_a_payer: 36000
 - name: 55. 95 - boulangerie baguettes détail - avec annexe - avec releve
   period: 2020
@@ -676,7 +676,7 @@
   output:
     montant_it_du: 36000
     it_a_payer: 36000
-    cstns_calcule: 18000
+    montant_cstns_du: 18000
     cstns_a_payer: 18000
 - name: 56. 14 - Armateurs de goelettes - sans annexe - sans releve
   period: 2020
@@ -692,7 +692,7 @@
   output:
     montant_it_du: 182500
     it_a_payer: 182500
-    cstns_calcule: 90000
+    montant_cstns_du: 90000
     cstns_a_payer: 90000
 - name: 57. 14 - Armateurs de goelettes - sans annexe - sans releve
   period: 2020
@@ -708,7 +708,7 @@
   output:
     montant_it_du: 22500
     it_a_payer: 22500
-    cstns_calcule: 11250
+    montant_cstns_du: 11250
     cstns_a_payer: 11250
 - name: 58. 14 - Armateurs de goelettes - avec annexe - avec releve - charges > 50%
   period: 2020
@@ -724,7 +724,7 @@
   output:
     montant_it_du: 91250
     it_a_payer: 91250
-    cstns_calcule: 45000
+    montant_cstns_du: 45000
     cstns_a_payer: 45000
 - name: 59. 97 - Denrées emporter ou sur place - sans annexe - sans releve
   period: 2020
@@ -740,7 +740,7 @@
   output:
     montant_it_du: 552500
     it_a_payer: 552500
-    cstns_calcule: 260000
+    montant_cstns_du: 260000
     cstns_a_payer: 260000
 - name: 60. 97 - Denrées emporter ou sur place - sans annexe - sans releve
   period: 2020
@@ -756,7 +756,7 @@
   output:
     montant_it_du: 251250
     it_a_payer: 251250
-    cstns_calcule: 118750
+    montant_cstns_du: 118750
     cstns_a_payer: 118750
 - name: 61. 97 - Denrées emporter ou sur place - sans annexe - sans releve - charges > 50%
   period: 2020
@@ -772,7 +772,7 @@
   output:
     montant_it_du: 276250
     it_a_payer: 276250
-    cstns_calcule: 130000
+    montant_cstns_du: 130000
     cstns_a_payer: 130000
 - name: 62. 13 - Acconage de coprah - sans annexe - sans releve - charges > 50%
   period: 2020
@@ -788,5 +788,5 @@
   output:
     montant_it_du: 0
     it_a_payer: 0
-    cstns_calcule: 0
+    montant_cstns_du: 0
     cstns_a_payer: 0

@@ -15,7 +15,7 @@
     montant_it_du: 131250
     it_a_payer: 131250
     chiffre_affaire_total: 20000000
-    cstns_calcule: 62500
+    montant_cstns_du: 62500
     cstns_a_payer: 62500
 - name: 64. 23 + 90 - sans annexe - sans releve
   period: 2020
@@ -33,7 +33,7 @@
     montant_it_du: 117500
     it_a_payer: 117500
     chiffre_affaire_total: 30000000
-    cstns_calcule: 98750
+    montant_cstns_du: 98750
     cstns_a_payer: 98750
 - name: 65. 8 + 10 + 20 - sans annexe - sans releve
   period: 2020
@@ -52,7 +52,7 @@
     montant_it_du: 320000
     it_a_payer: 320000
     chiffre_affaire_total: 70000000
-    cstns_calcule: 200000
+    montant_cstns_du: 200000
     cstns_a_payer: 200000
 - name: 66. 8 + 10 + 20 + 24 - sans annexe - sans releve
   period: 2020
@@ -72,7 +72,7 @@
     montant_it_du: 740000
     it_a_payer: 740000
     chiffre_affaire_total: 90000000
-    cstns_calcule: 390000
+    montant_cstns_du: 390000
     cstns_a_payer: 390000
 - name: 67. 8 + 10 + 20 + 24 - avec annexe - avec releve
   period: 2020
@@ -92,7 +92,7 @@
     montant_it_du: 467500
     it_a_payer: 467500
     chiffre_affaire_total: 85000000
-    cstns_calcule: 270000
+    montant_cstns_du: 270000
     cstns_a_payer: 270000
 - name: 68. 8 + 10 + 20 + 24 - avec annexe - avec releve - ch > 50%
   period: 2020
@@ -112,7 +112,7 @@
     montant_it_du: 530000
     it_a_payer: 530000
     chiffre_affaire_total: 90000000
-    cstns_calcule: 295000
+    montant_cstns_du: 295000
     cstns_a_payer: 295000
 - name: 69. 8 + 10 + 20 + 24 - avec annexe - avec releve - ch > 50%
   period: 2020
@@ -132,7 +132,7 @@
     montant_it_du: 740000
     it_a_payer: 740000
     chiffre_affaire_total: 90000000
-    cstns_calcule: 390000
+    montant_cstns_du: 390000
     cstns_a_payer: 390000
 - name: 70. 8 + 10 + 20 + 24 - sans annexe - sans releve - ch > 50%
   period: 2020
@@ -152,7 +152,7 @@
     montant_it_du: 740000
     it_a_payer: 740000
     chiffre_affaire_total: 90000000
-    cstns_calcule: 390000
+    montant_cstns_du: 390000
     cstns_a_payer: 390000
 - name: 71. 92 + 96 - avec annexe - avec releve
   period: 2020
@@ -170,7 +170,7 @@
     montant_it_du: 502500
     it_a_payer: 502500
     chiffre_affaire_total: 15000000
-    cstns_calcule: 237500
+    montant_cstns_du: 237500
     cstns_a_payer: 237500
 - name: 72. 92 + 96 - avec annexe - avec releve - ch > 50%
   period: 2020
@@ -188,7 +188,7 @@
     montant_it_du: 251250
     it_a_payer: 251250
     chiffre_affaire_total: 15000000
-    cstns_calcule: 118750
+    montant_cstns_du: 118750
     cstns_a_payer: 118750
 - name: 73. 92 + 96 - avec annexe - avec releve
   period: 2020
@@ -206,7 +206,7 @@
     montant_it_du: 382500
     it_a_payer: 382500
     chiffre_affaire_total: 15000000
-    cstns_calcule: 181250
+    montant_cstns_du: 181250
     cstns_a_payer: 181250
 - name: 74. 92 + 96 - avec annexe - avec releve - ch > 50%
   period: 2020
@@ -224,7 +224,7 @@
     montant_it_du: 251250
     it_a_payer: 251250
     chiffre_affaire_total: 15000000
-    cstns_calcule: 118750
+    montant_cstns_du: 118750
     cstns_a_payer: 118750
 - name: 75. 97 + 25 - sans annexe - avec releve - ch > 50%
   period: 2020
@@ -242,7 +242,7 @@
     montant_it_du: 1332500
     it_a_payer: 1332500
     chiffre_affaire_total: 30000000
-    cstns_calcule: 625000
+    montant_cstns_du: 625000
     cstns_a_payer: 625000
 - name: 76. 97 + 25 - avec annexe - avec releve - ch > 50%
   period: 2020
@@ -260,7 +260,7 @@
     montant_it_du: 666250
     it_a_payer: 666250
     chiffre_affaire_total: 30000000
-    cstns_calcule: 312500
+    montant_cstns_du: 312500
     cstns_a_payer: 312500
 - name: 77. 97 + 25 - sans annexe - sans releve
   period: 2020
@@ -278,7 +278,7 @@
     montant_it_du: 1332500
     it_a_payer: 1332500
     chiffre_affaire_total: 30000000
-    cstns_calcule: 625000
+    montant_cstns_du: 625000
     cstns_a_payer: 625000
 - name: 78. 97 + 25 - sans annexe - avec releve - ch > 50%
   period: 2020
@@ -296,7 +296,7 @@
     montant_it_du: 251250
     it_a_payer: 251250
     chiffre_affaire_total: 15000000
-    cstns_calcule: 118750
+    montant_cstns_du: 118750
     cstns_a_payer: 118750
 - name: 79. 14 + 98 - sans annexe - avec releve
   period: 2020
@@ -314,7 +314,7 @@
     montant_it_du: 320000
     it_a_payer: 320000
     chiffre_affaire_total: 15000000
-    cstns_calcule: 153125
+    montant_cstns_du: 153125
     cstns_a_payer: 153125
 - name: 80. 18 + 19 + 99 - avec annexe - avec releve - pers phys
   period: 2020
@@ -333,7 +333,7 @@
     montant_it_du: 822500
     it_a_payer: 822500
     chiffre_affaire_total: 26000000
-    cstns_calcule: 387500
+    montant_cstns_du: 387500
     cstns_a_payer: 387500
 - name: 81. 18 + 19 + 99 - avec annexe - avec releve - ch > 50% - pers phys
   period: 2020
@@ -352,7 +352,7 @@
     montant_it_du: 546250
     it_a_payer: 546250
     chiffre_affaire_total: 26000000
-    cstns_calcule: 257500
+    montant_cstns_du: 257500
     cstns_a_payer: 257500
 - name: 82. 18 + 19 + 99 - sans annexe - avec releve - pers phys
   period: 2020
@@ -371,7 +371,7 @@
     montant_it_du: 822500
     it_a_payer: 822500
     chiffre_affaire_total: 26000000
-    cstns_calcule: 387500
+    montant_cstns_du: 387500
     cstns_a_payer: 387500
 - name: 84. 18 + 19 + 99 - avec annexe - avec releve
   period: 2020
@@ -390,7 +390,7 @@
     montant_it_du: 822500
     it_a_payer: 822500
     chiffre_affaire_total: 26000000
-    cstns_calcule: 387500
+    montant_cstns_du: 387500
     cstns_a_payer: 387500
 - name: 83. 18 + 19 + 99 - avec annexe - avec releve - ch > 50%
   period: 2020
@@ -409,7 +409,7 @@
     montant_it_du: 546250
     it_a_payer: 546250
     chiffre_affaire_total: 26000000
-    cstns_calcule: 257500
+    montant_cstns_du: 257500
     cstns_a_payer: 257500
 - name: 85. 11 + 22 - avec annexe - avec releve - pers phys
   period: 2020
@@ -427,7 +427,7 @@
     montant_it_du: 232500
     it_a_payer: 232500
     chiffre_affaire_total: 28000000
-    cstns_calcule: 151250
+    montant_cstns_du: 151250
     cstns_a_payer: 151250
 - name: 86. 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
   period: 2020
@@ -445,7 +445,7 @@
     montant_it_du: 232500
     it_a_payer: 232500
     chiffre_affaire_total: 28000000
-    cstns_calcule: 151250
+    montant_cstns_du: 151250
     cstns_a_payer: 151250
 - name: 87. 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
   period: 2020
@@ -463,7 +463,7 @@
     montant_it_du: 332500
     it_a_payer: 332500
     chiffre_affaire_total: 32000000
-    cstns_calcule: 196250
+    montant_cstns_du: 196250
     cstns_a_payer: 196250
 - name: 88. 11 + 22 - avec annexe - avec releve - pers phys
   period: 2020
@@ -481,7 +481,7 @@
     montant_it_du: 555000
     it_a_payer: 555000
     chiffre_affaire_total: 32000000
-    cstns_calcule: 297500
+    montant_cstns_du: 297500
     cstns_a_payer: 297500
 - name: 89. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys
   period: 2020
@@ -503,7 +503,7 @@
     montant_it_du: 3630000
     it_a_payer: 3630000
     chiffre_affaire_total: 120000000
-    cstns_calcule: 1704375
+    montant_cstns_du: 1704375
     cstns_a_payer: 1704375
 - name: 90. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys - charge > 50%
   period: 2020
@@ -525,7 +525,7 @@
     montant_it_du: 2960000
     it_a_payer: 2960000
     chiffre_affaire_total: 120000000
-    cstns_calcule: 1393125
+    montant_cstns_du: 1393125
     cstns_a_payer: 1393125
 - name: 91. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve
   period: 2020
@@ -547,5 +547,5 @@
     montant_it_du: 5430000
     it_a_payer: 5430000
     chiffre_affaire_total: 120000000
-    cstns_calcule: 2538750
+    montant_cstns_du: 2538750
     cstns_a_payer: 2538750

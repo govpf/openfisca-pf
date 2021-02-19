@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.4
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - refactoring
+  - Corrections to IT ported to CST NS
+
 ## 0.3.3
 
 * Tax and benefit system evolution.

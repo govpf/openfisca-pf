@@ -38,7 +38,63 @@ def arrondiInf(valeur):
 
 def creerBaremeIT(entreprise, period, type):
     nbTranches = entreprise.pays(f'nombre_tranches_it_{type}', period)[0]
-    bareme = MarginalRateTaxScale(name = 'Bareme perso')
+    bareme = MarginalRateTaxScale(name = 'Bareme IT')
     for tranche in range(1, nbTranches + 1):
         bareme.add_bracket(entreprise.pays(f'seuil_it_{type}_tranche_{tranche}', period)[0], entreprise.pays(f'taux_it_{type}_tranche_{tranche}', period)[0])
     return bareme
+
+
+def creerBaremeCSTNS(entreprise, period, type):
+    nbTranches = entreprise.pays(f'nombre_tranches_cstns_{type}', period)[0]
+    bareme = MarginalRateTaxScale(name = 'Bareme CSTNS')
+    for tranche in range(1, nbTranches + 1):
+        bareme.add_bracket(entreprise.pays(f'seuil_cstns_{type}_tranche_{tranche}', period)[0], entreprise.pays(f'taux_cstns_{type}_tranche_{tranche}', period)[0])
+    return bareme
+
+
+def creerBareme(entreprise, period, impot, type):
+    nbTranches = entreprise.pays(f'nombre_tranches_{impot}_{type}', period)[0]
+    bareme = MarginalRateTaxScale(name = 'Bareme CSTNS')
+    for tranche in range(1, nbTranches + 1):
+        bareme.add_bracket(entreprise.pays(f'seuil_{impot}_{type}_tranche_{tranche}', period)[0], entreprise.pays(f'taux_{impot}_{type}_tranche_{tranche}', period)[0])
+    return bareme
+
+
+def calculerBaseImposableVentesTranche(entreprise, period, tranche, impot):
+    nbTranches = entreprise.pays(f'nombre_tranches_{impot}_ventes', period)[0]
+    seuil_tranche_inferieure = entreprise.pays(f'seuil_{impot}_ventes_tranche_{tranche}', period)
+    ca = entreprise(f'base_imposable_{impot}_ventes', period)
+    if tranche == nbTranches:
+        valeur = (select(
+            [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
+            [0, ca - seuil_tranche_inferieure],
+            ))
+    else:
+        seuil_tranche_superieure = entreprise.pays(f'seuil_{impot}_ventes_tranche_{tranche + 1}', period)
+        valeur = (select(
+            [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
+            [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
+            ))
+    return valeur
+
+
+def calculerBaseImposablePrestationsTranche(entreprise, period, tranche, impot):
+    nbTranches = entreprise.pays(f'nombre_tranches_{impot}_prestations', period)[0]
+    seuil_tranche_inferieure = entreprise.pays(f'seuil_{impot}_prestations_tranche_{tranche}', period)
+    ca = entreprise(f'base_imposable_{impot}_prestations', period) + entreprise(f'base_imposable_{impot}_ventes', period) / 4
+    if tranche == nbTranches:
+        caVenteTranche = 0
+        for i in range(tranche, entreprise.pays(f'nombre_tranches_{impot}_ventes', period)[0] + 1):
+            caVenteTranche += entreprise(f'base_imposable_{impot}_ventes_tranche_{i}', period) / 4
+        valeur = (select(
+            [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
+            [0, ca - seuil_tranche_inferieure - caVenteTranche],
+            ))
+    else:
+        caVenteTranche = entreprise(f'base_imposable_{impot}_ventes_tranche_{tranche}', period) / 4
+        seuil_tranche_superieure = entreprise.pays(f'seuil_{impot}_prestations_tranche_{tranche + 1}', period)
+        valeur = (select(
+            [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
+            [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
+            ))
+    return valeur
