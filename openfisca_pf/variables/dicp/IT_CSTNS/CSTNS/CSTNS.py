@@ -62,25 +62,3 @@ class redevable_cstns(Variable):
     def formula(entreprise, period, parameters):
         redevable_it = entreprise('redevable_it', period)
         return redevable_it
-
-
-class nombre_entreprises_redevables_cstns_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    label = u"Nombre d'entreprises du pays redevables de la CST-NS"
-
-    def formula(pays, period, parameters):
-        redevables = pays.members('redevable_cst_ns', period)
-        return pays.sum(redevables * 1)
-
-
-class montant_cstns_total_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    label = u"Montant total de CST-NS du par les entreprises du pays"
-
-    def formula(pays, period, parameters):
-        it_du = pays.members('montant_cst_ns_du', period)
-        return pays.sum(it_du)

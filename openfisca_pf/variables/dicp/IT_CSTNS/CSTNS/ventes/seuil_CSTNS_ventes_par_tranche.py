@@ -100,67 +100,25 @@ class seuil_cstns_ventes_tranche_9(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
 
-class seuil_cstns_prestations_tranche_1(Variable):
+class seuil_cstns_ventes_tranche_10(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    label = u"Seuil de tranche 1 de la CST-NS sur les ventes\n\nAttention, ce paramètre ne DOIT PAS être modifié pour un calcul.\nSa modification n'est possible que pour les simulations, et dans ce cas seule la première valeur de la simulation sera prise en compte. A modifier avec une extrème précaution !"
+    label = u"Seuil de tranche 10 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
-    def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_prestations.thresholds[0])
 
-
-class seuil_cstns_prestations_tranche_2(Variable):
+class seuil_cstns_ventes_tranche_11(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    label = u"Seuil de tranche 1 de la CST-NS sur les ventes\n\nAttention, ce paramètre ne DOIT PAS être modifié pour un calcul.\nSa modification n'est possible que pour les simulations, et dans ce cas seule la première valeur de la simulation sera prise en compte. A modifier avec une extrème précaution !"
+    label = u"Seuil de tranche 11 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
-    def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_prestations.thresholds[1])
 
-
-class seuil_cstns_prestations_tranche_3(Variable):
+class seuil_cstns_ventes_tranche_12(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    label = u"Seuil de tranche 1 de la CST-NS sur les ventes\n\nAttention, ce paramètre ne DOIT PAS être modifié pour un calcul.\nSa modification n'est possible que pour les simulations, et dans ce cas seule la première valeur de la simulation sera prise en compte. A modifier avec une extrème précaution !"
+    label = u"Seuil de tranche 12 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
-
-    def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_prestations.thresholds[2])
-
-
-class seuil_cstns_prestations_tranche_4(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    label = u"Seuil de tranche 1 de la CST-NS sur les ventes\n\nAttention, ce paramètre ne DOIT PAS être modifié pour un calcul.\nSa modification n'est possible que pour les simulations, et dans ce cas seule la première valeur de la simulation sera prise en compte. A modifier avec une extrème précaution !"
-    reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
-
-    def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_prestations.thresholds[3])
-
-
-class seuil_cstns_prestations_tranche_5(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    label = u"Seuil de tranche 1 de la CST-NS sur les ventes\n\nAttention, ce paramètre ne DOIT PAS être modifié pour un calcul.\nSa modification n'est possible que pour les simulations, et dans ce cas seule la première valeur de la simulation sera prise en compte. A modifier avec une extrème précaution !"
-    reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
-
-    def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_prestations.thresholds[4])
-
-
-class seuil_cstns_prestations_tranche_6(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    label = u"Seuil de tranche 1 de la CST-NS sur les ventes\n\nAttention, ce paramètre ne DOIT PAS être modifié pour un calcul.\nSa modification n'est possible que pour les simulations, et dans ce cas seule la première valeur de la simulation sera prise en compte. A modifier avec une extrème précaution !"
-    reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
-
-    def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_prestations.thresholds[5])

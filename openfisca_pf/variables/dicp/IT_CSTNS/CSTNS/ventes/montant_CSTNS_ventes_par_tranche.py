@@ -135,3 +135,45 @@ class montant_cstns_ventes_du_tranche_9(Variable):
         ca = entreprise(f'base_imposable_cstns_ventes_tranche_{tranche}', period)
         taux = entreprise.pays(f'taux_cstns_ventes_tranche_{tranche}', period)
         return arrondiInf(ca * taux)
+
+
+class montant_cstns_ventes_du_tranche_10(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant de CST-NS de la tranche 10 sur les ventes sans tenir compte de l'abattement de droits :\n\n#montant_cstns_ventes_du_tranche_10 = arrondiInf(#base_imposable_cstns_ventes_tranche_10 * #taux_cstns_ventes_tranche_10)"
+    reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
+
+    def formula(entreprise, period, parameters):
+        tranche = 10
+        ca = entreprise(f'base_imposable_cstns_ventes_tranche_{tranche}', period)
+        taux = entreprise.pays(f'taux_cstns_ventes_tranche_{tranche}', period)
+        return arrondiInf(ca * taux)
+
+
+class montant_cstns_ventes_du_tranche_11(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant de CST-NS de la tranche 11 sur les ventes sans tenir compte de l'abattement de droits :\n\n#montant_cstns_ventes_du_tranche_11 = arrondiInf(#base_imposable_cstns_ventes_tranche_11 * #taux_cstns_ventes_tranche_11)"
+    reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
+
+    def formula(entreprise, period, parameters):
+        tranche = 11
+        ca = entreprise(f'base_imposable_cstns_ventes_tranche_{tranche}', period)
+        taux = entreprise.pays(f'taux_cstns_ventes_tranche_{tranche}', period)
+        return arrondiInf(ca * taux)
+
+
+class montant_cstns_ventes_du_tranche_12(Variable):
+    value_type = float
+    entity = Entreprise
+    definition_period = YEAR
+    label = u"Montant de CST-NS de la tranche 12 sur les ventes sans tenir compte de l'abattement de droits :\n\n#montant_cstns_ventes_du_tranche_12 = arrondiInf(#base_imposable_cstns_ventes_tranche_12 * #taux_cstns_ventes_tranche_12)"
+    reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
+
+    def formula(entreprise, period, parameters):
+        tranche = 12
+        ca = entreprise(f'base_imposable_cstns_ventes_tranche_{tranche}', period)
+        taux = entreprise.pays(f'taux_cstns_ventes_tranche_{tranche}', period)
+        return arrondiInf(ca * taux)

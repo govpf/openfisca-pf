@@ -62,6 +62,8 @@ def creerBareme(entreprise, period, impot, type):
 
 def calculerBaseImposableVentesTranche(entreprise, period, tranche, impot):
     nbTranches = entreprise.pays(f'nombre_tranches_{impot}_ventes', period)[0]
+    if tranche > nbTranches:
+        return 0
     seuil_tranche_inferieure = entreprise.pays(f'seuil_{impot}_ventes_tranche_{tranche}', period)
     ca = entreprise(f'base_imposable_{impot}_ventes', period)
     if tranche == nbTranches:
@@ -80,6 +82,8 @@ def calculerBaseImposableVentesTranche(entreprise, period, tranche, impot):
 
 def calculerBaseImposablePrestationsTranche(entreprise, period, tranche, impot):
     nbTranches = entreprise.pays(f'nombre_tranches_{impot}_prestations', period)[0]
+    if tranche > nbTranches:
+        return 0
     seuil_tranche_inferieure = entreprise.pays(f'seuil_{impot}_prestations_tranche_{tranche}', period)
     ca = entreprise(f'base_imposable_{impot}_prestations', period) + entreprise(f'base_imposable_{impot}_ventes', period) / 4
     if tranche == nbTranches:

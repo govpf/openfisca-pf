@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.5
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - refactoring
+  - adding 12 scales on it and CST NS for simulation purpose
+  - addind statistics on country
+
 ## 0.3.4
 
 * Tax and benefit system evolution.

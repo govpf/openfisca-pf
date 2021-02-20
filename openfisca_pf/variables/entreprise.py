@@ -71,3 +71,47 @@ class nombre_entreprises_contribuables_pays(Variable):
 
     def formula(pays, period, parameters):
         return pays.nb_persons(Pays.CONTRIBUABLES)
+
+
+class chiffre_affaire_prestations_contribuables_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Chiffre d'affaire total en prestation des entreprises contribuables du pays"
+
+    def formula(pays, period, parameters):
+        ca = pays.members('chiffre_affaire_total_prestations', period)
+        return pays.sum(ca)
+
+
+class chiffre_affaire_ventes_contribuables_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Chiffre d'affaire total en ventes des entreprises contribuables du pays"
+
+    def formula(pays, period, parameters):
+        ca = pays.members('chiffre_affaire_total_ventes', period)
+        return pays.sum(ca)
+
+
+class base_imposable_it_prestations_contribuables_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Chiffre d'affaire total en prestation des entreprises contribuables du pays"
+
+    def formula(pays, period, parameters):
+        ca = pays.members('base_imposable_it_prestations', period)
+        return pays.sum(ca)
+
+
+class base_imposable_it_ventes_contribuables_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Chiffre d'affaire total en ventes des entreprises contribuables du pays"
+
+    def formula(pays, period, parameters):
+        ca = pays.members('base_imposable_it_ventes', period)
+        return pays.sum(ca)
