@@ -33,7 +33,6 @@ class taux_it_prestations_tranche_1(Variable):
         return (parameters(period).dicp.it.taux_prestations.rates[0] if nombre_tranches_it_prestations > 0 else 0)
 
 
-
 class taux_it_prestations_tranche_2(Variable):
     value_type = float
     entity = Pays
@@ -44,7 +43,6 @@ class taux_it_prestations_tranche_2(Variable):
     def formula(pays, period, parameters):
         nombre_tranches_it_prestations = pays(f'nombre_tranches_it_prestations', period)
         return (parameters(period).dicp.it.taux_prestations.rates[1] if nombre_tranches_it_prestations > 1 else 0)
-
 
 
 class taux_it_prestations_tranche_3(Variable):
