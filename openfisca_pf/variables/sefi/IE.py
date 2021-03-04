@@ -127,8 +127,6 @@ class montant_ie(Variable):
     reference = ["https://www.actusefi.org/ie2021", "https://pceco.squarespace.com/s/Loi-du-Pays-n-2021-12-du-24_02_2021.pdf", "https://www.actusefi.org/s/Arrete-n-209-CM-du-24_02_2021.pdf"]
 
     def formula_2021_01(personne, period, parameters):
-        #parameters(period).dicp.cst_s.taux.rates[0]
-        # On doit vérifier si le contrat a bien été résilié
         eligible_ie = personne('eligible_ie', period)
         dernier_contrat_3_derniers_mois = personne('dernier_contrat_3_derniers_mois', period)
         dernier_salaire_percu_3_derniers_mois = personne('dernier_salaire_percu_3_derniers_mois', period)
