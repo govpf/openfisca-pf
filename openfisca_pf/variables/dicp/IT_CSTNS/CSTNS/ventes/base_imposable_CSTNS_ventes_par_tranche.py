@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class base_imposable_cstns_ventes_tranche_1(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 1 de la CST NS : \n\n"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -25,7 +25,7 @@ class base_imposable_cstns_ventes_tranche_1(Variable):
 
 class base_imposable_cstns_ventes_tranche_2(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 2 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -37,7 +37,7 @@ class base_imposable_cstns_ventes_tranche_2(Variable):
 
 class base_imposable_cstns_ventes_tranche_3(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 3 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -49,7 +49,7 @@ class base_imposable_cstns_ventes_tranche_3(Variable):
 
 class base_imposable_cstns_ventes_tranche_4(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 4 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -61,7 +61,7 @@ class base_imposable_cstns_ventes_tranche_4(Variable):
 
 class base_imposable_cstns_ventes_tranche_5(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 5 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -73,7 +73,7 @@ class base_imposable_cstns_ventes_tranche_5(Variable):
 
 class base_imposable_cstns_ventes_tranche_6(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 6 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -85,7 +85,7 @@ class base_imposable_cstns_ventes_tranche_6(Variable):
 
 class base_imposable_cstns_ventes_tranche_7(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 7 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -97,7 +97,7 @@ class base_imposable_cstns_ventes_tranche_7(Variable):
 
 class base_imposable_cstns_ventes_tranche_8(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 8 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -109,7 +109,7 @@ class base_imposable_cstns_ventes_tranche_8(Variable):
 
 class base_imposable_cstns_ventes_tranche_9(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 9 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -121,7 +121,7 @@ class base_imposable_cstns_ventes_tranche_9(Variable):
 
 class base_imposable_cstns_ventes_tranche_10(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 10 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -133,7 +133,7 @@ class base_imposable_cstns_ventes_tranche_10(Variable):
 
 class base_imposable_cstns_ventes_tranche_11(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 11 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -145,7 +145,7 @@ class base_imposable_cstns_ventes_tranche_11(Variable):
 
 class base_imposable_cstns_ventes_tranche_12(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Base imposable de ventes sur la tranche 12 de la CST NS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source

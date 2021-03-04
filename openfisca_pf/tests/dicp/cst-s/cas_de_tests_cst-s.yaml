@@ -1,7 +1,7 @@
 - name: 1
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: -1000
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -29,7 +29,7 @@
 - name: 2
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 0
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -57,7 +57,7 @@
 - name: 3
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 1000000
       revenus_tranche_2: 1000000
       revenus_tranche_3: 1000000
@@ -85,7 +85,7 @@
 - name: 4
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 3000000
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -113,7 +113,7 @@
 - name: 5
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 0
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -141,7 +141,7 @@
 - name: 6
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 150
       revenus_tranche_2: 40
       revenus_tranche_3: 80
@@ -169,7 +169,7 @@
 - name: 7
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 15000000000
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -197,7 +197,7 @@
 - name: 8
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 0
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -225,7 +225,7 @@
 - name: 9
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 0
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -253,7 +253,7 @@
 - name: 10
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 0
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -281,7 +281,7 @@
 - name: 11
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 0
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -309,7 +309,7 @@
 - name: 12
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 1000000
       revenus_tranche_2: 8000000
       revenus_tranche_3: 800500
@@ -337,7 +337,7 @@
 - name: 13
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 0
       revenus_tranche_2: 0
       revenus_tranche_3: 0
@@ -365,7 +365,7 @@
 - name: 14
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 452555
       revenus_tranche_2: 452555
       revenus_tranche_3: 452555
@@ -393,7 +393,7 @@
 - name: 15
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 133200
       revenus_tranche_2: 22200
       revenus_tranche_3: 13320
@@ -421,7 +421,7 @@
 - name: 16
   period: 2020-01
   input:
-    entreprise:
+    personne:
       revenus_tranche_1: 3186218341
       revenus_tranche_2: 3186218341
       revenus_tranche_3: 3186218341

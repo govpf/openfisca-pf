@@ -26,6 +26,13 @@ class OuiNon(Enum):
     N = u'Non'
 
 
+class TypeContrat(Enum):
+    Aucun = u'Aucun contrat'
+    CDI = u'Contrat à durée indéterminée'
+    CDD = u'Contrat à durée déterminée'
+    Extras = u'Contrat d\'extras'
+
+
 # This function round up if result is 0.5 so for ex 1.5 => 2, 1.6 => 2 but 1.4 => 1
 def arrondiSup(valeur):
     return numpy.rint(numpy.nextafter(valeur, valeur + 1))

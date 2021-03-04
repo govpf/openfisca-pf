@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class it_prestations_avant_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant IT sur les prestations sans tenir compte de l'abattement de droits éventuel :\n\n#it_prestations_avant_abattement_droits = SOMME(#montant_it_prestations_du_tranche_1, #montant_it_prestations_du_tranche_2...)"
     label = u"Montant IT sur les prestation sans tenir compte de l'abattement de droits"
@@ -35,7 +35,7 @@ class it_prestations_avant_abattement_droits(Variable):
 
 class it_prestations_sans_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant IT sur les prestation ne bénéficiant pas de l'abattement de droits"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -49,7 +49,7 @@ class it_prestations_sans_abattement_droits(Variable):
 
 class it_prestations(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant IT sur les prestations, suite à application de l'abattement sur les droits\n\n#it_prestations = #it_prestations_avant_abattement_droits - #it_prestations_abattement_droits"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -62,7 +62,7 @@ class it_prestations(Variable):
 
 class it_prestations_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Abattement de droit applique sur l'IT des prestations :\n\n#it_prestations_abattement_droits = ( #it_prestations_avant_abattement_droits - #it_prestations_sans_abattement_droits ) / 2"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source

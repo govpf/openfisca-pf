@@ -1,7 +1,7 @@
 - name: 63. 25 + 7 - avec annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -20,7 +20,7 @@
 - name: 64. 23 + 90 - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -38,7 +38,7 @@
 - name: 65. 8 + 10 + 20 - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -57,7 +57,7 @@
 - name: 66. 8 + 10 + 20 + 24 - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -77,7 +77,7 @@
 - name: 67. 8 + 10 + 20 + 24 - avec annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -97,7 +97,7 @@
 - name: 68. 8 + 10 + 20 + 24 - avec annexe - avec releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -117,7 +117,7 @@
 - name: 69. 8 + 10 + 20 + 24 - avec annexe - avec releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -137,7 +137,7 @@
 - name: 70. 8 + 10 + 20 + 24 - sans annexe - sans releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -157,7 +157,7 @@
 - name: 71. 92 + 96 - avec annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -175,7 +175,7 @@
 - name: 72. 92 + 96 - avec annexe - avec releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -193,7 +193,7 @@
 - name: 73. 92 + 96 - avec annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -211,7 +211,7 @@
 - name: 74. 92 + 96 - avec annexe - avec releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -229,7 +229,7 @@
 - name: 75. 97 + 25 - sans annexe - avec releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -247,7 +247,7 @@
 - name: 76. 97 + 25 - avec annexe - avec releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -265,7 +265,7 @@
 - name: 77. 97 + 25 - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -283,7 +283,7 @@
 - name: 78. 97 + 25 - sans annexe - avec releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -301,7 +301,7 @@
 - name: 79. 14 + 98 - sans annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -319,7 +319,7 @@
 - name: 80. 18 + 19 + 99 - avec annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -338,7 +338,7 @@
 - name: 81. 18 + 19 + 99 - avec annexe - avec releve - ch > 50% - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -357,7 +357,7 @@
 - name: 82. 18 + 19 + 99 - sans annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -376,7 +376,7 @@
 - name: 84. 18 + 19 + 99 - avec annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -395,7 +395,7 @@
 - name: 83. 18 + 19 + 99 - avec annexe - avec releve - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -414,7 +414,7 @@
 - name: 85. 11 + 22 - avec annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -432,7 +432,7 @@
 - name: 86. 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -450,7 +450,7 @@
 - name: 87. 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -468,7 +468,7 @@
 - name: 88. 11 + 22 - avec annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -486,7 +486,7 @@
 - name: 89. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -508,7 +508,7 @@
 - name: 90. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys - charge > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -530,7 +530,7 @@
 - name: 91. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O

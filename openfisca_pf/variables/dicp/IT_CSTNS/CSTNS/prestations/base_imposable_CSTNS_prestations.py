@@ -14,7 +14,7 @@ import numpy
 
 class base_imposable_cstns_prestations(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant total du chiffre d'affaire concernant des prestations après abattement d'assiette mais sans abattement de droit"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -34,7 +34,7 @@ class base_imposable_cstns_prestations(Variable):
 
 class base_imposable_cstns_prestations_sans_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant total du chiffre d'affaire concernant des prestations après abattement de l'assiette, mais qui ne beneficiement pas d'un abattement de droit"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source

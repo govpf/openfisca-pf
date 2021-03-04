@@ -12,7 +12,7 @@ from openfisca_pf.entities import *
 
 class abattement_it(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Abattement total de droit applique sur l'IT :\n\n#abattement_it = #it_prestations_abattement_droits + #it_ventes_abattement_droits"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -25,56 +25,56 @@ class abattement_it(Variable):
 
 # class montant_acompte_it_1(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant du 1er acompte IT verse"
 
 
 # class montant_acompte_it_2(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant du 2eme acompte IT verse"
 
 
 # class montant_declaration_provisoire_it(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de l'IT calcule sur une declaration provisoire"
 
 
 # class montant_credit_impot_it_1(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de credit d'impot IT 1"
 
 
 # class montant_credit_impot_it_2(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de credit d'impot IT 2"
 
 
 # class montant_credit_impot_it_3(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de credit d'impot IT 3"
 
 
 # class montant_credit_impot_it_4(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de credit d'impot IT 4"
 
 
 class montant_total_deductions_it(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant total des deductions IT à appliquer"
 

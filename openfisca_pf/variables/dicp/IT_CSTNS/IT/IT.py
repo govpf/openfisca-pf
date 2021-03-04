@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class montant_it_du(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant IT total calculé.\n\n#montant_it_du = #it_ventes + #it_prestations"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -31,7 +31,7 @@ class montant_it_du(Variable):
 
 class it_a_payer(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant IT à payer.\n\nSi #montant_it_du < 6000\n    alors #it_a_payer = 0,\n    sinon #it_a_payer = #montant_it_du"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -43,7 +43,7 @@ class it_a_payer(Variable):
 
 class montant_it_total_a_payer(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant IT total à payer, en prenant compte des déductions et des pénalités :\n\n#montant_it_total_a_payer = #montant_it_du - #montant_total_deductions_it + montant_total_penalites_it"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -68,7 +68,7 @@ class montant_it_total_pays(Variable):
 
 class redevable_it(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à l'IT"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -86,7 +86,7 @@ class redevable_it(Variable):
 
 class option_it(Variable):
     value_type = Enum
-    entity = Entreprise
+    entity = Personne
     possible_values = OuiNon
     default_value = OuiNon.N
     definition_period = YEAR
@@ -96,7 +96,7 @@ class option_it(Variable):
 
 class option_it_possible(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Indique que l'entreprise peut opter pour l'IT plutot que l'IT"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source

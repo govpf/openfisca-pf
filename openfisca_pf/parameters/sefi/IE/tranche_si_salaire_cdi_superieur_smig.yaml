@@ -1,0 +1,42 @@
+description: Tranches de l'IE pour les CDI
+metadata:
+  threshold_unit: currency-XPF
+  amount_unit: /1
+  type: single_amount
+brackets:
+- amount:
+    2021-02-24:
+      value: 0
+  threshold:
+    2021-02-24:
+      value: 0
+- amount:
+    2021-02-24:
+      value: 140000
+  threshold:
+    2021-02-24:
+      value: 1
+- amount:
+    2021-02-24:
+      value: 170000
+  threshold:
+    2021-02-24:
+      value: 1.5
+- amount:
+    2021-02-24:
+      value: 230000
+  threshold:
+    2021-02-24:
+      value: 2
+- amount:
+    2021-02-24:
+      value: 275000
+  threshold:
+    2021-02-24:
+      value: 3
+- amount:
+    2021-02-24:
+      value: 305000
+  threshold:
+    2021-02-24:
+      value: 4

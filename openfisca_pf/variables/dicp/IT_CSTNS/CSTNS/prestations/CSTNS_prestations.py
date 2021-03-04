@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class cstns_prestations_avant_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant cstns sur les prestation sans tenir compte de l'abattement de droits\n\n#cstns_prestations_avant_abattement_droits = SOMME(#montant_cstns_prestations_du_tranche_1, #montant_cstns_prestations_du_tranche_2...)"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"  # Always use the most official source
@@ -33,7 +33,7 @@ class cstns_prestations_avant_abattement_droits(Variable):
 
 class cstns_prestations_sans_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant cstns sur les prestation ne bénéficiant pas de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-i-bases-et-personnes-imposables"
@@ -47,7 +47,7 @@ class cstns_prestations_sans_abattement_droits(Variable):
 
 class cstns_prestations(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant cstns sur les prestations, suite à application de l'abattement sur les droits\n\n#cstns_prestations = #cstns_prestations_avant_abattement_droits - #cstns_prestations_abattement_droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"  # Always use the most official source
@@ -61,7 +61,7 @@ class cstns_prestations(Variable):
 
 class cstns_prestations_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Abattement de droit applique sur la CST-NS des prestations :\n\n#cstns_prestations_abattement_droits = ( #cstns_prestations_avant_abattement_droits - #cstns_prestations_sans_abattement_droits ) / 2"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source

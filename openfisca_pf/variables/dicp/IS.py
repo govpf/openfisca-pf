@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class option_is(Variable):
     value_type = Enum
-    entity = Entreprise
+    entity = Personne
     possible_values = OuiNon
     default_value = OuiNon.N
     definition_period = YEAR
@@ -23,7 +23,7 @@ class option_is(Variable):
 
 class option_is_possible(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Indique que l'entreprise peut opter pour l'IS plutot que l'IT"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -35,7 +35,7 @@ class option_is_possible(Variable):
 
 class redevable_is(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à l'IS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source

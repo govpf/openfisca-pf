@@ -12,7 +12,7 @@ from openfisca_pf.entities import *
 
 class abattement_cstns(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Abattement total de droit applique sur la CST NS :\n\n#abattement_cstns = #cstns_prestations_abattement_droits + #cstns_ventes_abattement_droits"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -25,56 +25,56 @@ class abattement_cstns(Variable):
 
 # class montant_acompte_cstns_1(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant du 1er acompte IT verse"
 
 
 # class montant_acompte_cstns_2(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant du 2eme acompte IT verse"
 
 
 # class montant_declaration_provisoire_cstns(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de la CST NS calcule sur une declaration provisoire"
 
 
 # class montant_credcstns_impot_cstns_1(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de credit d'impot IT 1"
 
 
 # class montant_credcstns_impot_cstns_2(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de credit d'impot IT 2"
 
 
 # class montant_credcstns_impot_cstns_3(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de credit d'impot IT 3"
 
 
 # class montant_credcstns_impot_cstns_4(Variable):
 #     value_type = float
-#     entity = Entreprise
+#     entity = Personne
 #     definition_period = YEAR
 #     label = u"Montant de credit d'impot IT 4"
 
 
 class montant_total_deductions_cstns(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant total des deductions IT à appliquer"
 

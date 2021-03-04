@@ -14,7 +14,7 @@ from openfisca_pf.base import *
 # CSTS par tranche
 class cst_s_due_tranche_1(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 1"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -30,7 +30,7 @@ class cst_s_due_tranche_1(Variable):
 
 class cst_s_due_tranche_2(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 1"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -46,7 +46,7 @@ class cst_s_due_tranche_2(Variable):
 
 class cst_s_due_tranche_3(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 2"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -62,7 +62,7 @@ class cst_s_due_tranche_3(Variable):
 
 class cst_s_due_tranche_4(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 3"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -78,7 +78,7 @@ class cst_s_due_tranche_4(Variable):
 
 class cst_s_due_tranche_5(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 4"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -94,7 +94,7 @@ class cst_s_due_tranche_5(Variable):
 
 class cst_s_due_tranche_6(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 5"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -110,7 +110,7 @@ class cst_s_due_tranche_6(Variable):
 
 class cst_s_due_tranche_7(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 6"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -126,7 +126,7 @@ class cst_s_due_tranche_7(Variable):
 
 class cst_s_due_tranche_8(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 7"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -142,7 +142,7 @@ class cst_s_due_tranche_8(Variable):
 
 class cst_s_due_tranche_9(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 8"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -158,7 +158,7 @@ class cst_s_due_tranche_9(Variable):
 
 class cst_s_due_tranche_10(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 9"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -174,7 +174,7 @@ class cst_s_due_tranche_10(Variable):
 
 class cst_s_due_tranche_11(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 10"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -190,7 +190,7 @@ class cst_s_due_tranche_11(Variable):
 
 class taux_cst_s_tranche_1(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 1"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -202,7 +202,7 @@ class taux_cst_s_tranche_1(Variable):
 
 class taux_cst_s_tranche_2(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 2"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -214,7 +214,7 @@ class taux_cst_s_tranche_2(Variable):
 
 class taux_cst_s_tranche_3(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 3"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -226,7 +226,7 @@ class taux_cst_s_tranche_3(Variable):
 
 class taux_cst_s_tranche_4(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 4"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -238,7 +238,7 @@ class taux_cst_s_tranche_4(Variable):
 
 class taux_cst_s_tranche_5(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 5"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -250,7 +250,7 @@ class taux_cst_s_tranche_5(Variable):
 
 class taux_cst_s_tranche_6(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 6"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -262,7 +262,7 @@ class taux_cst_s_tranche_6(Variable):
 
 class taux_cst_s_tranche_7(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 7"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -274,7 +274,7 @@ class taux_cst_s_tranche_7(Variable):
 
 class taux_cst_s_tranche_8(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 8"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -286,7 +286,7 @@ class taux_cst_s_tranche_8(Variable):
 
 class taux_cst_s_tranche_9(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 9"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -298,7 +298,7 @@ class taux_cst_s_tranche_9(Variable):
 
 class taux_cst_s_tranche_10(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 10"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -310,7 +310,7 @@ class taux_cst_s_tranche_10(Variable):
 
 class taux_cst_s_tranche_11(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"Taux de la CST-S pour la tranche 11"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source

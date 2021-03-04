@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class cstns_ventes_avant_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant cstns sur les ventes sans tenir compte de l'abattement de droits"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -32,7 +32,7 @@ class cstns_ventes_avant_abattement_droits(Variable):
 
 class cstns_ventes_sans_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant cstns sur les ventes ne bénéficiant pas de l'abattement de droits"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -46,7 +46,7 @@ class cstns_ventes_sans_abattement_droits(Variable):
 
 class cstns_ventes(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant cstns sur les ventes, suite à application de l'abattement sur les droits"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -59,7 +59,7 @@ class cstns_ventes(Variable):
 
 class cstns_ventes_abattement_droits(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Abattement de droit applique sur la CST NS des ventes :\n\n#cstns_ventes_abattement_droits = ( #cstns_ventes_avant_abattement_droits - #cstns_ventes_sans_abattement_droits ) / 2"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source

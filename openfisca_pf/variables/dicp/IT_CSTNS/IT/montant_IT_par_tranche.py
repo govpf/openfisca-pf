@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class montant_du_it_tranche_1(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 1 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_1 = #montant_it_prestations_du_tranche_1 + #montant_it_ventes_du_tranche_1"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -27,7 +27,7 @@ class montant_du_it_tranche_1(Variable):
 
 class montant_du_it_tranche_2(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 2 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_2 = #montant_it_prestations_du_tranche_2 + #montant_it_ventes_du_tranche_2"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -41,7 +41,7 @@ class montant_du_it_tranche_2(Variable):
 
 class montant_du_it_tranche_3(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 3 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_3 = #montant_it_prestations_du_tranche_3 + #montant_it_ventes_du_tranche_3"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -55,7 +55,7 @@ class montant_du_it_tranche_3(Variable):
 
 class montant_du_it_tranche_4(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 4 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_4 = #montant_it_prestations_du_tranche_4 + #montant_it_ventes_du_tranche_4"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -69,7 +69,7 @@ class montant_du_it_tranche_4(Variable):
 
 class montant_du_it_tranche_5(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 5 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_5 = #montant_it_prestations_du_tranche_5 + #montant_it_ventes_du_tranche_5"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -83,7 +83,7 @@ class montant_du_it_tranche_5(Variable):
 
 class montant_du_it_tranche_6(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 6 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_6 = #montant_it_prestations_du_tranche_6 + #montant_it_ventes_du_tranche_6"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -97,7 +97,7 @@ class montant_du_it_tranche_6(Variable):
 
 class montant_du_it_tranche_7(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 7 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_7 = #montant_it_prestations_du_tranche_7 + #montant_it_ventes_du_tranche_7"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -111,7 +111,7 @@ class montant_du_it_tranche_7(Variable):
 
 class montant_du_it_tranche_8(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 8 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_8 = #montant_it_prestations_du_tranche_8 + #montant_it_ventes_du_tranche_8"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -125,7 +125,7 @@ class montant_du_it_tranche_8(Variable):
 
 class montant_du_it_tranche_9(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 9 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_9 = #montant_it_prestations_du_tranche_9 + #montant_it_ventes_du_tranche_9"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -139,7 +139,7 @@ class montant_du_it_tranche_9(Variable):
 
 class montant_du_it_tranche_10(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 10 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_10 = #montant_it_prestations_du_tranche_10 + #montant_it_ventes_du_tranche_10"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -153,7 +153,7 @@ class montant_du_it_tranche_10(Variable):
 
 class montant_du_it_tranche_11(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 11 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_11 = #montant_it_prestations_du_tranche_11 + #montant_it_ventes_du_tranche_11"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
@@ -167,7 +167,7 @@ class montant_du_it_tranche_11(Variable):
 
 class montant_du_it_tranche_12(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant d'IT sur la tranche 12 sans tenir compte de l'abattement de droits : \n\n#montant_du_it_tranche_12 = #montant_it_prestations_du_tranche_12 + #montant_it_ventes_du_tranche_12"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source

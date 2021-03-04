@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class redevable_tva_franchise_en_base(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -30,7 +30,7 @@ class redevable_tva_franchise_en_base(Variable):
 
 class redevable_tva_regime_simplifie(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -51,7 +51,7 @@ class redevable_tva_regime_simplifie(Variable):
 
 class redevable_tva_regime_reel_trimestriel(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -68,7 +68,7 @@ class redevable_tva_regime_reel_trimestriel(Variable):
 
 class redevable_tva_regime_reel_mensuel(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -82,7 +82,7 @@ class redevable_tva_regime_reel_mensuel(Variable):
 
 class option_tva_regime_simplifie_possible(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime simplifié de TVA"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -96,7 +96,7 @@ class option_tva_regime_simplifie_possible(Variable):
 
 class option_tva_regime_simplifie(Variable):
     value_type = Enum
-    entity = Entreprise
+    entity = Personne
     possible_values = OuiNon
     default_value = OuiNon.N
     definition_period = YEAR
@@ -106,7 +106,7 @@ class option_tva_regime_simplifie(Variable):
 
 class option_tva_regime_reel_trimestriel_possible(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime réel trimestriel de TVA"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -124,7 +124,7 @@ class option_tva_regime_reel_trimestriel_possible(Variable):
 
 class option_tva_regime_reel_trimestriel(Variable):
     value_type = Enum
-    entity = Entreprise
+    entity = Personne
     possible_values = OuiNon
     default_value = OuiNon.N
     definition_period = YEAR
@@ -134,7 +134,7 @@ class option_tva_regime_reel_trimestriel(Variable):
 
 class option_tva_regime_reel_mensuel_possible(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime réel mensuel de TVA"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -148,7 +148,7 @@ class option_tva_regime_reel_mensuel_possible(Variable):
 
 class option_tva_regime_reel_mensuel(Variable):
     value_type = Enum
-    entity = Entreprise
+    entity = Personne
     possible_values = OuiNon
     default_value = OuiNon.N
     definition_period = YEAR

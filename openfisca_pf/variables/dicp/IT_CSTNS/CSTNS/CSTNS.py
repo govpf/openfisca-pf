@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class montant_cstns_du(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant CST-NS total calculé.\n\n#montant_cstns_du = #cstns_ventes + #cstns_prestations"
     reference = "https://www.impot-polynesie.gov.pf/essentiel/la-contribution-de-solidarite-territoriale-sur-les-professions-et-activites-non-salariees"  # Always use the most official source
@@ -27,7 +27,7 @@ class montant_cstns_du(Variable):
 
 class cstns_a_payer(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant cstns total à payer.\n\nSi #montant_cstns_du < 6000\n    alors #cstns_a_payer = 0,\n    sinon #cstns_a_payer = #montant_it_du"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -39,7 +39,7 @@ class cstns_a_payer(Variable):
 
 class montant_cstns_total_a_payer(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant IT total à payer, en prenant compte des déductions et des pénalités :\n\n#montant_it_total_a_payer = #montant_it_du - #montant_total_deductions_it + montant_total_penalites_it"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
@@ -54,7 +54,7 @@ class montant_cstns_total_a_payer(Variable):
 
 class redevable_cstns(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la CST-NS.\nL'entreprise est redevable à la CST-NS si elle est redevable à l'IT"
     reference = "https://www.impot-polynesie.gov.pf/code/section-i-bases-et-personnes-imposables"

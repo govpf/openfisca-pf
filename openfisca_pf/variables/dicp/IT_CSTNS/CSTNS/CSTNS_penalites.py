@@ -12,21 +12,21 @@ from openfisca_pf.entities import *
 
 class montant_amendes_cstns(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant des amendes appliquées a l'avis CST NS"
 
 
 class taux_majoration_cstns(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Taux de majoration appliqué a la CST NS"
 
 
 class montant_majoration_cstns(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant de la majoration appliquée a la CST NS"
 
@@ -38,14 +38,14 @@ class montant_majoration_cstns(Variable):
 
 class montant_penalites_cstns(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant des penalites appliquées a la CST NS"
 
 
 class montant_total_penalites_cstns(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant total des penalités CST NS"
 

@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class cst_s_due_totale_par_employes(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = "Sum of the taxes paid by a household"
     reference = "https://stats.gov.example/taxes"
@@ -25,7 +25,7 @@ class cst_s_due_totale_par_employes(Variable):
 
 class cst_s_due_totale(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés par tranche"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source

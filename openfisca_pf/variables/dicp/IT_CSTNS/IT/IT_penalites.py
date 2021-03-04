@@ -12,21 +12,21 @@ from openfisca_pf.entities import *
 
 class montant_amendes_it(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant des amendes appliquées a l'avis IT"
 
 
 class taux_majoration_it(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Taux de majoration appliqué a l'IT"
 
 
 class montant_majoration_it(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant de la majoration appliquée a l'IT"
 
@@ -38,14 +38,14 @@ class montant_majoration_it(Variable):
 
 class montant_penalites_it(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant des penalites appliquées a l'IT"
 
 
 class montant_total_penalites_it(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant total des penalités IT"
 
