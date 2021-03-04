@@ -29,7 +29,8 @@ class taux_it_ventes_tranche_1(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[0])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[0] if nombre_tranches_it_ventes > 0 else 0)
 
 
 class taux_it_ventes_tranche_2(Variable):
@@ -40,7 +41,8 @@ class taux_it_ventes_tranche_2(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[1])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[1] if nombre_tranches_it_ventes > 1 else 0)
 
 
 class taux_it_ventes_tranche_3(Variable):
@@ -51,7 +53,8 @@ class taux_it_ventes_tranche_3(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[2])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[2] if nombre_tranches_it_ventes > 2 else 0)
 
 
 class taux_it_ventes_tranche_4(Variable):
@@ -62,7 +65,8 @@ class taux_it_ventes_tranche_4(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[3])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[3] if nombre_tranches_it_ventes > 3 else 0)
 
 
 class taux_it_ventes_tranche_5(Variable):
@@ -73,7 +77,8 @@ class taux_it_ventes_tranche_5(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[4])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[4] if nombre_tranches_it_ventes > 4 else 0)
 
 
 class taux_it_ventes_tranche_6(Variable):
@@ -84,7 +89,8 @@ class taux_it_ventes_tranche_6(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[5])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[5] if nombre_tranches_it_ventes > 5 else 0)
 
 
 class taux_it_ventes_tranche_7(Variable):
@@ -95,7 +101,8 @@ class taux_it_ventes_tranche_7(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[6])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[6] if nombre_tranches_it_ventes > 6 else 0)
 
 
 class taux_it_ventes_tranche_8(Variable):
@@ -106,7 +113,8 @@ class taux_it_ventes_tranche_8(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[7])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[7] if nombre_tranches_it_ventes > 7 else 0)
 
 
 class taux_it_ventes_tranche_9(Variable):
@@ -117,7 +125,8 @@ class taux_it_ventes_tranche_9(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[8])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[8] if nombre_tranches_it_ventes > 8 else 0)
 
 
 class taux_it_ventes_tranche_10(Variable):
@@ -128,7 +137,8 @@ class taux_it_ventes_tranche_10(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[8])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[9] if nombre_tranches_it_ventes > 9 else 0)
 
 
 class taux_it_ventes_tranche_11(Variable):
@@ -139,7 +149,8 @@ class taux_it_ventes_tranche_11(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[8])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[10] if nombre_tranches_it_ventes > 10 else 0)
 
 
 class taux_it_ventes_tranche_12(Variable):
@@ -150,4 +161,5 @@ class taux_it_ventes_tranche_12(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.it.taux_ventes.rates[8])
+        nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
+        return (parameters(period).dicp.it.taux_ventes.rates[11] if nombre_tranches_it_ventes > 11 else 0)

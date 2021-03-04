@@ -29,7 +29,8 @@ class taux_cstns_ventes_tranche_1(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[0])
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[0] if nombre_tranches_cstns_ventes > 0 else 0)
 
 
 class taux_cstns_ventes_tranche_2(Variable):
@@ -40,7 +41,8 @@ class taux_cstns_ventes_tranche_2(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[1])
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[1] if nombre_tranches_cstns_ventes > 1 else 0)
 
 
 class taux_cstns_ventes_tranche_3(Variable):
@@ -51,7 +53,8 @@ class taux_cstns_ventes_tranche_3(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[2])
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[2] if nombre_tranches_cstns_ventes > 2 else 0)
 
 
 class taux_cstns_ventes_tranche_4(Variable):
@@ -62,7 +65,8 @@ class taux_cstns_ventes_tranche_4(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[3])
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[3] if nombre_tranches_cstns_ventes > 3 else 0)
 
 
 class taux_cstns_ventes_tranche_5(Variable):
@@ -73,7 +77,8 @@ class taux_cstns_ventes_tranche_5(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[4])
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[4] if nombre_tranches_cstns_ventes > 4 else 0)
 
 
 class taux_cstns_ventes_tranche_6(Variable):
@@ -84,7 +89,8 @@ class taux_cstns_ventes_tranche_6(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[5])
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[5] if nombre_tranches_cstns_ventes > 5 else 0)
 
 
 class taux_cstns_ventes_tranche_7(Variable):
@@ -94,6 +100,10 @@ class taux_cstns_ventes_tranche_7(Variable):
     label = u"Taux de tranche 7 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
+    def formula(pays, period, parameters):
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[6] if nombre_tranches_cstns_ventes > 6 else 0)
+
 
 class taux_cstns_ventes_tranche_8(Variable):
     value_type = float
@@ -101,6 +111,10 @@ class taux_cstns_ventes_tranche_8(Variable):
     definition_period = YEAR
     label = u"Taux de tranche 8 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+
+    def formula(pays, period, parameters):
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[7] if nombre_tranches_cstns_ventes > 7 else 0)
 
 
 class taux_cstns_ventes_tranche_9(Variable):
@@ -110,6 +124,10 @@ class taux_cstns_ventes_tranche_9(Variable):
     label = u"Taux de tranche 9 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
+    def formula(pays, period, parameters):
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[8] if nombre_tranches_cstns_ventes > 8 else 0)
+
 
 class taux_cstns_ventes_tranche_10(Variable):
     value_type = float
@@ -117,6 +135,10 @@ class taux_cstns_ventes_tranche_10(Variable):
     definition_period = YEAR
     label = u"Taux de tranche 10 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+
+    def formula(pays, period, parameters):
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[9] if nombre_tranches_cstns_ventes > 9 else 0)
 
 
 class taux_cstns_ventes_tranche_11(Variable):
@@ -126,6 +148,10 @@ class taux_cstns_ventes_tranche_11(Variable):
     label = u"Taux de tranche 11 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
+    def formula(pays, period, parameters):
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[10] if nombre_tranches_cstns_ventes > 10 else 0)
+
 
 class taux_cstns_ventes_tranche_12(Variable):
     value_type = float
@@ -133,3 +159,7 @@ class taux_cstns_ventes_tranche_12(Variable):
     definition_period = YEAR
     label = u"Taux de tranche 12 de la CST-NS sur les ventes\n\nCette tranche n'existe pas à ce jour"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+
+    def formula(pays, period, parameters):
+        nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
+        return (parameters(period).dicp.cst_ns.taux_ventes.rates[11] if nombre_tranches_cstns_ventes > 11 else 0)
