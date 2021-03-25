@@ -1,0 +1,21 @@
+description: Paramètres de l'ICRA
+metadata:
+  reference: https://static1.squarespace.com/static/5e975fac2e07f80c8bf30dfb/t/6039c23be06ce403c29735d2/1614398021087/Arr%C3%AAt%C3%A9+n%C2%B0+210+CM+du+24_02_2021.pdf
+nombre_annee_sans_icra:
+    values:
+        2020-09: 4
+age_minimum:
+    values:
+        2020-09: 18
+nombre_mois_perte_emploi:
+    values:
+        2020-09: 6
+montant_indemnite:
+    values:
+        2020-09: 90000
+nombre_mois_indemnite:
+    values:
+        2020-09: 24
+montant_prime_demarrage:
+    values:
+        2020-09: 450000
