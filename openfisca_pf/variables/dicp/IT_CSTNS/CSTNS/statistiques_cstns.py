@@ -18,7 +18,7 @@ class nombre_entreprises_redevables_cstns_pays(Variable):
     label = u"Nombre d'entreprises du pays redevables de la CST-NS"
 
     def formula(pays, period, parameters):
-        redevables = pays.members('redevable_cst_ns', period)
+        redevables = pays.members('redevable_cstns', period)
         return pays.sum(redevables * 1)
 
 

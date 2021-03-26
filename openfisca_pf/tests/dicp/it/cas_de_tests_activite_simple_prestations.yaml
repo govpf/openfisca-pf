@@ -1,7 +1,7 @@
 - name: 17. 18 - Location non meublée - sans annexe - sans releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -17,7 +17,7 @@
 - name: 18. 18 - Location non meublée - avec annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -33,7 +33,7 @@
 - name: 19. 18 - Location non meublée - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -49,7 +49,7 @@
 - name: 20. 18 - Location non meublée - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -65,7 +65,7 @@
 - name: 21. 18 - Location non meublée - avec annexe - avec releve - sup seuil annexe - pers phys - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -81,7 +81,7 @@
 - name: 22. 18 - Location non meublée - sans annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -97,7 +97,7 @@
 - name: 23. 18 - Location non meublée - sans annexe - avec releve - pers phys - ch > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -113,7 +113,7 @@
 - name: 24. 18 - Location non meublée - sans annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -129,7 +129,7 @@
 # - name: 18 - Location non meublée - sans annexe - sans releve - sup seuil annexe
 #   period: 2020
 #   input:
-#     entreprise:
+#     personne:
 #       type_personne: M
 #       releve_de_charges_fourni: N
 #       annexes_IT_fournies: N
@@ -143,7 +143,7 @@
 # - name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe
 #   period: 2020
 #   input:
-#     entreprise:
+#     personne:
 #       type_personne: M
 #       releve_de_charges_fourni: O
 #       annexes_IT_fournies: N
@@ -157,7 +157,7 @@
 # - name: 18 - Location non meublée - avec annexe - sans releve - sup seuil annexe
 #   period: 2020
 #   input:
-#     entreprise:
+#     personne:
 #       type_personne: M
 #       releve_de_charges_fourni: N
 #       annexes_IT_fournies: O
@@ -171,7 +171,7 @@
 # - name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe - pers phys
 #   period: 2020
 #   input:
-#     entreprise:
+#     personne:
 #       type_personne: P
 #       releve_de_charges_fourni: O
 #       annexes_IT_fournies: N
@@ -185,7 +185,7 @@
 - name: 25. 19 - Location meublée - sans annexe - sans releve - est pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -201,7 +201,7 @@
 - name: 26. 19 - Location meublée - avec annexe - avec releve - pas de charges
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -217,7 +217,7 @@
 - name: 27. 19 - Location meublée - sans annexe - sans releve - pas de charges - pers phys - sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -233,7 +233,7 @@
 - name: 28. 19 - Location meublée - avec annexe - avec releve - pas de charges -sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -249,7 +249,7 @@
 - name: 29. 19 - Location meublée - avec annexe - avec releve - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -265,7 +265,7 @@
 - name: 30. 99 - Location terrain nu - avec annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -281,7 +281,7 @@
 - name: 31. 99 - Location terrain nu - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -297,7 +297,7 @@
 - name: 32. 99 - Location terrain nu - sans annexe - avec releve - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -313,7 +313,7 @@
 - name: 33. 91 - Prestations sans réduction - avec annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -329,7 +329,7 @@
 - name: 34. 91 - Prestations sans réduction - avec annexe - avec releve - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -345,7 +345,7 @@
 - name: 35. 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -361,7 +361,7 @@
 - name: 36. 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -377,7 +377,7 @@
 - name: 37. 92 - Plomberie et installation sanitaire - avec annexe - sans releve - pers phys - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: N
       annexes_IT_fournies: O
@@ -393,7 +393,7 @@
 - name: 38. 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -409,7 +409,7 @@
 - name: 39. 92 - Plomberie et installation sanitaire - avec annexe - avec releve - pers phys - sup seuil - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -425,7 +425,7 @@
 - name: 40. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -441,7 +441,7 @@
 - name: 41. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -457,7 +457,7 @@
 - name: 42. 22 - boulangerie baguettes gros - avec annexe - avec releve - pers phys - sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -473,7 +473,7 @@
 - name: 43. 25 - Armateurs - avec annexe - sans releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: N
       annexes_IT_fournies: O
@@ -489,7 +489,7 @@
 - name: 44. 25 - Armateurs - avec annexe - sans releve - pers phys - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: N
       annexes_IT_fournies: O
@@ -505,7 +505,7 @@
 - name: 45. 25 - Armateurs - avec annexe - avec releve - pers phys - charges > 50% - sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -521,7 +521,7 @@
 - name: 46. 25 - Armateurs - avec annexe - avec releve - pers phys - sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -537,7 +537,7 @@
 - name: 47. 96 - boulangerie autres - avec annexe - sans releve - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: O
@@ -553,7 +553,7 @@
 - name: 48. 96 - boulangerie autres - avec annexe - avec releve - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -569,7 +569,7 @@
 - name: 49. 96 - boulangerie autres - avec annexe - sans releve - charges > 50% - sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: O
@@ -585,7 +585,7 @@
 - name: 50. 98 - Hôtel, pension famille, ... - avec annexe - avec releve - pers phys - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -601,7 +601,7 @@
 - name: 51. 15 - Entreprise de travaux publics - avec annexe - avec releve - pers phys - charges > 50% - sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -617,7 +617,7 @@
 - name: 52. 15 - Entreprise de travaux publics - sans annexe - sans releve - sup seuil
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -633,7 +633,7 @@
 - name: 53. 15 - Entreprise de travaux publics - sans annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
@@ -649,7 +649,7 @@
 - name: 54. 95 - boulangerie baguettes détail - sans annexe - sans releve - pers phys
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: P
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -665,7 +665,7 @@
 - name: 55. 95 - boulangerie baguettes détail - avec annexe - avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -681,7 +681,7 @@
 - name: 56. 14 - Armateurs de goelettes - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -697,7 +697,7 @@
 - name: 57. 14 - Armateurs de goelettes - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
@@ -713,7 +713,7 @@
 - name: 58. 14 - Armateurs de goelettes - avec annexe - avec releve - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -729,7 +729,7 @@
 - name: 59. 97 - Denrées emporter ou sur place - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -745,7 +745,7 @@
 - name: 60. 97 - Denrées emporter ou sur place - sans annexe - sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -761,7 +761,7 @@
 - name: 61. 97 - Denrées emporter ou sur place - sans annexe - sans releve - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
@@ -777,7 +777,7 @@
 - name: 62. 13 - Acconage de coprah - sans annexe - sans releve - charges > 50%
   period: 2020
   input:
-    entreprise:
+    personne:
       type_personne: M
       releve_de_charges_fourni: O
       annexes_IT_fournies: O

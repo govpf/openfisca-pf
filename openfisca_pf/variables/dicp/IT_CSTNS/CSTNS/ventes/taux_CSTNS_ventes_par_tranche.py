@@ -18,7 +18,7 @@ class nombre_tranches_cstns_ventes(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return len(parameters(period).dicp.cst_ns.taux_ventes.rates)
+        return len(parameters(period).dicp.cstns.taux_ventes.rates)
 
 
 class taux_cstns_ventes_tranche_1(Variable):
@@ -30,7 +30,7 @@ class taux_cstns_ventes_tranche_1(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[0] if nombre_tranches_cstns_ventes > 0 else 0)
+        return where(nombre_tranches_cstns_ventes > 0, parameters(period).dicp.cstns.taux_ventes.rates[0], 0)
 
 
 class taux_cstns_ventes_tranche_2(Variable):
@@ -42,7 +42,9 @@ class taux_cstns_ventes_tranche_2(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[1] if nombre_tranches_cstns_ventes > 1 else 0)
+        tranche = 1
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_3(Variable):
@@ -54,7 +56,9 @@ class taux_cstns_ventes_tranche_3(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[2] if nombre_tranches_cstns_ventes > 2 else 0)
+        tranche = 2
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_4(Variable):
@@ -66,7 +70,9 @@ class taux_cstns_ventes_tranche_4(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[3] if nombre_tranches_cstns_ventes > 3 else 0)
+        tranche = 3
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_5(Variable):
@@ -78,7 +84,9 @@ class taux_cstns_ventes_tranche_5(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[4] if nombre_tranches_cstns_ventes > 4 else 0)
+        tranche = 4
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_6(Variable):
@@ -90,7 +98,9 @@ class taux_cstns_ventes_tranche_6(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[5] if nombre_tranches_cstns_ventes > 5 else 0)
+        tranche = 5
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_7(Variable):
@@ -102,7 +112,9 @@ class taux_cstns_ventes_tranche_7(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[6] if nombre_tranches_cstns_ventes > 6 else 0)
+        tranche = 6
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_8(Variable):
@@ -114,7 +126,9 @@ class taux_cstns_ventes_tranche_8(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[7] if nombre_tranches_cstns_ventes > 7 else 0)
+        tranche = 7
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_9(Variable):
@@ -126,7 +140,9 @@ class taux_cstns_ventes_tranche_9(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[8] if nombre_tranches_cstns_ventes > 8 else 0)
+        tranche = 8
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_10(Variable):
@@ -138,7 +154,9 @@ class taux_cstns_ventes_tranche_10(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[9] if nombre_tranches_cstns_ventes > 9 else 0)
+        tranche = 9
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_11(Variable):
@@ -150,7 +168,9 @@ class taux_cstns_ventes_tranche_11(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[10] if nombre_tranches_cstns_ventes > 10 else 0)
+        tranche = 10
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)
 
 
 class taux_cstns_ventes_tranche_12(Variable):
@@ -162,4 +182,6 @@ class taux_cstns_ventes_tranche_12(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_ventes = pays(f'nombre_tranches_cstns_ventes', period)
-        return (parameters(period).dicp.cst_ns.taux_ventes.rates[11] if nombre_tranches_cstns_ventes > 11 else 0)
+        tranche = 11
+        rate = parameters(period).dicp.cstns.taux_ventes.rates[tranche] if len(parameters(period).dicp.cstns.taux_ventes.rates) > tranche else 0
+        return where(nombre_tranches_cstns_ventes > tranche, rate, 0)

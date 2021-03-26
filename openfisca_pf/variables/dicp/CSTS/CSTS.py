@@ -13,29 +13,29 @@ from openfisca_pf.base import *
 
 class cst_s_due_totale_par_employes(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = "Sum of the taxes paid by a household"
     reference = "https://stats.gov.example/taxes"
 
-    def formula(entreprise, period, parameters):
-        cst_s_i = entreprise.members('cst_s', period)
-        return entreprise.sum(cst_s_i)
+    def formula(personne, period, parameters):
+        cst_s_i = personne.members('cst_s', period)
+        return personne.sum(cst_s_i)
 
 
 class cst_s_due_totale(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés par tranche"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     # The formula to compute the income tax for a given person at a given period
-    def formula(entreprise, period, parameters):
+    def formula(personne, period, parameters):
         # print(parameters(period).dicp.cst_s.taux.rates[0])
         value = 0
         for i, taux in enumerate(parameters(period).dicp.cst_s.taux.rates):
-            value += entreprise('cst_s_due_tranche_' + str(i + 1), period)
+            value += personne('cst_s_due_tranche_' + str(i + 1), period)
         return value
 
 

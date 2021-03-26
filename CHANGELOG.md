@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.6
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - Merged Entreprise and Personne
+  - Fixed an technical error on rates
+
 ## 0.3.5
 
 * Tax and benefit system evolution.

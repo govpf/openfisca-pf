@@ -12,11 +12,11 @@ from openfisca_pf.entities import *
 
 class chiffre_affaire_total(Variable):
     value_type = float
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Montant total du chiffre d'affaire"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     # The formula to compute the income tax for a given person at a given period
-    def formula(entreprise, period, parameters):
-        return entreprise('chiffre_affaire_total_ventes', period) + entreprise('chiffre_affaire_total_prestations', period)
+    def formula(personne, period, parameters):
+        return personne('chiffre_affaire_total_ventes', period) + personne('chiffre_affaire_total_prestations', period)

@@ -13,7 +13,7 @@ from openfisca_pf.base import *
 
 class option_is(Variable):
     value_type = Enum
-    entity = Entreprise
+    entity = Personne
     possible_values = OuiNon
     default_value = OuiNon.N
     definition_period = YEAR
@@ -23,26 +23,26 @@ class option_is(Variable):
 
 class option_is_possible(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Indique que l'entreprise peut opter pour l'IS plutot que l'IT"
     # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
-    def formula(entreprise, period, parameters):
-        type_societe = entreprise('type_societe', period)
+    def formula(personne, period, parameters):
+        type_societe = personne('type_societe', period)
         return type_societe == TypeSociete.SNC
 
 
 class redevable_is(Variable):
     value_type = bool
-    entity = Entreprise
+    entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à l'IS"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
-    def formula(entreprise, period, parameters):
-        redevable_tpe = entreprise('redevable_tpe', period)
-        redevable_it = entreprise('redevable_it', period)
+    def formula(personne, period, parameters):
+        redevable_tpe = personne('redevable_tpe', period)
+        redevable_it = personne('redevable_it', period)
         return not_(redevable_tpe + redevable_it)
 
 

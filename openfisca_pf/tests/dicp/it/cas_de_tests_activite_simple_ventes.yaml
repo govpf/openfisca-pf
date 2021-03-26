@@ -1,7 +1,7 @@
 - name: 1. 07 - farine_riz_sucre sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_farine_riz_sucre: 16000000
@@ -16,7 +16,7 @@
 - name: 2. 03 - Hydrocarbures au détail sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_hydrocarbures_au_detail: 16000000
@@ -31,7 +31,7 @@
 - name: 3. 03 - Hydrocarbures au détail sans annexe sans releve 6000 à payer
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_hydrocarbures_au_detail: 24000000
@@ -46,7 +46,7 @@
 - name: 4. 08 - Ventes en gros lait frais d'origine local sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_vente_gros_lait_frais: 16000000
@@ -61,7 +61,7 @@
 - name: 5. 01 - Importateurs grossistes sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_importateurs_grossistes: 16000000
@@ -76,7 +76,7 @@
 - name: 6. 02 - Ventes en gros sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_ventes_en_gros: 16000000
@@ -91,7 +91,7 @@
 - name: 7. 06 - Tabacs sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_tabacs: 16000000
@@ -106,7 +106,7 @@
 - name: 8. 10 - Négociants détaillants CA > 20M sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
@@ -121,7 +121,7 @@
 - name: 9. 90 - Ventes < 20 millions sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_ventes_inferieur_20_millions: 16000000
@@ -136,7 +136,7 @@
 - name: 10. 24 - Ventes à l'aventure (armateurs) sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_ventes_a_l_aventure_armateurs: 15000000
@@ -151,7 +151,7 @@
 - name: 11. 24 - Ventes à l'aventure (armateurs) avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
@@ -166,7 +166,7 @@
 - name: 12. 24 - Ventes à l'aventure (armateurs) sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
@@ -181,7 +181,7 @@
 - name: 13. 24 - Ventes à l'aventure (armateurs) sans annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
@@ -196,7 +196,7 @@
 - name: 14. 24 - Ventes à l'aventure (armateurs) avec annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: O
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
@@ -211,7 +211,7 @@
 - name: 15. 24 - Ventes à l'aventure (armateurs) avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_ventes_a_l_aventure_armateurs: 16000000
@@ -226,7 +226,7 @@
 - name: 16. 11 - Ventes sans abattement avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_ventes_sans_abattement: 100000000

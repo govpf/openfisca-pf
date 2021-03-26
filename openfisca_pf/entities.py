@@ -55,18 +55,6 @@ Pays = build_entity(
         ]
     )
 
-Entreprise = build_entity(
-    key = "entreprise",
-    plural = "entreprises",
-    label = u'Une entreprise contribuable du pays.',
-    doc = ''',
-
-    TODO.
-    ''',
-    is_person = True,
-
-    )
-
 Employes = build_entity(
     key = "employes",
     plural = "employes",
@@ -85,4 +73,4 @@ Employes = build_entity(
         ],
     )
 
-entities = [Entreprise, Pays, Personne, Employes]
+entities = [Pays, Personne, Employes]

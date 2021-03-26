@@ -18,7 +18,7 @@ class seuil_cstns_ventes_tranche_1(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.thresholds[0])
+        return (parameters(period).dicp.cstns.taux_ventes.thresholds[0])
 
 
 class seuil_cstns_ventes_tranche_2(Variable):
@@ -29,7 +29,7 @@ class seuil_cstns_ventes_tranche_2(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.thresholds[1])
+        return (parameters(period).dicp.cstns.taux_ventes.thresholds[1])
 
 
 class seuil_cstns_ventes_tranche_3(Variable):
@@ -40,7 +40,7 @@ class seuil_cstns_ventes_tranche_3(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.thresholds[2])
+        return (parameters(period).dicp.cstns.taux_ventes.thresholds[2])
 
 
 class seuil_cstns_ventes_tranche_4(Variable):
@@ -51,7 +51,7 @@ class seuil_cstns_ventes_tranche_4(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.thresholds[3])
+        return (parameters(period).dicp.cstns.taux_ventes.thresholds[3])
 
 
 class seuil_cstns_ventes_tranche_5(Variable):
@@ -62,7 +62,7 @@ class seuil_cstns_ventes_tranche_5(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.thresholds[4])
+        return (parameters(period).dicp.cstns.taux_ventes.thresholds[4])
 
 
 class seuil_cstns_ventes_tranche_6(Variable):
@@ -73,7 +73,7 @@ class seuil_cstns_ventes_tranche_6(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return (parameters(period).dicp.cst_ns.taux_ventes.thresholds[5])
+        return (parameters(period).dicp.cstns.taux_ventes.thresholds[5])
 
 
 class seuil_cstns_ventes_tranche_7(Variable):

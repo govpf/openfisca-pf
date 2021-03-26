@@ -1,7 +1,7 @@
 - name: 97 - Denrées emporter ou sur place sans annexe sans releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: N
       annexes_IT_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 22687952
@@ -13,7 +13,7 @@
 - name: 97 - Denrées emporter ou sur place avec annexes avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_denrees_emporter_ou_sur_place: 16171607
@@ -25,7 +25,7 @@
 - name: 97 - Denrées emporter ou sur place avec annexes avec releve 60 000 000
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_denrees_emporter_ou_sur_place: 60485971
@@ -37,7 +37,7 @@
 - name: 97 - Denrées emporter ou sur place sans annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 126565780
@@ -49,7 +49,7 @@
 - name: 93 - profession liberale sans annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: N
       chiffre_affaire_profession_liberale: 5597503
@@ -61,7 +61,7 @@
 - name: 93 - profession liberale avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_profession_liberale: 10066080
@@ -73,7 +73,7 @@
 # - name: 10 - Négociants détaillants CA > 20M avec annexe avec releve
 #   period: 2020
 #   input:
-#     entreprise:
+#     personne:
 #       releve_de_charges_fourni: O
 #       annexes_IT_fournies: O
 #       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 20892282
@@ -85,7 +85,7 @@
 - name: 14 - Armateurs de goelettes avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_armateurs_de_goelettes: 111659288
@@ -97,7 +97,7 @@
 - name: 15 - entreprise de travaux publics avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_entreprise_de_travaux_publics: 86559517
@@ -109,7 +109,7 @@
 - name: 15 - entreprise de travaux publics avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_entreprise_de_travaux_publics: 816554761
@@ -121,7 +121,7 @@
 - name: 95 - entreprise de travaux publics avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_boulangerie_baguettes_detail: 23932100
@@ -133,7 +133,7 @@
 - name: 22 - boulangerie baguettes gros avec annexe avec releve
   period: 2020
   input:
-    entreprise:
+    personne:
       releve_de_charges_fourni: O
       annexes_IT_fournies: O
       chiffre_affaire_boulangerie_baguettes_gros: 48106250

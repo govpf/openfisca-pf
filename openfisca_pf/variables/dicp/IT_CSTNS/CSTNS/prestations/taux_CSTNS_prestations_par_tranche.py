@@ -18,7 +18,7 @@ class nombre_tranches_cstns_prestations(Variable):
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
-        return len(parameters(period).dicp.cst_ns.taux_prestations.rates)
+        return len(parameters(period).dicp.cstns.taux_prestations.rates)
 
 
 class taux_cstns_prestations_tranche_1(Variable):
@@ -30,7 +30,9 @@ class taux_cstns_prestations_tranche_1(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[0] if nombre_tranches_cstns_prestations > 0 else 0)
+        tranche = 0
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_2(Variable):
@@ -42,7 +44,9 @@ class taux_cstns_prestations_tranche_2(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[1] if nombre_tranches_cstns_prestations > 1 else 0)
+        tranche = 1
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_3(Variable):
@@ -54,7 +58,9 @@ class taux_cstns_prestations_tranche_3(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[2] if nombre_tranches_cstns_prestations > 2 else 0)
+        tranche = 2
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_4(Variable):
@@ -66,7 +72,9 @@ class taux_cstns_prestations_tranche_4(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[3] if nombre_tranches_cstns_prestations > 3 else 0)
+        tranche = 3
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_5(Variable):
@@ -78,7 +86,9 @@ class taux_cstns_prestations_tranche_5(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[4] if nombre_tranches_cstns_prestations > 4 else 0)
+        tranche = 4
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_6(Variable):
@@ -90,7 +100,9 @@ class taux_cstns_prestations_tranche_6(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[5] if nombre_tranches_cstns_prestations > 5 else 0)
+        tranche = 5
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_7(Variable):
@@ -102,7 +114,9 @@ class taux_cstns_prestations_tranche_7(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[6] if nombre_tranches_cstns_prestations > 6 else 0)
+        tranche = 6
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_8(Variable):
@@ -114,7 +128,9 @@ class taux_cstns_prestations_tranche_8(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[7] if nombre_tranches_cstns_prestations > 7 else 0)
+        tranche = 7
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_9(Variable):
@@ -126,7 +142,9 @@ class taux_cstns_prestations_tranche_9(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[8] if nombre_tranches_cstns_prestations > 8 else 0)
+        tranche = 8
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_10(Variable):
@@ -138,7 +156,9 @@ class taux_cstns_prestations_tranche_10(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[9] if nombre_tranches_cstns_prestations > 9 else 0)
+        tranche = 9
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_11(Variable):
@@ -150,7 +170,9 @@ class taux_cstns_prestations_tranche_11(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[10] if nombre_tranches_cstns_prestations > 10 else 0)
+        tranche = 10
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
 
 
 class taux_cstns_prestations_tranche_12(Variable):
@@ -162,4 +184,6 @@ class taux_cstns_prestations_tranche_12(Variable):
 
     def formula(pays, period, parameters):
         nombre_tranches_cstns_prestations = pays(f'nombre_tranches_cstns_prestations', period)
-        return (parameters(period).dicp.cst_ns.taux_prestations.rates[11] if nombre_tranches_cstns_prestations > 11 else 0)
+        tranche = 11
+        rate = parameters(period).dicp.cstns.taux_prestations.rates[tranche] if len(parameters(period).dicp.cstns.taux_prestations.rates) > tranche else 0
+        return where(nombre_tranches_cstns_prestations > tranche, rate, 0)
