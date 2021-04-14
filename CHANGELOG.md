@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.0
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - Added TVA calculation (only basics)
+  - Fixed an technical error on rates
+
 ## 0.3.6
 
 * Tax and benefit system evolution.

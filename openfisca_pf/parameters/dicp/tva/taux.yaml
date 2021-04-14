@@ -1,0 +1,15 @@
+description: taux de TVA
+metadata:
+  reference: https://law.gov.example/basic-income/amount
+reduit:
+  description: Taux réduit de TVA
+  values:
+    2008-08-25: 0.05
+intermediaire:
+  description: Taux intermédaire de TVA
+  values:
+    2013-07-16: 0.13
+normal:
+  description: Taux normal de TVA
+  values:
+    2001-12-11: 0.16
