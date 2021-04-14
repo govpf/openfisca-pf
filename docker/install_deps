@@ -11,6 +11,6 @@ fi
 
 git clone https://github.com/openfisca/openfisca-core.git
 cd openfisca-core
-sed -i s/float32/float64/ openfisca-core/openfisca_core/variables/config.py
+sed -i s/float32/float64/ openfisca_core/variables/config.py
 pip install --no-cache-dir wheel
 pip install --no-cache-dir .
