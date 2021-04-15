@@ -15,7 +15,7 @@ class tva_due_taux_reduit(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"Montant de TVA dûe au taux réduit"
+    label = u"Montant de TVA dûe au taux réduit: \n\n#tva_due_taux_reduit = #base_imposable_tva_taux_reduit * #taux_tva_reduit"
     set_input = set_input_dispatch_by_period
 
     def formula(personne, period, parameters):
