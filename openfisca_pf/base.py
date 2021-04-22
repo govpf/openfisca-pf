@@ -33,6 +33,13 @@ class TypeContrat(Enum):
     Extras = u'Contrat d\'extras'
 
 
+class RegimeCPS(Enum):
+    NonAffilie = u'La personne n\'est pas affiliée'
+    RSPF = u'Régime de solidarité'
+    RNS = u'Régime des non salariés'
+    RS = u'Régime des salariés'
+
+
 # This function round up if result is 0.5 so for ex 1.5 => 2, 1.6 => 2 but 1.4 => 1
 def arrondiSup(valeur):
     return numpy.rint(numpy.nextafter(valeur, valeur + 1))

@@ -1,0 +1,12 @@
+description: Périodes pendant lesquelles l'indemnité exceptionnelle est accordée
+metadata:
+  reference: https://static1.squarespace.com/static/5e975fac2e07f80c8bf30dfb/t/6039c23be06ce403c29735d2/1614398021087/Arr%C3%AAt%C3%A9+n%C2%B0+210+CM+du+24_02_2021.pdf
+montant:
+    values:
+        2020-09: 50000
+age_minimum:
+    values:
+        2020-09: 18
+age_maximum:
+    values:
+        2020-09: 62
