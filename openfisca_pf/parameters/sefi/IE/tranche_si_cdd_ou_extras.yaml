@@ -1,0 +1,18 @@
+description: Tranches de l'IE pour les CDD
+metadata:
+  threshold_unit: currency-XPF
+  amount_unit: /1
+  type: single_amount
+brackets:
+- amount:
+    2021-02-24:
+      value: 50000
+  threshold:
+    2021-02-24:
+      value: 0
+- amount:
+    2021-02-24:
+      value: 100000
+  threshold:
+    2021-02-24:
+      value: 50000

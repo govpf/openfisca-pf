@@ -1,0 +1,30 @@
+description: Périodes pendant lesquelles l'indemnité exceptionnelle est accordée
+metadata:
+  reference: https://www.actusefi.org/ie2021
+periodes:
+  CDI:
+    values:
+        2020-09: False
+        2021-03: True
+        2021-09: False
+  CDD:
+    values:
+        2020-09: False
+        2021-03: True
+        2021-05: False
+  Extras:
+    values:
+        2020-09: False
+        2021-03: True
+        2021-04: False
+  Aucun:
+    values:
+        2020-09: False
+taux_si_salaire_cdi_inferieur_smig:
+    values:
+        2021-01: 0
+        2021-02-24: 0.65
+montant_si_salaire_cdi_egal_smig:
+    values:
+        2021-01: 0
+        2021-02-24: 100000
