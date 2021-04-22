@@ -26,6 +26,36 @@ class en_activite_salariee(Variable):
         return type_contrat_actuel != TypeContrat.Aucun
 
 
+class perte_emploi(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = MONTH
+    set_input = set_input_dispatch_by_period
+    label = "Indique si la personne a perdu son emploi"
+
+    def formula(personne, period, parameters):
+        type_contrat_actuel = personne('type_contrat', period)
+        type_contrat_precedent = personne('type_contrat', period.last_month)
+
+        return (type_contrat_actuel == TypeContrat.Aucun) * (type_contrat_precedent != TypeContrat.Aucun)
+
+
+class est_demandeur_emploi(Variable):
+    value_type = bool
+    default_value = False
+    entity = Personne
+    definition_period = MONTH
+    label = "Indique si la personne est inscrite au SEFI en tant que demandeur d'emploi"
+
+
+class patente(Variable):
+    value_type = bool
+    default_value = False
+    entity = Personne
+    definition_period = MONTH
+    label = "Indique si la personne a une patente"
+
+
 class type_contrat(Variable):
     value_type = Enum
     possible_values = TypeContrat
