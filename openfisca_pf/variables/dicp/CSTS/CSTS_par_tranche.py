@@ -23,7 +23,7 @@ class cst_s_due_tranche_1(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_1', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_1', period)
+        taux = personne.pays('taux_cst_s_tranche_1', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -39,7 +39,7 @@ class cst_s_due_tranche_2(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_2', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_2', period)
+        taux = personne.pays('taux_cst_s_tranche_2', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -55,7 +55,7 @@ class cst_s_due_tranche_3(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_3', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_3', period)
+        taux = personne.pays('taux_cst_s_tranche_3', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -71,7 +71,7 @@ class cst_s_due_tranche_4(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_4', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_4', period)
+        taux = personne.pays('taux_cst_s_tranche_4', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -87,7 +87,7 @@ class cst_s_due_tranche_5(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_5', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_5', period)
+        taux = personne.pays('taux_cst_s_tranche_5', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -103,7 +103,7 @@ class cst_s_due_tranche_6(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_6', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_6', period)
+        taux = personne.pays('taux_cst_s_tranche_6', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -119,7 +119,7 @@ class cst_s_due_tranche_7(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_7', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_7', period)
+        taux = personne.pays('taux_cst_s_tranche_7', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -135,7 +135,7 @@ class cst_s_due_tranche_8(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_8', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_8', period)
+        taux = personne.pays('taux_cst_s_tranche_8', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -151,7 +151,7 @@ class cst_s_due_tranche_9(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_9', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_9', period)
+        taux = personne.pays('taux_cst_s_tranche_9', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -167,7 +167,7 @@ class cst_s_due_tranche_10(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_10', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_10', period)
+        taux = personne.pays('taux_cst_s_tranche_10', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
 
@@ -183,138 +183,6 @@ class cst_s_due_tranche_11(Variable):
     def formula(personne, period, parameters):
         salaires_tranche = personne('revenus_tranche_11', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
-        taux = personne('taux_cst_s_tranche_11', period)
+        taux = personne.pays('taux_cst_s_tranche_11', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)
-
-
-class taux_cst_s_tranche_1(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 1"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[0]
-
-
-class taux_cst_s_tranche_2(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 2"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[1]
-
-
-class taux_cst_s_tranche_3(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 3"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[2]
-
-
-class taux_cst_s_tranche_4(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 4"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[3]
-
-
-class taux_cst_s_tranche_5(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 5"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[4]
-
-
-class taux_cst_s_tranche_6(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 6"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[5]
-
-
-class taux_cst_s_tranche_7(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 7"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[6]
-
-
-class taux_cst_s_tranche_8(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 8"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[7]
-
-
-class taux_cst_s_tranche_9(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 9"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[8]
-
-
-class taux_cst_s_tranche_10(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 10"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[9]
-
-
-class taux_cst_s_tranche_11(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = MONTH
-    label = u"Taux de la CST-S pour la tranche 11"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        return parameters(period).dicp.cst_s.taux.rates[10]
