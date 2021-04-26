@@ -176,7 +176,7 @@ class cst_s_due_tranche_11(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 10"
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 11"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     # The formula to compute the income tax for a given person at a given period
@@ -184,5 +184,21 @@ class cst_s_due_tranche_11(Variable):
         salaires_tranche = personne('revenus_tranche_11', period)
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_11', period)
+        cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
+        return arrondiSup(cst_s_tranche)
+
+
+class cst_s_due_tranche_12(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 12"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    # The formula to compute the income tax for a given person at a given period
+    def formula(personne, period, parameters):
+        salaires_tranche = personne('revenus_tranche_12', period)
+        revenus_tranche_inf_0 = salaires_tranche < 0
+        taux = personne.pays('taux_cst_s_tranche_12', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
         return arrondiSup(cst_s_tranche)

@@ -141,3 +141,15 @@ class seuil_cst_s_tranche_11(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
         return parameters(period).dicp.cst_s.taux.thresholds[10]
+
+
+class seuil_cst_s_tranche_12(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = MONTH
+    label = u"Seuil de la CST-S pour la tranche 12"
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+
+    # The formula to compute the income tax for a given person at a given period
+    def formula(personne, period, parameters):
+        return parameters(period).dicp.cst_s.taux.thresholds[11]
