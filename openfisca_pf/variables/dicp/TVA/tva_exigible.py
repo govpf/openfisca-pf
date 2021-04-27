@@ -21,11 +21,11 @@ class tva_exigible(Variable):
         tva_due_taux_reduit = personne(f'tva_due_taux_reduit', period)
         tva_due_taux_intermediaire = personne(f'tva_due_taux_intermediaire', period)
         tva_due_taux_normal = personne(f'tva_due_taux_normal', period)
-        regularisation_tva_exigible = personne(f'regularisation_tva_exigible', period)
-        return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal + regularisation_tva_exigible
+        regularisation_autre_tva_exigible = personne(f'regularisation_autre_tva_exigible', period)
+        return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal + regularisation_autre_tva_exigible
 
 
-class regularisation_tva_exigible(Variable):
+class regularisation_autre_tva_exigible(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
