@@ -16,6 +16,7 @@ class base_imposable_tva_taux_reduit(Variable):
     definition_period = MONTH
     set_input = set_input_divide_by_period
     label = u"Base imposable de la TVA à taux réduit"
+    unit = 'currency-XPF'
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
 
@@ -25,6 +26,7 @@ class base_imposable_tva_taux_intermediaire(Variable):
     definition_period = MONTH
     set_input = set_input_divide_by_period
     label = u"Base imposable de la TVA à taux intermediaire"
+    unit = 'currency-XPF'
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
 
@@ -34,4 +36,5 @@ class base_imposable_tva_taux_normal(Variable):
     definition_period = MONTH
     set_input = set_input_divide_by_period
     label = u"Base imposable de la TVA à taux normal"
+    unit = 'currency-XPF'
     reference = "https://law.gov.example/income_tax"  # Always use the most official source

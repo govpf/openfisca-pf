@@ -17,6 +17,7 @@ class seuil_cst_s_tranche_1(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 1"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -29,6 +30,7 @@ class seuil_cst_s_tranche_2(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 2"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -41,6 +43,7 @@ class seuil_cst_s_tranche_3(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 3"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -53,6 +56,7 @@ class seuil_cst_s_tranche_4(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 4"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -65,6 +69,7 @@ class seuil_cst_s_tranche_5(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 5"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -77,6 +82,7 @@ class seuil_cst_s_tranche_6(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 6"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -89,6 +95,7 @@ class seuil_cst_s_tranche_7(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 7"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -101,6 +108,7 @@ class seuil_cst_s_tranche_8(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 8"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -113,6 +121,7 @@ class seuil_cst_s_tranche_9(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 9"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -125,6 +134,7 @@ class seuil_cst_s_tranche_10(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 10"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -137,6 +147,7 @@ class seuil_cst_s_tranche_11(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 11"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
@@ -149,6 +160,7 @@ class seuil_cst_s_tranche_12(Variable):
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 12"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):

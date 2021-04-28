@@ -17,6 +17,7 @@ class cst_s_due_totale_par_employes(Variable):
     definition_period = MONTH
     label = "Sum of the taxes paid by a household"
     reference = "https://stats.gov.example/taxes"
+    unit = 'currency-XPF'
 
     def formula(personne, period, parameters):
         cst_s_i = personne.members('cst_s', period)
@@ -29,7 +30,8 @@ class cst_s_due_totale(Variable):
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés par tranche"
     reference = "https://law.gov.example/income_tax"  # Always use the most official source
-
+    unit = 'currency-XPF'
+    
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
         # print(parameters(period).dicp.cst_s.taux.rates[0])

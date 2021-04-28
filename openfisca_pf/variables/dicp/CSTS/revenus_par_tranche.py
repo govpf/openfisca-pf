@@ -18,6 +18,7 @@ class revenus_tranche_1(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 0 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     seuil = parameters(period).dicp.cst_s.taux.thresholds[1]
@@ -51,6 +52,7 @@ class revenus_tranche_2(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 1 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 1
@@ -73,6 +75,7 @@ class revenus_tranche_3(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 2 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 2
@@ -94,6 +97,7 @@ class revenus_tranche_4(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 3 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 3
@@ -115,6 +119,7 @@ class revenus_tranche_5(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 4 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 4
@@ -136,6 +141,7 @@ class revenus_tranche_6(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 5 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 5
@@ -157,6 +163,7 @@ class revenus_tranche_7(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 6 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 6
@@ -178,6 +185,7 @@ class revenus_tranche_8(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 7 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 7
@@ -199,6 +207,7 @@ class revenus_tranche_9(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 8 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 8
@@ -220,6 +229,7 @@ class revenus_tranche_10(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 9 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 9
@@ -241,6 +251,7 @@ class revenus_tranche_11(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 11 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 10
@@ -260,6 +271,7 @@ class revenus_tranche_12(Variable):
     set_input = set_input_divide_by_period  # Optional attribute. Allows user to declare a salary for a year. OpenFisca will spread the yearly amount over the months contained in the year.
     label = "Salaires de la tranche 12 de CST"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     # def formula(personne, period, parameters):
     #     index_tranche = 10
@@ -276,6 +288,7 @@ class salaires_totaux(Variable):
     definition_period = MONTH
     label = u"Somme des salaires versés par l'entreprise"
     reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = 'currency-XPF'
 
     def formula(personne, period, parameters):
         salaires_i = personne.members('salaire', period)

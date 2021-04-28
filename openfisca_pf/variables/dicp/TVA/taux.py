@@ -17,6 +17,7 @@ class taux_tva_reduit(Variable):
     definition_period = MONTH
     label = u"Taux de TVA réduit"
     set_input = set_input_divide_by_period
+    unit = '/1'
     # reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
@@ -30,6 +31,7 @@ class taux_tva_intermediaire(Variable):
     definition_period = MONTH
     label = u"Taux de TVA intermédiaire"
     set_input = set_input_divide_by_period
+    unit = '/1'
     # reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
     def formula(pays, period, parameters):
@@ -42,6 +44,7 @@ class taux_tva_normal(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Taux de TVA réduit"
+    unit = '/1'
     set_input = set_input_divide_by_period
     # reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
@@ -55,6 +58,7 @@ class taux_tva_reduit_annee(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Taux de TVA réduit défini annuellement"
+    unit = '/1'
     set_input = set_input_divide_by_period
     # reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
@@ -67,6 +71,7 @@ class taux_tva_intermediaire_annee(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Taux de TVA intermédiaire défini annuellement"
+    unit = '/1'
     set_input = set_input_divide_by_period
     # reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 
@@ -79,6 +84,7 @@ class taux_tva_normal_annee(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Taux de TVA réduit défini annuellement"
+    unit = '/1'
     set_input = set_input_divide_by_period
     # reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
 

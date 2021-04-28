@@ -1,0 +1,12 @@
+--- variables.py	2021-04-28 04:44:13.490000000 -1000
++++ variables_patch.py	2021-04-28 04:44:49.340000000 -1000
+@@ -86,6 +86,9 @@
+     if variable.documentation:
+         result['documentation'] = variable.documentation.strip()
+ 
++    if variable.unit:
++        result['unit'] = variable.unit
++
+     if variable.reference:
+         result['references'] = variable.reference
+ 

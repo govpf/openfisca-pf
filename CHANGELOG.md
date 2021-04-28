@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.0
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - Final TVA calculation
+  - Added units on TVA and CST-S variables
+
 ## 0.4.0
 
 * Tax and benefit system evolution.

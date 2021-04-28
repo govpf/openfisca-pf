@@ -15,6 +15,7 @@ class tva_nette_due(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
+    unit = 'currency-XPF'
     label = u"Montant de TVA nette dûe: \n\n#tva_nette_due = MAX(#tva_exigible - #tva_deductible, 0)"
 
     def formula(personne, period, parameters):
@@ -28,6 +29,7 @@ class credit_tva(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
+    unit = 'currency-XPF'
     label = u"Montant de crédit de TVA : \n\n#credit_tva = MAX(#tva_deductible - #tva_exigible, 0)"
 
     def formula(personne, period, parameters):

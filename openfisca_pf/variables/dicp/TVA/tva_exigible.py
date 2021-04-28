@@ -15,6 +15,7 @@ class tva_exigible(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
+    unit = 'currency-XPF'
     label = u"Montant de TVA exigible: \n\n#tva_exigible = #tva_due_taux_reduit + #tva_due_taux_intermediaire + #tva_due_taux_normal + #regularisation_tva_exigible"
 
     def formula(personne, period, parameters):
@@ -30,3 +31,4 @@ class regularisation_autre_tva_exigible(Variable):
     entity = Personne
     definition_period = MONTH
     label = u"Montant à appliquer pour régulariser le montant de TVA exigible"
+    unit = 'currency-XPF'
