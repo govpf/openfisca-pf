@@ -3,7 +3,7 @@ FROM python:3.7-slim AS build
 ENV PATH="/opt/venv/bin:$PATH"
 
 COPY docker/install_deps /install_deps
-COPY docker/variables.patch /
+COPY docker/variables.patch /variables.patch
 RUN python -m venv /opt/venv \
     && /install_deps
 
