@@ -10,7 +10,11 @@ then
 fi
 
 git clone https://github.com/openfisca/openfisca-core.git
-patch -t -d  openfisca-core/openfisca_web_api/loader < variables.patch
+
+if [[ "$1" != "--test" ]]
+then
+   patch -t -d  openfisca-core/openfisca_web_api/loader < variables.patch
+fi
 
 cd openfisca-core
 sed -i s/float32/float64/ openfisca_core/variables/config.py
