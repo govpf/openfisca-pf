@@ -63,6 +63,13 @@ class activite_prestations(Variable):
         return chiffre_affaire_total_ventes > 0
 
 
+class activite_location(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    label = u"L'entreprise pratique une activité de location meublée, non meublée ou de terrain nu"
+
+
 class nombre_entreprises_contribuables_pays(Variable):
     value_type = int
     entity = Pays
