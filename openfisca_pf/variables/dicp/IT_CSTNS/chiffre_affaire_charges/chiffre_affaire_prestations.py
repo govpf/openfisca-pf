@@ -59,6 +59,7 @@ class chiffre_affaire_artisans(Variable):
     label = "Chiffre d'affaire dans la catégorie Artisans"
     unit = "currency-XPF"
 
+
 class chiffre_affaire_atelier_de_mecanique(Variable):
     value_type = float
     entity = Personne
