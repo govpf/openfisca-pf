@@ -1,0 +1,320 @@
+- name: 1
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 0
+      base_imposable_tva_taux_normal: 0
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 12268769
+      tva_autres_biens_deductibles: 0
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 113410668
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 0
+    tva_due_taux_normal: 0
+    tva_exigible: 0
+    tva_deductible: 125679437
+    tva_nette_due: 0
+    credit_tva: 125679437
+- name: 2
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 30274587
+      base_imposable_tva_taux_intermediaire: 4246912
+      base_imposable_tva_taux_normal: 203200
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 342749
+      tva_autres_biens_deductibles: 54221142
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 6390639
+  output:
+    tva_due_taux_reduit: 1513729
+    tva_due_taux_intermediaire: 552099
+    tva_due_taux_normal: 32512
+    tva_exigible: 2098340
+    tva_deductible: 60954530
+    tva_nette_due: 0
+    credit_tva: 58856190
+- name: 3
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 20988260
+      base_imposable_tva_taux_intermediaire: 6180360
+      base_imposable_tva_taux_normal: 0
+      regularisation_autre_tva_exigible: 1905
+      tva_immobilisation_deductible: 1147017
+      tva_autres_biens_deductibles: 4448758
+      regularisation_tva_deductible: 42227147
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 1049413
+    tva_due_taux_intermediaire: 803447
+    tva_due_taux_normal: 0
+    tva_exigible: 1854765
+    tva_deductible: 47822922
+    tva_nette_due: 0
+    credit_tva: 45968157
+- name: 4
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 604139600
+      base_imposable_tva_taux_intermediaire: 24816469
+      base_imposable_tva_taux_normal: 336000
+      regularisation_autre_tva_exigible: 1925268
+      tva_immobilisation_deductible: 2154292
+      tva_autres_biens_deductibles: 35442393
+      regularisation_tva_deductible: 2999310
+      report_credit_tva_deductible: 27145943
+  output:
+    tva_due_taux_reduit: 30206980
+    tva_due_taux_intermediaire: 3226141
+    tva_due_taux_normal: 53760
+    tva_exigible: 35412149
+    tva_deductible: 67741938
+    tva_nette_due: 0
+    credit_tva: 32329789
+- name: 5
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 58689748
+      base_imposable_tva_taux_intermediaire: 8905799
+      base_imposable_tva_taux_normal: 137211
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 81398
+      tva_autres_biens_deductibles: 9958961
+      regularisation_tva_deductible: 5014
+      report_credit_tva_deductible: 16664524
+  output:
+    tva_due_taux_reduit: 2934487
+    tva_due_taux_intermediaire: 1157754
+    tva_due_taux_normal: 21954
+    tva_exigible: 4114195
+    tva_deductible: 26709896
+    tva_nette_due: 0
+    credit_tva: 22595702
+- name: 6
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 0
+      base_imposable_tva_taux_normal: 0
+      regularisation_autre_tva_exigible: 491400
+      tva_immobilisation_deductible: 0
+      tva_autres_biens_deductibles: 12551740
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 8270518
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 0
+    tva_due_taux_normal: 0
+    tva_exigible: 491400
+    tva_deductible: 20822258
+    tva_nette_due: 0
+    credit_tva: 20330858
+- name: 7
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 0
+      base_imposable_tva_taux_normal: 17088189
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 0
+      tva_autres_biens_deductibles: 10043249
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 6284198
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 0
+    tva_due_taux_normal: 2734110
+    tva_exigible: 2734110
+    tva_deductible: 16327447
+    tva_nette_due: 0
+    credit_tva: 13593337
+- name: 8
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 73477031
+      base_imposable_tva_taux_normal: 2282035
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 16106308
+      tva_autres_biens_deductibles: 4746214
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 9552014
+    tva_due_taux_normal: 365126
+    tva_exigible: 9917140
+    tva_deductible: 20852522
+    tva_nette_due: 0
+    credit_tva: 10935382
+- name: 9
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 10545177
+      base_imposable_tva_taux_normal: 0
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 0
+      tva_autres_biens_deductibles: 1367483
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 1960041
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 1370873
+    tva_due_taux_normal: 0
+    tva_exigible: 1370873
+    tva_deductible: 3327524
+    tva_nette_due: 0
+    credit_tva: 1956651
+- name: 10
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 446621791
+      base_imposable_tva_taux_normal: 126858062
+      regularisation_autre_tva_exigible: 3834797
+      tva_immobilisation_deductible: 0
+      tva_autres_biens_deductibles: 1083592
+      regularisation_tva_deductible: 3834797
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 58060833
+    tva_due_taux_normal: 20297290
+    tva_exigible: 82192920
+    tva_deductible: 4918389
+    tva_nette_due: 77274531
+    credit_tva: 0
+- name: 11
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 1313469600
+      base_imposable_tva_taux_intermediaire: 15725185
+      base_imposable_tva_taux_normal: 425119
+      regularisation_autre_tva_exigible: 8952995
+      tva_immobilisation_deductible: 2764073
+      tva_autres_biens_deductibles: 21708393
+      regularisation_tva_deductible: 4731623
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 65673480
+    tva_due_taux_intermediaire: 2044274
+    tva_due_taux_normal: 68019
+    tva_exigible: 76738768
+    tva_deductible: 29204089
+    tva_nette_due: 47534679
+    credit_tva: 0
+- name: 12
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 28740
+      base_imposable_tva_taux_intermediaire: 524709269
+      base_imposable_tva_taux_normal: 11435494
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 211605
+      tva_autres_biens_deductibles: 23794265
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 1437
+    tva_due_taux_intermediaire: 68212205
+    tva_due_taux_normal: 1829679
+    tva_exigible: 70043321
+    tva_deductible: 24005870
+    tva_nette_due: 46037451
+    credit_tva: 0
+- name: 13
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 0
+      base_imposable_tva_taux_normal: 51463
+      regularisation_autre_tva_exigible: 18296332
+      tva_immobilisation_deductible: 12784
+      tva_autres_biens_deductibles: 2600693
+      regularisation_tva_deductible: 68
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 0
+    tva_due_taux_normal: 8234
+    tva_exigible: 18304566
+    tva_deductible: 2613545
+    tva_nette_due: 15691021
+    credit_tva: 0
+- name: 14
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 74225785
+      base_imposable_tva_taux_normal: 0
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 0
+      tva_autres_biens_deductibles: 20184
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 9649352
+    tva_due_taux_normal: 0
+    tva_exigible: 9649352
+    tva_deductible: 20184
+    tva_nette_due: 9629168
+    credit_tva: 0
+- name: 15
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 31921123
+      base_imposable_tva_taux_normal: 21394906
+      regularisation_autre_tva_exigible: 140588
+      tva_immobilisation_deductible: 0
+      tva_autres_biens_deductibles: 4017561
+      regularisation_tva_deductible: 0
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 4149746
+    tva_due_taux_normal: 3423185
+    tva_exigible: 7713519
+    tva_deductible: 4017561
+    tva_nette_due: 3695958
+    credit_tva: 0
+- name: 16
+  period: 2020-01
+  input:
+    personne:
+      base_imposable_tva_taux_reduit: 0
+      base_imposable_tva_taux_intermediaire: 15379583
+      base_imposable_tva_taux_normal: 142728
+      regularisation_autre_tva_exigible: 0
+      tva_immobilisation_deductible: 0
+      tva_autres_biens_deductibles: 0
+      regularisation_tva_deductible: 459616
+      report_credit_tva_deductible: 0
+  output:
+    tva_due_taux_reduit: 0
+    tva_due_taux_intermediaire: 1999346
+    tva_due_taux_normal: 22836
+    tva_exigible: 2022182
+    tva_deductible: 459616
+    tva_nette_due: 1562566
+    credit_tva: 0
