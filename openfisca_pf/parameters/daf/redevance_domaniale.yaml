@@ -6,7 +6,6 @@ equipement_du_pays:
     description: Méthode de calcul utilisée
     values:
       2018-01-01: 1
-      2021-01-01: 2
   part_fixe:
     description: Part fixe pour les équipements du pays
     values:
