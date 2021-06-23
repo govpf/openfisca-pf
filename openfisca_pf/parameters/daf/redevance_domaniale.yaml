@@ -1,0 +1,30 @@
+description: paramètres permettant le calcul de la redevance domaniale
+metadata:
+  reference: https://law.gov.example/basic-income/amount
+equipement_du_pays:
+  type_calcul:
+    description: Méthode de calcul utilisée
+    values:
+      2018-01-01: 1
+      2021-01-01: 2
+  part_fixe:
+    description: Part fixe pour les équipements du pays
+    values:
+      2018-01-01: 40000
+  part_variable:
+    description: Part variable pour les équipements du pays
+    values:
+      2018-01-01: 45
+bati_cas_general:
+  type_calcul:
+    description: Méthode de calcul utilisée
+    values:
+      2018-01-01: 1
+  part_fixe:
+    description: Part fixe pour le bati (cas général)
+    values:
+      2018-01-01: 40000
+  part_variable:
+    description: Part variable pour le bati (cas général)
+    values:
+      2018-01-01: 45

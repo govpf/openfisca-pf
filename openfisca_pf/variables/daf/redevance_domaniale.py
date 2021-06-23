@@ -31,6 +31,7 @@ class TypesNatureEmprise(Enum):
     terrain_de_sport_avec_electricite = u'Terrain de sport avec électricité'
     terrain_de_sport_sans_electricite = u'Terrain de sport sans électricité'
     infrastructure_de_restauration_aeroportuaire = u'Infrastructure de restauration aéroportuaire'
+    bati_cas_general = u'Bâti (cas général)'
 
 
 class duree_occupation_redevance_domaniale(Variable):
@@ -47,6 +48,37 @@ class unite_duree_occupation_redevance_domaniale(Variable):
     entity = Personne
     definition_period = DAY
     label = "Unité de la durée d'occupation (heures, jours, mois, années...)"
+
+
+class duree_occupation_redevance_domaniale_annee(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = DAY
+    label = "La durée d'occupation en année"
+
+    def formula(personne, period, parameters):
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+        value = select(
+            [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees, unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois, unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours, unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures],
+            [duree_occupation_redevance_domaniale, duree_occupation_redevance_domaniale / 12, duree_occupation_redevance_domaniale / 365, duree_occupation_redevance_domaniale / (365 * 8)],
+            )
+        print(value)
+        return value
+
+
+class nombre_unite_redevance_domaniale(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = DAY
+    label = "Nombre d'unités dans l'occupation du domaine"
+
+
+class surface_redevance_domaniale(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = DAY
+    label = "Surface de l'occupation du domaine"
 
 
 class zone_occupation_redevance_domaniale(Variable):
@@ -75,11 +107,8 @@ class montant_redevance_domaniale(Variable):
 
     def formula(personne, period, parameters):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        return select([nature_emprise_occupation_redevance_domaniale == TypesNatureEmprise.equipement_du_pays,
-            nature_emprise_occupation_redevance_domaniale == TypesNatureEmprise.terrain_de_sport_avec_electricite,
-            nature_emprise_occupation_redevance_domaniale == TypesNatureEmprise.terrain_de_sport_avec_electricite,
-            nature_emprise_occupation_redevance_domaniale == TypesNatureEmprise.infrastructure_de_restauration_aeroportuaire],
-        [personne('montant_redevance_domaniale_type_1', period), personne('montant_redevance_domaniale_type_2', period), personne('montant_redevance_domaniale_type_3', period), personne('montant_redevance_domaniale_type_4', period)])
+        type_calcul = int(parameters(period).daf.redevance_domaniale[nature_emprise_occupation_redevance_domaniale].type_calcul)
+        return personne('montant_redevance_domaniale_type_' + str(type_calcul), period)
 
 
 class montant_redevance_domaniale_type_1(Variable):
@@ -89,7 +118,13 @@ class montant_redevance_domaniale_type_1(Variable):
     label = "Montant de la redevance domaniale dûe calcul type 1"
 
     def formula(personne, period, parameters):
-        return 1
+        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
+        surface_redevance_domaniale = personne('surface_redevance_domaniale', period)
+        nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
+        duree_occupation_redevance_domaniale_annee = personne('duree_occupation_redevance_domaniale_annee', period)
+        part_fixe = parameters(period).daf.redevance_domaniale[nature_emprise_occupation_redevance_domaniale].part_fixe
+        part_variable = parameters(period).daf.redevance_domaniale[nature_emprise_occupation_redevance_domaniale].part_variable
+        return (part_fixe * nombre_unite_redevance_domaniale + part_variable * surface_redevance_domaniale) * duree_occupation_redevance_domaniale_annee
 
 
 class montant_redevance_domaniale_type_2(Variable):
