@@ -33,6 +33,7 @@ class TypesNatureEmprise(Enum):
     infrastructure_de_restauration_aeroportuaire = u'Infrastructure de restauration aéroportuaire'
     bati_cas_general = u'Bâti (cas général)'
     boutique_de_produit_locaux_zone_aeroportuaire = u'Boutique de produit locaux (zone aéroportuaire)'
+    ouvrage_d_amenagement_de_defense_ou_d_accessibilite = u'Ouvrage d\'aménagement, de défense ou d\'accessibilité'
 
 
 class duree_occupation_redevance_domaniale(Variable):
@@ -140,7 +141,7 @@ class montant_redevance_domaniale_type_2(Variable):
         duree_occupation_redevance_domaniale_annee = personne('duree_occupation_redevance_domaniale_annee', period)
         montant_minimum = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].montant_minimum
         part_variable = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_variable
-        return max_(part_variable * surface_redevance_domaniale * duree_occupation_redevance_domaniale_annee, montant_minimum)
+        return max_(part_variable * surface_redevance_domaniale * duree_occupation_redevance_domaniale_annee, montant_minimum * duree_occupation_redevance_domaniale_annee)
 
 
 class montant_redevance_domaniale_type_3(Variable):

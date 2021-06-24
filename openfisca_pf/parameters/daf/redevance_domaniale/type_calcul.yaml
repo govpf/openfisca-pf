@@ -14,3 +14,7 @@ infrastructure_de_restauration_aeroportuaire:
   description: Méthode de calcul utilisée pour les infrastructure de restauration aeroportuaire
   values:
     2018-01-01: 2
+ouvrage_d_amenagement_de_defense_ou_d_accessibilite:
+  description: Méthode de calcul utilisée pour les ouvrages d'aménagement, de défense ou d'accessibilité
+  values:
+    2018-01-01: 2
