@@ -1,4 +1,8 @@
 zone_1:
+  part_fixe:
+    description: Part fixe pour les infrastructures de restauration aéroportuaire de la zone 1
+    values:
+      2018-01-01: 0
   part_variable:
     description: Part variable pour les infrastructures de restauration aéroportuaire de la zone 1
     values:
@@ -8,6 +12,10 @@ zone_1:
     values:
       2018-01-01: 12000
 zone_2:
+  part_fixe:
+    description: Part fixe pour les infrastructures de restauration aéroportuaire de la zone 2
+    values:
+      2018-01-01: 0
   part_variable:
     description: Part variable pour les infrastructures de restauration aéroportuaire de la zone 2
     values:
@@ -17,6 +25,10 @@ zone_2:
     values:
       2018-01-01: 12000
 zone_3:
+  part_fixe:
+    description: Part fixe pour les infrastructures de restauration aéroportuaire de la zone 3
+    values:
+      2018-01-01: 0
   part_variable:
     description: Part variable pour les infrastructures de restauration aéroportuaire de la zone 3
     values:
@@ -26,6 +38,10 @@ zone_3:
     values:
       2018-01-01: 12000
 zone_4:
+  part_fixe:
+    description: Part fixe pour les infrastructures de restauration aéroportuaire de la zone 4
+    values:
+      2018-01-01: 0
   part_variable:
     description: Part variable pour les infrastructures de restauration aéroportuaire de la zone 4
     values:

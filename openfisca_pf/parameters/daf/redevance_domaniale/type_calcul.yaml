@@ -2,19 +2,27 @@ bati_cas_general:
   description: Méthode de calcul utilisée pour le bati (cas général)
   values:
     2018-01-01: 1
-boutique_de_produit_locaux_zone_aeroportuaire:
-  description: Méthode de calcul utilisée pour les boutiques de produits locaux (zone aéroportuaire)
-  values:
-    2018-01-01: 2
 equipement_du_pays:
   description: Méthode de calcul utilisée pour les équipements du pays
   values:
     2018-01-01: 1
+boutique_de_produit_locaux_zone_aeroportuaire:
+  description: Méthode de calcul utilisée pour les boutiques de produits locaux (zone aéroportuaire)
+  values:
+    2018-01-01: 2
 infrastructure_de_restauration_aeroportuaire:
   description: Méthode de calcul utilisée pour les infrastructure de restauration aeroportuaire
   values:
     2018-01-01: 2
 ouvrage_d_amenagement_de_defense_ou_d_accessibilite:
   description: Méthode de calcul utilisée pour les ouvrages d'aménagement, de défense ou d'accessibilité
+  values:
+    2018-01-01: 2
+emprise_maritime_privatisee:
+  description: Méthode de calcul utilisée pour les emprises maritimes privatisées
+  values:
+    2018-01-01: 2
+vente_de_produits_locaux_zone_aeroportuaire:
+  description: Méthode de calcul utilisée pour les ventes de produits locaux  (zone aéroportuaire)
   values:
     2018-01-01: 2

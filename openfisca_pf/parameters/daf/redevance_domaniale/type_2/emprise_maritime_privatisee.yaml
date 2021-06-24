@@ -1,0 +1,52 @@
+zone_1:
+  part_fixe:
+    description: Part fixe pour les emprises martimes privatisées de la zone 1
+    values:
+      2018-01-01: 0
+  part_variable:
+    description: Part variable pour les emprises martimes privatisées de la zone 1
+    values:
+      2018-01-01: 310
+  montant_minimum:
+    description: montant minimum pour les emprises martimes privatisées de la zone 1
+    values:
+      2018-01-01: 15000
+zone_2:
+  part_fixe:
+    description: Part fixe pour les emprises martimes privatisées de la zone 2
+    values:
+      2018-01-01: 0
+  part_variable:
+    description: Part variable pour les emprises martimes privatisées de la zone 2
+    values:
+      2018-01-01: 210
+  montant_minimum:
+    description: montant minimum pour les emprises martimes privatisées de la zone 2
+    values:
+      2018-01-01: 15000
+zone_3:
+  part_fixe:
+    description: Part fixe pour les emprises martimes privatisées de la zone 3
+    values:
+      2018-01-01: 0
+  part_variable:
+    description: Part variable pour les emprises martimes privatisées de la zone 3
+    values:
+      2018-01-01: 110
+  montant_minimum:
+    description: montant minimum pour les emprises martimes privatisées de la zone 3
+    values:
+      2018-01-01: 15000
+zone_4:
+  part_fixe:
+    description: Part fixe pour les emprises martimes privatisées de la zone 4
+    values:
+      2018-01-01: 0
+  part_variable:
+    description: Part variable pour les emprises martimes privatisées de la zone 4
+    values:
+      2018-01-01: 60
+  montant_minimum:
+    description: montant minimum pour les emprises martimes privatisées de la zone 4
+    values:
+      2018-01-01: 15000

@@ -34,6 +34,8 @@ class TypesNatureEmprise(Enum):
     bati_cas_general = u'Bâti (cas général)'
     boutique_de_produit_locaux_zone_aeroportuaire = u'Boutique de produit locaux (zone aéroportuaire)'
     ouvrage_d_amenagement_de_defense_ou_d_accessibilite = u'Ouvrage d\'aménagement, de défense ou d\'accessibilité'
+    emprise_maritime_privatisee = u'Emprise maritime privatisée'
+    vente_de_produits_locaux_zone_aeroportuaire = u'Vente de produits locaux (zone aéroportuaire)'
 
 
 class duree_occupation_redevance_domaniale(Variable):
