@@ -1,0 +1,36 @@
+zone_1:
+  part_variable:
+    description: Part variable pour les boutiques de produit locaux (zone aéroportuaire) de la zone 1
+    values:
+      2018-01-01: 2000
+  montant_minimum:
+    description: montant minimum pour les boutiques de produit locaux (zone aéroportuaire) de la zone 1
+    values:
+      2018-01-01: 10000
+zone_2:
+  part_variable:
+    description: Part variable pour les boutiques de produit locaux (zone aéroportuaire) de la zone 2
+    values:
+      2018-01-01: 1000
+  montant_minimum:
+    description: montant minimum pour les boutiques de produit locaux (zone aéroportuaire) de la zone 2
+    values:
+      2018-01-01: 10000
+zone_3:
+  part_variable:
+    description: Part variable pour les boutiques de produit locaux (zone aéroportuaire) de la zone 3
+    values:
+      2018-01-01: 500
+  montant_minimum:
+    description: montant minimum pour les boutiques de produit locaux (zone aéroportuaire) de la zone 3
+    values:
+      2018-01-01: 10000
+zone_4:
+  part_variable:
+    description: Part variable pour les boutiques de produit locaux (zone aéroportuaire) de la zone 4
+    values:
+      2018-01-01: 250
+  montant_minimum:
+    description: montant minimum pour les boutiques de produit locaux (zone aéroportuaire) de la zone 4
+    values:
+      2018-01-01: 10000

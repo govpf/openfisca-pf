@@ -1,0 +1,8 @@
+part_fixe:
+  description: Part fixe pour le bati (cas général)
+  values:
+    2018-01-01: 40000
+part_variable:
+  description: Part variable pour le bati (cas général)
+  values:
+    2018-01-01: 45
