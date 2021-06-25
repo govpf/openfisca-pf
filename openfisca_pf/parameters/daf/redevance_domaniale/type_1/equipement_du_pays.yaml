@@ -1,0 +1,8 @@
+part_fixe:
+  description: Part fixe pour les équipements du pays
+  values:
+    2018-01-01: 40000
+part_variable:
+  description: Part variable pour les infrastructures de restauration aéroportuaire
+  values:
+    2018-01-01: 45
