@@ -14,7 +14,7 @@ from openfisca_pf.base import *
 class UnitesDuree(Enum):
     Heures = u'Heures'
     Jours = u'Jours'
-    Mois = u'Mois'
+    Mois = u'Mois' ##peut-être plus utile si on rammmèène à une unité journalière?
     Annees = u'Années'
 
 
@@ -36,12 +36,15 @@ class TypesNatureEmprise(Enum):
     ouvrage_d_amenagement_de_defense_ou_d_accessibilite = u'Ouvrage d\'aménagement, de défense ou d\'accessibilité'
     emprise_maritime_privatisee = u'Emprise maritime privatisée'
     vente_de_produits_locaux_zone_aeroportuaire = u'Vente de produits locaux (zone aéroportuaire)'
-
+    emprise_activite_lucrative = u'Emprise dédiée à une activité lucrative'
+    installation_technique = u'Installation technique'
+    vente_etale = u'Vente à l étale'
+    restauration_ambulante = u'Restauration ambulante'
 
 class duree_occupation_redevance_domaniale(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = DAY  ##réflechir à la gestion horaire
     label = "Durée de l'occupation du domaine"
 
 
