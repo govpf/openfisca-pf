@@ -28,8 +28,8 @@ class duree_occupation_redevance_domaniale_annee(Variable):
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures],
             [duree_occupation_redevance_domaniale,
             duree_occupation_redevance_domaniale / 12,
-            duree_occupation_redevance_domaniale / 365,
-            duree_occupation_redevance_domaniale / (365 * 8)],
+            duree_occupation_redevance_domaniale / 360,
+            duree_occupation_redevance_domaniale / (360 * 8)],
             )
         return value
 
@@ -47,9 +47,29 @@ class duree_occupation_redevance_domaniale_jour(Variable):
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale*365,
+            [duree_occupation_redevance_domaniale*360,
             duree_occupation_redevance_domaniale*30,
             duree_occupation_redevance_domaniale],
+            )
+        return value
+
+
+class duree_occupation_redevance_domaniale_mois(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = DAY
+    label = "La durée d'occupation en mois"
+
+    def formula(personne, period, parameters):
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+        value = select(
+            [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
+            unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
+            unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
+            [duree_occupation_redevance_domaniale/12,
+            duree_occupation_redevance_domaniale,
+            duree_occupation_redevance_domaniale/30],
             )
         return value
 
@@ -125,18 +145,6 @@ class montant_redevance_domaniale_type_2(Variable):
         facteur_prorata = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].facteur_prorata
 
         return arrondiInf((part_fixe + part_unitaire * nombre_unite_redevance_domaniale + part_surfacique * surface_redevance_domaniale) * duree_occupation_redevance_domaniale_jour / facteur_prorata)
-
-        
-        
-        
-        
-        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
-        surface_redevance_domaniale = personne('surface_redevance_domaniale', period)
-        duree_occupation_redevance_domaniale_annee = personne('duree_occupation_redevance_domaniale_annee', period)
-        montant_minimum = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].montant_minimum
-        part_surfacique = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_variable
-        return max_(part_variable * surface_redevance_domaniale * duree_occupation_redevance_domaniale_annee, montant_minimum * duree_occupation_redevance_domaniale_annee)
 
 
 class montant_redevance_domaniale_type_3(Variable):

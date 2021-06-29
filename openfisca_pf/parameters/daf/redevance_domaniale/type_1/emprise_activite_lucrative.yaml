@@ -18,4 +18,4 @@ montant_minimum:
 facteur_prorata:
   description: Facteur permettant de ramener l'ensemble des redevance à un tarif journalier
   values:
-    2018-01-01: 365
+    2018-01-01: 360

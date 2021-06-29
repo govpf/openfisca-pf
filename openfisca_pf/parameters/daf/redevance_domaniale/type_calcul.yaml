@@ -26,3 +26,6 @@ vente_de_produits_locaux_zone_aeroportuaire:
   description: Méthode de calcul utilisée pour les ventes de produits locaux  (zone aéroportuaire)
   values:
     2018-01-01: 2
+vente_etale:
+  values:
+    2018-01-01: 2

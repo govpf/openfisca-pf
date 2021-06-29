@@ -1,84 +1,65 @@
+description: Paramètre de la redevance pour les ventes à l'étale
 zone_1:
   part_fixe:
-    description: Composante fixe de la redevance pour la zone 1
     values:
       2018-01-01: 15000
   part_unitaire:
-    description: Composante unitaire de la redevance pour la zone 1
     values:
       2018-01-01: 0
   part_surfacique:
-    description: Composante surfacique (en m²) de la redevance pour la zone 1
     values:
       2018-01-01: 0
   montant_minimum:
-    description: Montant minimum de de la redevance pour la zone 1
     values:
       2018-01-01: 0
   facteur_prorata:
-    description: Facteur permettant de ramener l'ensemble des redevance à un tarif journalier
     values:
       2018-01-01: 30
 zone_2:
   part_fixe:
-    description: Composante fixe de la redevance pour la zone 2
     values:
       2018-01-01: 10000
   part_unitaire:
-    description: Composante unitaire de la redevance pour la zone 2
     values:
       2018-01-01: 0
   part_surfacique:
-    description: Composante surfacique (en m²) de la redevance pour la zone 2
     values:
       2018-01-01: 0
   montant_minimum:
-    description: Montant minimum de de la redevance pour la zone 2
     values:
       2018-01-01: 0
   facteur_prorata:
-    description: Facteur permettant de ramener l'ensemble des redevance à un tarif journalier
     values:
       2018-01-01: 30
 zone_3:
   part_fixe:
-    description: Composante fixe de la redevance pour la zone 3
     values:
       2018-01-01: 7500
   part_unitaire:
-    description: Composante unitaire de la redevance pour la zone 3
     values:
       2018-01-01: 0
   part_surfacique:
-    description: Composante surfacique (en m²) de la redevance pour la zone 3
     values:
       2018-01-01: 0
   montant_minimum:
-    description: Montant minimum de de la redevance pour la zone 3
     values:
       2018-01-01: 0
   facteur_prorata:
-    description: Facteur permettant de ramener l'ensemble des redevance à un tarif journalier
     values:
       2018-01-01: 30
 zone_4:
   part_fixe:
-    description: Composante fixe de la redevance pour la zone 4
     values:
       2018-01-01: 5000
   part_unitaire:
-    description: Composante unitaire de la redevance pour la zone 4
     values:
       2018-01-01: 0
   part_surfacique:
-    description: Composante surfacique (en m²) de la redevance pour la zone 4
     values:
       2018-01-01: 0
   montant_minimum:
-    description: Montant minimum de de la redevance pour la zone 4
     values:
       2018-01-01: 0
   facteur_prorata:
-    description: Facteur permettant de ramener l'ensemble des redevance à un tarif journalier
     values:
       2018-01-01: 30

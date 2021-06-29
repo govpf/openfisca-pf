@@ -13,4 +13,4 @@ montant_minimum:
     2018-01-01: 0
 facteur_prorata:
   values:
-    2018-01-01: 365
+    2018-01-01: 360
