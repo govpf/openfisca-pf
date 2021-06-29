@@ -1,6 +1,5 @@
 zone_1:
   part_fixe:
-    description: Part fixe pour les boutiques de produit locaux (zone aéroportuaire) de la zone 1
     values:
       2018-01-01: 0
   part_variable:
