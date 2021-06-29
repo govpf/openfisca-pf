@@ -1,8 +1,16 @@
+description: Paramètres pour le calcul de redevance des équipements du pays
 part_fixe:
-  description: Part fixe pour les équipements du pays
+  values:
+    2018-01-01: 0
+part_unitaire:
   values:
     2018-01-01: 40000
-part_variable:
-  description: Part variable pour les infrastructures de restauration aéroportuaire
+part_surfacique:
   values:
     2018-01-01: 45
+montant_minimum:
+  values:
+    2018-01-01: 0
+facteur_prorata:
+  values:
+    2018-01-01: 365

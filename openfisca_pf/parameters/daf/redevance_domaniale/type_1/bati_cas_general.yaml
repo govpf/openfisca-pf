@@ -1,8 +1,16 @@
+description: Paramètres pour le calcul du batî
 part_fixe:
-  description: Part fixe pour le bati (cas général)
+  values:
+    2018-01-01: 0
+part_unitaire:
   values:
     2018-01-01: 40000
-part_variable:
-  description: Part variable pour le bati (cas général)
+part_surfacique:
   values:
     2018-01-01: 45
+montant_minimum:
+  values:
+    2018-01-01: 0
+facteur_prorata:
+  values:
+    2018-01-01: 365

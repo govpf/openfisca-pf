@@ -1,20 +1,16 @@
+description: Paramètres pour le calcul de redevance des installations techniques
 part_fixe:
-  description: Composante fixe de la redevance pour les installations techniques
   values:
     2018-01-01: 10000
 part_unitaire:
-  description: Composante unitaire de la redevance pour les installations techniques
   values:
     2018-01-01: 0
 part_surfacique:
-  description: Composante surfacique (en m²) de la redevance pour les installations techniques
   values:
-    2018-01-01: 00
+    2018-01-01: 0
 montant_minimum:
-  description: Montant minimum de de la redevance pour les installations techniques
   values:
     2018-01-01: 0
 facteur_prorata:
-  description: Facteur permettant de ramener l'ensemble des redevance à un tarif journalier
   values:
-    2018-01-01: 30
+    2018-01-01: 365
