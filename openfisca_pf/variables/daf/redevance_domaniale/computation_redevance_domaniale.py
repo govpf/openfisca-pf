@@ -67,11 +67,23 @@ class duree_occupation_redevance_domaniale_mois(Variable):
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale/12,
+            [duree_occupation_redevance_domaniale / 12,
             duree_occupation_redevance_domaniale,
-            duree_occupation_redevance_domaniale/30],
+            duree_occupation_redevance_domaniale / 30],
             )
         return value
+
+
+class type_calcul_redevance_domaniale(Variable):
+    value_type = str
+    entity = Personne
+    definition_period = DAY
+    label = "Type de calcul utilisé"
+
+    def formula(personne, period, parameters):
+        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
+        type_calcul = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale].astype(int).astype(str)
+        return type_calcul
 
 
 class montant_redevance_domaniale(Variable):
@@ -81,9 +93,8 @@ class montant_redevance_domaniale(Variable):
     label = "Montant de la redevance domaniale dûe"
 
     def formula(personne, period, parameters):
-        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        type_calcul = int(parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale])
-        return personne('montant_redevance_domaniale_type_' + str(type_calcul), period)
+        type_calcul = personne('type_calcul_redevance_domaniale', period)
+        return getVariableFromStringAndScalar(personne, period, 'montant_redevance_domaniale_type_', type_calcul)
 
 
 class montant_redevance_domaniale_type_1(Variable):
@@ -184,6 +195,7 @@ class montant_redevance_domaniale_type_3(Variable):
         # init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2)]))
         return 3
 
+
 class montant_redevance_domaniale_type_4(Variable):
     value_type = float
     entity = Personne
@@ -200,7 +212,7 @@ class montant_redevance_domaniale_type_4(Variable):
         rate_2 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale].rate_2
         threshold_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale].threshold_3
         rate_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale].rate_3
-        
+
         return arrondiSup(
             select( [duree_occupation_redevance_domaniale_jour < threshold_1,
         duree_occupation_redevance_domaniale_jour <= threshold_2,
@@ -208,4 +220,3 @@ class montant_redevance_domaniale_type_4(Variable):
         [ init ,
         init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
         init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2)]))
-

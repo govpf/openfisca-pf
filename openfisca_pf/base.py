@@ -116,3 +116,13 @@ def calculerBaseImposablePrestationsTranche(personne, period, tranche, impot):
             [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
             ))
     return valeur
+
+
+def getVariableFromStringAndScalar(source, period, string, scalar):
+    returnValue = []
+    index = 0
+    for item in scalar:
+        value = source(string + item, period)[index]
+        returnValue.append(value)
+        index = index + 1
+    return numpy.array(returnValue)
