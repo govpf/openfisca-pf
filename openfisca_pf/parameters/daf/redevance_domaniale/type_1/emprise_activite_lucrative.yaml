@@ -1,21 +1,16 @@
-
+description: Paramètres pour le calcul des emprises avec activité lucrative
 part_fixe:
-  description: Composante fixe de la redevance pour les emprises dédiées à une activité lucrative
   values:
     2018-01-01: 0
 part_unitaire:
-  description: Composante unitaire de la redevance pour les emprises dédiées à une activité lucrative
   values:
     2018-01-01: 0
 part_surfacique:
-  description: Composante surfacique (en m²) de la redevance pour les emprises dédiées à une activité lucrative
   values:
     2018-01-01: 100
 montant_minimum:
-  description: Montant minimum de de la redevance pour les emprises dédiées à une activité lucrative
   values:
     2018-01-01: 120000
 facteur_prorata:
-  description: Facteur permettant de ramener l'ensemble des redevance à un tarif journalier
   values:
     2018-01-01: 360

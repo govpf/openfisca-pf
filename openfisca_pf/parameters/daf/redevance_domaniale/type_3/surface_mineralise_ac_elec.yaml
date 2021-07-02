@@ -1,0 +1,24 @@
+description: Paramètre de calcul pour les surfaces minéralisées avec utilisation de l'électricité
+brackets:
+  - rate:
+      2018-01-01:
+        value: 30000 #Première valeur correspond à la valeur pour 1 jour
+    threshold:
+      2018-01-01:
+        value: 0
+  - rate:
+      2018-01-01:
+        value: 3300 #Tarif journalier à prendre pour plus d'un jour d'occupation
+    threshold:
+      2018-01-01:
+        value: 1
+  - rate:
+      2018-01-01:
+        value: 3000 #Tarif journalier au delà d'une semaine d'occupation
+    threshold:
+      2018-01-01:
+        value: 7
+metadata:
+  type: marginal_rate
+  threshold_unit: currency-EUR
+  rate_unit: /1

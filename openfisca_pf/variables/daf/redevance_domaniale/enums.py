@@ -26,16 +26,23 @@ class ZonesOccupations(Enum):
 
 
 class TypesNatureEmprise(Enum):
-    equipement_du_pays = u'Equipement du pays'
-    terrain_de_sport_avec_electricite = u'Terrain de sport avec électricité'
-    terrain_de_sport_sans_electricite = u'Terrain de sport sans électricité'
-    infrastructure_de_restauration_aeroportuaire = u'Infrastructure de restauration aéroportuaire'
+    ##Tarif de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
     bati_cas_general = u'Bâti (cas général)'
-    boutique_de_produit_locaux_zone_aeroportuaire = u'Boutique de produit locaux (zone aéroportuaire)'
-    ouvrage_d_amenagement_de_defense_ou_d_accessibilite = u'Ouvrage d\'aménagement, de défense ou d\'accessibilité'
-    emprise_maritime_privatisee = u'Emprise maritime privatisée'
-    vente_de_produits_locaux_zone_aeroportuaire = u'Vente de produits locaux (zone aéroportuaire)'
     emprise_activite_lucrative = u'Emprise dédiée à une activité lucrative'
+    equipement_du_pays = u'Equipement du pays'
     installation_technique = u'Installation technique'
+
+    ##Tarif de type_2 (les paramètres du type_1 dépendent de la zone géographique)
     vente_etale = u'Vente à l étale'
-    restauration_ambulante = u'Restauration ambulante'
+    
+    ##Tarif de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
+    activite_lucrative_inf_3mois = u'Activité lucrative de mois de 3 mois'
+    activite_alimentaire_lucrative_inf_3mois = u'Activité alimentaire à but lucratif de moins de 3 mois'
+    terrain_sport_ac_elec = u'Terrain de sport avec éléctricité'
+    terrain_sport_sans_elec = u'Terrain de sport sans éléctricité'
+    surface_mineralise_ac_elec = u'Surface minéralisée avec électricité'
+    surface_mineralise_sans_elec = u'Surface minéralisée sans électricité'
+    espace_pelouse_ac_elec = u'Espace pelouse avec électricité'
+    espace_pelouse_sans_elec = u'Espace pelouse sans électricité'
+    bati_tout_public_ac_elec = u'Bâti à usage tout public avec électricité'
+    bati_tout_public_sans_elec = u'Bâti à usage tout public sans électricité'

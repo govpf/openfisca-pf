@@ -1,20 +1,20 @@
-description: test scale pour DAF
+description: Paramètre de calcul pour activité à but lucratif de moins de 3 mois
 brackets:
   - rate:
       2018-01-01:
-        value: 30000
+        value: 5500 #Première valeur correspond à la valeur pour 1 jour
     threshold:
       2018-01-01:
         value: 0
   - rate:
       2018-01-01:
-        value: 3300
+        value: 4900 #Tarif journalier à prendre pour plus d'un jour d'occupation
     threshold:
       2018-01-01:
         value: 1
   - rate:
       2018-01-01:
-        value: 3000
+        value: 4900 #Tarif journalier à prendre pour plus d'un jour d'occupation
     threshold:
       2018-01-01:
         value: 7
