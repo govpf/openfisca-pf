@@ -31,3 +31,6 @@ terrain_sport_ac_elec:
 terrain_sport_sans_elec:
   values:
     2018-01-01: 3
+test_fonction_palier:
+  values:
+    2018-01-01: 4
