@@ -23,13 +23,13 @@ class montant_redevance_domaniale_type_5(Variable):
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         
-        init = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].init
-        threshold_1 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_1
-        rate_1 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_1
-        threshold_2 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_2
-        rate_2 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_2
-        threshold_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_3
-        rate_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_3
+        init = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].init
+        threshold_1 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_1
+        rate_1 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_1
+        threshold_2 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_2
+        rate_2 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_2
+        threshold_3 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_3
+        rate_3 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_3
         
         return arrondiSup(
             select( [duree_occupation_redevance_domaniale_jour < threshold_1,
