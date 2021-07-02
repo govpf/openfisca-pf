@@ -46,4 +46,7 @@ class TypesNatureEmprise(Enum):
     espace_pelouse_sans_elec = u'Espace pelouse sans électricité'
     bati_tout_public_ac_elec = u'Bâti à usage tout public avec électricité'
     bati_tout_public_sans_elec = u'Bâti à usage tout public sans électricité'
+
+    ##Emprise de test
     test_fonction_palier = u'test fonction pallier'
+    test_fonction_palier_zone = u'test fonction pallier zone'
