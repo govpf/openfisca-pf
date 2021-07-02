@@ -165,7 +165,11 @@ class montant_redevance_domaniale_type_3(Variable):
     label = "Montant de la redevance domaniale dûe calcul type 3"
 
     def formula(personne, period, parameters):
-        return 3
+        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
+        duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
+        scale = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale]
+
+        return arrondiSup(scale.calc(duree_occupation_redevance_domaniale_jour))
 
 
 class montant_redevance_domaniale_type_4(Variable):

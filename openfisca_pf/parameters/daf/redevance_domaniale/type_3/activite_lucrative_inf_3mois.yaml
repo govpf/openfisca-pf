@@ -2,19 +2,22 @@ description: Paramètre de calcul pour activité à but lucratif de moins de 3 m
 brackets:
   - rate:
       2018-01-01:
-        value: 5500 #Première valeur correspond à la valeur pour 1 jour
+      #Première valeur correspond à la valeur pour 1 jour
+        value: 5500
     threshold:
       2018-01-01:
         value: 0
   - rate:
       2018-01-01:
-        value: 4900 #Tarif journalier à prendre pour plus d'un jour d'occupation
+      #Tarif journalier à prendre pour plus d'un jour d'occupation
+        value: 4900
     threshold:
       2018-01-01:
         value: 1
   - rate:
       2018-01-01:
-        value: 4900 #Tarif journalier à prendre pour plus d'un jour d'occupation
+      #Tarif journalier à prendre pour plus d'un jour d'occupation
+        value: 4900
     threshold:
       2018-01-01:
         value: 7

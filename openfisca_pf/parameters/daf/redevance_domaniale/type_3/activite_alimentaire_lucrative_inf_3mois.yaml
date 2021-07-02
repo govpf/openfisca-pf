@@ -2,19 +2,22 @@ description: Paramètre de calcul pour des activités alimentaires à but lucrat
 brackets:
   - rate:
       2018-01-01:
-        value: 11000 #Première valeur correspond à la valeur pour 1 jour
+        #Première valeur correspond à la valeur pour 1 jour
+        value: 11000
     threshold:
       2018-01-01:
         value: 0
   - rate:
       2018-01-01:
-        value: 8100 #Tarif journalier à prendre pour plus d'un jour d'occupation
+        #Tarif journalier à prendre pour plus d'un jour d'occupation
+        value: 8100
     threshold:
       2018-01-01:
         value: 1
   - rate:
       2018-01-01:
-        value: 8100 #Tarif journalier à prendre pour plus d'un jour d'occupation
+        #Tarif journalier à prendre pour plus de 7 jour d'occupation
+        value: 8100
     threshold:
       2018-01-01:
         value: 7
