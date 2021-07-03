@@ -17,6 +17,7 @@ class montant_redevance_domaniale_type_3(Variable):
     entity = Personne
     definition_period = DAY
     label = "Montant de la redevance domaniale dûe calcul type 3"
+    reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)

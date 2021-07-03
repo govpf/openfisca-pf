@@ -1,6 +1,6 @@
 #La formule de calculs de type 1 est une fonction du type montant = part_fixe + part_unitaire* nombre_unité + part_surfacique* surface en m²
 #Il peut exister un montant minimum à payer
-#Pour le moment certains tarifs sont évoqués à la semaine, à la journée ou à d'autre unité de temps,, d'où l'idée du prorata
+#Pour le moment certains tarifs sont évoqués à la semaine, à la journée ou à d'autre unité de temps, d'où l'idée du prorata
 
 
 description: Paramètres pour le calcul du batî

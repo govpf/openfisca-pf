@@ -16,7 +16,8 @@ class montant_redevance_domaniale_type_5(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant de la redevance domaniale dûe calcul type 5"
+    label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier et les paramètres dépendant de la zone géographique"
+    reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
