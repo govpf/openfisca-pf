@@ -28,10 +28,13 @@ class montant_redevance_domaniale_type_5(Variable):
         tarif_demi_jour = parameters(period).daf.redevance_domaniale.type_11[nature_emprise_occupation_redevance_domaniale].tarif_demi_jour
         tarif_jour = parameters(period).daf.redevance_domaniale.type_11[nature_emprise_occupation_redevance_domaniale].tarif_jour
 
-        return arrondiSup(
+        ##Calcul du montant
+        montant_global = arrondiSup(
             select( [duree_occupation_redevance_domaniale_jour <= duree_demi_jour,
                     duree_occupation_redevance_domaniale_jour > duree_demi_jour],
                     [ min_(tarif_horaire*duree_occupation_redevance_domaniale_jour, tarif_demi_jour) ,
                      tarif_jour]))
+        
+        return montant_global
 
 

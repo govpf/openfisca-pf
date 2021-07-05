@@ -19,6 +19,7 @@ class montant_redevance_domaniale_type_1(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
+        ##Déclaration des variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         surface_redevance_domaniale = personne('surface_redevance_domaniale', period)
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
@@ -26,8 +27,20 @@ class montant_redevance_domaniale_type_1(Variable):
         part_fixe = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_fixe
         part_unitaire = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_unitaire
         part_surfacique = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_surfacique
-        # montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
+        montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
         facteur_prorata = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].facteur_prorata
 
-        return arrondiSup((part_fixe + part_unitaire * nombre_unite_redevance_domaniale + part_surfacique * surface_redevance_domaniale) * duree_occupation_redevance_domaniale_jour / facteur_prorata)
+        ##Calcul du montant
+        montant_intermediaire = (part_fixe +
+                        part_unitaire * nombre_unite_redevance_domaniale +
+                        part_surfacique * surface_redevance_domaniale) * duree_occupation_redevance_domaniale_jour / facteur_prorata
 
+        ##Comparaison avec le minimum
+        nb_periode_mini =  numpy.trunc(duree_occupation_redevance_domaniale_jour/facteur_prorata)
+
+        montant_global= select(
+                                [nb_periode_mini<=1, nb_periode_mini>1],
+                                [max_(arrondiSup(montant_intermediaire), montant_minimum)  , max_(arrondiSup(montant_intermediaire), nb_periode_mini * montant_minimum )]
+                                )
+
+        return montant_global

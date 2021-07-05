@@ -1,0 +1,24 @@
+description: test scale pour DAF
+brackets:
+  - rate:
+      2018-01-01:
+        value: 30000
+    threshold:
+      2018-01-01:
+        value: 0
+  - rate:
+      2018-01-01:
+        value: 3300
+    threshold:
+      2018-01-01:
+        value: 1
+  - rate:
+      2018-01-01:
+        value: 3000
+    threshold:
+      2018-01-01:
+        value: 7
+metadata:
+  type: marginal_rate
+  threshold_unit: currency-EUR
+  rate_unit: /1

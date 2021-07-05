@@ -30,12 +30,15 @@ class montant_redevance_domaniale_type_3(Variable):
         threshold_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].threshold_3
         rate_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_3
         
-        return arrondiSup(
-            select( [duree_occupation_redevance_domaniale_jour < threshold_1,
-                    duree_occupation_redevance_domaniale_jour <= threshold_2,
-                    duree_occupation_redevance_domaniale_jour > threshold_2],
-                    [ init ,
-                    init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
-                    init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2)]))
+        ## Calcul du montant
+        montant_global = arrondiSup(
+                                    select( [duree_occupation_redevance_domaniale_jour < threshold_1,
+                                            duree_occupation_redevance_domaniale_jour <= threshold_2,
+                                            duree_occupation_redevance_domaniale_jour > threshold_2],
+                                            [ init ,
+                                            init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
+                                            init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2)]))
+
+        return montant_global
 
 
