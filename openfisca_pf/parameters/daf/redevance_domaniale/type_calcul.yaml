@@ -25,16 +25,10 @@ vente_de_produits_locaux_zone_aeroportuaire:
 vente_etale:
   values:
     2018-01-01: 2
-terrain_sport_ac_elec:
-  values:
-    2018-01-01: 3
-terrain_sport_sans_elec:
-  values:
-    2018-01-01: 3
 test_fonction_palier:
   values:
-    2018-01-01: 4
+    2018-01-01: 3
 test_fonction_palier_zone:
   values:
-    2018-01-01: 5 
+    2018-01-01: 4 
     

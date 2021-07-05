@@ -20,8 +20,8 @@ class montant_test_scale(Variable):
 
     def formula(personne, period, parameters):
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
-        scale = parameters(period).daf.redevance_domaniale.type_3.test_scale
-        return arrondiSup(scale.calc(duree_occupation_redevance_domaniale_jour))
+        
+        return 3
 
 
 # class montant_test_redevance_annuelle(Variable):

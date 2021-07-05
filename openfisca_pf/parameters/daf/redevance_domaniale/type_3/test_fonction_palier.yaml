@@ -1,4 +1,4 @@
-## Type_4 computation computes the total amount depending on duration threshold and dayly rate that evolve.
+## Type_3 computation computes the total amount depending on duration threshold and dayly rate that evolve.
 ## For redevance domaniale, 4 scales have been configured but for the moment only 3 are used.
 ## | duree < threshold_1 | duree < threshold_2                             | duree > threshold_2
 ## | montant = init      | montant = init + rate_1 * (duree - threshold_1) |  montant = init + rate_1 * (threshold2 - threshold_1) + rate_2 * (duree - threshold_2)
