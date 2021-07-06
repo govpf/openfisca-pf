@@ -5,7 +5,6 @@
 
 ## If only two scales is needed, put the value for rate_3 than for rate_2
 
-
 description: Paramètres pour le calcul de redevance par pallier
 init:
   values:

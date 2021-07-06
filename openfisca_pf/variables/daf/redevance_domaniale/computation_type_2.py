@@ -36,11 +36,14 @@ class montant_redevance_domaniale_type_2(Variable):
                         part_surfacique * surface_redevance_domaniale) * duree_occupation_redevance_domaniale_jour / facteur_prorata
 
         ##Comparaison avec le minimum
-        nb_periode_mini =  numpy.trunc(duree_occupation_redevance_domaniale_jour/facteur_prorata)
+        nb_periode_plus_1 =  numpy.ceil(duree_occupation_redevance_domaniale_jour/facteur_prorata)
 
         montant_global= select(
-                                [nb_periode_mini<=1, nb_periode_mini>1],
-                                [max_(arrondiSup(montant_intermediaire), montant_minimum)  , max_(arrondiSup(montant_intermediaire), nb_periode_mini * montant_minimum )]
+                                [nb_periode_plus_1<=1 ,
+                                nb_periode_plus_1>1] ,
+                                [max_(arrondiSup(montant_intermediaire), montant_minimum) ,
+                                max_(arrondiSup(montant_intermediaire), nb_periode_plus_1 * montant_minimum )]
+                                ##Use of ceil aims at taking into account that a started period has to be counted in the price
                                 )
 
         return montant_global

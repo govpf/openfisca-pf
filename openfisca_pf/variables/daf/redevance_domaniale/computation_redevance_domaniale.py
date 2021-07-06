@@ -81,8 +81,18 @@ class type_calcul_redevance_domaniale(Variable):
     label = "Type de calcul utilisé"
 
     def formula(personne, period, parameters):
+        ##Déclaration des variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        type_calcul = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale].astype(int).astype(str)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+        
+        condition = unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures
+        
+        ##Selection selon un tarif horaire ou journalier
+        ##Pour pouvoir continuer à ajouter des type de calcul, on considère que pour un type de calcul, son équivalent horaire est à +20
+        type_calcul_inter = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale]+ 20 * condition
+        
+        ##Transformation en entier et en string
+        type_calcul = type_calcul_inter.astype(int).astype(str)
         return type_calcul
 
 

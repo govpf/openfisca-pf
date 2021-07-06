@@ -25,6 +25,9 @@ vente_de_produits_locaux_zone_aeroportuaire:
 vente_etale:
   values:
     2018-01-01: 2
+activite_lucrative_manif_sport:
+  values:
+    2018-01-01: 2
 test_fonction_palier:
   values:
     2018-01-01: 3

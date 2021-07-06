@@ -13,7 +13,7 @@ from openfisca_pf.entities import *
 class UnitesDuree(Enum):
     Heures = u'Heures'
     Jours = u'Jours'
-    Mois = u'Mois' ##peut-être plus utile si on rammmèène à une unité journalière?
+    Mois = u'Mois' ##peut-être plus utile si on rammmène à une unité journalière?
     Annees = u'Années'
 
 
@@ -34,6 +34,7 @@ class TypesNatureEmprise(Enum):
 
     ##Tarif de type_2 (les paramètres du type_1 dépendent de la zone géographique)
     vente_etale = u'Vente à l étale'
+    activite_lucrative_manif_sport = u'Activité lucrative annexe à une manifestation sportive'
     
     ##Tarif de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
     activite_lucrative_inf_3mois = u'Activité lucrative de mois de 3 mois'

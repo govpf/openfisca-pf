@@ -10,7 +10,7 @@ part_surfacique:
     2018-01-01: 45
 montant_minimum:
   values:
-    2018-01-01: 45000
+    2018-01-01: 0
 facteur_prorata:
   values:
     2018-01-01: 360
