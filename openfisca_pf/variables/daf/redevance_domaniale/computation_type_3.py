@@ -20,8 +20,11 @@ class montant_redevance_domaniale_type_3(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
+        ##Déclaration des variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
+        
+        ##Récupération des paramètres
         init = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].init
         threshold_1 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].threshold_1
         rate_1 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_1

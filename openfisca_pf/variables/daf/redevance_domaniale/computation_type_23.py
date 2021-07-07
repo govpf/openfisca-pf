@@ -19,10 +19,12 @@ class montant_redevance_domaniale_type_23(Variable):
     label = "Montant de la redevance domaniale dûe pour les occupations de moins d'une journée"
 
     def formula(personne, period, parameters):
+        ##Déclaration des variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         
+        ##Récupération des paramètres
         tarif_horaire = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_horaire
         duree_demi_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].duree_demi_jour
         tarif_demi_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_demi_jour
