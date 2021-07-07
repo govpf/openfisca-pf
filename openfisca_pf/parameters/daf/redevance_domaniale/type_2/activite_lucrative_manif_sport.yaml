@@ -6,7 +6,7 @@ zone_1:
   part_unitaire:
     values:
       2018-01-01: 0
-  part_surfacique:
+  part_variable:
     values:
       2018-01-01: 100
   montant_minimum:
@@ -22,7 +22,7 @@ zone_2:
   part_unitaire:
     values:
       2018-01-01: 0
-  part_surfacique:
+  part_variable:
     values:
       2018-01-01: 50
   montant_minimum:
@@ -38,7 +38,7 @@ zone_3:
   part_unitaire:
     values:
       2018-01-01: 0
-  part_surfacique:
+  part_variable:
     values:
       2018-01-01: 30
   montant_minimum:
@@ -54,7 +54,7 @@ zone_4:
   part_unitaire:
     values:
       2018-01-01: 0
-  part_surfacique:
+  part_variable:
     values:
       2018-01-01: 10
   montant_minimum:

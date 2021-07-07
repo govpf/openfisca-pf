@@ -37,9 +37,9 @@ class montant_test_scale(Variable):
 #         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
 #         part_fixe = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_fixe
 #         part_unitaire = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_unitaire
-#         part_surfacique = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_surfacique
+#         part_variable = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_variable
 #         montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
 #         facteur_prorata = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].facteur_prorata
 
-#         return max_(part_fixe + part_unitaire * nombre_unite_redevance_domaniale + part_surfacique * surface_redevance_domaniale , montant_minimum) * duree_occupation_redevance_domaniale_annee
+#         return max_(part_fixe + part_unitaire * nombre_unite_redevance_domaniale + part_variable * surface_redevance_domaniale , montant_minimum) * duree_occupation_redevance_domaniale_annee
 

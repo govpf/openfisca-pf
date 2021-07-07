@@ -35,7 +35,8 @@ class TypesNatureEmprise(Enum):
     ##Tarif de type_2 (les paramètres du type_1 dépendent de la zone géographique)
     vente_etale = u'Vente à l étale'
     activite_lucrative_manif_sport = u'Activité lucrative annexe à une manifestation sportive'
-    
+    extraction_essai = u'Extraction sur le domaine public fluvial par une entité hors entité publique'
+
     ##Tarif de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
     activite_lucrative_inf_3mois = u'Activité lucrative de mois de 3 mois'
     activite_alimentaire_lucrative_inf_3mois = u'Activité alimentaire à but lucratif de moins de 3 mois'
@@ -51,3 +52,7 @@ class TypesNatureEmprise(Enum):
     ##Emprise de test
     test_fonction_palier = u'test fonction pallier'
     test_fonction_palier_zone = u'test fonction pallier zone'
+
+    ##Tarif de type_5 (Calcul de type part_fixe + part_lineaire * longueur)
+    ip11_support_embarcation_legere = u'Support pour embarcation légère'
+    if08_perliculture_collectage = u'Perliculture collectage'

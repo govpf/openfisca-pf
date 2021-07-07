@@ -5,7 +5,7 @@ part_fixe:
 part_unitaire:
   values:
     2018-01-01: 0
-part_surfacique:
+part_variable:
   values:
     2018-01-01: 0
 montant_minimum:

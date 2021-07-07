@@ -23,7 +23,8 @@ class montant_redevance_domaniale_type_3(Variable):
         ##Déclaration des variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
-        
+        nbr_participant = personne('nbr_participant', period)
+
         ##Récupération des paramètres
         init = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].init
         threshold_1 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].threshold_1

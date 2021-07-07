@@ -1,12 +1,14 @@
 #Ce fichier permet de définir la méthode de calcul à utiliser pour chaque emprise
-
 description: Méthode de calcul utilisée
+##Type 1
 bati_cas_general:
   values:
     2018-01-01: 1
 equipement_du_pays:
   values:
     2018-01-01: 1
+
+##Type 2
 boutique_de_produit_locaux_zone_aeroportuaire:
   values:
     2018-01-01: 2
@@ -28,10 +30,16 @@ vente_etale:
 activite_lucrative_manif_sport:
   values:
     2018-01-01: 2
+extraction_essai:
+  values:
+    2018-01-01 : 2
+
+##Type 3
 test_fonction_palier:
   values:
     2018-01-01: 3
+    
+##Type 4
 test_fonction_palier_zone:
   values:
-    2018-01-01: 4 
-    
+    2018-01-01: 4

@@ -21,7 +21,7 @@ class montant_redevance_domaniale_type_2(Variable):
     def formula(personne, period, parameters):
         ##Déclaration des variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        surface_redevance_domaniale = personne('surface_redevance_domaniale', period)
+        variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
@@ -29,14 +29,14 @@ class montant_redevance_domaniale_type_2(Variable):
         ##Récupération des paramètres
         part_fixe = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_fixe
         part_unitaire = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_unitaire
-        part_surfacique = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_surfacique
+        part_variable = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_variable
         montant_minimum = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].montant_minimum
         facteur_prorata = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].facteur_prorata
 
         ##Calcul du montant
         montant_intermediaire = (part_fixe +
                         part_unitaire * nombre_unite_redevance_domaniale +
-                        part_surfacique * surface_redevance_domaniale) * duree_occupation_redevance_domaniale_jour / facteur_prorata
+                        part_variable * variable_redevance_domaniale) * duree_occupation_redevance_domaniale_jour / facteur_prorata
 
         ##Comparaison avec le minimum
         nb_periode_plus_1 =  numpy.ceil(duree_occupation_redevance_domaniale_jour/facteur_prorata)

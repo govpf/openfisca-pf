@@ -24,7 +24,7 @@ class montant_redevance_domaniale_type_4(Variable):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
-        
+
         ##Récupération des paramètres
         init = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].init
         threshold_1 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_1
@@ -33,7 +33,7 @@ class montant_redevance_domaniale_type_4(Variable):
         rate_2 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_2
         threshold_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_3
         rate_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_3
-        
+
         ## Calcul du montant
         montant_global = arrondiSup(
                                     select( [duree_occupation_redevance_domaniale_jour < threshold_1,
