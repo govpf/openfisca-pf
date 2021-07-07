@@ -12,7 +12,7 @@ zone_1:
   montant_minimum:
     values:
       2018-01-01: 0
-  facteur_prorata:
+  unite_insecable:
     values:
       2018-01-01: 30
 zone_2:
@@ -28,7 +28,7 @@ zone_2:
   montant_minimum:
     values:
       2018-01-01: 0
-  facteur_prorata:
+  unite_insecable:
     values:
       2018-01-01: 30
 zone_3:
@@ -44,7 +44,7 @@ zone_3:
   montant_minimum:
     values:
       2018-01-01: 0
-  facteur_prorata:
+  unite_insecable:
     values:
       2018-01-01: 30
 zone_4:
@@ -60,6 +60,6 @@ zone_4:
   montant_minimum:
     values:
       2018-01-01: 0
-  facteur_prorata:
+  unite_insecable:
     values:
       2018-01-01: 30

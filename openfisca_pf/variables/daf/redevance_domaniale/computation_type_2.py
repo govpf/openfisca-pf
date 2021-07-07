@@ -31,23 +31,16 @@ class montant_redevance_domaniale_type_2(Variable):
         part_unitaire = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_unitaire
         part_variable = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_variable
         montant_minimum = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].montant_minimum
-        facteur_prorata = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].facteur_prorata
-
+        unite_insecable = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].unite_insecable
+        nb_periode_mini =  numpy.ceil(duree_occupation_redevance_domaniale_jour/unite_insecable) ##Use of ceil aims at taking into account that a started period has to be counted in the price
+        
         ##Calcul du montant
         montant_intermediaire = (part_fixe +
                         part_unitaire * nombre_unite_redevance_domaniale +
-                        part_variable * variable_redevance_domaniale) * duree_occupation_redevance_domaniale_jour / facteur_prorata
+                        part_variable * variable_redevance_domaniale) * nb_periode_mini
 
         ##Comparaison avec le minimum
-        nb_periode_plus_1 =  numpy.ceil(duree_occupation_redevance_domaniale_jour/facteur_prorata)
-
-        montant_global= select(
-                                [nb_periode_plus_1<=1 ,
-                                nb_periode_plus_1>1] ,
-                                [max_(arrondiSup(montant_intermediaire), montant_minimum) ,
-                                max_(arrondiSup(montant_intermediaire), nb_periode_plus_1 * montant_minimum )]
-                                ##Use of ceil aims at taking into account that a started period has to be counted in the price
-                                )
+        montant_global= max_(arrondiSup(montant_intermediaire), nb_periode_mini * montant_minimum )
 
         return montant_global
 

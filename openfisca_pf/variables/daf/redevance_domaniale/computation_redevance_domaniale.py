@@ -28,8 +28,8 @@ class duree_occupation_redevance_domaniale_annee(Variable):
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures],
             [duree_occupation_redevance_domaniale,
             duree_occupation_redevance_domaniale / 12,
-            duree_occupation_redevance_domaniale / 360,
-            duree_occupation_redevance_domaniale / (360 * 8)],
+            duree_occupation_redevance_domaniale / 365,
+            duree_occupation_redevance_domaniale / (365 * 8)],
             )
         return value
 
@@ -47,7 +47,7 @@ class duree_occupation_redevance_domaniale_jour(Variable):
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale * 360,
+            [duree_occupation_redevance_domaniale * 365,
             duree_occupation_redevance_domaniale * 30,
             duree_occupation_redevance_domaniale],
             )
@@ -67,7 +67,7 @@ class duree_occupation_redevance_domaniale_mois(Variable):
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale / 12,
+            [duree_occupation_redevance_domaniale * 30 / 365,
             duree_occupation_redevance_domaniale,
             duree_occupation_redevance_domaniale / 30],
             )

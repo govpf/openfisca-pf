@@ -14,7 +14,7 @@ from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 class duree_occupation_redevance_domaniale(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY  ##réflechir à la gestion horaire
+    definition_period = DAY
     label = "Durée de l'occupation du domaine"
 
 
@@ -58,7 +58,7 @@ class nature_emprise_occupation_redevance_domaniale(Variable):
     definition_period = DAY
     label = "Type de nature d'emprise"
 
-class nombre_unite_redevance_domaniale(Variable):
+class nombre_participant_redevance_domaniale(Variable):
     value_type = int
     entity = Personne
     default_value = 0

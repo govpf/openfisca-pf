@@ -11,6 +11,6 @@ part_variable:
 montant_minimum:
   values:
     2018-01-01: 120000
-facteur_prorata:
+unite_insecable:
   values:
-    2018-01-01: 360
+    2018-01-01: 365

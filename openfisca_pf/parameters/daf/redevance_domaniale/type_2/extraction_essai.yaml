@@ -12,9 +12,9 @@ zone_1:
   montant_minimum:
     values:
       2018-01-01: 0
-  facteur_prorata:
+  unite_insecable:
     values:
-      2018-01-01: 360
+      2018-01-01: 365
 zone_2:
   part_fixe:
     values:
@@ -28,9 +28,9 @@ zone_2:
   montant_minimum:
     values:
       2018-01-01: 0
-  facteur_prorata:
+  unite_insecable:
     values:
-      2018-01-01: 360
+      2018-01-01: 365
 zone_3: ##Not defined for extraction
   part_fixe:
     values:
@@ -44,9 +44,9 @@ zone_3: ##Not defined for extraction
   montant_minimum:
     values:
       2018-01-01: 0
-  facteur_prorata:
+  unite_insecable:
     values:
-      2018-01-01: 0
+      2018-01-01: 365
 zone_4: ##Not defined for extraction
   part_fixe:
     values:
@@ -60,6 +60,6 @@ zone_4: ##Not defined for extraction
   montant_minimum:
     values:
       2018-01-01: 0
-  facteur_prorata:
+  unite_insecable:
     values:
-      2018-01-01: 0
+      2018-01-01: 365
