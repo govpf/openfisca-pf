@@ -1,0 +1,29 @@
+## Type_3 computation computes the total amount depending on duration threshold and dayly rate that evolve.
+## For redevance domaniale, 4 scales have been configured but for the moment only 3 are used.
+## | duree < threshold_1 | duree < threshold_2                             | duree > threshold_2
+## | montant = init      | montant = init + rate_1 * (duree - threshold_1) |  montant = init + rate_1 * (threshold2 - threshold_1) + rate_2 * (duree - threshold_2)
+
+## If only two scales is needed, put the value for rate_3 than for rate_2
+
+description: Paramètres pour le calcul de redevance par palier
+init:
+  values:
+    2018-01-01: 120
+threshold_1:
+  values:
+    2018-01-01: 1
+rate_1:
+  values:
+    2018-01-01: 120
+threshold_2:
+  values:
+    2018-01-01: 7
+rate_2:
+  values:
+    2018-01-01: 110
+threshold_3:
+  values:
+    2018-01-01: 365
+rate_3:
+  values:
+    2018-01-01: 100

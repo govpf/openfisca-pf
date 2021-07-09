@@ -48,3 +48,10 @@ test_fonction_palier_zone:
 test_fonction_palier_surface:
   values:
     2018-01-01: 5
+
+##Type 6
+test_ancrage:
+  values:
+    2018-01-01: 6
+
+    

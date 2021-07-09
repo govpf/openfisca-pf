@@ -54,4 +54,7 @@ class TypesNatureEmprise(Enum):
     test_fonction_palier_zone = u'test fonction pallier zone'
 
     ##Tarif de type_5
-    test_fonction_palier_surface = u'Support pour embarcation légère'
+    test_fonction_palier_surface = u'Test palier surface'
+
+    ##Tarif de type_6
+    test_ancrage = u'Test ancrage'
