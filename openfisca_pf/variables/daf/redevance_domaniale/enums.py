@@ -53,6 +53,5 @@ class TypesNatureEmprise(Enum):
     test_fonction_palier = u'test fonction pallier'
     test_fonction_palier_zone = u'test fonction pallier zone'
 
-    ##Tarif de type_5 (Calcul de type part_fixe + part_lineaire * longueur)
-    ip11_support_embarcation_legere = u'Support pour embarcation légère'
-    if08_perliculture_collectage = u'Perliculture collectage'
+    ##Tarif de type_5
+    test_fonction_palier_surface = u'Support pour embarcation légère'

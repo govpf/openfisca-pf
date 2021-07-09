@@ -43,3 +43,8 @@ test_fonction_palier:
 test_fonction_palier_zone:
   values:
     2018-01-01: 4
+
+##Type 5
+test_fonction_palier_surface:
+  values:
+    2018-01-01: 5
