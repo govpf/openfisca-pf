@@ -24,6 +24,7 @@ class montant_redevance_domaniale_type_4(Variable):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
+        majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
 
         ##Récupération des paramètres
         init = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].init
@@ -37,8 +38,7 @@ class montant_redevance_domaniale_type_4(Variable):
         ## Calcul du montant
         #   les durées en jours inférieur à 1 vont passer dans le type_23, donc ne seront pas calculées ici.
         #   Si jamais, les durées inférieures à 1 jours suivent un calcul simples (linéaire, vis à vis du temps en jours), il faudra rajouter le terme rate_0 * duree pour avoir des calculs cohérents
-        montant_global = arrondiSup(
-                                    select( [duree_occupation_redevance_domaniale_jour < threshold_1,
+        montant_intermediaire = select( [duree_occupation_redevance_domaniale_jour < threshold_1,
                                             duree_occupation_redevance_domaniale_jour <= threshold_2,
                                             duree_occupation_redevance_domaniale_jour <= threshold_3,
                                             duree_occupation_redevance_domaniale_jour > threshold_3],
@@ -47,6 +47,7 @@ class montant_redevance_domaniale_type_4(Variable):
                                             init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
                                             init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) +rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
                                             ])
-                                    )
+
+        montant_global = arrondiSup( montant_intermediaire) + majoration_redevance_domaniale
 
         return montant_global

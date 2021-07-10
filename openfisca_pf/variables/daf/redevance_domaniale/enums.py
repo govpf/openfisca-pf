@@ -9,7 +9,6 @@ from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 
-
 class UnitesDuree(Enum):
     Heures = u'Heures'
     Jours = u'Jours'
@@ -26,6 +25,8 @@ class ZonesOccupations(Enum):
 
 
 class TypesNatureEmprise(Enum):
+    ##Lors de la mise en prod, il serait plus pertinent de lui donner un index simple plutôt qu'un nom
+
     ##Tarif de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
     bati_cas_general = u'Bâti (cas général)'
     emprise_activite_lucrative = u'Emprise dédiée à une activité lucrative'
@@ -50,8 +51,8 @@ class TypesNatureEmprise(Enum):
     bati_tout_public_sans_elec = u'Bâti à usage tout public sans électricité'
 
     ##Emprise de test
-    test_fonction_palier = u'test fonction pallier'
-    test_fonction_palier_zone = u'test fonction pallier zone'
+    test_fonction_palier = u'test fonction palier'
+    test_fonction_palier_zone = u'test fonction palier zone'
 
     ##Tarif de type_5
     test_fonction_palier_surface = u'Test palier surface'
