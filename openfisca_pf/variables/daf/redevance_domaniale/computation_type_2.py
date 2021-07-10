@@ -25,7 +25,8 @@ class montant_redevance_domaniale_type_2(Variable):
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
-        
+        majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
+
         ##Récupération des paramètres
         part_fixe = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_fixe
         part_unitaire = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_unitaire
@@ -40,7 +41,7 @@ class montant_redevance_domaniale_type_2(Variable):
                         part_variable * variable_redevance_domaniale) * nb_periode_mini
 
         ##Comparaison avec le minimum
-        montant_global= max_(arrondiSup(montant_intermediaire), nb_periode_mini * montant_minimum )
+        montant_global= max_(arrondiSup(montant_intermediaire), nb_periode_mini * montant_minimum ) + majoration_redevance_domaniale
 
         return montant_global
 

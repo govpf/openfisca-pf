@@ -1,0 +1,15 @@
+description: Mark-up parameter definition
+
+#Mark-up depending on the number of attendee of the event
+rate_participant_1:
+  values:
+    2018-01-01: 200
+threshold_participant_1:
+  values:
+    2018-01-01: 100
+rate_participant_2:
+    values:
+      2018-01-01: 500
+threshold_participant_2:
+  values:
+    2018-01-01: 1000
