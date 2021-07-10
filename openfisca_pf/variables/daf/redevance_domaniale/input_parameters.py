@@ -38,8 +38,8 @@ class variable_redevance_domaniale(Variable):
     value_type = int
     entity = Personne
     definition_period = DAY
-    label = "Variable de l'occupation du domaine"
-##Cette variable peut être exprimée en m, en m² ou en m^3, pour définir une unité de longueur, de surface ou de volume
+    label = "Variable de l'occupation du domaine, peut être exprimée en m, en m² ou en m^3, pour définir une unité de longueur, de surface ou de volume"
+
 
 class zone_occupation_redevance_domaniale(Variable):
     value_type = Enum
@@ -58,9 +58,24 @@ class nature_emprise_occupation_redevance_domaniale(Variable):
     definition_period = DAY
     label = "Type de nature d'emprise"
 
+
 class nombre_participant_redevance_domaniale(Variable):
     value_type = int
     entity = Personne
     default_value = 0
     definition_period = DAY
     label = "Nombre de participant pour le calcul de la majoration"
+
+
+class date_validation_redevance_domaniale(Variable):
+    value_type = date
+    entity = Personne
+    label = "Date de validation de la redevance domaniale"
+    definition_period = ETERNITY
+
+
+class duree_occupation_redevance_domaniale_echeancier(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = ETERNITY
+    label = "Durée de l'occupation du domaine en jours"
