@@ -67,7 +67,17 @@ class nombre_participant_redevance_domaniale(Variable):
     label = "Nombre de participant pour le calcul de la majoration"
 
 
-class date_validation_redevance_domaniale(Variable):
+class nature_emprise_occupation_redevance_domaniale_echeancier(Variable):
+    value_type = Enum
+    possible_values = TypesNatureEmprise
+    default_value = TypesNatureEmprise.equipement_du_pays
+    entity = Personne
+    definition_period = ETERNITY
+    # set_input = set_input_dispatch_by_period
+    label = "Type de nature d'emprise"
+
+
+class date_validation_redevance_domaniale_echeancier(Variable):
     value_type = date
     entity = Personne
     label = "Date de validation de la redevance domaniale"
@@ -79,3 +89,19 @@ class duree_occupation_redevance_domaniale_echeancier(Variable):
     entity = Personne
     definition_period = ETERNITY
     label = "Durée de l'occupation du domaine en jours"
+
+
+class variable_redevance_domaniale_echeancier(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = ETERNITY
+    label = "Variable de l'occupation du domaine, peut être exprimée en m, en m² ou en m^3, pour définir une unité de longueur, de surface ou de volume"
+
+
+class nombre_unite_redevance_domaniale_echeancier(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = ETERNITY
+    label = "Nombre d'unités dans l'occupation du domaine"
+
+
