@@ -13,30 +13,27 @@ from numpy import datetime64, timedelta64
 from openfisca_pf.base import *
 from openfisca_core import periods
 
-class montant_redevance_domaniale_echeancier_jour(Variable):
-    value_type = float
+
+class nombre_jours_occupation_domaniale_echeancier_annee(Variable):
+    value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = YEAR
     calculate_output = calculate_output_add
 
     def formula(personne, period, parameters):
         nature_emprise_occupation_redevance_domaniale_echeancier = personne('nature_emprise_occupation_redevance_domaniale_echeancier', period)
-        variable_redevance_domaniale_echeancier = personne('variable_redevance_domaniale_echeancier', period)
-        nombre_unite_redevance_domaniale_echeancier = personne('nombre_unite_redevance_domaniale_echeancier', period)
-        date_validation_redevance_domaniale_echeancier = personne('date_validation_redevance_domaniale_echeancier', period)
-        epsilon = timedelta64(1)
-        # How many days since start of redevance
-        nombre_jours_depuis_signature = (datetime64(period.start) - date_validation_redevance_domaniale_echeancier + epsilon).astype('timedelta64[D]').astype(int)
-        part_fixe = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].part_fixe
-        part_unitaire = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].part_unitaire
-        part_variable = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].part_variable
-
-
-        # premier_jour = nombre_jours_depuis_signature == 1
         duree_occupation_redevance_domaniale_echeancier = personne('duree_occupation_redevance_domaniale_echeancier', period)
-        redevance_du = (nombre_jours_depuis_signature > 0) * (nombre_jours_depuis_signature <= duree_occupation_redevance_domaniale_echeancier)
-        # print(redevance_du)
-        return redevance_du * (part_fixe + part_unitaire * nombre_unite_redevance_domaniale_echeancier + part_variable * variable_redevance_domaniale_echeancier)
+        unite_insecable = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].unite_insecable
+        nb_periode_mini = numpy.ceil(duree_occupation_redevance_domaniale_echeancier / unite_insecable)
+        date_validation_redevance_domaniale_echeancier = personne('date_validation_redevance_domaniale_echeancier', period)
+        # epsilon = timedelta64(1)
+        date_debut_annee = datetime64(period.start) - 1
+        date_fin_annee = datetime64(period.offset(1, 'year').start) - 1
+        unite_insecable = where(unite_insecable == 365, date_fin_annee - date_debut_annee, unite_insecable)
+        date_deb_redevance = numpy.array(date_validation_redevance_domaniale_echeancier, dtype='datetime64') - 1
+        date_fin_redevance = date_deb_redevance + numpy.array(nb_periode_mini * unite_insecable, dtype='timedelta64[D]')
+        duree = min_(date_fin_redevance, date_fin_annee) - max_(date_deb_redevance, date_debut_annee)
+        return ((duree > timedelta64(0)) * duree).astype('timedelta64[D]').astype(int)
 
 
 class montant_redevance_domaniale_echeancier_annee(Variable):
@@ -50,20 +47,11 @@ class montant_redevance_domaniale_echeancier_annee(Variable):
         variable_redevance_domaniale_echeancier = personne('variable_redevance_domaniale_echeancier', period)
         nombre_unite_redevance_domaniale_echeancier = personne('nombre_unite_redevance_domaniale_echeancier', period)
         # majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
-        duree_occupation_redevance_domaniale_echeancier = personne('duree_occupation_redevance_domaniale_echeancier', period)
         unite_insecable = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].unite_insecable
-        nb_periode_mini = numpy.ceil(duree_occupation_redevance_domaniale_echeancier / unite_insecable)
-        date_validation_redevance_domaniale_echeancier = personne('date_validation_redevance_domaniale_echeancier', period)
-        # epsilon = timedelta64(1)
-        date_deb_redevance = numpy.array(date_validation_redevance_domaniale_echeancier, dtype='datetime64')
-        date_fin_redevance = date_deb_redevance + numpy.array(nb_periode_mini * unite_insecable, dtype='timedelta64[D]')
         date_debut_annee = datetime64(period.start) - 1
         date_fin_annee = datetime64(period.offset(1, 'year').start) - 1
-        duree = min_(date_fin_redevance, date_fin_annee) - max_(date_deb_redevance, date_debut_annee)
-        # print((duree > timedelta64(0)) * duree)
-        
-        nombre_jours_factures = ((duree > timedelta64(0)) * duree).astype('timedelta64[D]').astype(int)
-
+        unite_insecable = where(unite_insecable == 365, (date_fin_annee - date_debut_annee).astype(int), unite_insecable)
+        nombre_jours_factures = personne('nombre_jours_occupation_domaniale_echeancier_annee', period)
         # Récupération des paramètres
         part_fixe = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].part_fixe
         part_unitaire = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].part_unitaire
@@ -75,7 +63,7 @@ class montant_redevance_domaniale_echeancier_annee(Variable):
         montant_intermediaire = (part_fixe +
                         part_unitaire * nombre_unite_redevance_domaniale_echeancier +
                         part_variable * variable_redevance_domaniale_echeancier) * nombre_jours_factures / unite_insecable
-                        #* nb_periode_mini
+                        # * nb_periode_mini
 
         # Comparaison avec le minimum
         montant_global = arrondiSup(max_(montant_intermediaire, nombre_jours_factures / unite_insecable * montant_minimum))
