@@ -28,8 +28,8 @@ class duree_occupation_redevance_domaniale_annee(Variable):
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures],
             [duree_occupation_redevance_domaniale,
             duree_occupation_redevance_domaniale / 12,
-            duree_occupation_redevance_domaniale / 365,
-            duree_occupation_redevance_domaniale / (365 * 8)],
+            duree_occupation_redevance_domaniale / 360,
+            duree_occupation_redevance_domaniale / (360 * 8)],
             )
         return value
 
@@ -47,7 +47,7 @@ class duree_occupation_redevance_domaniale_jour(Variable):
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale * 365,
+            [duree_occupation_redevance_domaniale * 360,
             duree_occupation_redevance_domaniale * 30,
             duree_occupation_redevance_domaniale],
             )
@@ -67,7 +67,7 @@ class duree_occupation_redevance_domaniale_mois(Variable):
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale * 30 / 365,
+            [duree_occupation_redevance_domaniale * 30 / 360,
             duree_occupation_redevance_domaniale,
             duree_occupation_redevance_domaniale / 30],
             )
@@ -97,7 +97,7 @@ class type_calcul_redevance_domaniale(Variable):
         return type_calcul
 
 
-class montant_redevance_domaniale(Variable):
+class montant_annuel_redevance_domaniale(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
@@ -105,4 +105,14 @@ class montant_redevance_domaniale(Variable):
 
     def formula(personne, period, parameters):
         type_calcul = personne('type_calcul_redevance_domaniale', period)
-        return getVariableFromStringAndScalar(personne, period, 'montant_redevance_domaniale_type_', type_calcul)
+        return getVariableFromStringAndScalar(personne, period, 'montant_base_redevance_domaniale_type_', type_calcul)
+
+class montant_total_redevance_domaniale(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = DAY
+    label = "Montant de la redevance domaniale dûe"
+
+    def formula(personne, period, parameters):
+        type_calcul = personne('type_calcul_redevance_domaniale', period)
+        return getVariableFromStringAndScalar(personne, period, 'montant_total_redevance_domaniale_type_', type_calcul)
