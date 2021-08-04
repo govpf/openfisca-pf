@@ -12,6 +12,20 @@ from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
 
+class montant_base_redevance_domaniale_type_6(Variable):
+    value_type = str
+    entity = Personne
+    definition_period = DAY
+    label = "Montant de la redevance domaniale dûe pour les occupations de moins d'une journée"
+    reference = "Arrêté NOR DAF2120267AC-3"
+
+    def formula(personne, period, pararameters):
+        ##Pour ce type de calcul il n'y a pas de différences entre le montant de base et le montant total
+        ##Du coup, les deux montants sont égaux
+
+
+        return  personne('montant_total_redevance_domaniale_type_6',period)
+
 class montant_redevance_domaniale_type_23(Variable):
     value_type = float
     entity = Personne
@@ -38,9 +52,9 @@ class montant_redevance_domaniale_type_23(Variable):
                                             tarif_jour]
                                         )
         
-        montant_global= arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
+        montant_total= arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
 
-        return montant_global
+        return montant_total
 
 
 

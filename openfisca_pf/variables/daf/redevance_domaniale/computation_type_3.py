@@ -11,8 +11,21 @@ from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
+class montant_base_redevance_domaniale_type_3(Variable):
+    value_type = str
+    entity = Personne
+    definition_period = DAY
+    label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier"
+    reference = "Arrêté NOR DAF2120267AC-3"
 
-class montant_redevance_domaniale_type_3(Variable):
+    def formula(personne, period, pararameters):
+        ##Pour ce type de calcul il n'y a pas de différences entre le montant de base et le montant total
+        ##Du coup, les deux montants sont égaux
+
+
+        return  personne('montant_total_redevance_domaniale_type_3',period)
+
+class montant_total_redevance_domaniale_type_3(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY

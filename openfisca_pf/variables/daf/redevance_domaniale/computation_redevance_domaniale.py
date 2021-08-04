@@ -97,7 +97,7 @@ class type_calcul_redevance_domaniale(Variable):
         return type_calcul
 
 
-class montant_annuel_redevance_domaniale(Variable):
+class montant_base_redevance_domaniale(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY

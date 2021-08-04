@@ -44,7 +44,7 @@ class montant_base_redevance_domaniale_type_1(Variable):
                         part_variable * variable_redevance_domaniale)
 
         ##Comparaison avec le minimum
-        montant_base= max_(arrondiSup(montant_intermediaire), montant_minimum ) + majoration_redevance_domaniale
+        montant_base= max_(arrondiSup(montant_intermediaire), montant_minimum )
 
         return montant_base
 
@@ -53,7 +53,7 @@ class montant_total_redevance_domaniale_type_1(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant de base (journalier, annuel, mensuel) pour la redevance domaniale dûe avec un calcul de type classique"
+    label = "Montant total de la redevance domaniale dûe avec un calcul de type classique"
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
@@ -61,7 +61,9 @@ class montant_total_redevance_domaniale_type_1(Variable):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
-        montant_base = personne('montant_base_redevance_domaniale_type_1,period')
+        montant_base = personne('montant_base_redevance_domaniale_type_1',period)
+        
+        ##Récupération des paramètres
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
 
         ##Calcul du montant total sur toute la durée de l'occupation

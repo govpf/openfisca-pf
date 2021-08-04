@@ -12,11 +12,11 @@ from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
 
-class montant_redevance_domaniale_type_5(Variable):
+class montant_base_redevance_domaniale_type_5(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant de la redevance domaniale dûe avec un calcul dont le montant annuel évolue par palier de surface"
+    label = "Montant de base (journalier, mensuel, annuel) de la redevance domaniale dûe avec un calcul dont le montant annuel évolue par palier de surface"
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
@@ -35,8 +35,6 @@ class montant_redevance_domaniale_type_5(Variable):
         rate_2 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].rate_2
         
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
-        base_calcul_jour = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
-        nb_periode_mini =  numpy.ceil(duree_occupation_redevance_domaniale_jour/base_calcul_jour) ##Use of ceil aims at taking into account that a started period has to be counted in the price
 
         ## Calcul du montant
         montant_intermediaire = select( [variable_redevance_domaniale < threshold_1,
@@ -48,7 +46,30 @@ class montant_redevance_domaniale_type_5(Variable):
                                             ]
                                     )
 
-        montant_global= max_(arrondiSup(montant_intermediaire), nb_periode_mini * montant_minimum ) + majoration_redevance_domaniale
+        montant_base= max_(arrondiSup(montant_intermediaire), montant_minimum )
         
-        return montant_global
+        return montant_base
 
+class montant_total_redevance_domaniale_type_5(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = DAY
+    label = "Montant de total de la redevance domaniale dûe avec un calcul dont le montant annuel évolue par palier de surface"
+    reference = "Arrêté NOR DAF2120267AC-3"
+
+    def formula(personne, period, parameters):
+        ##Déclaration des variables
+        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
+        duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
+        majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
+        montant_base = personne('montant_base_redevance_domaniale_type_5',period)
+
+        ##Récupération des paramètres
+        base_calcul_jour = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
+        montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
+
+        ##Calcul du montant total sur toute la durée de l'occupation
+        montant_total = max_(arrondiSup(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour), montant_minimum) + majoration_redevance_domaniale
+            ##Le fait de metttre deux fois le minimum permet de palier aussi le fait que la durée soit inférieure à l'unité de basse de calcul
+
+        return montant_total

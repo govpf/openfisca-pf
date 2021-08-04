@@ -12,7 +12,7 @@ from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
 
-class montant_redevance_domaniale_type_6(Variable):
+class montant_total_redevance_domaniale_type_6(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
