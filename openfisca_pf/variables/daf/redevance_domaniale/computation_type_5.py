@@ -35,8 +35,8 @@ class montant_redevance_domaniale_type_5(Variable):
         rate_2 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].rate_2
         
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
-        unite_insecable = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].unite_insecable
-        nb_periode_mini =  numpy.ceil(duree_occupation_redevance_domaniale_jour/unite_insecable) ##Use of ceil aims at taking into account that a started period has to be counted in the price
+        base_calcul_jour = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
+        nb_periode_mini =  numpy.ceil(duree_occupation_redevance_domaniale_jour/base_calcul_jour) ##Use of ceil aims at taking into account that a started period has to be counted in the price
 
         ## Calcul du montant
         montant_intermediaire = select( [variable_redevance_domaniale < threshold_1,

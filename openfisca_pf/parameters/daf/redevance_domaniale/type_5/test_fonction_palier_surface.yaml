@@ -25,6 +25,6 @@ rate_2:
 montant_minimum:
   values:
     2018-01-01: 0
-unite_insecable:
+base_calcul_jour:
   values:
-    2018-01-01: 365
+    2018-01-01: 360
