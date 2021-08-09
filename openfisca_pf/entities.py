@@ -45,6 +45,22 @@ Pays = build_entity(
         ]
     )
 
+Dossier = build_entity(
+    key = "dossier",
+    plural = "dossiers",
+    label = u'Un dossier',
+    doc = '''Un dossier regroupe plusieurs demandes, représentés dans openfisca par plusieurs personnes
+    ''',
+    roles = [
+        {
+            'key': 'demande',
+            'plural': 'demandes',
+            'label': u'Demandes',
+            'doc': u'Les demandes du dossier.'
+            }
+        ]
+    )
+
 Employes = build_entity(
     key = "employes",
     plural = "employes",
@@ -63,4 +79,4 @@ Employes = build_entity(
         ],
     )
 
-entities = [Pays, Personne, Employes]
+entities = [Pays, Personne, Employes, Dossier]
