@@ -49,6 +49,7 @@ def arrondiSup(valeur):
 def arrondiInf(valeur):
     return numpy.rint(numpy.nextafter(valeur, valeur - 1))
 
+
 # Calculations are grouped per date, so we know the parameters for each entry is the same, thus we can create only one scale for all of them
 def creerBareme(personne, period, impot, type):
     nbTranches = personne.pays(f'nombre_tranches_{impot}_{type}', period)[0]
