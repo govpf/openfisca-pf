@@ -1,7 +1,7 @@
-description: Paramètres pour le calcul de redevance des installations techniques
+description: Paramètres pour le calcul des Canalisations publiques, SWAC, OSMOSER
 part_fixe:
   values:
-    2018-01-01: 10000
+    2018-01-01: 0
 part_unitaire:
   values:
     2018-01-01: 0
@@ -14,4 +14,3 @@ montant_minimum:
 base_calcul_jour:
   values:
     2018-01-01: 360
-    

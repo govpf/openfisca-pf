@@ -1,17 +1,17 @@
-description: Paramètre pour les tests des premières versions
+
+description: Paramètres pour le calcul des Bâti pour la perliculture et l'aquaculture
 part_fixe:
   values:
     2018-01-01: 0
 part_unitaire:
   values:
-    2018-01-01: 40000
+    2018-01-01: 0
 part_variable:
   values:
-    2018-01-01: 45
+    2018-01-01: 200
 montant_minimum:
   values:
     2018-01-01: 0
 base_calcul_jour:
   values:
     2018-01-01: 360
-    

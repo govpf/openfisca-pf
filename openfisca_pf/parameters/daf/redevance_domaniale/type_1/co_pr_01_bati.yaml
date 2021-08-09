@@ -1,4 +1,5 @@
-description: Paramètre pour les tests des premières versions
+
+description: Paramètres pour le calcul des Bâti (cas général)
 part_fixe:
   values:
     2018-01-01: 0
@@ -14,4 +15,3 @@ montant_minimum:
 base_calcul_jour:
   values:
     2018-01-01: 360
-    

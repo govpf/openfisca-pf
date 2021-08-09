@@ -1,29 +1,127 @@
 #Ce fichier permet de définir la méthode de calcul à utiliser pour chaque emprise
 description: Méthode de calcul utilisée
 ##Type 1
-bati_cas_general:
+ip_eco_01_equipement_pays:
   values:
     2018-01-01: 1
+ip_eco_08_centre_artisanaux_aero:
+  values:
+    2018-01-01: 1
+ip_eco_09_infra_restauration_tourisme:
+  values:
+    2018-01-01: 1
+ip_eco_10_boutique_vente_tourisme:
+  values:
+    2018-01-01: 1
+ip_eco_11_support_embarcation_legere:
+  values:
+    2018-01-01: 1
+co_eco_01_bati:
+  values:
+    2018-01-01: 1
+co_eco_04_ouvrage_rehabilitation:
+  values:
+    2018-01-01: 1
+co_eco_04_bati_perli:
+  values:
+    2018-01-01: 1
+em_eco_05_emprise_maririme_general:
+  values:
+    2018-01-01: 1
+em_eco_06_emprise_maritime_lucratif:
+  values:
+    2018-01-01: 1
+em_eco_08_emprise_eco_tourisme:
+  values:
+    2018-01-01: 1
+em_eco_09_activite_agricole_aero:
+  values:
+    2018-01-01: 1
+im_eco_06_activei_resto_mobile_aero:
+  values:
+    2018-01-01: 1
+im_eco_08_autres_lucrative:
+  values:
+    2018-01-01: 1
+im_eco_10_activite_non_lucrative_inf_trim:
+  values:
+    2018-01-01: 1
+if_eco_03_operu_hors_passe:
+  values:
+    2018-01-01: 1
+if_eco_04_operu_passe:
+  values:
+    2018-01-01: 1
+if_eco_05_aquaculture_lagon:
+  values:
+    2018-01-01: 1
+if_eco_06_aquaculture_canalisation:
+  values:
+    2018-01-01: 1
+if_eco_07_aquaculture_mer:
+  values:
+    2018-01-01: 1
+if_eco_08_perliculture_collectage:
+  values:
+    2018-01-01: 1
+if_eco_09_perliculture_elevage:
+  values:
+    2018-01-01: 1
+if_eco_10_canalisation_publique:
+  values:
+    2018-01-01: 1
+if_eco_11_canalisation_secteur_prim:
+  values:
+    2018-01-01: 1
+if_eco_12_canalisation_secteur_sec:
+  values:
+    2018-01-01: 1
+if_eco_13_installation_technique:
+  values:
+    2018-01-01: 1
+if_eco_14_support_publicitaire:
+  values:
+    2018-01-01: 1
+if_eco_16_captage_eau_sousterraine:
+  values:
+    2018-01-01: 1
+ip_pr_05_support_embarcation_legere:
+  values:
+    2018-01-01: 1
+co_pr_01_bati:
+  values:
+    2018-01-01: 1
+co_pr_03_ouvrage_rehabilitation:
+  values:
+    2018-01-01: 1
+co_pr_04_habitation_zone_aero:
+  values:
+    2018-01-01: 1
+em_pr_05_emprise_maririme_general:
+  values:
+    2018-01-01: 1
+em_pr_07_emprise_maritime_non_lucratif:
+  values:
+    2018-01-01: 1
+if_pr_03_support_publicitaire:
+  values:
+    2018-01-01: 1
+if_pr_02_ancrage_sans_droit:
+  values:
+    2018-01-01: 1
+
+
+
+##Paramètres pour les tests des premières versions
+##Type 1
 equipement_du_pays:
+  values:
+    2018-01-01: 1
+bati_cas_general:
   values:
     2018-01-01: 1
 
 ##Type 2
-boutique_de_produit_locaux_zone_aeroportuaire:
-  values:
-    2018-01-01: 2
-infrastructure_de_restauration_aeroportuaire:
-  values:
-    2018-01-01: 2
-ouvrage_d_amenagement_de_defense_ou_d_accessibilite:
-  values:
-    2018-01-01: 2
-emprise_maritime_privatisee:
-  values:
-    2018-01-01: 2
-vente_de_produits_locaux_zone_aeroportuaire:
-  values:
-    2018-01-01: 2
 vente_etale:
   values:
     2018-01-01: 2

@@ -1,17 +1,16 @@
-description: Paramètre pour les tests des premières versions
+description: Paramètres pour le calcul des Peche Parc à Operu (Zone passe)
 part_fixe:
   values:
     2018-01-01: 0
 part_unitaire:
   values:
-    2018-01-01: 40000
+    2018-01-01: 0
 part_variable:
   values:
-    2018-01-01: 45
+    2018-01-01: 40
 montant_minimum:
   values:
-    2018-01-01: 0
+    2018-01-01: 20000
 base_calcul_jour:
   values:
     2018-01-01: 360
-    
