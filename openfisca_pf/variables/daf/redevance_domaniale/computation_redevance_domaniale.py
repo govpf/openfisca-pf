@@ -118,6 +118,15 @@ class montant_total_redevance_domaniale(Variable):
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         return getVariableFromStringAndScalar(personne, period, 'montant_total_redevance_domaniale_type_', type_calcul)
 
+class montant_base_redevance_domaniale_dossier(Variable):
+    value_type = float
+    entity = Dossier
+    definition_period = DAY
+    label = u"Montant total de redevance domaniale de toutes les demandes du dossier"
+
+    def formula(dossier, period, parameters):
+        montant_base_redevance_domaniale = dossier.members('montant_base_redevance_domaniale', period)
+        return dossier.sum(montant_base_redevance_domaniale)
 
 class montant_total_redevance_domaniale_dossier(Variable):
     value_type = float
