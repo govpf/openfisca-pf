@@ -65,10 +65,11 @@ class montant_total_redevance_domaniale_type_1(Variable):
 
         ##Récupération des paramètres
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
-
+        montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
+        
         ##Calcul du montant total sur toute la durée de l'occupation
         montant_intermediaire = montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour + majoration_redevance_domaniale
 
-        montant_total = arrondiSup(montant_intermediaire * (1- 0.8*activite_cultuelle))
+        montant_total = max_(arrondiSup(montant_intermediaire * (1 - 0.8 * activite_cultuelle)), montant_minimum)
 
         return montant_total

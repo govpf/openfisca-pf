@@ -106,8 +106,8 @@ class nombre_unite_redevance_domaniale_echeancier(Variable):
 
 
 class activite_cultuelle(Variable):
-    value_type = bool
+    value_type = int
     entity = Personne
-    default_value = False
+    default_value = 0
     definition_period = ETERNITY
     label = "Paramètre permettant de définir si le demandeur est liée à des activités cultuelles"
