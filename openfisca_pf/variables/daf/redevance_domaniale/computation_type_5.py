@@ -56,7 +56,8 @@ class montant_total_redevance_domaniale_type_5(Variable):
     definition_period = DAY
     label = "Montant de total de la redevance domaniale dûe avec un calcul dont le montant annuel évolue par palier de surface"
     reference = "Arrêté NOR DAF2120267AC-3"
-
+    unit = 'currency-XPF'
+    
     def formula(personne, period, parameters):
         ##Déclaration des variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)

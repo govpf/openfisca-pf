@@ -31,6 +31,7 @@ class montant_total_redevance_domaniale_type_3(Variable):
     definition_period = DAY
     label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier"
     reference = "Arrêté NOR DAF2120267AC-3"
+    unit = 'currency-XPF'
 
     def formula(personne, period, parameters):
         ##Déclaration des variables

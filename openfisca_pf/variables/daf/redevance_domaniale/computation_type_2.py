@@ -48,6 +48,7 @@ class montant_total_redevance_domaniale_type_2(Variable):
     definition_period = DAY
     label = "Montant total de la redevance domaniale dûe avec un calcul dépendant de la zone géographique de la demande"
     reference = "Arrêté NOR DAF2120267AC-3"
+    unit = 'currency-XPF'
 
     def formula(personne, period, parameters):
         ##Déclaration des variables

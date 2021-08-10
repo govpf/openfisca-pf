@@ -26,17 +26,17 @@ class montant_base_redevance_domaniale_type_6(Variable):
 
         return  personne('montant_total_redevance_domaniale_type_6',period)
 
-class montant_redevance_domaniale_type_23(Variable):
+class montant_total_redevance_domaniale_type_23(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
     label = "Montant de la redevance domaniale dûe pour les occupations de moins d'une journée"
-
+    unit = 'currency-XPF'
+    
     def formula(personne, period, parameters):
         ##Déclaration des variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
-        zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
 
         ##Récupération des paramètres
