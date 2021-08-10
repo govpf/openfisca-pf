@@ -1,0 +1,65 @@
+description: Activité lucrative annexe à une manifestation sportive
+zone_1:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 100
+  montant_minimum:
+    values:
+      2018-01-01: 5000
+  base_calcul_jour:
+    values:
+      2018-01-01: 7
+zone_2:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 50
+  montant_minimum:
+    values:
+      2018-01-01: 5000
+  base_calcul_jour:
+    values:
+      2018-01-01: 7
+zone_3:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 30
+  montant_minimum:
+    values:
+      2018-01-01: 5000
+  base_calcul_jour:
+    values:
+      2018-01-01: 7
+zone_4:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 10
+  montant_minimum:
+    values:
+      2018-01-01: 5000
+  base_calcul_jour:
+    values:
+      2018-01-01: 7

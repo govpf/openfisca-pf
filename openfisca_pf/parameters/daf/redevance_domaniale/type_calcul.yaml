@@ -37,7 +37,7 @@ em_eco_08_emprise_eco_tourisme:
 em_eco_09_activite_agricole_aero:
   values:
     2018-01-01: 1
-im_eco_06_activei_resto_mobile_aero:
+im_eco_06_activite_resto_mobile_aero:
   values:
     2018-01-01: 1
 im_eco_08_autres_lucrative:
@@ -110,6 +110,61 @@ if_pr_02_ancrage_sans_droit:
   values:
     2018-01-01: 1
 
+##Type 2
+ip_eco_06_infra_restauration_aero:
+  values:
+    2018-01-01: 2
+ip_eco_07_boutique_produit_local_aero:
+  values:
+    2018-01-01: 2
+co_eco_02_ouvrage_defence:
+  values:
+    2018-01-01: 2
+em_eco_07_emprise_maritime_prive:
+  values:
+    2018-01-01: 2
+im_eco_01_activite_lucrative_manifestation:
+  values:
+    2018-01-01: 2
+im_eco_05_marche_puces:
+  values:
+    2018-01-01: 2
+im_eco_07_vente_produit_locaux_aero:
+  values:
+    2018-01-01: 2
+im_eco_09_vente_etale:
+  values:
+    2018-01-01: 2
+im_eco_13_restau_mobile:
+  values:
+    2018-01-01: 2
+if_eco_15_corp_mort:
+  values:
+    2018-01-01: 2
+if_eco_17_gestion_corp_mort:
+  values:
+    2018-01-01: 2
+# ex_eco_01_dpf_hors_entite_publique:
+#   values:
+#     2018-01-01: 2
+# ex_eco_02_dpf_pour_entite_publique:
+#   values:
+#     2018-01-01: 2
+# ex_eco_03_dpm_hors_entite_publique:
+#   values:
+#     2018-01-01: 2
+# ex_eco_04_dpm_pour_entite_publique:
+#   values:
+#     2018-01-01: 2
+co_pr_02_ouvrage_defence:
+  values:
+    2018-01-01: 2
+em_pr_06_emprise_maritime_prive:
+  values:
+    2018-01-01: 2
+if_pr_01_ancrage_avec_droit_immo:
+  values:
+    2018-01-01: 2
 
 
 ##Paramètres pour les tests des premières versions
