@@ -37,6 +37,7 @@ class montant_total_redevance_domaniale_type_3(Variable):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
+        activite_cultuelle = personne('activite_cultuelle',period)
 
         ##Récupération des paramètres
         init = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].init
@@ -61,7 +62,7 @@ class montant_total_redevance_domaniale_type_3(Variable):
                                             ]
                                     )
 
-        montant_global = arrondiSup( montant_intermediaire) + majoration_redevance_domaniale
+        montant_global = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1- 0.8*activite_cultuelle))
 
         return montant_global
 
