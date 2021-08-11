@@ -9,8 +9,8 @@
 # Il peut exister un montant minimum à payer
 # Pour le moment certains tarifs sont évoqués à la semaine, à la journée ou à d'autre unité de temps, d'où l'idée du prorata
 
-
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
+from openfisca_pf.variables.daf.redevance_domaniale.input_parameters import activite_cultuelle
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
@@ -32,15 +32,13 @@ class montant_base_redevance_domaniale_type_1(Variable):
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'equipement_du_pays')
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
-        # duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
-        # majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
 
         # Récupération des paramètres
         part_fixe = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_fixe
         part_unitaire = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_unitaire
         part_variable = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_variable
         montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
-
+        
         # Calcul du montant
         montant_intermediaire = (part_fixe +
                         part_unitaire * nombre_unite_redevance_domaniale +
@@ -58,6 +56,7 @@ class montant_total_redevance_domaniale_type_1(Variable):
     definition_period = DAY
     label = "Montant total de la redevance domaniale dûe avec un calcul de type classique"
     reference = "Arrêté NOR DAF2120267AC-3"
+    unit = 'currency-XPF'
 
     def formula(personne, period, parameters):
         # Déclaration des variables
@@ -67,11 +66,15 @@ class montant_total_redevance_domaniale_type_1(Variable):
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
         montant_base = personne('montant_base_redevance_domaniale_type_1', period)
+        activite_cultuelle = personne('activite_cultuelle', period)
 
         # Récupération des paramètres
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
-
+        montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
+        
         # Calcul du montant total sur toute la durée de l'occupation
-        montant_total = arrondiSup(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour) + majoration_redevance_domaniale
+        montant_intermediaire = max_(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour + majoration_redevance_domaniale, montant_minimum)
+
+        montant_total = arrondiSup(montant_intermediaire * (1 - 0.8 * activite_cultuelle))
 
         return where(type_calcul == '1', montant_total, 0)

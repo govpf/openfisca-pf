@@ -1,16 +1,17 @@
-description: Paramètres pour le calcul des emprises avec activité lucrative
+description: Paramètres pour le calcul des Equipement du Pays
 part_fixe:
   values:
     2018-01-01: 0
 part_unitaire:
   values:
-    2018-01-01: 0
+    2018-01-01: 40000
 part_variable:
   values:
-    2018-01-01: 100
+    2018-01-01: 45
 montant_minimum:
   values:
-    2018-01-01: 120000
+    2018-01-01: 0
 base_calcul_jour:
   values:
     2018-01-01: 360
+    

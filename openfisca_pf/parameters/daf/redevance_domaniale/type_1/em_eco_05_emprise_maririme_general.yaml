@@ -1,10 +1,11 @@
-description: Paramètre pour les tests des premières versions
+
+description: Paramètres pour le calcul des Emprise maritime (cas général)
 part_fixe:
   values:
     2018-01-01: 0
 part_unitaire:
   values:
-    2018-01-01: 40000
+    2018-01-01: 0
 part_variable:
   values:
     2018-01-01: 45
@@ -14,4 +15,3 @@ montant_minimum:
 base_calcul_jour:
   values:
     2018-01-01: 360
-    
