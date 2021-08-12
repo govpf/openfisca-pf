@@ -12,9 +12,6 @@ zone_1:
   montant_minimum:
     values:
       2018-01-01: 0
-  base_calcul_jour:
-    values:
-      2018-01-01: 1
 zone_2:
   part_fixe:
     values:
@@ -28,9 +25,6 @@ zone_2:
   montant_minimum:
     values:
       2018-01-01: 0
-  base_calcul_jour:
-    values:
-      2018-01-01: 1
 zone_3:
   part_fixe:
     values:
@@ -44,9 +38,6 @@ zone_3:
   montant_minimum:
     values:
       2018-01-01: 0
-  base_calcul_jour:
-    values:
-      2018-01-01: 1
 zone_4:
   part_fixe:
     values:
@@ -60,6 +51,3 @@ zone_4:
   montant_minimum:
     values:
       2018-01-01: 0
-  base_calcul_jour:
-    values:
-      2018-01-01: 1
