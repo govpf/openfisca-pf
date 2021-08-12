@@ -70,9 +70,9 @@ class montant_total_redevance_domaniale_type_2(Variable):
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].base_calcul_jour
         montant_minimum = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].montant_minimum
 
-        # Price computation total sur toute la durée de l'occupation
+        # Price computation on the whole duration
         montant_intermediaire = max_(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour + majoration_redevance_domaniale, montant_minimum)
 
-        # Calcul de la réduction pour les activités cultuelles
+        # Price discount for religious activites
         montant_total = arrondiSup(montant_intermediaire * (1 - 0.8 * activite_cultuelle))
         return where(type_calcul == '2', montant_total, 0)

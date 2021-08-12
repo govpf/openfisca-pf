@@ -4,10 +4,11 @@
 #  with a constant part, a unitary part and a surfacic part
 # See https://openfisca.org/doc/key-concepts/variables.html
 
-# La formule de calcul de type 1 est une fonction du type montant = part_fixe + part_unitaire* nombre_unité + part_variable* quantité
-# La variable peut être une surface, une longueur ou un volume.
-# Il peut exister un montant minimum à payer
-# Pour le moment certains tarifs sont évoqués à la semaine, à la journée ou à d'autre unité de temps, d'où l'idée du prorata
+# Type 1 computation is a fonction like basic_price = fix_part + unit_parameter* number_of_unit + variable_parameter* quantity
+# The quantity can be length, surface aor volume in m, m² and m^3
+# A minimum amount can be applied
+# Prices can be set either dayly, weekly, monthly or yearly.
+# That is why base_calcul_jour is defined in parameters in order to have a common basis for computation
 
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 # from openfisca_pf.variables.daf.redevance_domaniale.input_parameters import activite_cultuelle

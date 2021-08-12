@@ -75,10 +75,6 @@ class TypesNatureEmprise(Enum):
     im_eco_13_restau_mobile = u'Restauration ambulante'
     if_eco_15_corp_mort = u'Corps-mort, ancrage, mouillage'
     if_eco_17_gestion_corp_mort = u'Activité de gestion des corps-morts et/ou ancrages, mouillage'
-    ex_eco_01_dpf_hors_entite_publique = u'Domaine public fluvial Hors entité publique'
-    ex_eco_02_dpf_pour_entite_publique = u'Domaine public fluvial pour entité publique'
-    ex_eco_03_dpm_hors_entite_publique = u'Domaine public maritime Hors entité publique'
-    ex_eco_04_dpm_pour_entite_publique = u'Domaine public maritime Pour entité publique'
     co_pr_02_ouvrage_defence = u'Ouvrage d aménagement, de défense ou d accessibilité'
     em_pr_06_emprise_maritime_prive = u'Emprise maritime privatisée'
     if_pr_01_ancrage_avec_droit_immo = u'Ancrage et/ou mouillage avec droit immobilier'
@@ -112,12 +108,11 @@ class TypesNatureEmprise(Enum):
     # if_eco_03_parc_poisson_hors_passe = u'Pêche : Parc à poissons et viviers (Zone hors passe)'
     # if_eco_04_parc_poisson_passe = u'Pêche : Parc à poissons et viviers (Zone passe)'
 
-    # Tarif Type_7 (indépendant de la durée) i.eI exttraction
+    # Tarif Type_7 (indépendant de la durée) i.e extraction
     ex_eco_01_dpf_hors_entite_publique = u'Domaine public fluvial Hors entité publique'
     ex_eco_02_dpf_pour_entite_publique = u'Domaine public fluvial pour entité publique'
     ex_eco_03_dpm_hors_entite_publique = u'Domaine public maritime Hors entité publique'
     ex_eco_04_dpm_pour_entite_publique = u'Domaine public maritime Pour entité publique'
-
 
     # Enum pour les tests de la fonction
     # Test de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
@@ -155,3 +150,4 @@ class TypesNatureEmprise(Enum):
 
     # Tarif de type_7
     test_extraction = u'Test Extraction'
+

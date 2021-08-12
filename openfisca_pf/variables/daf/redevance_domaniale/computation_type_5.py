@@ -73,8 +73,8 @@ class montant_total_redevance_domaniale_type_5(Variable):
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
-        # Price computation total sur toute la durée de l'occupation
+        # Price computation on the whole duration
         montant_total = max_(arrondiSup(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour), montant_minimum) + majoration_redevance_domaniale
-            # Le fait de metttre deux fois le minimum permet de palier aussi le fait que la durée soit inférieure à l'unité de basse de calcul
+            # making two minimum comparison on basis price and on total price aims at including this minimum even if the duration is lower than the basic time.
 
         return where(type_calcul == '5', montant_total, 0)

@@ -20,9 +20,8 @@ class montant_base_redevance_domaniale_type_6(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, pararameters):
-        # Pour ce type de calcul il n'y a pas de différences entre le montant de base et le montant total
-        # Du coup, les deux montants sont égaux
-
+        # There is no difference between montant_base and montant_total.
+        # Then the too computation are set equal
 
         return  personne('montant_total_redevance_domaniale_type_6',period)
 

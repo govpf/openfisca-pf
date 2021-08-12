@@ -22,7 +22,6 @@ class montant_base_redevance_domaniale_type_3(Variable):
         # There is no difference between montant_base and montant_total.
         # Then the too computation are set equal
 
-
         return  personne('montant_total_redevance_domaniale_type_3',period)
 
 class montant_total_redevance_domaniale_type_3(Variable):
@@ -53,9 +52,9 @@ class montant_total_redevance_domaniale_type_3(Variable):
         threshold_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].threshold_3
         rate_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_3
         
-        #  Price computation
-        #   les durées en jours inférieur à 1 vont passer dans le type_23, donc ne seront pas calculées ici.
-        #   Si jamais, les durées inférieures à 1 jours suivent un calcul simples (linéaire, vis à vis du temps en jours), il faudra rajouter le terme rate_0 * duree pour avoir des calculs cohérents
+        # Price computation
+        # For duration in hours and less than 1 day, the computation is set to type_23  
+        # If, the computation for hours is modified and become linear, the computation could be used adding a rate_0 in parameters
         montant_intermediaire = select( [duree_occupation_redevance_domaniale_jour < threshold_1,
                                             duree_occupation_redevance_domaniale_jour <= threshold_2,
                                             duree_occupation_redevance_domaniale_jour <= threshold_3,
