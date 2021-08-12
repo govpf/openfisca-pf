@@ -24,18 +24,18 @@ class majoration_redevance_domaniale(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
-        ##Déclaration des variables
+        # Variables
         nbr_participant = personne('nombre_participant_redevance_domaniale', period)
 
-        ##Récupération des paramètres
+        # Parameters
         rate_participant_1 = parameters(period).daf.redevance_domaniale.majoration_redevance_domaniale.rate_participant_1
         threshold_participant_1 = parameters(period).daf.redevance_domaniale.majoration_redevance_domaniale.threshold_participant_1
         rate_participant_2 = parameters(period).daf.redevance_domaniale.majoration_redevance_domaniale.rate_participant_2
         threshold_participant_2 = parameters(period).daf.redevance_domaniale.majoration_redevance_domaniale.threshold_participant_2
 
 
-        ##Calcul de la majoration liée au nombre de participant
-        ## Calcul du montant
+        # Calcul de la majoration liée au nombre de participant
+        #  Price computation
         montant_intermediaire = select( [nbr_participant < threshold_participant_1,
                                             nbr_participant < threshold_participant_2,
                                             nbr_participant >= threshold_participant_2],
@@ -43,7 +43,7 @@ class majoration_redevance_domaniale(Variable):
                                             rate_participant_1 * nbr_participant,
                                             rate_participant_2 * nbr_participant]
                                     )
-        ##Comparaison avec le minimum
+        # Minimum comparison
         majoration_redevance_domaniale = arrondiSup(montant_intermediaire)
 
         return majoration_redevance_domaniale

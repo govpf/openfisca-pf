@@ -21,13 +21,13 @@ class montant_total_redevance_domaniale_type_6(Variable):
     unit = 'currency-XPF'
     
     def formula(personne, period, parameters):
-        ##Déclaration des variables
+        # Variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
 
-        ##Récupération des paramètres
+        # Parameters
         init = parameters(period).daf.redevance_domaniale.type_6[nature_emprise_occupation_redevance_domaniale].init
         threshold_1 = parameters(period).daf.redevance_domaniale.type_6[nature_emprise_occupation_redevance_domaniale].threshold_1
         rate_1 = parameters(period).daf.redevance_domaniale.type_6[nature_emprise_occupation_redevance_domaniale].rate_1
@@ -39,7 +39,7 @@ class montant_total_redevance_domaniale_type_6(Variable):
         daily_rate_1 = rate_1 * variable_redevance_domaniale
         daily_rate_2 = rate_2 * variable_redevance_domaniale
         daily_rate_3 = rate_3 * variable_redevance_domaniale
-        ## Calcul du montant
+        #  Price computation
         #   les durées en jours inférieur à 1 n'ont pas de sens
         montant_intermediaire = select( [duree_occupation_redevance_domaniale_jour < threshold_1,
                                             duree_occupation_redevance_domaniale_jour <= threshold_2,

@@ -52,20 +52,20 @@ class montant_redevance_domaniale_echeancier_annee(Variable):
         date_fin_annee = datetime64(period.offset(1, 'year').start) - 1
         base_calcul_jour = where(base_calcul_jour == 365, (date_fin_annee - date_debut_annee).astype(int), base_calcul_jour)
         nombre_jours_factures = personne('nombre_jours_occupation_domaniale_echeancier_annee', period)
-        # Récupération des paramètres
+        # Parameters
         part_fixe = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].part_fixe
         part_unitaire = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].part_unitaire
         part_variable = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].part_variable
         montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale_echeancier].montant_minimum
         # nb_periode_mini = numpy.ceil(nombre_jours_factures / base_calcul_jour) # Use of ceil aims at taking into account that a started period has to be counted in the price
         # print(nb_periode_mini)
-        # Calcul du montant
+        # Price computation
         montant_intermediaire = (part_fixe +
                         part_unitaire * nombre_unite_redevance_domaniale_echeancier +
                         part_variable * variable_redevance_domaniale_echeancier) * nombre_jours_factures / base_calcul_jour
                         # * nb_periode_mini
 
-        # Comparaison avec le minimum
+        # Minimum comparison
         montant_global = arrondiSup(max_(montant_intermediaire, nombre_jours_factures / base_calcul_jour * montant_minimum))
         # + majoration_redevance_domaniale
 

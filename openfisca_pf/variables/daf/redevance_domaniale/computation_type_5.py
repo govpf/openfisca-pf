@@ -20,13 +20,13 @@ class montant_base_redevance_domaniale_type_5(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
-        ##Déclaration des variables
+        # Variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
 
-        ##Récupération des paramètres
+        # Parameters
         init = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].init
         rate_0 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].rate_0
         threshold_1 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].threshold_1
@@ -36,7 +36,7 @@ class montant_base_redevance_domaniale_type_5(Variable):
         
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
-        ## Calcul du montant
+        #  Price computation
         montant_intermediaire = select( [variable_redevance_domaniale < threshold_1,
                                             variable_redevance_domaniale <= threshold_2,
                                             variable_redevance_domaniale > threshold_2],
@@ -59,7 +59,7 @@ class montant_total_redevance_domaniale_type_5(Variable):
     unit = 'currency-XPF'
     
     def formula(personne, period, parameters):
-        ##Déclaration des variables
+        # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
@@ -69,12 +69,12 @@ class montant_total_redevance_domaniale_type_5(Variable):
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
         montant_base = personne('montant_base_redevance_domaniale_type_5',period)
 
-        ##Récupération des paramètres
+        # Parameters
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
-        ##Calcul du montant total sur toute la durée de l'occupation
+        # Price computation total sur toute la durée de l'occupation
         montant_total = max_(arrondiSup(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour), montant_minimum) + majoration_redevance_domaniale
-            ##Le fait de metttre deux fois le minimum permet de palier aussi le fait que la durée soit inférieure à l'unité de basse de calcul
+            # Le fait de metttre deux fois le minimum permet de palier aussi le fait que la durée soit inférieure à l'unité de basse de calcul
 
         return where(type_calcul == '5', montant_total, 0)

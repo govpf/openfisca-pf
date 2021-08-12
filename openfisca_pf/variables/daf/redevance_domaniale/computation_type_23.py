@@ -20,8 +20,8 @@ class montant_base_redevance_domaniale_type_6(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, pararameters):
-        ##Pour ce type de calcul il n'y a pas de différences entre le montant de base et le montant total
-        ##Du coup, les deux montants sont égaux
+        # Pour ce type de calcul il n'y a pas de différences entre le montant de base et le montant total
+        # Du coup, les deux montants sont égaux
 
 
         return  personne('montant_total_redevance_domaniale_type_6',period)
@@ -34,7 +34,7 @@ class montant_total_redevance_domaniale_type_23(Variable):
     unit = 'currency-XPF'
     
     def formula(personne, period, parameters):
-        ##Déclaration des variables
+        # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
@@ -43,13 +43,13 @@ class montant_total_redevance_domaniale_type_23(Variable):
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
 
-        ##Récupération des paramètres
+        # Parameters
         tarif_horaire = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_horaire
         duree_demi_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].duree_demi_jour
         tarif_demi_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_demi_jour
         tarif_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_jour
 
-        ##Calcul du montant
+        # Price computation
         montant_intermediaire  = select( [duree_occupation_redevance_domaniale <= duree_demi_jour,
                                             duree_occupation_redevance_domaniale > duree_demi_jour],
                                          [ min_(tarif_horaire*duree_occupation_redevance_domaniale, tarif_demi_jour) ,

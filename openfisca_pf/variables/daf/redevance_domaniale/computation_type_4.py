@@ -19,8 +19,8 @@ class montant_base_redevance_domaniale_type_4(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
-        ##Pour ce type de calcul il n'y a pas de différences entre le montant de base et le montant total
-        ##Du coup, les deux montants sont égaux
+        # Pour ce type de calcul il n'y a pas de différences entre le montant de base et le montant total
+        # Du coup, les deux montants sont égaux
 
 
         return  personne('montant_total_redevance_domaniale_type_4',period)
@@ -34,7 +34,7 @@ class montant_total_redevance_domaniale_type_4(Variable):
     unit = 'currency-XPF'
     
     def formula(personne, period, parameters):
-        ##Déclaration des variables
+        # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
@@ -45,7 +45,7 @@ class montant_total_redevance_domaniale_type_4(Variable):
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
         activite_cultuelle = personne('activite_cultuelle',period)
 
-        ##Récupération des paramètres
+        # Parameters
         init = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].init
         threshold_1 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_1
         rate_1 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_1
@@ -54,7 +54,7 @@ class montant_total_redevance_domaniale_type_4(Variable):
         threshold_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_3
         rate_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_3
 
-        ## Calcul du montant
+        #  Price computation
         #   les durées en jours inférieur à 1 vont passer dans le type_23, donc ne seront pas calculées ici.
         #   Si jamais, les durées inférieures à 1 jours suivent un calcul simples (linéaire, vis à vis du temps en jours), il faudra rajouter le terme rate_0 * duree pour avoir des calculs cohérents
         montant_intermediaire = select( [duree_occupation_redevance_domaniale_jour < threshold_1,

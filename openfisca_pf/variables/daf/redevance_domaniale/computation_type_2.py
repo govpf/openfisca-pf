@@ -20,7 +20,7 @@ class montant_base_redevance_domaniale_type_2(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
-        # Déclaration des variables
+        # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '2', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'activite_lucrative_manif_sport')
@@ -29,18 +29,18 @@ class montant_base_redevance_domaniale_type_2(Variable):
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
 
-        # Récupération des paramètres
+        # Parameters
         part_fixe = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_fixe
         part_unitaire = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_unitaire
         part_variable = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_variable
         montant_minimum = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].montant_minimum
 
-        # Calcul du montant
+        # Price computation
         montant_intermediaire = (part_fixe +
                         part_unitaire * nombre_unite_redevance_domaniale +
                         part_variable * variable_redevance_domaniale)
 
-        # Comparaison avec le minimum
+        # Minimum comparison
         montant_base = max_(arrondiSup(montant_intermediaire), montant_minimum)
         return where(type_calcul == '2', montant_base, 0)
 
@@ -54,7 +54,7 @@ class montant_total_redevance_domaniale_type_2(Variable):
     unit = 'currency-XPF'
 
     def formula(personne, period, parameters):
-        # Déclaration des variables
+        # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
@@ -66,11 +66,11 @@ class montant_total_redevance_domaniale_type_2(Variable):
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         activite_cultuelle = personne('activite_cultuelle', period)
 
-        # Récupération des paramètres
+        # Parameters
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].base_calcul_jour
         montant_minimum = parameters(period).daf.redevance_domaniale.type_2[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].montant_minimum
 
-        # Calcul du montant total sur toute la durée de l'occupation
+        # Price computation total sur toute la durée de l'occupation
         montant_intermediaire = max_(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour + majoration_redevance_domaniale, montant_minimum)
 
         # Calcul de la réduction pour les activités cultuelles

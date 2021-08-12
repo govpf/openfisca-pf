@@ -1,6 +1,6 @@
 #This file aims at defining the type of commputation used for each occupation
 description: Méthode de calcul utilisée
-##Type 1
+# Type 1
 ip_eco_01_equipement_pays:
   values:
     2018-01-01: 1
@@ -110,7 +110,7 @@ if_pr_02_ancrage_sans_droit:
   values:
     2018-01-01: 1
 
-##Type 2
+# Type 2
 ip_eco_06_infra_restauration_aero:
   values:
     2018-01-01: 2
@@ -154,7 +154,7 @@ if_pr_01_ancrage_avec_droit_immo:
   values:
     2018-01-01: 2
 
-##Type 3
+# Type 3
 ip_eco_02_bati_tout_public_ac_elec:
   values:
     2018-01-01: 3
@@ -235,8 +235,8 @@ ex_eco_04_dpm_pour_entite_publique:
   values:
     2018-01-01: 7
 
-##Paramètres pour les tests des premières versions
-##Type 1
+# Paramètres pour les tests des premières versions
+# Type 1
 equipement_du_pays:
   values:
     2018-01-01: 1
@@ -244,7 +244,7 @@ bati_cas_general:
   values:
     2018-01-01: 1
 
-##Type 2
+# Type 2
 vente_etale:
   values:
     2018-01-01: 2
@@ -252,22 +252,22 @@ activite_lucrative_manif_sport:
   values:
     2018-01-01: 2
 
-##Type 3
+# Type 3
 test_fonction_palier:
   values:
     2018-01-01: 3
     
-##Type 4
+# Type 4
 test_fonction_palier_zone:
   values:
     2018-01-01: 4
 
-##Type 5
+# Type 5
 test_fonction_palier_surface:
   values:
     2018-01-01: 5
 
-##Type 6
+# Type 6
 test_ancrage:
   values:
     2018-01-01: 6
