@@ -166,6 +166,62 @@ if_pr_01_ancrage_avec_droit_immo:
   values:
     2018-01-01: 2
 
+##Type 3
+ip_eco_02_bati_tout_public_ac_elec:
+  values:
+    2018-01-01: 3
+ip_eco_03_terrain_sport_ac_elec:
+  values:
+    2018-01-01: 3
+ip_eco_04_bati_tout_public_sans_elec:
+  values:
+    2018-01-01: 3
+ip_eco_05_terrain_sport_sans_elec:
+  values:
+    2018-01-01: 3
+em_eco_01_espace_pelouse_ac_elec:
+  values:
+    2018-01-01: 3
+em_eco_02_surface_mineral_ac_elec:
+  values:
+    2018-01-01: 3
+em_eco_03_espace_pelouse_sans_elec:
+  values:
+    2018-01-01: 3
+em_eco_04_surface_mineral_sans_elec:
+  values:
+    2018-01-01: 3
+im_eco_11_activite_lucrative_inf_trim:
+  values:
+    2018-01-01: 3
+im_eco_12_activite_alim_lucrative_inf_trim:
+  values:
+    2018-01-01: 3
+ip_pr_01_bati_tout_public_ac_elec:
+  values:
+    2018-01-01: 3
+ip_pr_02_terrain_sport_ac_elec:
+  values:
+    2018-01-01: 3
+ip_pr_03_bati_tout_public_sans_elec:
+  values:
+    2018-01-01: 3
+ip_pr_04_terrain_sport_sans_elec:
+  values:
+    2018-01-01: 3
+em_pr_01_espace_pelouse_ac_elec:
+  values:
+    2018-01-01: 3
+em_pr_02_surface_mineral_ac_elec:
+  values:
+    2018-01-01: 3
+em_pr_03_espace_pelouse_sans_elec:
+  values:
+    2018-01-01: 3
+em_pr_04_surface_mineral_sans_elec:
+  values:
+    2018-01-01: 3
+
 
 ##Paramètres pour les tests des premières versions
 ##Type 1
