@@ -25,7 +25,7 @@ class ZonesOccupations(Enum):
 
 
 class TypesNatureEmprise(Enum):
-    # ##Tarif de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
+    # Tarif de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
     ip_eco_01_equipement_pays = u'Equipement du Pays'
     ip_eco_08_centre_artisanaux_aero = u'Centre artisanaux (zone aéroportuaire)'
     ip_eco_09_infra_restauration_tourisme = u'Infrastructure de restauration (sites touristiques)'
@@ -63,7 +63,7 @@ class TypesNatureEmprise(Enum):
     if_pr_03_support_publicitaire = u'Support publicitaire'
     if_pr_02_ancrage_sans_droit = u'Ancrage et/ou mouillage sans droit immobilier'
 
-    # ##Tarif de type_2 (les paramètres du type_1 dépendent de la zone géographique)
+    # Tarif de type_2 (les paramètres du type_1 dépendent de la zone géographique)
     ip_eco_06_infra_restauration_aero = u'Infrastructure de restauration aéroportuaire'
     ip_eco_07_boutique_produit_local_aero = u'Boutique de produit locaux (zone aéroportuaire)'
     co_eco_02_ouvrage_defence = u'Ouvrage d aménagement, de défense ou d accessibilité'
@@ -83,7 +83,7 @@ class TypesNatureEmprise(Enum):
     em_pr_06_emprise_maritime_prive = u'Emprise maritime privatisée'
     if_pr_01_ancrage_avec_droit_immo = u'Ancrage et/ou mouillage avec droit immobilier'
 
-    # ##Tarif de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
+    # Tarif de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
     ip_eco_02_bati_tout_public_ac_elec = u'Bâti à usage tout public avec électricité'
     ip_eco_03_terrain_sport_ac_elec = u'Terrain de sport avec éléctricité'
     ip_eco_04_bati_tout_public_sans_elec = u'Bâti à usage tout public sans électricité'
@@ -103,28 +103,35 @@ class TypesNatureEmprise(Enum):
     em_pr_03_espace_pelouse_sans_elec = u'Espace pelouse sans électricité'
     em_pr_04_surface_mineral_sans_elec = u'Surface minéralisée sans électricité'
 
-    # ##Tarif de type_4 (les paramètres du type_3 dépendent de la zone géographique)
-    # im_eco_02_foire_produit_locaux = u'Foire de produits locaux'
-    # im_eco_03_foire_commerciale = u'Foire commerciale'
-    # im_eco_04_activite_ludique = u'Activité ludique'
+    # Tarif de type_4 (les paramètres du type_3 dépendent de la zone géographique)
+    im_eco_02_foire_produit_locaux = u'Foire de produits locaux'
+    im_eco_03_foire_commerciale = u'Foire commerciale'
+    im_eco_04_activite_ludique = u'Activité ludique'
 
-    # ##Tarif de type_5 (calcul par pallier de surface)
+    # Tarif de type_5 (calcul par pallier de surface)
     # if_eco_03_parc_poisson_hors_passe = u'Pêche : Parc à poissons et viviers (Zone hors passe)'
     # if_eco_04_parc_poisson_passe = u'Pêche : Parc à poissons et viviers (Zone passe)'
 
-    ## Enum pour les tests de la fonction
-    ## Test de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
+    # Tarif Type_7 (indépendant de la durée) i.eI exttraction
+    ex_eco_01_dpf_hors_entite_publique = u'Domaine public fluvial Hors entité publique'
+    ex_eco_02_dpf_pour_entite_publique = u'Domaine public fluvial pour entité publique'
+    ex_eco_03_dpm_hors_entite_publique = u'Domaine public maritime Hors entité publique'
+    ex_eco_04_dpm_pour_entite_publique = u'Domaine public maritime Pour entité publique'
+
+
+    # Enum pour les tests de la fonction
+    # Test de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
     bati_cas_general = u'Blabla'
     emprise_activite_lucrative = u'blabla1'
     equipement_du_pays = u'blabla2'
     installation_technique = u'blabla3'
 
-    ##Test de type_2 (les paramètres du type_1 dépendent de la zone géographique)
+    # Test de type_2 (les paramètres du type_1 dépendent de la zone géographique)
     vente_etale = u'blabla4'
     activite_lucrative_manif_sport = u'blabla25'
     extraction_essai = u'blabla26'
 
-    ##Test de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
+    # Test de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
     activite_lucrative_inf_3mois = u'blabla27'
     activite_alimentaire_lucrative_inf_3mois = u'blabla28'
     terrain_sport_ac_elec = u'blabla29'
@@ -136,12 +143,15 @@ class TypesNatureEmprise(Enum):
     bati_tout_public_ac_elec = u'blabla36'
     bati_tout_public_sans_elec = u'blabla37'
 
-    ##Emprise de test
+    # Emprise de test
     test_fonction_palier = u'test fonction palier'
     test_fonction_palier_zone = u'test fonction palier zone'
 
-    ##Test de type_5
+    # Test de type_5
     test_fonction_palier_surface = u'Test palier surface'
 
-    ##Tarif de type_6
+    # Tarif de type_6
     test_ancrage = u'Test ancrage'
+
+    # Tarif de type_7
+    test_extraction = u'Test Extraction'

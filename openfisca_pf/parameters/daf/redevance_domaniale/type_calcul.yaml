@@ -1,4 +1,4 @@
-#Ce fichier permet de définir la méthode de calcul à utiliser pour chaque emprise
+#This file aims at defining the type of commputation used for each occupation
 description: Méthode de calcul utilisée
 ##Type 1
 ip_eco_01_equipement_pays:
@@ -144,18 +144,6 @@ if_eco_15_corp_mort:
 if_eco_17_gestion_corp_mort:
   values:
     2018-01-01: 2
-# ex_eco_01_dpf_hors_entite_publique:
-#   values:
-#     2018-01-01: 2
-# ex_eco_02_dpf_pour_entite_publique:
-#   values:
-#     2018-01-01: 2
-# ex_eco_03_dpm_hors_entite_publique:
-#   values:
-#     2018-01-01: 2
-# ex_eco_04_dpm_pour_entite_publique:
-#   values:
-#     2018-01-01: 2
 co_pr_02_ouvrage_defence:
   values:
     2018-01-01: 2
@@ -222,6 +210,30 @@ em_pr_04_surface_mineral_sans_elec:
   values:
     2018-01-01: 3
 
+# Type 4 
+im_eco_02_foire_produit_locaux:
+  values:
+    2018-01-01: 4
+im_eco_03_foire_commerciale:
+  values:
+    2018-01-01: 4
+im_eco_04_activite_ludique:
+  values:
+    2018-01-01: 4
+
+# Type 7
+ex_eco_01_dpf_hors_entite_publique:
+  values:
+    2018-01-01: 7
+ex_eco_02_dpf_pour_entite_publique:
+  values:
+    2018-01-01: 7
+ex_eco_03_dpm_hors_entite_publique:
+  values:
+    2018-01-01: 7
+ex_eco_04_dpm_pour_entite_publique:
+  values:
+    2018-01-01: 7
 
 ##Paramètres pour les tests des premières versions
 ##Type 1
@@ -239,9 +251,6 @@ vente_etale:
 activite_lucrative_manif_sport:
   values:
     2018-01-01: 2
-extraction_essai:
-  values:
-    2018-01-01 : 2
 
 ##Type 3
 test_fonction_palier:
@@ -263,4 +272,7 @@ test_ancrage:
   values:
     2018-01-01: 6
 
-    
+# Type 7
+test_extraction:
+  values:
+    2018-01-01: 7
