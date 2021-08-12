@@ -21,10 +21,12 @@ class montant_base_redevance_domaniale_type_5(Variable):
 
     def formula(personne, period, parameters):
         # Variables
+        type_calcul = personne('type_calcul_redevance_domaniale', period)
+        # multiple occupation can be asked with different type of computation.
+        # In order to avoid misinterpretation for array input, only the element with the good type is computed
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '5', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_fonction_palier_surface')
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
-        majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
 
         # Parameters
         init = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].init
@@ -48,7 +50,7 @@ class montant_base_redevance_domaniale_type_5(Variable):
 
         montant_base= max_(arrondiSup(montant_intermediaire), montant_minimum )
         
-        return montant_base
+        return where(type_calcul == '5', montant_base, 0)
 
 class montant_total_redevance_domaniale_type_5(Variable):
     value_type = float

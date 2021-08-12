@@ -221,6 +221,14 @@ im_eco_04_activite_ludique:
   values:
     2018-01-01: 4
 
+# Type 5
+if_eco_01_parc_poisson_hors_passe:
+  values:
+    2018-01-01: 5
+if_eco_02_parc_poisson_passe:
+  values:
+    2018-01-01: 5
+
 # Type 7
 ex_eco_01_dpf_hors_entite_publique:
   values:

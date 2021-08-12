@@ -1,0 +1,25 @@
+description: Pêche - Parc à poissons et viviers (Zone hors passe)
+init:
+  values:
+    2018-01-01: 0
+rate_0:
+  values:
+    2018-01-01: 10
+threshold_1:
+  values:
+    2018-01-01: 1000
+rate_1:
+  values:
+    2018-01-01: 25
+threshold_2:
+  values:
+    2018-01-01: 1500
+rate_2:
+  values:
+    2018-01-01: 25
+montant_minimum:
+  values:
+    2018-01-01: 0
+base_calcul_jour:
+  values:
+    2018-01-01: 360

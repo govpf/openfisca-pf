@@ -110,8 +110,8 @@ class TypesNatureEmprise(Enum):
     im_eco_04_activite_ludique = u'Activité ludique'
 
     # Tarif de type_5 (calcul par pallier de surface)
-    # if_eco_03_parc_poisson_hors_passe = u'Pêche : Parc à poissons et viviers (Zone hors passe)'
-    # if_eco_04_parc_poisson_passe = u'Pêche : Parc à poissons et viviers (Zone passe)'
+    if_eco_01_parc_poisson_hors_passe = u'Pêche : Parc à poissons et viviers (Zone hors passe)'
+    if_eco_02_parc_poisson_passe = u'Pêche : Parc à poissons et viviers (Zone passe)'
 
     # Tarif Type_7 (indépendant de la durée) i.e extraction
     ex_eco_01_dpf_hors_entite_publique = u'Domaine public fluvial Hors entité publique'
