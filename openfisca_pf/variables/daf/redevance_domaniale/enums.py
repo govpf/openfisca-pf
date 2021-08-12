@@ -17,11 +17,16 @@ class UnitesDuree(Enum):
 
 
 class ZonesOccupations(Enum):
+    # The zoning depends on activities.
+    # The basic zoning is made using the average price of seaside terrain
+    # A second zoning is about the airport frequentation
+    # A last zoning is on polynesian archipelagos
     zone_0 = u'Non applicable'
     zone_1 = u'Zone 1'
     zone_2 = u'Zone 2'
     zone_3 = u'Zone 3'
     zone_4 = u'Zone 4'
+    zone_5 = u'Zone 5'
 
 
 class TypesNatureEmprise(Enum):
