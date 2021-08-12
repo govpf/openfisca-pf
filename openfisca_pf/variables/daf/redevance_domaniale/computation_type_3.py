@@ -35,7 +35,11 @@ class montant_total_redevance_domaniale_type_3(Variable):
 
     def formula(personne, period, parameters):
         ##Déclaration des variables
+        type_calcul = personne('type_calcul_redevance_domaniale', period)
+        # multiple occupation can be asked with different type of computation.
+        # In order to avoid misinterpretation for array input, only the element with the good type is computed
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '3', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_fonction_palier')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
         activite_cultuelle = personne('activite_cultuelle',period)
@@ -63,8 +67,7 @@ class montant_total_redevance_domaniale_type_3(Variable):
                                             ]
                                     )
 
-        montant_global = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1- 0.8*activite_cultuelle))
+        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1- 0.8*activite_cultuelle))
 
-        return montant_global
-
+        return where(type_calcul == '3', montant_total, 0)
 

@@ -61,6 +61,8 @@ class montant_total_redevance_domaniale_type_1(Variable):
     def formula(personne, period, parameters):
         # Déclaration des variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
+        # multiple occupation can be asked with different type of computation.
+        # In order to avoid misinterpretation for array input, only the element with the good type is computed
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'equipement_du_pays')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
