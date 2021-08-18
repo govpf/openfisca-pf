@@ -40,9 +40,7 @@ class tva_due_taux_reduit_pays(Variable):
     label = u"Montant total de TVA due en taux réduit par les entreprises du pays"
 
     def formula(pays, period, parameters):
-        print('hello')
         tva_due_taux_reduit_pays = pays.members('tva_due_taux_reduit', period)
-        print(tva_due_taux_reduit_pays)
         return pays.sum(tva_due_taux_reduit_pays)
 
 
