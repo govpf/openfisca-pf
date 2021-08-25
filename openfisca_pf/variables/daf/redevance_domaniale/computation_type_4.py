@@ -23,7 +23,7 @@ class montant_base_redevance_domaniale_type_4(Variable):
         # There is no difference between montant_base and montant_total.
         # Then the too computation are set equal
 
-        return  personne('montant_total_redevance_domaniale_type_4', period)
+        return personne('montant_total_redevance_domaniale_type_4', period)
 
 
 class montant_total_redevance_domaniale_type_4(Variable):
@@ -60,7 +60,7 @@ class montant_total_redevance_domaniale_type_4(Variable):
                                         duree_occupation_redevance_domaniale_jour <= threshold_2,
                                         duree_occupation_redevance_domaniale_jour <= threshold_3,
                                         duree_occupation_redevance_domaniale_jour > threshold_3],
-                                        [init,
+                                    [init,
                                         init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
                                         init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
                                         init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)

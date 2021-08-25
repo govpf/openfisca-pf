@@ -51,6 +51,6 @@ class montant_total_redevance_domaniale_type_6(Variable):
                                         init + daily_rate_1 * (threshold_2 - threshold_1) + daily_rate_2 * (threshold_3 - threshold_2) + daily_rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
                                         ])
 
-        montant_global= arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
+        montant_global = arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
 
         return montant_global

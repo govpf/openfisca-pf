@@ -83,7 +83,7 @@ class type_calcul_redevance_domaniale(Variable):
     def formula(personne, period, parameters):
         # Variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)     
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
         condition = unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures
 
         # Selection selon un tarif horaire ou journalier

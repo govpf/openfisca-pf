@@ -35,7 +35,7 @@ class montant_base_redevance_domaniale_type_5(Variable):
         rate_1 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].rate_1
         threshold_2 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].threshold_2
         rate_2 = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].rate_2
-        
+
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
         #  Price computation
@@ -47,7 +47,7 @@ class montant_base_redevance_domaniale_type_5(Variable):
                                         init + rate_0 * threshold_1 + rate_1 * (threshold_2 - threshold_1) + rate_2 * (variable_redevance_domaniale - threshold_2)
                                         ])
 
-        montant_base= max_(arrondiSup(montant_intermediaire), montant_minimum )
+        montant_base = max_(arrondiSup(montant_intermediaire), montant_minimum)
 
         return where(type_calcul == '5', montant_base, 0)
 
@@ -80,4 +80,3 @@ class montant_total_redevance_domaniale_type_5(Variable):
             # making two minimum comparison on basis price and on total price aims at including this minimum even if the duration is lower than the basic time.
 
         return where(type_calcul == '5', montant_total, 0)
-        

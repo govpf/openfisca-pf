@@ -11,6 +11,7 @@ from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
+
 class montant_base_redevance_domaniale_type_3(Variable):
     value_type = str
     entity = Personne
@@ -54,18 +55,18 @@ class montant_total_redevance_domaniale_type_3(Variable):
         rate_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_3
 
         # Price computation
-        # For duration in hours and less than 1 day, the computation is set to type_23  
+        # For duration in hours and less than 1 day, the computation is set to type_23
         # If, the computation for hours is modified and become linear, the computation could be used adding a rate_0 in parameters
         montant_intermediaire = select([duree_occupation_redevance_domaniale_jour < threshold_1,
                                         duree_occupation_redevance_domaniale_jour <= threshold_2,
                                         duree_occupation_redevance_domaniale_jour <= threshold_3,
                                         duree_occupation_redevance_domaniale_jour > threshold_3],
-                                        [init ,
+                                        [init,
                                         init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
                                         init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
                                         init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
                                         ])
 
-        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1- 0.8 * activite_cultuelle))
+        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1 - 0.8 * activite_cultuelle))
 
         return where(type_calcul == '3', montant_total, 0)

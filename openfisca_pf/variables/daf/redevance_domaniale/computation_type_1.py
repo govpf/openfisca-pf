@@ -41,11 +41,7 @@ class montant_base_redevance_domaniale_type_1(Variable):
         montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
         # Price computation
-        montant_intermediaire = (
-            part_fixe +
-            part_unitaire * nombre_unite_redevance_domaniale +
-            part_variable * variable_redevance_domaniale
-            )
+        montant_intermediaire = part_fixe + part_unitaire * nombre_unite_redevance_domaniale + part_variable * variable_redevance_domaniale
 
         # Minimum comparison
         montant_base = max_(arrondiSup(montant_intermediaire), montant_minimum)
