@@ -6,6 +6,7 @@
       duree_occupation_redevance_domaniale: 1
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 0
       nombre_participant_redevance_domaniale: 0
@@ -20,6 +21,7 @@
       duree_occupation_redevance_domaniale: 1
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 0
       nombre_participant_redevance_domaniale: 0
