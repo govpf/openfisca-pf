@@ -111,3 +111,4 @@ class activite_cultuelle(Variable):
     default_value = False
     definition_period = ETERNITY
     label = "Paramètre permettant de définir si le demandeur est liée à des activités cultuelles"
+    

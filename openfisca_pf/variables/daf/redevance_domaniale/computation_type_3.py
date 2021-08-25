@@ -22,7 +22,8 @@ class montant_base_redevance_domaniale_type_3(Variable):
         # There is no difference between montant_base and montant_total.
         # Then the too computation are set equal
 
-        return  personne('montant_total_redevance_domaniale_type_3',period)
+        return personne('montant_total_redevance_domaniale_type_3', period)
+
 
 class montant_total_redevance_domaniale_type_3(Variable):
     value_type = float
@@ -41,7 +42,7 @@ class montant_total_redevance_domaniale_type_3(Variable):
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '3', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_fonction_palier')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
-        activite_cultuelle = personne('activite_cultuelle',period)
+        activite_cultuelle = personne('activite_cultuelle', period)
 
         # Parameters
         init = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].init
@@ -51,22 +52,20 @@ class montant_total_redevance_domaniale_type_3(Variable):
         rate_2 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_2
         threshold_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].threshold_3
         rate_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_3
-        
+
         # Price computation
         # For duration in hours and less than 1 day, the computation is set to type_23  
         # If, the computation for hours is modified and become linear, the computation could be used adding a rate_0 in parameters
-        montant_intermediaire = select( [duree_occupation_redevance_domaniale_jour < threshold_1,
-                                            duree_occupation_redevance_domaniale_jour <= threshold_2,
-                                            duree_occupation_redevance_domaniale_jour <= threshold_3,
-                                            duree_occupation_redevance_domaniale_jour > threshold_3],
-                                            [ init ,
-                                            init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
-                                            init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
-                                            init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) +rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
-                                            ]
-                                    )
+        montant_intermediaire = select([duree_occupation_redevance_domaniale_jour < threshold_1,
+                                        duree_occupation_redevance_domaniale_jour <= threshold_2,
+                                        duree_occupation_redevance_domaniale_jour <= threshold_3,
+                                        duree_occupation_redevance_domaniale_jour > threshold_3],
+                                        [init ,
+                                        init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
+                                        init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
+                                        init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
+                                        ])
 
-        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1- 0.8*activite_cultuelle))
+        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1- 0.8 * activite_cultuelle))
 
         return where(type_calcul == '3', montant_total, 0)
-

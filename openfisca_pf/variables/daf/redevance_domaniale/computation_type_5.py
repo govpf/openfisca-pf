@@ -39,18 +39,18 @@ class montant_base_redevance_domaniale_type_5(Variable):
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
         #  Price computation
-        montant_intermediaire = select( [variable_redevance_domaniale < threshold_1,
-                                            variable_redevance_domaniale <= threshold_2,
-                                            variable_redevance_domaniale > threshold_2],
-                                            [ init + rate_0 * variable_redevance_domaniale,
-                                            init + rate_0 * threshold_1 + rate_1 * (variable_redevance_domaniale - threshold_1),
-                                            init + rate_0 * threshold_1 + rate_1 * (threshold_2 - threshold_1) + rate_2 * (variable_redevance_domaniale - threshold_2)
-                                            ]
-                                    )
+        montant_intermediaire = select([variable_redevance_domaniale < threshold_1,
+                                        variable_redevance_domaniale <= threshold_2,
+                                        variable_redevance_domaniale > threshold_2],
+                                        [init + rate_0 * variable_redevance_domaniale,
+                                        init + rate_0 * threshold_1 + rate_1 * (variable_redevance_domaniale - threshold_1),
+                                        init + rate_0 * threshold_1 + rate_1 * (threshold_2 - threshold_1) + rate_2 * (variable_redevance_domaniale - threshold_2)
+                                        ])
 
         montant_base= max_(arrondiSup(montant_intermediaire), montant_minimum )
-        
+
         return where(type_calcul == '5', montant_base, 0)
+
 
 class montant_total_redevance_domaniale_type_5(Variable):
     value_type = float
@@ -69,7 +69,7 @@ class montant_total_redevance_domaniale_type_5(Variable):
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '5', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_fonction_palier_surface')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
-        montant_base = personne('montant_base_redevance_domaniale_type_5',period)
+        montant_base = personne('montant_base_redevance_domaniale_type_5', period)
 
         # Parameters
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
@@ -80,3 +80,4 @@ class montant_total_redevance_domaniale_type_5(Variable):
             # making two minimum comparison on basis price and on total price aims at including this minimum even if the duration is lower than the basic time.
 
         return where(type_calcul == '5', montant_total, 0)
+        

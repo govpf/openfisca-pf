@@ -9,6 +9,7 @@ from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 
+
 class UnitesDuree(Enum):
     Heures = u'Heures'
     Jours = u'Jours'
@@ -155,4 +156,3 @@ class TypesNatureEmprise(Enum):
 
     # Tarif de type_7
     test_extraction = u'Test Extraction'
-

@@ -16,6 +16,7 @@ from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
+
 class majoration_redevance_domaniale(Variable):
     value_type = float
     entity = Personne
@@ -33,16 +34,15 @@ class majoration_redevance_domaniale(Variable):
         rate_participant_2 = parameters(period).daf.redevance_domaniale.majoration_redevance_domaniale.rate_participant_2
         threshold_participant_2 = parameters(period).daf.redevance_domaniale.majoration_redevance_domaniale.threshold_participant_2
 
-
         # Calcul de la majoration liée au nombre de participant
         #  Price computation
-        montant_intermediaire = select( [nbr_participant < threshold_participant_1,
-                                            nbr_participant < threshold_participant_2,
-                                            nbr_participant >= threshold_participant_2],
-                                            [ 0,
-                                            rate_participant_1 * nbr_participant,
-                                            rate_participant_2 * nbr_participant]
-                                    )
+        montant_intermediaire = select([nbr_participant < threshold_participant_1,
+                                        nbr_participant < threshold_participant_2,
+                                        nbr_participant >= threshold_participant_2],
+                                        [0,
+                                        rate_participant_1 * nbr_participant,
+                                        rate_participant_2 * nbr_participant]
+                                        )
         # Minimum comparison
         majoration_redevance_domaniale = arrondiSup(montant_intermediaire)
 

@@ -19,7 +19,7 @@ class montant_total_redevance_domaniale_type_6(Variable):
     label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier"
     reference = "Arrêté NOR DAF2120267AC-3"
     unit = 'currency-XPF'
-    
+
     def formula(personne, period, parameters):
         # Variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
@@ -35,22 +35,21 @@ class montant_total_redevance_domaniale_type_6(Variable):
         rate_2 = parameters(period).daf.redevance_domaniale.type_6[nature_emprise_occupation_redevance_domaniale].rate_2
         threshold_3 = parameters(period).daf.redevance_domaniale.type_6[nature_emprise_occupation_redevance_domaniale].threshold_3
         rate_3 = parameters(period).daf.redevance_domaniale.type_6[nature_emprise_occupation_redevance_domaniale].rate_3
-        
+
         daily_rate_1 = rate_1 * variable_redevance_domaniale
         daily_rate_2 = rate_2 * variable_redevance_domaniale
         daily_rate_3 = rate_3 * variable_redevance_domaniale
         #  Price computation
-        #   les durées en jours inférieur à 1 n'ont pas de sens
-        montant_intermediaire = select( [duree_occupation_redevance_domaniale_jour < threshold_1,
-                                            duree_occupation_redevance_domaniale_jour <= threshold_2,
-                                            duree_occupation_redevance_domaniale_jour <= threshold_3,
-                                            duree_occupation_redevance_domaniale_jour > threshold_3],
-                                            [ init,
-                                            init + daily_rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
-                                            init + daily_rate_1 * (threshold_2 - threshold_1) + daily_rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
-                                            init + daily_rate_1 * (threshold_2 - threshold_1) + daily_rate_2 * (threshold_3 - threshold_2) +daily_rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
-                                            ]
-                                )
+        #  les durées en jours inférieur à 1 n'ont pas de sens
+        montant_intermediaire = select([duree_occupation_redevance_domaniale_jour < threshold_1,
+                                        duree_occupation_redevance_domaniale_jour <= threshold_2,
+                                        duree_occupation_redevance_domaniale_jour <= threshold_3,
+                                        duree_occupation_redevance_domaniale_jour > threshold_3],
+                                        [init,
+                                        init + daily_rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
+                                        init + daily_rate_1 * (threshold_2 - threshold_1) + daily_rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
+                                        init + daily_rate_1 * (threshold_2 - threshold_1) + daily_rate_2 * (threshold_3 - threshold_2) + daily_rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
+                                        ])
 
         montant_global= arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
 

@@ -12,18 +12,15 @@ from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
 
-
 class montant_test_scale(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
 
     def formula(personne, period, parameters):
-        duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
-        
+        # duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
+
         return 3
-
-
 # class montant_test_redevance_annuelle(Variable):
 #     value_type = float
 #     entity = Personne
@@ -42,4 +39,3 @@ class montant_test_scale(Variable):
 #         facteur_prorata = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].facteur_prorata
 
 #         return max_(part_fixe + part_unitaire * nombre_unite_redevance_domaniale + part_variable * surface_redevance_domaniale , montant_minimum) * duree_occupation_redevance_domaniale_annee
-

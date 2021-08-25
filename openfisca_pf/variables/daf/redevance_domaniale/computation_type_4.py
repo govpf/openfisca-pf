@@ -11,6 +11,7 @@ from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
+
 class montant_base_redevance_domaniale_type_4(Variable):
     value_type = float
     entity = Personne
@@ -22,7 +23,8 @@ class montant_base_redevance_domaniale_type_4(Variable):
         # There is no difference between montant_base and montant_total.
         # Then the too computation are set equal
 
-        return  personne('montant_total_redevance_domaniale_type_4',period)
+        return  personne('montant_total_redevance_domaniale_type_4', period)
+
 
 class montant_total_redevance_domaniale_type_4(Variable):
     value_type = float
@@ -31,7 +33,7 @@ class montant_total_redevance_domaniale_type_4(Variable):
     label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier et les paramètres dépendant de la zone géographique"
     reference = "Arrêté NOR DAF2120267AC-3"
     unit = 'currency-XPF'
-    
+
     def formula(personne, period, parameters):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
@@ -42,7 +44,7 @@ class montant_total_redevance_domaniale_type_4(Variable):
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
-        activite_cultuelle = personne('activite_cultuelle',period)
+        activite_cultuelle = personne('activite_cultuelle', period)
 
         # Parameters
         init = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].init
@@ -54,16 +56,16 @@ class montant_total_redevance_domaniale_type_4(Variable):
         rate_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_3
 
         # Price computation
-        montant_intermediaire = select( [duree_occupation_redevance_domaniale_jour < threshold_1,
-                                            duree_occupation_redevance_domaniale_jour <= threshold_2,
-                                            duree_occupation_redevance_domaniale_jour <= threshold_3,
-                                            duree_occupation_redevance_domaniale_jour > threshold_3],
-                                            [ init ,
-                                            init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
-                                            init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
-                                            init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) +rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
-                                            ])
+        montant_intermediaire = select([duree_occupation_redevance_domaniale_jour < threshold_1,
+                                        duree_occupation_redevance_domaniale_jour <= threshold_2,
+                                        duree_occupation_redevance_domaniale_jour <= threshold_3,
+                                        duree_occupation_redevance_domaniale_jour > threshold_3],
+                                        [init,
+                                        init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
+                                        init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
+                                        init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
+                                        ])
 
-        montant_total = arrondiSup( (montant_intermediaire + majoration_redevance_domaniale) *(1-0.8 * activite_cultuelle))
+        montant_total = arrondiSup( (montant_intermediaire + majoration_redevance_domaniale) *(1 - 0.8 * activite_cultuelle))
 
         return  where(type_calcul == '4', montant_total, 0)

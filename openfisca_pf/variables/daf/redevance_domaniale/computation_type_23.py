@@ -19,11 +19,12 @@ class montant_base_redevance_domaniale_type_6(Variable):
     label = "Montant de la redevance domaniale dûe pour les occupations de moins d'une journée"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne, period, pararameters):
+    def formula(personne, period, parameters):
         # There is no difference between montant_base and montant_total.
         # Then the too computation are set equal
 
-        return  personne('montant_total_redevance_domaniale_type_6',period)
+        return personne('montant_total_redevance_domaniale_type_6', period)
+
 
 class montant_total_redevance_domaniale_type_23(Variable):
     value_type = float
@@ -31,7 +32,7 @@ class montant_total_redevance_domaniale_type_23(Variable):
     definition_period = DAY
     label = "Montant de la redevance domaniale dûe pour les occupations de moins d'une journée"
     unit = 'currency-XPF'
-    
+
     def formula(personne, period, parameters):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
@@ -49,17 +50,12 @@ class montant_total_redevance_domaniale_type_23(Variable):
         tarif_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_jour
 
         # Price computation
-        montant_intermediaire  = select( [duree_occupation_redevance_domaniale <= duree_demi_jour,
-                                            duree_occupation_redevance_domaniale > duree_demi_jour],
-                                         [ min_(tarif_horaire*duree_occupation_redevance_domaniale, tarif_demi_jour) ,
-                                            tarif_jour]
+        montant_intermediaire = select([duree_occupation_redevance_domaniale <= duree_demi_jour,
+                                        duree_occupation_redevance_domaniale > duree_demi_jour],
+                                         [min_(tarif_horaire * duree_occupation_redevance_domaniale, tarif_demi_jour),
+                                        tarif_jour]
                                         )
-        
-        montant_total= arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
 
-        return where(type_calcul=='23', montant_total, 0)
+        montant_total = arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
 
-
-
-
-
+        return where(type_calcul == '23', montant_total, 0)
