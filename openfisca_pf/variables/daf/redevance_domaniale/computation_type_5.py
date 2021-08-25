@@ -42,7 +42,7 @@ class montant_base_redevance_domaniale_type_5(Variable):
         montant_intermediaire = select([variable_redevance_domaniale < threshold_1,
                                         variable_redevance_domaniale <= threshold_2,
                                         variable_redevance_domaniale > threshold_2],
-                                        [init + rate_0 * variable_redevance_domaniale,
+                                    [init + rate_0 * variable_redevance_domaniale,
                                         init + rate_0 * threshold_1 + rate_1 * (variable_redevance_domaniale - threshold_1),
                                         init + rate_0 * threshold_1 + rate_1 * (threshold_2 - threshold_1) + rate_2 * (variable_redevance_domaniale - threshold_2)
                                         ])

@@ -52,7 +52,7 @@ class montant_total_redevance_domaniale_type_23(Variable):
         # Price computation
         montant_intermediaire = select([duree_occupation_redevance_domaniale <= duree_demi_jour,
                                         duree_occupation_redevance_domaniale > duree_demi_jour],
-                                        [min_(tarif_horaire * duree_occupation_redevance_domaniale, tarif_demi_jour),
+                                    [min_(tarif_horaire * duree_occupation_redevance_domaniale, tarif_demi_jour),
                                         tarif_jour
                                         ])
 

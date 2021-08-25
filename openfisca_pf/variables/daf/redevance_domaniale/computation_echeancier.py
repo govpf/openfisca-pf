@@ -11,7 +11,6 @@ from openfisca_pf.entities import *
 
 from numpy import datetime64, timedelta64
 from openfisca_pf.base import *
-from openfisca_core import periods
 
 
 class nombre_jours_occupation_domaniale_echeancier_annee(Variable):
@@ -60,10 +59,7 @@ class montant_redevance_domaniale_echeancier_annee(Variable):
         # nb_periode_mini = numpy.ceil(nombre_jours_factures / base_calcul_jour) # Use of ceil aims at taking into account that a started period has to be counted in the price
         # print(nb_periode_mini)
         # Price computation
-        montant_intermediaire = (part_fixe +
-                        part_unitaire * nombre_unite_redevance_domaniale_echeancier +
-                        part_variable * variable_redevance_domaniale_echeancier) * nombre_jours_factures / base_calcul_jour
-                        # * nb_periode_mini
+        montant_intermediaire = (part_fixe + part_unitaire * nombre_unite_redevance_domaniale_echeancier + part_variable * variable_redevance_domaniale_echeancier) * nombre_jours_factures / base_calcul_jour
 
         # Minimum comparison
         montant_global = arrondiSup(max_(montant_intermediaire, nombre_jours_factures / base_calcul_jour * montant_minimum))

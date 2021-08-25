@@ -45,7 +45,7 @@ class montant_total_redevance_domaniale_type_6(Variable):
                                         duree_occupation_redevance_domaniale_jour <= threshold_2,
                                         duree_occupation_redevance_domaniale_jour <= threshold_3,
                                         duree_occupation_redevance_domaniale_jour > threshold_3],
-                                        [init,
+                                    [init,
                                         init + daily_rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
                                         init + daily_rate_1 * (threshold_2 - threshold_1) + daily_rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
                                         init + daily_rate_1 * (threshold_2 - threshold_1) + daily_rate_2 * (threshold_3 - threshold_2) + daily_rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
