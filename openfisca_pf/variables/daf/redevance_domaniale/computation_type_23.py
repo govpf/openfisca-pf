@@ -50,11 +50,13 @@ class montant_total_redevance_domaniale_type_23(Variable):
         tarif_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_jour
 
         # Price computation
-        montant_intermediaire = select([duree_occupation_redevance_domaniale <= duree_demi_jour,
-                                        duree_occupation_redevance_domaniale > duree_demi_jour],
-                                    [min_(tarif_horaire * duree_occupation_redevance_domaniale, tarif_demi_jour),
-                                        tarif_jour
-                                        ])
+        montant_intermediaire = select([
+            duree_occupation_redevance_domaniale <= duree_demi_jour,
+            duree_occupation_redevance_domaniale > duree_demi_jour
+            ], [
+                min_(tarif_horaire * duree_occupation_redevance_domaniale, tarif_demi_jour),
+                tarif_jour
+                ])
 
         montant_total = arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
 

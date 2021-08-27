@@ -36,13 +36,17 @@ class majoration_redevance_domaniale(Variable):
 
         # Calcul de la majoration liée au nombre de participant
         #  Price computation
-        montant_intermediaire = select([nbr_participant < threshold_participant_1,
-                                        nbr_participant < threshold_participant_2,
-                                        nbr_participant >= threshold_participant_2],
-                                    [0,
-                                    rate_participant_1 * nbr_participant,
-                                    rate_participant_2 * nbr_participant
-                                    ])
+
+        montant_intermediaire = select([
+            nbr_participant < threshold_participant_1,
+            nbr_participant < threshold_participant_2,
+            nbr_participant >= threshold_participant_2
+            ], [
+                0,
+                rate_participant_1 * nbr_participant,
+                rate_participant_2 * nbr_participant
+                ])
+
         # Minimum comparison
         majoration_redevance_domaniale = arrondiSup(montant_intermediaire)
 

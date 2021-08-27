@@ -39,13 +39,15 @@ class montant_base_redevance_domaniale_type_5(Variable):
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
         #  Price computation
-        montant_intermediaire = select([variable_redevance_domaniale < threshold_1,
-                                        variable_redevance_domaniale <= threshold_2,
-                                        variable_redevance_domaniale > threshold_2],
-                                    [init + rate_0 * variable_redevance_domaniale,
-                                        init + rate_0 * threshold_1 + rate_1 * (variable_redevance_domaniale - threshold_1),
-                                        init + rate_0 * threshold_1 + rate_1 * (threshold_2 - threshold_1) + rate_2 * (variable_redevance_domaniale - threshold_2)
-                                        ])
+        montant_intermediaire = select([
+            variable_redevance_domaniale < threshold_1,
+            variable_redevance_domaniale <= threshold_2,
+            variable_redevance_domaniale > threshold_2
+            ], [
+                init + rate_0 * variable_redevance_domaniale,
+                init + rate_0 * threshold_1 + rate_1 * (variable_redevance_domaniale - threshold_1),
+                init + rate_0 * threshold_1 + rate_1 * (threshold_2 - threshold_1) + rate_2 * (variable_redevance_domaniale - threshold_2)
+                ])
 
         montant_base = max_(arrondiSup(montant_intermediaire), montant_minimum)
 
@@ -59,7 +61,7 @@ class montant_total_redevance_domaniale_type_5(Variable):
     label = "Montant de total de la redevance domaniale dûe avec un calcul dont le montant annuel évolue par palier de surface"
     reference = "Arrêté NOR DAF2120267AC-3"
     unit = 'currency-XPF'
-    
+
     def formula(personne, period, parameters):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
@@ -77,6 +79,6 @@ class montant_total_redevance_domaniale_type_5(Variable):
 
         # Price computation on the whole duration
         montant_total = max_(arrondiSup(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour), montant_minimum) + majoration_redevance_domaniale
-            # making two minimum comparison on basis price and on total price aims at including this minimum even if the duration is lower than the basic time.
+        # making two minimum comparison on basis price and on total price aims at including this minimum even if the duration is lower than the basic time.
 
         return where(type_calcul == '5', montant_total, 0)

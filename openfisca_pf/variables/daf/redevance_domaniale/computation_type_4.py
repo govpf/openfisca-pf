@@ -56,16 +56,18 @@ class montant_total_redevance_domaniale_type_4(Variable):
         rate_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_3
 
         # Price computation
-        montant_intermediaire = select([duree_occupation_redevance_domaniale_jour < threshold_1,
-                                        duree_occupation_redevance_domaniale_jour <= threshold_2,
-                                        duree_occupation_redevance_domaniale_jour <= threshold_3,
-                                        duree_occupation_redevance_domaniale_jour > threshold_3],
-                                    [init,
-                                        init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
-                                        init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
-                                        init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
-                                        ])
+        montant_intermediaire = select([
+            duree_occupation_redevance_domaniale_jour < threshold_1,
+            duree_occupation_redevance_domaniale_jour <= threshold_2,
+            duree_occupation_redevance_domaniale_jour <= threshold_3,
+            duree_occupation_redevance_domaniale_jour > threshold_3
+            ], [
+                init,
+                init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
+                init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
+                init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
+                ])
 
-        montant_total = arrondiSup( (montant_intermediaire + majoration_redevance_domaniale) *(1 - 0.8 * activite_cultuelle))
+        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1 - 0.8 * activite_cultuelle))
 
-        return  where(type_calcul == '4', montant_total, 0)
+        return where(type_calcul == '4', montant_total, 0)
