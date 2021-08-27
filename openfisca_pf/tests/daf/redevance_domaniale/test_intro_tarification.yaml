@@ -1,5 +1,5 @@
 - name: 1
-  period: 2018-01
+  period: 2018-01-01
   input:
     personne:
       nature_emprise_occupation_redevance_domaniale: ip_eco_01_equipement_pays
@@ -14,7 +14,7 @@
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
 - name: 2
-  period: 2018-01
+  period: 2018-01-01
   input:
     personne:
       nature_emprise_occupation_redevance_domaniale: ip_eco_08_centre_artisanaux_aero
