@@ -6,25 +6,25 @@
 description: Paramètres pour le calcul de redevance par palier
 init:
   values:
-    2018-01-01: 0
+    2018-01-01: 999999999
 rate_0:
   values:
-    2018-01-01: 10
+    2018-01-01: 0
 threshold_1:
   values:
-    2018-01-01: 1000
+    2018-01-01: 0
 rate_1:
   values:
-    2018-01-01: 25
+    2018-01-01: 0
 threshold_2:
   values:
-    2018-01-01: 1500
+    2018-01-01: 0
 rate_2:
   values:
-    2018-01-01: 25
+    2018-01-01: 0
 montant_minimum:
   values:
-    2018-01-01: 3000
+    2018-01-01: 0
 base_calcul_jour:
   values:
     2018-01-01: 360

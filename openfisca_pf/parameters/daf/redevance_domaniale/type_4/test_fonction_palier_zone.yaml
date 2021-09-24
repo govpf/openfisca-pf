@@ -11,88 +11,88 @@ description: Paramètre du calcul de la redevance par pallier par zone pour les 
 zone_1:
   init:
     values:
-      2018-01-01: 75000
+      2018-01-01: 999999999
   threshold_1:
     values:
       2018-01-01: 1
   rate_1:
     values:
-      2018-01-01: 54100
+      2018-01-01: 0
   threshold_2:
     values:
       2018-01-01: 7
   rate_2:
     values:
-      2018-01-01: 26000
+      2018-01-01: 0
   threshold_3:
     values:
       2018-01-01: 500
   rate_3:
     values:
-      2018-01-01: 26000
+      2018-01-01: 0
 zone_2:
   init:
     values:
-      2018-01-01: 20000
+      2018-01-01: 999999999
   threshold_1:
     values:
       2018-01-01: 1
   rate_1:
     values:
-      2018-01-01: 13300
+      2018-01-01: 0
   threshold_2:
     values:
       2018-01-01: 7
   rate_2:
     values:
-      2018-01-01: 13000
+      2018-01-01: 0
   threshold_3:
     values:
       2018-01-01: 500
   rate_3:
     values:
-      2018-01-01: 13000
+      2018-01-01: 0
 zone_3:
   init:
     values:
-      2018-01-01: 10000
+      2018-01-01: 999999999
   threshold_1:
     values:
       2018-01-01: 1
   rate_1:
     values:
-      2018-01-01: 6600
+      2018-01-01: 0
   threshold_2:
     values:
       2018-01-01: 7
   rate_2:
     values:
-      2018-01-01: 6500
+      2018-01-01: 0
   threshold_3:
     values:
       2018-01-01: 500
   rate_3:
     values:
-      2018-01-01: 6500
+      2018-01-01: 0
 zone_4:
   init:
     values:
-      2018-01-01: 5000
+      2018-01-01: 999999999
   threshold_1:
     values:
       2018-01-01: 1
   rate_1:
     values:
-      2018-01-01: 3300
+      2018-01-01: 0
   threshold_2:
     values:
       2018-01-01: 7
   rate_2:
     values:
-      2018-01-01: 3200
+      2018-01-01: 0
   threshold_3:
     values:
       2018-01-01: 500
   rate_3:
     values:
-      2018-01-01: 3200
+      2018-01-01: 0

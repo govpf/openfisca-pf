@@ -8,22 +8,22 @@
 description: Paramètres pour le calcul de redevance par palier
 init:
   values:
-    2018-01-01: 120
+    2018-01-01: 999999999
 threshold_1:
   values:
     2018-01-01: 1
 rate_1:
   values:
-    2018-01-01: 120
+    2018-01-01: 0
 threshold_2:
   values:
     2018-01-01: 7
 rate_2:
   values:
-    2018-01-01: 110
+    2018-01-01: 0
 threshold_3:
   values:
     2018-01-01: 360
 rate_3:
   values:
-    2018-01-01: 100
+    2018-01-01: 0

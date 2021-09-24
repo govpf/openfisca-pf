@@ -243,6 +243,17 @@ ex_eco_04_dpm_pour_entite_publique:
   values:
     2018-01-01: 7
 
+# Type 8
+ag_priv_01_maraichage:
+  values:
+    2018-01-01: 8
+ag_priv_02_elevage:
+  values:
+    2018-01-01: 8
+ag_priv_03_coprah:
+  values:
+    2018-01-01: 8
+
 # Paramètres pour les tests des premières versions
 # Type 1
 equipement_du_pays:
@@ -284,3 +295,8 @@ test_ancrage:
 test_extraction:
   values:
     2018-01-01: 7
+
+    # Type 7
+test_zone_archi:
+  values:
+    2018-01-01: 8

@@ -44,7 +44,7 @@ class variable_redevance_domaniale(Variable):
 class zone_occupation_redevance_domaniale(Variable):
     value_type = Enum
     possible_values = ZonesOccupations
-    default_value = ZonesOccupations.zone_0
+    default_value = ZonesOccupations.zone_1
     entity = Personne
     definition_period = DAY
     label = "Zone de l'occupation du domaine"
