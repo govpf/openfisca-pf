@@ -132,9 +132,9 @@ class Commune(Enum):
 
 class ZoneDomPrive(Enum):
     # every specified area in the law
+    zone_de_base = u'Zone de base'
     village = u'Village'
     secteur = u'Secteur'
-    zone_de_base = u'Zone de base'
     zone_bord_de_mer = u'Zone bord de mer'
     zone_cote_mer = u'Zone cote mer'
     zone_plaines_et_basses_montagnes = u'Zone plaines et basses montagnes'

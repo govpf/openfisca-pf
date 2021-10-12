@@ -16,7 +16,7 @@ class montant_base_redevance_domaniale_type_8(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant de base (journalier, annuel, mensuel) de la redevance domaniale dûe avec un calcul dépendant de la zone géographique de la demande"
+    label = "Montant de base (journalier, annuel, mensuel) de la redevance domaniale dûe avec un calcul dépendant de l'archipel'"
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
@@ -47,7 +47,7 @@ class montant_total_redevance_domaniale_type_8(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant total de la redevance domaniale dûe avec un calcul dépendant de la zone géographique de la demande"
+    label = "Montant total de la redevance domaniale dûe avec un calcul dépendant de l'archipel'"
     reference = "Arrêté NOR DAF2120267AC-3"
     unit = 'currency-XPF'
 

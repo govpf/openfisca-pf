@@ -126,7 +126,7 @@ class TypesNatureEmprise(Enum):
     ag_priv_04_agroforesterie = u'Agro-foresterie'
     ag_priv_05_agrotransformation = u'Agro-transformation'
 
-    # Enum pour les tests de la fonction et les calculs par défaut
+    # Enum testing and default data for computation
     # Test de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
     bati_cas_general = u'Blabla'
     emprise_activite_lucrative = u'blabla1'

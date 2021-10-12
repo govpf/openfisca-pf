@@ -87,7 +87,7 @@ class commune_domaine_prive(Variable):
 class zone_domaine_prive(Variable):
     value_type = Enum
     possible_values = ZoneDomPrive
-    default_value = ZoneDomPrive.equipement_du_pays
+    default_value = ZoneDomPrive.zone_de_base
     entity = Personne
     definition_period = DAY
-    label = "Selected zone for the pricing"
+    label = "Selected zone for princing on the private domain "
