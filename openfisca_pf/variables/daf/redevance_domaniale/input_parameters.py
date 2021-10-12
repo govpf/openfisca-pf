@@ -9,6 +9,7 @@ from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums_loc import *
 
 
 class duree_occupation_redevance_domaniale(Variable):
@@ -67,47 +68,26 @@ class nombre_participant_redevance_domaniale(Variable):
     label = "Nombre de participant pour le calcul de la majoration"
 
 
-class nature_emprise_occupation_redevance_domaniale_echeancier(Variable):
-    value_type = Enum
-    possible_values = TypesNatureEmprise
-    default_value = TypesNatureEmprise.equipement_du_pays
-    entity = Personne
-    definition_period = ETERNITY
-    # set_input = set_input_dispatch_by_period
-    label = "Type de nature d'emprise"
-
-
-class date_validation_redevance_domaniale_echeancier(Variable):
-    value_type = date
-    entity = Personne
-    label = "Date de validation de la redevance domaniale"
-    definition_period = ETERNITY
-
-
-class duree_occupation_redevance_domaniale_echeancier(Variable):
-    value_type = int
-    entity = Personne
-    definition_period = ETERNITY
-    label = "Durée de l'occupation du domaine en jours"
-
-
-class variable_redevance_domaniale_echeancier(Variable):
-    value_type = int
-    entity = Personne
-    definition_period = ETERNITY
-    label = "Variable de l'occupation du domaine, peut être exprimée en m, en m² ou en m^3, pour définir une unité de longueur, de surface ou de volume"
-
-
-class nombre_unite_redevance_domaniale_echeancier(Variable):
-    value_type = int
-    entity = Personne
-    definition_period = ETERNITY
-    label = "Nombre d'unités dans l'occupation du domaine"
-
-
 class activite_cultuelle(Variable):
     value_type = bool
     entity = Personne
     default_value = False
     definition_period = ETERNITY
     label = "Paramètre permettant de définir si le demandeur est liée à des activités cultuelles"
+
+
+class commune_domaine_prive(Variable):
+    value_type = int
+    entity = Personne
+    default_value = False
+    definition_period = ETERNITY
+    label = "Area code for cities in French Polynesia"
+
+
+class zone_domaine_prive(Variable):
+    value_type = Enum
+    possible_values = ZoneDomPrive
+    default_value = ZoneDomPrive.equipement_du_pays
+    entity = Personne
+    definition_period = DAY
+    label = "Selected zone for the pricing"

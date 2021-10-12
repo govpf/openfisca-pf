@@ -83,9 +83,6 @@ class TypesNatureEmprise(Enum):
     co_pr_02_ouvrage_defence = u'Ouvrage d aménagement, de défense ou d accessibilité'
     em_pr_06_emprise_maritime_prive = u'Emprise maritime privatisée'
     if_pr_01_ancrage_avec_droit_immo = u'Ancrage et/ou mouillage avec droit immobilier'
-    ag_priv_01_maraichage = u'Agriculture de type maraîchère, vivière, fruitière'
-    ag_priv_02_elevage = u'Elevage'
-    ag_priv_03_coprah = u'Coprah-Culture'
 
     # Tarif de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
     ip_eco_02_bati_tout_public_ac_elec = u'Bâti à usage tout public avec électricité'
@@ -121,6 +118,13 @@ class TypesNatureEmprise(Enum):
     ex_eco_02_dpf_pour_entite_publique = u'Domaine public fluvial pour entité publique'
     ex_eco_03_dpm_hors_entite_publique = u'Domaine public maritime Hors entité publique'
     ex_eco_04_dpm_pour_entite_publique = u'Domaine public maritime Pour entité publique'
+
+    # Tarif Type _8 (5 different areas)
+    ag_priv_01_maraichage = u'Agriculture de type maraîchère, vivière, fruitière'
+    ag_priv_02_elevage = u'Elevage'
+    ag_priv_03_coprah = u'Coprah-Culture'
+    ag_priv_04_agroforesterie = u'Agro-foresterie'
+    ag_priv_05_agrotransformation = u'Agro-transformation'
 
     # Enum pour les tests de la fonction et les calculs par défaut
     # Test de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)

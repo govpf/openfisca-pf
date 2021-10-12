@@ -253,6 +253,12 @@ ag_priv_02_elevage:
 ag_priv_03_coprah:
   values:
     2018-01-01: 8
+ag_priv_04_agroforesterie:
+  values:
+    2018-01-01: 2
+ag_priv_05_agrotransformation:
+  values:
+    2018-01-01: 2
 
 # Paramètres pour les tests des premières versions
 # Type 1
