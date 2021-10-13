@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the computation for occupation on public domain that relies the same computation as type_1,
-# but the parameters depends on a area.
+# This file defines the computation for extraction on the public domaiin. The computation is the same as type_2 with 5 areas defined (archipelagos dvision)
+# but the computation is independent of the duration.k
 # See https://openfisca.org/doc/key-concepts/variables.html
 
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
@@ -16,7 +16,7 @@ class montant_base_redevance_domaniale_type_7(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant de base (journalier, annuel, mensuel) de la redevance domaniale dûe avec un calcul dépendant de la zone géographique de la demande"
+    label = "Montant de base (journalier, annuel, mensuel) de la redevance domaniale dûe avec un calcul dépendant de la zone géographique mais pas de la durée"
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
@@ -49,7 +49,7 @@ class montant_total_redevance_domaniale_type_7(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant total de la redevance domaniale dûe avec un calcul dépendant de la zone géographique de la demande"
+    label = "Montant total de la redevance domaniale dûe avec un calcul dépendant de la zone géographique mais pas de la durée"
     reference = "Arrêté NOR DAF2120267AC-3"
     unit = 'currency-XPF'
 

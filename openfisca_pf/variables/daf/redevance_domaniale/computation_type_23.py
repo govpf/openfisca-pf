@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the computation for occupation on public domain that relies the same computation as type_1,
-# but the parameters depends on a area.
+# This file defines the computation type_3 computation but with length expressed in hours.
 # See https://openfisca.org/doc/key-concepts/variables.html
 
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca

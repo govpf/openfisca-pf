@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the computation for occupation on public domain that relies the same computation as type_1,
-# but the parameters depends on a area.
+# This file defines the computation for occupation on public domain that relies the same computation as type_2,
+# but the zoning is divided in 5 areas iinstead of 4.
 # See https://openfisca.org/doc/key-concepts/variables.html
 
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca

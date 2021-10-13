@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the computation for occupation on public domain that relies the same computation as type_1,
+# This file defines the computation for occupation on public domain that relies on a daily rate computation,
 # but the parameters depends on a area.
 # See https://openfisca.org/doc/key-concepts/variables.html
 
@@ -40,7 +40,7 @@ class montant_total_redevance_domaniale_type_6(Variable):
         daily_rate_2 = rate_2 * variable_redevance_domaniale
         daily_rate_3 = rate_3 * variable_redevance_domaniale
         #  Price computation
-        #  les durées en jours inférieur à 1 n'ont pas de sens
+        #  Duration less than 1 day is not taken into account.
         montant_intermediaire = select([
             duree_occupation_redevance_domaniale_jour < threshold_1,
             duree_occupation_redevance_domaniale_jour <= threshold_2,
