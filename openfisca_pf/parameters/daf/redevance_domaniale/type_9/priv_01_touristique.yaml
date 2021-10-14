@@ -1,7 +1,7 @@
-description: valeur de test et par défaut
+description: Paramètre pour les activités touristiques sur le domaine privé
 part_variable:
   values:
-    2018-01-01: 100
+    2018-01-01: 3
 montant_minimum:
   values:
     2018-01-01: 0

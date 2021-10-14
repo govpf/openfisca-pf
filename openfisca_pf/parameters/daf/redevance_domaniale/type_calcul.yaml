@@ -260,6 +260,35 @@ ag_priv_05_agrotransformation:
   values:
     2018-01-01: 2
 
+# Type 9
+priv_01_touristique:
+  values:
+    2018-01-01: 9
+priv_02_eco_industriel:
+  values:
+    2018-01-01: 9
+priv_03_projet_social:
+  values:
+    2018-01-01: 9
+priv_04_etablissement_public:
+  values:
+    2018-01-01: 9
+priv_05_habitat_social:
+  values:
+    2018-01-01: 9
+priv_06_developpement_durable:
+  values:
+    2018-01-01: 9
+priv_07_technologie_information:
+  values:
+    2018-01-01: 9
+priv_08_cultuel:
+  values:
+    2018-01-01: 9
+priv_09_autres:
+  values:
+    2018-01-01: 9
+
 # Paramètres pour les tests des premières versions
 # Type 1
 equipement_du_pays:
@@ -302,7 +331,12 @@ test_extraction:
   values:
     2018-01-01: 7
 
-    # Type 7
+# Type 8
 test_zone_archi:
   values:
     2018-01-01: 8
+
+# Type 9
+test_dom_priv:
+  values:
+    2018-01-01: 9

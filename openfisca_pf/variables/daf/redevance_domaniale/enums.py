@@ -126,6 +126,17 @@ class TypesNatureEmprise(Enum):
     ag_priv_04_agroforesterie = u'Agro-foresterie'
     ag_priv_05_agrotransformation = u'Agro-transformation'
 
+    # Nature d'emprise pour le domaine privé (location)
+    priv_01_touristique = u'Aménagement touristique'
+    priv_02_eco_industriel = u'Opération économique ou industrielle'
+    priv_03_projet_social = u'Projet à caractère social, éducatif ou sportif'
+    priv_04_etablissement_public = u'Location au profit des établissements publics pour les besoins de leur fonctionnement '
+    priv_05_habitat_social = u'Habitat social'
+    priv_06_developpement_durable = u'Développement durable'
+    priv_07_technologie_information = u'Activités liées aux technologies, contenus et support de l information'
+    priv_08_cultuel = u'Projet à caractère cultuel'
+    priv_09_autres = u'Autre occupation'
+
     # Enum testing and default data for computation
     # Test de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
     bati_cas_general = u'Blabla'
