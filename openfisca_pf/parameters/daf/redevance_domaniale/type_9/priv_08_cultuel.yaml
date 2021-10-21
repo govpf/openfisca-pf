@@ -1,7 +1,8 @@
-description: Paramètres pour locations sur le domaine privé pour les activités touristiques
+description: Paramètres pour les locations au profit de projets à caractère cultuel
+
 part_variable:
   values:
-    2018-01-01: 3
+    2018-01-01: 1
 montant_minimum:
   values:
     2018-01-01: 0

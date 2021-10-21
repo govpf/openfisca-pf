@@ -65,22 +65,22 @@ class nombre_participant_redevance_domaniale(Variable):
     entity = Personne
     default_value = 0
     definition_period = DAY
-    label = "Nombre de participant pour le calcul de la majoration"
+    label = "Number of attendees for the event in order to add price increase"
 
 
 class activite_cultuelle(Variable):
     value_type = bool
     entity = Personne
     default_value = False
-    definition_period = ETERNITY
-    label = "Paramètre permettant de définir si le demandeur est liée à des activités cultuelles"
+    definition_period = DAY
+    label = "Parameter defining if the request is for religious activities"
 
 
 class commune_domaine_prive(Variable):
     value_type = int
     entity = Personne
-    default_value = False
-    definition_period = ETERNITY
+    default_value = 0
+    definition_period = DAY
     label = "Area code for cities in French Polynesia"
 
 
@@ -90,4 +90,4 @@ class zone_domaine_prive(Variable):
     default_value = ZoneDomPrive.zone_de_base
     entity = Personne
     definition_period = DAY
-    label = "Selected zone for princing on the private domain "
+    label = "Selected zone for pricing on private domain "

@@ -22,22 +22,28 @@ class montant_base_redevance_domaniale_type_9(Variable):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '9', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_dom_priv')
-
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '9', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'priv_09_autres')
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
-        # zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
+        code_commune = personne('commune_domaine_prive', period)
+        zone_domaine_prive = personne('zone_domaine_prive', period)
 
         # Parameters
         montant_minimum = parameters(period).daf.redevance_domaniale.type_9[nature_emprise_occupation_redevance_domaniale].montant_minimum
         part_variable = parameters(period).daf.redevance_domaniale.type_9[nature_emprise_occupation_redevance_domaniale].part_variable
-        valeur_venale = 100
-        # valuer_venale = parameters(period).daf.redevance_domaniale.type_9[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].part_variable
+
+        tempValue = []
+        index = 0
+        for item in code_commune:
+            value = parameters(period).daf.redevance_domaniale.commune_prive['com' + item.astype(str)][zone_domaine_prive].valeur_venale[index]
+            index = index + 1
+            tempValue.append(value)
+        valeur_venale = numpy.array(tempValue)
 
         # Price computation
         montant_intermediaire = part_variable / 100 * valeur_venale * variable_redevance_domaniale
-
         # Minimum comparison
         montant_base = max_(arrondiSup(montant_intermediaire), montant_minimum)
+
         return where(type_calcul == '9', montant_base, 0)
 
 
@@ -55,11 +61,10 @@ class montant_total_redevance_domaniale_type_9(Variable):
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '9', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_zone_archi')
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '9', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'priv_09_autres')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
 
         montant_base = personne('montant_base_redevance_domaniale_type_9', period)
-        # zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
 
         # Parameters
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_9[nature_emprise_occupation_redevance_domaniale].base_calcul_jour

@@ -1,7 +1,8 @@
-description: Paramètres pour locations sur le domaine privé pour les activités touristiques
+description: Paramètres pour les locations qui ne rentrent pas dans les conditions spéciales
+
 part_variable:
   values:
-    2018-01-01: 3
+    2018-01-01: 5
 montant_minimum:
   values:
     2018-01-01: 0
