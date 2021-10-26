@@ -15,7 +15,3 @@ zone_rurale_plaine:
   valeur_venale:
     values:
       2016-01-01: 2000
-bord_de_mer:
-  valeur_venale:
-    values:
-      2016-01-01: 5000
