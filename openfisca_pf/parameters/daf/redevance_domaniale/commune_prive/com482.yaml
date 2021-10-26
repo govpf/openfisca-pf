@@ -1,19 +1,17 @@
-
-description: Valeur vénale de Afaahiti - Taiarapu-Est
+description: Valeur vénale de Toahotu - Taiarapu-Ouest
 zone_bord_de_mer:
   valeur_venale:
     values:
-      2016-01-01: 15000
+      2016-01-01: 10000
 zone_cote_mer:
   valeur_venale:
     values:
-      2016-01-01: 8500
+      2016-01-01: 6400
 zone_moyennes_montagnes:
   valeur_venale:
     values:
-      2016-01-01: 4500
+      2016-01-01: 5600
 zone_plaines_et_basses_montagnes:
   valeur_venale:
     values:
-      2016-01-01: 7400
-
+      2016-01-01: 5900

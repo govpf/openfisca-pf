@@ -1,0 +1,49 @@
+description: Valeur vénale de Papeete
+mamao_zone_commercial:
+  valeur_venale:
+    values:
+      2016-01-01: 50000
+paofai_zone_plaine:
+  valeur_venale:
+    values:
+      2016-01-01: 100000
+paofai_zone_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 30000
+sainte_amelie_quartier_des_institutions:
+  valeur_venale:
+    values:
+      2016-01-01: 125000
+sainte_amelie_zone_habitat:
+  valeur_venale:
+    values:
+      2016-01-01: 25000
+taunoa_zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 60000
+taunoa_zone_urbaine:
+  valeur_venale:
+    values:
+      2016-01-01: 20000
+tipaerui_zone_industrielle_et_commerciale:
+  valeur_venale:
+    values:
+      2016-01-01: 60000
+tipaerui_zone_residentielle:
+  valeur_venale:
+    values:
+      2016-01-01: 22000
+tipaerui_zone_sociale:
+  valeur_venale:
+    values:
+      2016-01-01: 8000
+titioro_zone_d’habitat:
+  valeur_venale:
+    values:
+      2016-01-01: 20000
+titioro_zone_industrielle_et_commerciale:
+  valeur_venale:
+    values:
+      2016-01-01: 38000

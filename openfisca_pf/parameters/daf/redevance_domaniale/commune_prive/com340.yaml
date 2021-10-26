@@ -1,5 +1,4 @@
-
-description: Valeur vénale de Afaahiti - Taiarapu-Est
+description: Valeur vénale de Papara
 zone_bord_de_mer:
   valeur_venale:
     values:
@@ -7,13 +6,16 @@ zone_bord_de_mer:
 zone_cote_mer:
   valeur_venale:
     values:
-      2016-01-01: 8500
+      2016-01-01: 11000
+zone_hautes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 1500
 zone_moyennes_montagnes:
   valeur_venale:
     values:
-      2016-01-01: 4500
+      2016-01-01: 9000
 zone_plaines_et_basses_montagnes:
   valeur_venale:
     values:
-      2016-01-01: 7400
-
+      2016-01-01: 11000

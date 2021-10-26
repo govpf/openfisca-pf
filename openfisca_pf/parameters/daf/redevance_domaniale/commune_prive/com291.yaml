@@ -1,0 +1,10 @@
+
+description: Valeur vénale de Afareaitu
+bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 17000
+cote_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 8000

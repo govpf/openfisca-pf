@@ -1,0 +1,9 @@
+description: Valeur vénale de Tikehau - Rangiroa
+secteur:
+  valeur_venale:
+    values:
+      2016-01-01: 500
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 1000

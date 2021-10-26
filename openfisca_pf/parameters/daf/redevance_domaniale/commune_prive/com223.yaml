@@ -1,5 +1,4 @@
-
-description: Valeur vénale de Afaahiti - Taiarapu-Est
+description: Valeur vénale de Papenoo
 zone_bord_de_mer:
   valeur_venale:
     values:
@@ -7,13 +6,12 @@ zone_bord_de_mer:
 zone_cote_mer:
   valeur_venale:
     values:
-      2016-01-01: 8500
+      2016-01-01: 5800
 zone_moyennes_montagnes:
   valeur_venale:
     values:
-      2016-01-01: 4500
+      2016-01-01: 2000
 zone_plaines_et_basses_montagnes:
   valeur_venale:
     values:
-      2016-01-01: 7400
-
+      2016-01-01: 6000

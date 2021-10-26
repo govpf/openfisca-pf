@@ -1,0 +1,14 @@
+
+description: Valeur vénale de Faanui - Bora Bora
+motu:
+  valeur_venale:
+    values:
+      2016-01-01: 10000
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 7000
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 6000

@@ -1,0 +1,9 @@
+description: Valeur vénale de Vaiuru - Raivavae
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 1500
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 500

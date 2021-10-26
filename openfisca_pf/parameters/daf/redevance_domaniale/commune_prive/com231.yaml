@@ -1,0 +1,14 @@
+description: Valeur vénale de Atuona - Hiva-Oa
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 5000
+zone_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 200
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 1000
+

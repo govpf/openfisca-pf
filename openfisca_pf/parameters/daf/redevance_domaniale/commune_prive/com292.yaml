@@ -1,0 +1,9 @@
+description: Valeur vénale de Haapiti
+bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 20000
+cote_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 12000

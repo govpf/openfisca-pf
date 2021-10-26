@@ -1,0 +1,13 @@
+description: Valeur vénale de Taiohae - Nuku-Hiva
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 6000
+zone_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 200
+village_zone_rural:
+  valeur_venale:
+    values:
+      2016-01-01: 2000
