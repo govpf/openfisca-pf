@@ -316,137 +316,137 @@
     chiffre_affaire_total: 15000000
     montant_cstns_du: 153125
     cstns_a_payer: 153125
-- name: 80. 18 + 19 + 99 - avec annexe - avec releve - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_non_meublee: 10000000
-      chiffre_affaire_location_meublee: 10000000
-      chiffre_affaire_location_terrains_nus: 6000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 822500
-    it_a_payer: 822500
-    chiffre_affaire_total: 26000000
-    montant_cstns_du: 387500
-    cstns_a_payer: 387500
-- name: 81. 18 + 19 + 99 - avec annexe - avec releve - ch > 50% - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_non_meublee: 10000000
-      total_charges_releve_detaille: 15000000
-      chiffre_affaire_location_meublee: 10000000
-      chiffre_affaire_location_terrains_nus: 6000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 546250
-    it_a_payer: 546250
-    chiffre_affaire_total: 26000000
-    montant_cstns_du: 257500
-    cstns_a_payer: 257500
-- name: 82. 18 + 19 + 99 - sans annexe - avec releve - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: N
-      chiffre_affaire_location_non_meublee: 10000000
-      chiffre_affaire_location_meublee: 10000000
-      chiffre_affaire_location_terrains_nus: 6000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 822500
-    it_a_payer: 822500
-    chiffre_affaire_total: 26000000
-    montant_cstns_du: 387500
-    cstns_a_payer: 387500
-- name: 84. 18 + 19 + 99 - avec annexe - avec releve
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_non_meublee: 10000000
-      chiffre_affaire_location_meublee: 10000000
-      chiffre_affaire_location_terrains_nus: 6000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 822500
-    it_a_payer: 822500
-    chiffre_affaire_total: 26000000
-    montant_cstns_du: 387500
-    cstns_a_payer: 387500
-- name: 83. 18 + 19 + 99 - avec annexe - avec releve - ch > 50%
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_non_meublee: 10000000
-      total_charges_releve_detaille: 15000000
-      chiffre_affaire_location_meublee: 10000000
-      chiffre_affaire_location_terrains_nus: 6000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 546250
-    it_a_payer: 546250
-    chiffre_affaire_total: 26000000
-    montant_cstns_du: 257500
-    cstns_a_payer: 257500
-- name: 85. 11 + 22 - avec annexe - avec releve - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_ventes_sans_abattement: 22000000
-      total_charges_releve_detaille: 0
-      chiffre_affaire_location_meublee: 6000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 232500
-    it_a_payer: 232500
-    chiffre_affaire_total: 28000000
-    montant_cstns_du: 151250
-    cstns_a_payer: 151250
-- name: 86. 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_ventes_sans_abattement: 22000000
-      chiffre_affaire_location_meublee: 6000000
-      total_charges_releve_detaille: 15000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 232500
-    it_a_payer: 232500
-    chiffre_affaire_total: 28000000
-    montant_cstns_du: 151250
-    cstns_a_payer: 151250
+# - name: 80. 18 + 19 + 99 - avec annexe - avec releve - pers phys
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_non_meublee: 10000000
+#       chiffre_affaire_location_meublee: 10000000
+#       chiffre_affaire_location_terrains_nus: 6000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 822500
+#     it_a_payer: 822500
+#     chiffre_affaire_total: 26000000
+#     montant_cstns_du: 387500
+#     cstns_a_payer: 387500
+# - name: 81. 18 + 19 + 99 - avec annexe - avec releve - ch > 50% - pers phys
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_non_meublee: 10000000
+#       total_charges_releve_detaille: 15000000
+#       chiffre_affaire_location_meublee: 10000000
+#       chiffre_affaire_location_terrains_nus: 6000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 546250
+#     it_a_payer: 546250
+#     chiffre_affaire_total: 26000000
+#     montant_cstns_du: 257500
+#     cstns_a_payer: 257500
+# - name: 82. 18 + 19 + 99 - sans annexe - avec releve - pers phys
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: N
+#       chiffre_affaire_location_non_meublee: 10000000
+#       chiffre_affaire_location_meublee: 10000000
+#       chiffre_affaire_location_terrains_nus: 6000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 822500
+#     it_a_payer: 822500
+#     chiffre_affaire_total: 26000000
+#     montant_cstns_du: 387500
+#     cstns_a_payer: 387500
+# - name: 84. 18 + 19 + 99 - avec annexe - avec releve
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_non_meublee: 10000000
+#       chiffre_affaire_location_meublee: 10000000
+#       chiffre_affaire_location_terrains_nus: 6000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 822500
+#     it_a_payer: 822500
+#     chiffre_affaire_total: 26000000
+#     montant_cstns_du: 387500
+#     cstns_a_payer: 387500
+# - name: 83. 18 + 19 + 99 - avec annexe - avec releve - ch > 50%
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_non_meublee: 10000000
+#       total_charges_releve_detaille: 15000000
+#       chiffre_affaire_location_meublee: 10000000
+#       chiffre_affaire_location_terrains_nus: 6000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 546250
+#     it_a_payer: 546250
+#     chiffre_affaire_total: 26000000
+#     montant_cstns_du: 257500
+#     cstns_a_payer: 257500
+# - name: 85. 11 + 22 - avec annexe - avec releve - pers phys
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_ventes_sans_abattement: 22000000
+#       total_charges_releve_detaille: 0
+#       chiffre_affaire_location_meublee: 6000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 232500
+#     it_a_payer: 232500
+#     chiffre_affaire_total: 28000000
+#     montant_cstns_du: 151250
+#     cstns_a_payer: 151250
+# - name: 86. 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_ventes_sans_abattement: 22000000
+#       chiffre_affaire_location_meublee: 6000000
+#       total_charges_releve_detaille: 15000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 232500
+#     it_a_payer: 232500
+#     chiffre_affaire_total: 28000000
+#     montant_cstns_du: 151250
+#     cstns_a_payer: 151250
 - name: 87. 11 + 22 - avec annexe - avec releve - pers phys - ch > 50%
   period: 2020
   input:
@@ -483,69 +483,69 @@
     chiffre_affaire_total: 32000000
     montant_cstns_du: 297500
     cstns_a_payer: 297500
-- name: 89. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_meublee: 50000000
-      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
-      chiffre_affaire_entreprise_de_travaux_publics: 10000000
-      chiffre_affaire_artisans: 5000000
-      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
-      chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 3630000
-    it_a_payer: 3630000
-    chiffre_affaire_total: 120000000
-    montant_cstns_du: 1704375
-    cstns_a_payer: 1704375
-- name: 90. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys - charge > 50%
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_meublee: 50000000
-      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
-      chiffre_affaire_entreprise_de_travaux_publics: 10000000
-      total_charges_releve_detaille: 60000000
-      chiffre_affaire_artisans: 5000000
-      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
-      chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 2960000
-    it_a_payer: 2960000
-    chiffre_affaire_total: 120000000
-    montant_cstns_du: 1393125
-    cstns_a_payer: 1393125
-- name: 91. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_meublee: 50000000
-      chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
-      chiffre_affaire_entreprise_de_travaux_publics: 10000000
-      chiffre_affaire_artisans: 5000000
-      chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
-      chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 5430000
-    it_a_payer: 5430000
-    chiffre_affaire_total: 120000000
-    montant_cstns_du: 2538750
-    cstns_a_payer: 2538750
+# - name: 89. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_meublee: 50000000
+#       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+#       chiffre_affaire_entreprise_de_travaux_publics: 10000000
+#       chiffre_affaire_artisans: 5000000
+#       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
+#       chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 3630000
+#     it_a_payer: 3630000
+#     chiffre_affaire_total: 120000000
+#     montant_cstns_du: 1704375
+#     cstns_a_payer: 1704375
+# - name: 90. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve - pers phys - charge > 50%
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_meublee: 50000000
+#       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+#       chiffre_affaire_entreprise_de_travaux_publics: 10000000
+#       total_charges_releve_detaille: 60000000
+#       chiffre_affaire_artisans: 5000000
+#       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
+#       chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 2960000
+#     it_a_payer: 2960000
+#     chiffre_affaire_total: 120000000
+#     montant_cstns_du: 1393125
+#     cstns_a_payer: 1393125
+# - name: 91. 19 + 97 + 15 + 92 + 10 + 24 - avec annexe - avec releve
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_meublee: 50000000
+#       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
+#       chiffre_affaire_entreprise_de_travaux_publics: 10000000
+#       chiffre_affaire_artisans: 5000000
+#       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 25000000
+#       chiffre_affaire_ventes_a_l_aventure_armateurs: 10000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 5430000
+#     it_a_payer: 5430000
+#     chiffre_affaire_total: 120000000
+#     montant_cstns_du: 2538750
+#     cstns_a_payer: 2538750

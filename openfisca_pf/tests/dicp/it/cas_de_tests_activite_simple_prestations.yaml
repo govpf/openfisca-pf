@@ -1,315 +1,259 @@
-- name: 17. 18 - Location non meublée - sans annexe - sans releve - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: N
-      annexes_IT_fournies: N
-      chiffre_affaire_location_non_meublee: 50000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 2532500
-    it_a_payer: 2532500
-    montant_cstns_du: 1175000
-    cstns_a_payer: 1175000
-- name: 18. 18 - Location non meublée - avec annexe - avec releve - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_non_meublee: 50000000
-      total_charges_releve_detaille: 30000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 1266250
-    it_a_payer: 1266250
-    montant_cstns_du: 587500
-    cstns_a_payer: 587500
-- name: 19. 18 - Location non meublée - sans annexe - sans releve
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: N
-      annexes_IT_fournies: N
-      chiffre_affaire_location_non_meublee: 50000000
-      total_charges_releve_detaille: 30000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 2532500
-    it_a_payer: 2532500
-    montant_cstns_du: 1175000
-    cstns_a_payer: 1175000
-- name: 20. 18 - Location non meublée - sans annexe - sans releve
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: N
-      annexes_IT_fournies: N
-      chiffre_affaire_location_non_meublee: 5500000
-      total_charges_releve_detaille: 3000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 82500
-    it_a_payer: 82500
-    montant_cstns_du: 46250
-    cstns_a_payer: 46250
-- name: 21. 18 - Location non meublée - avec annexe - avec releve - sup seuil annexe - pers phys - ch > 50%
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_non_meublee: 6500000
-      total_charges_releve_detaille: 4000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 61250
-    it_a_payer: 61250
-    montant_cstns_du: 31875
-    cstns_a_payer: 31875
-- name: 22. 18 - Location non meublée - sans annexe - avec releve - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: N
-      chiffre_affaire_location_non_meublee: 16000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 552500
-    it_a_payer: 552500
-    montant_cstns_du: 260000
-    cstns_a_payer: 260000
-- name: 23. 18 - Location non meublée - sans annexe - avec releve - pers phys - ch > 50%
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: N
-      chiffre_affaire_location_non_meublee: 16000000
-      total_charges_releve_detaille: 10000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 276250
-    it_a_payer: 276250
-    montant_cstns_du: 130000
-    cstns_a_payer: 130000
-- name: 24. 18 - Location non meublée - sans annexe - avec releve
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: N
-      chiffre_affaire_location_non_meublee: 16000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 552500
-    it_a_payer: 552500
-    montant_cstns_du: 260000
-    cstns_a_payer: 260000
-# - name: 18 - Location non meublée - sans annexe - sans releve - sup seuil annexe
+# - name: 17. 18 - Location non meublée - sans annexe - sans releve - pers phys
 #   period: 2020
 #   input:
 #     personne:
-#       type_personne: M
+#       type_personne: P
 #       releve_de_charges_fourni: N
 #       annexes_IT_fournies: N
-#       chiffre_affaire_location_non_meublee: 6500000
-#       charges_location_non_meublee: 4000000
+#       chiffre_affaire_location_non_meublee: 50000000
+#       total_charges_releve_detaille: 0
 #     persons:
 #       Alicia: {}
 #   output:
-#     montant_it_du: 122500
-#     it_a_payer: 122500
-# - name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe
+#     montant_it_du: 2532500
+#     it_a_payer: 2532500
+#     montant_cstns_du: 1175000
+#     cstns_a_payer: 1175000
+# - name: 18. 18 - Location non meublée - avec annexe - avec releve - pers phys
 #   period: 2020
 #   input:
 #     personne:
-#       type_personne: M
+#       type_personne: P
 #       releve_de_charges_fourni: O
-#       annexes_IT_fournies: N
-#       chiffre_affaire_location_non_meublee: 6500000
-#       charges_location_non_meublee: 4000000
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_non_meublee: 50000000
+#       total_charges_releve_detaille: 30000000
 #     persons:
 #       Alicia: {}
 #   output:
-#     montant_it_du: 122500
-#     it_a_payer: 122500
-# - name: 18 - Location non meublée - avec annexe - sans releve - sup seuil annexe
+#     montant_it_du: 1266250
+#     it_a_payer: 1266250
+#     montant_cstns_du: 587500
+#     cstns_a_payer: 587500
+# - name: 19. 18 - Location non meublée - sans annexe - sans releve
 #   period: 2020
 #   input:
 #     personne:
 #       type_personne: M
 #       releve_de_charges_fourni: N
+#       annexes_IT_fournies: N
+#       chiffre_affaire_location_non_meublee: 50000000
+#       total_charges_releve_detaille: 30000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 2532500
+#     it_a_payer: 2532500
+#     montant_cstns_du: 1175000
+#     cstns_a_payer: 1175000
+# - name: 20. 18 - Location non meublée - sans annexe - sans releve
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: N
+#       annexes_IT_fournies: N
+#       chiffre_affaire_location_non_meublee: 5500000
+#       total_charges_releve_detaille: 3000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 82500
+#     it_a_payer: 82500
+#     montant_cstns_du: 46250
+#     cstns_a_payer: 46250
+# - name: 21. 18 - Location non meublée - avec annexe - avec releve - sup seuil annexe - pers phys - ch > 50%
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
 #       annexes_IT_fournies: O
 #       chiffre_affaire_location_non_meublee: 6500000
-#       charges_location_non_meublee: 4000000
+#       total_charges_releve_detaille: 4000000
 #     persons:
 #       Alicia: {}
 #   output:
-#     montant_it_du: 122500
-#     it_a_payer: 122500
-# - name: 18 - Location non meublée - sans annexe - avec releve - sup seuil annexe - pers phys
+#     montant_it_du: 61250
+#     it_a_payer: 61250
+#     montant_cstns_du: 31875
+#     cstns_a_payer: 31875
+# - name: 22. 18 - Location non meublée - sans annexe - avec releve - pers phys
 #   period: 2020
 #   input:
 #     personne:
 #       type_personne: P
 #       releve_de_charges_fourni: O
 #       annexes_IT_fournies: N
-#       chiffre_affaire_location_non_meublee: 6500000
-#       charges_location_non_meublee: 4000000
+#       chiffre_affaire_location_non_meublee: 16000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 552500
+#     it_a_payer: 552500
+#     montant_cstns_du: 260000
+#     cstns_a_payer: 260000
+# - name: 23. 18 - Location non meublée - sans annexe - avec releve - pers phys - ch > 50%
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: N
+#       chiffre_affaire_location_non_meublee: 16000000
+#       total_charges_releve_detaille: 10000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 276250
+#     it_a_payer: 276250
+#     montant_cstns_du: 130000
+#     cstns_a_payer: 130000
+# - name: 24. 18 - Location non meublée - sans annexe - avec releve
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: N
+#       chiffre_affaire_location_non_meublee: 16000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 552500
+#     it_a_payer: 552500
+#     montant_cstns_du: 260000
+#     cstns_a_payer: 260000
+# - name: 25. 19 - Location meublée - sans annexe - sans releve - est pers phys
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: N
+#       annexes_IT_fournies: N
+#       chiffre_affaire_location_meublee: 100000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 3478750
+#     it_a_payer: 3478750
+#     montant_cstns_du: 1525000
+#     cstns_a_payer: 1525000
+# - name: 26. 19 - Location meublée - avec annexe - avec releve - pas de charges
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_meublee: 7000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 71250
+#     it_a_payer: 71250
+#     montant_cstns_du: 36250
+#     cstns_a_payer: 36250
+# - name: 27. 19 - Location meublée - sans annexe - sans releve - pas de charges - pers phys - sup seuil
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: N
+#       annexes_IT_fournies: N
+#       chiffre_affaire_location_meublee: 16000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 276250
+#     it_a_payer: 276250
+#     montant_cstns_du: 130000
+#     cstns_a_payer: 130000
+# - name: 28. 19 - Location meublée - avec annexe - avec releve - pas de charges -sup seuil
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_meublee: 16000000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 552500
+#     it_a_payer: 552500
+#     montant_cstns_du: 260000
+#     cstns_a_payer: 260000
+# - name: 29. 19 - Location meublée - avec annexe - avec releve - charges > 50%
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_meublee: 7000000
+#       total_charges_releve_detaille: 4000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 71250
+#     it_a_payer: 71250
+#     montant_cstns_du: 36250
+#     cstns_a_payer: 36250
+# - name: 30. 99 - Location terrain nu - avec annexe - avec releve - pers phys
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_terrains_nus: 6500000
+#       total_charges_releve_detaille: 0
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 122500
+#     it_a_payer: 122500
+#     montant_cstns_du: 63750
+#     cstns_a_payer: 63750
+# - name: 31. 99 - Location terrain nu - avec annexe - avec releve - pers phys - charges > 50%
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: P
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: O
+#       chiffre_affaire_location_terrains_nus: 6500000
+#       total_charges_releve_detaille: 4000000
 #     persons:
 #       Alicia: {}
 #   output:
 #     montant_it_du: 61250
 #     it_a_payer: 61250
-- name: 25. 19 - Location meublée - sans annexe - sans releve - est pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: N
-      annexes_IT_fournies: N
-      chiffre_affaire_location_meublee: 100000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 3478750
-    it_a_payer: 3478750
-    montant_cstns_du: 1525000
-    cstns_a_payer: 1525000
-- name: 26. 19 - Location meublée - avec annexe - avec releve - pas de charges
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_meublee: 7000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 71250
-    it_a_payer: 71250
-    montant_cstns_du: 36250
-    cstns_a_payer: 36250
-- name: 27. 19 - Location meublée - sans annexe - sans releve - pas de charges - pers phys - sup seuil
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: N
-      annexes_IT_fournies: N
-      chiffre_affaire_location_meublee: 16000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 276250
-    it_a_payer: 276250
-    montant_cstns_du: 130000
-    cstns_a_payer: 130000
-- name: 28. 19 - Location meublée - avec annexe - avec releve - pas de charges -sup seuil
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_meublee: 16000000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 552500
-    it_a_payer: 552500
-    montant_cstns_du: 260000
-    cstns_a_payer: 260000
-- name: 29. 19 - Location meublée - avec annexe - avec releve - charges > 50%
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_meublee: 7000000
-      total_charges_releve_detaille: 4000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 71250
-    it_a_payer: 71250
-    montant_cstns_du: 36250
-    cstns_a_payer: 36250
-- name: 30. 99 - Location terrain nu - avec annexe - avec releve - pers phys
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_terrains_nus: 6500000
-      total_charges_releve_detaille: 0
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 122500
-    it_a_payer: 122500
-    montant_cstns_du: 63750
-    cstns_a_payer: 63750
-- name: 31. 99 - Location terrain nu - avec annexe - avec releve - pers phys - charges > 50%
-  period: 2020
-  input:
-    personne:
-      type_personne: P
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: O
-      chiffre_affaire_location_terrains_nus: 6500000
-      total_charges_releve_detaille: 4000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 61250
-    it_a_payer: 61250
-    montant_cstns_du: 31875
-    cstns_a_payer: 31875
-- name: 32. 99 - Location terrain nu - sans annexe - avec releve - charges > 50%
-  period: 2020
-  input:
-    personne:
-      type_personne: M
-      releve_de_charges_fourni: O
-      annexes_IT_fournies: N
-      chiffre_affaire_location_terrains_nus: 6500000
-      total_charges_releve_detaille: 4000000
-    persons:
-      Alicia: {}
-  output:
-    montant_it_du: 122500
-    it_a_payer: 122500
-    montant_cstns_du: 63750
-    cstns_a_payer: 63750
+#     montant_cstns_du: 31875
+#     cstns_a_payer: 31875
+# - name: 32. 99 - Location terrain nu - sans annexe - avec releve - charges > 50%
+#   period: 2020
+#   input:
+#     personne:
+#       type_personne: M
+#       releve_de_charges_fourni: O
+#       annexes_IT_fournies: N
+#       chiffre_affaire_location_terrains_nus: 6500000
+#       total_charges_releve_detaille: 4000000
+#     persons:
+#       Alicia: {}
+#   output:
+#     montant_it_du: 122500
+#     it_a_payer: 122500
+#     montant_cstns_du: 63750
+#     cstns_a_payer: 63750
 - name: 33. 91 - Prestations sans réduction - avec annexe - avec releve
   period: 2020
   input:
