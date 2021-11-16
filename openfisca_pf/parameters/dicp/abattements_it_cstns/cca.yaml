@@ -2,6 +2,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.7
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -30,6 +33,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.5
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -58,6 +64,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.95
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -86,6 +95,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.5
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -114,6 +126,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.4
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -142,6 +157,9 @@
   coeff_assiette:
     values:
       2020-01-01: 1
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -170,6 +188,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.9
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -198,6 +219,9 @@
   coeff_assiette:
     values:
       2020-01-01: 1
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -226,6 +250,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.2
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -254,6 +281,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -282,6 +312,9 @@
   coeff_assiette:
     values:
       2020-01-01: 1
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -310,6 +343,9 @@
   coeff_assiette:
     values:
       2020-01-01: 1
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -338,6 +374,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.5
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: true
@@ -366,6 +405,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.5
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -394,6 +436,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -421,7 +466,10 @@
 "18":
   coeff_assiette:
     values:
-      2020-01-01: 0
+      2020-01-01: 1
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: true
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -449,7 +497,10 @@
 "19":
   coeff_assiette:
     values:
-      2020-01-01: 0
+      2020-01-01: 1
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: true
   abattement_de_droit:
     values:
       2020-01-01: true
@@ -478,6 +529,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.7
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -506,6 +560,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: true
@@ -534,6 +591,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.5
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -562,6 +622,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: true
@@ -590,6 +653,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: true
@@ -618,6 +684,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -646,6 +715,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -674,6 +746,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: true
@@ -702,6 +777,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -730,6 +808,9 @@
   coeff_assiette:
     values:
       2020-01-01: 1
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -758,6 +839,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0.7
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -786,6 +870,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -814,6 +901,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: true
@@ -842,6 +932,9 @@
   coeff_assiette:
     values:
       2020-01-01: 0
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: false
   abattement_de_droit:
     values:
       2020-01-01: false
@@ -869,7 +962,10 @@
 "99":
   coeff_assiette:
     values:
-      2020-01-01: 0
+      2020-01-01: 1
+  coeff_assiette_personne_physique_uniquement:
+    values:
+      2020-01-01: true
   abattement_de_droit:
     values:
       2020-01-01: false

@@ -22,9 +22,12 @@ class base_imposable_it_prestations(Variable):
     # The formula to compute the income tax for a given person at a given period
     def formula(personne, period, parameters):
         value = 0
+        est_personne_physique = personne('type_personne', period) == TypePersonne.P
+
         for nom in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
             cca = str(parameters(period).dicp.abattements_it_cstns.activites_prestations[nom].cca)
-            coeff_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette
+            coeff_assiette_personne_physique_uniquement = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette_personne_physique_uniquement
+            coeff_assiette = where(est_personne_physique +not_(coeff_assiette_personne_physique_uniquement), parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette, 0)
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
             ca = numpy.floor(personne('chiffre_affaire_' + nom, period) / 1000) * 1000
             # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
@@ -49,7 +52,8 @@ class base_imposable_it_prestations_sans_abattement_droits(Variable):
         for nom in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
             cca = str(parameters(period).dicp.abattements_it_cstns.activites_prestations[nom].cca)
             ca = numpy.floor(personne('chiffre_affaire_' + nom, period) / 1000) * 1000
-            coeff_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette
+            coeff_assiette_personne_physique_uniquement = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette_personne_physique_uniquement
+            coeff_assiette = where(est_personne_physique +not_(coeff_assiette_personne_physique_uniquement), parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette, 0)
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
             ca_apres_abattement_assiette = where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette))
             abattement_droits = parameters(period).dicp.abattements_it_cstns.cca[cca].abattement_de_droit
