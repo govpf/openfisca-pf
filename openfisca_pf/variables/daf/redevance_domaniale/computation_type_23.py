@@ -60,3 +60,16 @@ class montant_total_redevance_domaniale_type_23(Variable):
         montant_total = arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
 
         return where(type_calcul == '23', montant_total, 0)
+
+
+class temporalite_redevance_domaniale_type_23(Variable):
+    value_type = str
+    entity = Personne
+    definition_period = DAY
+    label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale dûe avec un calcul de type classique"
+    reference = "Arrêté NOR DAF2120267AC-3"
+
+    def formula(personne, period, parameters):
+        # Temporality is not applicable for this computation based on the duration of the occupation
+
+        return 'Not Applicable'

@@ -58,3 +58,16 @@ class montant_total_redevance_domaniale_type_7(Variable):
         # Then the two computation are set equal
 
         return personne('montant_base_redevance_domaniale_type_7', period)
+
+
+class temporalite_redevance_domaniale_type_7(Variable):
+    value_type = str
+    entity = Personne
+    definition_period = DAY
+    label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale dûe avec un calcul de type classique"
+    reference = "Arrêté NOR DAF2120267AC-3"
+
+    def formula(personne, period, parameters):
+        # Temporality is not applicable for this computation based on the duration of the occupation
+
+        return 'Not Applicable'

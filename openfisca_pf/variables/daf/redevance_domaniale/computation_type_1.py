@@ -79,3 +79,36 @@ class montant_total_redevance_domaniale_type_1(Variable):
         montant_total = arrondiSup(montant_intermediaire * (1 - 0.8 * activite_cultuelle))
 
         return where(type_calcul == '1', montant_total, 0)
+
+
+class temporalite_redevance_domaniale_type_1(Variable):
+    value_type = str
+    entity = Personne
+    definition_period = DAY
+    label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale"
+    reference = "Arrêté NOR DAF2120267AC-3"
+
+    def formula(personne, period, parameters):
+        # Variables
+        type_calcul = personne('type_calcul_redevance_domaniale', period)
+        # multiple occupation can be asked with different type of computation.
+        # In order to avoid misinterpretation for array input, only the element with the good type is computed
+        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'equipement_du_pays')
+        # Parameters
+        base_calcul_jour = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
+
+        # Transformation
+        temporalite = select([
+            base_calcul_jour == 1,
+            base_calcul_jour == 7,
+            base_calcul_jour == 30,
+            base_calcul_jour == 360
+            ], [
+                'Journalier',
+                'Hebdomadaire',
+                'Mensuel',
+                'Annuel'
+                ])
+
+        return where(type_calcul == '1', temporalite, 'Not Applicable')

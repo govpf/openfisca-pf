@@ -100,7 +100,7 @@ class montant_base_redevance_domaniale(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant de la redevance domaniale dûe"
+    label = "Montant de de base la redevance domaniale dûe"
 
     def formula(personne, period, parameters):
         type_calcul = personne('type_calcul_redevance_domaniale', period)
@@ -116,6 +116,17 @@ class montant_total_redevance_domaniale(Variable):
     def formula(personne, period, parameters):
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         return getVariableFromStringAndScalar(personne, period, 'montant_total_redevance_domaniale_type_', type_calcul)
+
+
+class temporalite_redevance_domaniale(Variable):
+    value_type = str
+    entity = Personne
+    definition_period = DAY
+    label = "Temporalite du tarif"
+
+    def formula(personne, period, parameters):
+        type_calcul = personne('type_calcul_redevance_domaniale', period)
+        return getVariableFromStringAndScalar(personne, period, 'temporalite_redevance_domaniale_type_', type_calcul)
 
 
 class montant_base_redevance_domaniale_dossier(Variable):

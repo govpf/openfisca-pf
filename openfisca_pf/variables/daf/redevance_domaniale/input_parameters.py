@@ -79,7 +79,7 @@ class activite_cultuelle(Variable):
 class commune_domaine_prive(Variable):
     value_type = int
     entity = Personne
-    default_value = 0
+    default_value = 350
     definition_period = DAY
     label = "Area code for cities in French Polynesia"
 
@@ -87,7 +87,7 @@ class commune_domaine_prive(Variable):
 class zone_domaine_prive(Variable):
     value_type = Enum
     possible_values = ZoneDomPrive
-    default_value = ZoneDomPrive.zone_de_base
+    default_value = ZoneDomPrive.sainte_amelie_quartier_des_institutions
     entity = Personne
     definition_period = DAY
     label = "Selected zone for pricing on private domain "
