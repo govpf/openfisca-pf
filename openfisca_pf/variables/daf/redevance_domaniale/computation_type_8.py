@@ -23,7 +23,7 @@ class montant_base_redevance_domaniale_type_8(Variable):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '8', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_zone_archi')
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '8', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ag_priv_01_maraichage')
 
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
@@ -57,7 +57,7 @@ class montant_total_redevance_domaniale_type_8(Variable):
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '8', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_zone_archi')
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '8', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ag_priv_01_maraichage')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
         montant_base = personne('montant_base_redevance_domaniale_type_8', period)
@@ -89,7 +89,7 @@ class temporalite_redevance_domaniale_type_8(Variable):
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '8', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_zone_archi')
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '8', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ag_priv_01_maraichage')
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         # Parameters
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_8[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].base_calcul_jour

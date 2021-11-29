@@ -39,7 +39,7 @@ class montant_total_redevance_domaniale_type_3(Variable):
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '3', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_fonction_palier')
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '3', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_06_infra_restauration_aero')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
         activite_cultuelle = personne('activite_cultuelle', period)

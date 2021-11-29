@@ -54,7 +54,7 @@ class zone_occupation_redevance_domaniale(Variable):
 class nature_emprise_occupation_redevance_domaniale(Variable):
     value_type = Enum
     possible_values = TypesNatureEmprise
-    default_value = TypesNatureEmprise.equipement_du_pays
+    default_value = TypesNatureEmprise.ip_eco_01_equipement_pays
     entity = Personne
     definition_period = DAY
     label = "Type de nature d'emprise"

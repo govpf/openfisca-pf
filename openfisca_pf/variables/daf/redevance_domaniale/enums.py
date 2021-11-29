@@ -137,18 +137,6 @@ class TypesNatureEmprise(Enum):
     priv_08_cultuel = u'Projet à caractère cultuel'
     priv_09_autres = u'Autre occupation'
 
-    # Enum testing and default data for computation
-    # Test de type_1 (calcul de type part_fixe + part_unitaire * nombre_element + part_surfacique * surface)
-    bati_cas_general = u'Blabla'
-    emprise_activite_lucrative = u'blabla1'
-    equipement_du_pays = u'blabla2'
-    installation_technique = u'blabla3'
-
-    # Test de type_2 (les paramètres du type_1 dépendent de la zone géographique)
-    vente_etale = u'blabla4'
-    activite_lucrative_manif_sport = u'blabla25'
-    extraction_essai = u'blabla26'
-
     # Test de type_3 (calculs selon des paliers sur un tarif journalier dégressif avec la durée d'occupation)
     activite_lucrative_inf_3mois = u'blabla27'
     activite_alimentaire_lucrative_inf_3mois = u'blabla28'
@@ -160,19 +148,3 @@ class TypesNatureEmprise(Enum):
     espace_pelouse_sans_elec = u'blabla35'
     bati_tout_public_ac_elec = u'blabla36'
     bati_tout_public_sans_elec = u'blabla37'
-
-    # Emprise de test
-    test_fonction_palier = u'test fonction palier'
-    test_fonction_palier_zone = u'test fonction palier zone'
-
-    # Test de type_5
-    test_fonction_palier_surface = u'Test palier surface'
-
-    # Tarif de type_6
-    test_ancrage = u'Test ancrage'
-
-    # Tarif de type_7
-    test_extraction = u'Test Extraction'
-
-    # Tarif de type_8
-    test_zone_archi = u'Test Calcul Archipel'

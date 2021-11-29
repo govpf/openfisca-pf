@@ -10,6 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums_loc import Commune
 
 
 class duree_occupation_redevance_domaniale_annee(Variable):
@@ -85,15 +86,34 @@ class type_calcul_redevance_domaniale(Variable):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
         condition = unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures
+        tarif_spjp = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale] == 3
 
         # Selection selon un tarif horaire ou journalier
         # Pour pouvoir continuer à ajouter des type de calcul, on considère que pour un type de calcul, son équivalent horaire est à +20
-        type_calcul_inter = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale] + 20 * condition
+        type_calcul_inter = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale] + 20 * condition * tarif_spjp
 
         # Transformation en entier et en string
         type_calcul = type_calcul_inter.astype(int).astype(str)
 
         return type_calcul
+
+
+class commune_occupee(Variable):
+    value_type = str
+    entity = Personne
+    definition_period = DAY
+    label = "Commune de la demande"
+
+    def formula(personne, period, parameters):
+        code_commune = personne('commune_domaine_prive', period)
+        com = []
+        index = 0
+        for item in code_commune:
+            value = Commune['com'+item.astype(str)].value
+            index = index + 1
+            com.append(value)
+
+        return com
 
 
 class montant_base_redevance_domaniale(Variable):

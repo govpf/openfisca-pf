@@ -14,7 +14,7 @@ from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 class nature_emprise_occupation_redevance_domaniale_echeancier(Variable):
     value_type = Enum
     possible_values = TypesNatureEmprise
-    default_value = TypesNatureEmprise.equipement_du_pays
+    default_value = TypesNatureEmprise.ip_eco_01_equipement_pays
     entity = Personne
     definition_period = ETERNITY
     # set_input = set_input_dispatch_by_period

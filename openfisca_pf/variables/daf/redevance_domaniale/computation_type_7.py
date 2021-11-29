@@ -25,7 +25,7 @@ class montant_base_redevance_domaniale_type_7(Variable):
         # multiple occupation can be asked with different type of computation.
         # In order to avoid misinterpretation for array input, only the element with the good type is computed
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '7', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'test_extraction')
+        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '7', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ex_eco_01_dpf_hors_entite_publique')
 
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
