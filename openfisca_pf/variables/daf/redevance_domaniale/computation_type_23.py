@@ -11,7 +11,7 @@ from openfisca_pf.variables.daf.redevance_domaniale.enums import *
 from openfisca_pf.base import *
 
 
-class montant_base_redevance_domaniale_type_6(Variable):
+class montant_base_redevance_domaniale_type_23(Variable):
     value_type = str
     entity = Personne
     definition_period = DAY
@@ -22,7 +22,7 @@ class montant_base_redevance_domaniale_type_6(Variable):
         # There is no difference between montant_base and montant_total.
         # Then the too computation are set equal
 
-        return personne('montant_total_redevance_domaniale_type_6', period)
+        return personne('montant_total_redevance_domaniale_type_23', period)
 
 
 class montant_total_redevance_domaniale_type_23(Variable):
