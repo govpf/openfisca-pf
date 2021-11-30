@@ -258,10 +258,10 @@ ag_priv_03_coprah:
     2018-01-01: 8
 ag_priv_04_agroforesterie:
   values:
-    2018-01-01: 2
+    2018-01-01: 8
 ag_priv_05_agrotransformation:
   values:
-    2018-01-01: 2
+    2018-01-01: 8
 
 # Type 9
 priv_01_touristique:
