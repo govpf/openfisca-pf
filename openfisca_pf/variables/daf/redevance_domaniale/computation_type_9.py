@@ -24,7 +24,7 @@ class montant_base_redevance_domaniale_type_9(Variable):
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '9', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'priv_09_autres')
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
-        code_commune = personne('commune_domaine_prive', period)
+        code_commune = personne('commune_redevance_domaniale', period)
         zone_domaine_prive = personne('zone_domaine_prive', period)
 
         # Parameters

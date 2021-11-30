@@ -76,7 +76,7 @@ class activite_cultuelle(Variable):
     label = "Parameter defining if the request is for religious activities"
 
 
-class commune_domaine_prive(Variable):
+class commune_redevance_domaniale(Variable):
     value_type = int
     entity = Personne
     default_value = 350

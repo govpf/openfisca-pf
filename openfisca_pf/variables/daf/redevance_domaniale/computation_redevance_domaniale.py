@@ -105,7 +105,7 @@ class commune_occupee(Variable):
     label = "Commune de la demande"
 
     def formula(personne, period, parameters):
-        code_commune = personne('commune_domaine_prive', period)
+        code_commune = personne('commune_redevance_domaniale', period)
         com = []
         index = 0
         for item in code_commune:
