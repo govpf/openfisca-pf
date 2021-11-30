@@ -109,7 +109,7 @@ class commune_occupee(Variable):
         com = []
         index = 0
         for item in code_commune:
-            value = Commune['com'+item.astype(str)].value
+            value = Commune['com' + item.astype(str)].value
             index = index + 1
             com.append(value)
 
