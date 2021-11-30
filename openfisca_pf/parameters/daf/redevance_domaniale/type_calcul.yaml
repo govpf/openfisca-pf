@@ -19,7 +19,7 @@ ip_eco_11_support_embarcation_legere:
 co_eco_01_bati:
   values:
     2018-01-01: 1
-co_eco_04_ouvrage_rehabilitation:
+co_eco_03_ouvrage_rehabilitation:
   values:
     2018-01-01: 1
 co_eco_04_bati_perli:
@@ -218,6 +218,9 @@ im_eco_03_foire_commerciale:
   values:
     2018-01-01: 4
 im_eco_04_activite_ludique:
+  values:
+    2018-01-01: 4
+im_eco_14_foire_locaux_agricoles:
   values:
     2018-01-01: 4
 

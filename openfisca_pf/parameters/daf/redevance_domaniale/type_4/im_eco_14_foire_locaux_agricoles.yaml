@@ -1,0 +1,89 @@
+description: Foire aux produits locaux agricoles
+zone_1:
+  init:
+    values:
+      2018-01-01: 5000
+  threshold_1:
+    values:
+      2018-01-01: 1
+  rate_1:
+    values:
+      2018-01-01: 3300
+  threshold_2:
+    values:
+      2018-01-01: 7
+  rate_2:
+    values:
+      2018-01-01: 3200
+  threshold_3:
+    values:
+      2018-01-01: 30
+  rate_3:
+    values:
+      2018-01-01: 3200
+zone_2:
+  init:
+    values:
+      2018-01-01: 5000
+  threshold_1:
+    values:
+      2018-01-01: 1
+  rate_1:
+    values:
+      2018-01-01: 3300
+  threshold_2:
+    values:
+      2018-01-01: 7
+  rate_2:
+    values:
+      2018-01-01: 3200
+  threshold_3:
+    values:
+      2018-01-01: 30
+  rate_3:
+    values:
+      2018-01-01: 3200
+zone_3:
+  init:
+    values:
+      2018-01-01: 5000
+  threshold_1:
+    values:
+      2018-01-01: 1
+  rate_1:
+    values:
+      2018-01-01: 3300
+  threshold_2:
+    values:
+      2018-01-01: 7
+  rate_2:
+    values:
+      2018-01-01: 3200
+  threshold_3:
+    values:
+      2018-01-01: 30
+  rate_3:
+    values:
+      2018-01-01: 3200
+zone_4:
+  init:
+    values:
+      2018-01-01: 5000
+  threshold_1:
+    values:
+      2018-01-01: 1
+  rate_1:
+    values:
+      2018-01-01: 3300
+  threshold_2:
+    values:
+      2018-01-01: 7
+  rate_2:
+    values:
+      2018-01-01: 3200
+  threshold_3:
+    values:
+      2018-01-01: 30
+  rate_3:
+    values:
+      2018-01-01: 3200
