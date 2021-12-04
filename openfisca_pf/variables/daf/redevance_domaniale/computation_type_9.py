@@ -8,6 +8,7 @@ from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums_loc import *
 from openfisca_pf.base import *
 
 
@@ -30,11 +31,12 @@ class montant_base_redevance_domaniale_type_9(Variable):
         # Parameters
         montant_minimum = parameters(period).daf.redevance_domaniale.type_9[nature_emprise_occupation_redevance_domaniale].montant_minimum
         part_variable = parameters(period).daf.redevance_domaniale.type_9[nature_emprise_occupation_redevance_domaniale].part_variable
+        # valeur_venale = parameters(period).daf.redevance_domaniale.commune_prive[code_commune][zone_domaine_prive].valeur_venale
 
         tempValue = []
         index = 0
-        for item in code_commune:
-            value = parameters(period).daf.redevance_domaniale.commune_prive['com' + item.astype(str)][zone_domaine_prive].valeur_venale[index]
+        for item in code_commune.decode():
+            value = parameters(period).daf.redevance_domaniale.commune_prive[item.name][zone_domaine_prive].valeur_venale[index]
             index = index + 1
             tempValue.append(value)
         valeur_venale = numpy.array(tempValue)

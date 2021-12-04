@@ -77,9 +77,10 @@ class activite_cultuelle(Variable):
 
 
 class commune_redevance_domaniale(Variable):
-    value_type = int
+    value_type = Enum
     entity = Personne
-    default_value = 350
+    possible_values = Commune
+    default_value = Commune.com350
     definition_period = DAY
     label = "Area code for cities in French Polynesia"
 

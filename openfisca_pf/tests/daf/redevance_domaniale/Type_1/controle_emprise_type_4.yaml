@@ -1,0 +1,76 @@
+- name: Test 1 - im_eco_02_foire_produit_locaux
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_02_foire_produit_locaux
+      duree_occupation_redevance_domaniale: 7
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 399600
+    montant_base_redevance_domaniale: 399600
+    type_calcul_redevance_domaniale: 4
+    # temporalite_redevance_domaniale: Not Applicable
+- name: Test 2 - im_eco_03_foire_commerciale
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_03_foire_commerciale
+      duree_occupation_redevance_domaniale: 7
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 799800
+    montant_base_redevance_domaniale: 799800
+    type_calcul_redevance_domaniale: 4
+    # temporalite_redevance_domaniale: Not Applicable
+- name: Test 3 - im_eco_04_activite_ludique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_04_activite_ludique
+      duree_occupation_redevance_domaniale: 7
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 249800
+    montant_base_redevance_domaniale: 249800
+    type_calcul_redevance_domaniale: 4
+    # temporalite_redevance_domaniale: Not Applicable
+- name: Test 4 - im_eco_14_foire_locaux_agricoles
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_14_foire_locaux_agricoles
+      duree_occupation_redevance_domaniale: 7
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 24800
+    montant_base_redevance_domaniale: 24800
+    type_calcul_redevance_domaniale: 4
+    # temporalite_redevance_domaniale: Not Applicable

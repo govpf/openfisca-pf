@@ -16,7 +16,6 @@
     montant_total_redevance_domaniale: 4500
     montant_base_redevance_domaniale: 4500
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: Commune.com350.value
     # temporalite_redevance_domaniale: Annuel
 - name: Test 2 - ip_eco_08_centre_artisanaux_aero
   period: 2018-01-01
@@ -36,7 +35,6 @@
     montant_total_redevance_domaniale: 12000
     montant_base_redevance_domaniale: 12000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 3 - ip_eco_09_infra_restauration_tourisme
   period: 2018-01-01
@@ -56,7 +54,6 @@
     montant_total_redevance_domaniale: 150000
     montant_base_redevance_domaniale: 150000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 4 - ip_eco_10_boutique_vente_tourisme
   period: 2018-01-01
@@ -76,7 +73,6 @@
     montant_total_redevance_domaniale: 1200000
     montant_base_redevance_domaniale: 1200000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 5 - ip_eco_11_support_embarcation_legere
   period: 2018-01-01
@@ -96,7 +92,6 @@
     montant_total_redevance_domaniale: 100000
     montant_base_redevance_domaniale: 100000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 6 - co_eco_01_bati
   period: 2018-01-01
@@ -116,7 +111,6 @@
     montant_total_redevance_domaniale: 4500
     montant_base_redevance_domaniale: 4500
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 7 - co_eco_03_ouvrage_rehabilitation
   period: 2018-01-01
@@ -136,7 +130,6 @@
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 8 - co_eco_04_bati_perli
   period: 2018-01-01
@@ -156,7 +149,6 @@
     montant_total_redevance_domaniale: 20000
     montant_base_redevance_domaniale: 20000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 9 - em_eco_05_emprise_maririme_general
   period: 2018-01-01
@@ -176,7 +168,7 @@
     montant_total_redevance_domaniale: 4500
     montant_base_redevance_domaniale: 4500
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
+
     # temporalite_redevance_domaniale: Annuel
 - name: Test 10 - em_eco_06_emprise_maritime_lucratif
   period: 2018-01-01
@@ -196,7 +188,6 @@
     montant_total_redevance_domaniale: 120000
     montant_base_redevance_domaniale: 120000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 11 - em_eco_08_emprise_eco_tourisme
   period: 2018-01-01
@@ -216,7 +207,6 @@
     montant_total_redevance_domaniale: 12000
     montant_base_redevance_domaniale: 12000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 12 - em_eco_09_activite_agricole_aero
   period: 2018-01-01
@@ -236,7 +226,6 @@
     montant_total_redevance_domaniale: 20000
     montant_base_redevance_domaniale: 20000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 13 - im_eco_06_activite_resto_mobile_aero
   period: 2018-01-01
@@ -256,7 +245,6 @@
     montant_total_redevance_domaniale: 120000
     montant_base_redevance_domaniale: 120000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 14 - im_eco_08_autres_lucrative
   period: 2018-01-01
@@ -276,7 +264,6 @@
     montant_total_redevance_domaniale: 12000
     montant_base_redevance_domaniale: 12000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 15 - im_eco_10_activite_non_lucrative_inf_trim
   period: 2018-01-01
@@ -296,7 +283,6 @@
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 16 - if_eco_03_operu_hors_passe
   period: 2018-01-01
@@ -316,7 +302,6 @@
     montant_total_redevance_domaniale: 5000
     montant_base_redevance_domaniale: 5000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 17 - if_eco_04_operu_passe
   period: 2018-01-01
@@ -336,7 +321,6 @@
     montant_total_redevance_domaniale: 20000
     montant_base_redevance_domaniale: 20000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 18 - if_eco_05_aquaculture_lagon
   period: 2018-01-01
@@ -356,7 +340,6 @@
     montant_total_redevance_domaniale: 2000
     montant_base_redevance_domaniale: 2000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 19 - if_eco_06_aquaculture_canalisation
   period: 2018-01-01
@@ -376,7 +359,7 @@
     montant_total_redevance_domaniale: 15000
     montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
+
     # temporalite_redevance_domaniale: Annuel
 - name: Test 20 - if_eco_07_aquaculture_mer
   period: 2018-01-01
@@ -396,7 +379,6 @@
     montant_total_redevance_domaniale: 100
     montant_base_redevance_domaniale: 100
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 21 - if_eco_08_perliculture_collectage
   period: 2018-01-01
@@ -416,7 +398,6 @@
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 22 - if_eco_09_perliculture_elevage
   period: 2018-01-01
@@ -436,7 +417,6 @@
     montant_total_redevance_domaniale: 150
     montant_base_redevance_domaniale: 150
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 23 - if_eco_10_canalisation_publique
   period: 2018-01-01
@@ -456,7 +436,6 @@
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 24 - if_eco_11_canalisation_secteur_prim
   period: 2018-01-01
@@ -476,7 +455,6 @@
     montant_total_redevance_domaniale: 1000
     montant_base_redevance_domaniale: 1000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 25 - if_eco_12_canalisation_secteur_sec
   period: 2018-01-01
@@ -496,7 +474,6 @@
     montant_total_redevance_domaniale: 25000
     montant_base_redevance_domaniale: 25000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 26 - if_eco_13_installation_technique
   period: 2018-01-01
@@ -516,7 +493,6 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Mensuel
 - name: Test 27 - if_eco_14_support_publicitaire
   period: 2018-01-01
@@ -536,7 +512,6 @@
     montant_total_redevance_domaniale: 1000
     montant_base_redevance_domaniale: 1000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Mensuel
 - name: Test 28 - if_eco_16_captage_eau_sousterraine
   period: 2018-01-01
@@ -556,7 +531,6 @@
     montant_total_redevance_domaniale: 1500
     montant_base_redevance_domaniale: 1500
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 29 - ip_pr_05_support_embarcation_legere
   period: 2018-01-01
@@ -576,7 +550,6 @@
     montant_total_redevance_domaniale: 100000
     montant_base_redevance_domaniale: 100000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 30 - co_pr_01_bati
   period: 2018-01-01
@@ -596,7 +569,6 @@
     montant_total_redevance_domaniale: 4500
     montant_base_redevance_domaniale: 4500
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 31 - co_pr_03_ouvrage_rehabilitation
   period: 2018-01-01
@@ -616,7 +588,6 @@
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 32 - co_pr_04_habitation_zone_aero
   period: 2018-01-01
@@ -636,7 +607,6 @@
     montant_total_redevance_domaniale: 50000
     montant_base_redevance_domaniale: 50000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 33 - em_pr_05_emprise_maririme_general
   period: 2018-01-01
@@ -656,7 +626,6 @@
     montant_total_redevance_domaniale: 4500
     montant_base_redevance_domaniale: 4500
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 34 - em_pr_07_emprise_maritime_non_lucratif
   period: 2018-01-01
@@ -676,7 +645,6 @@
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 35 - if_pr_03_support_publicitaire
   period: 2018-01-01
@@ -696,7 +664,6 @@
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 36 - if_pr_02_ancrage_sans_droit
   period: 2018-01-01
@@ -716,5 +683,4 @@
     montant_total_redevance_domaniale: 12000
     montant_base_redevance_domaniale: 12000
     type_calcul_redevance_domaniale: 1
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Journalier

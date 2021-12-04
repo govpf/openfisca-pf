@@ -98,22 +98,22 @@ class type_calcul_redevance_domaniale(Variable):
         return type_calcul
 
 
-class commune_occupee(Variable):
-    value_type = str
-    entity = Personne
-    definition_period = DAY
-    label = "Commune de la demande"
+# class commune_occupee(Variable):
+#     value_type = str
+#     entity = Personne
+#     definition_period = DAY
+#     label = "Commune de la demande"
 
-    def formula(personne, period, parameters):
-        code_commune = personne('commune_redevance_domaniale', period)
-        com = []
-        index = 0
-        for item in code_commune:
-            value = Commune['com' + item.astype(str)].value
-            index = index + 1
-            com.append(value)
+#     def formula(personne, period, parameters):
+#         code_commune = personne('commune_redevance_domaniale', period)
+#         com = []
+#         index = 0
+#         for item in code_commune:
+#             value = Commune['com' + item.astype(str)].value
+#             index = index + 1
+#             com.append(value)
 
-        return com
+#         return com
 
 
 class montant_base_redevance_domaniale(Variable):

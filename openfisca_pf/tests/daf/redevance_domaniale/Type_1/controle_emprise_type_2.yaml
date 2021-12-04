@@ -16,7 +16,6 @@
     montant_total_redevance_domaniale: 300000
     montant_base_redevance_domaniale: 300000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 2 - ip_eco_07_boutique_produit_local_aero
   period: 2018-01-01
@@ -36,7 +35,6 @@
     montant_total_redevance_domaniale: 200000
     montant_base_redevance_domaniale: 200000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 3 - co_eco_02_ouvrage_defence
   period: 2018-01-01
@@ -56,7 +54,6 @@
     montant_total_redevance_domaniale: 31000
     montant_base_redevance_domaniale: 31000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 4 - em_eco_07_emprise_maritime_prive
   period: 2018-01-01
@@ -76,7 +73,6 @@
     montant_total_redevance_domaniale: 31000
     montant_base_redevance_domaniale: 31000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 5 - im_eco_01_activite_lucrative_manifestation
   period: 2018-01-01
@@ -96,7 +92,6 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Hebdomadaire
 - name: Test 6 - im_eco_05_marche_puces
   period: 2018-01-01
@@ -116,7 +111,6 @@
     montant_total_redevance_domaniale: 100000
     montant_base_redevance_domaniale: 100000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Journalier
 - name: Test 7 - im_eco_07_vente_produit_locaux_aero
   period: 2018-01-01
@@ -136,7 +130,6 @@
     montant_total_redevance_domaniale: 100000
     montant_base_redevance_domaniale: 100000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 8 - im_eco_09_vente_etale
   period: 2018-01-01
@@ -156,7 +149,6 @@
     montant_total_redevance_domaniale: 15000
     montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Mensuel
 - name: Test 9 - im_eco_13_restau_mobile
   period: 2018-01-01
@@ -176,7 +168,6 @@
     montant_total_redevance_domaniale: 105000
     montant_base_redevance_domaniale: 105000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Mensuel
 - name: Test 10 - if_eco_15_corp_mort
   period: 2018-01-01
@@ -196,7 +187,6 @@
     montant_total_redevance_domaniale: 240000
     montant_base_redevance_domaniale: 240000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 11 - if_eco_17_gestion_corp_mort
   period: 2018-01-01
@@ -216,7 +206,6 @@
     montant_total_redevance_domaniale: 40000
     montant_base_redevance_domaniale: 40000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 12 - co_pr_02_ouvrage_defence
   period: 2018-01-01
@@ -236,7 +225,6 @@
     montant_total_redevance_domaniale: 31000
     montant_base_redevance_domaniale: 31000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 13 - em_pr_06_emprise_maritime_prive
   period: 2018-01-01
@@ -256,7 +244,6 @@
     montant_total_redevance_domaniale: 31000
     montant_base_redevance_domaniale: 31000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel
 - name: Test 14 - if_pr_01_ancrage_avec_droit_immo
   period: 2018-01-01
@@ -276,5 +263,4 @@
     montant_total_redevance_domaniale: 60000
     montant_base_redevance_domaniale: 60000
     type_calcul_redevance_domaniale: 2
-    # commune_occupee: PAPEETE
     # temporalite_redevance_domaniale: Annuel

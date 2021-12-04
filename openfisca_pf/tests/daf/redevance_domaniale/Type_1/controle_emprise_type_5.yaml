@@ -1,0 +1,76 @@
+- name: Test 1 - if_eco_01_parc_poisson_hors_passe
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_01_parc_poisson_hors_passe
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 2000
+    montant_base_redevance_domaniale: 1000
+    type_calcul_redevance_domaniale: 5
+    # temporalite_redevance_domaniale: Annuel
+- name: Test 2 - if_eco_02_parc_poisson_passe
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_02_parc_poisson_passe
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 8000
+    montant_base_redevance_domaniale: 4000
+    type_calcul_redevance_domaniale: 5
+    # temporalite_redevance_domaniale: Annuel
+- name: Test 3 - if_eco_01_parc_poisson_hors_passe surf>1000
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_01_parc_poisson_hors_passe
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 1100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 25000
+    montant_base_redevance_domaniale: 12500
+    type_calcul_redevance_domaniale: 5
+    # temporalite_redevance_domaniale: Annuel
+- name: Test 4 - if_eco_02_parc_poisson_passe surf>1000
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_02_parc_poisson_passe
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 1100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 100000
+    montant_base_redevance_domaniale: 50000
+    type_calcul_redevance_domaniale: 5
+    # temporalite_redevance_domaniale: Annuel
