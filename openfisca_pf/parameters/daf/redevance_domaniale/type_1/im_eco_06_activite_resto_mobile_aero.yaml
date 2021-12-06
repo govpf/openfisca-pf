@@ -10,7 +10,7 @@ part_variable:
     2018-01-01: 25
 montant_minimum:
   values:
-    2018-01-01: 120000
+    2018-01-01: 12000
 base_calcul_jour:
   values:
     2018-01-01: 360
