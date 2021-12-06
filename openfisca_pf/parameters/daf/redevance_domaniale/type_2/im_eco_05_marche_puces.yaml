@@ -2,7 +2,7 @@ description: Marché aux puces
 zone_1:
   part_fixe:
     values:
-      2018-01-01: 100000
+      2018-01-01: 50000
   part_unitaire:
     values:
       2018-01-01: 0
