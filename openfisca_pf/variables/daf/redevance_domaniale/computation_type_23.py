@@ -54,7 +54,7 @@ class montant_total_redevance_domaniale_type_23(Variable):
             duree_occupation_redevance_domaniale > duree_demi_jour
             ], [
                 min_(tarif_horaire * duree_occupation_redevance_domaniale, tarif_demi_jour),
-                 min_(tarif_demi_jour + tarif_horaire * (duree_occupation_redevance_domaniale - 8), tarif_jour)
+                min_(tarif_demi_jour + tarif_horaire * (duree_occupation_redevance_domaniale - 8), tarif_jour)
                 ])
 
         montant_total = arrondiSup(montant_intermediaire) + majoration_redevance_domaniale
