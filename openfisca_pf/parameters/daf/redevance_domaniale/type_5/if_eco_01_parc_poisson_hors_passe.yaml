@@ -19,7 +19,7 @@ rate_2:
     2018-01-01: 25
 montant_minimum:
   values:
-    2018-01-01: 0
+    2018-01-01: 5000
 base_calcul_jour:
   values:
     2018-01-01: 360
