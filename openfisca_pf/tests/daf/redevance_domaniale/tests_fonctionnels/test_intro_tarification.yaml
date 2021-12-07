@@ -1,0 +1,646 @@
+- name: 1 - IP_ECO_01 - 1 Hangar de stockage de 153m²
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_01_equipement_pays
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 153
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 140655
+    montant_base_redevance_domaniale: 46885
+- name: 2 - IP_ECO_01 en mois - deux hangars de stockage à la gare maritime
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_01_equipement_pays
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Mois
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 1500
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 36875
+    montant_base_redevance_domaniale: 147500
+- name: 3 - IP_ECO_02 - Fare pote'e Paofai pour un anniversaire
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_02_bati_tout_public_ac_elec
+      duree_occupation_redevance_domaniale: 8
+      unite_duree_occupation_redevance_domaniale: Heures
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 50
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 15000
+    montant_base_redevance_domaniale: 15000
+- name: 4 - IP_ECO_02 - Fare pote'e Vaitupa pour un festival
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_02_bati_tout_public_ac_elec
+      duree_occupation_redevance_domaniale: 10
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 800
+      nombre_participant_redevance_domaniale: 1000
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 558800
+    montant_base_redevance_domaniale: 558800
+- name: 4 - IP_ECO_03 - competition sur terrain de beachsoccer
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_03_terrain_sport_ac_elec
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 1000
+      nombre_participant_redevance_domaniale: 300
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 93300
+    montant_base_redevance_domaniale: 93300
+- name: 5 - IP_ECO_04 - Présentation d'offre d'une société
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_04_bati_tout_public_sans_elec
+      duree_occupation_redevance_domaniale: 8
+      unite_duree_occupation_redevance_domaniale: Heures
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 50
+      nombre_participant_redevance_domaniale: 50
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 7500
+    montant_base_redevance_domaniale: 7500
+- name: 6 - IP_ECO_05 - compet de skate
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_05_terrain_sport_sans_elec
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 50
+      nombre_participant_redevance_domaniale: 150
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 45000
+    montant_base_redevance_domaniale: 45000
+- name: 7 - IP_ECO_06 - Snack de 20m à Takakoto
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_06_infra_restauration_aero
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_4
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 20
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 24000
+    montant_base_redevance_domaniale: 12000
+- name: 8 - IP_ECO_06 - Snack de 60m à Tikehau
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_06_infra_restauration_aero
+      duree_occupation_redevance_domaniale: 4
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 20
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 240000
+    montant_base_redevance_domaniale: 60000
+- name: 9 - IP_ECO_07 - boutique cadeau Huahine
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_07_boutique_produit_local_aero
+      duree_occupation_redevance_domaniale: 5
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 30
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 300000
+    montant_base_redevance_domaniale: 60000
+- name: 10 - IP_ECO_08 - Centre artisanal de Rurutu
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_08_centre_artisanaux_aero
+      duree_occupation_redevance_domaniale: 5
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 60
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 60000
+    montant_base_redevance_domaniale: 12000
+- name: 11 - IP_ECO_09 - Snack Taputapuatea
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_09_infra_restauration_tourisme
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 60
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 270000
+    montant_base_redevance_domaniale: 90000
+- name: 12 - IP_ECO_10 - Boutique Vaipiha
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_10_boutique_vente_tourisme
+      duree_occupation_redevance_domaniale: 4
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 50
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 2400000
+    montant_base_redevance_domaniale: 600000
+- name: 13 - IP_ECO_11 - Prof de va'a entreposant ses va'a (10 V1, 2 V6)
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_11_support_embarcation_legere
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 300000
+    montant_base_redevance_domaniale: 100000
+- name: 14 - CO_ECO_01 - Station service aux Marquises à Hiva Oa
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: co_eco_01_bati
+      duree_occupation_redevance_domaniale: 20
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 2000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 3400000
+    montant_base_redevance_domaniale: 170000
+- name: 15 - CO_ECO_02 - Ponton base à terre pour un hotel à Faanui
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: co_eco_02_ouvrage_defence
+      duree_occupation_redevance_domaniale: 40
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_3
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 148
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 651200
+    montant_base_redevance_domaniale: 16280
+- name: 16 - CO_ECO_03 - Réhabilitation d'une plage d'un hotel
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: co_eco_03_ouvrage_rehabilitation
+      duree_occupation_redevance_domaniale: 6
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 50
+      variable_redevance_domaniale: 12
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 0
+    montant_base_redevance_domaniale: 0
+- name: 17 - CO_ECO_04 - Fare greffe
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: co_eco_04_bati_perli
+      duree_occupation_redevance_domaniale: 9
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_4
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 120
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 216000
+    montant_base_redevance_domaniale: 24000
+- name: 18 - EM_ECO_01 - Tamure marathon
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_01_espace_pelouse_ac_elec
+      duree_occupation_redevance_domaniale: 20
+      unite_duree_occupation_redevance_domaniale: Heures
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 120
+      nombre_participant_redevance_domaniale: 200
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 70000
+    montant_base_redevance_domaniale: 70000
+- name: 19 - EM_ECO_02 - Petit manège Paofai
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_02_surface_mineral_ac_elec
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Mois
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 120
+      nombre_participant_redevance_domaniale: 50
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 208800
+    montant_base_redevance_domaniale: 208800
+- name: 20 - EM_ECO_03 - Coach sportif
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_03_espace_pelouse_sans_elec
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Heures
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 120
+      nombre_participant_redevance_domaniale: 50
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 4000
+    montant_base_redevance_domaniale: 4000
+- name: 21 - EM_ECO_04 - Vendeur de glace pour une competition sportive
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_04_surface_mineral_sans_elec
+      duree_occupation_redevance_domaniale: 8
+      unite_duree_occupation_redevance_domaniale: Heures
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 120
+      nombre_participant_redevance_domaniale: 50
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 7500
+    montant_base_redevance_domaniale: 7500
+- name: 22 - EM_ECO_05 - Zone derrière les filets au Manava
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_05_emprise_maririme_general
+      duree_occupation_redevance_domaniale: 60
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 500
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 1350000
+    montant_base_redevance_domaniale: 22500
+- name: 23 - EM_ECO_06 - Jetski
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_06_emprise_maritime_lucratif
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 450
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 360000
+    montant_base_redevance_domaniale: 120000
+- name: 24 - EM_ECO_06 - Flyboard Moorea
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_06_emprise_maritime_lucratif
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_4
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 2000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 400000
+    montant_base_redevance_domaniale: 200000
+- name: 25 - EM_ECO_07 - espace maritime d'une darse
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_07_emprise_maritime_prive
+      duree_occupation_redevance_domaniale: 9
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_4
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 2450
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 1323000
+    montant_base_redevance_domaniale: 147000
+- name: 26 - EM_ECO_07 - espace maritime d'une darse
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_07_emprise_maritime_prive
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 356
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 149520
+    montant_base_redevance_domaniale: 74760
+- name: 27 - EM_ECO_08 - Sentier sous-marin
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_08_emprise_eco_tourisme
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 634
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 36000
+    montant_base_redevance_domaniale: 12000
+- name: 28 - EM_ECO_09 - Terre déserte Nuku Hiva
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_09_activite_agricole_aero
+      duree_occupation_redevance_domaniale: 5
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_4
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 250000
+    montant_base_redevance_domaniale: 50000
+- name: 29 - IM_ECO_01 - Roulottes Teahupoo compet surf
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_01_activite_lucrative_manifestation
+      duree_occupation_redevance_domaniale: 21
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_4
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 1000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 30000
+    montant_base_redevance_domaniale: 10000
+- name: 30 - IM_ECO_01 - Roulottes Teahupoo compet surf
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_01_activite_lucrative_manifestation
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Mois
+      zone_occupation_redevance_domaniale: zone_4
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 1000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 128571
+    montant_base_redevance_domaniale: 10000
+- name: 31 - IM_ECO_02 - Foire style "Made in Fenua"
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_02_foire_produit_locaux
+      duree_occupation_redevance_domaniale: 8
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 3654
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 425600
+    montant_base_redevance_domaniale: 425600
+- name: 32 - IM_ECO_02 - Foire artisanal d'uturoa
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_02_foire_produit_locaux
+      duree_occupation_redevance_domaniale: 4
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 600
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 59900
+    montant_base_redevance_domaniale: 59900
+- name: 33 - IM_ECO_03 - Salon de l'auto Uturoa
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_03_foire_commerciale
+      duree_occupation_redevance_domaniale: 10
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 435
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 138800
+    montant_base_redevance_domaniale: 138800
+- name: 34 - IM_ECO_04 - Manège Vaitupa
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_04_activite_ludique
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Mois
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 678
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 1399900
+    montant_base_redevance_domaniale: 1399900
+- name: 35 - IM_ECO_05 - Marché aux puces à Mahina
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_05_marche_puces
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 678
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 50000
+    montant_base_redevance_domaniale: 50000
+- name: 36 - IM_ECO_05 - Marché aux puces à Fare
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_05_marche_puces
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Jours
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 678
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 40000
+    montant_base_redevance_domaniale: 20000
+- name: 37 - IM_ECO_06 - Etale à l'aéroport de Nuku Hiva
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_06_activite_resto_mobile_aero
+      duree_occupation_redevance_domaniale: 4
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 10
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 48000
+    montant_base_redevance_domaniale: 12000

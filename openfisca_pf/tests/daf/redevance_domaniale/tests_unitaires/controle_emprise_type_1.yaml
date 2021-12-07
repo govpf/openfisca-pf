@@ -9,7 +9,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -28,7 +28,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -47,7 +47,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -66,7 +66,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -85,7 +85,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -104,7 +104,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -123,7 +123,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -142,7 +142,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -161,7 +161,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -181,7 +181,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -200,7 +200,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -219,7 +219,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -238,12 +238,12 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 120000
-    montant_base_redevance_domaniale: 120000
+    montant_total_redevance_domaniale: 12000
+    montant_base_redevance_domaniale: 12000
     type_calcul_redevance_domaniale: 1
     # temporalite_redevance_domaniale: Annuel
 - name: Test 14 - im_eco_08_autres_lucrative
@@ -257,7 +257,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -276,7 +276,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -295,7 +295,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -314,7 +314,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -333,7 +333,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -352,7 +352,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -372,7 +372,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -391,7 +391,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -410,7 +410,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -429,7 +429,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -448,7 +448,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -467,7 +467,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -486,7 +486,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -505,7 +505,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -524,7 +524,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -543,7 +543,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -562,7 +562,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -581,7 +581,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -600,7 +600,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -619,7 +619,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -638,7 +638,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -657,7 +657,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
@@ -676,7 +676,7 @@
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
-      commune_redevance_domaniale: 350
+      commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
