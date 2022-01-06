@@ -36,7 +36,7 @@ class nombre_unite_redevance_domaniale(Variable):
 
 
 class variable_redevance_domaniale(Variable):
-    value_type = int
+    value_type = float
     entity = Personne
     definition_period = DAY
     label = "Variable de l'occupation du domaine, peut être exprimée en m, en m² ou en m^3, pour définir une unité de longueur, de surface ou de volume"
