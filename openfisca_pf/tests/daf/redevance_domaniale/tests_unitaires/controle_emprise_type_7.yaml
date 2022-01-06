@@ -89,8 +89,8 @@
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 220000
-    montant_base_redevance_domaniale: 220000
+    montant_total_redevance_domaniale: 550000
+    montant_base_redevance_domaniale: 550000
     type_calcul_redevance_domaniale: 7
     # temporalite_redevance_domaniale: Not Applicable
 - name: Test 6 - ex_eco_02_dpf_pour_entite_publique - Zone_2
@@ -108,8 +108,8 @@
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 110000
-    montant_base_redevance_domaniale: 110000
+    montant_total_redevance_domaniale: 330000
+    montant_base_redevance_domaniale: 330000
     type_calcul_redevance_domaniale: 7
     # temporalite_redevance_domaniale: Not Applicable
 - name: Test 7 - ex_eco_03_dpm_hors_entite_publique - Zone_2
@@ -127,8 +127,8 @@
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 220000
-    montant_base_redevance_domaniale: 220000
+    montant_total_redevance_domaniale: 440000
+    montant_base_redevance_domaniale: 440000
     type_calcul_redevance_domaniale: 7
     # temporalite_redevance_domaniale: Not Applicable
 - name: Test 8 - ex_eco_04_dpm_pour_entite_publique - Zone_2
@@ -146,8 +146,8 @@
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 110000
-    montant_base_redevance_domaniale: 110000
+    montant_total_redevance_domaniale: 330000
+    montant_base_redevance_domaniale: 330000
     type_calcul_redevance_domaniale: 7
     # temporalite_redevance_domaniale: Not Applicable
 - name: Test 9 - ex_eco_01_dpf_hors_entite_publique - Zone_3

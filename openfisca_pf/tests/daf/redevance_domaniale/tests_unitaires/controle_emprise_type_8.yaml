@@ -8,13 +8,13 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 6000000
-    montant_base_redevance_domaniale: 3000000
+    montant_total_redevance_domaniale: 60000
+    montant_base_redevance_domaniale: 30000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 2 - ag_priv_02_elevage - Zone_1
@@ -27,13 +27,13 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 6000000
-    montant_base_redevance_domaniale: 3000000
+    montant_total_redevance_domaniale: 60000
+    montant_base_redevance_domaniale: 30000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 3 - ag_priv_03_coprah - Zone_1
@@ -46,13 +46,13 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 4 - ag_priv_04_agroforesterie - Zone_1
@@ -65,13 +65,13 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 5 - ag_priv_05_agrotransformation - Zone_1
@@ -84,13 +84,13 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 6 - ag_priv_01_maraichage - Zone_2
@@ -103,13 +103,13 @@
       zone_occupation_redevance_domaniale: zone_2
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 3000000
-    montant_base_redevance_domaniale: 1500000
+    montant_total_redevance_domaniale: 30000
+    montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 7 - ag_priv_02_elevage - Zone_2
@@ -122,13 +122,13 @@
       zone_occupation_redevance_domaniale: zone_2
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 3000000
-    montant_base_redevance_domaniale: 1500000
+    montant_total_redevance_domaniale: 30000
+    montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 8 - ag_priv_03_coprah - Zone_2
@@ -141,13 +141,13 @@
       zone_occupation_redevance_domaniale: zone_2
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 9 - ag_priv_04_agroforesterie - Zone_2
@@ -160,13 +160,13 @@
       zone_occupation_redevance_domaniale: zone_2
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 10 - ag_priv_05_agrotransformation - Zone_2
@@ -179,13 +179,13 @@
       zone_occupation_redevance_domaniale: zone_2
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 11 - ag_priv_01_maraichage - Zone_3
@@ -198,13 +198,13 @@
       zone_occupation_redevance_domaniale: zone_3
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 12 - ag_priv_02_elevage - Zone_3
@@ -217,13 +217,13 @@
       zone_occupation_redevance_domaniale: zone_3
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 1000000
-    montant_base_redevance_domaniale: 500000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 13 - ag_priv_03_coprah - Zone_3
@@ -236,13 +236,13 @@
       zone_occupation_redevance_domaniale: zone_3
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 14 - ag_priv_04_agroforesterie - Zone_3
@@ -255,13 +255,13 @@
       zone_occupation_redevance_domaniale: zone_3
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 15 - ag_priv_05_agrotransformation - Zone_3
@@ -274,13 +274,13 @@
       zone_occupation_redevance_domaniale: zone_3
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 16 - ag_priv_01_maraichage - Zone_4
@@ -293,13 +293,13 @@
       zone_occupation_redevance_domaniale: zone_4
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 17 - ag_priv_02_elevage - Zone_4
@@ -312,13 +312,13 @@
       zone_occupation_redevance_domaniale: zone_4
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 18 - ag_priv_03_coprah - Zone_4
@@ -331,13 +331,13 @@
       zone_occupation_redevance_domaniale: zone_4
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 19 - ag_priv_04_agroforesterie - Zone_4
@@ -350,13 +350,13 @@
       zone_occupation_redevance_domaniale: zone_4
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 20 - ag_priv_05_agrotransformation - Zone_4
@@ -369,13 +369,13 @@
       zone_occupation_redevance_domaniale: zone_4
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 21 - ag_priv_01_maraichage - Zone_5
@@ -388,13 +388,13 @@
       zone_occupation_redevance_domaniale: zone_5
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 22 - ag_priv_02_elevage - Zone_5
@@ -407,13 +407,13 @@
       zone_occupation_redevance_domaniale: zone_5
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 1000000
-    montant_base_redevance_domaniale: 500000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 23 - ag_priv_03_coprah - Zone_5
@@ -426,13 +426,13 @@
       zone_occupation_redevance_domaniale: zone_5
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 24 - ag_priv_04_agroforesterie - Zone_5
@@ -445,13 +445,13 @@
       zone_occupation_redevance_domaniale: zone_5
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
 - name: Test 25 - ag_priv_05_agrotransformation - Zone_5
@@ -464,12 +464,12 @@
       zone_occupation_redevance_domaniale: zone_5
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 100
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 2000000
-    montant_base_redevance_domaniale: 1000000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 8
     # temporalite_redevance_domaniale: Annuel
