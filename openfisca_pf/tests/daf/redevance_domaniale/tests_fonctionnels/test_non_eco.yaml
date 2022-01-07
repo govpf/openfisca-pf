@@ -236,3 +236,105 @@
   output:
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
+- name: 15 - EM_PR_05 - ????
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_pr_05_emprise_maririme_general
+      duree_occupation_redevance_domaniale: 4
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_3
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 546
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 98280
+    montant_base_redevance_domaniale: 24570
+- name: 16 - EM_PR_06 - Lais de rivière???
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_pr_06_emprise_maritime_prive
+      duree_occupation_redevance_domaniale: 6
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 175
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 220500
+    montant_base_redevance_domaniale: 36750
+- name: 17 - EM_PR_07 - Coral gardener
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_pr_07_emprise_maritime_non_lucratif
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 980
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 0
+    montant_base_redevance_domaniale: 0
+- name: 18 - IF_PR_01 - Ancrage en face d'un terrain
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_pr_01_ancrage_avec_droit_immo
+      duree_occupation_redevance_domaniale: 4
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 980
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 240000
+    montant_base_redevance_domaniale: 60000
+- name: 19 - IF_PR_02 - Ancrage sans droit immobilier
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_pr_02_ancrage_sans_droit
+      duree_occupation_redevance_domaniale: 6
+      unite_duree_occupation_redevance_domaniale: Mois
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 15
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 360000
+    montant_base_redevance_domaniale: 2000
+- name: 20 - IF_PR_03 - Support publicitaire
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_pr_03_support_publicitaire
+      duree_occupation_redevance_domaniale: 4
+      unite_duree_occupation_redevance_domaniale: Mois
+      zone_occupation_redevance_domaniale: zone_5
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 15
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 0
+    montant_base_redevance_domaniale: 0
