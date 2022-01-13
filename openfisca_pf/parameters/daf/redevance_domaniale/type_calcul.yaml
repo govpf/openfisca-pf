@@ -291,3 +291,8 @@ priv_08_cultuel:
 priv_09_autres:
   values:
     2018-01-01: 9
+
+# Type 10
+ag_priv_06_lotissement:
+  values:
+    2018-01-01: 10

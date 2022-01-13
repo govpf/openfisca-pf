@@ -92,3 +92,12 @@ class zone_domaine_prive(Variable):
     entity = Personne
     definition_period = DAY
     label = "Selected zone for pricing on private domain "
+
+
+class zone_lot_agri(Variable):
+    value_type = Enum
+    possible_values = ZoneLotAgri
+    default_value = ZoneLotAgri.amo
+    entity = Personne
+    definition_period = DAY
+    label = "Selected zone for pricing on area managed by DAC "

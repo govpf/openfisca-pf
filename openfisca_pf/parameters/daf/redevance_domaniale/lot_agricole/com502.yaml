@@ -1,0 +1,21 @@
+description: Lotissement agricole de Opoa
+opoa:
+  loyer:
+    values:
+      2016-01-01: 5000
+faaroa_agri:
+  loyer:
+    values:
+      2016-01-01: 10000
+faaroa_elevage:
+  loyer:
+    values:
+      2016-01-01: 30800
+maraeroa:
+  loyer:
+    values:
+      2016-01-01: 5000
+tarodiere_opoa:
+  loyer:
+    values:
+      2016-01-01: 10000

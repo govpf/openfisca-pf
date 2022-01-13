@@ -1,0 +1,9 @@
+description: Lotissement agricole de Avera
+bachelier:
+  loyer:
+    values:
+      2016-01-01: 10000
+hamoa:
+  loyer:
+    values:
+      2016-01-01: 10000

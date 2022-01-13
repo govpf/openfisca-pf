@@ -137,3 +137,6 @@ class TypesNatureEmprise(Enum):
     priv_07_technologie_information = u'PRIV-07 Activités liées aux technologies, contenus et support de l information'
     priv_08_cultuel = u'PRIV-08 Projet à caractère cultuel'
     priv_09_autres = u'PRIV-09 Autre occupation'
+
+    # Tarif Type_10 lotissements agricoles
+    ag_priv_06_lotissement = u'AG-PRIV-06 Location sur lotissement Agricole'
