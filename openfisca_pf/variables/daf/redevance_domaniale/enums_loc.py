@@ -216,4 +216,3 @@ class ZoneLotAgri(Enum):
     terre_deserte = u'TERRE DESERTE'
     taipivai = u'TAIPIVAI'
     hiniaehi = u'HINIAEHI'
-
