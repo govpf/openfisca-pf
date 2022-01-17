@@ -3,7 +3,7 @@ bord_de_mer:
   valeur_venale:
     values:
       2016-01-01: 20000
-centre-ville:
+centre_ville:
   valeur_venale:
     values:
       2016-01-01: 13000

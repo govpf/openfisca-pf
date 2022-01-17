@@ -2,7 +2,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -20,7 +20,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -38,7 +38,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -56,7 +56,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -74,7 +74,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -92,7 +92,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -110,7 +110,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -128,7 +128,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -146,7 +146,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -164,7 +164,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -182,7 +182,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -200,7 +200,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -218,7 +218,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -236,7 +236,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -254,7 +254,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -272,7 +272,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -290,7 +290,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -308,7 +308,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -326,7 +326,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -344,7 +344,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -362,7 +362,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -380,7 +380,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -398,7 +398,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -416,7 +416,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -434,7 +434,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -452,7 +452,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -470,7 +470,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -488,7 +488,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -506,7 +506,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -524,7 +524,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -542,7 +542,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -560,7 +560,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lotissement
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1

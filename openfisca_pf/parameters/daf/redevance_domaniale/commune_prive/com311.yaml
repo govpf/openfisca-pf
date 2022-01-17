@@ -3,7 +3,7 @@ zone_montagne:
   valeur_venale:
     values:
       2016-01-01: 200
-village_zone_rural:
+village_zone_rurale:
   valeur_venale:
     values:
       2016-01-01: 2000

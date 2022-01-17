@@ -39,7 +39,7 @@ tipaerui_zone_sociale:
   valeur_venale:
     values:
       2016-01-01: 8000
-titioro_zone_d’habitat:
+titioro_zone_habitat:
   valeur_venale:
     values:
       2016-01-01: 20000

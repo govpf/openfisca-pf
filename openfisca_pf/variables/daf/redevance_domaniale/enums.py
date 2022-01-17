@@ -139,4 +139,4 @@ class TypesNatureEmprise(Enum):
     priv_09_autres = u'PRIV-09 Autre occupation'
 
     # Tarif Type_10 lotissements agricoles
-    ag_priv_06_lotissement = u'AG-PRIV-06 Location sur lotissement Agricole'
+    ag_priv_06_lot_agri = u'AG-PRIV-06 Location sur lotissement Agricole'
