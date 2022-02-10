@@ -80,7 +80,7 @@ class commune_redevance_domaniale(Variable):
     value_type = Enum
     entity = Personne
     possible_values = Commune
-    default_value = Commune.com350
+    default_value = Commune.com340
     definition_period = DAY
     label = "Area code for cities in French Polynesia"
 
@@ -88,7 +88,7 @@ class commune_redevance_domaniale(Variable):
 class zone_domaine_prive(Variable):
     value_type = Enum
     possible_values = ZoneDomPrive
-    default_value = ZoneDomPrive.sainte_amelie_quartier_des_institutions
+    default_value = ZoneDomPrive.zone_bord_de_mer
     entity = Personne
     definition_period = DAY
     label = "Selected zone for pricing on private domain "

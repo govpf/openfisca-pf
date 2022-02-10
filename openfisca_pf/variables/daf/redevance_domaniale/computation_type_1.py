@@ -30,6 +30,7 @@ class montant_base_redevance_domaniale_type_1(Variable):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
+        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_01_equipement_pays')
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
