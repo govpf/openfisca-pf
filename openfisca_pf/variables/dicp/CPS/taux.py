@@ -36,4 +36,3 @@ class taux_cps_annee(Variable):
 
     def formula(pays, period, parameters):
         return (parameters(period).dicp.cps.taux)
-
