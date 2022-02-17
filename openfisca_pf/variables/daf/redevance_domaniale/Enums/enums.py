@@ -140,3 +140,11 @@ class TypesNatureEmprise(Enum):
 
     # Tarif Type_10 lotissements agricoles
     ag_priv_06_lot_agricole = u'AG-PRIV-06 Location sur lotissement Agricole'
+
+
+class Temporalite(Enum):
+    Journalier = u'Journalier'
+    Hebdomadaire = u'Hebdomadaire'
+    Mensuel = u'Mensuel'
+    Annuel = u'Annuel'
+    Non_Applicable = u'Non Applicable'

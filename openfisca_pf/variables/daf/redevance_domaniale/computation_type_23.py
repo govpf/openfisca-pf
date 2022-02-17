@@ -7,7 +7,7 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
 from openfisca_pf.base import *
 
 
@@ -19,8 +19,7 @@ class montant_base_redevance_domaniale_type_23(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
-        # There is no difference between montant_base and montant_total.
-        # Then the too computation are set equal
+        # Il n'y a pas de différence entre montant de basse et montant total pour ce type de calcul.
 
         return personne('montant_total_redevance_domaniale_type_23', period)
 
@@ -35,8 +34,7 @@ class montant_total_redevance_domaniale_type_23(Variable):
     def formula(personne, period, parameters):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
-        # multiple occupation can be asked with different type of computation.
-        # In order to avoid misinterpretation for array input, only the element with the good type is computed
+        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '23', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'em_eco_01_espace_pelouse_ac_elec')
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
@@ -63,13 +61,15 @@ class montant_total_redevance_domaniale_type_23(Variable):
 
 
 class temporalite_redevance_domaniale_type_23(Variable):
-    value_type = str
+    value_type = Enum
+    possible_values = Temporalite
+    default_value = Temporalite.Non_Applicable
     entity = Personne
     definition_period = DAY
-    label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale dûe avec un calcul de type classique"
+    label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale"
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
-        # Temporality is not applicable for this computation based on the duration of the occupation
+        # Il n'y a pas de temporalité sur ce type de calcul
 
-        return 'Not Applicable'
+        return Temporalite.Non_Applicable

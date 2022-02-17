@@ -2,7 +2,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -10,7 +10,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 10
       commune_redevance_domaniale: com340
-      zone_lot_agri: amo
+      zone_lot_agricole: amo
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 560000
@@ -20,7 +20,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -28,7 +28,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com340
-      zone_lot_agri: atimaono_1
+      zone_lot_agricole: atimaono_1
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 60000
@@ -38,7 +38,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -46,7 +46,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com521
-      zone_lot_agri: atimaono_2
+      zone_lot_agricole: atimaono_2
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 60000
@@ -56,7 +56,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -64,7 +64,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com471
-      zone_lot_agri: marumarutua_1_15
+      zone_lot_agricole: marumarutua_1_15
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 46000
@@ -74,7 +74,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -82,7 +82,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com471
-      zone_lot_agri: marumarutua_16_22
+      zone_lot_agricole: marumarutua_16_22
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -92,7 +92,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -100,7 +100,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com471
-      zone_lot_agri: plateau_taravao_1_6
+      zone_lot_agricole: plateau_taravao_1_6
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 36000
@@ -110,7 +110,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -118,7 +118,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com471
-      zone_lot_agri: plateau_taravao_7_20
+      zone_lot_agricole: plateau_taravao_7_20
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 56000
@@ -128,7 +128,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -136,7 +136,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com471
-      zone_lot_agri: plateau_taravao_extension
+      zone_lot_agricole: plateau_taravao_extension
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 56000
@@ -146,7 +146,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -154,7 +154,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com471
-      zone_lot_agri: plateau_taravao_extension_2
+      zone_lot_agricole: plateau_taravao_extension_2
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 56000
@@ -164,7 +164,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -172,7 +172,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com481
-      zone_lot_agri: rose
+      zone_lot_agricole: rose
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 30000
@@ -182,7 +182,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -190,7 +190,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com471
-      zone_lot_agri: socredo_1
+      zone_lot_agricole: socredo_1
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 40000
@@ -200,7 +200,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -208,7 +208,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com471
-      zone_lot_agri: socredo_2_4
+      zone_lot_agricole: socredo_2_4
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 56000
@@ -218,7 +218,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -226,7 +226,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com474
-      zone_lot_agri: vaitepiha
+      zone_lot_agricole: vaitepiha
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 30000
@@ -236,7 +236,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -244,7 +244,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com295
-      zone_lot_agri: opunohu
+      zone_lot_agricole: opunohu
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 54000
@@ -254,7 +254,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -262,7 +262,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com295
-      zone_lot_agri: opunohu_rive_gauche
+      zone_lot_agricole: opunohu_rive_gauche
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 80000
@@ -272,7 +272,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -280,7 +280,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com295
-      zone_lot_agri: rotui
+      zone_lot_agricole: rotui
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 54000
@@ -290,7 +290,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -298,7 +298,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com292
-      zone_lot_agri: vaianae
+      zone_lot_agricole: vaianae
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 46000
@@ -308,7 +308,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -316,7 +316,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com502
-      zone_lot_agri: opoa
+      zone_lot_agricole: opoa
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 10000
@@ -326,7 +326,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -334,7 +334,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com502
-      zone_lot_agri: faaroa_agri
+      zone_lot_agricole: faaroa_agri
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -344,7 +344,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -352,7 +352,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com502
-      zone_lot_agri: faaroa_elevage
+      zone_lot_agricole: faaroa_elevage
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 61600
@@ -362,7 +362,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -370,7 +370,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com502
-      zone_lot_agri: maraeroa
+      zone_lot_agricole: maraeroa
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 10000
@@ -380,7 +380,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -388,7 +388,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com502
-      zone_lot_agri: tarodiere_opoa
+      zone_lot_agricole: tarodiere_opoa
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -398,7 +398,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -406,7 +406,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com501
-      zone_lot_agri: bachelier
+      zone_lot_agricole: bachelier
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -416,7 +416,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -424,7 +424,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com501
-      zone_lot_agri: hamoa
+      zone_lot_agricole: hamoa
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -434,7 +434,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -442,7 +442,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com454
-      zone_lot_agri: faahue
+      zone_lot_agricole: faahue
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 10000
@@ -452,7 +452,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -460,7 +460,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com532
-      zone_lot_agri: matavahi_1
+      zone_lot_agricole: matavahi_1
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -470,7 +470,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -478,7 +478,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com532
-      zone_lot_agri: matavahi_2
+      zone_lot_agricole: matavahi_2
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -488,7 +488,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -496,7 +496,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com443
-      zone_lot_agri: metuarii
+      zone_lot_agricole: metuarii
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 15000
@@ -506,7 +506,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -514,7 +514,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com443
-      zone_lot_agri: atai
+      zone_lot_agricole: atai
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -524,7 +524,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -532,7 +532,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com311
-      zone_lot_agri: terre_deserte
+      zone_lot_agricole: terre_deserte
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000
@@ -542,7 +542,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -550,7 +550,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com313
-      zone_lot_agri: taipivai
+      zone_lot_agricole: taipivai
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 40000
@@ -560,7 +560,7 @@
   period: 2018-01-01
   input:
     personne:
-      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agri
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
       duree_occupation_redevance_domaniale: 2
       unite_duree_occupation_redevance_domaniale: Annees
       zone_occupation_redevance_domaniale: zone_1
@@ -568,7 +568,7 @@
       nombre_unite_redevance_domaniale: 2
       variable_redevance_domaniale: 1
       commune_redevance_domaniale: com560
-      zone_lot_agri: hiniaehi
+      zone_lot_agricole: hiniaehi
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 20000

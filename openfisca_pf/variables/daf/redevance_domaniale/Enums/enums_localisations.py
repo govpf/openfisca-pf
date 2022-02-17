@@ -11,7 +11,7 @@ from openfisca_pf.entities import *
 
 
 class Commune(Enum):
-    # Each code is the INSEE code of city in French Polynesia
+    # Code commune des communes de Polynésie Française
     com110 = u'ANAA'
     com112 = u'FAAITE'
     com120 = u'ARUE'
@@ -131,7 +131,7 @@ class Commune(Enum):
 
 
 class ZoneDomPrive(Enum):
-    # every specified area in the law
+    # Ensemble des noms de zones de l arrêté 136CM
     village = u'Village'
     secteur = u'Secteur'
     zone_de_base = u'Zone de base'
@@ -182,8 +182,8 @@ class ZoneDomPrive(Enum):
     zone_hors_lotissement = u'Zone hors lotissement'
 
 
-class ZoneLotAgri(Enum):
-    # Every DAC managed area
+class ZoneLotAgricole(Enum):
+    # Ensemble des lotissements agricoles
     amo = u'AMO'
     atimaono_1 = u'ATIMAONO 1'
     atimaono_2 = u'ATIMAONO 2'

@@ -1,6 +1,6 @@
-description: Mark-up parameter definition
+description: Paramètre pour le calcul de la majoration
 
-#Mark-up depending on the number of attendee of the event
+#Majoration seuil du nombre de participant.
 rate_participant_1:
   values:
     2018-01-01: 200

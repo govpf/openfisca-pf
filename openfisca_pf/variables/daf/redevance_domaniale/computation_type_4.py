@@ -8,7 +8,7 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
 from openfisca_pf.base import *
 
 
@@ -20,8 +20,7 @@ class montant_base_redevance_domaniale_type_4(Variable):
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
-        # There is no difference between montant_base and montant_total.
-        # Then the too computation are set equal
+        # Il n'y a pas de différence entre montant de basse et montant total pour ce type de calcul.
 
         return personne('montant_total_redevance_domaniale_type_4', period)
 
@@ -37,16 +36,16 @@ class montant_total_redevance_domaniale_type_4(Variable):
     def formula(personne, period, parameters):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
-        # multiple occupation can be asked with different type of computation.
-        # In order to avoid misinterpretation for array input, only the element with the good type is computed
+        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '4', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'im_eco_02_foire_produit_locaux')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
         activite_cultuelle = personne('activite_cultuelle', period)
+        exoneration = parameters(period).daf.redevance_domaniale.exoneration.discount_rate
 
-        # Parameters
+        # Parametres
         init = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].init
         threshold_1 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_1
         rate_1 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_1
@@ -55,7 +54,7 @@ class montant_total_redevance_domaniale_type_4(Variable):
         threshold_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].threshold_3
         rate_3 = parameters(period).daf.redevance_domaniale.type_4[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].rate_3
 
-        # Price computation
+        # Calcul du montant
         montant_intermediaire = select([
             duree_occupation_redevance_domaniale_jour < threshold_1,
             duree_occupation_redevance_domaniale_jour <= threshold_2,
@@ -68,19 +67,21 @@ class montant_total_redevance_domaniale_type_4(Variable):
                 init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
                 ])
 
-        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1 - 0.8 * activite_cultuelle))
+        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1 - exoneration * activite_cultuelle))
 
         return where(type_calcul == '4', montant_total, 0)
 
 
 class temporalite_redevance_domaniale_type_4(Variable):
-    value_type = str
+    value_type = Enum
+    possible_values = Temporalite
+    default_value = Temporalite.Non_Applicable
     entity = Personne
     definition_period = DAY
     label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale"
     reference = "Arrêté NOR DAF2120267AC-3"
 
     def formula(personne, period, parameters):
-        # Temporality is not applicable for this computation based on the duration of the occupation
+        # Il n'y a pas de temporalité sur ce type de calcul
 
-        return 'Not Applicable'
+        return Temporalite.Non_Applicable

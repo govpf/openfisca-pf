@@ -1,4 +1,4 @@
-#This file aims at defining the type of commputation used for each occupation
+#définition de l'ensemble des types de calculs utilisés pour chaque élément de tarification
 description: Méthode de calcul utilisée
 # Type 1
 ip_eco_01_equipement_pays:

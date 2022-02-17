@@ -8,8 +8,8 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums_loc import *
+from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums_localisations import *
 
 
 class duree_occupation_redevance_domaniale(Variable):
@@ -25,7 +25,7 @@ class unite_duree_occupation_redevance_domaniale(Variable):
     default_value = UnitesDuree.Jours
     entity = Personne
     definition_period = DAY
-    label = "Unité de la durée d'occupation (heures, jours, mois, années...)"
+    label = "Unité de la durée d'occupation (heures, jours, mois, années)"
 
 
 class nombre_unite_redevance_domaniale(Variable):
@@ -65,7 +65,7 @@ class nombre_participant_redevance_domaniale(Variable):
     entity = Personne
     default_value = 0
     definition_period = DAY
-    label = "Number of attendees for the event in order to add price increase"
+    label = "Nombre de participant à l'évènement"
 
 
 class activite_cultuelle(Variable):
@@ -73,7 +73,7 @@ class activite_cultuelle(Variable):
     entity = Personne
     default_value = False
     definition_period = DAY
-    label = "Parameter defining if the request is for religious activities"
+    label = "Paramètre permettant de définir si la demande vient d'une association culturelle, religieuse ou sportive"
 
 
 class commune_redevance_domaniale(Variable):
@@ -82,7 +82,7 @@ class commune_redevance_domaniale(Variable):
     possible_values = Commune
     default_value = Commune.com340
     definition_period = DAY
-    label = "Area code for cities in French Polynesia"
+    label = "Code de la commune en Polynésie Française"
 
 
 class zone_domaine_prive(Variable):
@@ -91,13 +91,13 @@ class zone_domaine_prive(Variable):
     default_value = ZoneDomPrive.zone_bord_de_mer
     entity = Personne
     definition_period = DAY
-    label = "Selected zone for pricing on private domain "
+    label = "Zone du domaine privé "
 
 
-class zone_lot_agri(Variable):
+class zone_lot_agricole(Variable):
     value_type = Enum
-    possible_values = ZoneLotAgri
-    default_value = ZoneLotAgri.amo
+    possible_values = ZoneLotAgricole
+    default_value = ZoneLotAgricole.amo
     entity = Personne
     definition_period = DAY
-    label = "Selected zone for pricing on area managed by DAC "
+    label = "Lot agricole sélectionné pour la tarification pour la DAG "

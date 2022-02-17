@@ -15,7 +15,7 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
 from openfisca_pf.base import *
 
 
@@ -35,16 +35,16 @@ class montant_base_redevance_domaniale_type_1(Variable):
         variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
 
-        # Parameters
+        # Parametres
         part_fixe = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_fixe
         part_unitaire = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_unitaire
         part_variable = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].part_variable
         montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
-        # Price computation
+        # Calcul du montant
         montant_intermediaire = part_fixe + part_unitaire * nombre_unite_redevance_domaniale + part_variable * variable_redevance_domaniale
 
-        # Minimum comparison
+        # Comparaison avec le minimum
         montant_base = max_(arrondiSup(montant_intermediaire), montant_minimum)
 
         return where(type_calcul == '1', montant_base, 0)
@@ -61,29 +61,30 @@ class montant_total_redevance_domaniale_type_1(Variable):
     def formula(personne, period, parameters):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
-        # multiple occupation can be asked with different type of computation.
-        # In order to avoid misinterpretation for array input, only the element with the good type is computed
+        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_01_equipement_pays')
         duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
         majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
         montant_base = personne('montant_base_redevance_domaniale_type_1', period)
         activite_cultuelle = personne('activite_cultuelle', period)
-
+        exoneration = parameters(period).daf.redevance_domaniale.exoneration.discount_rate
         # Parameters
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
         montant_minimum = parameters(period).daf.redevance_domaniale.type_1[nature_emprise_occupation_redevance_domaniale].montant_minimum
 
-        # Price computation
+        # Calcul du montant
         montant_intermediaire = max_(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour + majoration_redevance_domaniale, montant_minimum)
 
-        montant_total = arrondiSup(montant_intermediaire * (1 - 0.8 * activite_cultuelle))
+        montant_total = arrondiSup(montant_intermediaire * (1 - exoneration * activite_cultuelle))
 
         return where(type_calcul == '1', montant_total, 0)
 
 
 class temporalite_redevance_domaniale_type_1(Variable):
-    value_type = str
+    value_type = Enum
+    possible_values = Temporalite
+    default_value = Temporalite.Non_Applicable
     entity = Personne
     definition_period = DAY
     label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale"
@@ -92,8 +93,7 @@ class temporalite_redevance_domaniale_type_1(Variable):
     def formula(personne, period, parameters):
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale', period)
-        # multiple occupation can be asked with different type of computation.
-        # In order to avoid misinterpretation for array input, only the element with the good type is computed
+        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_01_equipement_pays')
         # Parameters
@@ -106,10 +106,10 @@ class temporalite_redevance_domaniale_type_1(Variable):
             base_calcul_jour == 30,
             base_calcul_jour == 360
             ], [
-                'Journalier',
-                'Hebdomadaire',
-                'Mensuel',
-                'Annuel'
+                Temporalite.Journalier,
+                Temporalite.Hebdomadaire,
+                Temporalite.Mensuel,
+                Temporalite.Annuel
                 ])
 
-        return where(type_calcul == '1', temporalite, 'Not Applicable')
+        return where(type_calcul == '1', temporalite, Temporalite.Non_Applicable)
