@@ -8,13 +8,13 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 10
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com340
       zone_lot_agricole: amo
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 560000
-    montant_base_redevance_domaniale: 280000
+    montant_total_redevance_domaniale: 56000
+    montant_base_redevance_domaniale: 28000
     type_calcul_redevance_domaniale: 10
 - name: Test 2 - Papara - Lotissement ATIMAONO 1
   period: 2018-01-01
@@ -26,7 +26,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com340
       zone_lot_agricole: atimaono_1
       nombre_participant_redevance_domaniale: 0
@@ -44,7 +44,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com521
       zone_lot_agricole: atimaono_2
       nombre_participant_redevance_domaniale: 0
@@ -62,7 +62,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com471
       zone_lot_agricole: marumarutua_1_15
       nombre_participant_redevance_domaniale: 0
@@ -80,7 +80,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com471
       zone_lot_agricole: marumarutua_16_22
       nombre_participant_redevance_domaniale: 0
@@ -98,7 +98,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com471
       zone_lot_agricole: plateau_taravao_1_6
       nombre_participant_redevance_domaniale: 0
@@ -116,7 +116,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com471
       zone_lot_agricole: plateau_taravao_7_20
       nombre_participant_redevance_domaniale: 0
@@ -134,7 +134,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com471
       zone_lot_agricole: plateau_taravao_extension
       nombre_participant_redevance_domaniale: 0
@@ -152,7 +152,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com471
       zone_lot_agricole: plateau_taravao_extension_2
       nombre_participant_redevance_domaniale: 0
@@ -170,7 +170,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com481
       zone_lot_agricole: rose
       nombre_participant_redevance_domaniale: 0
@@ -188,7 +188,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com471
       zone_lot_agricole: socredo_1
       nombre_participant_redevance_domaniale: 0
@@ -206,7 +206,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com471
       zone_lot_agricole: socredo_2_4
       nombre_participant_redevance_domaniale: 0
@@ -224,7 +224,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com474
       zone_lot_agricole: vaitepiha
       nombre_participant_redevance_domaniale: 0
@@ -242,7 +242,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com295
       zone_lot_agricole: opunohu
       nombre_participant_redevance_domaniale: 0
@@ -260,7 +260,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com295
       zone_lot_agricole: opunohu_rive_gauche
       nombre_participant_redevance_domaniale: 0
@@ -278,7 +278,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com295
       zone_lot_agricole: rotui
       nombre_participant_redevance_domaniale: 0
@@ -296,7 +296,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com292
       zone_lot_agricole: vaianae
       nombre_participant_redevance_domaniale: 0
@@ -314,7 +314,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com502
       zone_lot_agricole: opoa
       nombre_participant_redevance_domaniale: 0
@@ -332,7 +332,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com502
       zone_lot_agricole: faaroa_agri
       nombre_participant_redevance_domaniale: 0
@@ -350,7 +350,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com502
       zone_lot_agricole: faaroa_elevage
       nombre_participant_redevance_domaniale: 0
@@ -368,7 +368,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com502
       zone_lot_agricole: maraeroa
       nombre_participant_redevance_domaniale: 0
@@ -386,7 +386,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com502
       zone_lot_agricole: tarodiere_opoa
       nombre_participant_redevance_domaniale: 0
@@ -404,7 +404,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com501
       zone_lot_agricole: bachelier
       nombre_participant_redevance_domaniale: 0
@@ -422,7 +422,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com501
       zone_lot_agricole: hamoa
       nombre_participant_redevance_domaniale: 0
@@ -440,7 +440,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com454
       zone_lot_agricole: faahue
       nombre_participant_redevance_domaniale: 0
@@ -458,7 +458,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com532
       zone_lot_agricole: matavahi_1
       nombre_participant_redevance_domaniale: 0
@@ -476,7 +476,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com532
       zone_lot_agricole: matavahi_2
       nombre_participant_redevance_domaniale: 0
@@ -494,7 +494,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com443
       zone_lot_agricole: metuarii
       nombre_participant_redevance_domaniale: 0
@@ -512,7 +512,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com443
       zone_lot_agricole: atai
       nombre_participant_redevance_domaniale: 0
@@ -530,7 +530,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com311
       zone_lot_agricole: terre_deserte
       nombre_participant_redevance_domaniale: 0
@@ -548,7 +548,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com313
       zone_lot_agricole: taipivai
       nombre_participant_redevance_domaniale: 0
@@ -566,7 +566,7 @@
       zone_occupation_redevance_domaniale: zone_1
       activite_cultuelle: false
       nombre_unite_redevance_domaniale: 2
-      variable_redevance_domaniale: 1
+      variable_redevance_domaniale: 10000
       commune_redevance_domaniale: com560
       zone_lot_agricole: hiniaehi
       nombre_participant_redevance_domaniale: 0

@@ -2,8 +2,8 @@ description: Lotissement agricole de Papara
 amo:
   loyer:
     values:
-      2016-01-01: 28000
+      2016-01-01: 2.8
 atimaono_1:
   loyer:
     values:
-      2016-01-01: 30000
+      2016-01-01: 3

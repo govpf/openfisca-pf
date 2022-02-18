@@ -2,32 +2,32 @@ description: Lotissement agricole de Afaahiti
 marumarutua_1_15:
   loyer:
     values:
-      2016-01-01: 23000
+      2016-01-01: 2.3
 marumarutua_16_22:
   loyer:
     values:
-      2016-01-01: 10000
+      2016-01-01: 1
 plateau_taravao_1_6:
   loyer:
     values:
-      2016-01-01: 18000
+      2016-01-01: 1.8
 plateau_taravao_7_20:
   loyer:
     values:
-      2016-01-01: 28000
+      2016-01-01: 2.8
 plateau_taravao_extension:
   loyer:
     values:
-      2016-01-01: 28000
+      2016-01-01: 2.8
 socredo_1:
   loyer:
     values:
-      2016-01-01: 20000
+      2016-01-01: 2
 socredo_2_4:
   loyer:
     values:
-      2016-01-01: 28000
+      2016-01-01: 2.8
 plateau_taravao_extension_2:
   loyer:
     values:
-      2016-01-01: 28000
+      2016-01-01: 2.8
