@@ -11,9 +11,6 @@ description: Param√®tres pour le calcul journalier pour espace mineralise avec √
 tarif_horaire:
   values:
     2018-01-01: 3500
-duree_demi_jour:
-  values:
-    2018-01-01: 8
 tarif_demi_jour:
   values:
     2018-01-01: 10000

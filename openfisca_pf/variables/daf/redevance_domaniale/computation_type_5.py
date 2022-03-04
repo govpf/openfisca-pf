@@ -7,7 +7,7 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
 from openfisca_pf.base import *
 
 
@@ -98,13 +98,16 @@ class temporalite_redevance_domaniale_type_5(Variable):
         nature_emprise_occupation_redevance_domaniale = where(type_calcul == '5', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'if_eco_01_parc_poisson_hors_passe')
         # Parametres
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_5[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
-
+        # Constantes
+        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
+        nombre_jour_par_mois = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_mois_rd
+        nombre_jour_par_semaine = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_semaine_rd
         # Transformation
         temporalite = select([
             base_calcul_jour == 1,
-            base_calcul_jour == 7,
-            base_calcul_jour == 30,
-            base_calcul_jour == 360
+            base_calcul_jour == nombre_jour_par_semaine,
+            base_calcul_jour == nombre_jour_par_mois,
+            base_calcul_jour == nombre_jour_par_an
             ], [
                 Temporalite.Journalier,
                 Temporalite.Hebdomadaire,

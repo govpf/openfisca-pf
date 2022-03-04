@@ -8,8 +8,8 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
-from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums_localisations import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums.enums_localisations import *
 
 
 class duree_occupation_redevance_domaniale(Variable):

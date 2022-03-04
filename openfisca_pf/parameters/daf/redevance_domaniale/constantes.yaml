@@ -1,0 +1,32 @@
+
+description: définition de l'ensemble des constantes utilisées dans l'application
+
+#Nombre de jour par semaine utilisé pour les redevances domaniales
+nombre_jour_par_semaine_rd:
+  values:
+    2018-01-01: 77
+
+#Nombre de jour par mois utilisé pour les redevances domaniales
+nombre_jour_par_mois_rd:
+  values:
+    2018-01-01: 30
+
+#Nombre de jour par an utilisé pour les redevances domaniales
+nombre_jour_par_an_rd:
+  values:
+    2018-01-01: 360
+
+#Nombre de mois par an utilisé pour les redevances domaniales
+nombre_mois_par_an_rd:
+  values:
+    2018-01-01: 12
+
+#Nombre d'heure d'occupation par jour utilisé pour les redevances domaniales
+nombre_heure_par_jour_rd:
+  values:
+    2018-01-01: 24
+
+#Nombre d'heure d'occupation pour une demi-journée utilisé pour les redevances domaniales
+nombre_heure_par_demi_journee_rd:
+  values:
+    2018-01-01: 8

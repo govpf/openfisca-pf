@@ -11,9 +11,6 @@ description: Paramètres pour le calcul journalier pour terrain de sport sans el
 tarif_horaire:
   values:
     2018-01-01: 2000
-duree_demi_jour:
-  values:
-    2018-01-01: 8
 tarif_demi_jour:
   values:
     2018-01-01: 7500

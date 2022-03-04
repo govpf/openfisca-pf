@@ -7,7 +7,7 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
 from openfisca_pf.base import *
 
 
@@ -42,17 +42,19 @@ class montant_total_redevance_domaniale_type_23(Variable):
 
         # Parameters
         tarif_horaire = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_horaire
-        duree_demi_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].duree_demi_jour
         tarif_demi_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_demi_jour
         tarif_jour = parameters(period).daf.redevance_domaniale.type_23[nature_emprise_occupation_redevance_domaniale].tarif_jour
 
+        # Constantes
+        nombre_heure_par_demi_journee = parameters(period).daf.redevance_domaniale.constantes.nombre_heure_par_demi_journee_rd
+
         # Price computation
         montant_intermediaire = select([
-            duree_occupation_redevance_domaniale <= duree_demi_jour,
-            duree_occupation_redevance_domaniale > duree_demi_jour
+            duree_occupation_redevance_domaniale <= nombre_heure_par_demi_journee,
+            duree_occupation_redevance_domaniale > nombre_heure_par_demi_journee
             ], [
                 min_(tarif_horaire * duree_occupation_redevance_domaniale, tarif_demi_jour),
-                min_(tarif_demi_jour + tarif_horaire * (duree_occupation_redevance_domaniale - 8), tarif_jour)
+                min_(tarif_demi_jour + tarif_horaire * (duree_occupation_redevance_domaniale - nombre_heure_par_demi_journee), tarif_jour)
                 ])
 
         montant_total = arrondiSup(montant_intermediaire) + majoration_redevance_domaniale

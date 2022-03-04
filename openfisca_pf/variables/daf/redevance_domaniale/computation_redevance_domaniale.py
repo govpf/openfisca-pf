@@ -8,7 +8,7 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
 from openfisca_pf.base import *
 
 
@@ -19,17 +19,23 @@ class duree_occupation_redevance_domaniale_annee(Variable):
     label = "La durée d'occupation en année"
 
     def formula(personne, period, parameters):
+        # Variables
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
         unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+        # Constantes
+        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
+        nombre_mois_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_mois_par_an_rd
+        nombre_heure_par_jour = parameters(period).daf.redevance_domaniale.constantes.nombre_heure_par_jour_rd
+
         value = select(
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures],
             [duree_occupation_redevance_domaniale,
-            duree_occupation_redevance_domaniale / 12,
-            duree_occupation_redevance_domaniale / 360,
-            duree_occupation_redevance_domaniale / (360 * 8)],
+            duree_occupation_redevance_domaniale / nombre_mois_par_an,
+            duree_occupation_redevance_domaniale / nombre_jour_par_an,
+            duree_occupation_redevance_domaniale / (nombre_jour_par_an * nombre_heure_par_jour)],
             )
         return value
 
@@ -41,14 +47,19 @@ class duree_occupation_redevance_domaniale_jour(Variable):
     label = "La durée d'occupation en jour"
 
     def formula(personne, period, parameters):
+        # Variables
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
         unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+        # Constantes
+        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
+        nombre_jour_par_mois = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_mois_rd
+
         value = select(
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale * 360,
-            duree_occupation_redevance_domaniale * 30,
+            [duree_occupation_redevance_domaniale * nombre_jour_par_an,
+            duree_occupation_redevance_domaniale * nombre_jour_par_mois,
             duree_occupation_redevance_domaniale],
             )
         return value
@@ -61,15 +72,20 @@ class duree_occupation_redevance_domaniale_mois(Variable):
     label = "La durée d'occupation en mois"
 
     def formula(personne, period, parameters):
+        # Variables
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
         unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+        # Constantes
+        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
+        nombre_jour_par_mois = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_mois_rd
+
         value = select(
             [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
             unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale * 30 / 360,
+            [duree_occupation_redevance_domaniale * nombre_jour_par_mois / nombre_jour_par_an,
             duree_occupation_redevance_domaniale,
-            duree_occupation_redevance_domaniale / 30],
+            duree_occupation_redevance_domaniale / nombre_jour_par_mois],
             )
         return value
 
@@ -86,6 +102,8 @@ class type_calcul_redevance_domaniale(Variable):
         unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
         type_calcul = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale]
+        # Constantes
+        nombre_heure_par_jour = parameters(period).daf.redevance_domaniale.constantes.nombre_heure_par_jour_rd
 
         # Selection selon un tarif horaire ou journalier
         # Pour les tarifs du SPJP, le mode de calcul pour une même emprise change si la durée est
@@ -94,7 +112,7 @@ class type_calcul_redevance_domaniale(Variable):
         # Cet ajout de 20, permet de créer des nouveaux types de calculs dans le futur.
         # L'ensemble des tarifs spéciaux du SPJP sont de type = 3
         unite_est_heure = unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures
-        duree_inferieur_jour = duree_occupation_redevance_domaniale <= 24
+        duree_inferieur_jour = duree_occupation_redevance_domaniale <= nombre_heure_par_jour
         tarif_spjp = type_calcul == 3
         type_calcul_inter = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale] + 20 * unite_est_heure * duree_inferieur_jour * tarif_spjp
 

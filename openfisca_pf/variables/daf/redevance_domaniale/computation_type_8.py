@@ -8,7 +8,7 @@
 from openfisca_core.model_api import *
 # # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.Enums.enums import *
+from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
 from openfisca_pf.base import *
 
 
@@ -62,6 +62,7 @@ class montant_total_redevance_domaniale_type_8(Variable):
         montant_base = personne('montant_base_redevance_domaniale_type_8', period)
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         activite_cultuelle = personne('activite_cultuelle', period)
+        exoneration = parameters(period).daf.redevance_domaniale.exoneration.discount_rate
 
         # Parametres
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_8[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].base_calcul_jour
@@ -71,7 +72,7 @@ class montant_total_redevance_domaniale_type_8(Variable):
         montant_intermediaire = max_(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour + majoration_redevance_domaniale, montant_minimum)
 
         # Exoneration
-        montant_total = arrondiSup(montant_intermediaire * (1 - 0.8 * activite_cultuelle))
+        montant_total = arrondiSup(montant_intermediaire * (1 - exoneration * activite_cultuelle))
         return where(type_calcul == '8', montant_total, 0)
 
 
@@ -93,13 +94,16 @@ class temporalite_redevance_domaniale_type_8(Variable):
         zone_occupation_redevance_domaniale = personne('zone_occupation_redevance_domaniale', period)
         # Parametres
         base_calcul_jour = parameters(period).daf.redevance_domaniale.type_8[nature_emprise_occupation_redevance_domaniale][zone_occupation_redevance_domaniale].base_calcul_jour
-
+        # Constantes
+        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
+        nombre_jour_par_mois = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_mois_rd
+        nombre_jour_par_semaine = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_semaine_rd
         # Transformation
         temporalite = select([
             base_calcul_jour == 1,
-            base_calcul_jour == 7,
-            base_calcul_jour == 30,
-            base_calcul_jour == 360
+            base_calcul_jour == nombre_jour_par_semaine,
+            base_calcul_jour == nombre_jour_par_mois,
+            base_calcul_jour == nombre_jour_par_an
             ], [
                 Temporalite.Journalier,
                 Temporalite.Hebdomadaire,
