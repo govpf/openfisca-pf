@@ -1,0 +1,66 @@
+description: Domaine public maritime Hors entité publique
+zone_1:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 400
+  montant_minimum:
+    values:
+      2018-01-01: 0
+zone_2:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 400
+  montant_minimum:
+    values:
+      2018-01-01: 0
+zone_3:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 200
+  montant_minimum:
+    values:
+      2018-01-01: 0
+zone_4:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 200
+  montant_minimum:
+    values:
+      2018-01-01: 0
+zone_5:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 200
+  montant_minimum:
+    values:
+      2018-01-01: 0

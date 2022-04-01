@@ -1,0 +1,13 @@
+description: Valeur vénale de Hakahau - Ua-Pou
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 4000
+zone_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 200
+village_zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 2000

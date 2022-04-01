@@ -1,0 +1,9 @@
+description: Valeur vénale de Puamau - Hiva-Oa
+zone_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 200
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 1000

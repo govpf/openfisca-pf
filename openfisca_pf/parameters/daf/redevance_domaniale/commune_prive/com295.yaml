@@ -1,0 +1,13 @@
+description: Valeur vénale de Papetoai
+bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 20000
+cote_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 7000
+domaine_opunohu:
+  valeur_venale:
+    values:
+      2016-01-01: 2400

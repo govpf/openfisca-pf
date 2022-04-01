@@ -1,0 +1,65 @@
+description: Ancrage et/ou mouillage avec droit immobilier
+zone_1:
+  part_fixe:
+    values:
+      2018-01-01: 60000
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 0
+  montant_minimum:
+    values:
+      2018-01-01: 0
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_2:
+  part_fixe:
+    values:
+      2018-01-01: 30000
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 0
+  montant_minimum:
+    values:
+      2018-01-01: 0
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_3:
+  part_fixe:
+    values:
+      2018-01-01: 20000
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 0
+  montant_minimum:
+    values:
+      2018-01-01: 0
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_4:
+  part_fixe:
+    values:
+      2018-01-01: 15000
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 0
+  montant_minimum:
+    values:
+      2018-01-01: 0
+  base_calcul_jour:
+    values:
+      2018-01-01: 360

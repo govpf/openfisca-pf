@@ -1,0 +1,21 @@
+description: Valeur vénale de Teavaro
+temae_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 15000
+temae_cote_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 3000
+temae_bel_air:
+  valeur_venale:
+    values:
+      2016-01-01: 16000
+vaiare_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 13000
+vaiare_cote_montagne:
+  valeur_venale:
+    values:
+      2016-01-01: 5000

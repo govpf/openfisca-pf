@@ -1,0 +1,19 @@
+#  Type_23 is the equivalent computation for the type_3 when the duration is less than 1 day
+#  the tarifcation values are:
+#     1 hour = 3500F
+#     1 half day = 10000F
+#     1 full day = 20000F
+#  When hour_rate*time is higher than half day value, the autorisation is made for half a day.
+#  A half-day is 8 hours but can be parametered (from 6am to 2pm; and from 2pm to 10pm).
+#  There is no subdivision between half-day and a day. If you want 
+
+description: Paramètres pour le calcul journalier pour espace pelouse sans électricité
+tarif_horaire:
+  values:
+    2018-01-01: 2000
+tarif_demi_jour:
+  values:
+    2018-01-01: 7500
+tarif_jour:
+  values:
+    2018-01-01: 15000

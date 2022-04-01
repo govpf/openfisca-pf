@@ -1,0 +1,13 @@
+description: Valeur vénale de Hipu - Tahaa
+motu_et_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 4000
+zone_habitat:
+  valeur_venale:
+    values:
+      2016-01-01: 1000
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 500

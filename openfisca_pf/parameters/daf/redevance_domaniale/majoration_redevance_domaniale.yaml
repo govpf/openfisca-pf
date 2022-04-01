@@ -1,0 +1,15 @@
+description: Paramètre pour le calcul de la majoration
+
+#Majoration seuil du nombre de participant.
+rate_participant_1:
+  values:
+    2018-01-01: 200
+threshold_participant_1:
+  values:
+    2018-01-01: 100
+rate_participant_2:
+    values:
+      2018-01-01: 500
+threshold_participant_2:
+  values:
+    2018-01-01: 1000

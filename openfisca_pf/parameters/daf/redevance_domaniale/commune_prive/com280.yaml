@@ -1,0 +1,13 @@
+description: Valeur vénale de Maupiti
+zone_agricole_motu:
+  valeur_venale:
+    values:
+      2016-01-01: 400
+zone_habitat:
+  valeur_venale:
+    values:
+      2016-01-01: 1000
+zone_montagneuse:
+  valeur_venale:
+    values:
+      2016-01-01: 200

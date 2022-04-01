@@ -1,0 +1,17 @@
+description: Valeur vénale de Tiarei
+zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 11000
+zone_cote_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 3700
+zone_moyennes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 2000
+zone_plaines_et_basses_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 2500

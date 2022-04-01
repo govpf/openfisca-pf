@@ -1,0 +1,17 @@
+description: Valeur vénale de Punaauia
+zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 35000
+zone_hautes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 13000
+zone_moyennes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 16000
+zone_plaines_et_basses_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 21000

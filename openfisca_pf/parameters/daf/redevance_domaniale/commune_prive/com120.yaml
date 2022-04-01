@@ -1,0 +1,17 @@
+description: Valeur vénale de Arue
+zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 23000
+zone_cote_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 16400
+zone_moyennes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 10000
+zone_plaines_et_basses_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 17300

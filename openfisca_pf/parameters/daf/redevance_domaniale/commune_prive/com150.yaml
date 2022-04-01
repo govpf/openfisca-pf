@@ -1,0 +1,22 @@
+
+description: Valeur vénale de Faaa
+zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 35000
+zone_cote_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 33000
+zone_hautes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 23900
+zone_moyennes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 16300
+zone_plaines_et_basses_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 17000

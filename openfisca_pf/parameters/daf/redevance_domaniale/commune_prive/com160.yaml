@@ -1,0 +1,13 @@
+description: Valeur vénale de Fakarava
+secteur:
+  valeur_venale:
+    values:
+      2016-01-01: 500
+tetamanu:
+  valeur_venale:
+    values:
+      2016-01-01: 1000
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 1500

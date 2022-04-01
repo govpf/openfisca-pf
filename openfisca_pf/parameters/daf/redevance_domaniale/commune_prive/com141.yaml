@@ -1,0 +1,17 @@
+description: Valeur vénale de Anau - Bora Bora
+motu:
+  valeur_venale:
+    values:
+      2016-01-01: 5000
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 2000
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 1500
+zone_touristique:
+  valeur_venale:
+    values:
+      2016-01-01: 12000

@@ -1,0 +1,17 @@
+description: Valeur vénale de Mahaena
+zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 7000
+zone_cote_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 7000
+zone_moyennes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 1000
+zone_plaines_et_basses_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 2000

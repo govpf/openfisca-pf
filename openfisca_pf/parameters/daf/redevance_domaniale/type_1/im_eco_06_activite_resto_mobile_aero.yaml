@@ -1,0 +1,16 @@
+description: Paramètres pour le calcul des Activités de restauration mobiles (zone aéroportuaire)
+part_fixe:
+  values:
+    2018-01-01: 0
+part_unitaire:
+  values:
+    2018-01-01: 0
+part_variable:
+  values:
+    2018-01-01: 25
+montant_minimum:
+  values:
+    2018-01-01: 12000
+base_calcul_jour:
+  values:
+    2018-01-01: 360

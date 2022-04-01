@@ -1,0 +1,14 @@
+description: Lotissement agricole de Papetoai
+opunohu:
+  loyer:
+    values:
+      2016-01-01: 2.7
+opunohu_rive_gauche:
+  loyer:
+    values:
+      2016-01-01: 4
+rotui:  
+  loyer:
+    values:
+      2016-01-01: 2.7
+      

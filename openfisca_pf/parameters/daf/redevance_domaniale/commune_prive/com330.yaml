@@ -1,0 +1,17 @@
+description: Valeur vénale de Paea
+zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 24000
+zone_hautes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 1400
+zone_moyennes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 2400
+zone_plaines_et_basses_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 15000

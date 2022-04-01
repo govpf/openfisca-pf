@@ -101,3 +101,17 @@ def calculerBaseImposablePrestationsTranche(personne, period, tranche, impot):
             [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
             ))
     return valeur
+
+
+# This function aims at getting a source variable using the aggregation of a prefix and another variable
+# variable = [variable 1, variable 2, variable3]
+# prefix = blabla
+# return [source(blablavariable1), source(blablavariable2), source(blablavariable3)]
+def aggregateVariables(source, period, prefix, variable):
+    returnValue = []
+    index = 0
+    for item in variable:
+        value = source(prefix + item, period)[index]
+        returnValue.append(value)
+        index = index + 1
+    return numpy.array(returnValue)
