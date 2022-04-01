@@ -70,8 +70,3 @@ class temporalite_redevance_domaniale_type_23(Variable):
     definition_period = DAY
     label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale"
     reference = "Arrêté NOR DAF2120267AC-3"
-
-    def formula(personne, period, parameters):
-        # Il n'y a pas de temporalité sur ce type de calcul
-
-        return Temporalite.Non_Applicable

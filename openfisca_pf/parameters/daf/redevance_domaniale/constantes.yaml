@@ -4,7 +4,7 @@ description: définition de l'ensemble des constantes utilisées dans l'applicat
 #Nombre de jour par semaine utilisé pour les redevances domaniales
 nombre_jour_par_semaine_rd:
   values:
-    2018-01-01: 77
+    2018-01-01: 7
 
 #Nombre de jour par mois utilisé pour les redevances domaniales
 nombre_jour_par_mois_rd:

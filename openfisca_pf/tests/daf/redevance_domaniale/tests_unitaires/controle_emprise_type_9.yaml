@@ -16,7 +16,7 @@
     montant_total_redevance_domaniale: 750000
     montant_base_redevance_domaniale: 375000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel
 - name: Test 2 - priv_02_eco_industriel
   period: 2018-01-01
   input:
@@ -35,7 +35,7 @@
     montant_total_redevance_domaniale: 750000
     montant_base_redevance_domaniale: 375000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel
 - name: Test 3 - priv_03_projet_social
   period: 2018-01-01
   input:
@@ -54,7 +54,7 @@
     montant_total_redevance_domaniale: 750000
     montant_base_redevance_domaniale: 375000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel
 - name: Test 4 - priv_04_etablissement_public
   period: 2018-01-01
   input:
@@ -73,7 +73,7 @@
     montant_total_redevance_domaniale: 750000
     montant_base_redevance_domaniale: 375000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel
 - name: Test 5 - priv_05_habitat_social
   period: 2018-01-01
   input:
@@ -92,7 +92,7 @@
     montant_total_redevance_domaniale: 250000
     montant_base_redevance_domaniale: 125000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel
 - name: Test 6 - priv_06_developpement_durable
   period: 2018-01-01
   input:
@@ -111,7 +111,7 @@
     montant_total_redevance_domaniale: 250000
     montant_base_redevance_domaniale: 125000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel
 - name: Test 7 - priv_07_technologie_information
   period: 2018-01-01
   input:
@@ -130,7 +130,7 @@
     montant_total_redevance_domaniale: 250000
     montant_base_redevance_domaniale: 125000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel
 - name: Test 8 - priv_08_cultuel
   period: 2018-01-01
   input:
@@ -149,7 +149,7 @@
     montant_total_redevance_domaniale: 250000
     montant_base_redevance_domaniale: 125000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel
 - name: Test 9 - priv_09_autres
   period: 2018-01-01
   input:
@@ -168,4 +168,4 @@
     montant_total_redevance_domaniale: 1250000
     montant_base_redevance_domaniale: 625000
     type_calcul_redevance_domaniale: 9
-    # temporalite_redevance_domaniale: Annuel
+    temporalite_redevance_domaniale: Annuel

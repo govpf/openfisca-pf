@@ -16,7 +16,7 @@
     montant_total_redevance_domaniale: 399600
     montant_base_redevance_domaniale: 399600
     type_calcul_redevance_domaniale: 4
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 2 - im_eco_03_foire_commerciale
   period: 2018-01-01
   input:
@@ -35,7 +35,7 @@
     montant_total_redevance_domaniale: 799800
     montant_base_redevance_domaniale: 799800
     type_calcul_redevance_domaniale: 4
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 3 - im_eco_04_activite_ludique
   period: 2018-01-01
   input:
@@ -54,7 +54,7 @@
     montant_total_redevance_domaniale: 249800
     montant_base_redevance_domaniale: 249800
     type_calcul_redevance_domaniale: 4
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 4 - im_eco_14_foire_locaux_agricoles
   period: 2018-01-01
   input:
@@ -73,4 +73,4 @@
     montant_total_redevance_domaniale: 24800
     montant_base_redevance_domaniale: 24800
     type_calcul_redevance_domaniale: 4
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable

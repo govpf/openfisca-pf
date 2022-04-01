@@ -16,7 +16,7 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 2 - ip_eco_03_terrain_sport_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -35,7 +35,7 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 3 - ip_eco_04_bati_tout_public_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -54,7 +54,7 @@
     montant_total_redevance_domaniale: 4000
     montant_base_redevance_domaniale: 4000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 4 - ip_eco_05_terrain_sport_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -73,7 +73,7 @@
     montant_total_redevance_domaniale: 4000
     montant_base_redevance_domaniale: 4000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 5 - em_eco_01_espace_pelouse_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -92,7 +92,7 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 6 - em_eco_02_surface_mineral_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -111,7 +111,7 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 7 - em_eco_03_espace_pelouse_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -130,7 +130,7 @@
     montant_total_redevance_domaniale: 4000
     montant_base_redevance_domaniale: 4000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 8 - em_eco_04_surface_mineral_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -149,7 +149,7 @@
     montant_total_redevance_domaniale: 4000
     montant_base_redevance_domaniale: 4000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 9 - ip_pr_01_bati_tout_public_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -168,7 +168,7 @@
     montant_total_redevance_domaniale: 7000
     montant_base_redevance_domaniale: 7000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 10 - ip_pr_02_terrain_sport_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -187,7 +187,7 @@
     montant_total_redevance_domaniale: 7000
     montant_base_redevance_domaniale: 7000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 11 - ip_pr_03_bati_tout_public_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -206,7 +206,7 @@
     montant_total_redevance_domaniale: 4000
     montant_base_redevance_domaniale: 4000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 12 - ip_pr_04_terrain_sport_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -225,7 +225,7 @@
     montant_total_redevance_domaniale: 4000
     montant_base_redevance_domaniale: 4000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 13 - em_pr_01_espace_pelouse_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -244,7 +244,7 @@
     montant_total_redevance_domaniale: 7000
     montant_base_redevance_domaniale: 7000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 14 - em_pr_02_surface_mineral_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -263,7 +263,7 @@
     montant_total_redevance_domaniale: 7000
     montant_base_redevance_domaniale: 7000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 15 - em_pr_03_espace_pelouse_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -282,7 +282,7 @@
     montant_total_redevance_domaniale: 4000
     montant_base_redevance_domaniale: 4000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 16 - em_pr_04_surface_mineral_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -301,7 +301,7 @@
     montant_total_redevance_domaniale: 4000
     montant_base_redevance_domaniale: 4000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 17 - ip_eco_02_bati_tout_public_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -320,7 +320,7 @@
     montant_total_redevance_domaniale: 15000
     montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 18 - ip_eco_03_terrain_sport_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -339,7 +339,7 @@
     montant_total_redevance_domaniale: 15000
     montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 19 - ip_eco_04_bati_tout_public_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -358,7 +358,7 @@
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 20 - ip_eco_05_terrain_sport_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -377,7 +377,7 @@
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 21 - em_eco_01_espace_pelouse_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -396,7 +396,7 @@
     montant_total_redevance_domaniale: 15000
     montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 22 - em_eco_02_surface_mineral_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -415,7 +415,7 @@
     montant_total_redevance_domaniale: 15000
     montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 23 - em_eco_03_espace_pelouse_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -434,7 +434,7 @@
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 24 - em_eco_04_surface_mineral_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -453,7 +453,7 @@
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 25 - ip_pr_01_bati_tout_public_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -472,7 +472,7 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 26 - ip_pr_02_terrain_sport_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -491,7 +491,7 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 27 - ip_pr_03_bati_tout_public_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -510,7 +510,7 @@
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 28 - ip_pr_04_terrain_sport_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -529,7 +529,7 @@
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 29 - em_pr_01_espace_pelouse_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -548,7 +548,7 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 30 - em_pr_02_surface_mineral_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -567,7 +567,7 @@
     montant_total_redevance_domaniale: 10000
     montant_base_redevance_domaniale: 10000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 31 - em_pr_03_espace_pelouse_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -586,7 +586,7 @@
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 32 - em_pr_04_surface_mineral_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -605,7 +605,7 @@
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 33 - ip_eco_02_bati_tout_public_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -624,7 +624,7 @@
     montant_total_redevance_domaniale: 20000
     montant_base_redevance_domaniale: 20000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 34 - ip_eco_03_terrain_sport_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -643,7 +643,7 @@
     montant_total_redevance_domaniale: 20000
     montant_base_redevance_domaniale: 20000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 35 - ip_eco_04_bati_tout_public_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -662,7 +662,7 @@
     montant_total_redevance_domaniale: 9500
     montant_base_redevance_domaniale: 9500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 36 - ip_eco_05_terrain_sport_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -681,7 +681,7 @@
     montant_total_redevance_domaniale: 9500
     montant_base_redevance_domaniale: 9500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 37 - em_eco_01_espace_pelouse_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -700,7 +700,7 @@
     montant_total_redevance_domaniale: 20000
     montant_base_redevance_domaniale: 20000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 38 - em_eco_02_surface_mineral_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -719,7 +719,7 @@
     montant_total_redevance_domaniale: 20000
     montant_base_redevance_domaniale: 20000
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 39 - em_eco_03_espace_pelouse_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -738,7 +738,7 @@
     montant_total_redevance_domaniale: 9500
     montant_base_redevance_domaniale: 9500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 40 - em_eco_04_surface_mineral_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -757,7 +757,7 @@
     montant_total_redevance_domaniale: 9500
     montant_base_redevance_domaniale: 9500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 41 - ip_pr_01_bati_tout_public_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -776,7 +776,7 @@
     montant_total_redevance_domaniale: 13500
     montant_base_redevance_domaniale: 13500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 42 - ip_pr_02_terrain_sport_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -795,7 +795,7 @@
     montant_total_redevance_domaniale: 13500
     montant_base_redevance_domaniale: 13500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 43 - ip_pr_03_bati_tout_public_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -814,7 +814,7 @@
     montant_total_redevance_domaniale: 9500
     montant_base_redevance_domaniale: 9500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 44 - ip_pr_04_terrain_sport_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -833,7 +833,7 @@
     montant_total_redevance_domaniale: 9500
     montant_base_redevance_domaniale: 9500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 45 - em_pr_01_espace_pelouse_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -852,7 +852,7 @@
     montant_total_redevance_domaniale: 13500
     montant_base_redevance_domaniale: 13500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 46 - em_pr_02_surface_mineral_ac_elec - <1jours
   period: 2018-01-01
   input:
@@ -871,7 +871,7 @@
     montant_total_redevance_domaniale: 13500
     montant_base_redevance_domaniale: 13500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 47 - em_pr_03_espace_pelouse_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -890,7 +890,7 @@
     montant_total_redevance_domaniale: 9500
     montant_base_redevance_domaniale: 9500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable
 - name: Test 48 - em_pr_04_surface_mineral_sans_elec - <1jours
   period: 2018-01-01
   input:
@@ -909,4 +909,4 @@
     montant_total_redevance_domaniale: 9500
     montant_base_redevance_domaniale: 9500
     type_calcul_redevance_domaniale: 23
-    # temporalite_redevance_domaniale: Not Applicable
+    temporalite_redevance_domaniale: Non_Applicable

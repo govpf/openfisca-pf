@@ -118,7 +118,6 @@ class type_calcul_redevance_domaniale(Variable):
 
         # Transformation en entier et en string
         type_calcul = type_calcul_inter.astype(int).astype(str)
-
         return type_calcul
 
 
