@@ -10,6 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import Personne
 import openfisca_pf.constants.DICP.references_csts as references
 
+
 class revenus_tranche_1(Variable):
     value_type = float
     entity = Personne
