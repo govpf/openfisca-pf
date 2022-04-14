@@ -154,7 +154,7 @@
       revenus_tranche_10: 0
       revenus_tranche_11: 0
   output:
-    cst_s_due_tranche_1: 1
+    cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 1
     cst_s_due_tranche_3: 4
     cst_s_due_tranche_4: 0
@@ -165,7 +165,7 @@
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 6
+    cst_s_due_totale: 5
 - name: 7
   period: 2020-01
   input:
@@ -188,12 +188,12 @@
     cst_s_due_tranche_4: 0
     cst_s_due_tranche_5: 0
     cst_s_due_tranche_6: 0
-    cst_s_due_tranche_7: 157500751
+    cst_s_due_tranche_7: 157500750
     cst_s_due_tranche_8: 0
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 232500751
+    cst_s_due_totale: 232500750
 - name: 8
   period: 2020-01
   input:
@@ -217,11 +217,11 @@
     cst_s_due_tranche_5: 0
     cst_s_due_tranche_6: 0
     cst_s_due_tranche_7: 148148148
-    cst_s_due_tranche_8: 177777778
+    cst_s_due_tranche_8: 177777777
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 325925926
+    cst_s_due_totale: 325925925
 - name: 9
   period: 2020-01
   input:
@@ -244,12 +244,12 @@
     cst_s_due_tranche_4: 0
     cst_s_due_tranche_5: 0
     cst_s_due_tranche_6: 0
-    cst_s_due_tranche_7: 22500023
+    cst_s_due_tranche_7: 22500022
     cst_s_due_tranche_8: 28801080
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 51301103
+    cst_s_due_totale: 51301102
 - name: 10
   period: 2020-01
   input:
@@ -275,9 +275,9 @@
     cst_s_due_tranche_7: 0
     cst_s_due_tranche_8: 0
     cst_s_due_tranche_9: 0
-    cst_s_due_tranche_10: 230000000
+    cst_s_due_tranche_10: 229999999
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 230000000
+    cst_s_due_totale: 229999999
 - name: 11
   period: 2020-01
   input:
@@ -303,9 +303,9 @@
     cst_s_due_tranche_7: 0
     cst_s_due_tranche_8: 0
     cst_s_due_tranche_9: 0
-    cst_s_due_tranche_10: 2300000
+    cst_s_due_tranche_10: 2299999
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 2300000
+    cst_s_due_totale: 2299999
 - name: 12
   period: 2020-01
   input:
@@ -326,14 +326,14 @@
     cst_s_due_tranche_2: 240000
     cst_s_due_tranche_3: 40025
     cst_s_due_tranche_4: 10801
-    cst_s_due_tranche_5: 12858
-    cst_s_due_tranche_6: 439
-    cst_s_due_tranche_7: 6167
+    cst_s_due_tranche_5: 12857
+    cst_s_due_tranche_6: 438
+    cst_s_due_tranche_7: 6166
     cst_s_due_tranche_8: 666
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 315956
+    cst_s_due_totale: 315953
 - name: 13
   period: 2020-01
   input:
@@ -378,18 +378,18 @@
       revenus_tranche_10: 452555
       revenus_tranche_11: 452555
   output:
-    cst_s_due_tranche_1: 2263
-    cst_s_due_tranche_2: 13577
-    cst_s_due_tranche_3: 22628
-    cst_s_due_tranche_4: 31679
-    cst_s_due_tranche_5: 40730
-    cst_s_due_tranche_6: 54307
+    cst_s_due_tranche_1: 2262
+    cst_s_due_tranche_2: 13576
+    cst_s_due_tranche_3: 22627
+    cst_s_due_tranche_4: 31678
+    cst_s_due_tranche_5: 40729
+    cst_s_due_tranche_6: 54306
     cst_s_due_tranche_7: 67883
-    cst_s_due_tranche_8: 81460
-    cst_s_due_tranche_9: 95037
-    cst_s_due_tranche_10: 104088
-    cst_s_due_tranche_11: 113139
-    cst_s_due_totale: 626791
+    cst_s_due_tranche_8: 81459
+    cst_s_due_tranche_9: 95036
+    cst_s_due_tranche_10: 104087
+    cst_s_due_tranche_11: 113138
+    cst_s_due_totale: 626781
 - name: 15
   period: 2020-01
   input:
@@ -434,7 +434,7 @@
       revenus_tranche_10: 0
       revenus_tranche_11: 0
   output:
-    cst_s_due_tranche_1: 15931092
+    cst_s_due_tranche_1: 15931091
     cst_s_due_tranche_2: 95586550
     cst_s_due_tranche_3: 159310917
     cst_s_due_tranche_4: 778641975
