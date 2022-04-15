@@ -45,7 +45,7 @@ class cps_a_reporter(Variable):
     entity = Personne
     definition_period = MONTH
     unit = 'currency-XPF'
-    label = u"Montant de CPS à reporter: \n\cps_a_reporter = MAX(-#cps_nette, 0)"
+    label = u"Montant de CPS à reporter: \n\ncps_a_reporter = MAX(-#cps_nette, 0)"
     reference = ["Code des impots : LP. 358-4", "https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite"]
 
     def formula(personne, period, parameters):
