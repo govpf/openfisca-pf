@@ -1,8 +1,8 @@
 description: Taux de la CPS
 metadata:
-  reference: https://law.gov.example/basic-income/amount
+  reference: https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite
 taux:
   description: Taux de CPS
   values:
     2000-11-01: 0
-    2021-11-01: 0.015
+    2022-04-01: 0.01

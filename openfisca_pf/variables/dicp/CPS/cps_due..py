@@ -17,6 +17,7 @@ class cps_due(Variable):
     definition_period = MONTH
     unit = 'currency-XPF'
     label = u"Montant de CPS dûe: \n\n#cps_due = #base_imposable_cps * #taux_cps, 0"
+    reference = ["Code des impots : LP. 358-3", "https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite"]
 
     def formula(personne, period, parameters):
         base_imposable = personne(f'base_imposable_cps', period)

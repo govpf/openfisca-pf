@@ -17,7 +17,8 @@ class base_imposable_cps(Variable):
     set_input = set_input_divide_by_period
     label = u"Base imposable de la TVA à taux réduit"
     unit = 'currency-XPF'
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = ["Code des impots : LP. 358-1 et LP. 358-2", "https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite"]
+
 
     def formula(personne, period, parameters):
         base_imposable_tva_taux_reduit = personne(f'base_imposable_tva_taux_reduit', period)
