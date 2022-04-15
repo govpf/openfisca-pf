@@ -19,7 +19,6 @@ class base_imposable_cps(Variable):
     unit = 'currency-XPF'
     reference = ["Code des impots : LP. 358-1 et LP. 358-2", "https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite"]
 
-
     def formula(personne, period, parameters):
         base_imposable_tva_taux_reduit = personne(f'base_imposable_tva_taux_reduit', period)
         base_imposable_tva_taux_intermediaire = personne(f'base_imposable_tva_taux_intermediaire', period)
