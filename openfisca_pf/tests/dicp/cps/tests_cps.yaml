@@ -12,8 +12,8 @@
     personne:
       base_imposable_cps: 1000000
   output:
-    cps_due: 15000
-    cps_nette_due: 15000
+    cps_due: 10000
+    cps_nette_due: 10000
 - name: 3
   period: 2022-05
   input:
@@ -21,8 +21,8 @@
       base_imposable_cps: 1000000
       cps_a_reverser: 50000
   output:
-    cps_due: 15000
-    cps_nette_due: 65000
+    cps_due: 10000
+    cps_nette_due: 60000
 - name: 4
   period: 2022-05
   input:
@@ -30,8 +30,9 @@
       base_imposable_cps: 1000000
       cps_en_diminution: 50000
   output:
-    cps_due: 15000
+    cps_due: 10000
     cps_nette_due: 0
+    cps_a_reporter: 40000
 - name: 5
   period: 2022-05
   input:
@@ -39,8 +40,8 @@
       base_imposable_cps: 1000000
       cps_en_diminution: 5000
   output:
-    cps_due: 15000
-    cps_nette_due: 10000
+    cps_due: 10000
+    cps_nette_due: 5000
 - name: 6
   period: 2022-05
   input:
@@ -49,5 +50,5 @@
       cps_en_diminution: 5000
       cps_a_reverser: 50000
   output:
-    cps_due: 15000
-    cps_nette_due: 60000
+    cps_due: 10000
+    cps_nette_due: 55000
