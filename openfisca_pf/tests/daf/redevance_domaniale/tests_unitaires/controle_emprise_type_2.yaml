@@ -111,7 +111,7 @@
     montant_total_redevance_domaniale: 50000
     montant_base_redevance_domaniale: 50000
     type_calcul_redevance_domaniale: 2
-    # temporalite_redevance_domaniale: Journalier
+    temporalite_redevance_domaniale: Journalier
 - name: Test 7 - im_eco_07_vente_produit_locaux_aero
   period: 2018-01-01
   input:

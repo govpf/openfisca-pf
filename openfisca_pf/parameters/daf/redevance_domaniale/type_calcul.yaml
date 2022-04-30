@@ -109,6 +109,9 @@ if_pr_03_support_publicitaire:
 if_pr_02_ancrage_sans_droit:
   values:
     2018-01-01: 1
+im_eco_15_vente_couronne_aero:
+  values:
+    2018-01-01: 1
 
 # Type 2
 ip_eco_06_infra_restauration_aero:
@@ -243,6 +246,9 @@ ex_eco_03_dpm_hors_entite_publique:
   values:
     2018-01-01: 7
 ex_eco_04_dpm_pour_entite_publique:
+  values:
+    2018-01-01: 7
+ex_eco_05_dprive:
   values:
     2018-01-01: 7
 
