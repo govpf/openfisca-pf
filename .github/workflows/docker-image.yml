@@ -54,8 +54,8 @@ jobs:
       id: findandreplace
       with:
         source: ${{ github.ref }}
-        find: '/'        
-        replace: '_'
+        find: '/refs/heads/'        
+        replace: ''
     -
       name: Build and push (not master - not tag)
       uses: docker/build-push-action@v2.6.1
