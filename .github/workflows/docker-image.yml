@@ -2,7 +2,9 @@ name: Publish Docker images
 
 on:
   push:
-    branches: [ master ]
+    branches: 
+      - 'master'
+      - 'feature/*'
     tags:
       - '*'
   pull_request:
@@ -45,6 +47,27 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     -
+      name: remove / in branch name (not master - not tag)
+      uses: mad9000/actions-find-and-replace-string@2
+      if: github.event_name == 'push' && github.ref != 'refs/heads/master' && github.ref != 'refs/tags'
+      id: findandreplace
+      with:
+        source: ${{ github.ref }}
+        find: 'refs/heads/feature/'        
+        replace: 'feature_'
+    -
+      name: Build and push (not master - not tag)
+      uses: docker/build-push-action@v2.6.1
+      if: github.event_name == 'push' && github.ref != 'refs/heads/master' && github.ref != 'refs/tags'
+      with:
+        context: .
+        file: ./docker/Dockerfile
+        platforms: linux/amd64
+        pull: true
+        push: true
+        tags: |
+          ${{ env.repo }}:${{ steps.findandreplace.outputs.value }}
+    -
       name: Build and push (master)
       uses: docker/build-push-action@v2.6.1
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -58,14 +81,14 @@ jobs:
           ${{ env.repo }}:latest
     -
       name: Extract tag name
-      if: github.event_name == 'push' && github.ref != 'refs/heads/master'
+      if: github.event_name == 'push' && github.ref == 'refs/tags'
       shell: bash
       run: echo "##[set-output name=tag;]$(echo ${GITHUB_REF#refs/tags/})"
       id: extract_tag
     -
       name: Build and push (tags)
       uses: docker/build-push-action@v2.6.1
-      if: github.event_name == 'push' && github.ref != 'refs/heads/master'
+      if: github.event_name == 'push' && github.ref == 'refs/tags'
       with:
         context: .
         file: ./docker/Dockerfile
