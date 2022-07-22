@@ -54,7 +54,7 @@ jobs:
       id: findandreplace
       with:
         source: ${{ github.ref }}
-        find: '/refs/heads/'        
+        find: 'refs/heads/'        
         replace: ''
     -
       name: Build and push (not master - not tag)
