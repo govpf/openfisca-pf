@@ -58,7 +58,7 @@ jobs:
         replace: 'feature_'
     -
       name: Build and push (not master - not develop -  not tag)
-      uses: docker/build-push-action@v2.6.1
+      uses: docker/build-push-action@v3.2.0
       if: github.event_name == 'push' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/develop'  && github.ref != 'refs/tags'
       with:
         context: .
@@ -70,7 +70,7 @@ jobs:
           ${{ env.repo }}:${{ steps.findandreplace.outputs.value }}
     -
       name: Build and push (develop)
-      uses: docker/build-push-action@v2.6.1
+      uses: docker/build-push-action@v3.2.0
       if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
       with:
         context: .
@@ -82,7 +82,7 @@ jobs:
           ${{ env.repo }}:develop
     -
       name: Build and push (master)
-      uses: docker/build-push-action@v2.6.1
+      uses: docker/build-push-action@v3.2.0
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       with:
         context: .
@@ -100,7 +100,7 @@ jobs:
       id: extract_tag
     -
       name: Build and push (tags)
-      uses: docker/build-push-action@v2.6.1
+      uses: docker/build-push-action@v3.2.0
       if: github.event_name == 'push' && github.ref == 'refs/tags'
       with:
         context: .
