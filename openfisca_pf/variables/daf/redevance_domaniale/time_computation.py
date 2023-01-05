@@ -10,6 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
 from openfisca_pf.base import *
+from numpy import logical_or, logical_and
 
 
 class duree_occupation_redevance_domaniale_annee(Variable):
@@ -114,8 +115,8 @@ class duree_comptable_entre_deux_dates(Variable):
         jour_fin_occupation = (date_fin_occupation.astype('datetime64[D]') - date_fin_occupation.astype('datetime64[M]')).astype('timedelta64[D]').astype(int) + 1
 
         # Dans le contexte comptable, la règle est d'homogénéiser les durées des mois à 30 jours (et donc les années à 360)
-        jour_debut = where(jour_debut_occupation == 31 or ((jour_debut_occupation == 28 or jour_debut_occupation == 29) and mois_debut_occupation == 2), 30, jour_debut_occupation)
-        jour_fin = where(jour_fin_occupation == 31 or ((jour_fin_occupation == 28 or jour_fin_occupation == 29) and mois_fin_occupation == 2), 30, jour_fin_occupation)
+        jour_debut = where(logical_or(jour_debut_occupation == 31, logical_and(logical_or(jour_debut_occupation == 28, jour_debut_occupation == 29), mois_debut_occupation == 2)), 30, jour_debut_occupation)
+        jour_fin = where(logical_or(jour_fin_occupation == 31, logical_and(logical_or(jour_fin_occupation == 28, jour_fin_occupation == 29), mois_fin_occupation == 2)), 30, jour_fin_occupation)
 
         # Calcul de la durée en jours
         nombre_annees = date_fin_occupation.astype('datetime64[Y]').astype(int) - date_debut_occupation.astype('datetime64[Y]').astype(int)
