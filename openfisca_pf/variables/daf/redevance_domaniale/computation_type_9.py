@@ -36,7 +36,7 @@ class montant_base_redevance_domaniale_type_9(Variable):
         tempValue = []
         index = 0
         for item in code_commune.decode():
-            value = parameters(period).daf.redevance_domaniale.commune_prive[item.name][zone_domaine_prive].valeur_venale[index]
+            value = parameters(period).daf.redevance_domaniale.commune_prive[item.name][zone_domaine_prive.decode()[index].name].valeur_venale
             index = index + 1
             tempValue.append(value)
         valeur_venale = numpy.array(tempValue)
