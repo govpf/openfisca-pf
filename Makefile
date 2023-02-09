@@ -34,6 +34,7 @@ format-style:
 check-style:
 	@# Do not analyse .gitignored files.
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
+	git config --global --add safe.directory /__w/openfisca-pf/openfisca-pf
 	git ls-files | grep "\.py$$"
 	flake8 `git ls-files | grep "\.py$$"`
 
