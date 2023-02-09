@@ -696,7 +696,7 @@
       nombre_unite_redevance_domaniale: 0
       variable_redevance_domaniale: 100
       commune_redevance_domaniale: 350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
       nombre_participant_redevance_domaniale: 0
   output:
     montant_total_redevance_domaniale: 0
