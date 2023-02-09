@@ -34,7 +34,7 @@ format-style:
 check-style:
 	@# Do not analyse .gitignored files.
 	@# `make` needs `$$` to output `$`. Ref: http://stackoverflow.com/questions/2382764.
-	flake8 `git ls-files | grep -v openfisca-core | grep "\.py$$"`
+	flake8 `git ls-files --exclude-per-directory=openfisca-core | grep "\.py$$"`
 
 test: clean check-syntax-errors check-style
 	openfisca-run-test --country-package openfisca_pf openfisca_pf/tests
