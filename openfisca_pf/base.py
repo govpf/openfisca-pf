@@ -50,25 +50,10 @@ def arrondiInf(valeur):
     return numpy.rint(numpy.nextafter(valeur, valeur - 1))
 
 
-def creerBaremeIT(personne, period, type):
-    nbTranches = personne.pays(f'nombre_tranches_it_{type}', period)[0]
-    bareme = MarginalRateTaxScale(name = 'Bareme IT')
-    for tranche in range(1, nbTranches + 1):
-        bareme.add_bracket(personne.pays(f'seuil_it_{type}_tranche_{tranche}', period)[0], personne.pays(f'taux_it_{type}_tranche_{tranche}', period)[0])
-    return bareme
-
-
-def creerBaremeCSTNS(personne, period, type):
-    nbTranches = personne.pays(f'nombre_tranches_cstns_{type}', period)[0]
-    bareme = MarginalRateTaxScale(name = 'Bareme CSTNS')
-    for tranche in range(1, nbTranches + 1):
-        bareme.add_bracket(personne.pays(f'seuil_cstns_{type}_tranche_{tranche}', period)[0], personne.pays(f'taux_cstns_{type}_tranche_{tranche}', period)[0])
-    return bareme
-
-
+# Calculations are grouped per date, so we know the parameters for each entry is the same, thus we can create only one scale for all of them
 def creerBareme(personne, period, impot, type):
     nbTranches = personne.pays(f'nombre_tranches_{impot}_{type}', period)[0]
-    bareme = MarginalRateTaxScale(name = 'Bareme CSTNS')
+    bareme = MarginalRateTaxScale(name = 'Bareme custom')
     for tranche in range(1, nbTranches + 1):
         bareme.add_bracket(personne.pays(f'seuil_{impot}_{type}_tranche_{tranche}', period)[0], personne.pays(f'taux_{impot}_{type}_tranche_{tranche}', period)[0])
     return bareme

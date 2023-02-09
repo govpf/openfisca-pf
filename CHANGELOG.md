@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.6.2
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DAF.
+* Details:
+  - Correction tarif
+  - Calcul du nombre de jour comptable entre deux dates
+
+## 0.6.1
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - Changing rounding on CST-S
+  - Added right references for CST-S
+
 ## 0.6.0
 
 * Tax and benefit system evolution.

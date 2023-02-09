@@ -7,8 +7,9 @@
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.base import *
+from openfisca_pf.entities import Personne
+import numpy
+import openfisca_pf.constants.DICP.references_csts as references
 
 
 # CSTS par tranche
@@ -17,7 +18,7 @@ class cst_s_due_tranche_1(Variable):
     entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 1"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -26,15 +27,15 @@ class cst_s_due_tranche_1(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_1', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_2(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 1"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 2"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -43,15 +44,15 @@ class cst_s_due_tranche_2(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_2', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_3(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 2"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 3"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -60,15 +61,15 @@ class cst_s_due_tranche_3(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_3', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_4(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 3"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 4"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -77,15 +78,15 @@ class cst_s_due_tranche_4(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_4', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_5(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 4"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 5"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -94,15 +95,15 @@ class cst_s_due_tranche_5(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_5', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_6(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 5"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 6"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -111,15 +112,15 @@ class cst_s_due_tranche_6(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_6', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_7(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 6"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 7"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -128,15 +129,15 @@ class cst_s_due_tranche_7(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_7', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_8(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 7"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 8"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -145,15 +146,15 @@ class cst_s_due_tranche_8(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_8', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_9(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 8"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 9"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -162,15 +163,15 @@ class cst_s_due_tranche_9(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_9', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_10(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 9"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 10"
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -179,7 +180,7 @@ class cst_s_due_tranche_10(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_10', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_11(Variable):
@@ -187,7 +188,7 @@ class cst_s_due_tranche_11(Variable):
     entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 11"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -196,7 +197,7 @@ class cst_s_due_tranche_11(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_11', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)
 
 
 class cst_s_due_tranche_12(Variable):
@@ -204,7 +205,7 @@ class cst_s_due_tranche_12(Variable):
     entity = Personne
     definition_period = MONTH
     label = u"CST-S due par l'entreprise sur l'ensemble des salaires déclarés sur la tranche 12"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -213,4 +214,4 @@ class cst_s_due_tranche_12(Variable):
         revenus_tranche_inf_0 = salaires_tranche < 0
         taux = personne.pays('taux_cst_s_tranche_12', period)
         cst_s_tranche = taux * where(revenus_tranche_inf_0, 0, salaires_tranche)
-        return arrondiSup(cst_s_tranche)
+        return numpy.floor(cst_s_tranche)

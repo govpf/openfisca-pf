@@ -42,7 +42,7 @@ class it_prestations_sans_abattement_droits(Variable):
 
     def formula(personne, period, parameters):
         base_imposable_it_ventes = personne('base_imposable_it_ventes', period) / 4
-        bareme = creerBaremeIT(personne, period, 'prestations')
+        bareme = creerBareme(personne, period, 'it', 'prestations')
         ca = personne('base_imposable_it_prestations_sans_abattement_droits', period)
         return bareme.calc(base_imposable_it_ventes + ca) - bareme.calc(base_imposable_it_ventes)
 

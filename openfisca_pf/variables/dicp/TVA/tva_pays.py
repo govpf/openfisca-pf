@@ -33,6 +33,39 @@ class credit_tva_total_pays(Variable):
         return pays.sum(credit_tva)
 
 
+class tva_due_taux_reduit_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = MONTH
+    label = u"Montant total de TVA due en taux réduit par les entreprises du pays"
+
+    def formula(pays, period, parameters):
+        tva_due_taux_reduit_pays = pays.members('tva_due_taux_reduit', period)
+        return pays.sum(tva_due_taux_reduit_pays)
+
+
+class tva_due_taux_intermediaire_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = MONTH
+    label = u"Montant total de TVA due en taux intermediaire par les entreprises du pays"
+
+    def formula(pays, period, parameters):
+        tva_due_taux_intermediaire_pays = pays.members('tva_due_taux_intermediaire', period)
+        return pays.sum(tva_due_taux_intermediaire_pays)
+
+
+class tva_due_taux_normal_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = MONTH
+    label = u"Montant total de TVA due en taux normal par les entreprises du pays"
+
+    def formula(pays, period, parameters):
+        tva_due_taux_normal_pays = pays.members('tva_due_taux_normal', period)
+        return pays.sum(tva_due_taux_normal_pays)
+
+
 class tva_nette_due_total_pays_annee(Variable):
     value_type = float
     entity = Pays
@@ -53,3 +86,36 @@ class credit_tva_total_pays_annee(Variable):
     def formula(pays, period, parameters):
         credit_tva_total_pays_annee = pays('credit_tva_total_pays', period, options = [ADD])
         return credit_tva_total_pays_annee
+
+
+class tva_due_taux_reduit_pays_annee(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Montant total de TVA due en taux réduit par les entreprises du pays sur l'année"
+
+    def formula(pays, period, parameters):
+        tva_due_taux_reduit_pays_annee = pays('tva_due_taux_reduit_pays', period, options = [ADD])
+        return tva_due_taux_reduit_pays_annee
+
+
+class tva_due_taux_intermediaire_pays_annee(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Montant total de TVA due en taux intermediaire par les entreprises du pays sur l'année"
+
+    def formula(pays, period, parameters):
+        tva_due_taux_intermediaire_pays_annee = pays('tva_due_taux_intermediaire_pays', period, options = [ADD])
+        return tva_due_taux_intermediaire_pays_annee
+
+
+class tva_due_taux_normal_pays_annee(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Montant total de TVA due en taux normal par les entreprises du pays sur l'année"
+
+    def formula(pays, period, parameters):
+        tva_due_taux_normal_pays_annee = pays('tva_due_taux_normal_pays', period, options = [ADD])
+        return tva_due_taux_normal_pays_annee

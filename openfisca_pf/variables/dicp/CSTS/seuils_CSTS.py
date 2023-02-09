@@ -7,8 +7,8 @@
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.base import *
+from openfisca_pf.entities import Pays
+import openfisca_pf.constants.DICP.references_csts as references
 
 
 class seuil_cst_s_tranche_1(Variable):
@@ -16,7 +16,7 @@ class seuil_cst_s_tranche_1(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 1"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -29,7 +29,7 @@ class seuil_cst_s_tranche_2(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 2"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -42,7 +42,7 @@ class seuil_cst_s_tranche_3(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 3"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -55,7 +55,7 @@ class seuil_cst_s_tranche_4(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 4"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -68,7 +68,7 @@ class seuil_cst_s_tranche_5(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 5"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -81,7 +81,7 @@ class seuil_cst_s_tranche_6(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 6"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -94,7 +94,7 @@ class seuil_cst_s_tranche_7(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 7"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -107,7 +107,7 @@ class seuil_cst_s_tranche_8(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 8"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -120,7 +120,7 @@ class seuil_cst_s_tranche_9(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 9"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -133,7 +133,7 @@ class seuil_cst_s_tranche_10(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 10"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -146,7 +146,7 @@ class seuil_cst_s_tranche_11(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 11"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
@@ -159,7 +159,7 @@ class seuil_cst_s_tranche_12(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Seuil de la CST-S pour la tranche 12"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = [references.REFERENCE_CODE_LP_TAUX_CSTS, references.REFERENCE_LIEN_CODE, references.REFERENCE_LIEN_TAUX]
     unit = 'currency-XPF'
 
     # The formula to compute the income tax for a given person at a given period
