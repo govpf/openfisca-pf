@@ -11,6 +11,7 @@ from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
 from openfisca_pf.base import *
 from numpy import logical_or, logical_and
+from dateutil.relativedelta import relativedelta
 
 
 class duree_occupation_redevance_domaniale_annee(Variable):
@@ -141,3 +142,35 @@ class duree_calendaire_entre_deux_dates(Variable):
         duree_calendaire = (date_fin_occupation.astype('datetime64[D]') - date_debut_occupation.astype('datetime64[D]')).astype('timedelta64[D]').astype(int) + 1
 
         return duree_calendaire
+
+
+class date_fin_occupation(Variable):
+    value_type = date
+    entity = Personne
+    definition_period = DAY
+    label = "Calcul de la date de fin à partir de la durée"
+
+    def formula(personne, period, parameters):
+        # Variables
+        date_debut_occupation = personne('date_debut_occupation', period)
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+
+        # Adding the duration at the beginning date minus one day (the occupation ended at 23:59)
+        tempValue = []
+        index = 0
+        for item in date_debut_occupation:
+            item = item.astype(date)
+            value = select(
+                [unite_duree_occupation_redevance_domaniale.decode()[index] == UnitesDuree.Annees,
+                unite_duree_occupation_redevance_domaniale.decode()[index] == UnitesDuree.Mois,
+                unite_duree_occupation_redevance_domaniale.decode()[index] == UnitesDuree.Jours],
+                [item + relativedelta(years = duree_occupation_redevance_domaniale[index].astype(float), days = -1),
+                item + relativedelta(months = duree_occupation_redevance_domaniale[index].astype(float), days = -1),
+                item + relativedelta(days = duree_occupation_redevance_domaniale[index].astype(float) - 1)],
+                )
+            index = index + 1
+            tempValue.append(numpy.datetime64(str(value)))
+        date_fin = numpy.asarray(tempValue, dtype = numpy.datetime64)
+
+        return date_fin

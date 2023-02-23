@@ -1,5 +1,14 @@
 # Changelog
 
+
+## 0.6.3
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DAF.
+* Details:
+  - Calcul de la date de fin
+
 ## 0.6.2
 
 * Tax and benefit system evolution.

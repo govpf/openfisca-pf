@@ -109,11 +109,3 @@ class date_debut_occupation(Variable):
     entity = Personne
     definition_period = DAY
     label = "Date de début d'occupation"
-
-
-class date_fin_occupation(Variable):
-    value_type = date
-    default_value = date.today()
-    entity = Personne
-    definition_period = DAY
-    label = "Date de fin d'occupation"
