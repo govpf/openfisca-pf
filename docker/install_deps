@@ -6,7 +6,7 @@ apt-get install -y --no-install-recommends build-essential gcc git
 
 if [[ "$1" == "--test" ]]
 then
-   pip install --no-cache-dir flake8 pytest dateutil
+   pip install --no-cache-dir flake8 pytest python-dateutil
 fi
 
 git clone https://github.com/openfisca/openfisca-core.git
