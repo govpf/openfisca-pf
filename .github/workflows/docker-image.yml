@@ -111,7 +111,7 @@ jobs:
         tags: |
           ${{ env.repo }}:${{ steps.extract_tag.outputs.tag }}
     - name: Update repo description
-      uses: peter-evans/dockerhub-description@v2.4.3
+      uses: peter-evans/dockerhub-description@v3.3.0
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
