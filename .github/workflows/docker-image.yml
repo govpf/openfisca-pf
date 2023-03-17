@@ -40,10 +40,10 @@ jobs:
       uses: actions/checkout@v3.2.0
     -
       name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1.5.1
+      uses: docker/setup-buildx-action@v2.5.0
     -
       name: Login to DockerHub
-      uses: docker/login-action@v1.10.0
+      uses: docker/login-action@v2.1.0
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -58,7 +58,7 @@ jobs:
         replace: 'feature_'
     -
       name: Build and push (not master - not develop -  not tag)
-      uses: docker/build-push-action@v2.6.1
+      uses: docker/build-push-action@v4.0.0
       if: github.event_name == 'push' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/develop'  && github.ref != 'refs/tags'
       with:
         context: .
@@ -70,7 +70,7 @@ jobs:
           ${{ env.repo }}:${{ steps.findandreplace.outputs.value }}
     -
       name: Build and push (develop)
-      uses: docker/build-push-action@v2.6.1
+      uses: docker/build-push-action@v4.0.0
       if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
       with:
         context: .
