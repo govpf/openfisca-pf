@@ -82,7 +82,7 @@ jobs:
           ${{ env.repo }}:develop
     -
       name: Build and push (master)
-      uses: docker/build-push-action@v2.6.1
+      uses: docker/build-push-action@v4.0.0
       if: github.event_name == 'push' && github.ref == 'refs/heads/master'
       with:
         context: .
@@ -100,7 +100,7 @@ jobs:
       id: extract_tag
     -
       name: Build and push (tags)
-      uses: docker/build-push-action@v2.6.1
+      uses: docker/build-push-action@v4.0.0
       if: github.event_name == 'push' && github.ref == 'refs/tags'
       with:
         context: .
