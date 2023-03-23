@@ -1,0 +1,5 @@
+description: Valeur vénale de Tepoto-Nord
+zone_de_base:
+  valeur_venale:
+    values:
+      2016-01-01: 500

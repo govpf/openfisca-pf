@@ -1,0 +1,9 @@
+description: Valeur vénale de Avera - Rurutu
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 2000
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 500

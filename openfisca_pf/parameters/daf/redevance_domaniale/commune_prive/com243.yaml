@@ -1,0 +1,9 @@
+description: Valeur vénale de Fitii - Huahine
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 4000
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 500

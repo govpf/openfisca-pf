@@ -1,0 +1,13 @@
+description: Valeur vénale de Tevaitoa - Tumaraa
+bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 15000
+bord_de_route:
+  valeur_venale:
+    values:
+      2016-01-01: 5000
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 500

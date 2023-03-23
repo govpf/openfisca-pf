@@ -1,0 +1,6 @@
+description: montant de l'exonération en pourcentage
+
+#Majoration seuil du nombre de participant.
+discount_rate:
+  values:
+    2018-01-01: 0.8

@@ -1,0 +1,65 @@
+description: Emprise maritime privatisée
+zone_1:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 310
+  montant_minimum:
+    values:
+      2018-01-01: 15000
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_2:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 210
+  montant_minimum:
+    values:
+      2018-01-01: 15000
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_3:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 110
+  montant_minimum:
+    values:
+      2018-01-01: 15000
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_4:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 60
+  montant_minimum:
+    values:
+      2018-01-01: 15000
+  base_calcul_jour:
+    values:
+      2018-01-01: 360

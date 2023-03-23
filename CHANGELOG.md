@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.6.1
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DICP.
+* Details:
+  - Changing rounding on CST-S
+  - Added right references for CST-S
+
+## 0.6.0
+
+* Tax and benefit system evolution.
+* Impacted periods: all.
+* Impacted areas: DAF.
+* Details:
+  - Added Redevance domaniale computation
+
 ## 0.5.0
 
 * Tax and benefit system evolution.

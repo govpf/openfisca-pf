@@ -1,0 +1,17 @@
+description: Valeur vénale de Pueu - Taiarapu-Est
+zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 7500
+zone_cote_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 3300
+zone_moyennes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 3700
+zone_plaines_et_basses_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 3700

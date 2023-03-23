@@ -1,0 +1,576 @@
+- name: Test 1 - Papara - Lotissement AMO
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com340
+      zone_lot_agricole: amo
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 56000
+    montant_base_redevance_domaniale: 28000
+    type_calcul_redevance_domaniale: 10
+- name: Test 2 - Papara - Lotissement ATIMAONO 1
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com340
+      zone_lot_agricole: atimaono_1
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 60000
+    montant_base_redevance_domaniale: 30000
+    type_calcul_redevance_domaniale: 10
+- name: Test 3 - Mataeia - Lotissement ATIMAONO 2
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com521
+      zone_lot_agricole: atimaono_2
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 60000
+    montant_base_redevance_domaniale: 30000
+    type_calcul_redevance_domaniale: 10
+- name: Test 4 - Afaahiti - Lotissement MARUMARUTUA - Lot 1 à 15
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com471
+      zone_lot_agricole: marumarutua_1_15
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 46000
+    montant_base_redevance_domaniale: 23000
+    type_calcul_redevance_domaniale: 10
+- name: Test 5 - Afaahiti - Lotissement MARUMARUTUA - Lot 16 à 22
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com471
+      zone_lot_agricole: marumarutua_16_22
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 6 - Afaahiti - Lotissement PLATEAU TARAVAO - Lot 1 à 6
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com471
+      zone_lot_agricole: plateau_taravao_1_6
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 36000
+    montant_base_redevance_domaniale: 18000
+    type_calcul_redevance_domaniale: 10
+- name: Test 7 - Afaahiti - Lotissement PLATEAU TARAVAO - Lot 7 à 20
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com471
+      zone_lot_agricole: plateau_taravao_7_20
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 56000
+    montant_base_redevance_domaniale: 28000
+    type_calcul_redevance_domaniale: 10
+- name: Test 8 - Afaahiti - Lotissement PLATEAU TARAVAO EXTENSION
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com471
+      zone_lot_agricole: plateau_taravao_extension
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 56000
+    montant_base_redevance_domaniale: 28000
+    type_calcul_redevance_domaniale: 10
+- name: Test 9 - Afaahiti - Lotissement PLATEAU TARAVAO EXTENSION 2
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com471
+      zone_lot_agricole: plateau_taravao_extension_2
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 56000
+    montant_base_redevance_domaniale: 28000
+    type_calcul_redevance_domaniale: 10
+- name: Test 10 - Teahupoo - Lotissement ROSE
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com481
+      zone_lot_agricole: rose
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 30000
+    montant_base_redevance_domaniale: 15000
+    type_calcul_redevance_domaniale: 10
+- name: Test 11 - Afaahiti - Lotissement SOCREDO Lot 1
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com471
+      zone_lot_agricole: socredo_1
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 40000
+    montant_base_redevance_domaniale: 20000
+    type_calcul_redevance_domaniale: 10
+- name: Test 12 - Afaahiti - Lotissement SOCREDO Lot 2, 3 et 4
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com471
+      zone_lot_agricole: socredo_2_4
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 56000
+    montant_base_redevance_domaniale: 28000
+    type_calcul_redevance_domaniale: 10
+- name: Test 13 - Tautira - Lotissement VAITEPIHA
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com474
+      zone_lot_agricole: vaitepiha
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 30000
+    montant_base_redevance_domaniale: 15000
+    type_calcul_redevance_domaniale: 10
+- name: Test 14 - Papetoai - Lotissement OPUNOHU
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com295
+      zone_lot_agricole: opunohu
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 54000
+    montant_base_redevance_domaniale: 27000
+    type_calcul_redevance_domaniale: 10
+- name: Test 15 - Papetoai - Lotissement OPUNOHU RIVE GAUCHE
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com295
+      zone_lot_agricole: opunohu_rive_gauche
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 80000
+    montant_base_redevance_domaniale: 40000
+    type_calcul_redevance_domaniale: 10
+- name: Test 16 - Papetoai - Lotissement ROTUI
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com295
+      zone_lot_agricole: rotui
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 54000
+    montant_base_redevance_domaniale: 27000
+    type_calcul_redevance_domaniale: 10
+- name: Test 17 - Haapiti - Lotissement VAIANAE
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com292
+      zone_lot_agricole: vaianae
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 46000
+    montant_base_redevance_domaniale: 23000
+    type_calcul_redevance_domaniale: 10
+- name: Test 18 - Opoa - Lotissement OPOA
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com502
+      zone_lot_agricole: opoa
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 10000
+    montant_base_redevance_domaniale: 5000
+    type_calcul_redevance_domaniale: 10
+- name: Test 19 - Opoa - Lotissement FAAROA - lots à des fins agricoles
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com502
+      zone_lot_agricole: faaroa_agri
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 20 - Opoa - Lotissement FAAROA - 143b, 199, 200 et 201 (lots à des fins d'élevage)
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com502
+      zone_lot_agricole: faaroa_elevage
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 61600
+    montant_base_redevance_domaniale: 30800
+    type_calcul_redevance_domaniale: 10
+- name: Test 21 - Opoa - Lotissement MARAEROA
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com502
+      zone_lot_agricole: maraeroa
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 10000
+    montant_base_redevance_domaniale: 5000
+    type_calcul_redevance_domaniale: 10
+- name: Test 22 - Opoa - Lotissement TARODIERE OPOA
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com502
+      zone_lot_agricole: tarodiere_opoa
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 23 - Avera - Lotissement BACHELIER
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com501
+      zone_lot_agricole: bachelier
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 24 - Avera - Lotissement HAMOA
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com501
+      zone_lot_agricole: hamoa
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 25 - Iripau - Lotissement FAAHUE
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com454
+      zone_lot_agricole: faahue
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 10000
+    montant_base_redevance_domaniale: 5000
+    type_calcul_redevance_domaniale: 10
+- name: Test 26 - Mataura - Lotissement MATAVAHI 1
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com532
+      zone_lot_agricole: matavahi_1
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 27 - Mataura - Lotissement MATAVAHI 2
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com532
+      zone_lot_agricole: matavahi_2
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 28 - Moerai - Lotissement METUARII
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com443
+      zone_lot_agricole: metuarii
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 15000
+    montant_base_redevance_domaniale: 7500
+    type_calcul_redevance_domaniale: 10
+- name: Test 29 - Moerai - Lotissement ATAI
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com443
+      zone_lot_agricole: atai
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 30 - Hatiheu - Lotissement TERRE DESERTE
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com311
+      zone_lot_agricole: terre_deserte
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10
+- name: Test 31 - Taipivai - Lotissement TAIPIVAI
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com313
+      zone_lot_agricole: taipivai
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 40000
+    montant_base_redevance_domaniale: 20000
+    type_calcul_redevance_domaniale: 10
+- name: Test 32 - Ua Huka - Lotissement HINIAEHI
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ag_priv_06_lot_agricole
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 10000
+      commune_redevance_domaniale: com560
+      zone_lot_agricole: hiniaehi
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 10000
+    type_calcul_redevance_domaniale: 10

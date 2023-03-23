@@ -1,0 +1,9 @@
+description: Valeur vénale de Rangiroa
+secteur:
+  valeur_venale:
+    values:
+      2016-01-01: 1500
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 5000

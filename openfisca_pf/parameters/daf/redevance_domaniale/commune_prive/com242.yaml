@@ -1,0 +1,9 @@
+description: Valeur vénale de Fare - Huahine
+centre_ville:
+  valeur_venale:
+    values:
+      2016-01-01: 8000
+zone_habitation:
+  valeur_venale:
+    values:
+      2016-01-01: 7500

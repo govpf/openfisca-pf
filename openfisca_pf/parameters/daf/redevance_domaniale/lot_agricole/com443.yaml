@@ -1,0 +1,9 @@
+description: Lotissement agricole de Moerai
+metuarii:
+  loyer:
+    values:
+      2016-01-01: 0.75
+atai:
+  loyer:
+    values:
+      2016-01-01: 1

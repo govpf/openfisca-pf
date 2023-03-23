@@ -1,0 +1,9 @@
+description: Valeur vénale de Parea - Huahine
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 6000
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 500

@@ -1,0 +1,21 @@
+description: Valeur vénale de Mataiea - Teva I Uta
+zone_bord_de_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 12000
+zone_cote_mer:
+  valeur_venale:
+    values:
+      2016-01-01: 10000
+zone_hautes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 500
+zone_moyennes_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 2000
+zone_plaines_et_basses_montagnes:
+  valeur_venale:
+    values:
+      2016-01-01: 5000

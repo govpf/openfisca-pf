@@ -1,0 +1,65 @@
+description: Infrastructure de restauration aéroportuaire
+zone_1:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 3000
+  montant_minimum:
+    values:
+      2018-01-01: 12000
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_2:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 1500
+  montant_minimum:
+    values:
+      2018-01-01: 12000
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_3:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 1000
+  montant_minimum:
+    values:
+      2018-01-01: 12000
+  base_calcul_jour:
+    values:
+      2018-01-01: 360
+zone_4:
+  part_fixe:
+    values:
+      2018-01-01: 0
+  part_unitaire:
+    values:
+      2018-01-01: 0
+  part_variable:
+    values:
+      2018-01-01: 500
+  montant_minimum:
+    values:
+      2018-01-01: 12000
+  base_calcul_jour:
+    values:
+      2018-01-01: 360

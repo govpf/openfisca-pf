@@ -1,0 +1,9 @@
+description: Valeur vénale de Mataura - Tubuai
+village:
+  valeur_venale:
+    values:
+      2016-01-01: 2500
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 500

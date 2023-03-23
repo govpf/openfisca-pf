@@ -1,0 +1,18 @@
+
+description: Valeur vénale de Nunue - Bora Bora
+centre_ville:
+  valeur_venale:
+    values:
+      2016-01-01: 12000
+motu:
+  valeur_venale:
+    values:
+      2016-01-01: 10000
+zone_rurale:
+  valeur_venale:
+    values:
+      2016-01-01: 5000
+zone_touristique:
+  valeur_venale:
+    values:
+      2016-01-01: 13000
