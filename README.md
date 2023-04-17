@@ -8,7 +8,9 @@ What is currently modelled:
 
 But this is a work in progress and none of those taxes are validated yet.
 
-## Installation for developers and maintainers
+## 1. Installation for developers and maintainers
+
+### 1.1. Installing Python
 
 Install python 3.7
 > * Go to https://www.python.org/downloads/release/python-370/
@@ -30,15 +32,31 @@ On windows:
 > * Click `Ok` to close the previous window
 > * Click `Apply` and `Ok` to close the first window.
 
+### 1.2. Installing and Patching OpenFisca Core
+
 Make sure PIP is up-to-date
 ```bash
 python -m pip install --upgrade pip
 ```
 
-Install Openfisca Core. This will install the python package, and add some scripts in the folder we added to path above.
+Install Openfisca Core.
+This will install the python package, and add some scripts in the folder we added to path above.
 ```bash
 pip3 install openfisca-core[web-api]
 ```
+
+Patch OpenFisca Core to handle large floating point numbers.
+In French Polynesia, amounts are expressed in Pacific Franc (XPF),
+thus they can reach large values that can lead to computation errors
+when using 32-bit floating point number.
+For this reason when need to configure OpenFisca Core tu use 64 bit floating point numbers instead.
+> - Locate your `openfisca-core` install directory in the `site-package` directory.
+    On Windows it can be `%HOMEDRIVE%%HOMEPATH%\AppData\Roaming\Python\Python37\site-packages\openfisca_core`
+    or `%HOMEDRIVE%\Program Files\Python37\Lib\site-packages\openfisca_core`.
+> - Open the file `openfisca_core\variables\config.py`.
+> - On line 65 replace `numpy.float32` by `numpy.float64`.
+
+### 1.3. Installing OpenFisca PF
 
 Go to the folder of the Openfisca PF project
 ```bash
@@ -50,7 +68,11 @@ Install the local development project as a python package:
 pip3 install --editable .[dev]
 ```
 
-You are done, you can run tests of the OpenFisca PF using:
+Done!
+
+## 2. Running OpenFisca PF
+
+You can run tests of the OpenFisca PF using:
 ```bash
 openfisca test --country-package openfisca_pf openfisca_pf/tests
 ```
