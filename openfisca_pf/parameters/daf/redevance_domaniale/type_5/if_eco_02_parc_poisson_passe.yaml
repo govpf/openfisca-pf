@@ -16,7 +16,7 @@ threshold_2:
     2018-01-01: 1500
 rate_2:
   values:
-    2018-01-01: 100
+    2018-01-01: 300
 montant_minimum:
   values:
     2018-01-01: 20000

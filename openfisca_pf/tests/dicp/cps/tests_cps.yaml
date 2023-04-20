@@ -1,0 +1,60 @@
+- name: 1
+  period: 2022-05
+  input:
+   base_imposable_cps: 0
+   cps_a_reverser: 0
+   cps_en_diminution: 0
+  output:
+    cps_due: 0
+    cps_nette_due: 0
+    cps_a_reporter: 0
+- name: 2
+  period: 2022-05
+  input:
+    base_imposable_cps: 1000000
+    cps_a_reverser: 0
+    cps_en_diminution: 0
+  output:
+    cps_due: 10000
+    cps_nette_due: 10000
+    cps_a_reporter: 0
+- name: 3
+  period: 2022-05
+  input:
+    base_imposable_cps: 1000000
+    cps_a_reverser: 50000
+    cps_en_diminution: 0
+  output:
+    cps_due: 10000
+    cps_nette_due: 60000
+    cps_a_reporter: 0
+- name: 4
+  period: 2022-05
+  input:
+    base_imposable_cps: 1000000
+    cps_a_reverser: 0
+    cps_en_diminution: 50000
+  output:
+    cps_due: 10000
+    cps_nette_due: 0
+    cps_a_reporter: 40000
+- name: 5
+  period: 2022-05
+  input:
+    base_imposable_cps: 1000000
+    cps_a_reverser: 0
+    cps_en_diminution: 5000
+  output:
+    cps_due: 10000
+    cps_nette_due: 5000
+    cps_a_reporter: 0
+- name: 6
+  period: 2022-05
+  input:
+    base_imposable_cps: 1000000
+    cps_a_reverser: 50000
+    cps_en_diminution: 5000
+  output:
+    cps_due: 10000
+    cps_nette_due: 55000
+    cps_a_reporter: 0

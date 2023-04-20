@@ -67,6 +67,7 @@ class TypesNatureEmprise(Enum):
     em_pr_07_emprise_maritime_non_lucratif = u'EM-PR-07 Emprise maritime ou terrestre non lucrative'
     if_pr_03_support_publicitaire = u'IF-PR-03 Support publicitaire'
     if_pr_02_ancrage_sans_droit = u'IF-PR-02 Ancrage et/ou mouillage sans droit immobilier'
+    im_eco_15_vente_couronne_aero = u'IM-ECO-15 Vente de couronnes (zones aéroportuaires)'
 
     # Tarif de type_2 (les paramètres du type_1 dépendent de la zone géographique)
     ip_eco_06_infra_restauration_aero = u'IP-ECO-06 Infrastructure de restauration aéroportuaire'
@@ -119,8 +120,9 @@ class TypesNatureEmprise(Enum):
     ex_eco_02_dpf_pour_entite_publique = u'EX-ECO-02 Domaine public fluvial pour entité publique'
     ex_eco_03_dpm_hors_entite_publique = u'EX-ECO-03 Domaine public maritime Hors entité publique'
     ex_eco_04_dpm_pour_entite_publique = u'EX-ECO-04 Domaine public maritime Pour entité publique'
+    ex_eco_05_dprive = u'EX-ECO-05 Domaine public privé'
 
-    # Tarif Type _8 (5 different areas)
+    # Tarif Type _8 (Zonage en 5 zone)
     ag_priv_01_maraichage = u'AG-PRIV-01 Agriculture de type maraîchère, vivière, fruitière'
     ag_priv_02_elevage = u'AG-PRIV-02 Elevage'
     ag_priv_03_coprah = u'AG-PRIV-03 Coprah-Culture'
