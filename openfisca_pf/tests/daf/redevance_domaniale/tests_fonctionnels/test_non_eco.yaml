@@ -319,8 +319,8 @@
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
   output:
-    montant_total_redevance_domaniale: 360000
-    montant_base_redevance_domaniale: 2000
+    montant_total_redevance_domaniale: 405000
+    montant_base_redevance_domaniale: 2250
 - name: 20 - IF_PR_03 - Support publicitaire
   period: 2018-01-01
   input:

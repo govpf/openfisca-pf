@@ -101,3 +101,11 @@ class zone_lot_agricole(Variable):
     entity = Personne
     definition_period = DAY
     label = "Lot agricole sélectionné pour la tarification pour la DAG "
+
+
+class date_debut_occupation(Variable):
+    value_type = date
+    default_value = date.today()
+    entity = Personne
+    definition_period = DAY
+    label = "Date de début d'occupation"

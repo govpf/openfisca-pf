@@ -112,6 +112,33 @@ if_pr_02_ancrage_sans_droit:
 im_eco_15_vente_couronne_aero:
   values:
     2018-01-01: 1
+em_eco_10_excursion_tupai:
+  values:
+    2018-01-01: 1
+im_eco_16_autres_activites_aero:
+  values:
+    2018-01-01: 1
+if_eco_18_captage_eau_sousterraine_primaire:
+  values:
+    2018-01-01: 1
+if_eco_19_captage_eau_sousterraine_publique:
+  values:
+    2018-01-01: 1
+if_eco_21_captage_eau_surface_secondaire:
+  values:
+    2018-01-01: 1
+if_eco_22_captage_eau_surface_primaire:
+  values:
+    2018-01-01: 1
+if_eco_23_captage_eau_surface_publique:
+  values:
+    2018-01-01: 1
+if_pr_04_captage_eau_sousterraine_privee:
+  values:
+    2018-01-01: 1
+if_pr_05_captage_eau_surface_privee:
+  values:
+    2018-01-01: 1
 
 # Type 2
 ip_eco_06_infra_restauration_aero:

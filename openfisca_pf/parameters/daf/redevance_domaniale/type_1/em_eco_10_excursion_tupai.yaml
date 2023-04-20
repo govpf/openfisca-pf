@@ -1,16 +1,17 @@
-description: Paramètres pour le calcul des Ancrage et/ou mouillage sans droit immobilier
+
+description: Paramètres pour le calcul des Activités d'excursion à la journée sur Tupai
 part_fixe:
   values:
-    2018-01-01: 0
+    2018-01-01: 120000
 part_unitaire:
   values:
     2018-01-01: 0
 part_variable:
   values:
-    2018-01-01: 150
+    2018-01-01: 0
 montant_minimum:
   values:
     2018-01-01: 0
 base_calcul_jour:
   values:
-    2018-01-01: 1
+    2018-01-01: 360

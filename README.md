@@ -8,6 +8,8 @@ What is currently modelled:
 
 But this is a work in progress and none of those taxes are validated yet.
 
+It includes the tarification for the French polynasia estate managment for the public domain and its own lands.
+
 ## 1. Installation for developers and maintainers
 
 ### 1.1. Installing Python
@@ -82,7 +84,10 @@ And you can serve the Openfisca Web API locally (for more information visit the 
 openfisca serve --configuration-file config.py
 ```
 
+To read more about the `openfisca serve` command, check out its [documentation](https://openfisca.org/doc/openfisca-python-api/openfisca_serve.html).
+
 You can make sure that your instance of the API is working by requesting:
+
 ```sh
 curl "http://localhost:5000/spec"
 ```

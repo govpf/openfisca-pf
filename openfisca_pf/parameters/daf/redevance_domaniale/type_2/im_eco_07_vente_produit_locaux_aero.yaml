@@ -8,7 +8,7 @@ zone_1:
       2018-01-01: 0
   part_variable:
     values:
-      2018-01-01: 1000
+      2018-01-01: 1500
   montant_minimum:
     values:
       2018-01-01: 10000
@@ -24,7 +24,7 @@ zone_2:
       2018-01-01: 0
   part_variable:
     values:
-      2018-01-01: 500
+      2018-01-01: 750
   montant_minimum:
     values:
       2018-01-01: 10000
@@ -40,7 +40,7 @@ zone_3:
       2018-01-01: 0
   part_variable:
     values:
-      2018-01-01: 250
+      2018-01-01: 500
   montant_minimum:
     values:
       2018-01-01: 10000
@@ -56,7 +56,7 @@ zone_4:
       2018-01-01: 0
   part_variable:
     values:
-      2018-01-01: 150
+      2018-01-01: 250
   montant_minimum:
     values:
       2018-01-01: 10000

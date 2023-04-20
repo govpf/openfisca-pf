@@ -659,8 +659,8 @@
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
-    montant_total_redevance_domaniale: 40000
-    montant_base_redevance_domaniale: 20000
+    montant_total_redevance_domaniale: 60000
+    montant_base_redevance_domaniale: 30000
 - name: 39 - IM_ECO_08 - Réservation de voiture de location
   period: 2018-01-01
   input:
@@ -846,8 +846,8 @@
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
-    montant_total_redevance_domaniale: 10000
-    montant_base_redevance_domaniale: 5000
+    montant_total_redevance_domaniale: 40000
+    montant_base_redevance_domaniale: 20000
 - name: 50 - IF_ECO_03 - Parc à Operu hors passe
   period: 2018-01-01
   input:
@@ -863,8 +863,8 @@
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
-    montant_total_redevance_domaniale: 12800
-    montant_base_redevance_domaniale: 6400
+    montant_total_redevance_domaniale: 40000
+    montant_base_redevance_domaniale: 20000
 - name: 51 - IF_ECO_03 - Parc à Operu passe
   period: 2018-01-01
   input:
@@ -880,8 +880,8 @@
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
-    montant_total_redevance_domaniale: 60000
-    montant_base_redevance_domaniale: 20000
+    montant_total_redevance_domaniale: 120000
+    montant_base_redevance_domaniale: 40000
 - name: 52 - IF_ECO_04 - Parc à Operu passe
   period: 2018-01-01
   input:
@@ -897,8 +897,8 @@
       commune_redevance_domaniale: com350
       zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
-    montant_total_redevance_domaniale: 102400
-    montant_base_redevance_domaniale: 25600
+    montant_total_redevance_domaniale: 160000
+    montant_base_redevance_domaniale: 40000
 - name: 53 - IF_ECO_05 - Parc à Paraha peue
   period: 2018-01-01
   input:
