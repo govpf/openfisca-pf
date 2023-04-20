@@ -23,6 +23,5 @@ ENV PATH="/opt/venv/bin:$PATH"
 WORKDIR /openfisca_main
 COPY --from=build /openfisca_main/config.py .
 COPY --from=build /openfisca_main/openfisca_pf ./openfisca_pf
-EXPOSE 5000/tcp
 
 CMD ["openfisca", "serve", "--configuration-file", "config.py"]
