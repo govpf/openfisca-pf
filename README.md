@@ -8,53 +8,79 @@ What is currently modelled:
 
 But this is a work in progress and none of those taxes are validated yet.
 
-## Installation for developpers and maintainers
+It includes the tarification for the French polynasia estate managment for the public domain and its own lands.
 
-Installation does not work on windows despite using Python, but it is working well in a WSL. To install WSL on Windows 10: https://docs.microsoft.com/fr-fr/windows/wsl/install-win10
+## 1. Installation for developers and maintainers
 
-To install it first get the git repo :
-```sh
-git clone https://github.com/govpf/openfisca-pf.git
+### 1.1. Installing Python
+
+Install python 3.7
+> * Go to https://www.python.org/downloads/release/python-370/
+> * Download the python install that suits your OS.
+> * Install it.
+
+Make sure that python scripts are in your path.
+On windows:
+> * Open an explorer window (any folder)
+> * Right click `My Computer` (`Ce PC`)
+> * Select `Properties` (`Propriétés`)
+> * In the new settings window that opens select `Advanced parameters` (`Paramètres avancés du système`).
+> * In the new settings window that opens, select `Environment Variables` (`Variables d'environement`).
+> * In the top section (variables specific to your Windows user account), select the `Path` variable.
+> * Click `Edit` (`Modifier...`)
+> * In the new window that opens, click `New` (`Nouveau`). This will add a new line ready for edition.
+> * Past the following path `%USERPROFILE%\AppData\Roaming\Python\Python37\Scripts`
+> * Click `Ok` to close this window
+> * Click `Ok` to close the previous window
+> * Click `Apply` and `Ok` to close the first window.
+
+### 1.2. Installing and Patching OpenFisca Core
+
+Make sure PIP is up-to-date
+```bash
+python -m pip install --upgrade pip
 ```
 
-Then make sure you have all dependencies (this example is for Ubuntu or Debian based distro):
-```sh
-sudo apt-get update
-sudo apt upgrade
-sudo apt-get install make python3-pip
-```
-Pip is named pip 3 in Ubuntu so you should add an alias:
-```sh
-echo "alias pip='pip3'" >> ~/.bash_aliases
-source ~/.bashrc
+Install Openfisca Core.
+This will install the python package, and add some scripts in the folder we added to path above.
+```bash
+pip3 install openfisca-core[web-api]
 ```
 
-Then you can install openfisca :
+Patch OpenFisca Core to handle large floating point numbers.
+In French Polynesia, amounts are expressed in Pacific Franc (XPF),
+thus they can reach large values that can lead to computation errors
+when using 32-bit floating point number.
+For this reason when need to configure OpenFisca Core tu use 64 bit floating point numbers instead.
+> - Locate your `openfisca-core` install directory in the `site-package` directory.
+    On Windows it can be `%HOMEDRIVE%%HOMEPATH%\AppData\Roaming\Python\Python37\site-packages\openfisca_core`
+    or `%HOMEDRIVE%\Program Files\Python37\Lib\site-packages\openfisca_core`.
+> - Open the file `openfisca_core\variables\config.py`.
+> - On line 65 replace `numpy.float32` by `numpy.float64`.
 
-```sh
-cd openfisca-pf
-pip install --editable .[dev] --upgrade
+### 1.3. Installing OpenFisca PF
+
+Go to the folder of the Openfisca PF project
+```bash
+openfisca-pf
 ```
 
-Then make sure your openfiscal installation is in your path:
-```sh
-echo "export PATH=$HOME/.local/bin:${PATH}:" >> ~/.bashrc
-source ~/.bashrc
+Install the local development project as a python package:
+```bash
+pip3 install --editable .[dev]
 ```
 
-## Running all the tests
+Done!
 
-To run all non regression tests you have to execute :
-```sh
+## 2. Running OpenFisca PF
+
+You can run tests of the OpenFisca PF using:
+```bash
 openfisca test --country-package openfisca_pf openfisca_pf/tests
 ```
 
-
-## Serve this Country Package with the OpenFisca Web API
-
-To serve the Openfisca Web API locally, run:
-
-```sh
+And you can serve the Openfisca Web API locally (for more information visit the [documentation](https://openfisca.org/doc/openfisca-python-api/openfisca_serve.html)):
+```bash
 openfisca serve --configuration-file config.py
 ```
 
@@ -66,36 +92,5 @@ You can make sure that your instance of the API is working by requesting:
 curl "http://localhost:5000/spec"
 ```
 
-This endpoint returns the [Open API specification](https://www.openapis.org/) of your API.
-
-:tada: This OpenFisca Country Package is now served by the OpenFisca Web API! To learn more, go to the [OpenFisca Web API documentation](https://openfisca.org/doc/openfisca-web-api/index.html).
-
-You can test your new Web API by sending it example JSON data located in the `situation_examples` folder.
-
-Substitute your package's country name for `openfisca_pf` below:
-
-```sh
-curl -X POST -H "Content-Type: application/json" \
-  -d @./openfisca_pf/situation_examples/couple.json \
-  http://localhost:5000/calculate
-```
-
-## Run or Build an Openfisca-pf docker image
-
-To run the offical latest Openfisca-pf image simply run :
-
-```sh
-docker run -p 5000:5000 govpf/openfisca-pf:latest
-```
-
-But if you want to build it yourself, while being in the main directory of the project run :
-
-```sh
-docker build --tag openfisca-pf-mytag . -f docker/Dockerfile
-```
-
-Then you may run this image :
-
-```sh
-docker run -p 5000:5000 openfisca-pf-mytag
-```
+This endpoint returns the [Open API](https://www.openapis.org/) specification of the Openfisca PF API.
+For more details on the wall api see the documentation on the [OpenFisca Web API documentation](https://openfisca.org/doc/openfisca-web-api/index.html).

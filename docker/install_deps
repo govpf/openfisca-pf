@@ -6,7 +6,7 @@ apt-get install -y --no-install-recommends build-essential gcc git
 
 if [[ "$1" == "--test" ]]
 then
-   pip install --no-cache-dir flake8 pytest
+   pip install --no-cache-dir flake8 pytest python-dateutil
 fi
 
 git clone https://github.com/openfisca/openfisca-core.git
@@ -18,6 +18,8 @@ fi
 
 cd openfisca-core
 sed -i s/float32/float64/ openfisca_core/variables/config.py
+sed -i s/float32/float64/ openfisca_core/tools/__init__.py
+sed -i s/float32/float64/ tests/core/tools/test_runner/test_yaml_runner.py
 
 pip install --no-cache-dir wheel
 pip install --no-cache-dir .

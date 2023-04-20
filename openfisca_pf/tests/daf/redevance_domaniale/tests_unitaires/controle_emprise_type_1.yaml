@@ -299,8 +299,8 @@
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 5000
-    montant_base_redevance_domaniale: 5000
+    montant_total_redevance_domaniale: 20000
+    montant_base_redevance_domaniale: 20000
     type_calcul_redevance_domaniale: 1
     temporalite_redevance_domaniale: Annuel
 - name: Test 17 - if_eco_04_operu_passe
@@ -318,8 +318,8 @@
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 20000
-    montant_base_redevance_domaniale: 20000
+    montant_total_redevance_domaniale: 40000
+    montant_base_redevance_domaniale: 40000
     type_calcul_redevance_domaniale: 1
     temporalite_redevance_domaniale: Annuel
 - name: Test 18 - if_eco_05_aquaculture_lagon
@@ -680,8 +680,8 @@
       zone_domaine_prive: sainte_amelie_quartier_des_institutions 
       nombre_participant_redevance_domaniale: 0
   output:
-    montant_total_redevance_domaniale: 12000
-    montant_base_redevance_domaniale: 12000
+    montant_total_redevance_domaniale: 15000
+    montant_base_redevance_domaniale: 15000
     type_calcul_redevance_domaniale: 1
     temporalite_redevance_domaniale: Journalier
 - name: Test 37 - im_eco_15_vente_couronne_aero
@@ -701,5 +701,157 @@
   output:
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
+    type_calcul_redevance_domaniale: 1
+    temporalite_redevance_domaniale: Annuel
+- name: Test 38 - em_eco_10_excursion_tupai
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: em_eco_10_excursion_tupai
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 120000
+    montant_base_redevance_domaniale: 120000
+    type_calcul_redevance_domaniale: 1
+    temporalite_redevance_domaniale: Annuel
+- name: Test 39 - im_eco_16_autres_activites_aero
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: im_eco_16_autres_activites_aero
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 100000
+    montant_base_redevance_domaniale: 100000
+    type_calcul_redevance_domaniale: 1
+    temporalite_redevance_domaniale: Annuel
+- name: Test 40 - if_eco_18_captage_eau_sousterraine_primaire
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_18_captage_eau_sousterraine_primaire
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 500
+    montant_base_redevance_domaniale: 500
+    type_calcul_redevance_domaniale: 1
+    temporalite_redevance_domaniale: Annuel
+- name: Test 41 - if_eco_19_captage_eau_sousterraine_publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_19_captage_eau_sousterraine_publique
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 0
+    montant_base_redevance_domaniale: 0
+    type_calcul_redevance_domaniale: 1
+    temporalite_redevance_domaniale: Annuel
+- name: Test 42 - if_eco_21_captage_eau_surface_secondaire
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_21_captage_eau_surface_secondaire
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 1000
+    montant_base_redevance_domaniale: 1000
+    type_calcul_redevance_domaniale: 1
+    temporalite_redevance_domaniale: Annuel
+- name: Test 43 - if_eco_22_captage_eau_surface_primaire
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_22_captage_eau_surface_primaire
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 200
+    montant_base_redevance_domaniale: 200
+    type_calcul_redevance_domaniale: 1
+    temporalite_redevance_domaniale: Annuel
+- name: Test 45 - if_pr_04_captage_eau_sousterraine_privee
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_pr_04_captage_eau_sousterraine_privee
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 200
+    montant_base_redevance_domaniale: 200
+    type_calcul_redevance_domaniale: 1
+    temporalite_redevance_domaniale: Annuel
+- name: Test 46 - if_pr_05_captage_eau_surface_privee
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_pr_05_captage_eau_surface_privee
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: 350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 100
+    montant_base_redevance_domaniale: 100
     type_calcul_redevance_domaniale: 1
     temporalite_redevance_domaniale: Annuel

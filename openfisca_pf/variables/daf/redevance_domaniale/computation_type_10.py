@@ -37,7 +37,7 @@ class montant_base_redevance_domaniale_type_10(Variable):
         tempValue = []
         index = 0
         for item in code_commune.decode():
-            value = parameters(period).daf.redevance_domaniale.lot_agricole[item.name][zone_lot_agricole].loyer[index]
+            value = parameters(period).daf.redevance_domaniale.lot_agricole[item.name][zone_lot_agricole.decode()[index].name].loyer
             index = index + 1
             tempValue.append(value)
         loyer = numpy.array(tempValue)

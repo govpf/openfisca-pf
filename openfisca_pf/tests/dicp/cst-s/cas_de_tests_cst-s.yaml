@@ -1,18 +1,17 @@
 - name: 1
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: -1000
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 0
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 0
+    revenus_tranche_1: -1000
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 0
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -29,18 +28,17 @@
 - name: 2
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 0
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 0
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 0
+    revenus_tranche_1: 0
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 0
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -57,18 +55,17 @@
 - name: 3
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 1000000
-      revenus_tranche_2: 1000000
-      revenus_tranche_3: 1000000
-      revenus_tranche_4: 1000000
-      revenus_tranche_5: 1000000
-      revenus_tranche_6: 1000000
-      revenus_tranche_7: 1000000
-      revenus_tranche_8: 1000000
-      revenus_tranche_9: 1000000
-      revenus_tranche_10: 1000000
-      revenus_tranche_11: 1000000
+    revenus_tranche_1: 1000000
+    revenus_tranche_2: 1000000
+    revenus_tranche_3: 1000000
+    revenus_tranche_4: 1000000
+    revenus_tranche_5: 1000000
+    revenus_tranche_6: 1000000
+    revenus_tranche_7: 1000000
+    revenus_tranche_8: 1000000
+    revenus_tranche_9: 1000000
+    revenus_tranche_10: 1000000
+    revenus_tranche_11: 1000000
   output:
     cst_s_due_tranche_1: 5000
     cst_s_due_tranche_2: 30000
@@ -85,18 +82,17 @@
 - name: 4
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 3000000
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 3000000
-      revenus_tranche_7: 0
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 10000000
+    revenus_tranche_1: 3000000
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 3000000
+    revenus_tranche_7: 0
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 10000000
   output:
     cst_s_due_tranche_1: 15000
     cst_s_due_tranche_2: 0
@@ -113,18 +109,17 @@
 - name: 5
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 0
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 2000000
-      revenus_tranche_6: 3000000
-      revenus_tranche_7: 4000000
-      revenus_tranche_8: 5000000
-      revenus_tranche_9: 6000000
-      revenus_tranche_10: 7000000
-      revenus_tranche_11: 8000000
+    revenus_tranche_1: 0
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 2000000
+    revenus_tranche_6: 3000000
+    revenus_tranche_7: 4000000
+    revenus_tranche_8: 5000000
+    revenus_tranche_9: 6000000
+    revenus_tranche_10: 7000000
+    revenus_tranche_11: 8000000
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -141,18 +136,17 @@
 - name: 6
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 150
-      revenus_tranche_2: 40
-      revenus_tranche_3: 80
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 0
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 0
+    revenus_tranche_1: 150
+    revenus_tranche_2: 40
+    revenus_tranche_3: 80
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 0
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 1
@@ -169,18 +163,17 @@
 - name: 7
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 15000000000
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 1050005005
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 0
+    revenus_tranche_1: 15000000000
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 1050005005
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 75000000
     cst_s_due_tranche_2: 0
@@ -197,18 +190,17 @@
 - name: 8
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 0
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 987654321
-      revenus_tranche_8: 987654321
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 0
+    revenus_tranche_1: 0
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 987654321
+    revenus_tranche_8: 987654321
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -225,18 +217,17 @@
 - name: 9
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 0
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 150000150
-      revenus_tranche_8: 160006000
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 0
+    revenus_tranche_1: 0
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 150000150
+    revenus_tranche_8: 160006000
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -253,18 +244,17 @@
 - name: 10
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 0
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 0
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 999999999
-      revenus_tranche_11: 0
+    revenus_tranche_1: 0
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 0
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 999999999
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -281,18 +271,17 @@
 - name: 11
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 0
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 0
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 9999999
-      revenus_tranche_11: 0
+    revenus_tranche_1: 0
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 0
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 9999999
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -309,18 +298,17 @@
 - name: 12
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 1000000
-      revenus_tranche_2: 8000000
-      revenus_tranche_3: 800500
-      revenus_tranche_4: 154300
-      revenus_tranche_5: 142865
-      revenus_tranche_6: 3655
-      revenus_tranche_7: 41111
-      revenus_tranche_8: 3700
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 0
+    revenus_tranche_1: 1000000
+    revenus_tranche_2: 8000000
+    revenus_tranche_3: 800500
+    revenus_tranche_4: 154300
+    revenus_tranche_5: 142865
+    revenus_tranche_6: 3655
+    revenus_tranche_7: 41111
+    revenus_tranche_8: 3700
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 5000
     cst_s_due_tranche_2: 240000
@@ -337,18 +325,17 @@
 - name: 13
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 0
-      revenus_tranche_2: 0
-      revenus_tranche_3: 0
-      revenus_tranche_4: 0
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 0
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 1600060000
-      revenus_tranche_11: 1600000000
+    revenus_tranche_1: 0
+    revenus_tranche_2: 0
+    revenus_tranche_3: 0
+    revenus_tranche_4: 0
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 0
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 1600060000
+    revenus_tranche_11: 1600000000
   output:
     cst_s_due_tranche_1: 0
     cst_s_due_tranche_2: 0
@@ -365,18 +352,17 @@
 - name: 14
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 452555
-      revenus_tranche_2: 452555
-      revenus_tranche_3: 452555
-      revenus_tranche_4: 452555
-      revenus_tranche_5: 452555
-      revenus_tranche_6: 452555
-      revenus_tranche_7: 452555
-      revenus_tranche_8: 452555
-      revenus_tranche_9: 452555
-      revenus_tranche_10: 452555
-      revenus_tranche_11: 452555
+    revenus_tranche_1: 452555
+    revenus_tranche_2: 452555
+    revenus_tranche_3: 452555
+    revenus_tranche_4: 452555
+    revenus_tranche_5: 452555
+    revenus_tranche_6: 452555
+    revenus_tranche_7: 452555
+    revenus_tranche_8: 452555
+    revenus_tranche_9: 452555
+    revenus_tranche_10: 452555
+    revenus_tranche_11: 452555
   output:
     cst_s_due_tranche_1: 2262
     cst_s_due_tranche_2: 13576
@@ -393,18 +379,17 @@
 - name: 15
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 133200
-      revenus_tranche_2: 22200
-      revenus_tranche_3: 13320
-      revenus_tranche_4: 9515
-      revenus_tranche_5: 7400
-      revenus_tranche_6: 5550
-      revenus_tranche_7: 4440
-      revenus_tranche_8: 3700
-      revenus_tranche_9: 3172
-      revenus_tranche_10: 2896
-      revenus_tranche_11: 2664
+    revenus_tranche_1: 133200
+    revenus_tranche_2: 22200
+    revenus_tranche_3: 13320
+    revenus_tranche_4: 9515
+    revenus_tranche_5: 7400
+    revenus_tranche_6: 5550
+    revenus_tranche_7: 4440
+    revenus_tranche_8: 3700
+    revenus_tranche_9: 3172
+    revenus_tranche_10: 2896
+    revenus_tranche_11: 2664
   output:
     cst_s_due_tranche_1: 666
     cst_s_due_tranche_2: 666
@@ -421,18 +406,17 @@
 - name: 16
   period: 2020-01
   input:
-    personne:
-      revenus_tranche_1: 3186218341
-      revenus_tranche_2: 3186218341
-      revenus_tranche_3: 3186218341
-      revenus_tranche_4: 11123456789
-      revenus_tranche_5: 0
-      revenus_tranche_6: 0
-      revenus_tranche_7: 0
-      revenus_tranche_8: 0
-      revenus_tranche_9: 0
-      revenus_tranche_10: 0
-      revenus_tranche_11: 0
+    revenus_tranche_1: 3186218341
+    revenus_tranche_2: 3186218341
+    revenus_tranche_3: 3186218341
+    revenus_tranche_4: 11123456789
+    revenus_tranche_5: 0
+    revenus_tranche_6: 0
+    revenus_tranche_7: 0
+    revenus_tranche_8: 0
+    revenus_tranche_9: 0
+    revenus_tranche_10: 0
+    revenus_tranche_11: 0
   output:
     cst_s_due_tranche_1: 15931091
     cst_s_due_tranche_2: 95586550
@@ -445,4 +429,4 @@
     cst_s_due_tranche_9: 0
     cst_s_due_tranche_10: 0
     cst_s_due_tranche_11: 0
-    cst_s_due_totale: 1049470534
+    cst_s_due_totale: 1049470533

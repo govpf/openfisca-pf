@@ -68,6 +68,15 @@ class TypesNatureEmprise(Enum):
     if_pr_03_support_publicitaire = u'IF-PR-03 Support publicitaire'
     if_pr_02_ancrage_sans_droit = u'IF-PR-02 Ancrage et/ou mouillage sans droit immobilier'
     im_eco_15_vente_couronne_aero = u'IM-ECO-15 Vente de couronnes (zones aéroportuaires)'
+    em_eco_10_excursion_tupai = u'EM_ECO_10 Activités d excursion à la journée sur l île de Tupai'
+    im_eco_16_autres_activites_aero = u'IM_ECO_16 Autres activités lucratives (à l intérieur de l aérogare)'
+    if_eco_18_captage_eau_sousterraine_primaire = u'IF_ECO_18 Captage d eau souterraine pour le secteur primaire'
+    if_eco_19_captage_eau_sousterraine_publique = u'IF_ECO_19 Captage d eau souterraine pour une collectivité publiques'
+    if_eco_21_captage_eau_surface_secondaire = u'IF_ECO_21 Captage deau de surface pour le secteur secondaire et tertiaire'
+    if_eco_22_captage_eau_surface_primaire = u'IF_ECO_22 Captage d eau de surface pour le secteur primaire'
+    if_eco_23_captage_eau_surface_publique = u'IF_ECO_23 Captage deau de surface pour une collectivité publiques'
+    if_pr_04_captage_eau_sousterraine_privee = u'IF_PR_04 Captage d eau souterraine pour habitation'
+    if_pr_05_captage_eau_surface_privee = u'IF_PR_05 Captage d eau de surface pour habitation'
 
     # Tarif de type_2 (les paramètres du type_1 dépendent de la zone géographique)
     ip_eco_06_infra_restauration_aero = u'IP-ECO-06 Infrastructure de restauration aéroportuaire'
