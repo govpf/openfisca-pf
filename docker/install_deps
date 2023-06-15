@@ -14,7 +14,7 @@ git clone --depth 1 --branch 40.0.0 https://github.com/openfisca/openfisca-core.
 
 if [[ "$1" != "--test" ]]
 then
-    patch -t -d openfisca_web_api/loader < variables.patch
+    patch -t -d openfisca-core/openfisca_web_api/loader < variables.patch
 fi
 
 cd openfisca-core
