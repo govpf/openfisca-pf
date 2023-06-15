@@ -10,7 +10,7 @@ then
    pip install --no-cache-dir flake8 pytest
 fi
 
-git clone https://github.com/openfisca/openfisca-core.git
+git clone --depth 1 --branch 38.0.4 https://github.com/openfisca/openfisca-core.git
 
 if [[ "$1" != "--test" ]]
 then
