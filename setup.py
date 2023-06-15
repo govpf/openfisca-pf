@@ -21,7 +21,7 @@ setup(
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
         ("share/openfisca/openfisca-country-template", ["CHANGELOG.md", "LICENSE", "README.md"]),
-    ],
+        ],
     install_requires = [
         "OpenFisca-Core[web-api] ==40.0.0",
         ],
@@ -32,6 +32,6 @@ setup(
             "flake8-print",
             "pycodestyle >=2.3.0,<2.6.0",  # To avoid incompatibility with flake
             ]
-    },
+        },
     packages = find_packages(),
     )
