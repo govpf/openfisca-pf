@@ -1,6 +1,5 @@
 #!/bin/bash -xe
 
-
 apt-get update
 apt-get install -y --no-install-recommends build-essential gcc git
 pip install python-dateutil
