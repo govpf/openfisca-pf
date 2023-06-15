@@ -56,7 +56,11 @@ For this reason when need to configure OpenFisca Core tu use 64 bit floating poi
     On Windows it can be `%HOMEDRIVE%%HOMEPATH%\AppData\Roaming\Python\Python37\site-packages\openfisca_core`
     or `%HOMEDRIVE%\Program Files\Python37\Lib\site-packages\openfisca_core`.
 > - Open the file `openfisca_core\variables\config.py`.
-> - On line 65 replace `numpy.float32` by `numpy.float64`.
+> - Line `65`, replace `numpy.float32` by `numpy.float64`.
+> - Open the file `openfisca_core/tools/__init__.py`
+> - Lines `44`, and `46` replace `numpy.float32` by `numpy.float64`.
+> - Open the file `tests/core/tools/test_runner/test_yaml_runner.py`.
+> - Lhe line `83`, replace `numpy.float32` by `numpy.float64`.
 
 ### 1.3. Installing OpenFisca PF
 
