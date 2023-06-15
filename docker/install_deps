@@ -4,6 +4,7 @@
 apt-get update && apt-get upgrade -y
 apt-get install -y --no-install-recommends build-essential gcc git
 python -m pip install --upgrade pip
+pip install numpy:1.24.3
 pip install python-dateutil
 
 if [[ "$1" == "--test" ]]
