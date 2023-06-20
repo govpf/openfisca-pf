@@ -50,7 +50,7 @@ jobs:
     -
       name: Build and push (master)
       uses: docker/build-push-action@v4.0.0
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master'
       with:
         context: .
         file: ./docker/Dockerfile
@@ -61,14 +61,14 @@ jobs:
           ${{ env.repo }}:latest
     -
       name: Extract tag name
-      if: github.event_name == 'push' && github.ref == 'refs/tags'
+      if: github.ref == 'refs/tags'
       shell: bash
       run: echo "##[name=tag;]$(echo ${GITHUB_REF#refs/tags/} ${GITHUB_OUTPUT})"
       id: extract_tag
     -
       name: Build and push (tags)
       uses: docker/build-push-action@v4.0.0
-      if: github.event_name == 'push' && github.ref == 'refs/tags'
+      if: github.ref == 'refs/tags'
       with:
         context: .
         file: ./docker/Dockerfile
