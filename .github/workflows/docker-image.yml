@@ -50,7 +50,7 @@ jobs:
     -
       name: Build and push (master)
       uses: docker/build-push-action@v4.0.0
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master'
       with:
         context: .
         file: ./docker/Dockerfile
