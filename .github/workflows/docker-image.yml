@@ -63,7 +63,7 @@ jobs:
       name: Extract tag name
       if: startsWith(github.ref, 'refs/tags/')
       shell: bash
-      run: echo "##[name=tag;]$(echo ${GITHUB_REF#refs/tags/} ${GITHUB_OUTPUT})"
+      run: echo "tag=${GITHUB_REF/refs\/tags\//}" >> ${{ env.GITHUB_ACTION_PATH }}/
       id: extract_tag
     -
       name: Build and push (tags)
