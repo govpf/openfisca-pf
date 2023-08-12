@@ -10,7 +10,7 @@ from openfisca_core.model_api import *
 from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.rch.enums.enums import *
 from openfisca_pf.base import *
-from numpy import logical_or, logical_and
+from numpy import logical_and
 
 class montant_droit_enregistrement(Variable):
     value_type = float
