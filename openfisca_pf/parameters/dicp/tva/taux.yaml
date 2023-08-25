@@ -1,6 +1,6 @@
 description: Taux de TVA
 metadata:
-  reference: https://law.gov.example/basic-income/amount
+  reference: https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux
 reduit:
   description: Taux réduit de TVA
   values:

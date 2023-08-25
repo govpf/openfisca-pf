@@ -66,7 +66,7 @@ For this reason when need to configure OpenFisca Core tu use 64 bit floating poi
 
 Go to the folder of the Openfisca PF project
 ```bash
-openfisca-pf
+cd openfisca-pf
 ```
 
 Install the local development project as a python package:
@@ -84,6 +84,7 @@ openfisca test --country-package openfisca_pf openfisca_pf/tests
 ```
 
 And you can serve the Openfisca Web API locally (for more information visit the [documentation](https://openfisca.org/doc/openfisca-python-api/openfisca_serve.html)):
+> ONLY AVAILABLE ON LINUX
 ```bash
 openfisca serve --configuration-file config.py
 ```

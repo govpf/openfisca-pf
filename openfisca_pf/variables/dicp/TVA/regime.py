@@ -1,14 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
-
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
+
 from openfisca_pf.base import *
+from openfisca_pf.entities import *
 
 
 class redevable_tva_franchise_en_base(Variable):
@@ -16,7 +11,7 @@ class redevable_tva_franchise_en_base(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = "https://www.impot-polynesie.gov.pf/code/7-chap-vii-regimes-dimposition"
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -33,7 +28,7 @@ class redevable_tva_regime_simplifie(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = "https://www.impot-polynesie.gov.pf/code/7-chap-vii-regimes-dimposition"
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -54,7 +49,7 @@ class redevable_tva_regime_reel_trimestriel(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    reference = "https://www.impot-polynesie.gov.pf/code/7-chap-vii-regimes-dimposition"
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
