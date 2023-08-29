@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from openfisca_pf.constants import units
 from openfisca_pf.entities import *
 from openfisca_pf.base import *
 
@@ -10,7 +11,7 @@ class tva_due_taux_reduit(Variable):
     definition_period = MONTH
     label = u"Montant de TVA dûe au taux réduit: \n\n#tva_due_taux_reduit = #base_imposable_tva_taux_reduit * #taux_tva_reduit"
     set_input = set_input_dispatch_by_period
-    unit = 'currency-XPF'
+    unit = units.XPF
 
     def formula(personne, period, parameters):
         base_imposable = personne(f'base_imposable_tva_taux_reduit', period)
@@ -24,7 +25,7 @@ class tva_due_taux_intermediaire(Variable):
     definition_period = MONTH
     label = u"Montant de TVA dûe au taux intermédiaire"
     set_input = set_input_dispatch_by_period
-    unit = 'currency-XPF'
+    unit = units.XPF
 
     def formula(personne, period, parameters):
         base_imposable = personne(f'base_imposable_tva_taux_intermediaire', period)
@@ -38,7 +39,7 @@ class tva_due_taux_normal(Variable):
     definition_period = MONTH
     label = u"Montant de TVA dûe au taux normal"
     set_input = set_input_dispatch_by_period
-    unit = 'currency-XPF'
+    unit = units.XPF
 
     def formula(personne, period, parameters):
         base_imposable = personne(f'base_imposable_tva_taux_normal', period)

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_pf.entities import *
+from openfisca_pf.constants import units
 from openfisca_pf.base import *
+from openfisca_pf.entities import *
 
 
 class mois_declaration_tva(Variable):
@@ -9,7 +10,7 @@ class mois_declaration_tva(Variable):
     entity = Personne
     definition_period = MONTH
     label = u"Mois sur lequel porte la déclaration de TVA"
-    unit = "Mois"
+    unit = units.MONTH
     default_value = "Entrant 'mois_declaration_tva' requit mais non défini"
 
 
@@ -25,7 +26,7 @@ class rib_renseigne(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
-    unit = "boolean"
+    unit = units.BOOLEAN
     default_value = False
 
 
@@ -36,7 +37,7 @@ class credit_tva_minimum_ce_mois(Variable):
     label = u"""
     Montant requis au mois de la déclaration nécésaire pour prétendre à un remboursement de crédit de TVA
     """
-    unit = 'Currency-XPF/Month'
+    unit = units.XPF_PER_MONTH
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
@@ -59,7 +60,7 @@ class remboursement_credit_tva_possible_car_rib_rensigne(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
-    unit = "boolean"
+    unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
         return personne('rib_renseigne', period, parameters)
@@ -76,7 +77,7 @@ class remboursement_credit_tva_possible_ce_mois(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
-    unit = "boolean"
+    unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
         mois_declaration_tva = personne('mois_declaration_tva', period, parameters)
@@ -95,7 +96,7 @@ class remboursement_credit_tva_possible_car_montant_suffisant(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
-    unit = "boolean"
+    unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
         credit_tva = personne('credit_tva', period, parameters)
@@ -114,7 +115,7 @@ class remboursement_credit_tva_possible(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
-    unit = "boolean"
+    unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
         remboursement_credit_tva_possible_car_rib_rensigne = personne('remboursement_credit_tva_possible_car_rib_rensigne', period, parameters)
@@ -137,7 +138,7 @@ class demande_remboursement_credit_tva(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
-    unit = "Currency-XPF"
+    unit = units.XPF
     default_value = 0
 
 
@@ -153,7 +154,7 @@ class demande_rembousement_credit_tva_valide(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
-    unit = "boolean"
+    unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
         remboursement_credit_tva_possible = personne('remboursement_credit_tva_possible', period, parameters)
@@ -166,14 +167,14 @@ class demande_rembousement_credit_tva_valide(Variable):
 
 
 class remboursement_credit_tva(Variable):
-    value_type = int
+    value_type = float
     entity = Personne
     definition_period = MONTH
     label = u"Montant du remboursement de credit de TVA."
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
     ]
-    unit = "Currency-XPF"
+    unit = units.XPF
 
     def formula(personne, period, parameters):
         demande_remboursement_credit_tva = personne('demande_remboursement_credit_tva', period, parameters)

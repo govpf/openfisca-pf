@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from openfisca_pf.constants import units
 from openfisca_pf.entities import *
 from openfisca_pf.base import *
 
@@ -9,6 +10,7 @@ class tva_nette_due_total_pays(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Montant total de TVA nette due par les entreprises du pays"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         tva_nette_due = pays.members('tva_nette_due', period)
@@ -20,6 +22,7 @@ class credit_tva_total_pays(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Montant total de crédit de TVA à à rembourser aux entreprises du pays"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         credit_tva = pays.members('credit_tva', period)
@@ -31,6 +34,7 @@ class tva_due_taux_reduit_pays(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Montant total de TVA due en taux réduit par les entreprises du pays"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         tva_due_taux_reduit_pays = pays.members('tva_due_taux_reduit', period)
@@ -42,6 +46,7 @@ class tva_due_taux_intermediaire_pays(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Montant total de TVA due en taux intermediaire par les entreprises du pays"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         tva_due_taux_intermediaire_pays = pays.members('tva_due_taux_intermediaire', period)
@@ -53,6 +58,7 @@ class tva_due_taux_normal_pays(Variable):
     entity = Pays
     definition_period = MONTH
     label = u"Montant total de TVA due en taux normal par les entreprises du pays"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         tva_due_taux_normal_pays = pays.members('tva_due_taux_normal', period)
@@ -64,6 +70,7 @@ class tva_nette_due_total_pays_annee(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Montant total de TVA nette due par les entreprises du pays sur l'année"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         tva_nette_due_total_pays_annee = pays('tva_nette_due_total_pays', period, options = [ADD])
@@ -75,6 +82,7 @@ class credit_tva_total_pays_annee(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Montant total de crédit de TVA à à rembourser aux entreprises du pays sur l'année"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         credit_tva_total_pays_annee = pays('credit_tva_total_pays', period, options = [ADD])
@@ -86,6 +94,7 @@ class tva_due_taux_reduit_pays_annee(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Montant total de TVA due en taux réduit par les entreprises du pays sur l'année"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         tva_due_taux_reduit_pays_annee = pays('tva_due_taux_reduit_pays', period, options = [ADD])
@@ -97,6 +106,7 @@ class tva_due_taux_intermediaire_pays_annee(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Montant total de TVA due en taux intermediaire par les entreprises du pays sur l'année"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         tva_due_taux_intermediaire_pays_annee = pays('tva_due_taux_intermediaire_pays', period, options = [ADD])
@@ -108,6 +118,7 @@ class tva_due_taux_normal_pays_annee(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Montant total de TVA due en taux normal par les entreprises du pays sur l'année"
+    unit = units.XPF
 
     def formula(pays, period, parameters):
         tva_due_taux_normal_pays_annee = pays('tva_due_taux_normal_pays', period, options = [ADD])
