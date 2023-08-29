@@ -2,6 +2,7 @@
 
 from openfisca_core.model_api import *
 from openfisca_pf.entities import *
+from openfisca_pf.constants.currency import *
 
 
 class base_imposable_tva_taux_reduit(Variable):
@@ -10,7 +11,7 @@ class base_imposable_tva_taux_reduit(Variable):
     definition_period = MONTH
     set_input = set_input_divide_by_period
     label = u"Base imposable de la TVA à taux réduit"
-    unit = 'currency-XPF'
+    unit = CURRENCY_XPF
     reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
 
 
@@ -20,7 +21,7 @@ class base_imposable_tva_taux_intermediaire(Variable):
     definition_period = MONTH
     set_input = set_input_divide_by_period
     label = u"Base imposable de la TVA à taux intermediaire"
-    unit = 'currency-XPF'
+    unit = CURRENCY_XPF
     reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
 
 
@@ -30,5 +31,62 @@ class base_imposable_tva_taux_normal(Variable):
     definition_period = MONTH
     set_input = set_input_divide_by_period
     label = u"Base imposable de la TVA à taux normal"
-    unit = 'currency-XPF'
+    unit = CURRENCY_XPF
     reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
+
+
+class montant_ventes_hors_taxes(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    set_input = set_input_divide_by_period
+    label = u"Montant des ventes réalisées, hors taxes"
+    unit = CURRENCY_XPF
+
+
+class montant_prestations_services_hors_taxes(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    set_input = set_input_divide_by_period
+    label = u"Montant des prestations de dervices réalisées, hors taxes"
+    unit = CURRENCY_XPF
+
+
+class montant_exportations_non_taxables(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    set_input = set_input_divide_by_period
+    label = u"Montant des exportations, qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA."
+    unit = "currency-XPF"
+
+
+class montant_autres_operations_non_taxables(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    set_input = set_input_divide_by_period
+    label = u"Montant des autres opérations qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA."
+    unit = "currency-XPF"
+
+
+class entrants_tva_valides(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = MONTH
+    label = u"""
+    Boolean indiquant si les montant des trois bases imposables sont cohérent
+    avec les montants des ventes et des prestations de services réalisées
+    """
+    unit = "currency-XPF"
+
+    def formula(personne, period, parameters):
+        base_imposable_tva_taux_reduit          = personne('base_imposable_tva_taux_reduit', period, parameters)
+        base_imposable_tva_taux_intermediaire   = personne('base_imposable_tva_taux_intermediaire', period, parameters)
+        base_imposable_tva_taux_normal          = personne('base_imposable_tva_taux_normal', period, parameters)
+        montant_ventes_hors_taxes               = personne('montant_ventes_hors_taxes', period, parameters)
+        montant_prestations_services_hors_taxes = personne('montant_prestations_services_hors_taxes', period, parameters)
+        lhs = base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
+        rhs = montant_ventes_hors_taxes + montant_prestations_services_hors_taxes
+        return lhs == rhs

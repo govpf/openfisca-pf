@@ -10,6 +10,7 @@ class mois_declaration_tva(Variable):
     definition_period = MONTH
     label = u"Mois sur lequel porte la déclaration de TVA"
     unit = "Mois"
+    default_value = "Entrant 'mois_declaration_tva' requit mais non défini"
 
 
 class rib_renseigne(Variable):
