@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_core.model_api import *
-
 from openfisca_pf.base import *
 from openfisca_pf.entities import *
 
@@ -66,7 +64,6 @@ class redevable_tva_regime_reel_mensuel(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         redevable_tva_franchise_en_base = personne('redevable_tva_franchise_en_base', period)
@@ -80,7 +77,6 @@ class option_tva_regime_simplifie_possible(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime simplifié de TVA"
-    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -96,7 +92,6 @@ class option_tva_regime_simplifie(Variable):
     default_value = OuiNon.N
     definition_period = YEAR
     label = u"Défini si l'entreprise à opté pour le régime simplifié alors qu'elle est éligible à la franchise en base"
-    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
 
 class option_tva_regime_reel_trimestriel_possible(Variable):
@@ -104,7 +99,6 @@ class option_tva_regime_reel_trimestriel_possible(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime réel trimestriel de TVA"
-    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -124,7 +118,6 @@ class option_tva_regime_reel_trimestriel(Variable):
     default_value = OuiNon.N
     definition_period = YEAR
     label = u"Défini si l'entreprise à opté pour le régime réel trimestriel alors qu'elle est éligible à un régime plus favorable"
-    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
 
 class option_tva_regime_reel_mensuel_possible(Variable):
@@ -132,7 +125,6 @@ class option_tva_regime_reel_mensuel_possible(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime réel mensuel de TVA"
-    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -148,7 +140,6 @@ class option_tva_regime_reel_mensuel(Variable):
     default_value = OuiNon.N
     definition_period = YEAR
     label = u"Défini si l'entreprise à opté pour le régime réel mensuel alors qu'elle est éligible à un régime plus favorable"
-    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
 
 class nombre_entreprises_redevables_franchise_base_TVA_pays(Variable):
