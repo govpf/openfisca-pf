@@ -48,42 +48,9 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     -
-      name: remove / in branch name (not master - not tag)
-      uses: mad9000/actions-find-and-replace-string@3
-      if: github.event_name == 'push' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/develop' && github.ref != 'refs/tags'
-      id: findandreplace
-      with:
-        source: ${{ github.ref }}
-        find: 'refs/heads/feature/'        
-        replace: 'feature_'
-    -
-      name: Build and push (not master - not develop -  not tag)
-      uses: docker/build-push-action@v4.0.0
-      if: github.event_name == 'push' && github.ref != 'refs/heads/master' && github.ref != 'refs/heads/develop'  && github.ref != 'refs/tags'
-      with:
-        context: .
-        file: ./docker/Dockerfile
-        platforms: linux/amd64
-        pull: true
-        push: true
-        tags: |
-          ${{ env.repo }}:${{ steps.findandreplace.outputs.value }}
-    -
-      name: Build and push (develop)
-      uses: docker/build-push-action@v4.0.0
-      if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
-      with:
-        context: .
-        file: ./docker/Dockerfile
-        platforms: linux/amd64
-        pull: true
-        push: true
-        tags: |
-          ${{ env.repo }}:develop
-    -
       name: Build and push (master)
       uses: docker/build-push-action@v4.0.0
-      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      if: github.ref == 'refs/heads/master'
       with:
         context: .
         file: ./docker/Dockerfile
@@ -94,14 +61,14 @@ jobs:
           ${{ env.repo }}:latest
     -
       name: Extract tag name
-      if: github.event_name == 'push' && github.ref == 'refs/tags'
+      if: startsWith(github.ref, 'refs/tags/')
       shell: bash
-      run: echo "##[name=tag;]$(echo ${GITHUB_REF#refs/tags/} ${GITHUB_OUTPUT})"
+      run: echo "tag=${GITHUB_REF/refs\/tags\//}" >> ${GITHUB_OUTPUT}
       id: extract_tag
     -
       name: Build and push (tags)
       uses: docker/build-push-action@v4.0.0
-      if: github.event_name == 'push' && github.ref == 'refs/tags'
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         context: .
         file: ./docker/Dockerfile
