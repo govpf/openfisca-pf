@@ -15,7 +15,7 @@ class seuil_tva_regime_franchise_en_base(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot",
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
-    ]
+        ]
     unit = units.XPF
 
     def formula(pays, period, parameters):
@@ -32,7 +32,7 @@ class seuil_tva_regime_simplifiee_activite_commerciale(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot",
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
-    ]
+        ]
     unit = units.XPF
 
     def formula(pays, period, parameters):
@@ -49,7 +49,7 @@ class seuil_tva_regime_simplifiee_activite_prestation(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot",
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
-    ]
+        ]
     unit = units.XPF
 
     def formula(pays, period, parameters):
@@ -66,7 +66,7 @@ class seuil_tva_regime_reel_trimestriel(Variable):
     reference = [
         "https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot",
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
-    ]
+        ]
     unit = units.XPF
 
     def formula(pays, period, parameters):

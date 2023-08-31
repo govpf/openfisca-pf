@@ -36,12 +36,14 @@ class report_credit_tva_deductible(Variable):
     label = u"Montant d'immobilisation déductible de la TVA"
     unit = units.XPF
 
+
 class prorata_de_deduction(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
     label = u"Prorata appliqué pour en arrivé au montants de TVA déductibles"
     unit = units.PER_ONE
+
 
 class tva_deductible(Variable):
     value_type = float

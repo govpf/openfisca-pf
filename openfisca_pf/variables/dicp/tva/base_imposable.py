@@ -82,10 +82,10 @@ class entrants_tva_valides(Variable):
     unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
-        base_imposable_tva_taux_reduit          = personne('base_imposable_tva_taux_reduit', period, parameters)
-        base_imposable_tva_taux_intermediaire   = personne('base_imposable_tva_taux_intermediaire', period, parameters)
-        base_imposable_tva_taux_normal          = personne('base_imposable_tva_taux_normal', period, parameters)
-        montant_ventes_hors_taxes               = personne('montant_ventes_hors_taxes', period, parameters)
+        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
+        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
+        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
+        montant_ventes_hors_taxes = personne('montant_ventes_hors_taxes', period, parameters)
         montant_prestations_services_hors_taxes = personne('montant_prestations_services_hors_taxes', period, parameters)
         lhs = base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
         rhs = montant_ventes_hors_taxes + montant_prestations_services_hors_taxes

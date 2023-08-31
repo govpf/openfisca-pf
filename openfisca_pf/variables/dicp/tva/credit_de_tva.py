@@ -16,7 +16,7 @@ class rib_renseigne(Variable):
     """
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = units.BOOLEAN
     default_value = False
 
@@ -31,7 +31,7 @@ class credit_tva_minimum_ce_mois(Variable):
     unit = units.XPF_PER_MONTH
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
 
     def formula(personne, period, parameters):
         minimum_par_mois = parameters(period).dicp.tva.seuils.credit_tva.minimum_par_mois
@@ -49,7 +49,7 @@ class remboursement_credit_tva_possible_car_rib_rensigne(Variable):
     """
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
@@ -66,7 +66,7 @@ class remboursement_credit_tva_possible_ce_mois(Variable):
     """
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
@@ -84,7 +84,7 @@ class remboursement_credit_tva_possible_car_montant_suffisant(Variable):
     """
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
@@ -103,7 +103,7 @@ class remboursement_credit_tva_possible(Variable):
     """
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
@@ -126,7 +126,7 @@ class demande_remboursement_credit_tva(Variable):
     """
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = units.XPF
     default_value = 0
 
@@ -142,7 +142,7 @@ class demande_rembousement_credit_tva_valide(Variable):
     """
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
@@ -162,7 +162,7 @@ class remboursement_credit_tva(Variable):
     label = u"Montant du remboursement de credit de TVA."
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = units.XPF
 
     def formula(personne, period, parameters):
@@ -180,11 +180,10 @@ class credit_tva_a_reporter(Variable):
     """
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
-    ]
+        ]
     unit = "Currency-XPF"
 
     def formula(personne, period, parameters):
         credit_tva = personne('credit_tva', period, parameters)
         remboursement_credit_tva = personne('remboursement_credit_tva', period, parameters)
         return numpy.subtract(credit_tva, remboursement_credit_tva)
-
