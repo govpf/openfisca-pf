@@ -5,15 +5,6 @@ from openfisca_pf.base import *
 from openfisca_pf.entities import *
 
 
-class mois_declaration_tva(Variable):
-    value_type = str
-    entity = Personne
-    definition_period = MONTH
-    label = u"Mois sur lequel porte la déclaration de TVA"
-    unit = units.MONTH
-    default_value = "Entrant 'mois_declaration_tva' requit mais non défini"
-
-
 class rib_renseigne(Variable):
     value_type = bool
     entity = Personne
@@ -43,9 +34,8 @@ class credit_tva_minimum_ce_mois(Variable):
     ]
 
     def formula(personne, period, parameters):
-        mois_declaration_tva = personne('mois_declaration_tva', period, parameters)
         minimum_par_mois = parameters(period).dicp.tva.seuils.credit_tva.minimum_par_mois
-        return minimum_par_mois[mois_declaration_tva]
+        return minimum_par_mois["{:02d}".format(period.start.month)]
 
 
 class remboursement_credit_tva_possible_car_rib_rensigne(Variable):
@@ -80,9 +70,8 @@ class remboursement_credit_tva_possible_ce_mois(Variable):
     unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
-        mois_declaration_tva = personne('mois_declaration_tva', period, parameters)
         remboursement_possible_par_mois = parameters(period).dicp.tva.seuils.credit_tva.remboursement_possible_par_mois
-        return remboursement_possible_par_mois[mois_declaration_tva]
+        return remboursement_possible_par_mois["{:02d}".format(period.start.month)]
 
 
 class remboursement_credit_tva_possible_car_montant_suffisant(Variable):
