@@ -5,6 +5,7 @@ What is currently modelled:
 - CST-S
 - IT
 - CST-NS
+- TVA & CPS
 
 But this is a work in progress and none of those taxes are validated yet.
 
