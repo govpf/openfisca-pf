@@ -22,8 +22,8 @@ class tva_exigible(Variable):
     label = u"Montant de TVA exigible: \n\n#tva_exigible = #tva_due_taux_reduit + #tva_due_taux_intermediaire + #tva_due_taux_normal + #regularisation_tva_exigible"
 
     def formula(personne, period, parameters):
-        tva_due_taux_reduit = personne(f'tva_due_taux_reduit', period)
-        tva_due_taux_intermediaire = personne(f'tva_due_taux_intermediaire', period)
-        tva_due_taux_normal = personne(f'tva_due_taux_normal', period)
-        regularisation_autre_tva_exigible = personne(f'regularisation_autre_tva_exigible', period)
+        tva_due_taux_reduit = personne('tva_due_taux_reduit', period)
+        tva_due_taux_intermediaire = personne('tva_due_taux_intermediaire', period)
+        tva_due_taux_normal = personne('tva_due_taux_normal', period)
+        regularisation_autre_tva_exigible = personne('regularisation_autre_tva_exigible', period)
         return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal + regularisation_autre_tva_exigible

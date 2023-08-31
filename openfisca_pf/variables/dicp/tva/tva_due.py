@@ -14,8 +14,8 @@ class tva_due_taux_reduit(Variable):
     unit = units.XPF
 
     def formula(personne, period, parameters):
-        base_imposable = personne(f'base_imposable_tva_taux_reduit', period)
-        taux = personne.pays(f'taux_tva_reduit', period)
+        base_imposable = personne('base_imposable_tva_taux_reduit', period)
+        taux = personne.pays('taux_tva_reduit', period)
         return arrondiSup(base_imposable * taux)
 
 
@@ -28,8 +28,8 @@ class tva_due_taux_intermediaire(Variable):
     unit = units.XPF
 
     def formula(personne, period, parameters):
-        base_imposable = personne(f'base_imposable_tva_taux_intermediaire', period)
-        taux = personne.pays(f'taux_tva_intermediaire', period)
+        base_imposable = personne('base_imposable_tva_taux_intermediaire', period)
+        taux = personne.pays('taux_tva_intermediaire', period)
         return arrondiSup(base_imposable * taux)
 
 
@@ -42,6 +42,6 @@ class tva_due_taux_normal(Variable):
     unit = units.XPF
 
     def formula(personne, period, parameters):
-        base_imposable = personne(f'base_imposable_tva_taux_normal', period)
-        taux = personne.pays(f'taux_tva_normal', period)
+        base_imposable = personne('base_imposable_tva_taux_normal', period)
+        taux = personne.pays('taux_tva_normal', period)
         return arrondiSup(base_imposable * taux)

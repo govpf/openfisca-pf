@@ -53,8 +53,8 @@ class tva_deductible(Variable):
     unit = units.XPF
 
     def formula(personne, period, parameters):
-        tva_immobilisation_deductible = personne(f'tva_immobilisation_deductible', period, parameters)
-        tva_autres_biens_deductibles = personne(f'tva_autres_biens_deductibles', period, parameters)
-        regularisation_tva_deductible = personne(f'regularisation_tva_deductible', period, parameters)
-        report_credit_tva_deductible = personne(f'report_credit_tva_deductible', period, parameters)
+        tva_immobilisation_deductible = personne('tva_immobilisation_deductible', period, parameters)
+        tva_autres_biens_deductibles = personne('tva_autres_biens_deductibles', period, parameters)
+        regularisation_tva_deductible = personne('regularisation_tva_deductible', period, parameters)
+        report_credit_tva_deductible = personne('report_credit_tva_deductible', period, parameters)
         return tva_immobilisation_deductible + tva_autres_biens_deductibles + regularisation_tva_deductible + report_credit_tva_deductible
