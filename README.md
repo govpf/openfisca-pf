@@ -9,14 +9,14 @@ What is currently modelled:
 
 But this is a work in progress and none of those taxes are validated yet.
 
-It includes the tarification for the French polynasia estate managment for the public domain and its own lands.
+It includes the pricing for the French Polynesia estate managment for the public domain and its own lands.
 
 ## 1. Installation for developers and maintainers
 
 ### 1.1. Installing Python
 
-Install python 3.7
-> * Go to https://www.python.org/downloads/release/python-370/
+Install python 3.10
+> * Go to https://www.python.org/downloads/release/python-31012/
 > * Download the python install that suits your OS.
 > * Install it.
 

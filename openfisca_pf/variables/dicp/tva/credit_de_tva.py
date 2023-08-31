@@ -114,7 +114,7 @@ class remboursement_credit_tva_possible(Variable):
             remboursement_credit_tva_possible_car_rib_rensigne,
             remboursement_credit_tva_possible_ce_mois,
             remboursement_credit_tva_possible_car_montant_suffisant
-        ])
+            ])
 
 
 class demande_remboursement_credit_tva(Variable):
@@ -152,7 +152,7 @@ class demande_rembousement_credit_tva_valide(Variable):
         return numpy.logical_and(
             remboursement_credit_tva_possible,
             numpy.less_equal(demande_remboursement_credit_tva, credit_tva)
-        )
+            )
 
 
 class remboursement_credit_tva(Variable):
