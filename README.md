@@ -128,7 +128,7 @@ openfisca test --country-package openfisca_pf openfisca_pf/tests
 And you can serve the Openfisca Web API locally (for more information visit the [documentation](https://openfisca.org/doc/openfisca-python-api/openfisca_serve.html)):
 ```bash
 cd openfisca-pf
-openfisca serve -f config.py
+openfisca serve --reload -f config.py
 ```
 
 > ONLY AVAILABLE ON linux, macOS, and Windows WSL2
