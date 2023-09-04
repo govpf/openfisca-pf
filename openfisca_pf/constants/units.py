@@ -1,0 +1,7 @@
+BOOLEAN = "boolean"
+INTEGER = "int"
+MONTH = "Month"
+PER_ONE = "/1"
+PER_CENT = "%"
+XPF = "Currency-XPF"
+XPF_PER_MONTH = "Currency-XPF per Month"
