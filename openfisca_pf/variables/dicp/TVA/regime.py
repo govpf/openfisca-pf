@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_pf.constants import units
-from openfisca_pf.base import *
+# This file defines variables for the modelled legislation.
+# A variable is a property of an Entity such as a Person, a Household…
+# See https://openfisca.org/doc/key-concepts/variables.html
+
+# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
+from openfisca_core.model_api import *
+# Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
+from openfisca_pf.base import *
 
 
 class redevable_tva_franchise_en_base(Variable):
@@ -10,8 +16,7 @@ class redevable_tva_franchise_en_base(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
-    reference = "https://www.impot-polynesie.gov.pf/code/7-chap-vii-regimes-dimposition"
-    unit = units.BOOLEAN
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -28,8 +33,7 @@ class redevable_tva_regime_simplifie(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
-    reference = "https://www.impot-polynesie.gov.pf/code/7-chap-vii-regimes-dimposition"
-    unit = units.BOOLEAN
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -50,8 +54,7 @@ class redevable_tva_regime_reel_trimestriel(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
-    reference = "https://www.impot-polynesie.gov.pf/code/7-chap-vii-regimes-dimposition"
-    unit = units.BOOLEAN
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -68,7 +71,7 @@ class redevable_tva_regime_reel_mensuel(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"Défini si l'entreprise est éligible à la franchise en base de TVA"
-    unit = units.BOOLEAN
+    reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         redevable_tva_franchise_en_base = personne('redevable_tva_franchise_en_base', period)
@@ -82,7 +85,7 @@ class option_tva_regime_simplifie_possible(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime simplifié de TVA"
-    unit = units.BOOLEAN
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -98,7 +101,7 @@ class option_tva_regime_simplifie(Variable):
     default_value = OuiNon.N
     definition_period = YEAR
     label = u"Défini si l'entreprise à opté pour le régime simplifié alors qu'elle est éligible à la franchise en base"
-    unit = units.BOOLEAN
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
 
 class option_tva_regime_reel_trimestriel_possible(Variable):
@@ -106,7 +109,7 @@ class option_tva_regime_reel_trimestriel_possible(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime réel trimestriel de TVA"
-    unit = units.BOOLEAN
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -126,7 +129,7 @@ class option_tva_regime_reel_trimestriel(Variable):
     default_value = OuiNon.N
     definition_period = YEAR
     label = u"Défini si l'entreprise à opté pour le régime réel trimestriel alors qu'elle est éligible à un régime plus favorable"
-    unit = units.BOOLEAN
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
 
 class option_tva_regime_reel_mensuel_possible(Variable):
@@ -134,7 +137,7 @@ class option_tva_regime_reel_mensuel_possible(Variable):
     entity = Personne
     definition_period = YEAR
     label = u"L'entreprise peut opter pour le régime réel mensuel de TVA"
-    unit = units.BOOLEAN
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
     def formula(personne, period, parameters):
         ca_total = personne('chiffre_affaire_total', period)
@@ -150,7 +153,7 @@ class option_tva_regime_reel_mensuel(Variable):
     default_value = OuiNon.N
     definition_period = YEAR
     label = u"Défini si l'entreprise à opté pour le régime réel mensuel alors qu'elle est éligible à un régime plus favorable"
-    unit = units.BOOLEAN
+    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
 
 
 class nombre_entreprises_redevables_franchise_base_TVA_pays(Variable):
@@ -158,7 +161,6 @@ class nombre_entreprises_redevables_franchise_base_TVA_pays(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Nombre d'entreprises du pays redevables de la franchise en base de TVA"
-    unit = units.INTEGER
 
     def formula(pays, period, parameters):
         redevable_tva_franchise_en_base = pays.members('redevable_tva_franchise_en_base', period)
@@ -170,7 +172,6 @@ class nombre_entreprises_redevables_regime_simplifie_TVA_pays(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Nombre d'entreprises du pays redevables du régime simplfié de TVA"
-    unit = units.INTEGER
 
     def formula(pays, period, parameters):
         redevable_tva_regime_simplifie = pays.members('redevable_tva_regime_simplifie', period)
@@ -182,7 +183,6 @@ class nombre_entreprises_redevables_regime_reel_trimestriel_TVA_pays(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Nombre d'entreprises du pays redevables du régime réel trimestriel de TVA"
-    unit = units.INTEGER
 
     def formula(pays, period, parameters):
         redevable_tva_regime_reel_trimestriel = pays.members('redevable_tva_regime_reel_trimestriel', period)
@@ -194,7 +194,6 @@ class nombre_entreprises_redevables_regime_reel_mensuel_TVA_pays(Variable):
     entity = Pays
     definition_period = YEAR
     label = u"Nombre d'entreprises du pays redevables du régime réel trimestriel de TVA"
-    unit = units.INTEGER
 
     def formula(pays, period, parameters):
         redevable_tva_regime_reel_mensuel = pays.members('redevable_tva_regime_reel_mensuel', period)
