@@ -149,10 +149,12 @@ class demande_rembousement_credit_tva_valide(Variable):
         remboursement_credit_tva_possible = personne('remboursement_credit_tva_possible', period, parameters)
         credit_tva = personne('credit_tva', period, parameters)
         demande_remboursement_credit_tva = personne('demande_remboursement_credit_tva', period, parameters)
-        return numpy.logical_and(
+        credit_tva_minimum_ce_mois = personne('credit_tva_minimum_ce_mois', period, parameters)
+        return numpy.logical_and.reduce([
             remboursement_credit_tva_possible,
+            numpy.greater_equal(demande_remboursement_credit_tva, credit_tva_minimum_ce_mois),
             numpy.less_equal(demande_remboursement_credit_tva, credit_tva)
-            )
+            ])
 
 
 class remboursement_credit_tva(Variable):
