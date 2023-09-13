@@ -16,4 +16,4 @@ threshold_1:
 rate_1:
   description: Taux du droit pour les valeurs au dessus de l'assiette
   values:
-    2018-01-01: 0.9
+    2018-01-01: 0.09

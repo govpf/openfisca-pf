@@ -1,11 +1,6 @@
 description: Taux de la taxe de publicité immobilière
 metadata:
   reference: https://law.gov.example/basic-income/amount
-droit_commun:
-  description: Taux la taxe de publicité immobilière pour le régime de droit commun
+rate:
   values:
-    2008-08-25: 0.02
-primo_acquereur:
-  description: Taux la taxe de publicité immobilière pour le régime de primo_acquéreur
-  values:
-    2013-07-16: 0.01
+    2008-08-25: 0.001

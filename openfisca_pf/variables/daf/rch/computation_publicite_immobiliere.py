@@ -12,6 +12,7 @@ from openfisca_pf.variables.daf.rch.enums.enums import *
 from openfisca_pf.base import *
 from numpy import logical_and
 
+
 class montant_droit_enregistrement(Variable):
     value_type = float
     entity = Personne
@@ -114,23 +115,14 @@ class montant_taxe_publicite(Variable):
     def formula(personne, period, parameters):
         # Variables
         # type_demarche_rch = personne('type_demarche_rch', period)
-        type_acheteur_rch = personne('type_acheteur_rch', period)
         valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
 
         # # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
         # nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_01_equipement_pays')
         # variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         # nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
-        # Parameters
-        regime = select([
-            type_acheteur_rch == TypeAcheteur.DroitCommun,
-            type_acheteur_rch == TypeAcheteur.PrimoAcquereur
-            ], [
-                'droit_commun',
-                'primo_acquereur'
-                ])
-
-        rate = parameters(period).daf.rch.taxe_publicite_immobiliere[regime]
+        
+        rate = parameters(period).daf.rch.taxe_publicite_immobiliere.rate
 
         # Calcul du montant
         montant_droit_publicite = rate * valeur_totale_bien_achat
