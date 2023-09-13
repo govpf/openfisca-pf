@@ -121,7 +121,7 @@ class montant_taxe_publicite(Variable):
         # nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_01_equipement_pays')
         # variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
         # nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
-        
+
         rate = parameters(period).daf.rch.taxe_publicite_immobiliere.rate
 
         # Calcul du montant
