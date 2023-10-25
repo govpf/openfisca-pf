@@ -49,8 +49,8 @@ class cps_a_reporter(Variable):
     reference = ["Code des impots : LP. 358-4", "https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite"]
 
     def formula(personne, period, parameters):
-        cps_a_reporter = -personne(f'cps_nette', period)
-        return max_(cps_a_reporter, 0)
+        cps_nette = personne(f'cps_nette', period)
+        return max_(-cps_nette, 0)
 
 
 class tva_plus_cps_nette_due(Variable):
