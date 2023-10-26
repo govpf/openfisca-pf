@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import numpy
-from openfisca_core.indexed_enums import EnumArray
 from openfisca_core.model_api import Enum
 
 

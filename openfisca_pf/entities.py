@@ -5,17 +5,12 @@ from openfisca_core.entities import build_entity
 Dossier = build_entity(
     key = "dossier",
     plural = "dossiers",
-    label = u'Un dossier',
+    label = "Un dossier",
     doc = "Un dossier regroupe plusieurs demandes, représentés dans openfisca par plusieurs personnes",
     roles = [
-        {
-            "key": "demande",
-            "plural": "demandes",
-            "label": "Demandes",
-            "doc": "Les demandes du dossier"
-        }
-    ]
-)
+        {"key": "demande", "plural": "demandes", "label": "Demandes", "doc": "Les demandes du dossier"}
+        ]
+    )
 
 Employes = build_entity(
     key = "employes",
@@ -23,21 +18,16 @@ Employes = build_entity(
     label = "Un groupe d'employés",
     doc = "",
     roles = [
-        {
-            "key": "Employe",
-            "plural": "employes",
-            "label": "Employés",
-            "doc": "La liste des employés"
-        }
-    ]
-)
+        {"key": "Employe", "plural": "employes", "label": "Employés", "doc": "La liste des employés"}
+        ]
+    )
 
 Personne = build_entity(
     key = "personne",
     plural = "personnes",
     label = "Une personne physique ou morale",
     is_person = True,
-)
+    )
 
 Pays = build_entity(
     key = "pays",
@@ -45,14 +35,9 @@ Pays = build_entity(
     label = "Le pays",
     doc = "",
     roles = [
-        {
-            "key": "Contribuables",
-            "plural": "contribuables",
-            "label": "Contribuables",
-            "doc": "Les contribuables du pays"
-        }
-    ]
-)
+        {"key": "Contribuables", "plural": "contribuables", "label": "Contribuables", "doc": "Les contribuables du pays"}
+        ]
+    )
 
 Proprietaire = build_entity(
     key = "proprietaire",
@@ -60,10 +45,8 @@ Proprietaire = build_entity(
     label = "Proprietaire de local ou de locaux soumis a l'impot foncier",
     doc = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595",
     roles = [
-        {
-            "key": "local"
-        }
-    ]
-)
+        {"key": "local", "plural": "locaux", "label": "Local", "doc": "Un local soumis à l'impôt foncier sur les propriétés bâties"}
+        ]
+    )
 
 entities = [Pays, Personne, Employes, Dossier]

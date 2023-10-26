@@ -34,15 +34,15 @@ class archipel(Variable):
                 numpy.isin(commune, COMMUNES_DES_ILES_SOUS_LE_VENT),
                 numpy.isin(commune, COMMUNES_DES_MARQUISES),
                 numpy.isin(commune, COMMUNES_DES_TUAMOTUS_ET_DES_GAMBIERS)
-            ],
+                ],
             [
                 Archipel.AUSTRALES,
                 Archipel.ILES_DU_VENT,
                 Archipel.ILES_SOUS_LE_VENT,
                 Archipel.MARQUISES,
                 Archipel.TUAMOTUS_ET_GAMBIERS
-            ]
-        )
+                ]
+            )
 
 
 class logement_social(Variable):
@@ -152,7 +152,7 @@ class base_imposition(Variable):
             loue,
             numpy.where(meuble, 0.70, 0.75) * tmp,
             tmp
-        )
+            )
 
 
 class contribution_fonciere_pays(Variable):
