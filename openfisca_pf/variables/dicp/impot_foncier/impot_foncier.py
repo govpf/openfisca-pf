@@ -234,7 +234,7 @@ class base_imposable(Variable):
         meuble = local('meuble', period, parameters)
         degrevement_base_meuble = local('degrevement_base_meuble', period, parameters)
         degrevement_base_non_meuble = local('degrevement_base_non_meuble', period, parameters)
-        second_degrevement =  numpy.select(
+        second_degrevement = numpy.select(
             [loue * meuble, loue * not_(meuble), not_(loue)],
             [degrevement_base_meuble, degrevement_base_non_meuble, 0]
             )
@@ -268,16 +268,16 @@ class contribution_fonciere_part_pays(Variable):
 
 
 class taux_part_commune(Variable):
-        value_type = float
-        entity = Personne
-        definition_period = YEAR
-        default_value = 0
-        label = "Taux utilisé pour calculer la contribution foncière allant à la commune"
-        reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Taux utilisé pour calculer la contribution foncière allant à la commune"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-        def formula(local, period, parameters):
-            commune = local('commune', period, parameters)
-            return parameters(period).dicp.impot_foncier.taux_centime_additionnel_communal[commune]
+    def formula(local, period, parameters):
+        commune = local('commune', period, parameters)
+        return parameters(period).dicp.impot_foncier.taux_centime_additionnel_communal[commune]
 
 
 class contribution_fonciere_part_commune(Variable):
