@@ -74,6 +74,15 @@ class meuble(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
 
+class meuble_de_tourisme(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local est loué en meublé de tourisme (Air B&B par exemple), False sinon."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
 class valeur_venale(Variable):
     value_type = int
     entity = Personne
@@ -155,6 +164,32 @@ class valeur_locative_direct(Variable):
         return taux * valeur_venale
 
 
+class taux_meuble_tourisme(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0.06
+    label = "Taux permettant de calculer la valeur locative d'un local loué en meuble de tourisme en fonction de sa valeur vénale"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        return local.pays('taux_meuble_tourisme_pays', period, parameters)
+
+
+class valeur_locative_meuble_tourisme(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Valeur locative d'un local loué en meuble de tourisme"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        valeur_venale = local('valeur_venale', period, parameters)
+        taux_meuble_tourisme = local('taux_meuble_tourisme', period, parameters)
+        return taux_meuble_tourisme * valeur_venale
+
+
 class valeur_locative(Variable):
     value_type = int
     entity = Personne
@@ -165,9 +200,14 @@ class valeur_locative(Variable):
 
     def formula(local, period, parameters):
         loue = local('loue', period, parameters)
+        meuble_de_tourisme = local('meuble_de_tourisme', period, parameters)
         valeur_locative_loyers = local('valeur_locative_loyers', period, parameters)
         valeur_locative_direct = local('valeur_locative_direct', period, parameters)
-        return numpy.where(loue, valeur_locative_loyers, valeur_locative_direct)
+        valeur_locative_meuble_tourisme = local('valeur_locative_meuble_tourisme', period, parameters)
+        return numpy.select(
+            [loue * not_(meuble_de_tourisme), loue * meuble_de_tourisme, not_(loue)],
+            [valeur_locative_loyers, valeur_locative_meuble_tourisme, valeur_locative_direct]
+            )
 
 
 class degrevement_base_seule(Variable):

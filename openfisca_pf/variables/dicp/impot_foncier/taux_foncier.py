@@ -69,12 +69,24 @@ class taux_logement_social_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    default_value = 0
+    default_value = 0.02
     label = "Taux permettant de calculer la valeur locative direct d'un local utilisé comme logement social"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
         return parameters(period).dicp.impot_foncier.taux_logement_social
+
+
+class taux_meuble_tourisme_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0.06
+    label = "Taux permettant de calculer la valeur locative d'un local loué en meuble de tourisme en fonction de sa valeur vénale"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux_meuble_tourisme
 
 
 class degrevement_base_seule_pays(Variable):
