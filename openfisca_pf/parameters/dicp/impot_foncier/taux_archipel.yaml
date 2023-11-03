@@ -8,6 +8,11 @@ AUSTRALES:
     2021-12-27:
       value: 0.02
 
+GAMBIERS:
+  values:
+    2021-12-27:
+      value: 0.02
+
 ILES_DU_VENT:
   values:
     2021-12-27:
@@ -23,7 +28,7 @@ MARQUISES:
     2021-12-27:
       value: 0.02
 
-TUAMOTUS_ET_GAMBIERS:
+TUAMOTUS:
   values:
     2021-12-27:
       value: 0.02

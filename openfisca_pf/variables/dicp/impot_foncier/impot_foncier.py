@@ -32,17 +32,19 @@ class archipel(Variable):
         return numpy.select(
             [
                 numpy.isin(commune, COMMUNES_DES_AUSTRALES),
+                numpy.isin(commune, COMMUNES_DES_GAMBIERS),
                 numpy.isin(commune, COMMUNES_DES_ILES_DU_VENT),
                 numpy.isin(commune, COMMUNES_DES_ILES_SOUS_LE_VENT),
                 numpy.isin(commune, COMMUNES_DES_MARQUISES),
-                numpy.isin(commune, COMMUNES_DES_TUAMOTUS_ET_DES_GAMBIERS)
+                numpy.isin(commune, COMMUNES_DES_TUAMOTUS)
                 ],
             [
                 Archipel.AUSTRALES,
+                Archipel.GAMBIERS,
                 Archipel.ILES_DU_VENT,
                 Archipel.ILES_SOUS_LE_VENT,
                 Archipel.MARQUISES,
-                Archipel.TUAMOTUS_ET_GAMBIERS
+                Archipel.TUAMOTUS
                 ]
             )
 
@@ -101,6 +103,15 @@ class loyer_janvier(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
 
+class somme_des_tarifs_de_la_nuitee_factures(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Chiffre d'affaire annuel d'un local loué en meuble de tourisme, hors promotions"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
 class valeur_locative_loyers(Variable):
     value_type = int
     entity = Personne
@@ -125,13 +136,28 @@ class taux_archipel(Variable):
     def formula(local, period, parameters):
         archipel = local('archipel', period, parameters)
         taux_archipel_australes_pays = local.pays('taux_archipel_australes_pays', period, parameters)
+        taux_archipel_gambiers_pays = local.pays('taux_archipel_gambiers_pays', period, parameters)
         taux_archipel_iles_du_vent_pays = local.pays('taux_archipel_iles_du_vent_pays', period, parameters)
         taux_archipel_iles_sous_le_vent_pays = local.pays('taux_archipel_iles_sous_le_vent_pays', period, parameters)
         taux_archipel_marquises_pays = local.pays('taux_archipel_marquises_pays', period, parameters)
-        taux_archipel_tuamotus_et_gambiers_pays = local.pays('taux_archipel_tuamotus_et_gambiers_pays', period, parameters)
+        taux_archipel_tuamotus_pays = local.pays('taux_archipel_tuamotus_pays', period, parameters)
         return numpy.select(
-            [archipel == Archipel.AUSTRALES, archipel == Archipel.ILES_DU_VENT, archipel == Archipel.ILES_SOUS_LE_VENT, archipel == Archipel.MARQUISES, archipel == Archipel.TUAMOTUS_ET_GAMBIERS],
-            [taux_archipel_australes_pays, taux_archipel_iles_du_vent_pays, taux_archipel_iles_sous_le_vent_pays, taux_archipel_marquises_pays, taux_archipel_tuamotus_et_gambiers_pays]
+            [
+                archipel == Archipel.AUSTRALES,
+                archipel == Archipel.GAMBIERS,
+                archipel == Archipel.ILES_DU_VENT,
+                archipel == Archipel.ILES_SOUS_LE_VENT,
+                archipel == Archipel.MARQUISES,
+                archipel == Archipel.TUAMOTUS
+                ],
+            [
+                taux_archipel_australes_pays,
+                taux_archipel_gambiers_pays,
+                taux_archipel_iles_du_vent_pays,
+                taux_archipel_iles_sous_le_vent_pays,
+                taux_archipel_marquises_pays,
+                taux_archipel_tuamotus_pays
+                ]
             )
 
 
@@ -190,6 +216,34 @@ class valeur_locative_meuble_tourisme(Variable):
         return taux_meuble_tourisme * valeur_venale
 
 
+class meuble_de_tourisme_eligible_a_un_degrevement(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local loue en meuble de tourisme est eligible à un degrevement, False sinon"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        somme_des_tarifs_de_la_nuitee_factures = local('somme_des_tarifs_de_la_nuitee_factures', period, parameters)
+        valeur_locative_meuble_tourisme = local('valeur_locative_meuble_tourisme', period, parameters)
+        return somme_des_tarifs_de_la_nuitee_factures <= (0.25 * valeur_locative_meuble_tourisme)
+
+
+class meuble_de_tourisme_demande_un_degrevement(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le proprietaire du local loue en meuble de tourisme demande degrevement, False sinon"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
+# class degrevement_speciale(Variable):
+#
+#     def formula(local, period, parameters):
+#         return impot_foncier(vl) - impot_foncier(vl / 2)
+
 class valeur_locative(Variable):
     value_type = int
     entity = Personne
@@ -210,7 +264,7 @@ class valeur_locative(Variable):
             )
 
 
-class degrevement_base_seule(Variable):
+class premier_degrevement(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
@@ -219,31 +273,7 @@ class degrevement_base_seule(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local, period, parameters):
-        return local.pays('degrevement_base_seule_pays', period, parameters)
-
-
-class degrevement_base_meuble(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en meublé"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('degrevement_base_meuble_pays', period, parameters)
-
-
-class degrevement_base_non_meuble(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en non-meublé"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('degrevement_base_non_meuble_pays', period, parameters)
+        return local.pays('premier_degrevement_pays', period, parameters)
 
 
 class base_imposable_apres_premier_degrevement(Variable):
@@ -256,8 +286,44 @@ class base_imposable_apres_premier_degrevement(Variable):
 
     def formula(local, period, parameters):
         valeur_locative = local('valeur_locative', period, parameters)
-        premier_degrevement = local('degrevement_base_seule', period, parameters)
+        premier_degrevement = local('premier_degrevement', period, parameters)
         return valeur_locative * (1.0 - premier_degrevement)
+
+
+class second_degrevement_si_non_loue(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local n'est pas loué"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        return local.pays('second_degrevement_si_non_loue_pays', period, parameters)
+
+
+class second_degrevement_si_loue_meuble(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en meublé"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        return local.pays('second_degrevement_si_loue_meuble_pays', period, parameters)
+
+
+class second_degrevement_si_loue_non_meuble(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en non-meublé"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        return local.pays('second_degrevement_si_loue_non_meuble_pays', period, parameters)
 
 
 class base_imposable(Variable):
@@ -272,11 +338,12 @@ class base_imposable(Variable):
         base_imposable_apres_premier_degrevement = local('base_imposable_apres_premier_degrevement', period, parameters)
         loue = local('loue', period, parameters)
         meuble = local('meuble', period, parameters)
-        degrevement_base_meuble = local('degrevement_base_meuble', period, parameters)
-        degrevement_base_non_meuble = local('degrevement_base_non_meuble', period, parameters)
+        second_degrevement_si_non_loue = local('second_degrevement_si_non_loue', period, parameters)
+        second_degrevement_si_loue_meuble = local('second_degrevement_si_loue_meuble', period, parameters)
+        second_degrevement_si_loue_non_meuble = local('second_degrevement_si_loue_non_meuble', period, parameters)
         second_degrevement = numpy.select(
-            [loue * meuble, loue * not_(meuble), not_(loue)],
-            [degrevement_base_meuble, degrevement_base_non_meuble, 0]
+            [not_(loue), meuble, not_(meuble)],
+            [second_degrevement_si_non_loue, second_degrevement_si_loue_meuble, second_degrevement_si_loue_non_meuble]
             )
         return base_imposable_apres_premier_degrevement * (1.0 - second_degrevement)
 

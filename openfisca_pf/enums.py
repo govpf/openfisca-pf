@@ -6,10 +6,11 @@ from openfisca_core.model_api import Enum
 
 class Archipel(Enum):
     AUSTRALES = "Australes"
+    GAMBIERS = "Gambiers"
     ILES_DU_VENT = "Îles du vent"
     ILES_SOUS_LE_VENT = "Îles sous le vent"
     MARQUISES = "Marquises"
-    TUAMOTUS_ET_GAMBIERS = "Tuamotus et Gambiers"
+    TUAMOTUS = "Tuamotus"
 
 
 class Commune(Enum):
@@ -71,6 +72,10 @@ COMMUNES_DES_AUSTRALES = Commune.encode(numpy.asarray([
     Commune.TUBUAI
     ]))
 
+COMMUNES_DES_GAMBIERS = Commune.encode(numpy.asarray([
+    Commune.GAMBIER
+    ]))
+
 COMMUNES_DES_ILES_DU_VENT = Commune.encode(numpy.asarray([
     Commune.ARUE,
     Commune.FAAA,
@@ -106,12 +111,11 @@ COMMUNES_DES_MARQUISES = Commune.encode(numpy.asarray([
     Commune.UA_POU
     ]))
 
-COMMUNES_DES_TUAMOTUS_ET_DES_GAMBIERS = Commune.encode(numpy.asarray([
+COMMUNES_DES_TUAMOTUS = Commune.encode(numpy.asarray([
     Commune.ANAA,
     Commune.ARUTUA,
     Commune.FAKARAVA,
     Commune.FANGATAU,
-    Commune.GAMBIER,
     Commune.HAO,
     Commune.HIKUERU,
     Commune.MAKEMO,

@@ -17,6 +17,18 @@ class taux_archipel_australes_pays(Variable):
         return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.AUSTRALES.name]
 
 
+class taux_archipel_gambiers_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0
+    label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et des archipels des Gambiers"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.GAMBIERS.name]
+
+
 class taux_archipel_iles_du_vent_pays(Variable):
     value_type = float
     entity = Pays
@@ -53,16 +65,16 @@ class taux_archipel_marquises_pays(Variable):
         return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.MARQUISES.name]
 
 
-class taux_archipel_tuamotus_et_gambiers_pays(Variable):
+class taux_archipel_tuamotus_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
     default_value = 0
-    label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et des archipels des Touamotus et des Gambiers"
+    label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et des archipels des Touamotus"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.TUAMOTUS_ET_GAMBIERS.name]
+        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.TUAMOTUS.name]
 
 
 class taux_logement_social_pays(Variable):
@@ -89,7 +101,7 @@ class taux_meuble_tourisme_pays(Variable):
         return parameters(period).dicp.impot_foncier.taux_meuble_tourisme
 
 
-class degrevement_base_seule_pays(Variable):
+class premier_degrevement_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
@@ -98,10 +110,22 @@ class degrevement_base_seule_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.degrevement.base_seule
+        return parameters(period).dicp.impot_foncier.degrevement.premier_degrevement
 
 
-class degrevement_base_meuble_pays(Variable):
+class second_degrevement_si_non_loue_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0
+    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local n'est pas loué"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.degrevement.second_degrevement_si_non_loue
+
+
+class second_degrevement_si_loue_meuble_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
@@ -110,10 +134,10 @@ class degrevement_base_meuble_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.degrevement.base_meuble
+        return parameters(period).dicp.impot_foncier.degrevement.second_degrevement_si_loue_meuble
 
 
-class degrevement_base_non_meuble_pays(Variable):
+class second_degrevement_si_loue_non_meuble_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
@@ -122,7 +146,7 @@ class degrevement_base_non_meuble_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.degrevement.base_non_meuble
+        return parameters(period).dicp.impot_foncier.degrevement.second_degrevement_si_loue_non_meuble
 
 
 class taux_part_pays_pays(Variable):
