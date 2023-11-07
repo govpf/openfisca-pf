@@ -238,11 +238,23 @@ class meuble_de_tourisme_demande_un_degrevement(Variable):
     label = "True si le proprietaire du local loue en meuble de tourisme demande degrevement, False sinon"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
+    def formula(local, period, parameters):
+        return local('meuble_de_tourisme_eligible_a_un_degrevement', period, parameters)
 
-# class degrevement_speciale(Variable):
-#
-#     def formula(local, period, parameters):
-#         return impot_foncier(vl) - impot_foncier(vl / 2)
+
+class meuble_de_tourisme_est_eligible_et_demande_un_degrevement(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local loue en meuble de tourisme est eligible à un degrevement et en a fait la demande, False sinon"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        meuble_de_tourisme_eligible_a_un_degrevement = local('meuble_de_tourisme_eligible_a_un_degrevement', period, parameters)
+        meuble_de_tourisme_demande_un_degrevement = local('meuble_de_tourisme_demande_un_degrevement', period, parameters)
+        return meuble_de_tourisme_eligible_a_un_degrevement * meuble_de_tourisme_demande_un_degrevement
+
 
 class valeur_locative(Variable):
     value_type = int
@@ -259,8 +271,8 @@ class valeur_locative(Variable):
         valeur_locative_direct = local('valeur_locative_direct', period, parameters)
         valeur_locative_meuble_tourisme = local('valeur_locative_meuble_tourisme', period, parameters)
         return numpy.select(
-            [loue * not_(meuble_de_tourisme), loue * meuble_de_tourisme, not_(loue)],
-            [valeur_locative_loyers, valeur_locative_meuble_tourisme, valeur_locative_direct]
+            [not_(loue), loue * not_(meuble_de_tourisme), loue * meuble_de_tourisme],
+            [valeur_locative_direct, valeur_locative_loyers, valeur_locative_meuble_tourisme]
             )
 
 
@@ -326,7 +338,7 @@ class second_degrevement_si_loue_non_meuble(Variable):
         return local.pays('second_degrevement_si_loue_non_meuble_pays', period, parameters)
 
 
-class base_imposable(Variable):
+class base_imposable_apres_second_degrevement(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -346,6 +358,34 @@ class base_imposable(Variable):
             [second_degrevement_si_non_loue, second_degrevement_si_loue_meuble, second_degrevement_si_loue_non_meuble]
             )
         return base_imposable_apres_premier_degrevement * (1.0 - second_degrevement)
+
+
+class degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Dégrèvement sur demande dans le cas d'une baisse de revenus d'un local loué en meublé de tourisme"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays = local.pays('degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays', period, parameters)
+        meuble_de_tourisme_est_eligible_et_demande_un_degrevement = local('meuble_de_tourisme_est_eligible_et_demande_un_degrevement', period, parameters)
+        return numpy.where(meuble_de_tourisme_est_eligible_et_demande_un_degrevement, degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays, 0)
+
+
+class base_imposable(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "base de l'impot foncier utilisé pour calculer la part du territoire et la part comunale"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        base_imposable_apres_second_degrevement = local('base_imposable_apres_second_degrevement', period, parameters)
+        degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme = local('degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme', period, parameters)
+        return base_imposable_apres_second_degrevement * (1.0 - degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme)
 
 
 class taux_part_pays(Variable):
