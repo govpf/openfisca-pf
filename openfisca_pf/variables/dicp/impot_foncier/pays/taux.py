@@ -14,7 +14,7 @@ class taux_archipel_australes_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.AUSTRALES.name]
+        return parameters(period).dicp.impot_foncier.taux.archipel[Archipel.AUSTRALES.name]
 
 
 class taux_archipel_gambiers_pays(Variable):
@@ -26,7 +26,7 @@ class taux_archipel_gambiers_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.GAMBIERS.name]
+        return parameters(period).dicp.impot_foncier.taux.archipel[Archipel.GAMBIERS.name]
 
 
 class taux_archipel_iles_du_vent_pays(Variable):
@@ -38,7 +38,7 @@ class taux_archipel_iles_du_vent_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.ILES_DU_VENT.name]
+        return parameters(period).dicp.impot_foncier.taux.archipel[Archipel.ILES_DU_VENT.name]
 
 
 class taux_archipel_iles_sous_le_vent_pays(Variable):
@@ -50,7 +50,7 @@ class taux_archipel_iles_sous_le_vent_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.ILES_SOUS_LE_VENT.name]
+        return parameters(period).dicp.impot_foncier.taux.archipel[Archipel.ILES_SOUS_LE_VENT.name]
 
 
 class taux_archipel_marquises_pays(Variable):
@@ -62,7 +62,7 @@ class taux_archipel_marquises_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.MARQUISES.name]
+        return parameters(period).dicp.impot_foncier.taux.archipel[Archipel.MARQUISES.name]
 
 
 class taux_archipel_tuamotus_pays(Variable):
@@ -74,7 +74,7 @@ class taux_archipel_tuamotus_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_archipel[Archipel.TUAMOTUS.name]
+        return parameters(period).dicp.impot_foncier.taux.archipel[Archipel.TUAMOTUS.name]
 
 
 class taux_logement_social_pays(Variable):
@@ -86,10 +86,10 @@ class taux_logement_social_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_logement_social
+        return parameters(period).dicp.impot_foncier.taux.logement_social
 
 
-class taux_meuble_tourisme_pays(Variable):
+class taux_meuble_de_tourisme_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
@@ -98,67 +98,7 @@ class taux_meuble_tourisme_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_meuble_tourisme
-
-
-class premier_degrevement_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Premier dégrèvement appliqué à la valeur locative pour calculer la base imposable de l'impôt foncier"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.degrevement.premier_degrevement
-
-
-class second_degrevement_si_non_loue_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local n'est pas loué"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.degrevement.second_degrevement_si_non_loue
-
-
-class second_degrevement_si_loue_meuble_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en meublé"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.degrevement.second_degrevement_si_loue_meuble
-
-
-class second_degrevement_si_loue_non_meuble_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en non-meublé"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.degrevement.second_degrevement_si_loue_non_meuble
-
-
-class degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Dégrèvement sur demande dans le cas d'une baisse de revenus d'un local loué en meublé de tourisme"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.degrevement.degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme
+        return parameters(period).dicp.impot_foncier.taux.meuble_de_tourisme
 
 
 class taux_part_pays_pays(Variable):
@@ -170,4 +110,4 @@ class taux_part_pays_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux_pays
+        return parameters(period).dicp.impot_foncier.taux.pays

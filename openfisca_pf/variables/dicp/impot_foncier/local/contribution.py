@@ -125,54 +125,6 @@ class valeur_locative_loyers(Variable):
         return loyer_janvier * 12
 
 
-class taux_archipel(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel du local"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        archipel = local('archipel', period, parameters)
-        taux_archipel_australes_pays = local.pays('taux_archipel_australes_pays', period, parameters)
-        taux_archipel_gambiers_pays = local.pays('taux_archipel_gambiers_pays', period, parameters)
-        taux_archipel_iles_du_vent_pays = local.pays('taux_archipel_iles_du_vent_pays', period, parameters)
-        taux_archipel_iles_sous_le_vent_pays = local.pays('taux_archipel_iles_sous_le_vent_pays', period, parameters)
-        taux_archipel_marquises_pays = local.pays('taux_archipel_marquises_pays', period, parameters)
-        taux_archipel_tuamotus_pays = local.pays('taux_archipel_tuamotus_pays', period, parameters)
-        return numpy.select(
-            [
-                archipel == Archipel.AUSTRALES,
-                archipel == Archipel.GAMBIERS,
-                archipel == Archipel.ILES_DU_VENT,
-                archipel == Archipel.ILES_SOUS_LE_VENT,
-                archipel == Archipel.MARQUISES,
-                archipel == Archipel.TUAMOTUS
-                ],
-            [
-                taux_archipel_australes_pays,
-                taux_archipel_gambiers_pays,
-                taux_archipel_iles_du_vent_pays,
-                taux_archipel_iles_sous_le_vent_pays,
-                taux_archipel_marquises_pays,
-                taux_archipel_tuamotus_pays
-                ]
-            )
-
-
-class taux_logement_social(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Taux permettant de calculer la valeur locative direct d'un local utilisé comme logement social"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('taux_logement_social_pays', period, parameters)
-
-
 class valeur_locative_direct(Variable):
     value_type = int
     entity = Personne
@@ -190,18 +142,6 @@ class valeur_locative_direct(Variable):
         return taux * valeur_venale
 
 
-class taux_meuble_tourisme(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0.06
-    label = "Taux permettant de calculer la valeur locative d'un local loué en meuble de tourisme en fonction de sa valeur vénale"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('taux_meuble_tourisme_pays', period, parameters)
-
-
 class valeur_locative_meuble_tourisme(Variable):
     value_type = int
     entity = Personne
@@ -212,8 +152,8 @@ class valeur_locative_meuble_tourisme(Variable):
 
     def formula(local, period, parameters):
         valeur_venale = local('valeur_venale', period, parameters)
-        taux_meuble_tourisme = local('taux_meuble_tourisme', period, parameters)
-        return taux_meuble_tourisme * valeur_venale
+        taux_meuble_de_tourisme = local('taux_meuble_de_tourisme', period, parameters)
+        return taux_meuble_de_tourisme * valeur_venale
 
 
 class meuble_de_tourisme_eligible_a_un_degrevement(Variable):
@@ -276,18 +216,6 @@ class valeur_locative(Variable):
             )
 
 
-class premier_degrevement(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Premier dégrèvement appliqué à la valeur locative pour calculer la base imposable de l'impôt foncier"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('premier_degrevement_pays', period, parameters)
-
-
 class base_imposable_apres_premier_degrevement(Variable):
     value_type = int
     entity = Personne
@@ -300,42 +228,6 @@ class base_imposable_apres_premier_degrevement(Variable):
         valeur_locative = local('valeur_locative', period, parameters)
         premier_degrevement = local('premier_degrevement', period, parameters)
         return valeur_locative * (1.0 - premier_degrevement)
-
-
-class second_degrevement_si_non_loue(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local n'est pas loué"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('second_degrevement_si_non_loue_pays', period, parameters)
-
-
-class second_degrevement_si_loue_meuble(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en meublé"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('second_degrevement_si_loue_meuble_pays', period, parameters)
-
-
-class second_degrevement_si_loue_non_meuble(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en non-meublé"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('second_degrevement_si_loue_non_meuble_pays', period, parameters)
 
 
 class base_imposable_apres_second_degrevement(Variable):
@@ -360,20 +252,6 @@ class base_imposable_apres_second_degrevement(Variable):
         return base_imposable_apres_premier_degrevement * (1.0 - second_degrevement)
 
 
-class degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Dégrèvement sur demande dans le cas d'une baisse de revenus d'un local loué en meublé de tourisme"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays = local.pays('degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays', period, parameters)
-        meuble_de_tourisme_est_eligible_et_demande_un_degrevement = local('meuble_de_tourisme_est_eligible_et_demande_un_degrevement', period, parameters)
-        return numpy.where(meuble_de_tourisme_est_eligible_et_demande_un_degrevement, degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays, 0)
-
-
 class base_imposable(Variable):
     value_type = int
     entity = Personne
@@ -388,18 +266,6 @@ class base_imposable(Variable):
         return base_imposable_apres_second_degrevement * (1.0 - degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme)
 
 
-class taux_part_pays(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Taux permettant de calculer la part pays de la contribution à l'impôt foncier"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        return local.pays('taux_part_pays_pays', period, parameters)
-
-
 class contribution_fonciere_part_pays(Variable):
     value_type = int
     entity = Personne
@@ -412,19 +278,6 @@ class contribution_fonciere_part_pays(Variable):
         taux_part_pays = local('taux_part_pays', period, parameters)
         base_imposable = local('base_imposable', period, parameters)
         return taux_part_pays * base_imposable
-
-
-class taux_part_commune(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Taux utilisé pour calculer la contribution foncière allant à la commune"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local, period, parameters):
-        commune = local('commune', period, parameters)
-        return parameters(period).dicp.impot_foncier.taux_centime_additionnel_communal[commune]
 
 
 class contribution_fonciere_part_commune(Variable):
