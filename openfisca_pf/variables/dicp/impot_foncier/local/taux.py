@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import numpy
-
 from openfisca_pf.entities import Personne
 from openfisca_pf.base import YEAR, Variable
-from openfisca_pf.enums import *
+from openfisca_pf.enums.geographie import *
 
 
 class taux_archipel(Variable):
@@ -65,6 +63,18 @@ class taux_meuble_de_tourisme(Variable):
 
     def formula(local, period, parameters):
         return local.pays('taux_meuble_de_tourisme_pays', period, parameters)
+
+
+class taux_villa_de_luxe(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0.06
+    label = "Taux permettant de calculer la valeur locative d'un local loué en villa de luxe en fonction de sa valeur vénale"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        return local.pays('taux_villa_de_luxe_pays', period, parameters)
 
 
 class taux_part_pays(Variable):
