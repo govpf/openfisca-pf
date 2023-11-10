@@ -298,8 +298,13 @@ class base_imposable(Variable):
 
     def formula(local, period, parameters):
         base_imposable_apres_second_degrevement = local('base_imposable_apres_second_degrevement', period, parameters)
+        meuble_de_tourisme = local('meuble_de_tourisme', period, parameters)
         degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme = local('degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme', period, parameters)
-        return base_imposable_apres_second_degrevement * (1.0 - degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme)
+        return numpy.where(
+            meuble_de_tourisme,
+            base_imposable_apres_second_degrevement * (1.0 - degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme),
+            base_imposable_apres_second_degrevement
+            )
 
 
 class contribution_fonciere_part_pays(Variable):
