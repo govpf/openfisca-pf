@@ -71,6 +71,37 @@ class montant_autres_operations_non_taxables(Variable):
     unit = units.XPF
 
 
+class sous_total_base_imposable(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    label = u"""
+    Somme des bases imposables
+    """
+    unit = units.XPF
+
+    def formula(personne, period, parameters):
+        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
+        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
+        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
+        return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
+
+
+class sous_total_operations(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    label = u"""
+    Somme des opérations
+    """
+    unit = units.XPF
+
+    def formula(personne, period, parameters):
+        montant_prestations_services_hors_taxes = personne('montant_prestations_services_hors_taxes', period, parameters)
+        montant_ventes_hors_taxes = personne('montant_ventes_hors_taxes', period, parameters)
+        return montant_ventes_hors_taxes + montant_prestations_services_hors_taxes
+
+
 class entrants_tva_valides(Variable):
     value_type = bool
     entity = Personne
@@ -82,11 +113,6 @@ class entrants_tva_valides(Variable):
     unit = units.BOOLEAN
 
     def formula(personne, period, parameters):
-        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
-        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
-        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
-        montant_ventes_hors_taxes = personne('montant_ventes_hors_taxes', period, parameters)
-        montant_prestations_services_hors_taxes = personne('montant_prestations_services_hors_taxes', period, parameters)
-        lhs = base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
-        rhs = montant_ventes_hors_taxes + montant_prestations_services_hors_taxes
-        return lhs == rhs
+        sous_total_base_imposable = personne('sous_total_base_imposable', period, parameters)
+        sous_total_operations = personne('sous_total_operations', period, parameters)
+        return sous_total_base_imposable == sous_total_operations
