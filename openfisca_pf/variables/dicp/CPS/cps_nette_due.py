@@ -45,6 +45,7 @@ class cps_nette_due(Variable):
         cps_nette = personne('cps_nette', period, parameters)
         return numpy.maximum(cps_nette, 0)
 
+
 class cps_a_reporter(Variable):
     value_type = float
     entity = Personne
