@@ -1,4 +1,4 @@
-- name: 'CPS nulle'
+- name: 'CPS égale à 0'
   period: 2022-05
   input:
    base_imposable_cps: 0
@@ -60,6 +60,16 @@
     cps_a_reporter: 0
 - name: 'CPS avec CPS à reverser et CPS en diminution (resultat null)'
   period: 2024-03
+  input:
+    base_imposable_cps: 1000000
+    cps_a_reverser: 50000
+    cps_en_diminution: 5000
+  output:
+    cps_due: 0
+    cps_nette_due: 0
+    cps_a_reporter: 0
+- name: 'CPS supprimée'
+  period: 2023-10
   input:
     base_imposable_cps: 1000000
     cps_a_reverser: 50000
