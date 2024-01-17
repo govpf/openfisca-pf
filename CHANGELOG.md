@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.8.0
+
+- La CPS passe à 0 pour les activités à partir du 2023-10-01
 
 ## 0.6.3
 
