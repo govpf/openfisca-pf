@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
 
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.base import *
+from openfisca_core.periods import MONTH
+from openfisca_core.variables import Variable
+from openfisca_pf.constants.units import XPF
+from openfisca_pf.entities import Personne
 
 
 class cps_a_reverser(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"Montant de CPS à reverser"
-    unit = 'currency-XPF'
+    label = 'Montant de CPS à reverser'
+    unit = XPF
+    default_value = 0
+    end = '2023-09-30'
 
 
 class cps_en_diminution(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"Montant de CPS en diminution"
-    unit = 'currency-XPF'
+    label = 'Montant de CPS en diminution'
+    unit = XPF
+    default_value = 0
+    end = '2023-09-30'

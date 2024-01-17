@@ -1,38 +1,47 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
 
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.base import *
+import numpy
+from openfisca_core.holders import set_input_divide_by_period
+from openfisca_core.parameters import Parameter
+from openfisca_core.periods import Period, MONTH, YEAR
+from openfisca_core.variables import Variable
+from openfisca_pf.constants.units import PER_ONE
+from openfisca_pf.entities import Pays
 
 
 class taux_cps(Variable):
     value_type = float
     entity = Pays
     definition_period = MONTH
-    label = u"Taux de CPS"
+    label = 'Taux de CPS'
     set_input = set_input_divide_by_period
-    unit = '/1'
-    # reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    unit = PER_ONE
+    reference = [
+        'https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot',
+        'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
+        ]
+    default_value = 0
+    end = '2023-09-30'
 
-    def formula(pays, period, parameters):
+    def formula(pays: Pays, period: Period, parameters: Parameter):
         taux_annee = pays('taux_cps_annee', period.this_year)
-        return where(taux_annee, taux_annee, parameters(period).dicp.cps.taux)
+        return numpy.where(taux_annee, taux_annee, parameters(period).dicp.cps.taux)
 
 
 class taux_cps_annee(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    label = u"Taux de CPS défini annuellement"
-    unit = '/1'
+    label = 'Taux de CPS défini annuellement'
+    unit = PER_ONE
     set_input = set_input_divide_by_period
-    # reference = ["https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot", "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"]  # Always use the most official source
+    reference = [
+        'https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot',
+        'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
+        ]
+    default_value = 0
+    end = '2023-09-30'
 
-    def formula(pays, period, parameters):
-        return (parameters(period).dicp.cps.taux)
+    def formula(pays: Pays, period: Period, parameters: Parameter):
+        return parameters(period).dicp.cps.taux
