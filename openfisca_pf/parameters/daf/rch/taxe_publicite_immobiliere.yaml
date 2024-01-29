@@ -1,0 +1,6 @@
+description: Taux de la taxe de publicité immobilière
+metadata:
+  reference: https://law.gov.example/basic-income/amount
+rate:
+  values:
+    2008-08-25: 0.001
