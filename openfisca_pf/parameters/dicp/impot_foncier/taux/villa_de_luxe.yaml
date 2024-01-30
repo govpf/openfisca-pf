@@ -1,0 +1,7 @@
+description: "Taux permettant de calculer la valeur locative d'un local loué en villa de luxe en fonction de sa valeur vénale"
+metadata:
+  type: float
+  unit: /1
+values:
+  2021-12-27:
+    value: 0.06
