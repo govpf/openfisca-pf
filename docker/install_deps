@@ -3,7 +3,7 @@
 apt-get update
 apt-get install -y --no-install-recommends build-essential gcc git
 pip install --upgrade pip
-pip install python-dateutil
+pip install python-dateutil setuptools
 
 if [[ "$1" == "--test" ]]
 then
