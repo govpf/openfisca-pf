@@ -1,4 +1,4 @@
-FROM python:3.12.1-slim AS build
+FROM python:3.13.0b1-slim AS build
 
 ENV PATH="/opt/venv/bin:$PATH"
 
@@ -16,7 +16,7 @@ COPY *.in ./
 COPY *.py ./
 RUN make build
 
-FROM python:3.12.1-slim
+FROM python:3.13.0b1-slim
 COPY --from=build /opt/venv /opt/venv
 COPY --from=build /root/.cache/pip /root/.cache/pip
 ENV PATH="/opt/venv/bin:$PATH"
