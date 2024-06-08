@@ -7,10 +7,10 @@ from openfisca_pf.enums.geographie import *
 
 class commune(Variable):
     value_type = Enum
-    possible_values = Commune
+    possible_values = CommuneFiscale
     entity = Personne
     definition_period = YEAR
-    default_value = Commune.PAPEETE
+    default_value = CommuneFiscale.PAPEETE
     label = "Commune a laquelle le local est rataché"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 

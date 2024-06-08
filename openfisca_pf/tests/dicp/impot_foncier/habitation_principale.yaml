@@ -1,13 +1,13 @@
 - name: "Habitation principale d'une valeur de 15 000 000 à Papeete"
   period: 2023
   input:
-    destination: HABITATION_PRINCIPALE
+    destination: NON_LOUE
     commune: PAPEETE
     valeur_venale: 15000000
   output:
     loue: false
-    logement_social: false
     meuble: false
+    logement_social: false
     meuble_de_tourisme: false
     villa_de_luxe: false
     archipel: ILES_DU_VENT
