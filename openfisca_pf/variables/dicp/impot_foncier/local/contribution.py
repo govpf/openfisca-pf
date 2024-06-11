@@ -377,6 +377,6 @@ class contribution_fonciere(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        contribution_fonciere_part_pays    = local('contribution_fonciere_part_pays', period, parameters)
+        contribution_fonciere_part_pays = local('contribution_fonciere_part_pays', period, parameters)
         contribution_fonciere_part_commune = local('contribution_fonciere_part_commune', period, parameters)
         return contribution_fonciere_part_pays + contribution_fonciere_part_commune
