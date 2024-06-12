@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "OpenFisca-PF",
-    version = "0.9.0",
+    version = "0.8.0",
     author = "DSI",
     author_email = "matthieu.bosc@administraction.gov.pf;philippe.perezdesanroman@administraction.gov.pf",
     classifiers = [
