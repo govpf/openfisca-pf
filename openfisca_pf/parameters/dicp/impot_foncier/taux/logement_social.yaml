@@ -1,0 +1,7 @@
+description: "Taux permettant de calculer la valeur locative direct d'un local utilisé comme logement social"
+metadata:
+  type: float
+  unit: /1
+values:
+  2021-12-27:
+    value: 0.02

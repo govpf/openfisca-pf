@@ -16,7 +16,7 @@ See the Confluence documentation here:
 
 ## 1. Installation for developers and maintainers
 
-### 1.1. Prerequisits
+### 1.1. Prerequisites
 
 Serving the OpenFisca WEB API is not currently supported on Windows computer.
 It can only be run natively on macOS and Linux.

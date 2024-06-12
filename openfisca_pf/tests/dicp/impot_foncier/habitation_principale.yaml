@@ -1,0 +1,26 @@
+- name: "Habitation principale d'une valeur de 15 000 000 à Papeete"
+  period: 2023
+  input:
+    destination: NON_LOUE
+    commune: PAPEETE
+    valeur_venale: 15000000
+  output:
+    loue: false
+    meuble: false
+    logement_social: false
+    meuble_de_tourisme: false
+    villa_de_luxe: false
+    archipel: ILES_DU_VENT
+    taux_archipel: 0.04
+    valeur_locative_direct: 600000
+    valeur_locative: 600000
+    premier_degrevement: 0.25
+    base_imposable_apres_premier_degrevement: 450000
+    second_degrevement_si_non_loue: 0
+    base_imposable_apres_second_degrevement: 450000
+    base_imposable: 450000
+    contribution_fonciere_part_pays: 45000
+    taux_part_pays: 0.1
+    contribution_fonciere_part_commune: 22500
+    taux_part_commune: 0.5
+    contribution_fonciere: 67500
