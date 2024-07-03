@@ -18,6 +18,7 @@ class Destination(Enum):
 class TypeLocal(Enum):
     HABITATION = "HABITATION"
     SOCIAL = "SOCIAL"
+    AUTRE = "AUTRE"
 
 
 DESTINATIONS_CORRESPONDANTS_A_DE_LA_LOCATION = Destination.encode(numpy.asarray([
