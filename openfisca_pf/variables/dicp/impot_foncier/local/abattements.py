@@ -50,4 +50,3 @@ class second_abattement_si_loue_non_meuble(Variable):
 
     def formula(local, period, parameters):
         return local.pays('second_abattement_si_loue_non_meuble_pays', period, parameters)
-
