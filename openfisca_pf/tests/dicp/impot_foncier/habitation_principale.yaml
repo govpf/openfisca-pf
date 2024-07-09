@@ -22,6 +22,6 @@
     base_imposable: 450000
     contribution_fonciere_part_pays: 45000
     taux_part_pays: 0.1
-    contribution_fonciere_part_commune: 22500
-    taux_part_commune: 0.5
+    contribution_fonciere_part_commune_fiscale: 22500
+    taux_part_commune_fiscale: 0.5
     contribution_fonciere: 67500
