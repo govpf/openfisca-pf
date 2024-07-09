@@ -16,7 +16,7 @@ See the Confluence documentation here:
 
 ## 1. Installation for developers and maintainers
 
-### 1.1. Prerequisits
+### 1.1. Prerequisites
 
 Serving the OpenFisca WEB API is not currently supported on Windows computer.
 It can only be run natively on macOS and Linux.
@@ -88,11 +88,9 @@ For this reason when need to edit OpenFisca Core tu use 64-bit floating point nu
 >   - On Linux it will be located at:
 >     - `$HOMEBREW_PREFIX/lib/python3.10/site-packages/openfisca_core`
 > - Open the file `openfisca_core\variables\config.py`.
-> - At line `65`, replace `numpy.float32` by `numpy.float64`.
+> - At line `18` and `25`, replace `numpy.int32` to `numpy.int64` and `numpy.float32` to `numpy.float64` 
 > - Open the file `openfisca_core/tools/__init__.py`
-> - At lines `44` and `46`, replace `numpy.float32` by `numpy.float64`.
-> - Open the file `tests/core/tools/test_runner/test_yaml_runner.py`.
-> - At line `83`, replace `numpy.float32` by `numpy.float64`.
+> - At lines `44` and `46`, replace `numpy.float32` to `numpy.float64`.
 
 ### 1.3. Installing OpenFisca-PF
 

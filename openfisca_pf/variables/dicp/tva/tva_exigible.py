@@ -14,7 +14,7 @@ class regularisation_autre_tva_exigible(Variable):
     default_value = 0
 
 
-class tva_exigible(Variable):
+class sous_total_tva_exigible(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
@@ -25,5 +25,17 @@ class tva_exigible(Variable):
         tva_due_taux_reduit = personne('tva_due_taux_reduit', period)
         tva_due_taux_intermediaire = personne('tva_due_taux_intermediaire', period)
         tva_due_taux_normal = personne('tva_due_taux_normal', period)
+        return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal
+
+
+class tva_exigible(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    unit = units.XPF
+    label = u"Montant de TVA exigible: \n\n#tva_exigible = #tva_due_taux_reduit + #tva_due_taux_intermediaire + #tva_due_taux_normal + #regularisation_tva_exigible"
+
+    def formula(personne, period, parameters):
+        sous_total_tva_exigible = personne('sous_total_tva_exigible', period)
         regularisation_autre_tva_exigible = personne('regularisation_autre_tva_exigible', period)
-        return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal + regularisation_autre_tva_exigible
+        return sous_total_tva_exigible + regularisation_autre_tva_exigible
