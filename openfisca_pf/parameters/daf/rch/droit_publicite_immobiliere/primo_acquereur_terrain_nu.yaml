@@ -1,0 +1,19 @@
+description: Calcul du droit de publicité immobilière pour les primo-acquéreurs pour les terrains nus
+metadata:
+  reference: https://law.gov.example/basic-income/amount
+init:
+  description: Valeur minimal d'application du droit de publicité immobiliere
+  values:
+    2018-01-01: 0
+rate_0:
+  description: Taux du droit de publicité immobilière sur la tranche initiale
+  values:
+    2018-01-01: 0.01
+threshold_1:
+  description: Assiette de taxation
+  values:
+    2018-01-01: 15000000
+rate_1:
+  description: Taux du droit pour les valeurs au dessus de l'assiette
+  values:
+    2018-01-01: 0.01
