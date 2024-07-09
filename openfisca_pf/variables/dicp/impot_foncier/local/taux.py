@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_pf.entities import Personne
 from openfisca_pf.base import YEAR, Variable
+from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import *
 
 
@@ -89,14 +89,14 @@ class taux_part_pays(Variable):
         return local.pays('taux_part_pays_pays', period, parameters)
 
 
-class taux_part_commune(Variable):
+class taux_part_commune_fiscale(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "Taux utilisé pour calculer la contribution foncière allant à la commune"
+    label = "Taux utilisé pour calculer la contribution foncière allant à la commune fiscale"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local, period, parameters):
-        commune = local('commune', period, parameters)
-        return parameters(period).dicp.impot_foncier.taux.commune[commune]
+        commune_fiscale = local('commune_fiscale', period, parameters)
+        return parameters(period).dicp.impot_foncier.taux.commune_fiscale[commune_fiscale]

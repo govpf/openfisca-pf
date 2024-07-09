@@ -368,18 +368,18 @@ class contribution_fonciere_part_pays(Variable):
         return base_imposable * taux_part_pays
 
 
-class contribution_fonciere_part_commune(Variable):
+class contribution_fonciere_part_commune_fiscale(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "Montant de l'impôt foncier allant à la commune"
+    label = "Montant de l'impôt foncier allant à la commune fiscale"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         contribution_fonciere_part_pays = local('contribution_fonciere_part_pays', period, parameters)
-        taux_part_commune = local('taux_part_commune', period, parameters)
-        return contribution_fonciere_part_pays * taux_part_commune
+        taux_part_commune_fiscale = local('taux_part_commune_fiscale', period, parameters)
+        return contribution_fonciere_part_pays * taux_part_commune_fiscale
 
 
 class contribution_fonciere(Variable):
@@ -392,5 +392,5 @@ class contribution_fonciere(Variable):
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         contribution_fonciere_part_pays = local('contribution_fonciere_part_pays', period, parameters)
-        contribution_fonciere_part_commune = local('contribution_fonciere_part_commune', period, parameters)
-        return contribution_fonciere_part_pays + contribution_fonciere_part_commune
+        contribution_fonciere_part_commune_fiscale = local('contribution_fonciere_part_commune_fiscale', period, parameters)
+        return contribution_fonciere_part_pays + contribution_fonciere_part_commune_fiscale

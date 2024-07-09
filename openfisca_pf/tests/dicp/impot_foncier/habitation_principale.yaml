@@ -3,7 +3,7 @@
   input:
     destination: NON_LOUE
     type_local: HABITATION
-    commune: PAPEETE
+    commune_fiscale: PAPEETE
     valeur_venale: 15000000
   output:
     loue: false

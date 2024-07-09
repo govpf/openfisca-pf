@@ -4,7 +4,7 @@
   input:
     destination: LOUE_MEUBLE
     type_local: HABITATION
-    commune: PAPEETE
+    commune_fiscale: PAPEETE
     loyer_janvier: 380000
   output:
     loue: true

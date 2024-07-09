@@ -1,4 +1,4 @@
-description: "Taux permettant de calculer le montant des centimes additionels par commune en fonction de la part territorial"
+description: "Taux permettant de calculer le montant des centimes additionels par commune fiscale en fonction de la part territorial"
 metadata:
   type: float
   unit: /1
