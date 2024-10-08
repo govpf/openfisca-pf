@@ -1,0 +1,325 @@
+- name: "non_loue doit etre false si loue est true"
+  period: 2024
+  input:
+    loue: true
+  output:
+    non_loue: false
+- name: "non_loue doit etre true si loue est false"
+  period: 2024
+  input:
+    loue: false
+  output:
+    non_loue: true
+
+
+- name: "non_social doit etre false si social est true"
+  period: 2024
+  input:
+    social: true
+  output:
+    non_social: false
+- name: "non_social doit etre true si social est false"
+  period: 2024
+  input:
+    social: false
+  output:
+    non_social: true
+
+
+- name: "non_meuble doit etre true type_location est NON_MEUBLE"
+  period: 2024
+  input:
+    type_location: "NON_MEUBLE"
+  output:
+    non_meuble: true
+- name: "non_meuble doit etre false type_location est MEUBLE"
+  period: 2024
+  input:
+    type_location: "MEUBLE"
+  output:
+    non_meuble: false
+- name: "non_meuble doit etre false type_location est MEUBLE_DE_TOURISME"
+  period: 2024
+  input:
+    type_location: "MEUBLE_DE_TOURISME"
+  output:
+    non_meuble: false
+- name: "non_meuble doit etre false type_location est VILLA_DE_LUXE"
+  period: 2024
+  input:
+    type_location: "VILLA_DE_LUXE"
+  output:
+    non_meuble: false
+
+
+- name: "meuble doit etre false type_location est NON_MEUBLE"
+  period: 2024
+  input:
+    type_location: "NON_MEUBLE"
+  output:
+    meuble: false
+- name: "meuble doit etre true type_location est MEUBLE"
+  period: 2024
+  input:
+    type_location: "MEUBLE"
+  output:
+    meuble: true
+- name: "meuble doit etre false type_location est MEUBLE_DE_TOURISME"
+  period: 2024
+  input:
+    type_location: "MEUBLE_DE_TOURISME"
+  output:
+    meuble: false
+- name: "meuble doit etre false type_location est VILLA_DE_LUXE"
+  period: 2024
+  input:
+    type_location: "VILLA_DE_LUXE"
+  output:
+    meuble: false
+
+
+- name: "location_simple doit etre true type_location est NON_MEUBLE"
+  period: 2024
+  input:
+    type_location: "NON_MEUBLE"
+  output:
+    location_simple: true
+- name: "location_simple doit etre true type_location est MEUBLE"
+  period: 2024
+  input:
+    type_location: "MEUBLE"
+  output:
+    location_simple: true
+- name: "location_simple doit etre false type_location est MEUBLE_DE_TOURISME"
+  period: 2024
+  input:
+    type_location: "MEUBLE_DE_TOURISME"
+  output:
+    location_simple: false
+- name: "location_simple doit etre false type_location est VILLA_DE_LUXE"
+  period: 2024
+  input:
+    type_location: "VILLA_DE_LUXE"
+  output:
+    location_simple: false
+
+
+- name: "villa_de_luxe doit etre false type_location est NON_MEUBLE"
+  period: 2024
+  input:
+    type_location: "NON_MEUBLE"
+  output:
+    villa_de_luxe: false
+- name: "villa_de_luxe doit etre false type_location est MEUBLE"
+  period: 2024
+  input:
+    type_location: "MEUBLE"
+  output:
+    villa_de_luxe: false
+- name: "villa_de_luxe doit etre false type_location est MEUBLE_DE_TOURISME"
+  period: 2024
+  input:
+    type_location: "MEUBLE_DE_TOURISME"
+  output:
+    villa_de_luxe: false
+- name: "villa_de_luxe doit etre true type_location est VILLA_DE_LUXE"
+  period: 2024
+  input:
+    type_location: "VILLA_DE_LUXE"
+  output:
+    villa_de_luxe: true
+
+
+- name: "meuble_de_tourisme doit etre false type_location est NON_MEUBLE"
+  period: 2024
+  input:
+    type_location: "NON_MEUBLE"
+  output:
+    meuble_de_tourisme: false
+- name: "meuble_de_tourisme doit etre false type_location est MEUBLE"
+  period: 2024
+  input:
+    type_location: "MEUBLE"
+  output:
+    meuble_de_tourisme: false
+- name: "meuble_de_tourisme doit etre true type_location est MEUBLE_DE_TOURISME"
+  period: 2024
+  input:
+    type_location: "MEUBLE_DE_TOURISME"
+  output:
+    meuble_de_tourisme: true
+- name: "meuble_de_tourisme doit etre false type_location est VILLA_DE_LUXE"
+  period: 2024
+  input:
+    type_location: "VILLA_DE_LUXE"
+  output:
+    meuble_de_tourisme: false
+
+
+- name: "valeur_locative_loyers doit etre egale à douze fois le loyer"
+  period: 2024
+  input:
+    loyer_janvier: 100
+  output:
+    valeur_locative_loyers: 1200
+
+
+- name: "valeur_locative_direct doit multiplier la valeur venale et le taux archipel"
+  period: 2024
+  input:
+    valeur_venale: 1019
+    taux_archipel: 0.05
+  output:
+    valeur_locative_direct: 50
+
+
+- name: "valeur_locative_sociale doit multiplier la valeur venale et le taux des logement sociaux"
+  period: 2024
+  input:
+    valeur_venale: 1049
+    taux_logement_social: 0.02
+  output:
+    valeur_locative_sociale: 20
+
+
+- name: "valeur_locative_meuble_de_tourisme doit multiplier la valeur venale et le taux des meublé de tourisme"
+  period: 2024
+  input:
+    valeur_venale: 1008
+    taux_logement_social: 0.12
+  output:
+    valeur_locative_sociale: 120
+
+
+- name: "valeur_locative_villa_de_luxe doit multiplier la valeur venale et le taux des villas de luxe"
+  period: 2024
+  input:
+    valeur_venale: 1008
+    taux_villa_de_luxe: 0.12
+  output:
+    valeur_locative_villa_de_luxe: 120
+
+
+- name: "valeur_locative doit etre egale à la valeur locative direct quand le local n'est pas loue et n'est pas un logement social"
+  period: 2024
+  input:
+    loue: false
+    social: false
+    type_location: null
+    valeur_locative_direct: 1000
+    valeur_locative_sociale: 0
+    valeur_locative_loyers: 0
+    valeur_locative_meuble_de_tourisme: 0
+    valeur_locative_villa_de_luxe: 0
+  output:
+    valeur_locative: 1000
+- name: "valeur_locative doit etre egale à la valeur locative sociale quand le local n'est pas loue et est un logement social"
+  period: 2024
+  input:
+    loue: false
+    social: true
+    type_location: null
+    valeur_locative_direct: 0
+    valeur_locative_sociale: 2000
+    valeur_locative_loyers: 0
+    valeur_locative_meuble_de_tourisme: 0
+    valeur_locative_villa_de_luxe: 0
+  output:
+    valeur_locative: 2000
+- name: "valeur_locative doit etre egale à la valeur locative des loyers quand le local est loué en non-meublé"
+  period: 2024
+  input:
+    loue: true
+    social: false
+    type_location: "NON_MEUBLE"
+    valeur_locative_direct: 0
+    valeur_locative_sociale: 0
+    valeur_locative_loyers: 3000
+    valeur_locative_meuble_de_tourisme: 0
+    valeur_locative_villa_de_luxe: 0
+  output:
+    valeur_locative: 3000
+- name: "valeur_locative doit etre egale à la valeur locative des loyers quand le local est loué en meublé"
+  period: 2024
+  input:
+    loue: true
+    social: false
+    type_location: "MEUBLE"
+    valeur_locative_direct: 0
+    valeur_locative_sociale: 0
+    valeur_locative_loyers: 4000
+    valeur_locative_meuble_de_tourisme: 0
+    valeur_locative_villa_de_luxe: 0
+  output:
+    valeur_locative: 4000
+- name: "valeur_locative doit etre egale à la valeur locative des meubles de tourisme quand le local est loué en meuble de tourisme"
+  period: 2024
+  input:
+    loue: true
+    social: false
+    type_location: "MEUBLE_DE_TOURISME"
+    valeur_locative_direct: 0
+    valeur_locative_sociale: 0
+    valeur_locative_loyers: 0
+    valeur_locative_meuble_de_tourisme: 5000
+    valeur_locative_villa_de_luxe: 0
+  output:
+    valeur_locative: 5000
+- name: "valeur_locative doit etre egale à la valeur locative des villa de luxe quand le local est loué en villa de luxe"
+  period: 2024
+  input:
+    loue: true
+    social: false
+    type_location: "VILLA_DE_LUXE"
+    valeur_locative_direct: 0
+    valeur_locative_sociale: 0
+    valeur_locative_loyers: 0
+    valeur_locative_meuble_de_tourisme: 0
+    valeur_locative_villa_de_luxe: 6000
+  output:
+    valeur_locative: 6000
+
+
+- name: "base_imposable_apres_premiere_abattement doit appliquer le premiere abattement au montant de la valeur locative"
+  period: 2024
+  input:
+    valeur_locative: 101
+    premier_abattement: 0.25
+  output:
+    base_imposable_apres_premiere_abattement: 75.75
+
+
+- name: "base_imposable doit appliquer le second abattement au montant de la base imposable apres le premiere abattement et arrondir le resultat"
+  period: 2024
+  input:
+    base_imposable_apres_premiere_abattement: 101.2
+    second_abattement: 0.25
+  output:
+    base_imposable: 75
+
+
+- name: "contribution_fonciere_part_pays doit etre egale à la base imposable multiplié par le taux de la part pays et arrondir le resultat"
+  period: 2024
+  input:
+    base_imposable: 101
+    taux_part_pays: 0.5
+  output:
+    contribution_fonciere_part_pays: 50
+
+
+- name: "contribution_fonciere_part_commune doit etre egale à la part pays multiplié par le taux de la part commune et arrondir le resultat"
+  period: 2024
+  input:
+    contribution_fonciere_part_pays: 101
+    taux_part_commune: 0.5
+  output:
+    contribution_fonciere_part_commune: 50
+
+
+- name: "contribution_fonciere doit etre egale à la somme de la part pays et de la part commune"
+  period: 2024
+  input:
+    contribution_fonciere_part_pays: 100
+    contribution_fonciere_part_commune: 50
+  output:
+    contribution_fonciere: 150

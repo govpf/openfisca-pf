@@ -1,39 +1,3 @@
-premier:
-  description: "Premier dégrèvement appliqué à la valeur locative pour calculer la base imposable de l'impôt foncier"
-  metadata:
-    type: float
-    unit: /1
-  values:
-    2021-12-27:
-      value: 0.25
-
-second_si_non_loue:
-  description: "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local n'est pas loué"
-  metadata:
-    type: float
-    unit: /1
-  values:
-    2021-12-27:
-      value: 0
-
-second_si_loue_meuble:
-  description: "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en meublé"
-  metadata:
-    type: float
-    unit: /1
-  values:
-    2021-12-27:
-      value: 0.30
-
-second_si_loue_non_meuble:
-  description: "Second dégrèvement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en non-meublé"
-  metadata:
-    type: float
-    unit: /1
-  values:
-    2021-12-27:
-      value: 0.25
-
 pour_baisse_de_revenus_loue_en_meuble_de_tourisme:
   description: "Dégrèvement sur demande dans le cas d'une baisse de revenus d'un local loué en meublé de tourisme"
   metadata:

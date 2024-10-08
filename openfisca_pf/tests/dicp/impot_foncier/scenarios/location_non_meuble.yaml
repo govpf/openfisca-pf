@@ -1,0 +1,13 @@
+- name: "Location non-meublé loué pour un montant de 380 000 par mois"
+  period: 2023
+  input:
+    loue: true
+    type_location: NON_MEUBLE
+    commune: PAPEETE
+    loyer_janvier: 380000
+  output:
+    valeur_locative: 4560000
+    base_imposable: 2565000
+    contribution_fonciere_part_pays: 256500
+    contribution_fonciere_part_commune: 128250
+    contribution_fonciere: 384750

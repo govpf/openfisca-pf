@@ -1,0 +1,12 @@
+- name: "Habitation principale d'une valeur de 15 000 000 à Papeete"
+  period: 2023
+  input:
+    loue: false
+    commune: PAPEETE
+    valeur_venale: 15000000
+  output:
+    valeur_locative: 600000
+    base_imposable: 450000
+    contribution_fonciere_part_pays: 45000
+    contribution_fonciere_part_commune: 22500
+    contribution_fonciere: 67500

@@ -9,7 +9,7 @@ class taux_archipel_australes_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    default_value = 0
+    default_value = 0.02
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel des Australes"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
@@ -21,7 +21,7 @@ class taux_archipel_gambiers_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    default_value = 0
+    default_value = 0.02
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et des archipels des Gambiers"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
@@ -33,7 +33,7 @@ class taux_archipel_iles_du_vent_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    default_value = 0
+    default_value = 0.04
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel des Îles du vent"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
@@ -45,7 +45,7 @@ class taux_archipel_iles_sous_le_vent_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    default_value = 0
+    default_value = 0.03
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel des Îles sous le vent"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
@@ -57,7 +57,7 @@ class taux_archipel_marquises_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    default_value = 0
+    default_value = 0.02
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel des Marquises"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
@@ -69,7 +69,7 @@ class taux_archipel_tuamotus_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    default_value = 0
+    default_value = 0.02
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et des archipels des Touamotus"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 

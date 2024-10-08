@@ -29,7 +29,7 @@ class taux_archipel(Variable):
                 archipel == Archipel.ILES_SOUS_LE_VENT,
                 archipel == Archipel.MARQUISES,
                 archipel == Archipel.TUAMOTUS
-                ],
+            ],
             [
                 taux_archipel_australes_pays,
                 taux_archipel_gambiers_pays,
@@ -37,8 +37,7 @@ class taux_archipel(Variable):
                 taux_archipel_iles_sous_le_vent_pays,
                 taux_archipel_marquises_pays,
                 taux_archipel_tuamotus_pays
-                ]
-            )
+            ])
 
 
 class taux_logement_social(Variable):

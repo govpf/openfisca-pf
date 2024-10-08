@@ -7,37 +7,136 @@ from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import *
 
 
-class Destination(Enum):
-    NON_LOUE = "NON_LOUE"
-    LOUE = "LOUE"
-    LOUE_MEUBLE = "LOUE_MEUBLE"
+class TypeLocation(Enum):
+    NON_MEUBLE = "NON_MEUBLE"
+    MEUBLE = "MEUBLE"
     MEUBLE_DE_TOURISME = "MEUBLE_DE_TOURISME"
     VILLA_DE_LUXE = "VILLA_DE_LUXE"
-    LOGEMENT_SOCIAL = "LOGEMENT_SOCIAL"
 
 
-DESTINATIONS_CORRESPONDANTS_A_DE_LA_LOCATION = Destination.encode(numpy.asarray([
-    Destination.LOUE,
-    Destination.LOUE_MEUBLE
+MEUBLE_OU_NON_MEUBLE = TypeLocation.encode(numpy.asarray([
+    TypeLocation.NON_MEUBLE,
+    TypeLocation.MEUBLE
     ]))
 
 
-DESTINATIONS_NE_CORRESPONDANTS_PAS_A_DE_LA_LOCATION = Destination.encode(numpy.asarray([
-    Destination.NON_LOUE,
-    Destination.MEUBLE_DE_TOURISME,
-    Destination.VILLA_DE_LUXE,
-    Destination.LOGEMENT_SOCIAL
-    ]))
-
-
-class destination(Variable):
-    value_type = Enum
-    possible_values = Destination
+class loue(Variable):
+    value_type = bool
     entity = Personne
     definition_period = YEAR
-    default_value = Destination.NON_LOUE
-    label = "Destination du local"
+    default_value = False
+    label = "True si le local est loué, False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
+class non_loue(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = True
+    label = "True si le local n'est pas loué, False sinon."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        loue = local('loue', period, parameters)
+        return not_(loue)
+
+
+class social(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local est un logement social, False sinon."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
+class non_social(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = True
+    label = "True si le local n'est pas un logement social, False sinon."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        social = local('social', period, parameters)
+        return not_(social)
+
+
+class type_location(Variable):
+    value_type = Enum
+    possible_values = TypeLocation
+    entity = Personne
+    definition_period = YEAR
+    default_value = TypeLocation.NON_MEUBLE
+    label = "Type de location"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
+class location_simple(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local est loué en meublé ou en non meublé mais pas en meublé de tourisme ni en villa de luxe, False sinon."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        type_location = local('type_location', period, parameters)
+        return numpy.isin(type_location, MEUBLE_OU_NON_MEUBLE)
+
+
+class non_meuble(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local est loué en non-meublé, sinon False."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        type_location = local('type_location', period, parameters)
+        return type_location == TypeLocation.NON_MEUBLE
+
+
+class meuble(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local est loué en meublé, sinon False."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        type_location = local('type_location', period, parameters)
+        return type_location == TypeLocation.MEUBLE
+
+
+class villa_de_luxe(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local est loué en villa de luxe, sinon False."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        type_location = local('type_location', period, parameters)
+        return type_location == TypeLocation.VILLA_DE_LUXE
+
+
+class meuble_de_tourisme(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local est loué en meublé de tourisme (Air B&B par exemple), False sinon."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        type_location = local('type_location', period, parameters)
+        return type_location == TypeLocation.MEUBLE_DE_TOURISME
 
 
 class valeur_venale(Variable):
@@ -56,93 +155,6 @@ class loyer_janvier(Variable):
     default_value = 0
     label = "Loyer de janvier d'un local"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-
-class somme_des_tarifs_de_la_nuitee_factures(Variable):
-    value_type = int
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "Chiffre d'affaire annuel d'un local loué en meuble de tourisme, hors promotions"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-
-class villa_de_luxe(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = False
-    label = "True si le local est loué en villa de luxe, sinon False."
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        destination = local('destination', period, parameters)
-        return destination == Destination.VILLA_DE_LUXE
-
-
-class non_loue(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = True
-    label = "True si le local est non-loué, False sinon."
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        destination = local('destination', period, parameters)
-        return numpy.isin(destination, DESTINATIONS_NE_CORRESPONDANTS_PAS_A_DE_LA_LOCATION)
-
-
-class logement_social(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = False
-    label = "True si le local est utilisé comme logement social, False sinon."
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        destination = local('destination', period, parameters)
-        return destination == Destination.LOGEMENT_SOCIAL
-
-
-class loue(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = False
-    label = "True si le local est loué, False sinon."
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        destination = local('destination', period, parameters)
-        return numpy.isin(destination, DESTINATIONS_CORRESPONDANTS_A_DE_LA_LOCATION)
-
-
-class meuble(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = False
-    label = "True si le local est loué en meublé, False sinon."
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        destination = local('destination', period, parameters)
-        return destination == Destination.LOUE_MEUBLE
-
-
-class meuble_de_tourisme(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = False
-    label = "True si le local est loué en meublé de tourisme (Air B&B par exemple), False sinon."
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        destination = local('destination', period, parameters)
-        return destination == Destination.MEUBLE_DE_TOURISME
 
 
 class valeur_locative_loyers(Variable):
@@ -167,12 +179,9 @@ class valeur_locative_direct(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        logement_social = local('logement_social', period, parameters)
         valeur_venale = local('valeur_venale', period, parameters)
         taux_archipel = local('taux_archipel', period, parameters)
-        taux_logement_social = local('taux_logement_social', period, parameters)
-        taux = numpy.where(logement_social, taux_logement_social, taux_archipel)
-        return taux * valeur_venale
+        return valeur_venale * taux_archipel
 
 
 class valeur_locative_sociale(Variable):
@@ -189,7 +198,7 @@ class valeur_locative_sociale(Variable):
         return valeur_venale * taux_logement_social
 
 
-class valeur_locative_meuble_tourisme(Variable):
+class valeur_locative_meuble_de_tourisme(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -226,99 +235,39 @@ class valeur_locative(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-
-        logement_social = local('logement_social', period, parameters)
+        # variables conditionnelles
         loue = local('loue', period, parameters)
+        non_loue = local('non_loue', period, parameters)
+        location_simple = local('location_simple', period, parameters)
         meuble_de_tourisme = local('meuble_de_tourisme', period, parameters)
         villa_de_luxe = local('villa_de_luxe', period, parameters)
-
+        social = local('social', period, parameters)
+        # differents calculs de la valeur locative
         valeur_locative_direct = local('valeur_locative_direct', period, parameters)
         valeur_locative_sociale = local('valeur_locative_sociale', period, parameters)
         valeur_locative_loyers = local('valeur_locative_loyers', period, parameters)
-        valeur_locative_meuble_tourisme = local('valeur_locative_meuble_tourisme', period, parameters)
+        valeur_locative_meuble_de_tourisme = local('valeur_locative_meuble_de_tourisme', period, parameters)
         valeur_locative_villa_de_luxe = local('valeur_locative_villa_de_luxe', period, parameters)
-
+        # on choisi le calcul approprié en fonction des conditions
         return numpy.select(
-            [logement_social, loue, meuble_de_tourisme, villa_de_luxe],
-            [valeur_locative_sociale, valeur_locative_loyers, valeur_locative_meuble_tourisme, valeur_locative_villa_de_luxe],
+            [loue and location_simple, loue and meuble_de_tourisme, loue and villa_de_luxe, non_loue and social],
+            [valeur_locative_loyers, valeur_locative_meuble_de_tourisme, valeur_locative_villa_de_luxe, valeur_locative_sociale],
             valeur_locative_direct
             )
 
 
-class meuble_de_tourisme_eligible_a_un_degrevement(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = False
-    label = "True si le local loue en meuble de tourisme est eligible à un degrevement, False sinon"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        somme_des_tarifs_de_la_nuitee_factures = local('somme_des_tarifs_de_la_nuitee_factures', period, parameters)
-        valeur_locative_meuble_tourisme = local('valeur_locative_meuble_tourisme', period, parameters)
-        return somme_des_tarifs_de_la_nuitee_factures <= (0.25 * valeur_locative_meuble_tourisme)
-
-
-class meuble_de_tourisme_demande_un_degrevement(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = False
-    label = "True si le proprietaire du local loue en meuble de tourisme demande degrevement, False sinon"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        return local('meuble_de_tourisme_eligible_a_un_degrevement', period, parameters)
-
-
-class meuble_de_tourisme_est_eligible_et_demande_un_degrevement(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = YEAR
-    default_value = False
-    label = "True si le local loue en meuble de tourisme est eligible à un degrevement et en a fait la demande, False sinon"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        meuble_de_tourisme_eligible_a_un_degrevement = local('meuble_de_tourisme_eligible_a_un_degrevement', period, parameters)
-        meuble_de_tourisme_demande_un_degrevement = local('meuble_de_tourisme_demande_un_degrevement', period, parameters)
-        return meuble_de_tourisme_eligible_a_un_degrevement * meuble_de_tourisme_demande_un_degrevement
-
-
-class base_imposable_apres_premier_degrevement(Variable):
-    value_type = int
+class base_imposable_apres_premiere_abattement(Variable):
+    value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "base de l'impot foncier non finale apres application du premier degrevement"
+    label = "base de l'impot foncier non finale après application du première abatement"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         valeur_locative = local('valeur_locative', period, parameters)
-        premier_degrevement = local('premier_degrevement', period, parameters)
-        return valeur_locative * (1.0 - premier_degrevement)
-
-
-class base_imposable_apres_second_degrevement(Variable):
-    value_type = int
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0
-    label = "base de l'impot foncier utilisé pour calculer la part du territoire et la part comunale"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(local: Personne, period: Period, parameters: Parameter):
-        base_imposable_apres_premier_degrevement = local('base_imposable_apres_premier_degrevement', period, parameters)
-        loue = local('loue', period, parameters)
-        meuble = local('meuble', period, parameters)
-        second_degrevement_si_non_loue = local('second_degrevement_si_non_loue', period, parameters)
-        second_degrevement_si_loue_meuble = local('second_degrevement_si_loue_meuble', period, parameters)
-        second_degrevement_si_loue_non_meuble = local('second_degrevement_si_loue_non_meuble', period, parameters)
-        second_degrevement = numpy.select(
-            [not_(loue), meuble, not_(meuble)],
-            [second_degrevement_si_non_loue, second_degrevement_si_loue_meuble, second_degrevement_si_loue_non_meuble]
-            )
-        return base_imposable_apres_premier_degrevement * (1.0 - second_degrevement)
+        premier_abattement = local('premier_abattement', period, parameters)
+        return valeur_locative * (1.0 - premier_abattement)
 
 
 class base_imposable(Variable):
@@ -330,14 +279,9 @@ class base_imposable(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        base_imposable_apres_second_degrevement = local('base_imposable_apres_second_degrevement', period, parameters)
-        meuble_de_tourisme = local('meuble_de_tourisme', period, parameters)
-        degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme = local('degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme', period, parameters)
-        return numpy.where(
-            meuble_de_tourisme,
-            base_imposable_apres_second_degrevement * (1.0 - degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme),
-            base_imposable_apres_second_degrevement
-            )
+        base_imposable_apres_premiere_abattement = local('base_imposable_apres_premiere_abattement', period, parameters)
+        second_abattement = local('second_abattement', period, parameters)
+        return base_imposable_apres_premiere_abattement * (1.0 - second_abattement)
 
 
 class contribution_fonciere_part_pays(Variable):
