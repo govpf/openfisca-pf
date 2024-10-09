@@ -256,7 +256,7 @@ class valeur_locative(Variable):
             )
 
 
-class base_imposable_apres_premiere_abattement(Variable):
+class base_imposable_apres_premier_abattement(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
@@ -279,9 +279,9 @@ class base_imposable(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        base_imposable_apres_premiere_abattement = local('base_imposable_apres_premiere_abattement', period, parameters)
+        base_imposable_apres_premier_abattement = local('base_imposable_apres_premier_abattement', period, parameters)
         second_abattement = local('second_abattement', period, parameters)
-        return base_imposable_apres_premiere_abattement * (1.0 - second_abattement)
+        return base_imposable_apres_premier_abattement * (1.0 - second_abattement)
 
 
 class contribution_fonciere_part_pays(Variable):
@@ -308,8 +308,8 @@ class contribution_fonciere_part_commune(Variable):
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         contribution_fonciere_part_pays = local('contribution_fonciere_part_pays', period, parameters)
-        taux_part_commune = local('taux_part_commune', period, parameters)
-        return contribution_fonciere_part_pays * taux_part_commune
+        taux_part_commune_fiscale = local('taux_part_commune_fiscale', period, parameters)
+        return contribution_fonciere_part_pays * taux_part_commune_fiscale
 
 
 class contribution_fonciere(Variable):
