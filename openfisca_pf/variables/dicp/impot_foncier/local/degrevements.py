@@ -2,8 +2,8 @@
 
 import numpy
 
-from openfisca_pf.base import YEAR, Variable
 from openfisca_pf.entities import Personne
+from openfisca_pf.base import YEAR, Variable
 
 
 class degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variable):

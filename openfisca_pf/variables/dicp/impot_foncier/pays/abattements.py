@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_pf.base import YEAR, Variable
 from openfisca_pf.entities import Pays
+from openfisca_pf.base import YEAR, Variable
 
 
 class premier_abattement_pays(Variable):
@@ -13,7 +13,7 @@ class premier_abattement_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.abattement.premier
+        return parameters(period).dicp.impot_foncier.abattements.premier
 
 
 class second_abattement_si_non_loue_pays(Variable):
@@ -25,7 +25,7 @@ class second_abattement_si_non_loue_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.abattement.second_si_non_loue
+        return parameters(period).dicp.impot_foncier.abattements.second_si_non_loue
 
 
 class second_abattement_si_loue_meuble_pays(Variable):
@@ -37,7 +37,7 @@ class second_abattement_si_loue_meuble_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.abattement.second_si_loue_meuble
+        return parameters(period).dicp.impot_foncier.abattements.second_si_loue_meuble
 
 
 class second_abattement_si_loue_non_meuble_pays(Variable):
@@ -49,4 +49,4 @@ class second_abattement_si_loue_non_meuble_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.abattement.second_si_loue_non_meuble
+        return parameters(period).dicp.impot_foncier.abattements.second_si_loue_non_meuble

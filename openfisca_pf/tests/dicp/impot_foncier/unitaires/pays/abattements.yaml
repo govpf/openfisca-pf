@@ -1,0 +1,19 @@
+- name: "premier_abattement_pays est egale à 0.25"
+  period: 2024
+  output:
+    premier_abattement_pays: 0.25
+
+- name: "second_abattement_si_non_loue_pays est egale à 0.00"
+  period: 2024
+  output:
+    second_abattement_si_non_loue_pays: 0.00
+
+- name: "second_abattement_si_loue_meuble_pays est egale à 0.30"
+  period: 2024
+  output:
+    second_abattement_si_loue_meuble_pays: 0.30
+
+- name: "second_abattement_si_loue_non_meuble_pays est egale à 0.25"
+  period: 2024
+  output:
+    second_abattement_si_loue_non_meuble_pays: 0.25

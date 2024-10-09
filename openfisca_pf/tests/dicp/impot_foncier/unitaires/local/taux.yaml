@@ -1,0 +1,42 @@
+- name: "Taux archipel Iles du vent Papeete"
+  period: 2024
+  input:
+    commune_fiscale: PAPEETE
+  output:
+    taux_archipel: 0.04
+- name: "Taux archipel Iles du vent Puna'auia"
+  period: 2024
+  input:
+    commune_fiscale: PUNAAUIA
+  output:
+    taux_archipel: 0.04
+- name: "Taux archipel Iles sous le vent"
+  period: 2024
+  input:
+    commune_fiscale: UTUROA
+  output:
+    taux_archipel: 0.03
+- name: "Taux archipel Marquises"
+  period: 2024
+  input:
+    commune_fiscale: NUKU_HIVA
+  output:
+    taux_archipel: 0.02
+- name: "Taux archipel Touamotus"
+  period: 2024
+  input:
+    commune_fiscale: RANGIROA
+  output:
+    taux_archipel: 0.02
+- name: "Taux archipel AUSTRALES"
+  period: 2024
+  input:
+    commune_fiscale: RAIVAVAE
+  output:
+    taux_archipel: 0.02
+- name: "Taux archipel GAMBIERS"
+  period: 2024
+  input:
+    commune_fiscale: GAMBIER
+  output:
+    taux_archipel: 0.02

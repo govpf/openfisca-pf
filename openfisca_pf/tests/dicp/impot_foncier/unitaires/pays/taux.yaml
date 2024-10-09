@@ -1,0 +1,58 @@
+- name: "taux_archipel_australes_pays est egale à 0.02"
+  period: 2024
+  output:
+    taux_archipel_australes_pays: 0.02
+
+
+- name: "taux_archipel_gambiers_pays est egale à 0.02"
+  period: 2024
+  output:
+    taux_archipel_gambiers_pays: 0.02
+
+
+- name: "taux_archipel_iles_du_vent_pays est egale à 0.04"
+  period: 2024
+  output:
+    taux_archipel_iles_du_vent_pays: 0.04
+
+
+- name: "taux_archipel_iles_sous_le_vent_pays est egale à 0.03"
+  period: 2024
+  output:
+    taux_archipel_iles_sous_le_vent_pays: 0.03
+
+
+- name: "taux_archipel_marquises_pays est egale à 0.02"
+  period: 2024
+  output:
+    taux_archipel_marquises_pays: 0.02
+
+
+- name: "taux_archipel_tuamotus_pays est egale à 0.02"
+  period: 2024
+  output:
+    taux_archipel_tuamotus_pays: 0.02
+
+
+- name: "taux_logement_social_pays est egale à 0.02"
+  period: 2024
+  output:
+    taux_logement_social_pays: 0.02
+
+
+- name: "taux_meuble_de_tourisme_pays est egale à 0.12"
+  period: 2024
+  output:
+    taux_meuble_de_tourisme_pays: 0.12
+
+
+- name: "taux_villa_de_luxe_pays est egale à 0.12"
+  period: 2024
+  output:
+    taux_villa_de_luxe_pays: 0.12
+
+
+- name: "taux_part_pays_pays est egale à 0.1"
+  period: 2024
+  output:
+    taux_part_pays_pays: 0.1
