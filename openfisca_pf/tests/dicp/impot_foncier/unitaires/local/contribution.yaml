@@ -280,19 +280,19 @@
     valeur_locative: 6000
 
 
-- name: "base_imposable_apres_premiere_abattement doit appliquer le premiere abattement au montant de la valeur locative"
+- name: "base_imposable_apres_premier_abattement doit appliquer le premiere abattement au montant de la valeur locative"
   period: 2024
   input:
     valeur_locative: 101
     premier_abattement: 0.25
   output:
-    base_imposable_apres_premiere_abattement: 75.75
+    base_imposable_apres_premier_abattement: 75.75
 
 
 - name: "base_imposable doit appliquer le second abattement au montant de la base imposable apres le premiere abattement et arrondir le resultat"
   period: 2024
   input:
-    base_imposable_apres_premiere_abattement: 101.2
+    base_imposable_apres_premier_abattement: 101.2
     second_abattement: 0.25
   output:
     base_imposable: 75
@@ -311,7 +311,7 @@
   period: 2024
   input:
     contribution_fonciere_part_pays: 101
-    taux_part_commune: 0.5
+    taux_part_commune_fiscale: 0.5
   output:
     contribution_fonciere_part_commune: 50
 

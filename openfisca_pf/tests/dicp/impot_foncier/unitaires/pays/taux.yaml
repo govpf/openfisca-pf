@@ -40,16 +40,16 @@
     taux_logement_social_pays: 0.02
 
 
-- name: "taux_meuble_de_tourisme_pays est egale à 0.06"
+- name: "taux_meuble_de_tourisme_pays est egale à 0.12"
   period: 2024
   output:
-    taux_meuble_de_tourisme_pays: 0.06
+    taux_meuble_de_tourisme_pays: 0.12
 
 
-- name: "taux_villa_de_luxe_pays est egale à 0.06"
+- name: "taux_villa_de_luxe_pays est egale à 0.12"
   period: 2024
   output:
-    taux_villa_de_luxe_pays: 0.06
+    taux_villa_de_luxe_pays: 0.12
 
 
 - name: "taux_part_pays_pays est egale à 0.1"

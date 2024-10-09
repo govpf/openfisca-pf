@@ -2,7 +2,7 @@
   period: 2023
   input:
     loue: false
-    commune: PAPEETE
+    commune_fiscale: PAPEETE
     valeur_venale: 15000000
   output:
     valeur_locative: 600000

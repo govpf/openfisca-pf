@@ -3,7 +3,7 @@
   input:
     loue: true
     type_location: NON_MEUBLE
-    commune: PAPEETE
+    commune_fiscale: PAPEETE
     loyer_janvier: 380000
   output:
     valeur_locative: 4560000
