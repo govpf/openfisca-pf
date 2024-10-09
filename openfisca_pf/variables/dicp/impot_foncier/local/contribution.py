@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
+
 import numpy
-from openfisca_core.model_api import not_, YEAR, Variable
+from openfisca_core.model_api import not_, YEAR, Enum, Variable
 from openfisca_core.periods import Period
 from openfisca_core.parameters import Parameter
 from openfisca_pf.entities import Personne
-from openfisca_pf.enums.geographie import *
 
 
 class TypeLocation(Enum):
