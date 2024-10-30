@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_pf.entities import Pays
 from openfisca_pf.base import YEAR, Variable
+from openfisca_pf.entities import Pays
 from openfisca_pf.enums.geographie import Archipel
 
 
@@ -123,3 +123,63 @@ class taux_part_pays_pays(Variable):
 
     def formula(pays, period, parameters):
         return parameters(period).dicp.impot_foncier.taux.pays
+
+
+class taux_premier_abattement_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0
+    label = "Taux du premier abattement appliqué à la valeur locative pour calculer la base imposable de l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.abattements.premier
+
+
+class taux_second_abattement_si_non_loue_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0
+    label = "Taux du second abattement appliqué pour calculer la base imposable de l'impôt foncier si le local n'est pas loué"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.abattements.second_si_non_loue
+
+
+class taux_second_abattement_si_loue_meuble_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0
+    label = "Taux du second abattement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en meublé"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.abattements.second_si_loue_meuble
+
+
+class taux_second_abattement_si_loue_non_meuble_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0
+    label = "Taux du second abattement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en non-meublé"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.abattements.second_si_loue_non_meuble
+
+
+class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0
+    label = "Taux du dégrèvement sur demande dans le cas d'une baisse de revenus d'un local loué en meublé de tourisme"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.degrevement.pour_baisse_de_revenus_loue_en_meuble_de_tourisme

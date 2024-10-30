@@ -7,6 +7,9 @@
     loyer_janvier: 380000
   output:
     valeur_locative: 4560000
+    premier_abattement: 1140000
+    base_imposable_apres_premier_abattement: 3420000
+    second_abattement: 855000
     base_imposable: 2565000
     contribution_fonciere_part_pays: 256500
     contribution_fonciere_part_commune: 128250

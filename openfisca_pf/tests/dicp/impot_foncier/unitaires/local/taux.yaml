@@ -4,39 +4,106 @@
     commune_fiscale: PAPEETE
   output:
     taux_archipel: 0.04
+
 - name: "Taux archipel Iles du vent Puna'auia"
   period: 2024
   input:
     commune_fiscale: PUNAAUIA
   output:
     taux_archipel: 0.04
+
 - name: "Taux archipel Iles sous le vent"
   period: 2024
   input:
     commune_fiscale: UTUROA
   output:
     taux_archipel: 0.03
+
 - name: "Taux archipel Marquises"
   period: 2024
   input:
     commune_fiscale: NUKU_HIVA
   output:
     taux_archipel: 0.02
+
 - name: "Taux archipel Touamotus"
   period: 2024
   input:
     commune_fiscale: RANGIROA
   output:
     taux_archipel: 0.02
+
 - name: "Taux archipel AUSTRALES"
   period: 2024
   input:
     commune_fiscale: RAIVAVAE
   output:
     taux_archipel: 0.02
+
 - name: "Taux archipel GAMBIERS"
   period: 2024
   input:
     commune_fiscale: GAMBIER
   output:
     taux_archipel: 0.02
+
+- name: "taux_premier_abattement est egale à taux_premier_abattement_pays"
+  period: 2024
+  input:
+    taux_premier_abattement_pays: 1
+  output:
+    taux_premier_abattement: 1
+
+- name: "taux_second_abattement_si_non_loue est egale à taux_second_abattement_si_non_loue_pays"
+  period: 2024
+  input:
+    taux_second_abattement_si_non_loue_pays: 2
+  output:
+    taux_second_abattement_si_non_loue: 2
+
+- name: "taux_second_abattement_si_loue_meuble est egale à taux_second_abattement_si_loue_meuble_pays"
+  period: 2024
+  input:
+    taux_second_abattement_si_loue_meuble_pays: 3
+  output:
+    taux_second_abattement_si_loue_meuble: 3
+
+- name: "taux_second_abattement_si_loue_non_meuble est egale à taux_second_abattement_si_loue_non_meuble_pays"
+  period: 2024
+  input:
+    taux_second_abattement_si_loue_non_meuble_pays: 4
+  output:
+    taux_second_abattement_si_loue_non_meuble: 4
+
+- name: "taux_second_abattement doit etre egale à taux_second_abattement_si_non_loue si le local n'est pas loué"
+  period: 2024
+  input:
+    loue: false
+    meuble: null
+    taux_second_abattement_si_non_loue: 1
+    taux_second_abattement_si_loue_meuble: null
+    taux_second_abattement_si_loue_non_meuble: null
+  output:
+    taux_second_abattement: 1
+
+- name: "taux_second_abattement doit etre egale à taux_second_abattement_si_loue_meuble si le local est loué en meublé"
+  period: 2024
+  input:
+    loue: true
+    meuble: true
+    taux_second_abattement_si_non_loue: null
+    taux_second_abattement_si_loue_meuble: 2
+    taux_second_abattement_si_loue_non_meuble: null
+  output:
+    taux_second_abattement: 2
+
+- name: "taux_second_abattement doit etre egale à taux_second_abattement_si_loue_non_meuble si le local est loué en non-meublé"
+  period: 2024
+  input:
+    loue: true
+    meuble: false
+    taux_second_abattement_si_non_loue: null
+    taux_second_abattement_si_loue_meuble: null
+    taux_second_abattement_si_loue_non_meuble: 3
+  output:
+    taux_second_abattement: 3
