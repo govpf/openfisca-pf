@@ -124,6 +124,7 @@ class taux_part_pays_pays(Variable):
     def formula(pays, period, parameters):
         return parameters(period).dicp.impot_foncier.taux.pays
 
+
 class taux_premier_abattement_pays(Variable):
     value_type = float
     entity = Pays
