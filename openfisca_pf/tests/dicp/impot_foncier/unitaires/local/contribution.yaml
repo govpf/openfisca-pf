@@ -284,16 +284,16 @@
   period: 2024
   input:
     valeur_locative: 101
-    premier_abattement: 0.25
+    taux_premier_abattement: 0.25
   output:
-    base_imposable_apres_premier_abattement: 75.75
+    base_imposable_apres_premier_abattement: 75
 
 
 - name: "base_imposable doit appliquer le second abattement au montant de la base imposable apres le premiere abattement et arrondir le resultat"
   period: 2024
   input:
-    base_imposable_apres_premier_abattement: 101.2
-    second_abattement: 0.25
+    base_imposable_apres_premier_abattement: 101
+    taux_second_abattement: 0.25
   output:
     base_imposable: 75
 

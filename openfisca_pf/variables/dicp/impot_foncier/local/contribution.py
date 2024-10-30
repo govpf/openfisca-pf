@@ -2,8 +2,9 @@
 
 import numpy
 from openfisca_core.model_api import not_, YEAR, Enum, Variable
-from openfisca_core.periods import Period
 from openfisca_core.parameters import Parameter
+from openfisca_core.periods import Period
+
 from openfisca_pf.entities import Personne
 
 
@@ -257,7 +258,7 @@ class valeur_locative(Variable):
 
 
 class base_imposable_apres_premier_abattement(Variable):
-    value_type = float
+    value_type = int
     entity = Personne
     definition_period = YEAR
     default_value = 0
@@ -266,8 +267,8 @@ class base_imposable_apres_premier_abattement(Variable):
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         valeur_locative = local('valeur_locative', period, parameters)
-        premier_abattement = local('premier_abattement', period, parameters)
-        return valeur_locative * (1.0 - premier_abattement)
+        taux_premier_abattement = local('taux_premier_abattement', period, parameters)
+        return valeur_locative * (1.0 - taux_premier_abattement)
 
 
 class base_imposable(Variable):
@@ -280,8 +281,8 @@ class base_imposable(Variable):
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         base_imposable_apres_premier_abattement = local('base_imposable_apres_premier_abattement', period, parameters)
-        second_abattement = local('second_abattement', period, parameters)
-        return base_imposable_apres_premier_abattement * (1.0 - second_abattement)
+        taux_second_abattement = local('taux_second_abattement', period, parameters)
+        return base_imposable_apres_premier_abattement * (1.0 - taux_second_abattement)
 
 
 class contribution_fonciere_part_pays(Variable):
@@ -324,3 +325,31 @@ class contribution_fonciere(Variable):
         contribution_fonciere_part_pays = local('contribution_fonciere_part_pays', period, parameters)
         contribution_fonciere_part_commune = local('contribution_fonciere_part_commune', period, parameters)
         return contribution_fonciere_part_pays + contribution_fonciere_part_commune
+
+
+class premier_abattement(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Resultat intermediaire du premier abattement"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        valeur_locative = local('valeur_locative', period, parameters)
+        taux_premier_abattement = local('taux_premier_abattement', period, parameters)
+        return valeur_locative * taux_premier_abattement
+
+
+class second_abattement(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Resultat intermediaire du second abattement"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        base_imposable_apres_premier_abattement = local('base_imposable_apres_premier_abattement', period, parameters)
+        taux_second_abattement = local('taux_second_abattement', period, parameters)
+        return base_imposable_apres_premier_abattement * taux_second_abattement
