@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import numpy
-from openfisca_core.model_api import not_, YEAR, Enum, Variable
-from openfisca_core.parameters import Parameter
 from openfisca_core.periods import Period
 
+from openfisca_pf.base import *
 from openfisca_pf.entities import Personne
 
 
@@ -140,6 +138,33 @@ class meuble_de_tourisme(Variable):
         return type_location == TypeLocation.MEUBLE_DE_TOURISME
 
 
+class date_certificat_conformite(Variable):
+    value_type = date
+    entity = Personne
+    definition_period = YEAR
+    default_value = date(2000, 1, 1)
+    label = "Date du certificat de conformité"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
+class date_permis_construire(Variable):
+    value_type = date
+    entity = Personne
+    definition_period = YEAR
+    default_value = date(2000, 1, 1)
+    label = "Date du permis de construire"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
+class demande_exemption_temporaire_exceptionnelle(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True le propriétaire a demandé une exemption quinquennale pour le local."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
 class valeur_venale(Variable):
     value_type = int
     entity = Personne
@@ -249,7 +274,7 @@ class valeur_locative(Variable):
         valeur_locative_loyers = local('valeur_locative_loyers', period, parameters)
         valeur_locative_meuble_de_tourisme = local('valeur_locative_meuble_de_tourisme', period, parameters)
         valeur_locative_villa_de_luxe = local('valeur_locative_villa_de_luxe', period, parameters)
-        # on choisi le calcul approprié en fonction des conditions
+        # on choisit le calcul approprié en fonction des conditions
         return numpy.select(
             [loue and location_simple, loue and meuble_de_tourisme, loue and villa_de_luxe, non_loue and social],
             [valeur_locative_loyers, valeur_locative_meuble_de_tourisme, valeur_locative_villa_de_luxe, valeur_locative_sociale],
@@ -257,18 +282,32 @@ class valeur_locative(Variable):
             )
 
 
+class base_imposable_apres_exemption_temporaire(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "base de l'impot foncier non finale après l'application de l'exemption temporaire"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        valeur_locative = local('valeur_locative', period, parameters)
+        taux_exemption_temporaire = local('taux_exemption_temporaire', period, parameters)
+        return valeur_locative * (1.0 - taux_exemption_temporaire)
+
+
 class base_imposable_apres_premier_abattement(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "base de l'impot foncier non finale après application du première abatement"
+    label = "base de l'impot foncier non finale après l'application du première abatement"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        valeur_locative = local('valeur_locative', period, parameters)
+        base_imposable_apres_exemption_temporaire = local('base_imposable_apres_exemption_temporaire', period, parameters)
         taux_premier_abattement = local('taux_premier_abattement', period, parameters)
-        return valeur_locative * (1.0 - taux_premier_abattement)
+        return base_imposable_apres_exemption_temporaire * (1.0 - taux_premier_abattement)
 
 
 class base_imposable(Variable):
@@ -353,3 +392,17 @@ class second_abattement(Variable):
         base_imposable_apres_premier_abattement = local('base_imposable_apres_premier_abattement', period, parameters)
         taux_second_abattement = local('taux_second_abattement', period, parameters)
         return base_imposable_apres_premier_abattement * taux_second_abattement
+
+
+class exemption_temporaire(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Resultat intermediaire de l'exemption temporaire"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        valeur_locative = local('valeur_locative', period, parameters)
+        taux_exemption_temporaire = local('taux_exemption_temporaire', period, parameters)
+        return valeur_locative * taux_exemption_temporaire

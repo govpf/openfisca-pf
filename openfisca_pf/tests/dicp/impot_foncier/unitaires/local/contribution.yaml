@@ -287,8 +287,6 @@
     taux_premier_abattement: 0.25
   output:
     base_imposable_apres_premier_abattement: 75
-
-
 - name: "base_imposable doit appliquer le second abattement au montant de la base imposable apres le premiere abattement et arrondir le resultat"
   period: 2024
   input:
@@ -305,8 +303,6 @@
     taux_part_pays: 0.5
   output:
     contribution_fonciere_part_pays: 50
-
-
 - name: "contribution_fonciere_part_commune doit etre egale à la part pays multiplié par le taux de la part commune et arrondir le resultat"
   period: 2024
   input:
@@ -314,8 +310,6 @@
     taux_part_commune_fiscale: 0.5
   output:
     contribution_fonciere_part_commune: 50
-
-
 - name: "contribution_fonciere doit etre egale à la somme de la part pays et de la part commune"
   period: 2024
   input:
@@ -323,3 +317,48 @@
     contribution_fonciere_part_commune: 50
   output:
     contribution_fonciere: 150
+
+- name: "base_imposable_apres_exemption_temporaire doit etre egale a la moitie de la valeur locative"
+  period: 2024
+  input:
+    valeur_locative: 100
+    taux_exemption_temporaire: 0.50
+  output:
+    base_imposable_apres_exemption_temporaire: 50
+- name: "base_imposable_apres_exemption_temporaire doit etre egale a la valeur locative"
+  period: 2024
+  input:
+    valeur_locative: 100
+    taux_exemption_temporaire: 0
+  output:
+    base_imposable_apres_exemption_temporaire: 100
+- name: "base_imposable_apres_exemption_temporaire doit etre egale a 0"
+  period: 2024
+  input:
+    valeur_locative: 100
+    taux_exemption_temporaire: 1.00
+  output:
+    base_imposable_apres_exemption_temporaire: 0
+
+- name: "exemption_temporaire doit etre egale a la moitie de la valeur locative"
+  period: 2024
+  input:
+    valeur_locative: 100
+    taux_exemption_temporaire: 0.50
+  output:
+    exemption_temporaire: 50
+- name: "exemption_temporaire doit etre egale a la valeur locative"
+  period: 2024
+  input:
+    valeur_locative: 100
+    taux_exemption_temporaire: 0
+  output:
+    exemption_temporaire: 0
+- name: "exemption_temporaire doit etre egale a la moitie de la valeur locative"
+  period: 2024
+  input:
+    valeur_locative: 100
+    taux_exemption_temporaire: 1.00
+  output:
+    exemption_temporaire: 100
+

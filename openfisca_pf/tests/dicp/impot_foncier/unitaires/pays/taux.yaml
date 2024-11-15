@@ -67,3 +67,28 @@
   period: 2024
   output:
     taux_second_abattement_si_loue_non_meuble_pays: 0.25
+
+- name: "duree_premiere_exemption_temporaire_exceptionnelle_pays est egale à 10"
+  period: 2024
+  output:
+    duree_premiere_exemption_temporaire_exceptionnelle_pays: 10
+
+- name: "duree_premiere_exemption_temporaire_pays est egale à 5"
+  period: 2024
+  output:
+    duree_premiere_exemption_temporaire_pays: 5
+
+- name: "taux_premiere_exemption_temporaire_pays est egale à 1.00"
+  period: 2024
+  output:
+    taux_premiere_exemption_temporaire_pays: 1.00
+
+- name: "duree_seconde_exemption_temporaire_pays est egale à 3"
+  period: 2024
+  output:
+    duree_seconde_exemption_temporaire_pays: 3
+
+- name: "taux_seconde_exemption_temporaire_pays est egale à 0.50"
+  period: 2024
+  output:
+    taux_seconde_exemption_temporaire_pays: 0.50

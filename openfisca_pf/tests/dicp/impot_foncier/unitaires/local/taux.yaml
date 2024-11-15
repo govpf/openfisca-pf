@@ -107,3 +107,99 @@
     taux_second_abattement_si_loue_non_meuble: 3
   output:
     taux_second_abattement: 3
+
+- name: "taux_premiere_exemption_temporaire est egale à taux_premiere_exemption_temporaire_pays"
+  period: 2024
+  input:
+    taux_premiere_exemption_temporaire_pays: 1.00
+  output:
+    taux_premiere_exemption_temporaire: 1.00
+
+- name: "taux_seconde_exemption_temporaire est egale à taux_seconde_exemption_temporaire_pays"
+  period: 2024
+  input:
+    taux_seconde_exemption_temporaire_pays: 0.50
+  output:
+    taux_seconde_exemption_temporaire: 0.50
+
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et demande_exemption_temporaire_exceptionnelle est True et annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_exceptionnelle_pays"
+  period: 2024
+  input:
+    date_permis_construire: 2023-12-12
+    date_certificat_conformite: 2024-12-12
+    duree_premiere_exemption_temporaire_exceptionnelle_pays: 10
+  output:
+    acces_exemption_temporaire_exceptionnelle: True
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a False si date_permis_construire <= 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et annee_depuis_date_certificat_conformite > duree_premiere_exemption_temporaire_exceptionnelle_pays"
+  period: 2024
+  input:
+    date_permis_construire: 2021-12-12
+    date_certificat_conformite: 2024-01-01
+    duree_premiere_exemption_temporaire_exceptionnelle_pays: 10
+  output:
+    acces_exemption_temporaire_exceptionnelle: False
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite >= 31/12/2025 et annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_exceptionnelle_pays"
+  period: 2024
+  input:
+    date_permis_construire: 2024-12-12
+    date_certificat_conformite: 2026-12-12
+    duree_premiere_exemption_temporaire_exceptionnelle_pays: 10
+  output:
+    acces_exemption_temporaire_exceptionnelle: False
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_exceptionnelle_pays"
+  period: 2024
+  input:
+    date_permis_construire: 2021-12-12
+    date_certificat_conformite: 2025-12-12
+    duree_premiere_exemption_temporaire_exceptionnelle_pays: 10
+  output:
+    acces_exemption_temporaire_exceptionnelle: False
+
+- name: "taux_exemption_temporaire est egale a 1.00 si date_certificat_conformite < duree_premiere_exemption_temporaire_pays"
+  period: 2024
+  input:
+    acces_exemption_temporaire_exceptionnelle: False
+    demande_exemption_temporaire_exceptionnelle: False
+    date_certificat_conformite: 2023-12-12
+    duree_premiere_exemption_temporaire_pays: 5
+    taux_premiere_exemption_temporaire: 1.00
+    duree_seconde_exemption_temporaire_pays: 3
+    taux_seconde_exemption_temporaire: 0.50
+  output:
+    taux_exemption_temporaire: 1.00
+- name: "taux_exemption_temporaire est egale a 1.00 si acces_exemption_temporaire_exceptionnelle"
+  period: 2024
+  input:
+    acces_exemption_temporaire_exceptionnelle: True
+    demande_exemption_temporaire_exceptionnelle: True
+    date_certificat_conformite: 2019-12-12
+    duree_premiere_exemption_temporaire_pays: 5
+    taux_premiere_exemption_temporaire: 1.00
+    duree_seconde_exemption_temporaire_pays: 3
+    taux_seconde_exemption_temporaire: 0.50
+  output:
+    taux_exemption_temporaire: 1.00
+- name: "taux_exemption_temporaire est egale a 0.50 si duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+  period: 2024
+  input:
+    acces_exemption_temporaire_exceptionnelle: False
+    demande_exemption_temporaire_exceptionnelle: False
+    date_certificat_conformite: 2018-12-12
+    duree_premiere_exemption_temporaire_pays: 5
+    taux_premiere_exemption_temporaire: 1.00
+    duree_seconde_exemption_temporaire_pays: 3
+    taux_seconde_exemption_temporaire: 0.50
+  output:
+    taux_exemption_temporaire: 0.50
+- name: "taux_exemption_temporaire est egale a 0 si duree_premiere_exemption_temporaire_pays > annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+  period: 2024
+  input:
+    acces_exemption_temporaire_exceptionnelle: False
+    demande_exemption_temporaire_exceptionnelle: False
+    date_certificat_conformite: 2010-12-12
+    duree_premiere_exemption_temporaire_pays: 5
+    taux_premiere_exemption_temporaire: 1.00
+    duree_seconde_exemption_temporaire_pays: 3
+    taux_seconde_exemption_temporaire: 0.50
+  output:
+    taux_exemption_temporaire: 0.00
