@@ -203,3 +203,44 @@
     taux_seconde_exemption_temporaire: 0.50
   output:
     taux_exemption_temporaire: 0.00
+
+- name: "duree_exemption_temporaire est egale a 5 si date_certificat_conformite < duree_premiere_exemption_temporaire_pays"
+  period: 2024
+  input:
+    acces_exemption_temporaire_exceptionnelle: False
+    demande_exemption_temporaire_exceptionnelle: False
+    date_certificat_conformite: 2023-12-12
+    duree_premiere_exemption_temporaire_pays: 5
+    duree_seconde_exemption_temporaire_pays: 3
+  output:
+    duree_exemption_temporaire: 5
+- name: "duree_exemption_temporaire est egale a 10 si acces_exemption_temporaire_exceptionnelle"
+  period: 2024
+  input:
+    acces_exemption_temporaire_exceptionnelle: True
+    demande_exemption_temporaire_exceptionnelle: True
+    date_certificat_conformite: 2019-12-12
+    duree_premiere_exemption_temporaire_pays: 5
+    duree_seconde_exemption_temporaire_pays: 3
+  output:
+    duree_exemption_temporaire: 10
+- name: "duree_exemption_temporaire est egale a 3 si duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+  period: 2024
+  input:
+    acces_exemption_temporaire_exceptionnelle: False
+    demande_exemption_temporaire_exceptionnelle: False
+    date_certificat_conformite: 2018-12-12
+    duree_premiere_exemption_temporaire_pays: 5
+    duree_seconde_exemption_temporaire_pays: 3
+  output:
+    duree_exemption_temporaire: 3
+- name: "duree_exemption_temporaire est egale a 0 si duree_premiere_exemption_temporaire_pays > annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+  period: 2024
+  input:
+    acces_exemption_temporaire_exceptionnelle: False
+    demande_exemption_temporaire_exceptionnelle: False
+    date_certificat_conformite: 2010-12-12
+    duree_premiere_exemption_temporaire_pays: 5
+    duree_seconde_exemption_temporaire_pays: 3
+  output:
+    duree_exemption_temporaire: 0

@@ -266,3 +266,32 @@ class taux_exemption_temporaire(Variable):
             taux_premiere_exemption_temporaire,
             taux_seconde_exemption_temporaire
         ], 0)
+
+
+class duree_exemption_temporaire(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Durée de l'exemption temporaire pour lequel les constructions sont soumises à l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
+        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
+        date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
+        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
+        duree_premiere_exemption_temporaire_exceptionnelle_pays = local.pays('duree_premiere_exemption_temporaire_exceptionnelle_pays', period, parameters)
+
+        annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+
+        return numpy.select([
+            demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle,
+            annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
+            duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
+        ],[
+            duree_premiere_exemption_temporaire_exceptionnelle_pays,
+            duree_premiere_exemption_temporaire_pays,
+            duree_seconde_exemption_temporaire_pays
+        ], 0)
