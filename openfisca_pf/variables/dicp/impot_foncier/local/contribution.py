@@ -375,9 +375,9 @@ class premier_abattement(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        valeur_locative = local('valeur_locative', period, parameters)
+        base_imposable_apres_exemption_temporaire = local('base_imposable_apres_exemption_temporaire', period, parameters)
         taux_premier_abattement = local('taux_premier_abattement', period, parameters)
-        return valeur_locative * taux_premier_abattement
+        return base_imposable_apres_exemption_temporaire * taux_premier_abattement
 
 
 class second_abattement(Variable):

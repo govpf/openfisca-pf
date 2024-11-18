@@ -1,0 +1,20 @@
+- name: "Habitation principale avec premiere exemption temporaire"
+  period: 2027
+  input:
+    loue: false
+    commune_fiscale: PAPEETE
+    valeur_venale: 15000000
+    date_certificat_conformite: 2026-10-10
+    date_permis_construire: 2023-10-10
+  output:
+    acces_exemption_temporaire_exceptionnelle: False
+    valeur_locative: 600000
+    base_imposable_apres_exemption_temporaire: 0
+    premier_abattement: 0
+    base_imposable_apres_premier_abattement: 0
+    second_abattement: 0
+    base_imposable: 0
+    contribution_fonciere_part_pays: 0
+    contribution_fonciere_part_commune: 0
+    contribution_fonciere: 0
+
