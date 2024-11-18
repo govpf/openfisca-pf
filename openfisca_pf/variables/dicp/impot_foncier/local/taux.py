@@ -23,14 +23,13 @@ class taux_archipel(Variable):
         taux_archipel_iles_sous_le_vent_pays = local.pays('taux_archipel_iles_sous_le_vent_pays', period, parameters)
         taux_archipel_marquises_pays = local.pays('taux_archipel_marquises_pays', period, parameters)
         taux_archipel_tuamotus_pays = local.pays('taux_archipel_tuamotus_pays', period, parameters)
-        return numpy.select(
-            [
-                archipel == Archipel.AUSTRALES,
-                archipel == Archipel.GAMBIERS,
-                archipel == Archipel.ILES_DU_VENT,
-                archipel == Archipel.ILES_SOUS_LE_VENT,
-                archipel == Archipel.MARQUISES,
-                archipel == Archipel.TUAMOTUS
+        return numpy.select([
+            archipel == Archipel.AUSTRALES,
+            archipel == Archipel.GAMBIERS,
+            archipel == Archipel.ILES_DU_VENT,
+            archipel == Archipel.ILES_SOUS_LE_VENT,
+            archipel == Archipel.MARQUISES,
+            archipel == Archipel.TUAMOTUS
             ],
             [
                 taux_archipel_australes_pays,
@@ -171,7 +170,7 @@ class taux_second_abattement(Variable):
             [loue and meuble, loue and non_meuble],
             [taux_second_abattement_si_loue_meuble, taux_second_abattement_si_loue_non_meuble],
             taux_second_abattement_si_non_loue
-        )
+            )
 
 
 class taux_premiere_exemption_temporaire(Variable):
@@ -230,7 +229,7 @@ class acces_exemption_temporaire_exceptionnelle(Variable):
             'duree_premiere_exemption_temporaire_exceptionnelle_pays', period, parameters)
 
         annee_depuis_date_certificat_conformite = period.date.year - (
-                    date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+            date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
         date_minimum_permis_construire = date(2022, 12, 31)
         date_maximum_certificat_conformite = date(2025, 12, 31)
 
@@ -238,9 +237,9 @@ class acces_exemption_temporaire_exceptionnelle(Variable):
             date_permis_construire > date_minimum_permis_construire
             and date_certificat_conformite < date_maximum_certificat_conformite
             and annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_exceptionnelle_pays
-        ], [
+            ], [
             True
-        ], False)
+            ], False)
 
 
 class taux_exemption_temporaire(Variable):
@@ -264,19 +263,17 @@ class taux_exemption_temporaire(Variable):
                                                              parameters)
         taux_seconde_exemption_temporaire = local('taux_seconde_exemption_temporaire', period, parameters)
 
-        annee_depuis_date_certificat_conformite = period.date.year - (
-                    date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+        annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return numpy.select([
             demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle,
             annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
-            duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (
-                        duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
-        ], [
+            duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
+            ], [
             taux_premiere_exemption_temporaire,
             taux_premiere_exemption_temporaire,
             taux_seconde_exemption_temporaire
-        ], 0)
+            ], 0)
 
 
 class duree_exemption_temporaire(Variable):
@@ -300,16 +297,14 @@ class duree_exemption_temporaire(Variable):
         duree_premiere_exemption_temporaire_exceptionnelle_pays = local.pays(
             'duree_premiere_exemption_temporaire_exceptionnelle_pays', period, parameters)
 
-        annee_depuis_date_certificat_conformite = period.date.year - (
-                    date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+        annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return numpy.select([
             demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle,
             annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
-            duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (
-                        duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
-        ], [
+            duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
+            ], [
             duree_premiere_exemption_temporaire_exceptionnelle_pays,
             duree_premiere_exemption_temporaire_pays,
             duree_seconde_exemption_temporaire_pays
-        ], 0)
+            ], 0)
