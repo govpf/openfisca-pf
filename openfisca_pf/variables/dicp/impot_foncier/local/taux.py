@@ -206,10 +206,8 @@ class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variabl
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local, period, parameters):
-        taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays = local.pays(
-            'taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays', period, parameters)
-        meuble_de_tourisme_est_eligible_et_demande_un_degrevement = local(
-            'meuble_de_tourisme_est_eligible_et_demande_un_degrevement', period, parameters)
+        taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays = local.pays('taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays', period, parameters)
+        meuble_de_tourisme_est_eligible_et_demande_un_degrevement = local('meuble_de_tourisme_est_eligible_et_demande_un_degrevement', period, parameters)
         return numpy.where(meuble_de_tourisme_est_eligible_et_demande_un_degrevement,
                            taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays, 0)
 
@@ -225,21 +223,15 @@ class acces_exemption_temporaire_exceptionnelle(Variable):
     def formula(local: Personne, period: Period, parameters: Parameter):
         date_certificat_conformite = local('date_certificat_conformite', period, parameters)
         date_permis_construire = local('date_permis_construire', period, parameters)
-        duree_premiere_exemption_temporaire_exceptionnelle_pays = local.pays(
-            'duree_premiere_exemption_temporaire_exceptionnelle_pays', period, parameters)
+        duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
 
-        annee_depuis_date_certificat_conformite = period.date.year - (
-            date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
         date_minimum_permis_construire = date(2022, 12, 31)
         date_maximum_certificat_conformite = date(2025, 12, 31)
+        annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
-        return numpy.select([
-            date_permis_construire > date_minimum_permis_construire
-            and date_certificat_conformite < date_maximum_certificat_conformite
-            and annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_exceptionnelle_pays
-            ], [
-            True
-            ], False)
+        return date_permis_construire > date_minimum_permis_construire\
+            and date_certificat_conformite < date_maximum_certificat_conformite\
+            and annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays
 
 
 class taux_exemption_temporaire(Variable):
@@ -251,16 +243,12 @@ class taux_exemption_temporaire(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period,
-                                                          parameters)
-        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period,
-                                                            parameters)
+        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
+        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
         date_certificat_conformite = local('date_certificat_conformite', period, parameters)
-        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period,
-                                                              parameters)
+        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
         taux_premiere_exemption_temporaire = local('taux_premiere_exemption_temporaire', period, parameters)
-        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period,
-                                                             parameters)
+        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
         taux_seconde_exemption_temporaire = local('taux_seconde_exemption_temporaire', period, parameters)
 
         annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
@@ -285,17 +273,12 @@ class duree_exemption_temporaire(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period,
-                                                          parameters)
-        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period,
-                                                            parameters)
+        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
+        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
         date_certificat_conformite = local('date_certificat_conformite', period, parameters)
-        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period,
-                                                              parameters)
-        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period,
-                                                             parameters)
-        duree_premiere_exemption_temporaire_exceptionnelle_pays = local.pays(
-            'duree_premiere_exemption_temporaire_exceptionnelle_pays', period, parameters)
+        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
+        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
+        duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
 
         annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
@@ -304,7 +287,7 @@ class duree_exemption_temporaire(Variable):
             annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
             duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
             ], [
-            duree_premiere_exemption_temporaire_exceptionnelle_pays,
+            duree_exemption_temporaire_exceptionnelle_pays,
             duree_premiere_exemption_temporaire_pays,
             duree_seconde_exemption_temporaire_pays
             ], 0)

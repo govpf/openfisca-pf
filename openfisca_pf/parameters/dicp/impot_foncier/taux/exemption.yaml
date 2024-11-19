@@ -1,21 +1,12 @@
 reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595
 
-duree_premiere_exemption_temporaire_exceptionnelle:
-  description: "Nombre d'année d'exemption temporaire exceptionnelle durant lequel les constructions nouvelles, reconstructions et additions de constructions ne sont pas soumises à l'impôt foncier"
-  metadata:
-    type: int
-    unit: year
-  values:
-    2000-01-01:
-      value: 10
-
 duree_premiere_exemption_temporaire:
   description: "Nombre d'année d'exemption temporaire durant lequel les constructions nouvelles, reconstructions et additions de constructions ne sont pas soumises à l'impôt foncier"
   metadata:
     type: int
     unit: year
   values:
-    2000-01-01:
+    1950-11-16:
       value: 5
 
 taux_premiere_exemption_temporaire:
@@ -24,7 +15,7 @@ taux_premiere_exemption_temporaire:
     type: float
     unit: /1
   values:
-    2000-01-01:
+    1950-11-16:
       value: 1.00
 
 duree_seconde_exemption_temporaire:
@@ -33,7 +24,7 @@ duree_seconde_exemption_temporaire:
     type: int
     unit: year
   values:
-    2000-01-01:
+    1950-11-16:
       value: 3
 
 taux_seconde_exemption_temporaire:
@@ -42,5 +33,14 @@ taux_seconde_exemption_temporaire:
     type: float
     unit: /1
   values:
-    2000-01-01:
+    1950-11-16:
       value: 0.50
+
+duree_exemption_temporaire_exceptionnelle:
+  description: "Nombre d'année d'exemption temporaire exceptionnelle durant lequel les constructions nouvelles, reconstructions et additions de constructions ne sont pas soumises à l'impôt foncier"
+  metadata:
+    type: int
+    unit: year
+  values:
+    2022-12-13:
+      value: 10

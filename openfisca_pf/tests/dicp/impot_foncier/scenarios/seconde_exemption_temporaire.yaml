@@ -1,11 +1,11 @@
 - name: "Habitation principale avec seconde exemption temporaire"
-  period: 2030
+  period: 2031
   input:
     loue: false
     commune_fiscale: PAPEETE
     valeur_venale: 15000000
-    date_certificat_conformite: 2023-10-10
-    date_permis_construire: 2021-10-10
+    date_certificat_conformite: 2023-12-12
+    date_permis_construire: 2021-12-12
   output:
     acces_exemption_temporaire_exceptionnelle: False
     valeur_locative: 600000

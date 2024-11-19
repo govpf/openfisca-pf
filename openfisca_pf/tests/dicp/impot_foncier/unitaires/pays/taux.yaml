@@ -68,10 +68,10 @@
   output:
     taux_second_abattement_si_loue_non_meuble_pays: 0.25
 
-- name: "duree_premiere_exemption_temporaire_exceptionnelle_pays est egale à 10"
+- name: "duree_exemption_temporaire_exceptionnelle_pays est egale à 10"
   period: 2024
   output:
-    duree_premiere_exemption_temporaire_exceptionnelle_pays: 10
+    duree_exemption_temporaire_exceptionnelle_pays: 10
 
 - name: "duree_premiere_exemption_temporaire_pays est egale à 5"
   period: 2024

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_pf.base import YEAR, Variable
+from openfisca_pf.base import *
 from openfisca_pf.entities import Pays
 from openfisca_pf.enums.geographie import Archipel
 
@@ -185,7 +185,7 @@ class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays(Va
         return parameters(period).dicp.impot_foncier.taux.degrevement.pour_baisse_de_revenus_loue_en_meuble_de_tourisme
 
 
-class duree_premiere_exemption_temporaire_exceptionnelle_pays(Variable):
+class duree_exemption_temporaire_exceptionnelle_pays(Variable):
     value_type = int
     entity = Pays
     definition_period = YEAR
@@ -194,7 +194,7 @@ class duree_premiere_exemption_temporaire_exceptionnelle_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux.exemption.duree_premiere_exemption_temporaire_exceptionnelle
+        return parameters(period).dicp.impot_foncier.taux.exemption.duree_exemption_temporaire_exceptionnelle
 
 
 class duree_premiere_exemption_temporaire_pays(Variable):
