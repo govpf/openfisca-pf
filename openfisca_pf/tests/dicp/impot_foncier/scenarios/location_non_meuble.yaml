@@ -2,6 +2,7 @@
   period: 2023
   input:
     loue: true
+    habitation_principale: false
     type_location: NON_MEUBLE
     commune_fiscale: PAPEETE
     loyer_janvier: 380000

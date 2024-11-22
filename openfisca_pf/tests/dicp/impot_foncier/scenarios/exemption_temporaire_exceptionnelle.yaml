@@ -2,6 +2,7 @@
   period: 2035
   input:
     loue: false
+    habitation_principale: true
     commune_fiscale: PAPEETE
     valeur_venale: 15000000
     demande_exemption_temporaire_exceptionnelle: True
@@ -18,4 +19,3 @@
     contribution_fonciere_part_pays: 0
     contribution_fonciere_part_commune: 0
     contribution_fonciere: 0
-

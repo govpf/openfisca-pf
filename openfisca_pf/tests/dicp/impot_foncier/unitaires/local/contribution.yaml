@@ -11,7 +11,6 @@
   output:
     non_loue: true
 
-
 - name: "non_social doit etre false si social est true"
   period: 2024
   input:

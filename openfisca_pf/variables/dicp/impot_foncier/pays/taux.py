@@ -185,18 +185,6 @@ class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays(Va
         return parameters(period).dicp.impot_foncier.taux.degrevement.pour_baisse_de_revenus_loue_en_meuble_de_tourisme
 
 
-class duree_exemption_temporaire_exceptionnelle_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    default_value = 10
-    label = "Nombre d'année d'exemption temporaire exceptionnelle durant lequel les constructions nouvelles, reconstructions et additions de constructions ne sont pas soumises à l'impôt foncier"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux.exemption.duree_exemption_temporaire_exceptionnelle
-
-
 class duree_premiere_exemption_temporaire_pays(Variable):
     value_type = int
     entity = Pays
@@ -243,3 +231,39 @@ class taux_seconde_exemption_temporaire_pays(Variable):
 
     def formula(pays, period, parameters):
         return parameters(period).dicp.impot_foncier.taux.exemption.taux_seconde_exemption_temporaire
+
+
+class duree_exemption_temporaire_exceptionnelle_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    default_value = 10
+    label = "Nombre d'année d'exemption temporaire exceptionnelle durant lequel les constructions nouvelles, reconstructions et additions de constructions ne sont pas soumises à l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.exemption.duree_exemption_temporaire_exceptionnelle
+
+
+class controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = DAY
+    default_value = 0
+    label = "En fonction de la date du permis de construire, le contribuable peut d'accéder à l'exemption temporaire exceptionnelle"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.exemption.controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle
+
+
+class controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = DAY
+    default_value = 0
+    label = "En fonction de la date certificat de conformité, le contribuable peut d'accéder à l'exemption temporaire exceptionnelle"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.exemption.controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle

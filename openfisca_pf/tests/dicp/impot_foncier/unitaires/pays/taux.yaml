@@ -68,11 +68,6 @@
   output:
     taux_second_abattement_si_loue_non_meuble_pays: 0.25
 
-- name: "duree_exemption_temporaire_exceptionnelle_pays est egale à 10"
-  period: 2024
-  output:
-    duree_exemption_temporaire_exceptionnelle_pays: 10
-
 - name: "duree_premiere_exemption_temporaire_pays est egale à 5"
   period: 2024
   output:
@@ -92,3 +87,26 @@
   period: 2024
   output:
     taux_seconde_exemption_temporaire_pays: 0.50
+
+- name: "duree_exemption_temporaire_exceptionnelle_pays est egale à 10"
+  period: 2024
+  output:
+    duree_exemption_temporaire_exceptionnelle_pays: 10
+
+- name: "controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays est egale à 0"
+  period: "2022-12-31"
+  output:
+    controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays: 0
+- name: "controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays est egale à 1"
+  period: "2023-01-01"
+  output:
+    controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays: 1
+
+- name: "controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays est egale à 0"
+  period: "2026-01-01"
+  output:
+    controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays: 0
+- name: "controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays est egale à 1"
+  period: "2000-01-01"
+  output:
+    controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays: 1

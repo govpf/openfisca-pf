@@ -2,6 +2,7 @@
   period: 2031
   input:
     loue: false
+    habitation_principale: true
     commune_fiscale: PAPEETE
     valeur_venale: 15000000
     date_certificat_conformite: 2023-12-12

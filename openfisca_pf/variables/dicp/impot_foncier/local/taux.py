@@ -223,14 +223,16 @@ class acces_exemption_temporaire_exceptionnelle(Variable):
     def formula(local: Personne, period: Period, parameters: Parameter):
         date_certificat_conformite = local('date_certificat_conformite', period, parameters)
         date_permis_construire = local('date_permis_construire', period, parameters)
+        controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays = local.pays('controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays', str(date_permis_construire[0]), parameters)
+        controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays = local.pays('controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays', str(date_certificat_conformite[0]), parameters)
         duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
+        habitation_principale = local('habitation_principale', period, parameters)
 
-        date_minimum_permis_construire = date(2022, 12, 31)
-        date_maximum_certificat_conformite = date(2025, 12, 31)
         annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
-        return date_permis_construire > date_minimum_permis_construire\
-            and date_certificat_conformite < date_maximum_certificat_conformite\
+        return habitation_principale\
+            and controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays\
+            and controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays\
             and annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays
 
 

@@ -44,3 +44,25 @@ duree_exemption_temporaire_exceptionnelle:
   values:
     2022-12-13:
       value: 10
+
+controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle:
+  description: "En fonction de la date du permis de construire, le contribuable peut d'accéder à l'exemption temporaire exceptionnelle"
+  metadata:
+    type: int
+    unit: year
+  values:
+    1950-12-31:
+      value: 0
+    2023-01-01:
+      value: 1
+
+controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle:
+  description: "En fonction de la date certificat de conformité, le contribuable peut d'accéder à l'exemption temporaire exceptionnelle"
+  metadata:
+    type: int
+    unit: year
+  values:
+    1950-12-31:
+      value: 1
+    2026-01-01:
+      value: 0

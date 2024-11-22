@@ -28,6 +28,15 @@ class loue(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
 
+class habitation_principale(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = True
+    label = "True si c'est une habitation principale, False sinon."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
 class non_loue(Variable):
     value_type = bool
     entity = Personne
