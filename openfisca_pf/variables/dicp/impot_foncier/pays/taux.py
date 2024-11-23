@@ -245,7 +245,7 @@ class duree_exemption_temporaire_exceptionnelle_pays(Variable):
         return parameters(period).dicp.impot_foncier.taux.exemption.duree_exemption_temporaire_exceptionnelle
 
 
-class controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays(Variable):
+class date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays(Variable):
     value_type = int
     entity = Pays
     definition_period = DAY
@@ -254,10 +254,10 @@ class controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_p
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux.exemption.controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle
+        return parameters(period).dicp.impot_foncier.taux.exemption.date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle
 
 
-class controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays(Variable):
+class date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays(Variable):
     value_type = int
     entity = Pays
     definition_period = DAY
@@ -266,4 +266,4 @@ class controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnel
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux.exemption.controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle
+        return parameters(period).dicp.impot_foncier.taux.exemption.date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle

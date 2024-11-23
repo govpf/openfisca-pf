@@ -32,7 +32,7 @@ class habitation_principale(Variable):
     value_type = bool
     entity = Personne
     definition_period = YEAR
-    default_value = True
+    default_value = False
     label = "True si c'est une habitation principale, False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 

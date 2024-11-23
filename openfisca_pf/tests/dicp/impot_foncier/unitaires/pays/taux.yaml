@@ -93,20 +93,20 @@
   output:
     duree_exemption_temporaire_exceptionnelle_pays: 10
 
-- name: "controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays est egale à 0"
+- name: "date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays est egale à 0"
   period: "2022-12-31"
   output:
-    controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays: 0
-- name: "controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays est egale à 1"
+    date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays: 0
+- name: "date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays est egale à 1"
   period: "2023-01-01"
   output:
-    controle_date_permis_construire_pour_exemption_temporaire_exceptionnelle_pays: 1
+    date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays: 1
 
-- name: "controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays est egale à 0"
+- name: "date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays est egale à 0"
   period: "2026-01-01"
   output:
-    controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays: 0
-- name: "controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays est egale à 1"
+    date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays: 0
+- name: "date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays est egale à 1"
   period: "2000-01-01"
   output:
-    controle_date_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays: 1
+    date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays: 1
