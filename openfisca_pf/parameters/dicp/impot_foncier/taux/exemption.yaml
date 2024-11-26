@@ -32,6 +32,7 @@ taux_seconde_exemption_temporaire:
   metadata:
     type: float
     unit: /1
+
   values:
     1950-11-16:
       value: 0.50
@@ -42,6 +43,8 @@ duree_exemption_temporaire_exceptionnelle:
     type: int
     unit: year
   values:
+    1950-11-16:
+      value: 0
     2022-12-13:
       value: 10
 
