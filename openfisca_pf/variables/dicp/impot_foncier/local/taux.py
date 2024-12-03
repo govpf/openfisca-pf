@@ -316,7 +316,7 @@ class duree_exemption_temporaire_restante(Variable):
         return numpy.select([
             demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle and duree_exemption_temporaire_exceptionnelle_pays > nombre_annee_depuis_date_certificat_conformite,
             (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) > nombre_annee_depuis_date_certificat_conformite
-        ], [
+            ], [
             duree_exemption_temporaire_exceptionnelle_pays - nombre_annee_depuis_date_certificat_conformite,
             (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) - nombre_annee_depuis_date_certificat_conformite,
-        ], 0)
+            ], 0)
