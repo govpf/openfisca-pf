@@ -9,6 +9,7 @@
     date_certificat_conformite: 2025-12-30
     date_permis_construire: 2023-01-01
   output:
+    duree_exemption_temporaire_restante: 0
     acces_exemption_temporaire_exceptionnelle: True
     valeur_locative: 600000
     base_imposable_apres_exemption_temporaire: 0

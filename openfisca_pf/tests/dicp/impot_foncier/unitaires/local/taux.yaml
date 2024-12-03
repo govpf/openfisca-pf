@@ -122,7 +122,7 @@
   output:
     taux_seconde_exemption_temporaire: 0.50
 
-- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et demande_exemption_temporaire_exceptionnelle est True et annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et demande_exemption_temporaire_exceptionnelle est True et nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
   period: 2024
   input:
     habitation_principale: True
@@ -131,7 +131,7 @@
     duree_exemption_temporaire_exceptionnelle_pays: 10
   output:
     acces_exemption_temporaire_exceptionnelle: True
-- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et demande_exemption_temporaire_exceptionnelle est True et annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et demande_exemption_temporaire_exceptionnelle est True et nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
   period: 2024
   input:
     habitation_principale: False
@@ -140,7 +140,7 @@
     duree_exemption_temporaire_exceptionnelle_pays: 10
   output:
     acces_exemption_temporaire_exceptionnelle: False
-- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a False si date_permis_construire <= 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et annee_depuis_date_certificat_conformite > duree_exemption_temporaire_exceptionnelle_pays"
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a False si date_permis_construire <= 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et nombre_annee_depuis_date_certificat_conformite > duree_exemption_temporaire_exceptionnelle_pays"
   period: 2024
   input:
     habitation_principale: True
@@ -149,7 +149,7 @@
     duree_exemption_temporaire_exceptionnelle_pays: 10
   output:
     acces_exemption_temporaire_exceptionnelle: False
-- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite >= 31/12/2025 et annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite >= 31/12/2025 et nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
   period: 2024
   input:
     habitation_principale: True
@@ -158,7 +158,7 @@
     duree_exemption_temporaire_exceptionnelle_pays: 10
   output:
     acces_exemption_temporaire_exceptionnelle: False
-- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
+- name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
   period: 2024
   input:
     habitation_principale: True
@@ -192,7 +192,7 @@
     taux_seconde_exemption_temporaire: 0.50
   output:
     taux_exemption_temporaire: 1.00
-- name: "taux_exemption_temporaire est egale a 0.50 si duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+- name: "taux_exemption_temporaire est egale a 0.50 si duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
   period: 2024
   input:
     acces_exemption_temporaire_exceptionnelle: False
@@ -204,7 +204,7 @@
     taux_seconde_exemption_temporaire: 0.50
   output:
     taux_exemption_temporaire: 0.50
-- name: "taux_exemption_temporaire est egale a 0 si duree_premiere_exemption_temporaire_pays > annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+- name: "taux_exemption_temporaire est egale a 0 si duree_premiere_exemption_temporaire_pays > nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
   period: 2024
   input:
     acces_exemption_temporaire_exceptionnelle: False
@@ -227,20 +227,49 @@
   period: 2035
   input:
     habitation_principale: True
+    acces_exemption_temporaire_exceptionnelle: True
     demande_exemption_temporaire_exceptionnelle: True
     date_certificat_conformite: 2025-12-30
-    date_permis_construire: 2023-01-01
   output:
     duree_exemption_temporaire: 10
-- name: "duree_exemption_temporaire est egale a 3 si duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+- name: "duree_exemption_temporaire est egale a 3 si duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
   period: 2024
   input:
     date_certificat_conformite: 2018-12-31
   output:
     duree_exemption_temporaire: 3
-- name: "duree_exemption_temporaire est egale a 0 si duree_premiere_exemption_temporaire_pays > annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+- name: "duree_exemption_temporaire est egale a 0 si duree_premiere_exemption_temporaire_pays > nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
   period: 2024
   input:
     date_certificat_conformite: 2015-12-31
   output:
     duree_exemption_temporaire: 0
+
+
+- name: "duree_exemption_temporaire_restante est egale a 10 si acces_exemption_temporaire_exceptionnelle"
+  period: 2035
+  input:
+    habitation_principale: True
+    acces_exemption_temporaire_exceptionnelle: True
+    demande_exemption_temporaire_exceptionnelle: True
+    date_certificat_conformite: 2034-12-30
+  output:
+    duree_exemption_temporaire_restante: 9
+- name: "duree_exemption_temporaire_restante est egale a 4 si date_certificat_conformite < duree_premiere_exemption_temporaire_pays"
+  period: 2024
+  input:
+    date_certificat_conformite: 2020-12-31
+  output:
+    duree_exemption_temporaire_restante: 4
+- name: "duree_exemption_temporaire_restante est egale a 1 si duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+  period: 2024
+  input:
+    date_certificat_conformite: 2017-12-31
+  output:
+    duree_exemption_temporaire_restante: 1
+- name: "duree_exemption_temporaire_restante est egale a 0 si duree_premiere_exemption_temporaire_pays > nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)"
+  period: 2024
+  input:
+    date_certificat_conformite: 2015-12-31
+  output:
+    duree_exemption_temporaire_restante: 0

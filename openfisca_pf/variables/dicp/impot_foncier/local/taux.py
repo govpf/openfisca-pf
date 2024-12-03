@@ -228,12 +228,12 @@ class acces_exemption_temporaire_exceptionnelle(Variable):
         duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
         habitation_principale = local('habitation_principale', period, parameters)
 
-        annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+        nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return habitation_principale\
             and date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays\
             and date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays\
-            and annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays
+            and nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays
 
 
 class taux_exemption_temporaire(Variable):
@@ -253,12 +253,12 @@ class taux_exemption_temporaire(Variable):
         duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
         taux_seconde_exemption_temporaire = local('taux_seconde_exemption_temporaire', period, parameters)
 
-        annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+        nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return numpy.select([
             demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle,
-            annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
-            duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
+            nombre_annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
+            duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
             ], [
             taux_premiere_exemption_temporaire,
             taux_premiere_exemption_temporaire,
@@ -271,7 +271,7 @@ class duree_exemption_temporaire(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "Durée de l'exemption temporaire pour lequel les constructions sont soumises à l'impôt foncier"
+    label = "Durée de l'exemption temporaire en cours pour lequel les constructions sont soumises à l'impôt foncier"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
@@ -282,14 +282,41 @@ class duree_exemption_temporaire(Variable):
         duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
         duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
 
-        annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+        nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return numpy.select([
             demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle,
-            annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
-            duree_premiere_exemption_temporaire_pays < annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
+            nombre_annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
+            duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
             ], [
             duree_exemption_temporaire_exceptionnelle_pays,
             duree_premiere_exemption_temporaire_pays,
             duree_seconde_exemption_temporaire_pays
             ], 0)
+
+
+class duree_exemption_temporaire_restante(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Années du total des exemptions temporaires restantes pour lequel les constructions sont soumises à l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
+        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
+        date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
+        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
+        duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
+
+        nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+
+        return numpy.select([
+            demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle and duree_exemption_temporaire_exceptionnelle_pays > nombre_annee_depuis_date_certificat_conformite,
+            (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) > nombre_annee_depuis_date_certificat_conformite
+        ], [
+            duree_exemption_temporaire_exceptionnelle_pays - nombre_annee_depuis_date_certificat_conformite,
+            (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) - nombre_annee_depuis_date_certificat_conformite,
+        ], 0)
