@@ -211,6 +211,7 @@ class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variabl
         return numpy.where(meuble_de_tourisme_est_eligible_et_demande_un_degrevement,
                            taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays, 0)
 
+
 class date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle(Variable):
     value_type = bool
     entity = Personne
