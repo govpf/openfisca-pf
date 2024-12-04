@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
-import numpy
-from openfisca_core.parameters import Parameter
 from openfisca_core.periods import Period
 
-from openfisca_pf.base import YEAR, Variable
+from openfisca_pf.base import *
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import Archipel
 
@@ -25,15 +23,14 @@ class taux_archipel(Variable):
         taux_archipel_iles_sous_le_vent_pays = local.pays('taux_archipel_iles_sous_le_vent_pays', period, parameters)
         taux_archipel_marquises_pays = local.pays('taux_archipel_marquises_pays', period, parameters)
         taux_archipel_tuamotus_pays = local.pays('taux_archipel_tuamotus_pays', period, parameters)
-        return numpy.select(
-            [
-                archipel == Archipel.AUSTRALES,
-                archipel == Archipel.GAMBIERS,
-                archipel == Archipel.ILES_DU_VENT,
-                archipel == Archipel.ILES_SOUS_LE_VENT,
-                archipel == Archipel.MARQUISES,
-                archipel == Archipel.TUAMOTUS
-                ],
+        return numpy.select([
+            archipel == Archipel.AUSTRALES,
+            archipel == Archipel.GAMBIERS,
+            archipel == Archipel.ILES_DU_VENT,
+            archipel == Archipel.ILES_SOUS_LE_VENT,
+            archipel == Archipel.MARQUISES,
+            archipel == Archipel.TUAMOTUS
+            ],
             [
                 taux_archipel_australes_pays,
                 taux_archipel_gambiers_pays,
@@ -41,7 +38,7 @@ class taux_archipel(Variable):
                 taux_archipel_iles_sous_le_vent_pays,
                 taux_archipel_marquises_pays,
                 taux_archipel_tuamotus_pays
-                ])
+            ])
 
 
 class taux_logement_social(Variable):
@@ -162,18 +159,42 @@ class taux_second_abattement(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-
         loue = local('loue', period, parameters)
         meuble = local('meuble', period, parameters)
         non_meuble = local('non_meuble', period, parameters)
         taux_second_abattement_si_non_loue = local('taux_second_abattement_si_non_loue', period, parameters)
         taux_second_abattement_si_loue_meuble = local('taux_second_abattement_si_loue_meuble', period, parameters)
-        taux_second_abattement_si_loue_non_meuble = local('taux_second_abattement_si_loue_non_meuble', period, parameters)
+        taux_second_abattement_si_loue_non_meuble = local('taux_second_abattement_si_loue_non_meuble', period,
+                                                          parameters)
         return numpy.select(
             [loue and meuble, loue and non_meuble],
             [taux_second_abattement_si_loue_meuble, taux_second_abattement_si_loue_non_meuble],
             taux_second_abattement_si_non_loue
             )
+
+
+class taux_premiere_exemption_temporaire(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 1.00
+    label = "Taux de la première exemption temporaire pour lequel les constructions nouvelles, reconstructions et additions de constructions ne sont pas soumises à l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        return local.pays('taux_premiere_exemption_temporaire_pays', period, parameters)
+
+
+class taux_seconde_exemption_temporaire(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0.50
+    label = "Taux de la seconde exemption temporaire pour lequel l'impôt foncier n'est établi que sur la moitié de la valeur locative de l'immeuble"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local, period, parameters):
+        return local.pays('taux_seconde_exemption_temporaire_pays', period, parameters)
 
 
 class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variable):
@@ -187,4 +208,135 @@ class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variabl
     def formula(local, period, parameters):
         taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays = local.pays('taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays', period, parameters)
         meuble_de_tourisme_est_eligible_et_demande_un_degrevement = local('meuble_de_tourisme_est_eligible_et_demande_un_degrevement', period, parameters)
-        return numpy.where(meuble_de_tourisme_est_eligible_et_demande_un_degrevement, taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays, 0)
+        return numpy.where(meuble_de_tourisme_est_eligible_et_demande_un_degrevement,
+                           taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays, 0)
+
+
+class date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si les dates sont valides afin d'obtenir l'exemption temporaire exceptionnelle, sinon False."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        return False
+
+    def formula_2022(local: Personne, period: Period, parameters: Parameter):
+        date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        date_permis_construire = local('date_permis_construire', period, parameters)
+
+        date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays = local.pays('date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays', period, parameters)
+        date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays = local.pays('date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays', period, parameters)
+
+        return date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays <= date_permis_construire and\
+            date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays >= date_certificat_conformite
+
+
+class acces_exemption_temporaire_exceptionnelle(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si les conditions sont remplis afin d'obtenir l'exemption temporaire exceptionnelle, sinon False."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        habitation_principale = local('habitation_principale', period, parameters)
+
+        duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
+        date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle = local('date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle', period, parameters)
+
+        nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+
+        return habitation_principale\
+            and date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle\
+            and nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays
+
+
+class taux_exemption_temporaire(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Taux de l'exemption temporaire pour lequel les constructions sont soumises à l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
+        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
+        date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
+        taux_premiere_exemption_temporaire = local('taux_premiere_exemption_temporaire', period, parameters)
+        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
+        taux_seconde_exemption_temporaire = local('taux_seconde_exemption_temporaire', period, parameters)
+
+        nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+
+        return numpy.select([
+            demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle,
+            nombre_annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
+            duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
+            ], [
+            taux_premiere_exemption_temporaire,
+            taux_premiere_exemption_temporaire,
+            taux_seconde_exemption_temporaire
+            ], 0)
+
+
+class duree_exemption_temporaire(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Durée de l'exemption temporaire en cours pour lequel les constructions sont soumises à l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
+        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
+        date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
+        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
+        duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
+
+        nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+
+        return numpy.select([
+            demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle,
+            nombre_annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays,
+            duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays)
+            ], [
+            duree_exemption_temporaire_exceptionnelle_pays,
+            duree_premiere_exemption_temporaire_pays,
+            duree_seconde_exemption_temporaire_pays
+            ], 0)
+
+
+class duree_exemption_temporaire_restante(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Années du total des exemptions temporaires restantes pour lequel les constructions sont soumises à l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
+        demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
+        date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
+        duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
+        duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
+
+        nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
+
+        return numpy.select([
+            demande_exemption_temporaire_exceptionnelle and acces_exemption_temporaire_exceptionnelle and duree_exemption_temporaire_exceptionnelle_pays > nombre_annee_depuis_date_certificat_conformite,
+            (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) > nombre_annee_depuis_date_certificat_conformite
+            ], [
+            duree_exemption_temporaire_exceptionnelle_pays - nombre_annee_depuis_date_certificat_conformite,
+            (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) - nombre_annee_depuis_date_certificat_conformite,
+            ], 0)
