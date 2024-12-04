@@ -245,25 +245,25 @@ class duree_exemption_temporaire_exceptionnelle_pays(Variable):
         return parameters(period).dicp.impot_foncier.taux.exemption.duree_exemption_temporaire_exceptionnelle
 
 
-class date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays(Variable):
-    value_type = int
+class date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays(Variable):
+    value_type = date
     entity = Pays
-    definition_period = DAY
-    default_value = 0
-    label = "En fonction de la date du permis de construire, le contribuable peut d'accéder à l'exemption temporaire exceptionnelle"
+    definition_period = YEAR
+    default_value = date(2023, 1, 1)
+    label = "Date minimum du permis de construire pour lequel le contribuable peut d'accéder à l'exemption temporaire exceptionnelle"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux.exemption.date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle
+    def formula_2022(pays, period, parameters):
+        return date(2023, 1, 1)
 
 
-class date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays(Variable):
-    value_type = int
+class date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays(Variable):
+    value_type = date
     entity = Pays
-    definition_period = DAY
-    default_value = 0
-    label = "En fonction de la date certificat de conformité, le contribuable peut d'accéder à l'exemption temporaire exceptionnelle"
+    definition_period = YEAR
+    default_value = date(2025, 12, 31)
+    label = "Date maximum du certificat de conformité pour lequel le contribuable peut d'accéder à l'exemption temporaire exceptionnelle"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(pays, period, parameters):
-        return parameters(period).dicp.impot_foncier.taux.exemption.date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle
+    def formula_2022(pays, period, parameters):
+        return date(2025, 12, 31)

@@ -273,3 +273,46 @@
     date_certificat_conformite: 2015-12-31
   output:
     duree_exemption_temporaire_restante: 0
+
+- name: "date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle true si date_certificat_conformite = 2025-12-31 et date_permis_construire = 2022-12-31"
+  period: 2024
+  input:
+    date_certificat_conformite: 2025-12-31
+    date_permis_construire: 2023-01-01
+  output:
+    date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle: True
+- name: "date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle true si date_certificat_conformite = 2025-12-31 et date_permis_construire = 2022-12-31"
+  period: 2022
+  input:
+    date_certificat_conformite: 2025-12-31
+    date_permis_construire: 2023-01-01
+  output:
+    date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle: True
+- name: "date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle false si date_certificat_conformite = 2026-01-01 et date_permis_construire = 2022-12-31"
+  period: 2024
+  input:
+    date_certificat_conformite: 2026-01-01
+    date_permis_construire: 2022-12-31
+  output:
+    date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle: False
+- name: "date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle false si date_certificat_conformite = 2025-12-31 et date_permis_construire = 2022-12-31"
+  period: 2024
+  input:
+    date_certificat_conformite: 2025-12-31
+    date_permis_construire: 2022-12-31
+  output:
+    date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle: False
+- name: "date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle false si date_certificat_conformite = 2026-01-01 et date_permis_construire = 2023-01-01"
+  period: 2024
+  input:
+    date_certificat_conformite: 2026-01-01
+    date_permis_construire: 2023-01-01
+  output:
+    date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle: False
+- name: "date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle False for period < 2022"
+  period: 2021
+  input:
+    date_certificat_conformite: 2025-12-31
+    date_permis_construire: 2023-01-01
+  output:
+    date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle: False

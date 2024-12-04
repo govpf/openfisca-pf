@@ -93,20 +93,12 @@
   output:
     duree_exemption_temporaire_exceptionnelle_pays: 10
 
-- name: "date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays est egale à 0"
-  period: "2022-12-31"
+- name: "date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays est egale à 2023-01-01"
+  period: 2024
   output:
-    date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays: 0
-- name: "date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays est egale à 1"
-  period: "2023-01-01"
-  output:
-    date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays: 1
+    date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays: 2023-01-01
 
-- name: "date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays est egale à 0"
-  period: "2026-01-01"
+- name: "date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays est egale à 2025-12-31"
+  period: 2024
   output:
-    date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays: 0
-- name: "date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays est egale à 1"
-  period: "2000-01-01"
-  output:
-    date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays: 1
+    date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays: 2025-12-31

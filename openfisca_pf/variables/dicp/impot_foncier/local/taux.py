@@ -211,6 +211,27 @@ class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variabl
         return numpy.where(meuble_de_tourisme_est_eligible_et_demande_un_degrevement,
                            taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays, 0)
 
+class date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si les dates sont valides afin d'obtenir l'exemption temporaire exceptionnelle, sinon False."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        return False
+
+    def formula_2022(local: Personne, period: Period, parameters: Parameter):
+        date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        date_permis_construire = local('date_permis_construire', period, parameters)
+
+        date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays = local.pays('date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays', period, parameters)
+        date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays = local.pays('date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays', period, parameters)
+
+        return date_minimum_permis_construire_pour_exemption_temporaire_exceptionnelle_pays <= date_permis_construire and\
+            date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays >= date_certificat_conformite
+
 
 class acces_exemption_temporaire_exceptionnelle(Variable):
     value_type = bool
@@ -222,17 +243,15 @@ class acces_exemption_temporaire_exceptionnelle(Variable):
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         date_certificat_conformite = local('date_certificat_conformite', period, parameters)
-        date_permis_construire = local('date_permis_construire', period, parameters)
-        date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays = local.pays('date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays', str(date_permis_construire[0]), parameters)
-        date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays = local.pays('date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays', str(date_certificat_conformite[0]), parameters)
-        duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
         habitation_principale = local('habitation_principale', period, parameters)
+
+        duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
+        date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle = local('date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle', period, parameters)
 
         nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return habitation_principale\
-            and date_permis_construire_donne_droit_exemption_temporaire_exceptionnelle_pays\
-            and date_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle_pays\
+            and date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle\
             and nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays
 
 

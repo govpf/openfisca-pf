@@ -1,0 +1,10 @@
+reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595
+
+taux_exoneration_permanente:
+  description: "Taux de l'exoneration permanente pour lequel les locaux ne sont pas soumises à l'impôt foncier"
+  metadata:
+    type: float
+    unit: /1
+  values:
+    1950-11-16:
+      value: 1.00
