@@ -361,3 +361,31 @@
   output:
     exemption_temporaire: 100
 
+- name: "exoneration_permanente est True si habitation_principale True et valeur_venale 500000"
+  period: 2024
+  input:
+    habitation_principale: True
+    valeur_venale: 500000
+  output:
+    exoneration_permanente: True
+- name: "exoneration_permanente est False si habitation_principale False et valeur_venale 500000"
+  period: 2024
+  input:
+    habitation_principale: False
+    valeur_venale: 500000
+  output:
+    exoneration_permanente: False
+- name: "exoneration_permanente est False si habitation_principale True et valeur_venale 500001"
+  period: 2024
+  input:
+    habitation_principale: True
+    valeur_venale: 500001
+  output:
+    exoneration_permanente: False
+- name: "exoneration_permanente est False si habitation_principale False et valeur_venale 500001"
+  period: 2024
+  input:
+    habitation_principale: False
+    valeur_venale: 500001
+  output:
+    exoneration_permanente: False

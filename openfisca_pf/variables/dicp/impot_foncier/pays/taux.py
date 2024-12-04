@@ -267,3 +267,15 @@ class date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnell
 
     def formula_2022(pays, period, parameters):
         return date(2025, 12, 31)
+
+
+class valeur_venale_maximum_pour_exoneration_permanente_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    default_value = 500000
+    label = "Valeur venale maximum pour obtenir l'exoneration permanente de l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(pays, period, parameters):
+        return parameters(period).dicp.impot_foncier.taux.exoneration.valeur_venale_maximum_pour_exoneration_permanente

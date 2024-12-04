@@ -415,3 +415,18 @@ class exemption_temporaire(Variable):
         valeur_locative = local('valeur_locative', period, parameters)
         taux_exemption_temporaire = local('taux_exemption_temporaire', period, parameters)
         return valeur_locative * taux_exemption_temporaire
+
+
+class exoneration_permanente(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True, si le local a le droit a une exoneration permanente de l'impôt foncier, sinon False"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        habitation_principale = local('habitation_principale', period, parameters)
+        valeur_venale = local('valeur_venale', period, parameters)
+        valeur_venale_maximum_pour_exoneration_permanente_pays = local.pays('valeur_venale_maximum_pour_exoneration_permanente_pays', period, parameters)
+        return habitation_principale and valeur_venale <= valeur_venale_maximum_pour_exoneration_permanente_pays

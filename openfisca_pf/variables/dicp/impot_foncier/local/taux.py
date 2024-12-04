@@ -110,7 +110,7 @@ class taux_premier_abattement(Variable):
     label = "Taux du premier abattement appliqué à la valeur locative pour calculer la base imposable de l'impôt foncier"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(local, period, parameters):
+    def formula(local: Personne, period: Period, parameters: Parameter):
         return local.pays('taux_premier_abattement_pays', period, parameters)
 
 
@@ -122,7 +122,7 @@ class taux_second_abattement_si_non_loue(Variable):
     label = "Taux du second abattement appliqué pour calculer la base imposable de l'impôt foncier si le local n'est pas loué"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(local, period, parameters):
+    def formula(local: Personne, period: Period, parameters: Parameter):
         return local.pays('taux_second_abattement_si_non_loue_pays', period, parameters)
 
 
@@ -134,7 +134,7 @@ class taux_second_abattement_si_loue_meuble(Variable):
     label = "Taux du second abattement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en meublé"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(local, period, parameters):
+    def formula(local: Personne, period: Period, parameters: Parameter):
         return local.pays('taux_second_abattement_si_loue_meuble_pays', period, parameters)
 
 
@@ -146,7 +146,7 @@ class taux_second_abattement_si_loue_non_meuble(Variable):
     label = "Taux du second abattement appliqué pour calculer la base imposable de l'impôt foncier si le local est loué en non-meublé"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(local, period, parameters):
+    def formula(local: Personne, period: Period, parameters: Parameter):
         return local.pays('taux_second_abattement_si_loue_non_meuble_pays', period, parameters)
 
 
@@ -181,7 +181,7 @@ class taux_premiere_exemption_temporaire(Variable):
     label = "Taux de la première exemption temporaire pour lequel les constructions nouvelles, reconstructions et additions de constructions ne sont pas soumises à l'impôt foncier"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(local, period, parameters):
+    def formula(local: Personne, period: Period, parameters: Parameter):
         return local.pays('taux_premiere_exemption_temporaire_pays', period, parameters)
 
 
@@ -193,8 +193,20 @@ class taux_seconde_exemption_temporaire(Variable):
     label = "Taux de la seconde exemption temporaire pour lequel l'impôt foncier n'est établi que sur la moitié de la valeur locative de l'immeuble"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(local, period, parameters):
+    def formula(local: Personne, period: Period, parameters: Parameter):
         return local.pays('taux_seconde_exemption_temporaire_pays', period, parameters)
+
+
+class valeur_venale_maximum_pour_exoneration_permanente(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 500000
+    label = "Valeur venale maximum pour obtenir l'exoneration permanente de l'impôt foncier"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(local: Personne, period: Period, parameters: Parameter):
+        return local.pays('valeur_venale_maximum_pour_exoneration_permanente_pays', period, parameters)
 
 
 class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variable):
@@ -205,7 +217,7 @@ class taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme(Variabl
     label = "Dégrèvement sur demande dans le cas d'une baisse de revenus d'un local loué en meublé de tourisme"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(local, period, parameters):
+    def formula(local: Personne, period: Period, parameters: Parameter):
         taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays = local.pays('taux_degrevement_pour_baisse_de_revenus_loue_en_meuble_de_tourisme_pays', period, parameters)
         meuble_de_tourisme_est_eligible_et_demande_un_degrevement = local('meuble_de_tourisme_est_eligible_et_demande_un_degrevement', period, parameters)
         return numpy.where(meuble_de_tourisme_est_eligible_et_demande_un_degrevement,
