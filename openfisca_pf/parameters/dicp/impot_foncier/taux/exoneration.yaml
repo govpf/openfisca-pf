@@ -1,10 +1,10 @@
 reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595
 
-taux_exoneration_permanente:
-  description: "Taux de l'exoneration permanente pour lequel les locaux ne sont pas soumises à l'impôt foncier"
+valeur_venale_maximum_pour_exoneration_permanente:
+  description: "Valeur venale maximum pour obtenir l'exoneration permanente de l'impôt foncier"
   metadata:
-    type: float
+    type: int
     unit: /1
   values:
     1950-11-16:
-      value: 1.00
+      value: 500000
