@@ -1,20 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
-
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# # Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
+from openfisca_core.model_api import Enum
 
 
 class UnitesDuree(Enum):
-    Heures = u'Heures'
-    Jours = u'Jours'
-    Mois = u'Mois'
-    Annees = u'Années'
+    Heures = 'Heures'
+    Jours = 'Jours'
+    Mois = 'Mois'
+    Annees = 'Années'
 
 
 class ZonesOccupations(Enum):
@@ -22,11 +15,11 @@ class ZonesOccupations(Enum):
     # The basic zoning is made using the average price of seaside terrain
     # A second zoning is on the airport frequentation
     # A last zoning is on polynesian archipelagos
-    zone_1 = u'Zone 1'
-    zone_2 = u'Zone 2'
-    zone_3 = u'Zone 3'
-    zone_4 = u'Zone 4'
-    zone_5 = u'Zone 5'
+    zone_1 = 'Zone 1'
+    zone_2 = 'Zone 2'
+    zone_3 = 'Zone 3'
+    zone_4 = 'Zone 4'
+    zone_5 = 'Zone 5'
 
 
 class TypesNatureEmprise(Enum):

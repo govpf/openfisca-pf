@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 # This file defines the base enum needed by our legislation.
-from openfisca_core.model_api import *
+
 import numpy
+from openfisca_core.model_api import Enum
 from openfisca_core.taxscales import MarginalRateTaxScale
 
 
@@ -66,13 +67,13 @@ def calculerBaseImposableVentesTranche(personne, period, tranche, impot):
     seuil_tranche_inferieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche}', period)
     ca = personne(f'base_imposable_{impot}_ventes', period)
     if tranche == nbTranches:
-        valeur = (select(
+        valeur = (numpy.select(
             [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
             [0, ca - seuil_tranche_inferieure],
             ))
     else:
         seuil_tranche_superieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche + 1}', period)
-        valeur = (select(
+        valeur = (numpy.select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
@@ -89,14 +90,14 @@ def calculerBaseImposablePrestationsTranche(personne, period, tranche, impot):
         caVenteTranche = 0
         for i in range(tranche, personne.pays(f'nombre_tranches_{impot}_ventes', period)[0] + 1):
             caVenteTranche += personne(f'base_imposable_{impot}_ventes_tranche_{i}', period) / 4
-        valeur = (select(
+        valeur = (numpy.select(
             [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche],
             ))
     else:
         caVenteTranche = personne(f'base_imposable_{impot}_ventes_tranche_{tranche}', period) / 4
         seuil_tranche_superieure = personne.pays(f'seuil_{impot}_prestations_tranche_{tranche + 1}', period)
-        valeur = (select(
+        valeur = (numpy.select(
             [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
             [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
             ))
