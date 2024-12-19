@@ -389,3 +389,61 @@
     valeur_venale: 500001
   output:
     exoneration_permanente: False
+- name: "exoneration_permanente est True si catégorie Logement et loué True et social True"
+  period: 2024
+  input:
+    categorie: LOGEMENT
+    social: True
+    loue: True
+  output:
+    exoneration_permanente: True
+- name: "exoneration_permanente est True si catégorie Mixte et loué True et social True"
+  period: 2024
+  input:
+    categorie: MIXTE
+    social: True
+    loue: True
+  output:
+    exoneration_permanente: False
+- name: "exoneration_permanente est True si catégorie Administratif et loué False"
+  period: 2024
+  input:
+    categorie: ADMINISTRATIF
+    loue: False
+  output:
+    exoneration_permanente: True
+- name: "exoneration_permanente est True si catégorie Administratif et loué True"
+  period: 2024
+  input:
+    categorie: ADMINISTRATIF
+    loue: True
+  output:
+    exoneration_permanente: False
+- name: "exoneration_permanente est True si catégorie Culte et loué False"
+  period: 2024
+  input:
+    categorie: CULTE
+    loue: False
+  output:
+    exoneration_permanente: True
+- name: "exoneration_permanente est True si catégorie Culte et loué True"
+  period: 2024
+  input:
+    categorie: CULTE
+    loue: True
+  output:
+    exoneration_permanente: False
+- name: "exoneration_permanente est True si catégorie Associatif et loué False"
+  period: 2024
+  input:
+    categorie: ASSOCIATIF
+    loue: False
+  output:
+    exoneration_permanente: True
+- name: "exoneration_permanente est True si catégorie Associatif et loué True"
+  period: 2024
+  input:
+    categorie: ASSOCIATIF
+    loue: True
+  output:
+    exoneration_permanente: False

@@ -129,3 +129,4 @@ COMMUNES_DES_TUAMOTUS = CommuneFiscale.encode(numpy.asarray([
     CommuneFiscale.TATAKOTO,
     CommuneFiscale.TUREIA
     ]))
+

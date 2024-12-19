@@ -12,12 +12,31 @@ class TypeLocation(Enum):
     MEUBLE_DE_TOURISME = "MEUBLE_DE_TOURISME"
     VILLA_DE_LUXE = "VILLA_DE_LUXE"
 
-
 MEUBLE_OU_NON_MEUBLE = TypeLocation.encode(numpy.asarray([
     TypeLocation.NON_MEUBLE,
     TypeLocation.MEUBLE
     ]))
 
+class TypeCategorie(Enum):
+    LOGEMENT = "Logement"
+    COMMERCE = "Commerce"
+    ADMINISTRATIF = "Administratif"
+    ASSOCIATIF = "Associatif"
+    PROFESSIONNEL = "Professionnel"
+    INDUSTRIEL = "Industriel"
+    AGRICOLE = "Agricole"
+    MIXTE = "Mixte"
+    CULTE = "Culte"
+    AUTRE = "Autre"
+
+class categorie(Variable):
+    value_type = Enum
+    possible_values = TypeCategorie
+    entity = Personne
+    definition_period = YEAR
+    default_value = TypeCategorie.LOGEMENT
+    label = "Catégorie de la construction"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
 class loue(Variable):
     value_type = bool
@@ -427,6 +446,18 @@ class exoneration_permanente(Variable):
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         habitation_principale = local('habitation_principale', period, parameters)
+        categorie = local('categorie', period, parameters)
+        social = local('social', period, parameters)
+        loue = local('loue', period, parameters)
+
         valeur_venale = local('valeur_venale', period, parameters)
         valeur_venale_maximum_pour_exoneration_permanente_pays = local.pays('valeur_venale_maximum_pour_exoneration_permanente_pays', period, parameters)
-        return habitation_principale and valeur_venale <= valeur_venale_maximum_pour_exoneration_permanente_pays
+        return numpy.where(
+            habitation_principale and valeur_venale <= valeur_venale_maximum_pour_exoneration_permanente_pays or
+            categorie == TypeCategorie.LOGEMENT and social and loue or
+            categorie == TypeCategorie.ADMINISTRATIF and not_(loue) or
+            categorie == TypeCategorie.CULTE and not_(loue) or
+            categorie == TypeCategorie.ASSOCIATIF and not_(loue),
+            True,
+            False
+        )
