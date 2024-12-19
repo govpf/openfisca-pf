@@ -317,27 +317,27 @@
   output:
     contribution_fonciere: 150
 
-- name: "base_imposable_apres_exemption_temporaire doit etre egale a la moitie de la valeur locative"
+- name: "base_imposable_apres_exemption doit etre egale a la moitie de la valeur locative"
   period: 2024
   input:
     valeur_locative: 100
     taux_exemption_temporaire: 0.50
   output:
-    base_imposable_apres_exemption_temporaire: 50
-- name: "base_imposable_apres_exemption_temporaire doit etre egale a la valeur locative"
+    base_imposable_apres_exemption: 50
+- name: "base_imposable_apres_exemption doit etre egale a la valeur locative"
   period: 2024
   input:
     valeur_locative: 100
     taux_exemption_temporaire: 0
   output:
-    base_imposable_apres_exemption_temporaire: 100
-- name: "base_imposable_apres_exemption_temporaire doit etre egale a 0"
+    base_imposable_apres_exemption: 100
+- name: "base_imposable_apres_exemption doit etre egale a 0"
   period: 2024
   input:
     valeur_locative: 100
     taux_exemption_temporaire: 1.00
   output:
-    base_imposable_apres_exemption_temporaire: 0
+    base_imposable_apres_exemption: 0
 
 - name: "exemption_temporaire doit etre egale a la moitie de la valeur locative"
   period: 2024
@@ -361,89 +361,89 @@
   output:
     exemption_temporaire: 100
 
-- name: "exoneration_permanente est True si habitation_principale True et valeur_venale 500000"
+- name: "exemption_permanente est True si habitation_principale True et valeur_venale 500000"
   period: 2024
   input:
     habitation_principale: True
     valeur_venale: 500000
   output:
-    exoneration_permanente: True
-- name: "exoneration_permanente est False si habitation_principale False et valeur_venale 500000"
+    exemption_permanente: True
+- name: "exemption_permanente est False si habitation_principale False et valeur_venale 500000"
   period: 2024
   input:
     habitation_principale: False
     valeur_venale: 500000
   output:
-    exoneration_permanente: False
-- name: "exoneration_permanente est False si habitation_principale True et valeur_venale 500001"
+    exemption_permanente: False
+- name: "exemption_permanente est False si habitation_principale True et valeur_venale 500001"
   period: 2024
   input:
     habitation_principale: True
     valeur_venale: 500001
   output:
-    exoneration_permanente: False
-- name: "exoneration_permanente est False si habitation_principale False et valeur_venale 500001"
+    exemption_permanente: False
+- name: "exemption_permanente est False si habitation_principale False et valeur_venale 500001"
   period: 2024
   input:
     habitation_principale: False
     valeur_venale: 500001
   output:
-    exoneration_permanente: False
-- name: "exoneration_permanente est True si catégorie Logement et loué True et social True"
+    exemption_permanente: False
+- name: "exemption_permanente est True si catégorie Logement et loué True et social True"
   period: 2024
   input:
     categorie: LOGEMENT
     social: True
     loue: True
   output:
-    exoneration_permanente: True
-- name: "exoneration_permanente est True si catégorie Mixte et loué True et social True"
+    exemption_permanente: True
+- name: "exemption_permanente est True si catégorie Mixte et loué True et social True"
   period: 2024
   input:
     categorie: MIXTE
     social: True
     loue: True
   output:
-    exoneration_permanente: False
-- name: "exoneration_permanente est True si catégorie Administratif et loué False"
+    exemption_permanente: False
+- name: "exemption_permanente est True si catégorie Administratif et loué False"
   period: 2024
   input:
     categorie: ADMINISTRATIF
     loue: False
   output:
-    exoneration_permanente: True
-- name: "exoneration_permanente est True si catégorie Administratif et loué True"
+    exemption_permanente: True
+- name: "exemption_permanente est True si catégorie Administratif et loué True"
   period: 2024
   input:
     categorie: ADMINISTRATIF
     loue: True
   output:
-    exoneration_permanente: False
-- name: "exoneration_permanente est True si catégorie Culte et loué False"
+    exemption_permanente: False
+- name: "exemption_permanente est True si catégorie Culte et loué False"
   period: 2024
   input:
     categorie: CULTE
     loue: False
   output:
-    exoneration_permanente: True
-- name: "exoneration_permanente est True si catégorie Culte et loué True"
+    exemption_permanente: True
+- name: "exemption_permanente est True si catégorie Culte et loué True"
   period: 2024
   input:
     categorie: CULTE
     loue: True
   output:
-    exoneration_permanente: False
-- name: "exoneration_permanente est True si catégorie Associatif et loué False"
+    exemption_permanente: False
+- name: "exemption_permanente est True si catégorie Associatif et loué False"
   period: 2024
   input:
     categorie: ASSOCIATIF
     loue: False
   output:
-    exoneration_permanente: True
-- name: "exoneration_permanente est True si catégorie Associatif et loué True"
+    exemption_permanente: True
+- name: "exemption_permanente est True si catégorie Associatif et loué True"
   period: 2024
   input:
     categorie: ASSOCIATIF
     loue: True
   output:
-    exoneration_permanente: False
+    exemption_permanente: False

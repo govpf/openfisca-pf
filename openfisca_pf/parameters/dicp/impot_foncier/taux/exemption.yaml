@@ -47,3 +47,12 @@ duree_exemption_temporaire_exceptionnelle:
       value: 0
     2022-12-13:
       value: 10
+
+valeur_venale_maximum_pour_exemption_permanente:
+  description: "Valeur venale maximum pour obtenir l'exemption permanente de l'impôt foncier"
+  metadata:
+    type: int
+    unit: /1
+  values:
+    1950-11-16:
+      value: 500000
