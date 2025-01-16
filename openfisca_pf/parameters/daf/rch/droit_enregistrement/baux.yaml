@@ -1,0 +1,18 @@
+description: Calcul du droit d'enregistrement pour les baux
+metadata:
+  type: single_amount
+  unit: year
+  reference: https://law.gov.example/basic-income/amount
+brackets:
+  - amount:
+      2018-01-01:
+        value: 0.01
+    threshold:
+      2018-01-01:
+        value: 0
+  - amount:
+      2018-01-01:
+        value: 0.01
+    threshold:
+      2018-01-01:
+        value: 18

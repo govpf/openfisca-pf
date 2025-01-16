@@ -12,7 +12,6 @@ from openfisca_pf.variables.daf.rch.enums.enums import *
 from openfisca_pf.base import *
 from numpy import logical_and
 
-
 class montant_droit_enregistrement(Variable):
     value_type = float
     entity = Personne
@@ -21,41 +20,42 @@ class montant_droit_enregistrement(Variable):
     reference = "A renseigner"
 
     def formula(personne, period, parameters):
-        # Variables
-        # type_demarche_rch = personne('type_demarche_rch', period)
-        type_acheteur_rch = personne('type_acheteur_rch', period)
-        type_bien_rch = personne('type_bien_rch', period)
-        valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
+        # possible formula functions
+        def acquisition_formula(personne, period, parameters):
+            type_acheteur_rch = personne('type_acheteur_rch', period)
+            type_bien_rch = personne('type_bien_rch', period)
+            valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
+            montant_droit_enregistrement = select([
+                type_bien_rch == TypeBien.Navire,
+                type_acheteur_rch == TypeAcheteur.DroitCommun,
+                logical_and(type_acheteur_rch == TypeAcheteur.PrimoAcquereur, type_bien_rch == TypeBien.TerrainNu),
+                logical_and(type_acheteur_rch == TypeAcheteur.PrimoAcquereur, type_bien_rch != TypeBien.TerrainNu)
+                ], [
+                    parameters(period).daf.rch.droit_enregistrement.vente_navire.calc(valeur_totale_bien_achat),
+                    parameters(period).daf.rch.droit_enregistrement.droit_commun.calc(valeur_totale_bien_achat),
+                    parameters(period).daf.rch.droit_enregistrement.primo_acquereur_terrain_nu.calc(valeur_totale_bien_achat),
+                    parameters(period).daf.rch.droit_enregistrement.primo_acquereur_terrain_bati.calc(valeur_totale_bien_achat)
+                    ])
+            return montant_droit_enregistrement
+        
+        def baux_formula(personne, period, parameters):
+            valeur_totale_bien_achat = personne('valeur_locative_bien', period)
+            duree_bail_annee = personne('duree_bail_annee', period)
+            scale = parameters(period).daf.rch.droit_enregistrement.baux
+            rate = scale.calc(duree_bail_annee)
+            return valeur_totale_bien_achat * rate
 
-        # # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
-        # nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_01_equipement_pays')
-        # variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
-        # nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
-        # Parameters
-        regime = select([
-            type_acheteur_rch == TypeAcheteur.DroitCommun,
-            logical_and(type_acheteur_rch == TypeAcheteur.PrimoAcquereur, type_bien_rch == TypeBien.TerrainNu),
-            logical_and(type_acheteur_rch == TypeAcheteur.PrimoAcquereur, type_bien_rch != TypeBien.TerrainNu)
-            ], [
-                'droit_commun',
-                'primo_acquereur_terrain_nu',
-                'primo_acquereur_terrain_bati'
-                ])
-
-        init = parameters(period).daf.rch.droit_enregistrement[regime].init
-        rate_0 = parameters(period).daf.rch.droit_enregistrement[regime].rate_0
-        threshold_1 = parameters(period).daf.rch.droit_enregistrement[regime].threshold_1
-        rate_1 = parameters(period).daf.rch.droit_enregistrement[regime].rate_1
-
-        # Calcul du montant
+        # retrieve the demarche type to select the formula
+        type_demarche = personne('type_demarche_rch', period)
+        
+        # compute the values using the correct formula
         montant_droit_enregistrement = select([
-            valeur_totale_bien_achat < threshold_1,
-            valeur_totale_bien_achat > threshold_1
-            ], [
-                init + rate_0 * valeur_totale_bien_achat,
-                init + rate_0 * threshold_1 + rate_1 * (valeur_totale_bien_achat - threshold_1),
-                ])
-
+            type_demarche == TypeDemarche.Acquisition,
+            type_demarche == TypeDemarche.Baux,
+        ], [
+            acquisition_formula(personne, period, parameters),
+            baux_formula(personne, period, parameters)
+        ])
         return montant_droit_enregistrement
 
 
@@ -147,7 +147,6 @@ class montant_total_a_payer(Variable):
         montant_total_a_payer = montant_droit_enregistrement + montant_droit_publicite + montant_taxe_publicite
 
         return montant_total_a_payer
-
 
 # class montant_base_redevance_domaniale_dossier(Variable):
 #     value_type = float

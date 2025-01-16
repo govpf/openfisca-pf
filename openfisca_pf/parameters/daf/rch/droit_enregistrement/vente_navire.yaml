@@ -1,0 +1,13 @@
+description: Calcul du droit d'enregistrement pour les ventes de navire
+metadata:
+  type: marginal_rate
+  threshold_unit: currency-XPF
+  rate_unit: /1
+  reference: https://law.gov.example/basic-income/amount
+brackets:
+  - rate:
+      2018-01-01:
+        value: 0.05
+    threshold:
+      2018-01-01:
+        value: 0

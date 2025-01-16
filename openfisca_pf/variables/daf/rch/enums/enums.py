@@ -26,6 +26,7 @@ class TypeBien(Enum):
     TerrainNu = u'Terrain Nu'
     TerrainBati = u'Terrain bâti'
     Appartement = u'Appartement'
+    Navire = u'Navire'
 
 
 class TypeParente(Enum):
