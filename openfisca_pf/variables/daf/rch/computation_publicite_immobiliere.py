@@ -73,7 +73,6 @@ class montant_taxe_publicite(Variable):
     def formula(personne, period, parameters):
         # Variables
         type_demarche = personne('type_demarche_rch', period)
-        type_bien_rch = personne('type_bien_rch', period)
 
         def acquisition_formula():
             valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
@@ -107,11 +106,20 @@ class montant_plus_value(Variable):
     reference = "A renseigner"
 
     def formula(personne, period, parameters):
-        #TODO
-        return
+        # Variables
+        valeur_plus_value_net = personne('valeur_plus_value_net', period)
+        duree_possession_annee = personne('duree_possession_annee', period)
+
+        # Parameters
+        rate = parameters(period).daf.rch.plus_values_immobiliere.calc(duree_possession_annee)
+
+        # Calcul du montant
+        return valeur_plus_value_net * rate
 
 
-
+# ===========================
+# ===========================
+# ===========================
 
 
 class montant_total_a_payer(Variable):

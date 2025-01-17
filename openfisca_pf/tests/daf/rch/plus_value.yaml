@@ -1,0 +1,49 @@
+- name: 1 - PlusValue - duree_possession_annee de moins de 5 ans
+  period: 2025-01-16
+  input:
+    valeur_plus_value_net: 600000
+    duree_possession_annee: 2
+  output:
+    montant_plus_value: 300000
+- name: 2 - PlusValue - 5 ans  <= duree_possession_annee < 6 ans
+  period: 2025-01-16
+  input:
+    valeur_plus_value_net: 1300000
+    duree_possession_annee: 5
+  output:
+    montant_plus_value: 260000
+- name: 3 - PlusValue - 6 ans  <= duree_possession_annee < 7 ans
+  period: 2025-01-16
+  input:
+    valeur_plus_value_net: 1500000
+    duree_possession_annee: 6
+  output:
+    montant_plus_value: 240000
+- name: 4 - PlusValue - 7 ans  <= duree_possession_annee < 8 ans
+  period: 2025-01-16
+  input:
+    valeur_plus_value_net: 1900000
+    duree_possession_annee: 7
+  output:
+    montant_plus_value: 228000
+- name: 5 - PlusValue - 8 ans  <= duree_possession_annee < 9 ans
+  period: 2025-01-16
+  input:
+    valeur_plus_value_net: 2200000
+    duree_possession_annee: 8
+  output:
+    montant_plus_value: 176000
+- name: 6 - PlusValue - 9 ans  <= duree_possession_annee < 10 ans
+  period: 2025-01-16
+  input:
+    valeur_plus_value_net: 2200000
+    duree_possession_annee: 9
+  output:
+    montant_plus_value: 88000
+- name: 7 - PlusValue - duree_possession_annee >= 10 ans
+  period: 2025-01-16
+  input:
+    valeur_plus_value_net: 2500000
+    duree_possession_annee: 10
+  output:
+    montant_plus_value: 0

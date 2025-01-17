@@ -74,3 +74,16 @@ class duree_bail_annee(Variable):
     default_value = 3
     definition_period = DAY
     label = "Durée du bail en année"
+
+class valeur_plus_value_net(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = DAY
+    label = "Valeur de la plus-value immobilière nette"
+
+class duree_possession_annee(Variable):
+    value_type = int
+    entity = Personne
+    default_value = 3
+    definition_period = DAY
+    label = "Durée de possession en année"
