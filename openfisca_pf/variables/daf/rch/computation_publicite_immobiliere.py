@@ -4,9 +4,7 @@
 # A variable is a property of an Entity such as a Person, a Household…
 # See https://openfisca.org/doc/key-concepts/variables.html
 
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
-# # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.rch.enums.enums import *
 from openfisca_pf.base import *
@@ -76,7 +74,8 @@ class montant_taxe_publicite(Variable):
 
         def acquisition_formula():
             valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
-            # Here we convert float value to a Fraction class to avoid potential floating-point precision errors when dealing with massive numbers
+            # Here we convert float value to a Fraction class to avoid potential floating-point precision errors 
+            # when dealing with very large or small numbers such as 0.001
             # https://docs.python.org/3/tutorial/floatingpoint.html
             rate = Fraction.from_float(parameters(period).daf.rch.taxe_publicite_immobiliere.acquisition.rate)
             return  valeur_totale_bien_achat * rate
