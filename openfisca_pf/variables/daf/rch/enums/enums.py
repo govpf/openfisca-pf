@@ -15,6 +15,7 @@ class TypeDemarche(Enum):
     Baux = u'Baux en régime normal'
     Acquisition = u'Acquisition ou vente'
     PlusValuesImmobiliere = u'Plus-values immobilières'
+    Navire = u'Cession de navire'
 
 
 class TypeAcheteur(Enum):
@@ -26,7 +27,6 @@ class TypeBien(Enum):
     TerrainNu = u'Terrain Nu'
     TerrainBati = u'Terrain bâti'
     Appartement = u'Appartement'
-    Navire = u'Navire'
 
 
 class TypeParente(Enum):

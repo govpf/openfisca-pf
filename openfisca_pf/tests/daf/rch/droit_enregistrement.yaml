@@ -56,7 +56,7 @@
 - name: 8 - ENR - Vente de navire
   period: 2025-01-16
   input:
-    type_bien_rch: Navire
+    type_demarche_rch: Navire
     valeur_totale_bien_achat: 5000000
   output:
     montant_droit_enregistrement: 250000
