@@ -11,6 +11,7 @@ from openfisca_pf.entities import *
 from openfisca_pf.variables.daf.rch.enums.enums import *
 from openfisca_pf.base import *
 from numpy import logical_and
+from fractions import Fraction
 
 class montant_droit_enregistrement(Variable):
     value_type = float
@@ -21,7 +22,7 @@ class montant_droit_enregistrement(Variable):
 
     def formula(personne, period, parameters):
         # possible formula functions
-        def acquisition_formula(personne, period, parameters):
+        def acquisition_formula():
             type_acheteur_rch = personne('type_acheteur_rch', period)
             type_bien_rch = personne('type_bien_rch', period)
             valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
@@ -38,7 +39,7 @@ class montant_droit_enregistrement(Variable):
                     ])
             return montant_droit_enregistrement
         
-        def baux_formula(personne, period, parameters):
+        def baux_formula():
             valeur_totale_bien_achat = personne('valeur_locative_bien', period)
             duree_bail_annee = personne('duree_bail_annee', period)
             scale = parameters(period).daf.rch.droit_enregistrement.baux
@@ -53,8 +54,8 @@ class montant_droit_enregistrement(Variable):
             type_demarche == TypeDemarche.Acquisition,
             type_demarche == TypeDemarche.Baux,
         ], [
-            acquisition_formula(personne, period, parameters),
-            baux_formula(personne, period, parameters)
+            acquisition_formula(),
+            baux_formula()
         ])
         return montant_droit_enregistrement
 
@@ -114,20 +115,30 @@ class montant_taxe_publicite(Variable):
 
     def formula(personne, period, parameters):
         # Variables
-        # type_demarche_rch = personne('type_demarche_rch', period)
-        valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
+        type_demarche = personne('type_demarche_rch', period)
+        type_bien_rch = personne('type_bien_rch', period)
 
-        # # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
-        # nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_01_equipement_pays')
-        # variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
-        # nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
-
-        rate = parameters(period).daf.rch.taxe_publicite_immobiliere.rate
+        def acquisition_formula():
+            valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
+            # Here we convert float value to a Fraction class to avoid potential floating-point precision errors when dealing with massive numbers
+            # https://docs.python.org/3/tutorial/floatingpoint.html
+            rate = Fraction.from_float(parameters(period).daf.rch.taxe_publicite_immobiliere.acquisition.rate)
+            return  valeur_totale_bien_achat * rate
+        
+        def baux_formula():
+            valeur_locative_bien = personne('valeur_locative_bien', period)
+            duree_bail_annee = personne('duree_bail_annee', period)
+            rate = parameters(period).daf.rch.taxe_publicite_immobiliere.baux.calc(duree_bail_annee)
+            return valeur_locative_bien * rate
 
         # Calcul du montant
-        montant_droit_publicite = rate * valeur_totale_bien_achat
-
-        return montant_droit_publicite
+        montant_taxe_publicite = select([
+            logical_and(type_demarche == TypeDemarche.Acquisition, type_bien_rch != TypeBien.Navire), type_demarche == TypeDemarche.Baux], [
+                acquisition_formula(),
+                baux_formula()
+            ]) 
+        
+        return montant_taxe_publicite
 
 
 class montant_total_a_payer(Variable):

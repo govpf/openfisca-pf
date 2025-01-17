@@ -1,0 +1,12 @@
+description: Taux de la taxe de publicité immobilière pour des baux
+metadata:
+  type: single_amount
+  unit: year
+  reference: https://law.gov.example/basic-income/amount
+brackets:
+  - amount:
+      2008-08-25:
+        value: 0.001
+    threshold:
+      2008-08-25:
+        value: 18

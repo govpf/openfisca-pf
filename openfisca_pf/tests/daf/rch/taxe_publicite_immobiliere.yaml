@@ -1,0 +1,62 @@
+- name: 1 - TPI - Vente de bien droit commun
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: DroitCommun
+    valeur_totale_bien_achat: 50000000
+  output:
+    montant_taxe_publicite: 50000
+- name: 2 - TPI - Vente de terrain nu au dessus de l'assiette (25 000 000)
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainNu
+    valeur_totale_bien_achat: 50000000
+  output:
+    montant_taxe_publicite: 50000
+- name: 3 - TPI - Vente de terrain nu en dessous de l'assiette (25 000 000)
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainNu
+    valeur_totale_bien_achat: 12000000
+  output:
+    montant_taxe_publicite: 12000
+- name: 4 - TPI - Vente de terrain bâti au dessus de l'assiette (40 000 000)
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainBati
+    valeur_totale_bien_achat: 50000000
+  output:
+    montant_taxe_publicite: 50000
+- name: 5 - TPI - Vente de terrain bâti en dessous de l'assiette (40 000 000)
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainBati
+    valeur_totale_bien_achat: 12000000
+  output:
+    montant_taxe_publicite: 12000
+- name: 6 - TPI - Bail de moins de 18 ans
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Baux
+    valeur_locative_bien: 2000000
+    duree_bail_annee: 6
+  output:
+    montant_taxe_publicite: 0
+- name: 7 - TPI - Bail de plus de 18 ans
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Baux
+    valeur_locative_bien: 19000000
+    duree_bail_annee: 20
+  output:
+    montant_taxe_publicite: 19000
+- name: 8 - TPI - Vente de navire
+  period: 2025-01-16
+  input:
+    type_bien_rch: Navire
+    valeur_totale_bien_achat: 5000000
+  output:
+    montant_taxe_publicite: 0
