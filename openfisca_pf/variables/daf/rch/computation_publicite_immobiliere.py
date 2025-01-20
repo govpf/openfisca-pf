@@ -11,6 +11,7 @@ from openfisca_pf.base import *
 from numpy import logical_and
 from fractions import Fraction
 
+
 class montant_droit_enregistrement(Variable):
     value_type = float
     entity = Personne
@@ -34,7 +35,7 @@ class montant_droit_enregistrement(Variable):
                     parameters(period).daf.rch.droit_enregistrement.primo_acquereur_terrain_bati.calc(valeur_totale_bien_achat)
                     ])
             return montant_droit_enregistrement
-        
+
         def navire_formula():
             valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
             return parameters(period).daf.rch.droit_enregistrement.vente_navire.calc(valeur_totale_bien_achat)
@@ -48,18 +49,18 @@ class montant_droit_enregistrement(Variable):
 
         # retrieve the demarche type to select the correct formula
         type_demarche = personne('type_demarche_rch', period)
-        
+
         # compute the values using the correct formula
         montant_droit_enregistrement = select([
             type_demarche == TypeDemarche.Acquisition,
             type_demarche == TypeDemarche.Baux,
-            type_demarche == TypeDemarche.Navire
-        ], [
+            type_demarche == TypeDemarche.Navire], [
             acquisition_formula(),
             baux_formula(),
-            navire_formula()
-        ])
+            navire_formula()])
+
         return montant_droit_enregistrement
+
 
 class montant_taxe_publicite(Variable):
     value_type = float
@@ -74,12 +75,12 @@ class montant_taxe_publicite(Variable):
 
         def acquisition_formula():
             valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
-            # Here we convert float value to a Fraction class to avoid potential floating-point precision errors 
+            # Here we convert float value to a Fraction class to avoid potential floating-point precision errors
             # when dealing with very large or small numbers such as 0.001
             # https://docs.python.org/3/tutorial/floatingpoint.html
             rate = Fraction.from_float(parameters(period).daf.rch.taxe_publicite_immobiliere.acquisition.rate)
-            return  valeur_totale_bien_achat * rate
-        
+            return valeur_totale_bien_achat * rate
+
         def baux_formula():
             valeur_locative_bien = personne('valeur_locative_bien', period)
             duree_bail_annee = personne('duree_bail_annee', period)
@@ -88,15 +89,14 @@ class montant_taxe_publicite(Variable):
 
         # Calcul du montant
         montant_taxe_publicite = select([
-                type_demarche == TypeDemarche.Acquisition, 
-                type_demarche == TypeDemarche.Baux
-            ], [
-                acquisition_formula(),
-                baux_formula()
-            ]) 
-        
+            type_demarche == TypeDemarche.Acquisition,
+            type_demarche == TypeDemarche.Baux], [
+            acquisition_formula(),
+            baux_formula()])
+
         return montant_taxe_publicite
-    
+
+
 class montant_plus_value(Variable):
     value_type = float
     entity = Personne

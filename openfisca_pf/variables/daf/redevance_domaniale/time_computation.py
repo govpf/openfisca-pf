@@ -88,15 +88,17 @@ class duree_occupation_redevance_domaniale_mois(Variable):
             )
         return value
 
+
 def dernier_jour_du_mois(mois: numpy.ndarray[int], jours: numpy.ndarray[int]):
     return jours == 31 or ((jours == 28 or jours == 29) and mois == 2)
+
 
 def fixer_dernier_jour_a_30(mois: numpy.ndarray[int], jours: numpy.ndarray[int]):
     return numpy.where(
         dernier_jour_du_mois(mois, jours),
         30,
-        jours
-    )
+        jours)
+
 
 class duree_comptable_entre_deux_dates(Variable):
     value_type = int
