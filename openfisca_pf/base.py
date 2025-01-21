@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # This file defines the base enum needed by our legislation.
-
 import numpy
-from openfisca_core.model_api import Enum
+from openfisca_core.model_api import *
 from openfisca_core.taxscales import MarginalRateTaxScale
 
 
