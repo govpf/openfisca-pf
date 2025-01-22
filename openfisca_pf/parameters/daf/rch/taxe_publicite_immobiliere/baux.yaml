@@ -5,8 +5,8 @@ metadata:
   reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1
 brackets:
   - amount:
-      2008-08-25:
+      2024-12-10:
         value: 0.001
     threshold:
-      2008-08-25:
+      2024-12-10:
         value: 18
