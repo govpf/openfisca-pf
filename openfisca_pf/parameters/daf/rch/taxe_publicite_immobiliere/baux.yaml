@@ -2,7 +2,7 @@ description: Taux de la taxe de publicité immobilière pour des baux
 metadata:
   type: single_amount
   unit: year
-  reference: https://law.gov.example/basic-income/amount
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1
 brackets:
   - amount:
       2008-08-25:

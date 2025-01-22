@@ -3,7 +3,7 @@ metadata:
   type: marginal_rate
   threshold_unit: currency-XPF
   rate_unit: /1
-  reference: https://law.gov.example/basic-income/amount
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1
 brackets:
   - rate:
       2018-01-01:

@@ -1,6 +1,6 @@
 description: Calcul du droit de publicité immobilière pour les primo-acquéreurs pour les terrains nus
 metadata:
-  reference: https://law.gov.example/basic-income/amount
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1
 init:
   description: Valeur minimal d'application du droit de publicité immobiliere
   values:
