@@ -13,11 +13,11 @@ from fractions import Fraction
 
 
 class montant_droit_enregistrement(Variable):
-    value_type = float
+    value_type = int
     entity = Personne
     definition_period = DAY
     label = "Montant des droits d'enregistrement"
-    reference = "A renseigner"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1"
 
     def formula(personne, period, parameters):
         # possible formula functions
@@ -64,11 +64,11 @@ class montant_droit_enregistrement(Variable):
 
 
 class montant_taxe_publicite(Variable):
-    value_type = float
+    value_type = int
     entity = Personne
     definition_period = DAY
-    label = "Montant de la taxe de publicité"
-    reference = "A renseigner"
+    label = "Montant de la taxe de publicité immobilière"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1"
 
     def formula(personne, period, parameters):
         # Variables
@@ -98,12 +98,12 @@ class montant_taxe_publicite(Variable):
         return montant_taxe_publicite
 
 
-class montant_plus_value(Variable):
-    value_type = float
+class montant_taxe_plus_value(Variable):
+    value_type = int
     entity = Personne
     definition_period = DAY
-    label = "Montant de la plus-value immobilière"
-    reference = "A renseigner"
+    label = "Montant de la taxe sur la plus-value immobilière"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1"
 
     def formula(personne, period, parameters):
         # Variables
@@ -115,73 +115,3 @@ class montant_plus_value(Variable):
 
         # Calcul du montant
         return arrondiSup(valeur_plus_value_net * rate)
-
-
-# ===========================
-# ===========================
-# ===========================
-
-
-class montant_total_a_payer(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = DAY
-    label = "Montant total à payer"
-    reference = "A renseigner"
-
-    def formula(personne, period, parameters):
-        # Variables
-        montant_droit_enregistrement = personne('montant_droit_enregistrement', period)
-        montant_droit_publicite = personne('montant_droit_publicite', period)
-        montant_taxe_publicite = personne('montant_taxe_publicite', period)
-
-        # Calcul du montant
-        montant_total_a_payer = montant_droit_enregistrement + montant_droit_publicite + montant_taxe_publicite
-
-        return montant_total_a_payer
-
-
-class montant_droit_publicite(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = DAY
-    label = "Montant des droits de publicité"
-    reference = "A renseigner"
-
-    def formula(personne, period, parameters):
-        # Variables
-        # type_demarche_rch = personne('type_demarche_rch', period)
-        type_acheteur_rch = personne('type_acheteur_rch', period)
-        type_bien_rch = personne('type_bien_rch', period)
-        valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
-
-        # # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
-        # nature_emprise_occupation_redevance_domaniale = where(type_calcul == '1', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ip_eco_01_equipement_pays')
-        # variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
-        # nombre_unite_redevance_domaniale = personne('nombre_unite_redevance_domaniale', period)
-        # Parameters
-        regime = select([
-            type_acheteur_rch == TypeAcheteur.DroitCommun,
-            logical_and(type_acheteur_rch == TypeAcheteur.PrimoAcquereur, type_bien_rch == TypeBien.TerrainNu),
-            logical_and(type_acheteur_rch == TypeAcheteur.PrimoAcquereur, type_bien_rch != TypeBien.TerrainNu)
-            ], [
-                'droit_commun',
-                'primo_acquereur_terrain_nu',
-                'primo_acquereur_terrain_bati'
-                ])
-
-        init = parameters(period).daf.rch.droit_publicite_immobiliere[regime].init
-        rate_0 = parameters(period).daf.rch.droit_publicite_immobiliere[regime].rate_0
-        threshold_1 = parameters(period).daf.rch.droit_publicite_immobiliere[regime].threshold_1
-        rate_1 = parameters(period).daf.rch.droit_publicite_immobiliere[regime].rate_1
-
-        # Calcul du montant
-        montant_droit_publicite = select([
-            valeur_totale_bien_achat < threshold_1,
-            valeur_totale_bien_achat > threshold_1
-            ], [
-                init + rate_0 * valeur_totale_bien_achat,
-                init + rate_0 * threshold_1 + rate_1 * (valeur_totale_bien_achat - threshold_1),
-                ])
-
-        return montant_droit_publicite

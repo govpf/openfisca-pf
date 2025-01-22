@@ -48,7 +48,7 @@ class type_bien_rch(Variable):
 
 
 class valeur_totale_bien_achat(Variable):
-    value_type = float
+    value_type = int
     entity = Personne
     definition_period = DAY
     label = "Valeur totale du bien à l'achat"
@@ -62,7 +62,7 @@ class valeur_totale_bien_vente(Variable):
 
 
 class valeur_locative_bien(Variable):
-    value_type = float
+    value_type = int
     entity = Personne
     definition_period = DAY
     label = "Valeur totale de location sur toute les années"
@@ -77,7 +77,7 @@ class duree_bail_annee(Variable):
 
 
 class valeur_plus_value_net(Variable):
-    value_type = float
+    value_type = int
     entity = Personne
     definition_period = DAY
     label = "Valeur de la plus-value immobilière nette"
