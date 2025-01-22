@@ -12,7 +12,7 @@
     duree_exemption_temporaire_restante: 0
     acces_exemption_temporaire_exceptionnelle: True
     valeur_locative: 600000
-    base_imposable_apres_exemption_temporaire: 0
+    base_imposable_apres_exemption: 0
     premier_abattement: 0
     base_imposable_apres_premier_abattement: 0
     second_abattement: 0

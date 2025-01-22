@@ -103,7 +103,7 @@
   output:
     date_maximum_certificat_conformite_pour_exemption_temporaire_exceptionnelle_pays: 2025-12-31
 
-- name: "valeur_venale_maximum_pour_exoneration_permanente_pays est egale à 500000"
+- name: "valeur_venale_maximum_pour_exemption_permanente_pays est egale à 500000"
   period: 2024
   output:
-    valeur_venale_maximum_pour_exoneration_permanente_pays: 500000
+    valeur_venale_maximum_pour_exemption_permanente_pays: 500000

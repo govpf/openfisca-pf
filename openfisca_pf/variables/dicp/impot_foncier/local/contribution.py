@@ -19,6 +19,29 @@ MEUBLE_OU_NON_MEUBLE = TypeLocation.encode(numpy.asarray([
     ]))
 
 
+class TypeCategorie(Enum):
+    LOGEMENT = "Logement"
+    COMMERCE = "Commerce"
+    ADMINISTRATIF = "Administratif"
+    ASSOCIATIF = "Associatif"
+    PROFESSIONNEL = "Professionnel"
+    INDUSTRIEL = "Industriel"
+    AGRICOLE = "Agricole"
+    MIXTE = "Mixte"
+    CULTE = "Culte"
+    AUTRE = "Autre"
+
+
+class categorie(Variable):
+    value_type = Enum
+    possible_values = TypeCategorie
+    entity = Personne
+    definition_period = YEAR
+    default_value = TypeCategorie.LOGEMENT
+    label = "Catégorie de la construction"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
 class loue(Variable):
     value_type = bool
     entity = Personne
@@ -291,7 +314,7 @@ class valeur_locative(Variable):
             )
 
 
-class base_imposable_apres_exemption_temporaire(Variable):
+class base_imposable_apres_exemption(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -302,7 +325,8 @@ class base_imposable_apres_exemption_temporaire(Variable):
     def formula(local: Personne, period: Period, parameters: Parameter):
         valeur_locative = local('valeur_locative', period, parameters)
         taux_exemption_temporaire = local('taux_exemption_temporaire', period, parameters)
-        return valeur_locative * (1.0 - taux_exemption_temporaire)
+        exemption_permanente = local('exemption_permanente', period, parameters)
+        return numpy.where(exemption_permanente, 0, valeur_locative * (1.0 - taux_exemption_temporaire))
 
 
 class base_imposable_apres_premier_abattement(Variable):
@@ -314,9 +338,9 @@ class base_imposable_apres_premier_abattement(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        base_imposable_apres_exemption_temporaire = local('base_imposable_apres_exemption_temporaire', period, parameters)
+        base_imposable_apres_exemption = local('base_imposable_apres_exemption', period, parameters)
         taux_premier_abattement = local('taux_premier_abattement', period, parameters)
-        return base_imposable_apres_exemption_temporaire * (1.0 - taux_premier_abattement)
+        return base_imposable_apres_exemption * (1.0 - taux_premier_abattement)
 
 
 class base_imposable(Variable):
@@ -384,9 +408,9 @@ class premier_abattement(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
-        base_imposable_apres_exemption_temporaire = local('base_imposable_apres_exemption_temporaire', period, parameters)
+        base_imposable_apres_exemption = local('base_imposable_apres_exemption', period, parameters)
         taux_premier_abattement = local('taux_premier_abattement', period, parameters)
-        return base_imposable_apres_exemption_temporaire * taux_premier_abattement
+        return base_imposable_apres_exemption * taux_premier_abattement
 
 
 class second_abattement(Variable):
@@ -417,16 +441,26 @@ class exemption_temporaire(Variable):
         return valeur_locative * taux_exemption_temporaire
 
 
-class exoneration_permanente(Variable):
+class exemption_permanente(Variable):
     value_type = bool
     entity = Personne
     definition_period = YEAR
     default_value = False
-    label = "True, si le local a le droit a une exoneration permanente de l'impôt foncier, sinon False"
+    label = "True, si le local a le droit a une exemption permanente de l'impôt foncier, sinon False"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula(local: Personne, period: Period, parameters: Parameter):
         habitation_principale = local('habitation_principale', period, parameters)
+        categorie = local('categorie', period, parameters)
+        social = local('social', period, parameters)
+        loue = local('loue', period, parameters)
         valeur_venale = local('valeur_venale', period, parameters)
-        valeur_venale_maximum_pour_exoneration_permanente_pays = local.pays('valeur_venale_maximum_pour_exoneration_permanente_pays', period, parameters)
-        return habitation_principale and valeur_venale <= valeur_venale_maximum_pour_exoneration_permanente_pays
+        valeur_venale_maximum_pour_exemption_permanente_pays = local.pays('valeur_venale_maximum_pour_exemption_permanente_pays', period, parameters)
+        return numpy.where(
+            habitation_principale and valeur_venale <= valeur_venale_maximum_pour_exemption_permanente_pays
+            or categorie == TypeCategorie.LOGEMENT and social and loue
+            or categorie == TypeCategorie.ADMINISTRATIF and not_(loue)
+            or categorie == TypeCategorie.CULTE and not_(loue)
+            or categorie == TypeCategorie.ASSOCIATIF and not_(loue),
+            True,
+            False)

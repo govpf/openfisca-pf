@@ -122,12 +122,12 @@
   output:
     taux_seconde_exemption_temporaire: 0.50
 
-- name: "valeur_venale_maximum_pour_exoneration_permanente est egale à 500000"
+- name: "valeur_venale_maximum_pour_exemption_permanente est egale à 500000"
   period: 2024
   input:
-    valeur_venale_maximum_pour_exoneration_permanente_pays: 500000
+    valeur_venale_maximum_pour_exemption_permanente_pays: 500000
   output:
-    valeur_venale_maximum_pour_exoneration_permanente: 500000
+    valeur_venale_maximum_pour_exemption_permanente: 500000
 
 - name: "acces_exemption_temporaire_exceptionnelle doit etre egale a True si date_permis_construire > 31/12/2022 et date_maximum_certificat_conformite < 31/12/2025 et demande_exemption_temporaire_exceptionnelle est True et nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays"
   period: 2024
