@@ -1,0 +1,10 @@
+reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595
+
+valeur_venale_maximum_pour_exoneration_permanente:
+  description: "Valeur venale maximum pour obtenir l'exoneration permanente de l'impôt foncier"
+  metadata:
+    type: int
+    unit: /1
+  values:
+    1950-11-16:
+      value: 500000

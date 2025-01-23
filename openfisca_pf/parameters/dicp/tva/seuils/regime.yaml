@@ -1,21 +1,21 @@
 description: Seuils des régimes de TVA
 metadata:
-  reference: https://law.gov.example/basic-income/amount
+  reference: https://www.impot-polynesie.gov.pf/code/7-chap-vii-regimes-dimposition
 franchise_en_base:
   description: En dessous de ce seuil, l'entreprise est éligible à la franchise en base
   values:
     2018-01-01: 5000000
-regime_simplifie:
+simplifie:
   description: En dessous de ce seuil, l'entreprise est éligible au régime simplifié
   activite_commerciale:
-    description: Seuil poru les entreprises exercant une activité commerciale
+    description: Seuil pour les entreprises exercant une activité commerciale
     values:
       2018-01-01: 15000000
   activite_prestation:
-    description: Seuil poru les entreprises exercant une activité de prestation
+    description: Seuil pour les entreprises exercant une activité de prestation
     values:
       2018-01-01: 6000000
-regime_reel_trimestriel:
+reel_trimestriel:
   description: En dessous de ce seuil, l'entreprise est éligible au régime réel trimestriel. Au dessus, il est au régime réel mensuel
   values:
     2018-01-01: 150000000

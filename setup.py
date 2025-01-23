@@ -4,9 +4,9 @@ from setuptools import setup, find_packages
 
 setup(
     name = "OpenFisca-PF",
-    version = "0.6.2",
-    author = "SIPf",
-    author_email = "matthieu.bosc@informatique.gov.pf",
+    version = "0.8.0",
+    author = "DSI",
+    author_email = "matthieu.bosc@administraction.gov.pf;philippe.perezdesanroman@administraction.gov.pf",
     classifiers = [
         "Development Status :: 1 - Planning",
         "License :: OSI Approved :: GNU Affero General Public License v3",

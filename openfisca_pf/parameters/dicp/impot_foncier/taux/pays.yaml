@@ -1,0 +1,7 @@
+description: "Taux permettant de calculer la part pays de la contribution à l'impôt foncier"
+metadata:
+  type: float
+  unit: /1
+values:
+  2021-12-27:
+    value: 0.1
