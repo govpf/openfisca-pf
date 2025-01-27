@@ -43,7 +43,7 @@ class taux_tva_normal(Variable):
     value_type = float
     entity = Pays
     definition_period = MONTH
-    label = u"Taux de TVA réduit"
+    label = u"Taux de TVA normal"
     unit = units.PER_ONE
     set_input = set_input_divide_by_period
     reference = [
@@ -92,7 +92,7 @@ class taux_tva_normal_annee(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
-    label = u"Taux de TVA réduit défini annuellement"
+    label = u"Taux de TVA normal défini annuellement"
     unit = units.PER_ONE
     set_input = set_input_divide_by_period
     reference = [
@@ -102,3 +102,28 @@ class taux_tva_normal_annee(Variable):
 
     def formula(pays, period, parameters):
         return (parameters(period).dicp.tva.taux.normal)
+
+class taux_tva_livraisons_immeubles_et_cession_parts(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = MONTH
+    label = u"Taux de TVA livraisons d'immeubles et cession de parts"
+    unit = units.PER_ONE
+    set_input = set_input_divide_by_period
+    reference = []
+
+    def formula(pays, period, parameters):
+        taux_annee = pays('taux_tva_livraisons_immeubles_et_cession_parts_annee', period.this_year, parameters)
+        return where(taux_annee, taux_annee, parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts)
+
+class taux_tva_livraisons_immeubles_et_cession_parts_annee(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Taux de TVA livraisons d'immeubles et cession de parts défini annuellement"
+    unit = units.PER_ONE
+    set_input = set_input_divide_by_period
+    reference = []
+
+    def formula(pays, period, parameters):
+        return (parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts)

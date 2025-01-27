@@ -13,3 +13,7 @@ normal:
   description: Taux normal de TVA
   values:
     2001-12-11: 0.16
+livraisons_immeubles_et_cession_parts:
+  description: Taux livraisons d'immeubles et cession de parts
+  values:
+    2025-01-01: 0.09

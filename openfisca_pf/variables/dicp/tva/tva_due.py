@@ -45,3 +45,17 @@ class tva_due_taux_normal(Variable):
         base_imposable = personne('base_imposable_tva_taux_normal', period)
         taux = personne.pays('taux_tva_normal', period)
         return arrondiSup(base_imposable * taux)
+
+
+class tva_due_taux_livraisons_immeubles_et_cession_parts(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = MONTH
+    label = u"Montant de TVA dûe au taux livraisons d'immeubles et cession de parts"
+    set_input = set_input_dispatch_by_period
+    unit = units.XPF
+
+    def formula(personne, period, parameters):
+        base_imposable = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period)
+        taux = personne.pays('taux_tva_livraisons_immeubles_et_cession_parts', period)
+        return arrondiSup(base_imposable * taux)
