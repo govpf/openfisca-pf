@@ -302,3 +302,42 @@
     tva_deductible: 459616
     tva_nette_due: 1562566
     credit_tva: 0
+- name: 17
+  period: 2024-12
+  input:
+    montant_ventes_hors_taxes: 3000000
+    base_imposable_tva_taux_reduit: 1000000
+    base_imposable_tva_taux_intermediaire: 1000000
+    base_imposable_tva_taux_normal: 1000000
+  output:
+    tva_due_taux_reduit: 50000
+    tva_due_taux_intermediaire: 130000
+    tva_due_taux_normal: 160000
+    entrants_tva_valides: true
+- name: 18
+  period: 2025-01
+  input:
+    montant_ventes_hors_taxes: 4000000
+    base_imposable_tva_taux_reduit: 1000000
+    base_imposable_tva_taux_intermediaire: 1000000
+    base_imposable_tva_taux_normal: 1000000
+    base_imposable_tva_taux_livraisons_immeubles_et_cession_parts: 1000000
+  output:
+    tva_due_taux_reduit: 50000
+    tva_due_taux_intermediaire: 130000
+    tva_due_taux_normal: 160000
+    tva_due_taux_livraisons_immeubles_et_cession_parts: 90000
+    entrants_tva_valides: true
+- name: 19
+  period: 2025-01
+  input:
+    montant_ventes_hors_taxes: 4000000
+    base_imposable_tva_taux_reduit: 1000000
+    base_imposable_tva_taux_intermediaire: 1000000
+    base_imposable_tva_taux_normal: 1000000
+  output:
+    tva_due_taux_reduit: 50000
+    tva_due_taux_intermediaire: 130000
+    tva_due_taux_normal: 160000
+    tva_due_taux_livraisons_immeubles_et_cession_parts: 0
+    entrants_tva_valides: false

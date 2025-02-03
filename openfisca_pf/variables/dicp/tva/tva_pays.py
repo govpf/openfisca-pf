@@ -53,6 +53,18 @@ class tva_due_taux_intermediaire_pays(Variable):
         return pays.sum(tva_due_taux_intermediaire_pays)
 
 
+class tva_due_taux_livraisons_immeubles_et_cession_parts_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = MONTH
+    label = u"Montant total de TVA due en taux livraisons d'immeubles et cession de parts par les entreprises du pays"
+    unit = units.XPF
+
+    def formula(pays, period, parameters):
+        tva_due_taux_livraisons_immeubles_et_cession_parts_pays = pays.members('tva_due_taux_livraisons_immeubles_et_cession_parts', period)
+        return pays.sum(tva_due_taux_livraisons_immeubles_et_cession_parts_pays)
+
+
 class tva_due_taux_normal_pays(Variable):
     value_type = float
     entity = Pays
@@ -123,3 +135,14 @@ class tva_due_taux_normal_pays_annee(Variable):
     def formula(pays, period, parameters):
         tva_due_taux_normal_pays_annee = pays('tva_due_taux_normal_pays', period, options = [ADD])
         return tva_due_taux_normal_pays_annee
+
+class tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Montant total de TVA due en taux livraisons d'immeubles et cession de parts par les entreprises du pays sur l'année"
+    unit = units.XPF
+
+    def formula(pays, period, parameters):
+        tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee = pays('tva_due_taux_livraisons_immeubles_et_cession_parts_pays', period, options = [ADD])
+        return tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee

@@ -10,7 +10,7 @@ class base_imposable_tva_taux_reduit(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = u"Base imposable de la TVA à taux réduit"
+    label = "Base imposable de la TVA à taux réduit"
     unit = units.XPF
     reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
 
@@ -20,7 +20,7 @@ class base_imposable_tva_taux_intermediaire(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = u"Base imposable de la TVA à taux intermediaire"
+    label = "Base imposable de la TVA à taux intermediaire"
     unit = units.XPF
     reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
 
@@ -30,17 +30,25 @@ class base_imposable_tva_taux_normal(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = u"Base imposable de la TVA à taux normal"
+    label = "Base imposable de la TVA à taux normal"
     unit = units.XPF
     reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
 
+class base_imposable_tva_taux_livraisons_immeubles_et_cession_parts(Variable):
+    value_type = float
+    default_value = 0
+    entity = Personne
+    definition_period = MONTH
+    set_input = set_input_divide_by_period
+    label = "Base imposable de la TVA à taux des livraisons d'immeubles et de cession de parts"
+    unit = units.XPF
 
 class montant_ventes_hors_taxes(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = u"Montant des ventes réalisées, hors taxes"
+    label = "Montant des ventes réalisées, hors taxes"
     unit = units.XPF
 
 
@@ -49,7 +57,7 @@ class montant_prestations_services_hors_taxes(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = u"Montant des prestations de dervices réalisées, hors taxes"
+    label = "Montant des prestations de services réalisées, hors taxes"
     unit = units.XPF
 
 
@@ -58,7 +66,7 @@ class montant_exportations_non_taxables(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = u"Montant des exportations, qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA."
+    label = "Montant des exportations, qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA."
     unit = units.XPF
 
 
@@ -67,7 +75,7 @@ class montant_autres_operations_non_taxables(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = u"Montant des autres opérations qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA."
+    label = "Montant des autres opérations qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA."
     unit = units.XPF
 
 
@@ -75,7 +83,7 @@ class sous_total_base_imposable(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Somme des bases imposables
     """
     unit = units.XPF
@@ -86,12 +94,19 @@ class sous_total_base_imposable(Variable):
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
         return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
 
+    def formula_2025(personne, period, parameters):
+        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
+        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
+        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
+        base_imposable_tva_taux_livraisons_immeubles_et_cession_parts = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period, parameters)
+        return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal + base_imposable_tva_taux_livraisons_immeubles_et_cession_parts
+
 
 class sous_total_operations(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Somme des opérations
     """
     unit = units.XPF
@@ -106,7 +121,7 @@ class entrants_tva_valides(Variable):
     value_type = bool
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Boolean indiquant si les montant des trois bases imposables sont cohérent
     avec les montants des ventes et des prestations de services réalisées
     """
