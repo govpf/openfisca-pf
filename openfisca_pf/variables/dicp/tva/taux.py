@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from openfisca_pf.base import *
 from openfisca_pf.constants import units
 from openfisca_pf.entities import *
-from openfisca_pf.base import *
 
 
 class taux_tva_reduit(Variable):
@@ -103,6 +103,7 @@ class taux_tva_normal_annee(Variable):
     def formula(pays, period, parameters):
         return (parameters(period).dicp.tva.taux.normal)
 
+
 class taux_tva_livraisons_immeubles_et_cession_parts(Variable):
     value_type = float
     entity = Pays
@@ -115,6 +116,7 @@ class taux_tva_livraisons_immeubles_et_cession_parts(Variable):
     def formula(pays, period, parameters):
         taux_annee = pays('taux_tva_livraisons_immeubles_et_cession_parts_annee', period.this_year, parameters)
         return where(taux_annee, taux_annee, parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts)
+
 
 class taux_tva_livraisons_immeubles_et_cession_parts_annee(Variable):
     value_type = float

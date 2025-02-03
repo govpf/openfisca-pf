@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from openfisca_pf.base import *
 from openfisca_pf.constants import units
 from openfisca_pf.entities import *
-from openfisca_pf.base import *
 
 
 class regularisation_autre_tva_exigible(Variable):
@@ -19,9 +19,7 @@ class sous_total_tva_exigible(Variable):
     entity = Personne
     definition_period = MONTH
     unit = units.XPF
-    label = """Montant de TVA exigible : 
-    #tva_exigible = #tva_due_taux_reduit + #tva_due_taux_intermediaire + #tva_due_taux_normal + #tva_due_taux_livraisons_immeubles_et_cession_parts + #regularisation_tva_exigible
-    """
+    label = "Montant de TVA exigible : \n\n#tva_exigible = #tva_due_taux_reduit + #tva_due_taux_intermediaire + #tva_due_taux_normal + #tva_due_taux_livraisons_immeubles_et_cession_parts + #regularisation_tva_exigible"
 
     def formula(personne, period, parameters):
         tva_due_taux_reduit = personne('tva_due_taux_reduit', period)

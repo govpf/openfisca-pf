@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+from openfisca_pf.base import *
 from openfisca_pf.constants import units
 from openfisca_pf.entities import *
-from openfisca_pf.base import *
 
 
 class tva_nette_due_total_pays(Variable):
@@ -135,6 +135,7 @@ class tva_due_taux_normal_pays_annee(Variable):
     def formula(pays, period, parameters):
         tva_due_taux_normal_pays_annee = pays('tva_due_taux_normal_pays', period, options = [ADD])
         return tva_due_taux_normal_pays_annee
+
 
 class tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee(Variable):
     value_type = float

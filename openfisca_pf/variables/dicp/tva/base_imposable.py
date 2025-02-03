@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from openfisca_core.model_api import *
-from openfisca_pf.entities import *
+
 from openfisca_pf.constants import units
+from openfisca_pf.entities import *
 
 
 class base_imposable_tva_taux_reduit(Variable):
@@ -34,6 +35,7 @@ class base_imposable_tva_taux_normal(Variable):
     unit = units.XPF
     reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
 
+
 class base_imposable_tva_taux_livraisons_immeubles_et_cession_parts(Variable):
     value_type = float
     default_value = 0
@@ -42,6 +44,7 @@ class base_imposable_tva_taux_livraisons_immeubles_et_cession_parts(Variable):
     set_input = set_input_divide_by_period
     label = "Base imposable de la TVA à taux des livraisons d'immeubles et de cession de parts"
     unit = units.XPF
+
 
 class montant_ventes_hors_taxes(Variable):
     value_type = float
