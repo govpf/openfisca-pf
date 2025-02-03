@@ -69,9 +69,10 @@ python3 -m pip install --upgrade pip
 
 #### Install Openfisca Core.
 
-This will install the python package, and add the two scripts we mentioned above to the python scripts directory.
+Currently Openfisca PF needs version 40.0.0 !
+The follocing command will install the python package, and add the two scripts we mentioned above to the python scripts directory.
 ```bash
-pip3 install openfisca-core[web-api]
+pip3 install openfisca-core[web-api]==40.0.0
 ```
 
 #### Patch OpenFisca Core
