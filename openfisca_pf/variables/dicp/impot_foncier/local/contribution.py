@@ -51,6 +51,15 @@ class loue(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
 
+class occupation_avant_fin_de_travaux(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le local est occupé avant la date de fin de travaux, False sinon."
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
 class habitation_principale(Variable):
     value_type = bool
     entity = Personne
