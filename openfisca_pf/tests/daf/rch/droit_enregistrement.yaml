@@ -42,7 +42,7 @@
   input:
     type_demarche_rch: Baux
     valeur_locative_bien: 2000000
-    duree_bail_annee: 6
+    duree_bail_mois: 6
   output:
     montant_droit_enregistrement: 20000
 - name: 7 - ENR - Bail de plus de 18 ans
@@ -50,7 +50,7 @@
   input:
     type_demarche_rch: Baux
     valeur_locative_bien: 19000000
-    duree_bail_annee: 20
+    duree_bail_mois: 20
   output:
     montant_droit_enregistrement: 190000
 - name: 8 - ENR - Vente de navire

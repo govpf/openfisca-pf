@@ -37,23 +37,31 @@
     valeur_totale_bien_achat: 12000000
   output:
     montant_taxe_publicite: 12000
-- name: 6 - TPI - Bail de moins de 18 ans
+- name: 6 - TPI - Bail de moins de 18 ans (216 mois)
   period: 2025-01-16
   input:
     type_demarche_rch: Baux
     valeur_locative_bien: 2000000
-    duree_bail_annee: 6
+    duree_bail_mois: 215
   output:
     montant_taxe_publicite: 0
-- name: 7 - TPI - Bail de plus de 18 ans
+- name: 7 - TPI - Bail de plus de 18 ans (216 mois)
   period: 2025-01-16
   input:
     type_demarche_rch: Baux
     valeur_locative_bien: 19000000
-    duree_bail_annee: 20
+    duree_bail_mois: 217
   output:
     montant_taxe_publicite: 19000
-- name: 8 - TPI - Vente de navire
+- name: 8 - TPI - Bail égal à 18 ans (216 mois)
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Baux
+    valeur_locative_bien: 19000000
+    duree_bail_mois: 216
+  output:
+    montant_taxe_publicite: 19000
+- name: 9 - TPI - Vente de navire
   period: 2025-01-16
   input:
     type_demarche_rch: Navire

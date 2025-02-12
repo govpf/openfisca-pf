@@ -68,12 +68,12 @@ class valeur_locative_bien(Variable):
     label = "Valeur totale de location sur toute les années"
 
 
-class duree_bail_annee(Variable):
+class duree_bail_mois(Variable):
     value_type = int
     entity = Personne
     default_value = 3
     definition_period = DAY
-    label = "Durée du bail en année"
+    label = "Durée du bail en mois"
 
 
 class valeur_plus_value_net(Variable):

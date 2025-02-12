@@ -29,7 +29,7 @@ En cas d'erreurs quelconques lors du calcul, une erreur 500 sera renvoyée
 -   `type_acheteur_rch` : `DroitCommun`, `PrimoAcquereur`
 -   `type_bien_rch` : `TerrainNu`, `TerrainBati` (type du bien à définir pour les primo-acquéreurs)
 -   `valeur_totale_bien_achat` : `int` (valeur du bien pour les acquisitions et cessions de navire)
--   `duree_bail_annee` : `int` (durée en années du bail)
+-   `duree_bail_mois` : `int` (durée en mois du bail)
 -   `valeur_locative_bien` : `int`
 
 #### Exemples
@@ -97,7 +97,7 @@ En cas d'erreurs quelconques lors du calcul, une erreur 500 sera renvoyée
       "type_demarche_rch": {
         "2025-03-01": "Baux"
       },
-      "duree_bail_annee": {
+      "duree_bail_mois": {
         "2025-03-01": 12
       },
       "valeur_locative_bien": {
@@ -141,7 +141,7 @@ En cas d'erreurs quelconques lors du calcul, une erreur 500 sera renvoyée
 -   `type_acheteur_rch` : `DroitCommun`, `PrimoAcquereur`
 -   `type_bien_rch` : `TerrainNu`, `TerrainBati` (type du bien à définir pour les primo-acquéreurs)
 -   `valeur_totale_bien_achat` : `int` (valeur du bien pour les acquisitions)
--   `duree_bail_annee` : `int` (durée en années du bail)
+-   `duree_bail_mois` : `int` (durée en années du bail)
 -   `valeur_locative_bien` : `int`
 
 #### Exemples
@@ -209,7 +209,7 @@ En cas d'erreurs quelconques lors du calcul, une erreur 500 sera renvoyée
       "type_demarche_rch": {
         "2025-03-01": "Baux"
       },
-      "duree_bail_annee": {
+      "duree_bail_mois": {
         "2025-03-01": 12
       },
       "valeur_locative_bien": {
