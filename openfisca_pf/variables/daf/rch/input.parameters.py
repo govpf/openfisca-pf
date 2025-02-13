@@ -65,7 +65,7 @@ class valeur_locative_bien(Variable):
     value_type = int
     entity = Personne
     definition_period = DAY
-    label = "Valeur totale de location sur toute les années"
+    label = "Valeur totale de location par mois"
 
 
 class duree_bail_mois(Variable):

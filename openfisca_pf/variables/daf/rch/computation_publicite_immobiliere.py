@@ -46,7 +46,7 @@ class montant_droit_enregistrement(Variable):
             scale = parameters(period).daf.rch.droit_enregistrement.baux
             rate = scale.calc(duree_bail_mois)
 
-            return valeur_totale_bien_achat * rate
+            return valeur_totale_bien_achat * duree_bail_mois * rate
 
         # retrieve the demarche type to select the correct formula
         type_demarche = personne('type_demarche_rch', period)
@@ -86,7 +86,7 @@ class montant_taxe_publicite(Variable):
             valeur_locative_bien = personne('valeur_locative_bien', period)
             duree_bail_mois = personne('duree_bail_mois', period)
             rate = parameters(period).daf.rch.taxe_publicite_immobiliere.baux.calc(duree_bail_mois)
-            return arrondiSup(valeur_locative_bien * rate)
+            return arrondiSup(valeur_locative_bien * duree_bail_mois * rate)
 
         # Calcul du montant
         montant_taxe_publicite = select([

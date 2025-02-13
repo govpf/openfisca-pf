@@ -49,18 +49,18 @@
   period: 2025-01-16
   input:
     type_demarche_rch: Baux
-    valeur_locative_bien: 19000000
+    valeur_locative_bien: 150000
     duree_bail_mois: 217
   output:
-    montant_taxe_publicite: 19000
+    montant_taxe_publicite: 32550
 - name: 8 - TPI - Bail égal à 18 ans (216 mois)
   period: 2025-01-16
   input:
     type_demarche_rch: Baux
-    valeur_locative_bien: 19000000
-    duree_bail_mois: 216
+    valeur_locative_bien: 150000
+    duree_bail_mois: 220
   output:
-    montant_taxe_publicite: 19000
+    montant_taxe_publicite: 33000
 - name: 9 - TPI - Vente de navire
   period: 2025-01-16
   input:

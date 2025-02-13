@@ -41,18 +41,18 @@
   period: 2025-01-16
   input:
     type_demarche_rch: Baux
-    valeur_locative_bien: 2000000
-    duree_bail_mois: 6
+    valeur_locative_bien: 100000
+    duree_bail_mois: 30
   output:
-    montant_droit_enregistrement: 20000
+    montant_droit_enregistrement: 30000
 - name: 7 - ENR - Bail de plus de 18 ans
   period: 2025-01-16
   input:
     type_demarche_rch: Baux
-    valeur_locative_bien: 19000000
-    duree_bail_mois: 20
+    valeur_locative_bien: 100000
+    duree_bail_mois: 220
   output:
-    montant_droit_enregistrement: 190000
+    montant_droit_enregistrement: 220000
 - name: 8 - ENR - Vente de navire
   period: 2025-01-16
   input:
