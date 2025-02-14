@@ -8,6 +8,7 @@
     loyer_janvier: 380000
   output:
     valeur_locative: 4560000
+    exemption_permanente: 0
     premier_abattement: 1140000
     base_imposable_apres_premier_abattement: 3420000
     second_abattement: 1026000

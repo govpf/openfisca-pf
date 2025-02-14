@@ -1,32 +1,32 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
-
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-import numpy
+from openfisca_pf.base import (
+    ArrayLike,
+    floor,
+    Parameters,
+    Period,
+    Variable,
+    YEAR
+    )
+from openfisca_pf.entities import Personne
+from openfisca_pf.constants.units import XPF
 
 
 class chiffre_affaire_total_ventes(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Montant total du chiffre d'affaire concernant des ventes avant abattement"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
-    unit = "currency-XPF"
-    default_value = 0
+    label = "Montant total du chiffre d'affaire concernant des ventes avant abattement"
+    reference = []
+    unit = XPF
+    default_value = 0.
 
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        value = 0
-        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
-            ca = numpy.floor(personne('chiffre_affaire_' + nom, period) / 1000) * 1000
-            value += ca
-        return value
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        total = 0.
+        for activite in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
+            chiffre_d_affaire_activite = personne(f'chiffre_affaire_{activite}', period, parameters)
+            total += floor(chiffre_d_affaire_activite / 1000.) * 1000.
+        return total
 
 
 class chiffre_affaire_apport_en_societe(Variable):
@@ -34,7 +34,7 @@ class chiffre_affaire_apport_en_societe(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Apport en société"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_baguettes_revente_au_detail(Variable):
@@ -42,7 +42,7 @@ class chiffre_affaire_baguettes_revente_au_detail(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Bagettes revente au détail"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_coprah(Variable):
@@ -50,7 +50,7 @@ class chiffre_affaire_coprah(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Coprah"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_farine_riz_sucre(Variable):
@@ -58,7 +58,7 @@ class chiffre_affaire_farine_riz_sucre(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Farine, riz, sucre"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_hydrocarbures_au_detail(Variable):
@@ -66,7 +66,7 @@ class chiffre_affaire_hydrocarbures_au_detail(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Hydrcarbures au détail"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_importateurs_grossistes(Variable):
@@ -82,7 +82,7 @@ class chiffre_affaire_lait_frais(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Lait frais"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_negociants_detaillants_ca_superieur_20mf(Variable):
@@ -90,7 +90,7 @@ class chiffre_affaire_negociants_detaillants_ca_superieur_20mf(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Négociants détaillants CA > 20M"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_tabacs(Variable):
@@ -98,7 +98,7 @@ class chiffre_affaire_tabacs(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Tabacs"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_timbres_postes_et_fiscaux(Variable):
@@ -106,7 +106,7 @@ class chiffre_affaire_timbres_postes_et_fiscaux(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Timbres postes et fiscaux"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_ventes_sans_abattement(Variable):
@@ -114,7 +114,7 @@ class chiffre_affaire_ventes_sans_abattement(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Ventes sans abattement"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_ventes_a_l_aventure_armateurs(Variable):
@@ -122,7 +122,7 @@ class chiffre_affaire_ventes_a_l_aventure_armateurs(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Ventes à l'aventure (armateurs)"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_ventes_a_l_aventure_goelettes(Variable):
@@ -130,7 +130,7 @@ class chiffre_affaire_ventes_a_l_aventure_goelettes(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Ventes à l'aventure (goelettes)"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_ventes_en_gros(Variable):
@@ -138,7 +138,7 @@ class chiffre_affaire_ventes_en_gros(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Ventes en gros"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_vente_gros_lait_frais(Variable):
@@ -146,7 +146,7 @@ class chiffre_affaire_vente_gros_lait_frais(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Ventes en gros lait frais d'origine local"
-    unit = "currency-XPF"
+    unit = XPF
 
 
 class chiffre_affaire_ventes_inferieur_20_millions(Variable):
@@ -154,4 +154,4 @@ class chiffre_affaire_ventes_inferieur_20_millions(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Chiffre d'affaire dans la catégorie Ventes < 20 millions"
-    unit = "currency-XPF"
+    unit = XPF

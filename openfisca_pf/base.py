@@ -1,117 +1,278 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the base enum needed by our legislation.
-import numpy
-from openfisca_core.model_api import *
+__all__ = [
+    # datetime
+    "date",
+    # numpy
+    "asarray",
+    "ceil",
+    "floor",
+    "max_",
+    "min_",
+    "not_",
+    "round_",
+    "select",
+    "where",
+    # numpy.typing
+    "ArrayLike",
+    # openfisca_core.holders
+    "set_input_dispatch_by_period",
+    "set_input_divide_by_period",
+    # openfisca_core.indexed_enums
+    "Enum",
+    # openfisca_core.periods
+    "ETERNITY",
+    "Period",
+    "YEAR",
+    "MONTH",
+    "DAY",
+    "period",
+    # openfisca_core.types
+    "Parameters",
+    # openfisca_core.variables
+    "Variable",
+    # enums
+    "OuiNon",
+    "RegimeCPS",
+    "TypeContrat",
+    "TypePersonne",
+    "TypeSociete",
+    # functions
+    "aggreger_variables",
+    "arrondi_inferrieur",
+    "arrondi_superrieur",
+    "calculer_base_imposable_ventes_tranche",
+    "calculer_base_imposable_prestations_tranche",
+    "creer_bareme"
+    ]
+
+from datetime import date
+from numpy import (
+    array,
+    asarray,
+    ceil,
+    floor,
+    logical_not as not_,
+    maximum as max_,
+    minimum as min_,
+    nextafter,
+    rint,
+    round as round_,
+    select,
+    where
+    )
+from typing import List
+from numpy.typing import ArrayLike
+from openfisca_core.holders import (
+    set_input_dispatch_by_period,
+    set_input_divide_by_period
+    )
+from openfisca_core.indexed_enums import Enum
+from openfisca_core.periods import Period, YEAR, MONTH, DAY, ETERNITY, period
 from openfisca_core.taxscales import MarginalRateTaxScale
-
-
-class TypePersonne(Enum):
-    P = u'Personne physique'
-    M = u'Personne morale'
-
-
-class TypeSociete(Enum):
-    EI = u'Entreprise Individuelle'
-    EURL = u'Entreprise Unipersonnelle à Responsabilité Limitée'
-    SARL = u'Société à Responsabilité Limitée'
-    SNC = u'Société en Nom Collectif'
-    SA = u'Société Anonyme'
-    SAS = u'Société par Action Simplifiée'
-    SCI = u'Société Civile Immobilière'
+from openfisca_core.types import Entity, Params as Parameters
+from openfisca_core.variables import Variable
+from openfisca_pf.entities import Pays, Personne
 
 
 class OuiNon(Enum):
-    O = u'Oui'
-    N = u'Non'
-
-
-class TypeContrat(Enum):
-    Aucun = u'Aucun contrat'
-    CDI = u'Contrat à durée indéterminée'
-    CDD = u'Contrat à durée déterminée'
-    Extras = u'Contrat d\'extras'
+    """
+    Oui ou non
+    """
+    O = "Oui"
+    N = "Non"
 
 
 class RegimeCPS(Enum):
-    NonAffilie = u'La personne n\'est pas affiliée'
-    RSPF = u'Régime de solidarité'
-    RNS = u'Régime des non salariés'
-    RS = u'Régime des salariés'
+    """
+    Différents regimes d'affiliation à la contribution pour la santée.
+    """
+    NonAffilie = "La personne n'est pas affiliée"
+    RSPF = "Régime de solidarité"
+    RNS = "Régime des non salariés"
+    RS = "Régime des salariés"
 
 
-# This function round up if result is 0.5 so for ex 1.5 => 2, 1.6 => 2 but 1.4 => 1
-def arrondiSup(valeur):
-    return numpy.rint(numpy.nextafter(valeur, valeur + 1))
+class TypeContrat(Enum):
+    """
+    Différents contrat de travails.
+    """
+    Aucun = "Aucun contrat"
+    CDI = "Contrat à durée indéterminée"
+    CDD = "Contrat à durée déterminée"
+    Extras = "Contrat d'extras"
 
 
-# This function round down if result is 0.5 so for ex 1.5 => 1, 1.6 => 2 and 1.4 => 1
-def arrondiInf(valeur):
-    return numpy.rint(numpy.nextafter(valeur, valeur - 1))
+class TypePersonne(Enum):
+    """
+    Types de personnes: physique ou morale.
+    """
+    P = "Personne physique"
+    M = "Personne morale"
 
 
-# Calculations are grouped per date, so we know the parameters for each entry is the same, thus we can create only one scale for all of them
-def creerBareme(personne, period, impot, type):
-    nbTranches = personne.pays(f'nombre_tranches_{impot}_{type}', period)[0]
-    bareme = MarginalRateTaxScale(name = 'Bareme custom')
-    for tranche in range(1, nbTranches + 1):
-        bareme.add_bracket(personne.pays(f'seuil_{impot}_{type}_tranche_{tranche}', period)[0], personne.pays(f'taux_{impot}_{type}_tranche_{tranche}', period)[0])
-    return bareme
+class TypeSociete(Enum):
+    """
+    Différents types de sociétées.
+    """
+    EI = "Entreprise Individuelle"
+    EURL = "Entreprise Unipersonnelle à Responsabilité Limitée"
+    SARL = "Société à Responsabilité Limitée"
+    SNC = "Société en Nom Collectif"
+    SA = "Société Anonyme"
+    SAS = "Société par Action Simplifiée"
+    SCI = "Société Civile Immobilière"
 
 
-def calculerBaseImposableVentesTranche(personne, period, tranche, impot):
-    nbTranches = personne.pays(f'nombre_tranches_{impot}_ventes', period)[0]
-    if tranche > nbTranches:
+def aggreger_variables(entitee: Entity, period: Period, prefix: str, variables: List[str]) -> ArrayLike:
+    """
+    Calcule et aggrège les valeurs des variables demandés dans un vecteur.
+    Par exemple étant donné les variables `['x', 'y', 'z']`, le préfix `'a_'` la fonction calcule `[entitee('a_x', period)[0], entitee('a_y', period)[1], entitee('a_z', period)[2]]`
+
+    :param entitee:   Entitée sur laquelle réaliser l'aggrégation des variables.
+    :param period:    Periode durant laquelle réaliser les calculs.
+    :param prefix:    Prefix à ajouter devant les noms des variables.
+    :param variables: Noms des variables à aggréger.
+    :return:          Vecteur contenant les valeurs aggrégées des variables.
+    """
+    result = []
+    index = 0
+    for identifiant in variables:
+        value = entitee(prefix + identifiant, period)[index]
+        result.append(value)
+        index = index + 1
+    return array(result)
+
+
+def arrondi_inferrieur(valeur: ArrayLike) -> ArrayLike:
+    """
+    Arrondi a l'entier inférieur la value donnée en entrée. Par exemple `1.5` est arrondit à `1`, et `1.6` to `2`.
+
+    :param valeur: Valeur ou vecteur de valeur à arrondir.
+    :return:       Valeur ou vecteur de valeurs arrondis à l'entier inférieur.
+    """
+    return rint(nextafter(valeur, valeur - 1))
+
+
+def arrondi_superrieur(valeur: ArrayLike) -> ArrayLike:
+    """
+    Arrondi a l'entier supérieur la value donnée en entrée. Par exemple `1.4` est arrondit à `1`, et `1.5` to `2`.
+
+    :param valeur: Valeur ou vecteur de valeur à arrondir.
+    :return:       Valeur ou vecteur de valeurs arrondis à l'entier supérieur.
+    """
+    return rint(nextafter(valeur, valeur + 1))
+
+
+def calculer_base_imposable_ventes_tranche(personne: Personne, period: Period, tranche: int, impot: str) -> ArrayLike:
+    """
+    Calcule le montant de la base imposable des ventes pour la tranche donnée.
+
+    :param personne: Personne pour laquelle on souhaite calculer le montant de la base imposable.
+    :param period:   Period durant laquelle on souhaite réaliser les calculs.
+    :param tranche:  Tranche pour laquelle on souhaite calculer la base.
+    :param impot:    Type de l'impot que l'on souhaite calculer.
+    :return:         Montant de la base imposable sur les ventes pour la tranche donnée.
+    """
+    # On recupère le nombre de tranche pour cet impot et le type ventes.
+    nombre_de_tranches = personne.pays(f'nombre_tranches_{impot}_ventes', period)[0]
+
+    # Si la tanche est supérieur au nombre de tranche,
+    # ce qui ne devrait pas se produire,
+    # on retourne zero.
+    if tranche > nombre_de_tranches:
         return 0
+
+    # On recupère le seuil de la tranche
     seuil_tranche_inferieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche}', period)
-    ca = personne(f'base_imposable_{impot}_ventes', period)
-    if tranche == nbTranches:
-        valeur = (select(
-            [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
-            [0, ca - seuil_tranche_inferieure],
+
+    # On recupère l'assiette (les ventes)
+    assiette = personne(f'base_imposable_{impot}_ventes', period)
+
+    # Si il s'agit de la dernière tranche on est soit avant le seuil de la tranche, soit au dela
+    if tranche == nombre_de_tranches:
+        return (select(
+            [assiette <= seuil_tranche_inferieure, assiette > seuil_tranche_inferieure],
+            [0, assiette - seuil_tranche_inferieure],
             ))
+
+    # Sinon on est soit avant le seuil, soit avant le prochain seuil, ou alors après le prochain seuil
     else:
         seuil_tranche_superieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche + 1}', period)
-        valeur = (select(
-            [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
-            [0, ca - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
+        return (select(
+            [assiette <= seuil_tranche_inferieure, assiette < seuil_tranche_superieure, assiette >= seuil_tranche_superieure],
+            [0, assiette - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
             ))
-    return valeur
 
 
-def calculerBaseImposablePrestationsTranche(personne, period, tranche, impot):
-    nbTranches = personne.pays(f'nombre_tranches_{impot}_prestations', period)[0]
-    if tranche > nbTranches:
+def calculer_base_imposable_prestations_tranche(personne: Personne, period: Period, parameters: Parameters, tranche: int, impot: str) -> ArrayLike:
+    """
+    Calcule le montant de la base imposable des prestations pour la tranche donnée.
+
+    :param personne:   Personne pour laquelle on souhaite calculer le montant de la base imposable.
+    :param period:     Period durant laquelle on souhaite réaliser les calculs.
+    :param parameters: Parametres utilisés pour réaliser les calculs.
+    :param tranche:    Tranche pour laquelle on souhaite calculer la base.
+    :param impot:      Type de l'impot que l'on souhaite calculer.
+    :return:           Montant de la base imposable sur les prestations pour la tranche donnée.
+    """
+    # On recupère le nombre de tranche pour cet impot et le type prestations.
+    nombre_de_tranches = personne.pays(f'nombre_tranches_{impot}_prestations', period)[0]
+
+    # Si la tanche est supérieur au nombre de tranche,
+    # ce qui ne devrait pas se produire,
+    # on retourne zero.
+    if tranche > nombre_de_tranches:
         return 0
+
+    # On recupère le seuil de la tranche
     seuil_tranche_inferieure = personne.pays(f'seuil_{impot}_prestations_tranche_{tranche}', period)
-    ca = personne(f'base_imposable_{impot}_prestations', period) + personne(f'base_imposable_{impot}_ventes', period) / 4
-    if tranche == nbTranches:
-        caVenteTranche = 0
+
+    # On recupère l'assiette (les prestations)
+    assiette = personne(f'base_imposable_{impot}_prestations', period) + personne(f'base_imposable_{impot}_ventes', period) / 4
+
+    # Si il s'agit de la dernière tranche on est soit avant le seuil de la tranche, soit au dela
+    if tranche == nombre_de_tranches:
+        base_totale = 0
         for i in range(tranche, personne.pays(f'nombre_tranches_{impot}_ventes', period)[0] + 1):
-            caVenteTranche += personne(f'base_imposable_{impot}_ventes_tranche_{i}', period) / 4
-        valeur = (select(
-            [ca <= seuil_tranche_inferieure, ca > seuil_tranche_inferieure],
-            [0, ca - seuil_tranche_inferieure - caVenteTranche],
+            base_totale += personne(f'base_imposable_{impot}_ventes_tranche_{i}', period) / 4
+        return (select(
+            [assiette <= seuil_tranche_inferieure, assiette > seuil_tranche_inferieure],
+            [0, assiette - seuil_tranche_inferieure - base_totale],
             ))
+
+    # Sinon on est soit avant le seuil, soit avant le prochain seuil, ou alors après le prochain seuil
     else:
-        caVenteTranche = personne(f'base_imposable_{impot}_ventes_tranche_{tranche}', period) / 4
+        base_totale = personne(f'base_imposable_{impot}_ventes_tranche_{tranche}', period) / 4
         seuil_tranche_superieure = personne.pays(f'seuil_{impot}_prestations_tranche_{tranche + 1}', period)
-        valeur = (select(
-            [ca <= seuil_tranche_inferieure, ca < seuil_tranche_superieure, ca >= seuil_tranche_superieure],
-            [0, ca - seuil_tranche_inferieure - caVenteTranche, seuil_tranche_superieure - seuil_tranche_inferieure - caVenteTranche],
+        return (select(
+            [assiette <= seuil_tranche_inferieure, assiette < seuil_tranche_superieure, assiette >= seuil_tranche_superieure],
+            [0, assiette - seuil_tranche_inferieure - base_totale, seuil_tranche_superieure - seuil_tranche_inferieure - base_totale],
             ))
-    return valeur
 
 
-# This function aims at getting a source variable using the aggregation of a prefix and another variable
-# variable = [variable 1, variable 2, variable3]
-# prefix = blabla
-# return [source(blablavariable1), source(blablavariable2), source(blablavariable3)]
-def aggregateVariables(source, period, prefix, variable):
-    returnValue = []
-    index = 0
-    for item in variable:
-        value = source(prefix + item, period)[index]
-        returnValue.append(value)
-        index = index + 1
-    return numpy.array(returnValue)
+def creer_bareme(pays: Pays, period: Period, parameters: Parameters, impot: str, type: str, nom: str = "barème") -> MarginalRateTaxScale:
+    """
+    Créer un barème pour un impot calculé en plusieurs tranche.
+    Une variable définissant le nombre de tranche doit exister dans le `Pays` et suivre la convention de nommage `nombre_tranches_[impot]_[type]`.
+    Pour chaque tranche du barème deux variables doivent exister dans le `Pays`.
+    La première qui défini le seuil pour la tranche doit suivre la convention de nommage `seuil_[impot]_[type]_tranche_[tranche]`.
+    La deuxième  qui défini le taux pour la tranche doit suivre la convenstion de nommage `taux_[impot]_[type]_tranche_[tranche]`.
+
+    :param pays:       Pays pour lequel sont définies les règles de calculs du barème.
+    :param period:     Period durant laquelle le barème sera calculé.
+    :param parameters: Parametres utilisés lors des calculs du barème.
+    :param impot:      Code de l'impot.
+    :param type:       Type de l'impot.
+    :param nom:        Nom du barème.
+    :return:           Le nouveau barème.
+    """
+    # Calculations are grouped per date, so we know the parameters for each entry is the same, thus we can create only one scale for all of them
+    nombre_de_tranches = pays(f'nombre_tranches_{impot}_{type}', period, parameters)[0]
+    bareme = MarginalRateTaxScale(nom)
+    for tranche in range(1, nombre_de_tranches + 1):
+        bareme.add_bracket(
+            pays(f'seuil_{impot}_{type}_tranche_{tranche}', period, parameters)[0],
+            pays(f'taux_{impot}_{type}_tranche_{tranche}', period, parameters)[0]
+            )
+    return bareme

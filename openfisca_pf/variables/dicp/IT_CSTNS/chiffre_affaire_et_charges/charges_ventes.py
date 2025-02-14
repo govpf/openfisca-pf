@@ -1,27 +1,25 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
-
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
+from openfisca_pf.base import (
+    Parameters,
+    Period,
+    Variable,
+    YEAR
+    )
+from openfisca_pf.entities import Personne
 
 
 class charges_total_ventes(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Montant total des charges concernant des ventes avant abattement"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Montant total des charges concernant des ventes avant abattement"
+    reference = []
 
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters):
         value = 0
-        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
-            value += personne('charges_' + nom, period)
+        for activite in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
+            value += personne(f'charges_{activite}', period)
         return value
 
 

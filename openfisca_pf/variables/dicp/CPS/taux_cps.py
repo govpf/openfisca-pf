@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
-
-import numpy
-from openfisca_core.holders import set_input_divide_by_period
-from openfisca_core.parameters import Parameter
-from openfisca_core.periods import Period, MONTH, YEAR
-from openfisca_core.variables import Variable
+from openfisca_pf.base import (
+    MONTH,
+    Parameters,
+    Period,
+    set_input_divide_by_period,
+    Variable,
+    where,
+    YEAR
+    )
 from openfisca_pf.constants.units import PER_ONE
 from openfisca_pf.entities import Pays
 
@@ -24,9 +27,9 @@ class taux_cps(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(pays: Pays, period: Period, parameters: Parameter):
+    def formula(pays: Pays, period: Period, parameters: Parameters):
         taux_annee = pays('taux_cps_annee', period.this_year)
-        return numpy.where(taux_annee, taux_annee, parameters(period).dicp.cps.taux)
+        return where(taux_annee, taux_annee, parameters(period).dicp.cps.taux)
 
 
 class taux_cps_annee(Variable):
@@ -43,5 +46,5 @@ class taux_cps_annee(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(pays: Pays, period: Period, parameters: Parameter):
+    def formula(pays: Pays, period: Period, parameters: Parameters):
         return parameters(period).dicp.cps.taux

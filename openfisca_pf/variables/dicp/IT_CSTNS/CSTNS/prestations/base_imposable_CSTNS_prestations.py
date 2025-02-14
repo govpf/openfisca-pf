@@ -1,64 +1,98 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
-
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.base import *
-import numpy
+from openfisca_pf.base import (
+    ArrayLike,
+    floor,
+    not_,
+    OuiNon,
+    Parameters,
+    Period,
+    round_,
+    TypePersonne,
+    Variable,
+    where,
+    YEAR
+    )
+from openfisca_pf.entities import Personne
 
 
 class base_imposable_cstns_prestations(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Montant total du chiffre d'affaire concernant des prestations après abattement d'assiette mais sans abattement de droit"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Montant total du chiffre d'affaire concernant des prestations après abattement d'assiette mais sans abattement de droit"
+    reference = []
 
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        value = 0
-        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
-            cca = str(parameters(period).dicp.abattements_it_cstns.activites_prestations[nom].cca)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        total = 0.
+        for activite in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
+            cca = str(parameters(period).dicp.abattements_it_cstns.activites_prestations[activite].cca)
             coeff_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
-            ca = numpy.floor(personne('chiffre_affaire_' + nom, period) / 1000) * 1000
-            # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
-            value += where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette))
-        return round_(value)
+            chiffre_d_affaire_activite = personne(f'chiffre_affaire_{activite}', period)
+            chiffre_d_affaire_activite = floor(chiffre_d_affaire_activite / 1000.) * 1000.
+            # Si le chiffre d'affaire ne dépasse pas un certain seuil, il n'y a pas de reduction,
+            # sinon une réduction s'applique sur la partie du chiffre d'affaire supérieur au seuil
+            total += where(
+                (chiffre_d_affaire_activite <= seuil_abattement_assiette),
+                chiffre_d_affaire_activite,
+                seuil_abattement_assiette + (chiffre_d_affaire_activite - seuil_abattement_assiette) * (1 - coeff_assiette)
+                )
+        return round_(total)
 
 
 class base_imposable_cstns_prestations_sans_abattement_droits(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Montant total du chiffre d'affaire concernant des prestations après abattement de l'assiette, mais qui ne beneficiement pas d'un abattement de droit"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Montant total du chiffre d'affaire concernant des prestations après abattement de l'assiette, mais qui ne beneficiement pas d'un abattement de droit"
+    reference = []
 
-    # The formula to compute the income tax for a given person at a given period
-    def formula(personne, period, parameters):
-        value = 0
-        charges_superieures_50_pourcents = personne('total_charges_releve_detaille', period) >= (personne('chiffre_affaire_total_prestations', period) / 2)
-        releve_de_charges_fourni = personne('releve_de_charges_fourni', period) == OuiNon.O
-        est_personne_physique = personne('type_personne', period) == TypePersonne.P
-        annexes_IT_fournies = personne('annexes_IT_fournies', period) == OuiNon.O
-        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
-            cca = str(parameters(period).dicp.abattements_it_cstns.activites_prestations[nom].cca)
-            ca = numpy.floor(personne('chiffre_affaire_' + nom, period) / 1000) * 1000
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        value = 0.
+        total_charges_releve_detaille = personne('total_charges_releve_detaille', period, parameters)
+        chiffre_affaire_total_prestations = personne('chiffre_affaire_total_prestations', period, parameters)
+        releve_de_charges_fourni = personne('releve_de_charges_fourni', period, parameters) == OuiNon.O
+        est_personne_physique = personne('type_personne', period, parameters) == TypePersonne.P
+        annexes_it_fournies = personne('annexes_it_fournies', period, parameters) == OuiNon.O
+
+        charges_superieures_50_pourcents = total_charges_releve_detaille >= (chiffre_affaire_total_prestations / 2.)
+        for activite in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
+
+            cca = str(parameters(period).dicp.abattements_it_cstns.activites_prestations[activite].cca)
+            ca_activite = floor(personne(f'chiffre_affaire_{activite}', period, parameters) / 1000.) * 1000.
             coeff_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette
-            seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
-            ca_apres_abattement_assiette = where(ca <= seuil_abattement_assiette, ca, seuil_abattement_assiette + (ca - seuil_abattement_assiette) * (1 - coeff_assiette))
             abattement_droits = parameters(period).dicp.abattements_it_cstns.cca[cca].abattement_de_droit
-            seuil_bascule_abattement_de_droit = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_de_droit
-            seuils_abattement_de_droit_applicable_aux_personnes_physiques = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_de_droit_applicable_aux_personnes_physiques
             abattement_droits_charges = parameters(period).dicp.abattements_it_cstns.cca[cca].abattement_de_droit_avec_condition_de_charges
+            seuils_abattement_de_droit_applicable_aux_personnes_physiques = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_de_droit_applicable_aux_personnes_physiques
+            seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
             seuil_annexe = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges
-            # Here we only take into account CA with no 'abattement de droit'
-            abattement_de_droit_applicable = abattement_droits & (not_(abattement_droits_charges) + (est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)) + (ca <= seuil_bascule_abattement_de_droit))
-            abattement_de_droit_de_charge_applicable = abattement_droits_charges & (ca > seuil_bascule_abattement_de_droit) & charges_superieures_50_pourcents & releve_de_charges_fourni & (annexes_IT_fournies + (ca <= seuil_annexe) + (est_personne_physique & not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)))
-            value += where(abattement_de_droit_applicable + abattement_de_droit_de_charge_applicable, 0, ca_apres_abattement_assiette)
+            seuil_bascule_abattement_de_droit = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_de_droit
+
+            ca_apres_abattement_assiette = where(
+                ca_activite <= seuil_abattement_assiette,
+                ca_activite,
+                seuil_abattement_assiette + (ca_activite - seuil_abattement_assiette) * (1 - coeff_assiette)
+                )
+
+            # Ici nous ne prenons en compte que les chiffre d'affaire sans abattement de droits
+            abattement_de_droit_applicable = abattement_droits * (
+                not_(abattement_droits_charges) + (ca_activite <= seuil_bascule_abattement_de_droit) + (
+                    est_personne_physique * not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)
+                    )
+                )
+            abattement_de_droit_de_charge_applicable = (
+                abattement_droits_charges
+                * (ca_activite > seuil_bascule_abattement_de_droit)
+                * charges_superieures_50_pourcents
+                * releve_de_charges_fourni
+                * (annexes_it_fournies + (ca_activite <= seuil_annexe) + (
+                    est_personne_physique * not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques)
+                    ))
+                )
+            value += where(
+                (abattement_de_droit_applicable + abattement_de_droit_de_charge_applicable),
+                0,
+                ca_apres_abattement_assiette
+                )
         return round_(value)

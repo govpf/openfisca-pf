@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import numpy
-from openfisca_core.model_api import Enum
-
+from openfisca_pf.base import asarray, Enum
 
 class Archipel(Enum):
     AUSTRALES = "Australes"
@@ -64,7 +62,7 @@ class CommuneFiscale(Enum):
     UTUROA = "Uturoa"
 
 
-COMMUNES_DES_AUSTRALES = CommuneFiscale.encode(numpy.asarray([
+COMMUNES_DES_AUSTRALES = CommuneFiscale.encode(asarray([
     CommuneFiscale.RAIVAVAE,
     CommuneFiscale.RAPA,
     CommuneFiscale.RIMATARA,
@@ -72,11 +70,11 @@ COMMUNES_DES_AUSTRALES = CommuneFiscale.encode(numpy.asarray([
     CommuneFiscale.TUBUAI
     ]))
 
-COMMUNES_DES_GAMBIERS = CommuneFiscale.encode(numpy.asarray([
+COMMUNES_DES_GAMBIERS = CommuneFiscale.encode(asarray([
     CommuneFiscale.GAMBIER
     ]))
 
-COMMUNES_DES_ILES_DU_VENT = CommuneFiscale.encode(numpy.asarray([
+COMMUNES_DES_ILES_DU_VENT = CommuneFiscale.encode(asarray([
     CommuneFiscale.ARUE,
     CommuneFiscale.FAAA,
     CommuneFiscale.HITIAA_O_TE_RA,
@@ -92,7 +90,7 @@ COMMUNES_DES_ILES_DU_VENT = CommuneFiscale.encode(numpy.asarray([
     CommuneFiscale.TEVA_I_UTA
     ]))
 
-COMMUNES_DES_ILES_SOUS_LE_VENT = CommuneFiscale.encode(numpy.asarray([
+COMMUNES_DES_ILES_SOUS_LE_VENT = CommuneFiscale.encode(asarray([
     CommuneFiscale.BORA_BORA,
     CommuneFiscale.HUAHINE,
     CommuneFiscale.MAUPITI,
@@ -102,7 +100,7 @@ COMMUNES_DES_ILES_SOUS_LE_VENT = CommuneFiscale.encode(numpy.asarray([
     CommuneFiscale.UTUROA
     ]))
 
-COMMUNES_DES_MARQUISES = CommuneFiscale.encode(numpy.asarray([
+COMMUNES_DES_MARQUISES = CommuneFiscale.encode(asarray([
     CommuneFiscale.FATU_HIVA,
     CommuneFiscale.HIVA_OA,
     CommuneFiscale.NUKU_HIVA,
@@ -111,7 +109,7 @@ COMMUNES_DES_MARQUISES = CommuneFiscale.encode(numpy.asarray([
     CommuneFiscale.UA_POU
     ]))
 
-COMMUNES_DES_TUAMOTUS = CommuneFiscale.encode(numpy.asarray([
+COMMUNES_DES_TUAMOTUS = CommuneFiscale.encode(asarray([
     CommuneFiscale.ANAA,
     CommuneFiscale.ARUTUA,
     CommuneFiscale.FAKARAVA,

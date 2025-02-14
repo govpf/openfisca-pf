@@ -1,30 +1,34 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
-
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.base import *
+from openfisca_pf.base import (
+    ArrayLike,
+    not_,
+    Parameters,
+    Period,
+    select,
+    TypePersonne,
+    Variable,
+    YEAR
+    )
+from openfisca_pf.entities import Pays, Personne
 
 
 class redevable_tpe(Variable):
     value_type = bool
     entity = Personne
     definition_period = YEAR
-    label = u"Défini si l'entreprise est éligible TPE"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Défini si l'entreprise est éligible TPE"
+    reference = []
 
-    def formula(personne, period, parameters):
-        est_personne_physique = personne('type_personne', period) == TypePersonne.P
-        ca_total = personne('chiffre_affaire_total', period)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        est_personne_physique = personne('type_personne', period, parameters) == TypePersonne.P
+        ca_total = personne('chiffre_affaire_total', period, parameters)
         ca_inferieur_a_5000000 = ca_total < 5000000
         eligible_tpe = True
-        for nom in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
-            eligible_tpe = eligible_tpe * ((parameters(period).dicp.abattements_it_cstns.activites_prestations[nom].eligible_tpe == 1) + (personne('chiffre_affaire_' + nom, period) == 0))
+        for activite in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
+            activite_eligible = parameters(period).dicp.abattements_it_cstns.activites_prestations[activite].eligible_tpe
+            chiffre_affaire_activite = personne(f'chiffre_affaire_{activite}', period, parameters)
+            eligible_tpe = eligible_tpe * ((activite_eligible == 1) + (chiffre_affaire_activite == 0))
         return est_personne_physique * eligible_tpe * ca_inferieur_a_5000000
 
 
@@ -32,10 +36,10 @@ class montant_tpe_du(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Montant TPE dû par l'entreprise"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Montant TPE dû par l'entreprise"
+    reference = []
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         redevable_tpe = personne('redevable_tpe', period)
         ca_total = personne('chiffre_affaire_total', period)
         ca_inferieur_a_2000000 = ca_total < 2000000
@@ -50,8 +54,9 @@ class nombre_entreprises_redevables_TPE_pays(Variable):
     value_type = int
     entity = Pays
     definition_period = YEAR
-    label = u"Nombre d'entreprises du pays redevables de la TPE"
+    label = "Nombre d'entreprises du pays redevables de la TPE"
+    reference = []
 
-    def formula(pays, period, parameters):
-        redevable_tpe = pays.members('redevable_tpe', period)
+    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+        redevable_tpe = pays.members('redevable_tpe', period, parameters)
         return pays.sum(redevable_tpe * 1)
