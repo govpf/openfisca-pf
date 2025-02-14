@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from numpy import asarray, isin
 from openfisca_pf.base import (
+    asarray,
     date,
     Enum,
+    isin,
     not_,
     Parameters,
     Period,

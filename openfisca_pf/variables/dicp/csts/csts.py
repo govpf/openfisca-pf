@@ -25,7 +25,7 @@ class cst_s_due_totale_par_employes(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -42,7 +42,7 @@ class cst_s_due_totale(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:

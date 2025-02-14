@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from datetime import date
 from openfisca_pf.base import (
     ArrayLike,
+    date,
     Parameters,
     Period,
     Variable,

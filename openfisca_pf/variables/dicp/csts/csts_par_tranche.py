@@ -13,7 +13,7 @@ from openfisca_pf.constants.dicp.references_csts import (
     REFERENCE_CODE_LP_TAUX_CSTS,
     REFERENCE_LIEN_CODE,
     REFERENCE_LIEN_TAUX
-)
+    )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
 
@@ -46,7 +46,7 @@ class cst_s_due_tranche_2(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -65,7 +65,7 @@ class cst_s_due_tranche_3(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -84,7 +84,7 @@ class cst_s_due_tranche_4(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -103,7 +103,7 @@ class cst_s_due_tranche_5(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -122,7 +122,7 @@ class cst_s_due_tranche_6(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -141,7 +141,7 @@ class cst_s_due_tranche_7(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -160,7 +160,7 @@ class cst_s_due_tranche_8(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -179,7 +179,7 @@ class cst_s_due_tranche_9(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -198,7 +198,7 @@ class cst_s_due_tranche_10(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -217,7 +217,7 @@ class cst_s_due_tranche_11(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
@@ -236,7 +236,7 @@ class cst_s_due_tranche_12(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:

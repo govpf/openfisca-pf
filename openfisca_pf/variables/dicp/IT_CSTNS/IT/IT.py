@@ -26,7 +26,7 @@ class montant_it_du(Variable):
         #     [personne('redevable_tpe_1', period), personne('redevable_tpe_2', period), not_(personne('redevable_tpe_1', period)) * not_(personne('redevable_tpe_1', period))],
         #     [25000, 45000, it_total],
         #     )
-        return arrondiInf(it_total)
+        return arrondi_inferrieur(it_total)
 
 
 class it_a_payer(Variable):

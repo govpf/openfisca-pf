@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_core.model_api import YEAR, Variable
-
+from openfisca_pf.base import (
+    isin,
+    Parameters,
+    Period,
+    select,
+    Variable,
+    YEAR
+    )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import *
 
@@ -12,8 +18,8 @@ class commune_fiscale(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = CommuneFiscale.PAPEETE
-    label = "Commune fiscale a laquelle le local est rattaché"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+    label = 'Commune fiscale a laquelle le local est rattaché'
+    reference = 'https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595'
 
 
 class archipel(Variable):
@@ -22,19 +28,19 @@ class archipel(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = Archipel.ILES_SOUS_LE_VENT
-    label = "Archipel auquel le local appartient"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+    label = 'Archipel auquel le local appartient'
+    reference = 'https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595'
 
-    def formula(local, period, parameters):
+    def formula(local: Personne, period: Period, parameters: Parameters):
         commune_fiscale = local('commune_fiscale', period, parameters)
-        return numpy.select(
+        return select(
             [
-                numpy.isin(commune_fiscale, COMMUNES_DES_AUSTRALES),
-                numpy.isin(commune_fiscale, COMMUNES_DES_GAMBIERS),
-                numpy.isin(commune_fiscale, COMMUNES_DES_ILES_DU_VENT),
-                numpy.isin(commune_fiscale, COMMUNES_DES_ILES_SOUS_LE_VENT),
-                numpy.isin(commune_fiscale, COMMUNES_DES_MARQUISES),
-                numpy.isin(commune_fiscale, COMMUNES_DES_TUAMOTUS)
+                isin(commune_fiscale, COMMUNES_DES_AUSTRALES),
+                isin(commune_fiscale, COMMUNES_DES_GAMBIERS),
+                isin(commune_fiscale, COMMUNES_DES_ILES_DU_VENT),
+                isin(commune_fiscale, COMMUNES_DES_ILES_SOUS_LE_VENT),
+                isin(commune_fiscale, COMMUNES_DES_MARQUISES),
+                isin(commune_fiscale, COMMUNES_DES_TUAMOTUS)
                 ],
             [
                 Archipel.AUSTRALES,

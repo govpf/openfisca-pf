@@ -25,7 +25,7 @@ class seuil_cst_s_tranche_1(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -41,7 +41,7 @@ class seuil_cst_s_tranche_2(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -57,7 +57,7 @@ class seuil_cst_s_tranche_3(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -73,7 +73,7 @@ class seuil_cst_s_tranche_4(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -89,7 +89,7 @@ class seuil_cst_s_tranche_5(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -105,7 +105,7 @@ class seuil_cst_s_tranche_6(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -121,7 +121,7 @@ class seuil_cst_s_tranche_7(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -137,7 +137,7 @@ class seuil_cst_s_tranche_8(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -153,7 +153,7 @@ class seuil_cst_s_tranche_9(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -169,7 +169,7 @@ class seuil_cst_s_tranche_10(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -185,7 +185,7 @@ class seuil_cst_s_tranche_11(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -201,7 +201,7 @@ class seuil_cst_s_tranche_12(Variable):
         REFERENCE_CODE_LP_TAUX_CSTS,
         REFERENCE_LIEN_CODE,
         REFERENCE_LIEN_TAUX
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:

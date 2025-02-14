@@ -2,6 +2,7 @@
 
 from openfisca_pf.base import asarray, Enum
 
+
 class Archipel(Enum):
     AUSTRALES = "Australes"
     GAMBIERS = "Gambiers"
@@ -70,9 +71,11 @@ COMMUNES_DES_AUSTRALES = CommuneFiscale.encode(asarray([
     CommuneFiscale.TUBUAI
     ]))
 
+
 COMMUNES_DES_GAMBIERS = CommuneFiscale.encode(asarray([
     CommuneFiscale.GAMBIER
     ]))
+
 
 COMMUNES_DES_ILES_DU_VENT = CommuneFiscale.encode(asarray([
     CommuneFiscale.ARUE,
@@ -90,6 +93,7 @@ COMMUNES_DES_ILES_DU_VENT = CommuneFiscale.encode(asarray([
     CommuneFiscale.TEVA_I_UTA
     ]))
 
+
 COMMUNES_DES_ILES_SOUS_LE_VENT = CommuneFiscale.encode(asarray([
     CommuneFiscale.BORA_BORA,
     CommuneFiscale.HUAHINE,
@@ -100,6 +104,7 @@ COMMUNES_DES_ILES_SOUS_LE_VENT = CommuneFiscale.encode(asarray([
     CommuneFiscale.UTUROA
     ]))
 
+
 COMMUNES_DES_MARQUISES = CommuneFiscale.encode(asarray([
     CommuneFiscale.FATU_HIVA,
     CommuneFiscale.HIVA_OA,
@@ -108,6 +113,7 @@ COMMUNES_DES_MARQUISES = CommuneFiscale.encode(asarray([
     CommuneFiscale.UA_HUKA,
     CommuneFiscale.UA_POU
     ]))
+
 
 COMMUNES_DES_TUAMOTUS = CommuneFiscale.encode(asarray([
     CommuneFiscale.ANAA,

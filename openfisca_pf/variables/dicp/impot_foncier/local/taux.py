@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from numpy import select, where
 from openfisca_pf.base import (
     Parameters,
     Period,
+    select,
     Variable,
+    where,
     YEAR
     )
 from openfisca_pf.entities import Personne

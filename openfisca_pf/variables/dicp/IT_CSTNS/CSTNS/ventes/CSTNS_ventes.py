@@ -1,59 +1,58 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
-
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefcstns system
-from openfisca_pf.entities import *
-from openfisca_pf.base import *
+from openfisca_pf.base import (
+    ArrayLike,
+    creer_bareme,
+    Parameters,
+    Period,
+    Variable,
+    YEAR
+    )
+from openfisca_pf.constants.units import XPF
+from openfisca_pf.entities import Personne
 
 
 class cstns_ventes_avant_abattement_droits(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Montant cstns sur les ventes sans tenir compte de l'abattement de droits"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Montant cstns sur les ventes sans tenir compte de l'abattement de droits"
+    reference = []
+    unit = XPF
 
-    # def formula(personne, period, parameters):
-    #     echelle = parameters(period).dicp.cstns.taux_ventes
-    #     ca = personne('base_imposable_cstns_ventes', period)
-    #     return round_(echelle.calc(ca))
-    def formula(personne, period, parameters):
-        value = 0
-        nombre_tranches = personne.pays('nombre_tranches_cstns_ventes', period)[0]
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        total = 0.
+        nombre_tranches = personne.pays('nombre_tranches_cstns_ventes', period, parameters)[0]
         for i in range(1, nombre_tranches + 1):
-            value += personne(f'montant_cstns_ventes_du_tranche_{i}', period)
-        return value
+            total += personne(f'montant_cstns_ventes_du_tranche_{i}', period, parameters)
+        return total
 
 
 class cstns_ventes_sans_abattement_droits(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Montant cstns sur les ventes ne bénéficiant pas de l'abattement de droits"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Montant cstns sur les ventes ne bénéficiant pas de l'abattement de droits"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        # echelle = parameters(period).dicp.cstns.taux_ventes
-        ca = personne('base_imposable_cstns_ventes_sans_abattement_droits', period)
-        bareme = creerBareme(personne, period, 'cstns', 'ventes')
-        return bareme.calc(ca)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        chiffre_d_affaire = personne('base_imposable_cstns_ventes_sans_abattement_droits', period, parameters)
+        bareme = creer_bareme(personne, period, parameters, 'cstns', 'ventes')
+        return bareme.calc(chiffre_d_affaire)
 
 
 class cstns_ventes(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Montant cstns sur les ventes, suite à application de l'abattement sur les droits"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Montant cstns sur les ventes, suite à application de l'abattement sur les droits"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        cstns_ventes_abattement_droits = personne('cstns_ventes_abattement_droits', period)
-        cstns_ventes_avant_abattement_droits = personne('cstns_ventes_avant_abattement_droits', period)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        cstns_ventes_abattement_droits = personne('cstns_ventes_abattement_droits', period, parameters)
+        cstns_ventes_avant_abattement_droits = personne('cstns_ventes_avant_abattement_droits', period, parameters)
         return cstns_ventes_avant_abattement_droits - cstns_ventes_abattement_droits
 
 
@@ -61,10 +60,11 @@ class cstns_ventes_abattement_droits(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Abattement de droit applique sur la CST NS des ventes :\n\n#cstns_ventes_abattement_droits = ( #cstns_ventes_avant_abattement_droits - #cstns_ventes_sans_abattement_droits ) / 2"
-    # reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = 'Abattement de droit appliqué sur la CST NS des ventes'
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        cstns_ventes_avant_abattement_droits = personne('cstns_ventes_avant_abattement_droits', period)
-        cstns_ventes_sans_abattement_droits = personne('cstns_ventes_sans_abattement_droits', period)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        cstns_ventes_avant_abattement_droits = personne('cstns_ventes_avant_abattement_droits', period, parameters)
+        cstns_ventes_sans_abattement_droits = personne('cstns_ventes_sans_abattement_droits', period, parameters)
         return (cstns_ventes_avant_abattement_droits - cstns_ventes_sans_abattement_droits) / 2

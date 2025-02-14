@@ -21,7 +21,7 @@ class base_imposable_cps(Variable):
     reference = [
         'Code des impots : LP. 358-1 et LP. 358-2',
         'https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite'
-    ]
+        ]
     default_value = 0
     end = '2023-09-30'
 

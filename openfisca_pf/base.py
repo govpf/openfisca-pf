@@ -7,6 +7,7 @@ __all__ = [
     "asarray",
     "ceil",
     "floor",
+    "isin",
     "max_",
     "min_",
     "not_",
@@ -52,6 +53,7 @@ from numpy import (
     asarray,
     ceil,
     floor,
+    isin,
     logical_not as not_,
     maximum as max_,
     minimum as min_,
@@ -164,18 +166,19 @@ def arrondi_superrieur(valeur: ArrayLike) -> ArrayLike:
     return rint(nextafter(valeur, valeur + 1))
 
 
-def calculer_base_imposable_ventes_tranche(personne: Personne, period: Period, tranche: int, impot: str) -> ArrayLike:
+def calculer_base_imposable_ventes_tranche(personne: Personne, period: Period, parameters: Parameters, tranche: int, impot: str) -> ArrayLike:
     """
     Calcule le montant de la base imposable des ventes pour la tranche donnée.
 
-    :param personne: Personne pour laquelle on souhaite calculer le montant de la base imposable.
-    :param period:   Period durant laquelle on souhaite réaliser les calculs.
-    :param tranche:  Tranche pour laquelle on souhaite calculer la base.
-    :param impot:    Type de l'impot que l'on souhaite calculer.
-    :return:         Montant de la base imposable sur les ventes pour la tranche donnée.
+    :param personne:   Personne pour laquelle on souhaite calculer le montant de la base imposable.
+    :param period:     Period durant laquelle on souhaite réaliser les calculs.
+    :param parameters: Parametres utilisés pour réaliser les calculs.
+    :param tranche:    Tranche pour laquelle on souhaite calculer la base.
+    :param impot:      Type de l'impot que l'on souhaite calculer.
+    :return:           Montant de la base imposable sur les ventes pour la tranche donnée.
     """
     # On recupère le nombre de tranche pour cet impot et le type ventes.
-    nombre_de_tranches = personne.pays(f'nombre_tranches_{impot}_ventes', period)[0]
+    nombre_de_tranches = personne.pays(f'nombre_tranches_{impot}_ventes', period, parameters)[0]
 
     # Si la tanche est supérieur au nombre de tranche,
     # ce qui ne devrait pas se produire,
@@ -184,10 +187,10 @@ def calculer_base_imposable_ventes_tranche(personne: Personne, period: Period, t
         return 0
 
     # On recupère le seuil de la tranche
-    seuil_tranche_inferieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche}', period)
+    seuil_tranche_inferieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche}', period, parameters)
 
     # On recupère l'assiette (les ventes)
-    assiette = personne(f'base_imposable_{impot}_ventes', period)
+    assiette = personne(f'base_imposable_{impot}_ventes', period), parameters
 
     # Si il s'agit de la dernière tranche on est soit avant le seuil de la tranche, soit au dela
     if tranche == nombre_de_tranches:
@@ -198,7 +201,7 @@ def calculer_base_imposable_ventes_tranche(personne: Personne, period: Period, t
 
     # Sinon on est soit avant le seuil, soit avant le prochain seuil, ou alors après le prochain seuil
     else:
-        seuil_tranche_superieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche + 1}', period)
+        seuil_tranche_superieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche + 1}', period, parameters)
         return (select(
             [assiette <= seuil_tranche_inferieure, assiette < seuil_tranche_superieure, assiette >= seuil_tranche_superieure],
             [0, assiette - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
@@ -226,16 +229,16 @@ def calculer_base_imposable_prestations_tranche(personne: Personne, period: Peri
         return 0
 
     # On recupère le seuil de la tranche
-    seuil_tranche_inferieure = personne.pays(f'seuil_{impot}_prestations_tranche_{tranche}', period)
+    seuil_tranche_inferieure = personne.pays(f'seuil_{impot}_prestations_tranche_{tranche}', period, parameters)
 
     # On recupère l'assiette (les prestations)
-    assiette = personne(f'base_imposable_{impot}_prestations', period) + personne(f'base_imposable_{impot}_ventes', period) / 4
+    assiette = personne(f'base_imposable_{impot}_prestations', period, parameters) + personne(f'base_imposable_{impot}_ventes', period, parameters) / 4
 
     # Si il s'agit de la dernière tranche on est soit avant le seuil de la tranche, soit au dela
     if tranche == nombre_de_tranches:
         base_totale = 0
-        for i in range(tranche, personne.pays(f'nombre_tranches_{impot}_ventes', period)[0] + 1):
-            base_totale += personne(f'base_imposable_{impot}_ventes_tranche_{i}', period) / 4
+        for i in range(tranche, personne.pays(f'nombre_tranches_{impot}_ventes', period, parameters)[0] + 1):
+            base_totale += personne(f'base_imposable_{impot}_ventes_tranche_{i}', period, parameters) / 4
         return (select(
             [assiette <= seuil_tranche_inferieure, assiette > seuil_tranche_inferieure],
             [0, assiette - seuil_tranche_inferieure - base_totale],
@@ -243,8 +246,8 @@ def calculer_base_imposable_prestations_tranche(personne: Personne, period: Peri
 
     # Sinon on est soit avant le seuil, soit avant le prochain seuil, ou alors après le prochain seuil
     else:
-        base_totale = personne(f'base_imposable_{impot}_ventes_tranche_{tranche}', period) / 4
-        seuil_tranche_superieure = personne.pays(f'seuil_{impot}_prestations_tranche_{tranche + 1}', period)
+        base_totale = personne(f'base_imposable_{impot}_ventes_tranche_{tranche}', period, parameters) / 4
+        seuil_tranche_superieure = personne.pays(f'seuil_{impot}_prestations_tranche_{tranche + 1}', period, parameters)
         return (select(
             [assiette <= seuil_tranche_inferieure, assiette < seuil_tranche_superieure, assiette >= seuil_tranche_superieure],
             [0, assiette - seuil_tranche_inferieure - base_totale, seuil_tranche_superieure - seuil_tranche_inferieure - base_totale],

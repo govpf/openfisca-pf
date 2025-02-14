@@ -33,6 +33,7 @@ class charges_acconage_de_coprah(Variable):
     label = "Charges dans la catégorie Acconage de coprah"
     unit = XPF
 
+
 class charges_armateurs(Variable):
     value_type = float
     entity = Personne
@@ -240,6 +241,7 @@ class charges_garagiste(Variable):
     label = "Charges dans la catégorie Garagiste"
 
     unit = XPF
+
 
 class charges_hotel_pension_famille(Variable):
     value_type = float

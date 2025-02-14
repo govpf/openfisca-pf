@@ -16,8 +16,7 @@ class cstns_prestations_avant_abattement_droits(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Montant cstns sur les prestation sans tenir compte de l'abattement de droits"
-    reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
-
+    reference = 'https://www.impot-polynesie.gov.pf/code/section-ii-taux'
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         total = 0.
