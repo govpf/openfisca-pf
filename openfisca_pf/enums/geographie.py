@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_pf.base import asarray, Enum
+from openfisca_pf.base import Enum
 from openfisca_pf.helpers import enum_set
 
 
