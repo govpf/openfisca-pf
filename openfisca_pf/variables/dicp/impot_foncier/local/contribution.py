@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from openfisca_pf.base import (
-    asarray,
     date,
     Enum,
     isin,
@@ -14,7 +13,7 @@ from openfisca_pf.base import (
     where
     )
 from openfisca_pf.entities import Personne
-
+from openfisca_pf.helpers import enum_set
 
 class TypeLocation(Enum):
     NON_MEUBLE = "NON_MEUBLE"
@@ -23,10 +22,10 @@ class TypeLocation(Enum):
     VILLA_DE_LUXE = "VILLA_DE_LUXE"
 
 
-MEUBLE_OU_NON_MEUBLE = TypeLocation.encode(asarray([
+MEUBLE_OU_NON_MEUBLE = enum_set(TypeLocation,
     TypeLocation.NON_MEUBLE,
     TypeLocation.MEUBLE
-    ]))
+    )
 
 
 class CategorieDuBien(Enum):

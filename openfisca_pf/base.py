@@ -70,9 +70,10 @@ from openfisca_core.holders import (
     set_input_divide_by_period
     )
 from openfisca_core.indexed_enums import Enum
+from openfisca_core.parameters import Parameter as Parameters
 from openfisca_core.periods import Period, YEAR, MONTH, DAY, ETERNITY, period
 from openfisca_core.taxscales import MarginalRateTaxScale
-from openfisca_core.types import Entity, Params as Parameters
+from openfisca_core.types import Entity
 from openfisca_core.variables import Variable
 from openfisca_pf.entities import Pays, Personne
 
