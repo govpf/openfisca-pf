@@ -72,7 +72,7 @@ class montant_cstns_ventes_du_tranche_4(Variable):
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_cstns_ventes_tranche_4 = personne('base_imposable_cstns_ventes_tranche_4', period, parameters)
-        taux_cstns_ventes_tranche_4 = personne.pays('taux_cstns_ventes_tranche_1', period, parameters)
+        taux_cstns_ventes_tranche_4 = personne.pays('taux_cstns_ventes_tranche_4', period, parameters)
         return arrondi_inferrieur(base_imposable_cstns_ventes_tranche_4 * taux_cstns_ventes_tranche_4)
 
 
