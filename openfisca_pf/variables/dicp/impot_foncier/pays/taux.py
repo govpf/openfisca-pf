@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import numpy
+from numpy.array_api import asarray
 
 from openfisca_pf.base import (
     ArrayLike,

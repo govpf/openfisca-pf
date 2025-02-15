@@ -10,6 +10,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import *
+from openfisca_pf.helpers import enum_set
 
 
 class commune_fiscale(Variable):
@@ -42,12 +43,12 @@ class archipel(Variable):
                 isin(commune_fiscale, COMMUNES_DES_MARQUISES),
                 isin(commune_fiscale, COMMUNES_DES_TUAMOTUS)
                 ],
-            [
+            enum_set(Archipel,
                 Archipel.AUSTRALES,
                 Archipel.GAMBIERS,
                 Archipel.ILES_DU_VENT,
                 Archipel.ILES_SOUS_LE_VENT,
                 Archipel.MARQUISES,
                 Archipel.TUAMOTUS
-                ]
+                )
             )
