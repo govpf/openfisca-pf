@@ -101,6 +101,13 @@ class sous_total_base_imposable(Variable):
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
         return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
 
+    def formula_2025(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
+        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
+        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
+        base_imposable_tva_taux_livraisons_immeubles_et_cession_parts = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period, parameters)
+        return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal + base_imposable_tva_taux_livraisons_immeubles_et_cession_parts
+
 
 class sous_total_operations(Variable):
     value_type = float

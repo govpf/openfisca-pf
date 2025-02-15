@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openfisca_pf.base import (
+    not_,
     Parameters,
     Period,
     select,
@@ -35,8 +36,7 @@ class taux_archipel(Variable):
             archipel == Archipel.ILES_SOUS_LE_VENT,
             archipel == Archipel.MARQUISES,
             archipel == Archipel.TUAMOTUS
-            ],
-            [
+            ], [
                 taux_archipel_australes_pays,
                 taux_archipel_gambiers_pays,
                 taux_archipel_iles_du_vent_pays,
@@ -111,7 +111,7 @@ class taux_premier_abattement(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    default_value = 0.25
+    default_value = 0
     label = "Taux du premier abattement appliqué à la valeur locative pour calculer la base imposable de l'impôt foncier"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
@@ -169,8 +169,8 @@ class taux_second_abattement(Variable):
         non_meuble = local('non_meuble', period, parameters)
         taux_second_abattement_si_non_loue = local('taux_second_abattement_si_non_loue', period, parameters)
         taux_second_abattement_si_loue_meuble = local('taux_second_abattement_si_loue_meuble', period, parameters)
-        taux_second_abattement_si_loue_non_meuble = local('taux_second_abattement_si_loue_non_meuble', period,
-                                                          parameters)
+        taux_second_abattement_si_loue_non_meuble = local('taux_second_abattement_si_loue_non_meuble', period, parameters)
+
         return select(
             [loue * meuble, loue * non_meuble],
             [taux_second_abattement_si_loue_meuble, taux_second_abattement_si_loue_non_meuble],
@@ -271,8 +271,8 @@ class acces_exemption_temporaire_exceptionnelle(Variable):
 
         nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
-        return habitation_principale\
-            * date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle\
+        return habitation_principale \
+            * date_permis_construire_et_certificat_conformite_donne_droit_exemption_temporaire_exceptionnelle \
             * (nombre_annee_depuis_date_certificat_conformite <= duree_exemption_temporaire_exceptionnelle_pays)
 
 
@@ -288,6 +288,7 @@ class taux_exemption_temporaire(Variable):
         acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
         demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
         date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        occupation_avant_fin_de_travaux = local('occupation_avant_fin_de_travaux', period, parameters)
         duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
         taux_premiere_exemption_temporaire = local('taux_premiere_exemption_temporaire', period, parameters)
         duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
@@ -296,14 +297,15 @@ class taux_exemption_temporaire(Variable):
         nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return select([
-            (demande_exemption_temporaire_exceptionnelle * acces_exemption_temporaire_exceptionnelle),
-            (nombre_annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays),
-            (duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays))
+            demande_exemption_temporaire_exceptionnelle * acces_exemption_temporaire_exceptionnelle * not_(occupation_avant_fin_de_travaux),
+            (nombre_annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays) * not_(occupation_avant_fin_de_travaux),
+            duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) and not_(occupation_avant_fin_de_travaux)
             ], [
             taux_premiere_exemption_temporaire,
             taux_premiere_exemption_temporaire,
             taux_seconde_exemption_temporaire
-            ], 0)
+            ], 0
+            )
 
 
 class duree_exemption_temporaire(Variable):
@@ -318,6 +320,7 @@ class duree_exemption_temporaire(Variable):
         acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
         demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
         date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        occupation_avant_fin_de_travaux = local('occupation_avant_fin_de_travaux', period, parameters)
         duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
         duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
         duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
@@ -325,14 +328,15 @@ class duree_exemption_temporaire(Variable):
         nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return select([
-            (demande_exemption_temporaire_exceptionnelle * acces_exemption_temporaire_exceptionnelle),
-            (nombre_annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays),
-            (duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays))
+            demande_exemption_temporaire_exceptionnelle * acces_exemption_temporaire_exceptionnelle * not_(occupation_avant_fin_de_travaux),
+            (nombre_annee_depuis_date_certificat_conformite <= duree_premiere_exemption_temporaire_pays) * not_(occupation_avant_fin_de_travaux),
+            duree_premiere_exemption_temporaire_pays < nombre_annee_depuis_date_certificat_conformite <= (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) and not_(occupation_avant_fin_de_travaux)
             ], [
             duree_exemption_temporaire_exceptionnelle_pays,
             duree_premiere_exemption_temporaire_pays,
             duree_seconde_exemption_temporaire_pays
-            ], 0)
+            ], 0
+            )
 
 
 class duree_exemption_temporaire_restante(Variable):
@@ -347,6 +351,7 @@ class duree_exemption_temporaire_restante(Variable):
         acces_exemption_temporaire_exceptionnelle = local('acces_exemption_temporaire_exceptionnelle', period, parameters)
         demande_exemption_temporaire_exceptionnelle = local('demande_exemption_temporaire_exceptionnelle', period, parameters)
         date_certificat_conformite = local('date_certificat_conformite', period, parameters)
+        occupation_avant_fin_de_travaux = local('occupation_avant_fin_de_travaux', period, parameters)
         duree_premiere_exemption_temporaire_pays = local.pays('duree_premiere_exemption_temporaire_pays', period, parameters)
         duree_seconde_exemption_temporaire_pays = local.pays('duree_seconde_exemption_temporaire_pays', period, parameters)
         duree_exemption_temporaire_exceptionnelle_pays = local.pays('duree_exemption_temporaire_exceptionnelle_pays', period, parameters)
@@ -354,8 +359,8 @@ class duree_exemption_temporaire_restante(Variable):
         nombre_annee_depuis_date_certificat_conformite = period.date.year - (date_certificat_conformite.astype('datetime64[Y]').astype(int) + 1970)
 
         return select([
-            (demande_exemption_temporaire_exceptionnelle * acces_exemption_temporaire_exceptionnelle * (duree_exemption_temporaire_exceptionnelle_pays > nombre_annee_depuis_date_certificat_conformite)),
-            ((duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) > nombre_annee_depuis_date_certificat_conformite)
+            demande_exemption_temporaire_exceptionnelle * acces_exemption_temporaire_exceptionnelle * (duree_exemption_temporaire_exceptionnelle_pays > nombre_annee_depuis_date_certificat_conformite) * not_(occupation_avant_fin_de_travaux),
+            ((duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) > nombre_annee_depuis_date_certificat_conformite) * not_(occupation_avant_fin_de_travaux)
             ], [
             duree_exemption_temporaire_exceptionnelle_pays - nombre_annee_depuis_date_certificat_conformite,
             (duree_premiere_exemption_temporaire_pays + duree_seconde_exemption_temporaire_pays) - nombre_annee_depuis_date_certificat_conformite,

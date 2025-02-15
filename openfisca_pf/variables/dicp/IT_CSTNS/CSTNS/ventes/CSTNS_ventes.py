@@ -38,7 +38,7 @@ class cstns_ventes_sans_abattement_droits(Variable):
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         chiffre_d_affaire = personne('base_imposable_cstns_ventes_sans_abattement_droits', period, parameters)
-        bareme = creer_bareme(personne, period, parameters, 'cstns', 'ventes')
+        bareme = creer_bareme(personne.pays, period, parameters, 'cstns', 'ventes')
         return bareme.calc(chiffre_d_affaire)
 
 

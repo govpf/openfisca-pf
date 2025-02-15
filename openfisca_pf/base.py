@@ -190,27 +190,27 @@ def calculer_base_imposable_ventes_tranche(personne: Personne, period: Period, p
     seuil_tranche_inferieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche}', period, parameters)
 
     # On recupère l'assiette (les ventes)
-    assiette = personne(f'base_imposable_{impot}_ventes', period), parameters
+    assiette = personne(f'base_imposable_{impot}_ventes', period, parameters)
 
     # Si il s'agit de la dernière tranche on est soit avant le seuil de la tranche, soit au dela
     if tranche == nombre_de_tranches:
         return (select(
-            [assiette <= seuil_tranche_inferieure, assiette > seuil_tranche_inferieure],
+            [assiette <= seuil_tranche_inferieure, seuil_tranche_inferieure < assiette],
             [0, assiette - seuil_tranche_inferieure],
             ))
 
     # Sinon on est soit avant le seuil, soit avant le prochain seuil, ou alors après le prochain seuil
     else:
         seuil_tranche_superieure = personne.pays(f'seuil_{impot}_ventes_tranche_{tranche + 1}', period, parameters)
-        return (select(
-            [assiette <= seuil_tranche_inferieure, assiette < seuil_tranche_superieure, assiette >= seuil_tranche_superieure],
+        return select(
+            [assiette <= seuil_tranche_inferieure, assiette < seuil_tranche_superieure, seuil_tranche_superieure <= assiette],
             [0, assiette - seuil_tranche_inferieure, seuil_tranche_superieure - seuil_tranche_inferieure],
-            ))
+            )
 
 
 def calculer_base_imposable_prestations_tranche(personne: Personne, period: Period, parameters: Parameters, tranche: int, impot: str) -> ArrayLike:
     """
-    Calcule le montant de la base imposable des prestations pour la tranche donnée.
+    Calcule le montant de la base imposable de l'impôt sur les transactions de prestations pour la tranche donnée.
 
     :param personne:   Personne pour laquelle on souhaite calculer le montant de la base imposable.
     :param period:     Period durant laquelle on souhaite réaliser les calculs.
