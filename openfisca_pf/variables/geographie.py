@@ -43,7 +43,8 @@ class archipel(Variable):
                 isin(commune_fiscale, COMMUNES_DES_MARQUISES),
                 isin(commune_fiscale, COMMUNES_DES_TUAMOTUS)
                 ],
-            enum_set(Archipel,
+            enum_set(
+                Archipel,
                 Archipel.AUSTRALES,
                 Archipel.GAMBIERS,
                 Archipel.ILES_DU_VENT,

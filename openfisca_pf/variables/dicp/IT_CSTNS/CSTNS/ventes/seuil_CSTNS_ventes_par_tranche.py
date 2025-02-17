@@ -109,7 +109,7 @@ class seuil_cstns_ventes_tranche_7(Variable):
     reference = [
         'https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot',
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -124,7 +124,7 @@ class seuil_cstns_ventes_tranche_8(Variable):
     reference = [
         'https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot',
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -139,7 +139,7 @@ class seuil_cstns_ventes_tranche_9(Variable):
     reference = [
         'https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot',
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -154,7 +154,7 @@ class seuil_cstns_ventes_tranche_10(Variable):
     reference = [
         'https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot',
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -169,7 +169,7 @@ class seuil_cstns_ventes_tranche_11(Variable):
     reference = [
         'https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot',
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
@@ -184,7 +184,7 @@ class seuil_cstns_ventes_tranche_12(Variable):
     reference = [
         'https://www.impot-polynesie.gov.pf/code/40-section-iv-calcul-de-limpot',
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
-    ]
+        ]
     unit = XPF
 
     def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:

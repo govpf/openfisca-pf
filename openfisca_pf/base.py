@@ -2,49 +2,54 @@
 
 __all__ = [
     # datetime
-    "date",
+    'date',
     # numpy
-    "asarray",
-    "ceil",
-    "floor",
-    "isin",
-    "max_",
-    "min_",
-    "not_",
-    "round_",
-    "select",
-    "where",
+    'asarray',
+    'ceil',
+    'datetime64',
+    'EPSILON_TIMEDELTA',
+    'floor',
+    'isin',
+    'max_',
+    'min_',
+    'not_',
+    'round_',
+    'select',
+    'timedelta64',
+    'where',
     # numpy.typing
-    "ArrayLike",
+    'ArrayLike',
     # openfisca_core.holders
-    "set_input_dispatch_by_period",
-    "set_input_divide_by_period",
+    'set_input_dispatch_by_period',
+    'set_input_divide_by_period',
     # openfisca_core.indexed_enums
-    "Enum",
+    'Enum',
     # openfisca_core.periods
-    "ETERNITY",
-    "Period",
-    "YEAR",
-    "MONTH",
-    "DAY",
-    "period",
+    'ETERNITY',
+    'Period',
+    'YEAR',
+    'MONTH',
+    'DAY',
+    'period',
+    # openfisca_core.populations
+    'ADD',
     # openfisca_core.types
-    "Parameters",
+    'Parameters',
     # openfisca_core.variables
-    "Variable",
+    'Variable',
     # enums
-    "OuiNon",
-    "RegimeCPS",
-    "TypeContrat",
-    "TypePersonne",
-    "TypeSociete",
+    'OuiNon',
+    'RegimeCPS',
+    'TypeContrat',
+    'TypePersonne',
+    'TypeSociete',
     # functions
-    "aggreger_variables",
-    "arrondi_inferrieur",
-    "arrondi_superrieur",
-    "calculer_base_imposable_ventes_tranche",
-    "calculer_base_imposable_prestations_tranche",
-    "creer_bareme"
+    'aggreger_variables',
+    'arrondi_inferrieur',
+    'arrondi_superrieur',
+    'calculer_base_imposable_ventes_tranche',
+    'calculer_base_imposable_prestations_tranche',
+    'creer_bareme'
     ]
 
 from datetime import date
@@ -52,6 +57,7 @@ from numpy import (
     array,
     asarray,
     ceil,
+    datetime64,
     floor,
     isin,
     logical_not as not_,
@@ -61,6 +67,7 @@ from numpy import (
     rint,
     round as round_,
     select,
+    timedelta64,
     where
     )
 from typing import List
@@ -72,18 +79,22 @@ from openfisca_core.holders import (
 from openfisca_core.indexed_enums import Enum
 from openfisca_core.parameters import Parameter as Parameters
 from openfisca_core.periods import Period, YEAR, MONTH, DAY, ETERNITY, period
+from openfisca_core.populations import ADD
 from openfisca_core.taxscales import MarginalRateTaxScale
 from openfisca_core.types import Entity
 from openfisca_core.variables import Variable
 from openfisca_pf.entities import Pays, Personne
 
 
+EPSILON_TIMEDELTA = timedelta64(1)
+
+
 class OuiNon(Enum):
     """
     Oui ou non
     """
-    O = "Oui"
-    N = "Non"
+    O = 'Oui'
+    N = 'Non'
 
 
 class RegimeCPS(Enum):
@@ -110,21 +121,21 @@ class TypePersonne(Enum):
     """
     Types de personnes: physique ou morale.
     """
-    P = "Personne physique"
-    M = "Personne morale"
+    P = 'Personne physique'
+    M = 'Personne morale'
 
 
 class TypeSociete(Enum):
     """
     Différents types de sociétées.
     """
-    EI = "Entreprise Individuelle"
-    EURL = "Entreprise Unipersonnelle à Responsabilité Limitée"
-    SARL = "Société à Responsabilité Limitée"
-    SNC = "Société en Nom Collectif"
-    SA = "Société Anonyme"
-    SAS = "Société par Action Simplifiée"
-    SCI = "Société Civile Immobilière"
+    EI = 'Entreprise Individuelle'
+    EURL = 'Entreprise Unipersonnelle à Responsabilité Limitée'
+    SARL = 'Société à Responsabilité Limitée'
+    SNC = 'Société en Nom Collectif'
+    SA = 'Société Anonyme'
+    SAS = 'Société par Action Simplifiée'
+    SCI = 'Société Civile Immobilière'
 
 
 def aggreger_variables(entitee: Entity, period: Period, prefix: str, variables: List[str]) -> ArrayLike:

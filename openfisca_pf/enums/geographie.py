@@ -64,7 +64,8 @@ class CommuneFiscale(Enum):
     UTUROA = "Uturoa"
 
 
-COMMUNES_DES_AUSTRALES = enum_set(CommuneFiscale,
+COMMUNES_DES_AUSTRALES = enum_set(
+    CommuneFiscale,
     CommuneFiscale.RAIVAVAE,
     CommuneFiscale.RAPA,
     CommuneFiscale.RIMATARA,
@@ -73,12 +74,14 @@ COMMUNES_DES_AUSTRALES = enum_set(CommuneFiscale,
     )
 
 
-COMMUNES_DES_GAMBIERS = enum_set(CommuneFiscale,
+COMMUNES_DES_GAMBIERS = enum_set(
+    CommuneFiscale,
     CommuneFiscale.GAMBIER
     )
 
 
-COMMUNES_DES_ILES_DU_VENT = enum_set(CommuneFiscale,
+COMMUNES_DES_ILES_DU_VENT = enum_set(
+    CommuneFiscale,
     CommuneFiscale.ARUE,
     CommuneFiscale.FAAA,
     CommuneFiscale.HITIAA_O_TE_RA,
@@ -95,7 +98,8 @@ COMMUNES_DES_ILES_DU_VENT = enum_set(CommuneFiscale,
     )
 
 
-COMMUNES_DES_ILES_SOUS_LE_VENT = enum_set(CommuneFiscale,
+COMMUNES_DES_ILES_SOUS_LE_VENT = enum_set(
+    CommuneFiscale,
     CommuneFiscale.BORA_BORA,
     CommuneFiscale.HUAHINE,
     CommuneFiscale.MAUPITI,
@@ -106,7 +110,8 @@ COMMUNES_DES_ILES_SOUS_LE_VENT = enum_set(CommuneFiscale,
     )
 
 
-COMMUNES_DES_MARQUISES = enum_set(CommuneFiscale,
+COMMUNES_DES_MARQUISES = enum_set(
+    CommuneFiscale,
     CommuneFiscale.FATU_HIVA,
     CommuneFiscale.HIVA_OA,
     CommuneFiscale.NUKU_HIVA,
@@ -116,7 +121,8 @@ COMMUNES_DES_MARQUISES = enum_set(CommuneFiscale,
     )
 
 
-COMMUNES_DES_TUAMOTUS = enum_set(CommuneFiscale,
+COMMUNES_DES_TUAMOTUS = enum_set(
+    CommuneFiscale,
     CommuneFiscale.ANAA,
     CommuneFiscale.ARUTUA,
     CommuneFiscale.FAKARAVA,
