@@ -34,11 +34,11 @@ class sous_total_tva_exigible(Variable):
         tva_due_taux_normal = personne('tva_due_taux_normal', period, parameters)
         return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal
 
-    def formula_2025(personne, period, parameters):
-        tva_due_taux_reduit = personne('tva_due_taux_reduit', period)
-        tva_due_taux_intermediaire = personne('tva_due_taux_intermediaire', period)
-        tva_due_taux_normal = personne('tva_due_taux_normal', period)
-        tva_due_taux_livraisons_immeubles_et_cession_parts = personne('tva_due_taux_livraisons_immeubles_et_cession_parts', period)
+    def formula_2025(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        tva_due_taux_reduit = personne('tva_due_taux_reduit', period, parameters)
+        tva_due_taux_intermediaire = personne('tva_due_taux_intermediaire', period, parameters)
+        tva_due_taux_normal = personne('tva_due_taux_normal', period, parameters)
+        tva_due_taux_livraisons_immeubles_et_cession_parts = personne('tva_due_taux_livraisons_immeubles_et_cession_parts', period, parameters)
         return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal + tva_due_taux_livraisons_immeubles_et_cession_parts
 
 

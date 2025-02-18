@@ -123,7 +123,7 @@ class taux_tva_livraisons_immeubles_et_cession_parts(Variable):
     set_input = set_input_divide_by_period
     reference = []
 
-    def formula(pays, period, parameters):
+    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         taux_annee = pays('taux_tva_livraisons_immeubles_et_cession_parts_annee', period.this_year, parameters)
         return where(taux_annee, taux_annee, parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts)
 
@@ -137,5 +137,5 @@ class taux_tva_livraisons_immeubles_et_cession_parts_annee(Variable):
     set_input = set_input_divide_by_period
     reference = []
 
-    def formula(pays, period, parameters):
-        return (parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts)
+    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+        return parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts
