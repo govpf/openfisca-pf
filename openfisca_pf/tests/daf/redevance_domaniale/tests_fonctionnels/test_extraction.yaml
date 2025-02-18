@@ -1,0 +1,136 @@
+- name: 1 - EX_ECO_01 - Extraction sur DPF - Hors entité Publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ex_eco_01_dpf_hors_entite_publique
+      duree_occupation_redevance_domaniale: 5
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 1000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 500000
+    montant_base_redevance_domaniale: 500000
+- name: 2 - EX_ECO_01 - Extraction sur DPF - Hors entité Publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ex_eco_01_dpf_hors_entite_publique
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_3
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 1000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 200000
+    montant_base_redevance_domaniale: 200000
+- name: 3 - EX_ECO_02 - Extraction sur DPF - entité Publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ex_eco_02_dpf_pour_entite_publique
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 1500
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 450000
+    montant_base_redevance_domaniale: 450000
+- name: 4 - EX_ECO_02 - Extraction sur DPF - entité Publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ex_eco_02_dpf_pour_entite_publique
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_3
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 1500
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 150000
+    montant_base_redevance_domaniale: 150000
+- name: 5 - EX_ECO_03 - Extraction sur DPM - Hors entité Publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ex_eco_03_dpm_hors_entite_publique
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 1000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 400000
+    montant_base_redevance_domaniale: 400000
+- name: 6 - EX_ECO_03 - Extraction sur DPM - Hors entité Publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ex_eco_03_dpm_hors_entite_publique
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_4
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 1000
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 200000
+    montant_base_redevance_domaniale: 200000
+- name: 7 - EX_ECO_04 - Extraction sur DPM - entité Publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ex_eco_04_dpm_pour_entite_publique
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 100
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 30000
+    montant_base_redevance_domaniale: 30000
+- name: 8 - EX_ECO_04 - Extraction sur DPM - entité Publique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ex_eco_04_dpm_pour_entite_publique
+      duree_occupation_redevance_domaniale: 3
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_3
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 1
+      variable_redevance_domaniale: 110
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+  output:
+    montant_total_redevance_domaniale: 11000
+    montant_base_redevance_domaniale: 11000

@@ -4,14 +4,15 @@ __all__ = [
     # datetime
     'date',
     # numpy
+    'array',
     'asarray',
     'ceil',
     'datetime64',
-    'EPSILON_TIMEDELTA',
     'floor',
     'isin',
     'max_',
     'min_',
+    'ndarray',
     'not_',
     'round_',
     'select',
@@ -24,6 +25,7 @@ __all__ = [
     'set_input_divide_by_period',
     # openfisca_core.indexed_enums
     'Enum',
+    'EnumArray',
     # openfisca_core.periods
     'ETERNITY',
     'Period',
@@ -31,10 +33,11 @@ __all__ = [
     'MONTH',
     'DAY',
     'period',
+    # openfisca_core.parameters
+    'Parameter',
+    'Parameters',
     # openfisca_core.populations
     'ADD',
-    # openfisca_core.types
-    'Parameters',
     # openfisca_core.variables
     'Variable',
     # enums
@@ -53,6 +56,7 @@ __all__ = [
     ]
 
 from datetime import date
+
 from numpy import (
     array,
     asarray,
@@ -63,6 +67,7 @@ from numpy import (
     logical_not as not_,
     maximum as max_,
     minimum as min_,
+    ndarray,
     nextafter,
     rint,
     round as round_,
@@ -76,17 +81,15 @@ from openfisca_core.holders import (
     set_input_dispatch_by_period,
     set_input_divide_by_period
     )
-from openfisca_core.indexed_enums import Enum
-from openfisca_core.parameters import Parameter as Parameters
+from openfisca_core.indexed_enums import Enum, EnumArray
+from openfisca_core.parameters import Parameter, Parameter as Parameters
 from openfisca_core.periods import Period, YEAR, MONTH, DAY, ETERNITY, period
 from openfisca_core.populations import ADD
 from openfisca_core.taxscales import MarginalRateTaxScale
-from openfisca_core.types import Entity
+from openfisca_core.entities import Entity
 from openfisca_core.variables import Variable
+
 from openfisca_pf.entities import Pays, Personne
-
-
-EPSILON_TIMEDELTA = timedelta64(1)
 
 
 class OuiNon(Enum):
@@ -138,13 +141,14 @@ class TypeSociete(Enum):
     SCI = 'Société Civile Immobilière'
 
 
-def aggreger_variables(entitee: Entity, period: Period, prefix: str, variables: List[str]) -> ArrayLike:
+def aggreger_variables(entitee: Entity, period: Period, parameters: Parameters, prefix: str, variables: List[str] | ArrayLike) -> ArrayLike:
     """
     Calcule et aggrège les valeurs des variables demandés dans un vecteur.
     Par exemple étant donné les variables `['x', 'y', 'z']`, le préfix `'a_'` la fonction calcule `[entitee('a_x', period)[0], entitee('a_y', period)[1], entitee('a_z', period)[2]]`
 
     :param entitee:   Entitée sur laquelle réaliser l'aggrégation des variables.
     :param period:    Periode durant laquelle réaliser les calculs.
+    :param parameters Paramètres utilisés pour calculer les variables.
     :param prefix:    Prefix à ajouter devant les noms des variables.
     :param variables: Noms des variables à aggréger.
     :return:          Vecteur contenant les valeurs aggrégées des variables.
@@ -152,7 +156,7 @@ def aggreger_variables(entitee: Entity, period: Period, prefix: str, variables: 
     result = []
     index = 0
     for identifiant in variables:
-        value = entitee(prefix + identifiant, period)[index]
+        value = entitee(prefix + identifiant, period, parameters)[index]
         result.append(value)
         index = index + 1
     return array(result)

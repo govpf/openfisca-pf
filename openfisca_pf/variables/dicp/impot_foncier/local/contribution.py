@@ -13,7 +13,7 @@ from openfisca_pf.base import (
     where
     )
 from openfisca_pf.entities import Personne
-from openfisca_pf.helpers import enum_set
+from openfisca_pf.functions.enum import enum_set
 
 
 class TypeLocation(Enum):

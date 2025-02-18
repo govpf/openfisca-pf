@@ -10,7 +10,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import *
-from openfisca_pf.helpers import enum_set
+from openfisca_pf.functions.enum import enum_set
 
 
 class commune_fiscale(Variable):

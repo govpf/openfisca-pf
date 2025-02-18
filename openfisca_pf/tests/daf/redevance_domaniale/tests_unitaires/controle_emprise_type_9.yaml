@@ -1,0 +1,171 @@
+- name: Test 1 - priv_01_touristique
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_01_touristique
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 750000
+    montant_base_redevance_domaniale: 375000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel
+- name: Test 2 - priv_02_eco_industriel
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_02_eco_industriel
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 750000
+    montant_base_redevance_domaniale: 375000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel
+- name: Test 3 - priv_03_projet_social
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_03_projet_social
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 750000
+    montant_base_redevance_domaniale: 375000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel
+- name: Test 4 - priv_04_etablissement_public
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_04_etablissement_public
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 750000
+    montant_base_redevance_domaniale: 375000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel
+- name: Test 5 - priv_05_habitat_social
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_05_habitat_social
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 250000
+    montant_base_redevance_domaniale: 125000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel
+- name: Test 6 - priv_06_developpement_durable
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_06_developpement_durable
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 250000
+    montant_base_redevance_domaniale: 125000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel
+- name: Test 7 - priv_07_technologie_information
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_07_technologie_information
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 250000
+    montant_base_redevance_domaniale: 125000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel
+- name: Test 8 - priv_08_cultuel
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_08_cultuel
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 250000
+    montant_base_redevance_domaniale: 125000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel
+- name: Test 9 - priv_09_autres
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: priv_09_autres
+      duree_occupation_redevance_domaniale: 2
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 2
+      variable_redevance_domaniale: 100
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      nombre_participant_redevance_domaniale: 0
+  output:
+    montant_total_redevance_domaniale: 1250000
+    montant_base_redevance_domaniale: 625000
+    type_calcul_redevance_domaniale: 9
+    temporalite_redevance_domaniale: Annuel

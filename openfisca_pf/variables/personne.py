@@ -4,7 +4,6 @@ from openfisca_pf.base import (
     ArrayLike,
     date,
     datetime64,
-    EPSILON_TIMEDELTA,
     ETERNITY,
     Enum,
     MONTH,
@@ -17,7 +16,7 @@ from openfisca_pf.base import (
     Variable
     )
 from openfisca_pf.entities import Personne
-from openfisca_pf.constants.time import NOMBRE_DE_MOIS_PAR_ANNE
+from openfisca_pf.constants.time import EPSILON_TIMEDELTA, NOMBRE_DE_MOIS_PAR_AN
 from openfisca_pf.constants.units import MONTHS, YEARS
 
 
@@ -131,7 +130,7 @@ class age(Variable):
         else:
             age_en_mois_connue = bool(personne.get_holder('age_en_mois').get_known_periods())
             if age_en_mois_connue:
-                return personne('age_en_mois', period, parameters) // NOMBRE_DE_MOIS_PAR_ANNE
+                return personne('age_en_mois', period, parameters) // NOMBRE_DE_MOIS_PAR_AN
 
             # Si on connait l'age de la personne lors d'une autre année, on peut le calculer
             age_a_d_autres_periodes = personne.get_holder('age')
@@ -144,7 +143,7 @@ class age(Variable):
                     return age_a_la_period_considere + int(
                         debut_periode_courante.year
                         - debut_periode_considere.year
-                        + (debut_periode_courante.month - debut_periode_considere.month) / NOMBRE_DE_MOIS_PAR_ANNE
+                        + (debut_periode_courante.month - debut_periode_considere.month) / NOMBRE_DE_MOIS_PAR_AN
                         )
 
 
@@ -169,7 +168,7 @@ class age_en_mois(Variable):
             if debut_de_la_periode_ou_l_age_est_connu.day == debut_de_la_periode_courrante.day:
                 last_array = age_en_mois_connus.get_array(periode_ou_l_age_est_connu)
                 return last_array + (
-                    (debut_de_la_periode_courrante.year - debut_de_la_periode_ou_l_age_est_connu.year) * NOMBRE_DE_MOIS_PAR_ANNE
+                    (debut_de_la_periode_courrante.year - debut_de_la_periode_ou_l_age_est_connu.year) * NOMBRE_DE_MOIS_PAR_AN
                     + (debut_de_la_periode_courrante.month - debut_de_la_periode_ou_l_age_est_connu.month)
                     )
 
@@ -177,7 +176,7 @@ class age_en_mois(Variable):
         if not has_birth:
             has_age = bool(personne.get_holder('age').get_known_periods())
             if has_age:
-                return personne('age', period) * NOMBRE_DE_MOIS_PAR_ANNE
+                return personne('age', period) * NOMBRE_DE_MOIS_PAR_AN
 
         date_naissance = personne('date_naissance', period)
         epsilon = timedelta64(1)
