@@ -1,0 +1,62 @@
+- name: 1 - ENR - Vente de bien droit commun
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: DroitCommun
+    valeur_totale_bien_achat: 50000000
+  output:
+    montant_droit_enregistrement: 3500000
+- name: 2 - ENR - Vente de terrain nu au dessus de l'assiette (25 000 000)
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainNu
+    valeur_totale_bien_achat: 50000000
+  output:
+    montant_droit_enregistrement: 2000000
+- name: 3 - ENR - Vente de terrain nu en dessous de l'assiette (25 000 000)
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainNu
+    valeur_totale_bien_achat: 12000000
+  output:
+    montant_droit_enregistrement: 120000
+- name: 4 - ENR - Vente de terrain bâti au dessus de l'assiette (40 000 000)
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainBati
+    valeur_totale_bien_achat: 50000000
+  output:
+    montant_droit_enregistrement: 1100000
+- name: 5 - ENR - Vente de terrain bâti en dessous de l'assiette (40 000 000)
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainBati
+    valeur_totale_bien_achat: 12000000
+  output:
+    montant_droit_enregistrement: 120000
+- name: 6 - ENR - Bail de moins de 18 ans
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Baux
+    valeur_locative_bien: 100000
+    duree_bail_mois: 30
+  output:
+    montant_droit_enregistrement: 30000
+- name: 7 - ENR - Bail de plus de 18 ans
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Baux
+    valeur_locative_bien: 100000
+    duree_bail_mois: 220
+  output:
+    montant_droit_enregistrement: 220000
+- name: 8 - ENR - Vente de navire
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Navire
+    valeur_totale_bien_achat: 5000000
+  output:
+    montant_droit_enregistrement: 250000
