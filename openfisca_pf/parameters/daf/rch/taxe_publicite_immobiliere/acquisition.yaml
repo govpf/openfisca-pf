@@ -1,0 +1,6 @@
+description: Taux de la taxe de publicité immobilière
+metadata:
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1
+rate:
+  values:
+    2024-12-10: 0.001

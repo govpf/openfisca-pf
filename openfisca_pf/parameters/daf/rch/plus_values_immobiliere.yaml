@@ -1,0 +1,48 @@
+description: Taux de la plus value immobilière
+metadata:
+  type: single_amount
+  unit: year
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1
+brackets:
+  - amount:
+      2024-12-10:
+        value: 0.5
+    threshold:
+      2024-12-10:
+        value: 0
+  - amount:
+      2024-12-10:
+        value: 0.2
+    threshold:
+      2024-12-10:
+        value: 5
+  - amount:
+      2024-12-10:
+        value: 0.16
+    threshold:
+      2024-12-10:
+        value: 6
+  - amount:
+      2024-12-10:
+        value: 0.12
+    threshold:
+      2024-12-10:
+        value: 7
+  - amount:
+      2024-12-10:
+        value: 0.08
+    threshold:
+      2024-12-10:
+        value: 8
+  - amount:
+      2024-12-10:
+        value: 0.04
+    threshold:
+      2024-12-10:
+        value: 9
+  - amount:
+      2024-12-10:
+        value: 0
+    threshold:
+      2024-12-10:
+        value: 10
