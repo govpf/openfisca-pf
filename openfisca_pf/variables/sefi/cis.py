@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
+
 """
 La Convention d'Insertion Sociale (CIS) est une aide financière pour les demandeurs d'emploi
 en échange de travaux d'intérêt général versée par la Caisse de Prévoyance Sociale (CPS).
 Elle est gérée par le Service de l'Emploi, de la Formation et de l'Insertion Professionnelle (SEFI) en Pilynésie Française.
 """
+
 
 from openfisca_pf.base import (
     ADD,
@@ -13,7 +15,6 @@ from openfisca_pf.base import (
     not_,
     Parameters,
     Period,
-    RegimeCPS,
     select,
     set_input_dispatch_by_period,
     Variable,
@@ -21,6 +22,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.constants.units import BOOLEAN, HOURS_PER_MONTH, XPF_PER_MONTH
 from openfisca_pf.entities import Personne
+from openfisca_pf.enums.impots import RegimeCPS
 
 
 class nombre_heures_interet_general(Variable):

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Enum,
     max_,
@@ -15,6 +15,7 @@ from openfisca_pf.base import (
 from openfisca_pf.constants.units import BOOLEAN, XPF
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.functions.domaine import figer_emprise
 
 
@@ -76,7 +77,7 @@ class montant_base_redevance_domaniale_type_5(Variable):
                 ]
             )
 
-        montant_base = max_(arrondi_superrieur(montant_intermediaire), montant_minimum)
+        montant_base = max_(arrondi_superieur(montant_intermediaire), montant_minimum)
         return where(type_calcul, montant_base, 0.)
 
 
@@ -109,7 +110,7 @@ class montant_total_redevance_domaniale_type_5(Variable):
         montant_minimum = parameters(period).daf.redevance_domaniale.type_5[emprise].montant_minimum
 
         # Calcul du montant pour la durée totale
-        montant_total = max_(arrondi_superrieur(base * duree / base_calcul_jour), montant_minimum) + majoration
+        montant_total = max_(arrondi_superieur(base * duree / base_calcul_jour), montant_minimum) + majoration
 
         # La comparaison avec le minmum est effectué sur le montant de base et le montant totale
         # pour correctement calculer pour des durées inférieures à la durée de base

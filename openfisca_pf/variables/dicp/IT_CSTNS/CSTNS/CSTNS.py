@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_inferrieur,
     Parameters,
     Period,
     Variable,
@@ -11,6 +11,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.currency import arrondi_inferieur
 
 
 class montant_cstns_du(Variable):
@@ -26,7 +27,7 @@ class montant_cstns_du(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         cstns_ventes = personne('cstns_ventes', period, parameters)
         cstns_prestations = personne('cstns_prestations', period, parameters)
-        return arrondi_inferrieur(cstns_ventes + cstns_prestations)
+        return arrondi_inferieur(cstns_ventes + cstns_prestations)
 
 
 class cstns_a_payer(Variable):

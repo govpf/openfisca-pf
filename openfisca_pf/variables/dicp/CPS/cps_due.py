@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     MONTH,
     Parameters,
@@ -8,7 +9,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
-from openfisca_pf.base import arrondi_superrieur
+from openfisca_pf.functions.currency import arrondi_superieur
 
 
 class cps_due(Variable):
@@ -27,4 +28,4 @@ class cps_due(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters):
         base_imposable = personne('base_imposable_cps', period, parameters)
         taux = personne.pays('taux_cps', period, parameters)
-        return arrondi_superrieur(base_imposable * taux)
+        return arrondi_superieur(base_imposable * taux)

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    calculer_base_imposable_ventes_tranche,
     Parameters,
     Period,
     Variable,
@@ -10,6 +10,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.tranches import calculer_base_imposable_ventes_tranche
 
 
 class base_imposable_it_ventes_tranche_1(Variable):

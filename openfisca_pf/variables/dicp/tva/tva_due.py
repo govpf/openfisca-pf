@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     MONTH,
     set_input_dispatch_by_period,
     Parameters,
@@ -11,6 +11,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.currency import arrondi_superieur
 
 
 class tva_due_taux_reduit(Variable):
@@ -24,7 +25,7 @@ class tva_due_taux_reduit(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_reduit', period, parameters)
         taux = personne.pays('taux_tva_reduit', period, parameters)
-        return arrondi_superrieur(base_imposable * taux)
+        return arrondi_superieur(base_imposable * taux)
 
 
 class tva_due_taux_intermediaire(Variable):
@@ -38,7 +39,7 @@ class tva_due_taux_intermediaire(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_intermediaire', period, parameters)
         taux = personne.pays('taux_tva_intermediaire', period, parameters)
-        return arrondi_superrieur(base_imposable * taux)
+        return arrondi_superieur(base_imposable * taux)
 
 
 class tva_due_taux_normal(Variable):
@@ -52,7 +53,7 @@ class tva_due_taux_normal(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_normal', period, parameters)
         taux = personne.pays('taux_tva_normal', period, parameters)
-        return arrondi_superrieur(base_imposable * taux)
+        return arrondi_superieur(base_imposable * taux)
 
 
 class tva_due_taux_livraisons_immeubles_et_cession_parts(Variable):
@@ -66,4 +67,4 @@ class tva_due_taux_livraisons_immeubles_et_cession_parts(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period)
         taux = personne.pays('taux_tva_livraisons_immeubles_et_cession_parts', period)
-        return arrondi_superrieur(base_imposable * taux)
+        return arrondi_superieur(base_imposable * taux)

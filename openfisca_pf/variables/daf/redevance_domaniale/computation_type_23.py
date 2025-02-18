@@ -2,7 +2,6 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Enum,
     min_,
@@ -16,6 +15,7 @@ from openfisca_pf.constants.time import NOMBRE_D_HEURES_PAR_DEMI_JOURNEE_AU_PRO_
 from openfisca_pf.constants.units import BOOLEAN, XPF
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.functions.domaine import figer_emprise
 
 
@@ -85,7 +85,7 @@ class montant_total_redevance_domaniale_type_23(Variable):
                 min_(tarif_demi_jour + tarif_horaire * (duree - NOMBRE_D_HEURES_PAR_DEMI_JOURNEE_AU_PRO_RATA_TEMPORIS), tarif_jour)
                 ]
             )
-        montant_total = arrondi_superrieur(montant_intermediaire) + majoration
+        montant_total = arrondi_superieur(montant_intermediaire) + majoration
         return where(type_calcul_est_23, montant_total, 0.)
 
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Enum,
     max_,
@@ -12,11 +12,15 @@ from openfisca_pf.base import (
     Variable,
     where
     )
-from openfisca_pf.constants.time import NOMBRE_DE_JOURS_PAR_SEMAINE, NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS, \
+from openfisca_pf.constants.time import (
+    NOMBRE_DE_JOURS_PAR_SEMAINE,
+    NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS,
     NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS
+    )
 from openfisca_pf.constants.units import BOOLEAN, XPF
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.functions.domaine import figer_emprise
 
 
@@ -67,7 +71,7 @@ class montant_base_redevance_domaniale_type_8(Variable):
         montant_intermediaire = part_fixe + part_unitaire * nombre + part_variable * variable
 
         # Minimum comparison
-        montant_base = max_(arrondi_superrieur(montant_intermediaire), montant_minimum)
+        montant_base = max_(arrondi_superieur(montant_intermediaire), montant_minimum)
         return where(type_calcul, montant_base, 0.)
 
 
@@ -107,7 +111,7 @@ class montant_total_redevance_domaniale_type_8(Variable):
         montant_intermediaire = max_(base * duree / base_calcul_jour + majoration, montant_minimum)
 
         # Exoneration
-        montant_total = arrondi_superrieur(montant_intermediaire * (1. - exoneration * exonere))
+        montant_total = arrondi_superieur(montant_intermediaire * (1. - exoneration * exonere))
         return where(type_calcul, montant_total, 0.)
 
 

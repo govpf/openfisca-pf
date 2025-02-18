@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Enum,
     max_,
@@ -20,6 +20,7 @@ from openfisca_pf.constants.time import (
 from openfisca_pf.constants.units import BOOLEAN, XPF
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.functions.domaine import figer_emprise, indexer_zone_commune
 
 
@@ -71,7 +72,7 @@ class montant_base_redevance_domaniale_type_9(Variable):
             )
 
         # Calcul du montant
-        montant_intermediaire = arrondi_superrieur(part_variable / 100. * valeur_venale * variable)
+        montant_intermediaire = arrondi_superieur(part_variable / 100. * valeur_venale * variable)
         montant_base = max_(montant_intermediaire, montant_minimum)
         return where(type_calcul, montant_base, 0.)
 
@@ -106,7 +107,7 @@ class montant_total_redevance_domaniale_type_9(Variable):
 
         # Calcul du montant total
         montant_intermediaire = max_(base * duree / base_calcul_jour, montant_minimum)
-        montant_total = arrondi_superrieur(montant_intermediaire)
+        montant_total = arrondi_superieur(montant_intermediaire)
         return where(type_calcul, montant_total, 0.)
 
 

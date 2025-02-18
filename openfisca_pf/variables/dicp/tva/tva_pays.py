@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_core.populations import ADD
 from openfisca_pf.base import (
     ArrayLike,

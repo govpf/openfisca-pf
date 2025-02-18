@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from numpy import where
 from openfisca_pf.base import (
     ArrayLike,

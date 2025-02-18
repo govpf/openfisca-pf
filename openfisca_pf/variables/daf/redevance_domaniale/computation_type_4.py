@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Enum,
     Parameters,
@@ -14,6 +14,7 @@ from openfisca_pf.base import (
 from openfisca_pf.constants.units import BOOLEAN, XPF
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.functions.domaine import figer_emprise
 
 
@@ -93,7 +94,7 @@ class montant_total_redevance_domaniale_type_4(Variable):
                 init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree - threshold_3)
                 ]
             )
-        montant_total = arrondi_superrieur((montant_intermediaire + majoration) * (1 - exoneration * exonere))
+        montant_total = arrondi_superieur((montant_intermediaire + majoration) * (1 - exoneration * exonere))
         return where(type_calcul, montant_total, 0)
 
 

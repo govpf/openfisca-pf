@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 """
 L'indemnité d'éloignement (IE) est une aide financière offerte aux agents qui sont affectés en Polynésie française
 pour servir en dehors du territoire dans lequel est situé leur centre de leurs intérêts matériels et moraux.
@@ -18,6 +19,7 @@ entre la transmission des états liquidatifs au comptable public
 et le versement effectif de l’indemnité d’éloignement sur le compte bancaire des intéressés.
 """
 
+
 from openfisca_pf.base import (
     ADD,
     ArrayLike,
@@ -28,12 +30,12 @@ from openfisca_pf.base import (
     Period,
     round_,
     select,
-    TypeContrat,
     Variable,
     YEAR
     )
 from openfisca_pf.constants.units import BOOLEAN, XPF_PER_MONTH
 from openfisca_pf.entities import Personne
+from openfisca_pf.enums.impots import TypeContrat
 
 
 class dispositif_percu(Variable):

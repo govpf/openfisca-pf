@@ -8,6 +8,7 @@ Pour bénéficier de ce dispositif, il faut être âgé de 18 à 55 ans inclus, 
 Les projets peuvent s'effectuer sous la forme d'une entreprise individuelle ou d'une société, à condition d'en exercer effectivement le contrôle.
 """
 
+
 from openfisca_pf.base import (
     ADD,
     ArrayLike,

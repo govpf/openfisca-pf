@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
     Enum,
-    OuiNon,
     not_,
     Parameters,
     Period,
@@ -13,6 +13,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.constants import units
 from openfisca_pf.entities import Pays, Personne
+from openfisca_pf.enums.common import OuiNon
 
 
 class redevable_tva_franchise_en_base(Variable):

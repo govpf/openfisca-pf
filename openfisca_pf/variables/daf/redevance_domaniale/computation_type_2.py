@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Enum,
     max_,
@@ -20,6 +20,7 @@ from openfisca_pf.constants.time import (
 from openfisca_pf.constants.units import XPF, BOOLEAN
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.functions.domaine import figer_emprise
 
 
@@ -71,7 +72,7 @@ class montant_base_redevance_domaniale_type_2(Variable):
 
         # Comparaison avec le minimum
         montant_base = max_(
-            arrondi_superrieur(montant_intermediaire),
+            arrondi_superieur(montant_intermediaire),
             montant_minimum
             )
         return where(type_calcul_est_2, montant_base, 0.)
@@ -113,7 +114,7 @@ class montant_total_redevance_domaniale_type_2(Variable):
         montant_intermediaire = max_(montant * duree_occupation / base_calcul_jour + majoration, montant_minimum)
 
         # Exonération pour certaines activités
-        montant_total = arrondi_superrieur(montant_intermediaire * (1. - exoneration * activite_cultuelle))
+        montant_total = arrondi_superieur(montant_intermediaire * (1. - exoneration * activite_cultuelle))
         return where(type_calcul_est_2, montant_total, 0.)
 
 

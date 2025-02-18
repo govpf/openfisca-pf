@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Enum,
     max_,
@@ -14,6 +14,7 @@ from openfisca_pf.base import (
 from openfisca_pf.constants.units import BOOLEAN, XPF
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.functions.domaine import figer_emprise
 
 
@@ -64,7 +65,7 @@ class montant_base_redevance_domaniale_type_7(Variable):
         montant_intermediaire = part_fixe + part_unitaire * nombre + part_variable * variable
 
         # Minimum comparison
-        montant_base = max_(arrondi_superrieur(montant_intermediaire), montant_minimum)
+        montant_base = max_(arrondi_superieur(montant_intermediaire), montant_minimum)
         return where(type_calcul, montant_base, 0.)
 
 

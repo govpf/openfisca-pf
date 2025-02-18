@@ -1,12 +1,30 @@
 # -*- coding: utf-8 -*-
 
-import numpy
-from numpy.typing import ArrayLike
+
+__all__ = [
+    'as_date',
+    'as_duration',
+    'annee_de_la_date',
+    'jour_de_la_date',
+    'mois_de_la_date',
+    'pro_rata_temporis_jours_dans_le_mois',
+    'relative_delta_years',
+    'relative_delta_months',
+    'relative_delta_days'
+    ]
+
+
 from dateutil.relativedelta import relativedelta
+from openfisca_pf.base import (
+    ArrayLike,
+    ndarray,
+    vectorize,
+    where
+    )
 from openfisca_pf.constants.time import NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS
 
 
-def as_date(a: numpy.ndarray, unit: str) -> numpy.ndarray:
+def as_date(a: ndarray, unit: str) -> ndarray:
     """
     Converti un vercteur de dates en un vecteur de `datetime64[U]` où `U` est l'unité désirée.
 
@@ -17,7 +35,7 @@ def as_date(a: numpy.ndarray, unit: str) -> numpy.ndarray:
     return a.astype(f'datetime64[{unit}]')
 
 
-def as_duration(a: numpy.ndarray, unit: str) -> numpy.ndarray:
+def as_duration(a: ndarray, unit: str) -> ndarray:
     """
     Converti un vecteur en un vecteur de durée `timedelta64[U]` où `U` est l'unité désirée, puis en un vecteur d'entiers naturels.
 
@@ -29,7 +47,7 @@ def as_duration(a: numpy.ndarray, unit: str) -> numpy.ndarray:
     return a.astype(f'timedelta64[{unit}]').astype(int)
 
 
-def annee_de_la_date(d: numpy.ndarray) -> numpy.ndarray:
+def annee_de_la_date(d: ndarray) -> ndarray:
     """
     Retourne l'annee de la date donnée.
 
@@ -39,7 +57,7 @@ def annee_de_la_date(d: numpy.ndarray) -> numpy.ndarray:
     return as_date(d, 'Y')
 
 
-def jour_de_la_date(d: numpy.ndarray) -> numpy.ndarray:
+def jour_de_la_date(d: ndarray) -> ndarray:
     """
     Retourne le mois de la date donnée.
 
@@ -52,7 +70,7 @@ def jour_de_la_date(d: numpy.ndarray) -> numpy.ndarray:
         ) + 1
 
 
-def mois_de_la_date(d: numpy.ndarray) -> numpy.ndarray:
+def mois_de_la_date(d: ndarray) -> ndarray:
     """
     Retourne le jour de la date donnée.
 
@@ -74,15 +92,15 @@ def pro_rata_temporis_jours_dans_le_mois(jour: ArrayLike, mois: ArrayLike) -> Ar
     :param mois: Mois
     :return: Jour du mois au pro rata temporis
     """
-    return numpy.where(
+    return where(
         (jour == 31) + (((jour == 28) + (jour == 29)) * (mois == 2)),
         NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS,
         jour
         )
 
 
-@numpy.vectorize
-def relative_delta_years(a: numpy.ndarray) -> numpy.ndarray:
+@vectorize
+def relative_delta_years(a: ndarray) -> ndarray:
     """
     Crée une delta relatif de temps en année qui peut être ajouté à une date pour la modifier.
     Ce delta ajoutéera le nombre d'année spécifiées moins un jour car l'occupation termine à 23:59.
@@ -93,8 +111,8 @@ def relative_delta_years(a: numpy.ndarray) -> numpy.ndarray:
     return relativedelta(years = a, days = -1)
 
 
-@numpy.vectorize
-def relative_delta_months(a: numpy.ndarray) -> numpy.ndarray:
+@vectorize
+def relative_delta_months(a: ndarray) -> ndarray:
     """
     Crée une delta relatif de temps en mois qui peut être ajouté à une date pour la modifier.
     Ce delta ajoutéera le nombre de mois spécifiées moins un jour car l'occupation termine à 23:59.
@@ -105,8 +123,8 @@ def relative_delta_months(a: numpy.ndarray) -> numpy.ndarray:
     return relativedelta(months = a, days = -1)
 
 
-@numpy.vectorize
-def relative_delta_days(a: numpy.ndarray) -> numpy.ndarray:
+@vectorize
+def relative_delta_days(a: ndarray) -> ndarray:
     """
     Crée une delta relatif de temps en jours qui peut être ajouté à une date pour la modifier.
     Ce delta ajoutéera le nombre de jours spécifiées moins un jour car l'occupation termine à 23:59.

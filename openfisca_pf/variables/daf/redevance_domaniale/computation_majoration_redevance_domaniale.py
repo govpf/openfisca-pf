@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Parameters,
     Period,
@@ -10,6 +10,7 @@ from openfisca_pf.base import (
     Variable
     )
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.currency import arrondi_superieur
 
 
 class majoration_redevance_domaniale(Variable):
@@ -42,4 +43,4 @@ class majoration_redevance_domaniale(Variable):
                 rate_participant_2 * nbr_participant
                 ]
             )
-        return arrondi_superrieur(montant_intermediaire)
+        return arrondi_superieur(montant_intermediaire)

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_inferrieur,
     Parameters,
     Period,
     Variable,
@@ -10,6 +10,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.currency import arrondi_inferieur
 
 
 class montant_it_ventes_du_tranche_1(Variable):
@@ -26,7 +27,7 @@ class montant_it_ventes_du_tranche_1(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_1 = personne('base_imposable_it_ventes_tranche_1', period, parameters)
         taux_it_ventes_tranche_1 = personne.pays('taux_it_ventes_tranche_1', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_1 * taux_it_ventes_tranche_1)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_1 * taux_it_ventes_tranche_1)
 
 
 class montant_it_ventes_du_tranche_2(Variable):
@@ -43,7 +44,7 @@ class montant_it_ventes_du_tranche_2(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_2 = personne('base_imposable_it_ventes_tranche_2', period, parameters)
         taux_it_ventes_tranche_2 = personne.pays('taux_it_ventes_tranche_2', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_2 * taux_it_ventes_tranche_2)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_2 * taux_it_ventes_tranche_2)
 
 
 class montant_it_ventes_du_tranche_3(Variable):
@@ -60,7 +61,7 @@ class montant_it_ventes_du_tranche_3(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_3 = personne('base_imposable_it_ventes_tranche_3', period, parameters)
         taux_it_ventes_tranche_3 = personne.pays('taux_it_ventes_tranche_3', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_3 * taux_it_ventes_tranche_3)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_3 * taux_it_ventes_tranche_3)
 
 
 class montant_it_ventes_du_tranche_4(Variable):
@@ -77,7 +78,7 @@ class montant_it_ventes_du_tranche_4(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_4 = personne('base_imposable_it_ventes_tranche_4', period, parameters)
         taux_it_ventes_tranche_4 = personne.pays('taux_it_ventes_tranche_4', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_4 * taux_it_ventes_tranche_4)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_4 * taux_it_ventes_tranche_4)
 
 
 class montant_it_ventes_du_tranche_5(Variable):
@@ -94,7 +95,7 @@ class montant_it_ventes_du_tranche_5(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_5 = personne('base_imposable_it_ventes_tranche_5', period, parameters)
         taux_it_ventes_tranche_5 = personne.pays('taux_it_ventes_tranche_5', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_5 * taux_it_ventes_tranche_5)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_5 * taux_it_ventes_tranche_5)
 
 
 class montant_it_ventes_du_tranche_6(Variable):
@@ -111,7 +112,7 @@ class montant_it_ventes_du_tranche_6(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_6 = personne('base_imposable_it_ventes_tranche_6', period, parameters)
         taux_it_ventes_tranche_6 = personne.pays('taux_it_ventes_tranche_6', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_6 * taux_it_ventes_tranche_6)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_6 * taux_it_ventes_tranche_6)
 
 
 class montant_it_ventes_du_tranche_7(Variable):
@@ -128,7 +129,7 @@ class montant_it_ventes_du_tranche_7(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_7 = personne('base_imposable_it_ventes_tranche_7', period, parameters)
         taux_it_ventes_tranche_7 = personne.pays('taux_it_ventes_tranche_7', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_7 * taux_it_ventes_tranche_7)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_7 * taux_it_ventes_tranche_7)
 
 
 class montant_it_ventes_du_tranche_8(Variable):
@@ -145,7 +146,7 @@ class montant_it_ventes_du_tranche_8(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_8 = personne('base_imposable_it_ventes_tranche_8', period, parameters)
         taux_it_ventes_tranche_8 = personne.pays('taux_it_ventes_tranche_8', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_8 * taux_it_ventes_tranche_8)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_8 * taux_it_ventes_tranche_8)
 
 
 class montant_it_ventes_du_tranche_9(Variable):
@@ -162,7 +163,7 @@ class montant_it_ventes_du_tranche_9(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_9 = personne('base_imposable_it_ventes_tranche_9', period, parameters)
         taux_it_ventes_tranche_9 = personne.pays('taux_it_ventes_tranche_9', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_9 * taux_it_ventes_tranche_9)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_9 * taux_it_ventes_tranche_9)
 
 
 class montant_it_ventes_du_tranche_10(Variable):
@@ -179,7 +180,7 @@ class montant_it_ventes_du_tranche_10(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_10 = personne('base_imposable_it_ventes_tranche_10', period, parameters)
         taux_it_ventes_tranche_10 = personne.pays('taux_it_ventes_tranche_10', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_10 * taux_it_ventes_tranche_10)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_10 * taux_it_ventes_tranche_10)
 
 
 class montant_it_ventes_du_tranche_11(Variable):
@@ -196,7 +197,7 @@ class montant_it_ventes_du_tranche_11(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_11 = personne('base_imposable_it_ventes_tranche_11', period, parameters)
         taux_it_ventes_tranche_11 = personne.pays('taux_it_ventes_tranche_11', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_11 * taux_it_ventes_tranche_11)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_11 * taux_it_ventes_tranche_11)
 
 
 class montant_it_ventes_du_tranche_12(Variable):
@@ -213,4 +214,4 @@ class montant_it_ventes_du_tranche_12(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_it_ventes_tranche_12 = personne('base_imposable_it_ventes_tranche_12', period, parameters)
         taux_it_ventes_tranche_12 = personne.pays('taux_it_ventes_tranche_12', period, parameters)
-        return arrondi_inferrieur(base_imposable_it_ventes_tranche_12 * taux_it_ventes_tranche_12)
+        return arrondi_inferieur(base_imposable_it_ventes_tranche_12 * taux_it_ventes_tranche_12)

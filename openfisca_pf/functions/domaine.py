@@ -1,4 +1,45 @@
-from openfisca_pf.base import array, ArrayLike, EnumArray, ndarray, Parameter, where
+# -*- coding: utf-8 -*-
+
+
+__all__ = [
+    'aggreger_variables',
+    'figer_emprise',
+    'indexer_zone_commune'
+    ]
+
+from typing import List
+from openfisca_pf.base import (
+    array,
+    ArrayLike,
+    EnumArray,
+    ndarray,
+    Parameter,
+    Parameters,
+    Period,
+    where
+    )
+from openfisca_pf.entities import Personne
+
+
+def aggreger_variables(entitee: Personne, period: Period, parameters: Parameters, prefix: str, variables: List[str] | ArrayLike) -> ArrayLike:
+    """
+    Calcule et aggrège les valeurs des variables demandés dans un vecteur.
+    Par exemple étant donné les variables `['x', 'y', 'z']`, le préfix `'a_'` la fonction calcule `[entitee('a_x', period)[0], entitee('a_y', period)[1], entitee('a_z', period)[2]]`
+
+    :param entitee:   Entitée sur laquelle réaliser l'aggrégation des variables.
+    :param period:    Periode durant laquelle réaliser les calculs.
+    :param parameters Paramètres utilisés pour calculer les variables.
+    :param prefix:    Prefix à ajouter devant les noms des variables.
+    :param variables: Noms des variables à aggréger.
+    :return:          Vecteur contenant les valeurs aggrégées des variables.
+    """
+    result = []
+    index = 0
+    for identifiant in variables:
+        value = entitee(prefix + identifiant, period, parameters)[index]
+        result.append(value)
+        index = index + 1
+    return array(result)
 
 
 def figer_emprise(mask: ndarray, emprise: EnumArray, default: str) -> ndarray:

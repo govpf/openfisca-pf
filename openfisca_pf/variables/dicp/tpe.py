@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
     not_,
     Parameters,
     Period,
     select,
-    TypePersonne,
     Variable,
     YEAR
     )
 from openfisca_pf.entities import Pays, Personne
+from openfisca_pf.enums.impots import TypePersonne
 
 
 class redevable_tpe(Variable):

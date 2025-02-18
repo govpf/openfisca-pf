@@ -4,9 +4,18 @@
 Enumerations utilisées pour les calculs de la redevance domaniale.
 """
 
-from openfisca_pf.base import (
-    Enum
-    )
+__all__ = [
+    'Commune',
+    'Temporalite',
+    'TypesNatureEmprise',
+    'UnitesDuree',
+    'ZoneDomPrive',
+    'ZoneLotAgricole',
+    'ZonesOccupations'
+    ]
+
+
+from openfisca_pf.base import Enum
 
 
 class Commune(Enum):
@@ -263,6 +272,13 @@ class TypesNatureEmprise(Enum):
     ag_priv_06_lot_agricole = 'AG-PRIV-06 Location sur lotissement Agricole'
 
 
+class UnitesDuree(Enum):
+    Heures = 'Heures'
+    Jours = 'Jours'
+    Mois = 'Mois'
+    Annees = 'Années'
+
+
 class ZoneDomPrive(Enum):
     """
     Ensemble des noms de zones de l'arrêté 136CM
@@ -367,10 +383,3 @@ class ZonesOccupations(Enum):
     zone_3 = 'Zone 3'
     zone_4 = 'Zone 4'
     zone_5 = 'Zone 5'
-
-
-class UnitesDuree(Enum):
-    Heures = 'Heures'
-    Jours = 'Jours'
-    Mois = 'Mois'
-    Annees = 'Années'

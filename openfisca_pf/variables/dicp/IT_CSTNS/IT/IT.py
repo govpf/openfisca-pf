@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_inferrieur,
     Enum,
     not_,
-    OuiNon,
     Parameters,
-    Pays,
     Period,
-    TypeSociete,
     Variable,
     where,
     YEAR
     )
 from openfisca_pf.constants.units import XPF, BOOLEAN
-from openfisca_pf.entities import Personne
+from openfisca_pf.entities import Pays, Personne
+from openfisca_pf.enums.common import OuiNon
+from openfisca_pf.enums.impots import TypeSociete
+from openfisca_pf.functions.currency import arrondi_inferieur
 
 
 class montant_it_du(Variable):
@@ -32,7 +32,7 @@ class montant_it_du(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         it_ventes = personne('it_ventes', period, parameters)
         it_prestations = personne('it_prestations', period, parameters)
-        return arrondi_inferrieur(it_ventes + it_prestations)
+        return arrondi_inferieur(it_ventes + it_prestations)
 
 
 class it_a_payer(Variable):

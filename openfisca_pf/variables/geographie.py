@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
+    Enum,
     isin,
     Parameters,
     Period,

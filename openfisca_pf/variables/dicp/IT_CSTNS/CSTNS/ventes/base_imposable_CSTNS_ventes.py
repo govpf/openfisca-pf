@@ -1,20 +1,21 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
     floor,
     not_,
-    OuiNon,
     Parameters,
     Period,
     round_,
-    TypePersonne,
     Variable,
     where,
     YEAR
     )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
+from openfisca_pf.enums.common import OuiNon
+from openfisca_pf.enums.impots import TypePersonne
 
 
 class base_imposable_cstns_ventes(Variable):

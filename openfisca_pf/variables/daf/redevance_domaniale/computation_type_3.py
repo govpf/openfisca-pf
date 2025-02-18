@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_superrieur,
     DAY,
     Enum,
     Parameters,
@@ -14,6 +14,7 @@ from openfisca_pf.base import (
 from openfisca_pf.constants.units import XPF, BOOLEAN
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.functions.domaine import figer_emprise
 
 
@@ -95,7 +96,7 @@ class montant_total_redevance_domaniale_type_3(Variable):
                 ]
             )
 
-        montant_total = arrondi_superrieur(
+        montant_total = arrondi_superieur(
             (montant_intermediaire + majoration) * (1. - exoneration * activite_cultuelle)
             )
         return where(type_calcul_est_3, montant_total, 0.)

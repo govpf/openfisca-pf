@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
     date,
@@ -9,13 +10,12 @@ from openfisca_pf.base import (
     MONTH,
     Parameters,
     Period,
-    RegimeCPS,
     set_input_dispatch_by_period,
     timedelta64,
-    TypeContrat,
     Variable
     )
 from openfisca_pf.entities import Personne
+from openfisca_pf.enums.impots import RegimeCPS, TypeContrat
 from openfisca_pf.constants.time import EPSILON_TIMEDELTA, NOMBRE_DE_MOIS_PAR_AN
 from openfisca_pf.constants.units import MONTHS, YEARS
 

@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
     Enum,
     Parameters,
     Period,
     set_input_divide_by_period,
-    TypePersonne,
-    TypeSociete,
     Variable,
     where,
     YEAR
     )
 from openfisca_pf.entities import Pays, Personne
+from openfisca_pf.enums.impots import TypePersonne, TypeSociete
 
 
 class type_societe(Variable):

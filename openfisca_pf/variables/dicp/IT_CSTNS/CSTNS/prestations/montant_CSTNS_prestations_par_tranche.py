@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    arrondi_inferrieur,
     Parameters,
     Period,
     Variable,
     YEAR
     )
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.currency import arrondi_inferieur
 
 
 class montant_cstns_prestations_du_tranche_1(Variable):
@@ -21,7 +22,7 @@ class montant_cstns_prestations_du_tranche_1(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_1', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_1', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_2(Variable):
@@ -34,7 +35,7 @@ class montant_cstns_prestations_du_tranche_2(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_2', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_2', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_3(Variable):
@@ -47,7 +48,7 @@ class montant_cstns_prestations_du_tranche_3(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_3', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_3', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_4(Variable):
@@ -60,7 +61,7 @@ class montant_cstns_prestations_du_tranche_4(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_4', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_4', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_5(Variable):
@@ -73,7 +74,7 @@ class montant_cstns_prestations_du_tranche_5(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_5', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_5', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_6(Variable):
@@ -86,7 +87,7 @@ class montant_cstns_prestations_du_tranche_6(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_6', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_6', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_7(Variable):
@@ -99,7 +100,7 @@ class montant_cstns_prestations_du_tranche_7(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_7', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_7', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_8(Variable):
@@ -112,7 +113,7 @@ class montant_cstns_prestations_du_tranche_8(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_8', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_8', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_9(Variable):
@@ -125,7 +126,7 @@ class montant_cstns_prestations_du_tranche_9(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_9', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_9', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_10(Variable):
@@ -138,7 +139,7 @@ class montant_cstns_prestations_du_tranche_10(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_10', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_10', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_11(Variable):
@@ -151,7 +152,7 @@ class montant_cstns_prestations_du_tranche_11(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_11', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_11', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)
 
 
 class montant_cstns_prestations_du_tranche_12(Variable):
@@ -164,4 +165,4 @@ class montant_cstns_prestations_du_tranche_12(Variable):
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable = personne('base_imposable_cstns_prestations_tranche_12', period, parameters)
         taux = personne.pays('taux_cstns_prestations_tranche_12', period, parameters)
-        return arrondi_inferrieur(base_imposable * taux)
+        return arrondi_inferieur(base_imposable * taux)

@@ -1,5 +1,18 @@
 # -*- coding: utf-8 -*-
 
+
+__all__ = [
+    'Archipel',
+    'CommuneFiscale',
+    'COMMUNES_DES_AUSTRALES',
+    'COMMUNES_DES_GAMBIERS',
+    'COMMUNES_DES_ILES_DU_VENT',
+    'COMMUNES_DES_ILES_SOUS_LE_VENT',
+    'COMMUNES_DES_MARQUISES',
+    'COMMUNES_DES_TUAMOTUS'
+    ]
+
+
 from openfisca_pf.base import Enum
 from openfisca_pf.functions.enum import enum_set
 

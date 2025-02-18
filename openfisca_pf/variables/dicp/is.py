@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
     Enum,
     not_,
-    OuiNon,
     Parameters,
     Period,
-    TypeSociete,
     Variable,
     YEAR
     )
 from openfisca_pf.entities import Pays, Personne
+from openfisca_pf.enums.common import OuiNon
+from openfisca_pf.enums.impots import TypeSociete
 
 
 class option_is(Variable):

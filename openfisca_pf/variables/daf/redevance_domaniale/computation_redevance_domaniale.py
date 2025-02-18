@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
-    aggreger_variables,
     ArrayLike,
     DAY,
     Enum,
@@ -16,6 +16,7 @@ from openfisca_pf.enums.domaine import (
     UnitesDuree
     )
 from openfisca_pf.entities import Dossier, Personne
+from openfisca_pf.functions.domaine import aggreger_variables
 
 
 class type_calcul_redevance_domaniale(Variable):

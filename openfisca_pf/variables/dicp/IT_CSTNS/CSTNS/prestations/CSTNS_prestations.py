@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    creer_bareme,
     Parameters,
     Period,
     Variable,
     YEAR
     )
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.tranches import creer_bareme
 
 
 class cstns_prestations_avant_abattement_droits(Variable):

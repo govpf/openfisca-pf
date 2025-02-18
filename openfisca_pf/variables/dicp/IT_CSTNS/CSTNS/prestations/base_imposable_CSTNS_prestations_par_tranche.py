@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
-    calculer_base_imposable_prestations_tranche,
     Parameters,
     Period,
     Variable,
     YEAR
     )
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.tranches import calculer_base_imposable_prestations_tranche
 
 
 CSTNS: str = 'cstns'
