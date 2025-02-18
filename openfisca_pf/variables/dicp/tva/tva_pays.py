@@ -69,8 +69,8 @@ class tva_due_taux_livraisons_immeubles_et_cession_parts_pays(Variable):
     label = u"Montant total de TVA due en taux livraisons d'immeubles et cession de parts par les entreprises du pays"
     unit = units.XPF
 
-    def formula(pays, period, parameters):
-        tva_due_taux_livraisons_immeubles_et_cession_parts_pays = pays.members('tva_due_taux_livraisons_immeubles_et_cession_parts', period)
+    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+        tva_due_taux_livraisons_immeubles_et_cession_parts_pays = pays.members('tva_due_taux_livraisons_immeubles_et_cession_parts', period, parameters)
         return pays.sum(tva_due_taux_livraisons_immeubles_et_cession_parts_pays)
 
 
