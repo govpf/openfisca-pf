@@ -7,6 +7,7 @@ __all__ = [
     'indexer_zone_commune'
     ]
 
+
 from typing import List
 from openfisca_pf.base import (
     array,

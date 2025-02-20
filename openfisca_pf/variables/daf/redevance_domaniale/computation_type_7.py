@@ -52,7 +52,7 @@ class montant_base_redevance_domaniale_type_7(Variable):
         emprise = figer_emprise(
             type_calcul,
             emprise,
-            'ip_eco_01_equipement_pays'
+            'ex_eco_01_dpf_hors_entite_publique'
             )
 
         # Parameters

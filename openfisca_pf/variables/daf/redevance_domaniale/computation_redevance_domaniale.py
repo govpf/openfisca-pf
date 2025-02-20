@@ -61,7 +61,7 @@ class montant_base_redevance_domaniale(Variable):
     label = 'Montant de base la redevance domaniale dûe'
 
     def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        type_calcul = personne('type_calcul_redevance_domaniale', period)
+        type_calcul = personne('type_calcul_redevance_domaniale', period, parameters)
         return aggreger_variables(personne, period, parameters, 'montant_base_redevance_domaniale_type_', type_calcul)
 
 
