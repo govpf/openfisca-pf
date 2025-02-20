@@ -4,7 +4,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_armateurs: 10000000
       charges_armateurs: 0
       chiffre_affaire_farine_riz_sucre: 10000000
@@ -23,7 +23,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: N
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_ventes_a_l_aventure_goelettes: 15000000
       total_charges_releve_detaille: 10000000
       chiffre_affaire_ventes_inferieur_20_millions: 15000000
@@ -41,7 +41,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: N
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_vente_gros_lait_frais: 20000000
       total_charges_releve_detaille: 0
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
@@ -60,7 +60,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: N
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_vente_gros_lait_frais: 20000000
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
       chiffre_affaire_baguettes_revente_au_detail: 20000000
@@ -80,7 +80,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_vente_gros_lait_frais: 20000000
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
       chiffre_affaire_baguettes_revente_au_detail: 20000000
@@ -100,7 +100,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_vente_gros_lait_frais: 20000000
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
       total_charges_releve_detaille: 50000000
@@ -120,7 +120,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_vente_gros_lait_frais: 20000000
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
       chiffre_affaire_baguettes_revente_au_detail: 20000000
@@ -140,7 +140,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: N
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_vente_gros_lait_frais: 20000000
       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 30000000
       total_charges_releve_detaille: 50000000
@@ -160,7 +160,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_artisans: 10000000
       chiffre_affaire_boulangerie_autres: 5000000
       total_charges_releve_detaille: 0
@@ -178,7 +178,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_artisans: 10000000
       total_charges_releve_detaille: 10000000
       chiffre_affaire_boulangerie_autres: 5000000
@@ -196,7 +196,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_artisans: 5000000
       chiffre_affaire_boulangerie_autres: 10000000
       total_charges_releve_detaille: 0
@@ -214,7 +214,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_artisans: 5000000
       total_charges_releve_detaille: 10000000
       chiffre_affaire_boulangerie_autres: 10000000
@@ -232,7 +232,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       total_charges_releve_detaille: 20000000
       chiffre_affaire_armateurs: 10000000
@@ -250,7 +250,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       total_charges_releve_detaille: 20000000
       chiffre_affaire_armateurs: 10000000
@@ -268,7 +268,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: N
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       total_charges_releve_detaille: 0
       chiffre_affaire_armateurs: 10000000
@@ -286,7 +286,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 10000000
       chiffre_affaire_armateurs: 5000000
       total_charges_releve_detaille: 15000000
@@ -304,7 +304,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_armateurs_de_goelettes: 5000000
       total_charges_releve_detaille: 0
       chiffre_affaire_hotel_pension_famille: 10000000
@@ -322,7 +322,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_location_non_meublee: 10000000
       chiffre_affaire_location_meublee: 10000000
       chiffre_affaire_location_terrains_nus: 6000000
@@ -341,7 +341,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_location_non_meublee: 10000000
       total_charges_releve_detaille: 15000000
       chiffre_affaire_location_meublee: 10000000
@@ -360,7 +360,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_location_non_meublee: 10000000
       chiffre_affaire_location_meublee: 10000000
       chiffre_affaire_location_terrains_nus: 6000000
@@ -379,7 +379,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_location_non_meublee: 10000000
       chiffre_affaire_location_meublee: 10000000
       chiffre_affaire_location_terrains_nus: 6000000
@@ -398,7 +398,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_location_non_meublee: 10000000
       total_charges_releve_detaille: 15000000
       chiffre_affaire_location_meublee: 10000000
@@ -417,7 +417,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_ventes_sans_abattement: 22000000
       total_charges_releve_detaille: 0
       chiffre_affaire_location_meublee: 6000000
@@ -435,7 +435,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_ventes_sans_abattement: 22000000
       chiffre_affaire_location_meublee: 6000000
       total_charges_releve_detaille: 15000000
@@ -453,7 +453,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_ventes_sans_abattement: 22000000
       chiffre_affaire_boulangerie_baguettes_gros: 10000000
       total_charges_releve_detaille: 20000000
@@ -471,7 +471,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_ventes_sans_abattement: 22000000
       chiffre_affaire_boulangerie_baguettes_gros: 10000000
       total_charges_releve_detaille: 0
@@ -489,7 +489,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_location_meublee: 50000000
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       chiffre_affaire_entreprise_de_travaux_publics: 10000000
@@ -511,7 +511,7 @@
     personne:
       type_personne: P
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_location_meublee: 50000000
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       chiffre_affaire_entreprise_de_travaux_publics: 10000000
@@ -533,7 +533,7 @@
     personne:
       type_personne: M
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_location_meublee: 50000000
       chiffre_affaire_denrees_emporter_ou_sur_place: 20000000
       chiffre_affaire_entreprise_de_travaux_publics: 10000000

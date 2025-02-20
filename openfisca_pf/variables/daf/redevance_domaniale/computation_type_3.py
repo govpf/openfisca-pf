@@ -1,14 +1,33 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the computation for occupation on public domain that relies on a daily rating. The daily rate decreases after a week and after a month.
-# See https://openfisca.org/doc/key-concepts/variables.html
 
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# # Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
-from openfisca_pf.base import *
+from openfisca_pf.base import (
+    ArrayLike,
+    DAY,
+    Enum,
+    Parameters,
+    Period,
+    select,
+    Variable,
+    where
+    )
+from openfisca_pf.constants.units import XPF, BOOLEAN
+from openfisca_pf.entities import Personne
+from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
+from openfisca_pf.functions.domaine import figer_emprise
+
+
+class type_calcul_redevance_domaniale_est_type_3(Variable):
+    entity = Personne
+    definition_period = DAY
+    value_type = bool
+    default_value = False
+    unit = BOOLEAN
+    label = "Determine si le calcul de redevance domaniale est de type 3"
+
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return personne('type_calcul_redevance_domaniale', period, parameters) == '3'
 
 
 class montant_base_redevance_domaniale_type_3(Variable):
@@ -18,58 +37,69 @@ class montant_base_redevance_domaniale_type_3(Variable):
     label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne, period, pararameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         # Il n'y a pas de différence entre montant de basse et montant total pour ce type de calcul.
-
-        return personne('montant_total_redevance_domaniale_type_3', period)
+        return personne('montant_total_redevance_domaniale_type_3', period, parameters)
 
 
 class montant_total_redevance_domaniale_type_3(Variable):
-    value_type = float
     entity = Personne
     definition_period = DAY
+    value_type = float
+    default_value = 0.
+    unit = XPF
     label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier"
     reference = "Arrêté NOR DAF2120267AC-3"
-    unit = 'currency-XPF'
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         # Variables
-        type_calcul = personne('type_calcul_redevance_domaniale', period)
-        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
-        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '3', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'em_eco_01_espace_pelouse_ac_elec')
-        duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
-        majoration_redevance_domaniale = personne('majoration_redevance_domaniale', period)
-        activite_cultuelle = personne('activite_cultuelle', period)
-        exoneration = parameters(period).daf.redevance_domaniale.exoneration.discount_rate
+        type_calcul_est_3 = personne('type_calcul_redevance_domaniale_est_type_3', period, parameters)
+        emprise = personne('nature_emprise_occupation_redevance_domaniale', period, parameters)
+        duree = personne('duree_occupation_redevance_domaniale_jour', period, parameters)
+        majoration = personne('majoration_redevance_domaniale', period, parameters)
+        activite_cultuelle = personne('activite_cultuelle', period, parameters)
+
+        # Lors de demandes multiples avec des types de calculs différents,
+        # il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
+        emprise = figer_emprise(
+            type_calcul_est_3,
+            emprise,
+            'em_eco_01_espace_pelouse_ac_elec'
+            )
 
         # Parametres
-        init = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].init
-        threshold_1 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].threshold_1
-        rate_1 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_1
-        threshold_2 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].threshold_2
-        rate_2 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_2
-        threshold_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].threshold_3
-        rate_3 = parameters(period).daf.redevance_domaniale.type_3[nature_emprise_occupation_redevance_domaniale].rate_3
+        exoneration = parameters(period).daf.redevance_domaniale.exoneration.discount_rate
+        init = parameters(period).daf.redevance_domaniale.type_3[emprise].init
+        threshold_1 = parameters(period).daf.redevance_domaniale.type_3[emprise].threshold_1
+        rate_1 = parameters(period).daf.redevance_domaniale.type_3[emprise].rate_1
+        threshold_2 = parameters(period).daf.redevance_domaniale.type_3[emprise].threshold_2
+        rate_2 = parameters(period).daf.redevance_domaniale.type_3[emprise].rate_2
+        threshold_3 = parameters(period).daf.redevance_domaniale.type_3[emprise].threshold_3
+        rate_3 = parameters(period).daf.redevance_domaniale.type_3[emprise].rate_3
 
         # Calcul du montant
         # Pour les durées en heures inférieures à la journée, le type de calcul est mis à type_23
-        # Si jamais dans le future, le calcul du montant par heures devient linéraire, il sera possible d'ajouter un rate_0 et de supprimer lle type_23
-        montant_intermediaire = select([
-            duree_occupation_redevance_domaniale_jour < threshold_1,
-            duree_occupation_redevance_domaniale_jour <= threshold_2,
-            duree_occupation_redevance_domaniale_jour <= threshold_3,
-            duree_occupation_redevance_domaniale_jour > threshold_3
-            ], [
+        # Si jamais dans le future, le calcul du montant par heures devient linéraire,
+        # il sera possible d'ajouter un rate_0 et de supprimer celle type_23
+        montant_intermediaire = select(
+            [
+                duree < threshold_1,
+                duree <= threshold_2,
+                duree <= threshold_3,
+                duree > threshold_3
+                ],
+            [
                 init,
-                init + rate_1 * (duree_occupation_redevance_domaniale_jour - threshold_1),
-                init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree_occupation_redevance_domaniale_jour - threshold_2),
-                init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree_occupation_redevance_domaniale_jour - threshold_3)
-                ])
+                init + rate_1 * (duree - threshold_1),
+                init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (duree - threshold_2),
+                init + rate_1 * (threshold_2 - threshold_1) + rate_2 * (threshold_3 - threshold_2) + rate_3 * (duree - threshold_3)
+                ]
+            )
 
-        montant_total = arrondiSup((montant_intermediaire + majoration_redevance_domaniale) * (1 - exoneration * activite_cultuelle))
-
-        return where(type_calcul == '3', montant_total, 0)
+        montant_total = arrondi_superieur(
+            (montant_intermediaire + majoration) * (1. - exoneration * activite_cultuelle)
+            )
+        return where(type_calcul_est_3, montant_total, 0.)
 
 
 class temporalite_redevance_domaniale_type_3(Variable):

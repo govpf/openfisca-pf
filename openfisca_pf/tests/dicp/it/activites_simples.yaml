@@ -3,7 +3,7 @@
   input:
     personne:
       releve_de_charges_fourni: N
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 22687952
       total_charges_releve_detaille: 15598825
     persons:
@@ -15,7 +15,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_denrees_emporter_ou_sur_place: 16171607
       total_charges_releve_detaille: 16799692
     persons:
@@ -27,7 +27,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_denrees_emporter_ou_sur_place: 60485971
       total_charges_releve_detaille: 48489692
     persons:
@@ -39,7 +39,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_denrees_emporter_ou_sur_place: 126565780
       total_charges_releve_detaille: 86390456
     persons:
@@ -51,7 +51,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: N
+      annexes_it_fournies: N
       chiffre_affaire_profession_liberale: 5597503
       total_charges_releve_detaille: 3801187
     persons:
@@ -63,7 +63,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_profession_liberale: 10066080
       total_charges_releve_detaille: 7744534
     persons:
@@ -75,7 +75,7 @@
 #   input:
 #     personne:
 #       releve_de_charges_fourni: O
-#       annexes_IT_fournies: O
+#       annexes_it_fournies: O
 #       chiffre_affaire_negociants_detaillants_ca_superieur_20mf: 20892282
 #       charges_negociants_detaillants_ca_superieur_20mf: 20772330
 #     persons:
@@ -87,7 +87,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_armateurs_de_goelettes: 111659288
       total_charges_releve_detaille: 199349501
     persons:
@@ -99,7 +99,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_entreprise_de_travaux_publics: 86559517
       total_charges_releve_detaille: 66196589
     persons:
@@ -111,7 +111,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_entreprise_de_travaux_publics: 816554761
       total_charges_releve_detaille: 518095798
     persons:
@@ -123,7 +123,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_boulangerie_baguettes_detail: 23932100
       total_charges_releve_detaille: 15076733
     persons:
@@ -135,7 +135,7 @@
   input:
     personne:
       releve_de_charges_fourni: O
-      annexes_IT_fournies: O
+      annexes_it_fournies: O
       chiffre_affaire_boulangerie_baguettes_gros: 48106250
       total_charges_releve_detaille: 36318543
     persons:

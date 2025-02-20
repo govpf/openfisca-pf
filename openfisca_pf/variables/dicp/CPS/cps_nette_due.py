@@ -1,9 +1,13 @@
 # -*- coding: utf-8 -*-
 
-import numpy
-from openfisca_core.periods import Period, MONTH
-from openfisca_core.parameters import Parameter
-from openfisca_core.variables import Variable
+
+from openfisca_pf.base import (
+    max_,
+    MONTH,
+    Parameters,
+    Period,
+    Variable
+    )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
 
@@ -13,7 +17,7 @@ class cps_nette(Variable):
     entity = Personne
     definition_period = MONTH
     unit = XPF
-    label = 'Montant de CPS nette: cps_nette := cps_due - cps_en_diminution + cps_a_reverser'
+    label = 'Montant de CPS nette'
     reference = [
         'Code des impots : LP. 358-4',
         'https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite'
@@ -21,7 +25,7 @@ class cps_nette(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameter):
+    def formula(personne: Personne, period: Period, parameters: Parameters):
         cps_due = personne('cps_due', period, parameters)
         cps_en_diminution = personne('cps_en_diminution', period, parameters)
         cps_a_reverser = personne('cps_a_reverser', period, parameters)
@@ -33,7 +37,7 @@ class cps_nette_due(Variable):
     entity = Personne
     definition_period = MONTH
     unit = XPF
-    label = 'Montant de CPS nette dûe: cps_nette_due := max(cps_nette, 0)'
+    label = 'Montant de CPS nette dûe'
     reference = [
         'Code des impots : LP. 358-4',
         'https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite'
@@ -41,9 +45,9 @@ class cps_nette_due(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameter):
+    def formula(personne: Personne, period: Period, parameters: Parameters):
         cps_nette = personne('cps_nette', period, parameters)
-        return numpy.maximum(cps_nette, 0)
+        return max_(cps_nette, 0)
 
 
 class cps_a_reporter(Variable):
@@ -51,7 +55,7 @@ class cps_a_reporter(Variable):
     entity = Personne
     definition_period = MONTH
     unit = XPF
-    label = 'Montant de CPS à reporter: cps_a_reporter := max(-cps_nette, 0)'
+    label = 'Montant de CPS à reporter'
     reference = [
         'Code des impots : LP. 358-4',
         'https://www.impot-polynesie.gov.pf/code/5-titre-v-contribution-pour-la-solidarite'
@@ -59,9 +63,9 @@ class cps_a_reporter(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameter):
+    def formula(personne: Personne, period: Period, parameters: Parameters):
         cps_nette = personne('cps_nette', period, parameters)
-        return numpy.maximum(-cps_nette, 0)
+        return max_(-cps_nette, 0)
 
 
 class tva_plus_cps_nette_due(Variable):
@@ -69,11 +73,11 @@ class tva_plus_cps_nette_due(Variable):
     entity = Personne
     definition_period = MONTH
     unit = XPF
-    label = 'Montant de CPS et de TVA nette dûe: tva_plus_cps_nette_due := cps_nette_due + tva_nette_due'
+    label = 'Montant de CPS et de TVA nette dûe'
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameter):
+    def formula(personne: Personne, period: Period, parameters: Parameters):
         cps_nette_due = personne('cps_nette_due', period, parameters)
         tva_nette_due = personne('tva_nette_due', period, parameters)
         return cps_nette_due + tva_nette_due

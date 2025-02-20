@@ -69,8 +69,8 @@ python3 -m pip install --upgrade pip
 
 #### Install Openfisca Core.
 
-Currently Openfisca PF needs version 40.0.0 !
-The follocing command will install the python package, and add the two scripts we mentioned above to the python scripts directory.
+Pip install the openfisca core version 40.0.0 with the flask web api.
+This will install the python package, and add the two scripts we mentioned above to the python scripts directory.
 ```bash
 pip3 install openfisca-core[web-api]==40.0.0
 ```
@@ -97,7 +97,7 @@ For this reason when need to edit OpenFisca Core tu use 64-bit floating point nu
 
 Clone the OpenFisca-PF project:
 ```bash
-git clone https://github.com/govpf/openfisca-pf.git
+wget https://github.com/openfisca/openfisca-core/archive/refs/tags/40.0.0.zip
 ```
 
 Go to the folder where you clone the Openfisca PF project

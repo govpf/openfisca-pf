@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_core.entities import build_entity
+
 
 Dossier = build_entity(
     key = "dossier",
@@ -36,16 +38,6 @@ Pays = build_entity(
     doc = "",
     roles = [
         {"key": "Contribuables", "plural": "contribuables", "label": "Contribuables", "doc": "Les contribuables du pays"}
-        ]
-    )
-
-Proprietaire = build_entity(
-    key = "proprietaire",
-    plural = "proprietaires",
-    label = "Proprietaire de local ou de locaux soumis a l'impot foncier",
-    doc = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595",
-    roles = [
-        {"key": "local", "plural": "locaux", "label": "Local", "doc": "Un local soumis à l'impôt foncier sur les propriétés bâties"}
         ]
     )
 

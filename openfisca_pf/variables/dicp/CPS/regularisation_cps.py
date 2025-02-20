@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
 
-from openfisca_core.periods import MONTH
-from openfisca_core.variables import Variable
+from openfisca_pf.base import (
+    MONTH,
+    Variable
+    )
 from openfisca_pf.constants.units import XPF
 from openfisca_pf.entities import Personne
 

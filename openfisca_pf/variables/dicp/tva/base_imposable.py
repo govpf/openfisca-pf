@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
 
-from openfisca_core.model_api import *
 
+from openfisca_pf.base import (
+    ArrayLike,
+    MONTH,
+    Parameters,
+    Period,
+    set_input_divide_by_period,
+    Variable
+    )
 from openfisca_pf.constants import units
-from openfisca_pf.entities import *
+from openfisca_pf.entities import Personne
 
 
 class base_imposable_tva_taux_reduit(Variable):
@@ -11,9 +18,9 @@ class base_imposable_tva_taux_reduit(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = "Base imposable de la TVA à taux réduit"
+    label = 'Base imposable de la TVA à taux réduit'
     unit = units.XPF
-    reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
+    reference = 'https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux'
 
 
 class base_imposable_tva_taux_intermediaire(Variable):
@@ -21,9 +28,9 @@ class base_imposable_tva_taux_intermediaire(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = "Base imposable de la TVA à taux intermediaire"
+    label = 'Base imposable de la TVA à taux intermediaire'
     unit = units.XPF
-    reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
+    reference = 'https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux'
 
 
 class base_imposable_tva_taux_normal(Variable):
@@ -31,9 +38,9 @@ class base_imposable_tva_taux_normal(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = "Base imposable de la TVA à taux normal"
+    label = 'Base imposable de la TVA à taux normal'
     unit = units.XPF
-    reference = "https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux"
+    reference = 'https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux'
 
 
 class base_imposable_tva_taux_livraisons_immeubles_et_cession_parts(Variable):
@@ -51,7 +58,7 @@ class montant_ventes_hors_taxes(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = "Montant des ventes réalisées, hors taxes"
+    label = 'Montant des ventes réalisées, hors taxes'
     unit = units.XPF
 
 
@@ -60,7 +67,7 @@ class montant_prestations_services_hors_taxes(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = "Montant des prestations de services réalisées, hors taxes"
+    label = 'Montant des prestations de dervices réalisées, hors taxes'
     unit = units.XPF
 
 
@@ -69,7 +76,7 @@ class montant_exportations_non_taxables(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = "Montant des exportations, qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA."
+    label = 'Montant des exportations, qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA.'
     unit = units.XPF
 
 
@@ -78,7 +85,7 @@ class montant_autres_operations_non_taxables(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = "Montant des autres opérations qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA."
+    label = 'Montant des autres opérations qui ne sont pas taxables, et qui ne sont pas prises en compte dans les calculs de la TVA.'
     unit = units.XPF
 
 
@@ -86,18 +93,16 @@ class sous_total_base_imposable(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = """
-    Somme des bases imposables
-    """
+    label = 'Somme des bases imposables'
     unit = units.XPF
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
         base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
         return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
 
-    def formula_2025(personne, period, parameters):
+    def formula_2025(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
         base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
@@ -109,12 +114,10 @@ class sous_total_operations(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = """
-    Somme des opérations
-    """
+    label = 'Somme des opérations'
     unit = units.XPF
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         montant_prestations_services_hors_taxes = personne('montant_prestations_services_hors_taxes', period, parameters)
         montant_ventes_hors_taxes = personne('montant_ventes_hors_taxes', period, parameters)
         return montant_ventes_hors_taxes + montant_prestations_services_hors_taxes
@@ -130,7 +133,7 @@ class entrants_tva_valides(Variable):
     """
     unit = units.BOOLEAN
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         sous_total_base_imposable = personne('sous_total_base_imposable', period, parameters)
         sous_total_operations = personne('sous_total_operations', period, parameters)
         return sous_total_base_imposable == sous_total_operations

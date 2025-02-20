@@ -1,7 +1,20 @@
 # -*- coding: utf-8 -*-
 
-import numpy
-from openfisca_core.model_api import Enum
+
+__all__ = [
+    'Archipel',
+    'CommuneFiscale',
+    'COMMUNES_DES_AUSTRALES',
+    'COMMUNES_DES_GAMBIERS',
+    'COMMUNES_DES_ILES_DU_VENT',
+    'COMMUNES_DES_ILES_SOUS_LE_VENT',
+    'COMMUNES_DES_MARQUISES',
+    'COMMUNES_DES_TUAMOTUS'
+    ]
+
+
+from openfisca_pf.base import Enum
+from openfisca_pf.functions.enum import enum_set
 
 
 class Archipel(Enum):
@@ -64,19 +77,24 @@ class CommuneFiscale(Enum):
     UTUROA = "Uturoa"
 
 
-COMMUNES_DES_AUSTRALES = CommuneFiscale.encode(numpy.asarray([
+COMMUNES_DES_AUSTRALES = enum_set(
+    CommuneFiscale,
     CommuneFiscale.RAIVAVAE,
     CommuneFiscale.RAPA,
     CommuneFiscale.RIMATARA,
     CommuneFiscale.RURUTU,
     CommuneFiscale.TUBUAI
-    ]))
+    )
 
-COMMUNES_DES_GAMBIERS = CommuneFiscale.encode(numpy.asarray([
+
+COMMUNES_DES_GAMBIERS = enum_set(
+    CommuneFiscale,
     CommuneFiscale.GAMBIER
-    ]))
+    )
 
-COMMUNES_DES_ILES_DU_VENT = CommuneFiscale.encode(numpy.asarray([
+
+COMMUNES_DES_ILES_DU_VENT = enum_set(
+    CommuneFiscale,
     CommuneFiscale.ARUE,
     CommuneFiscale.FAAA,
     CommuneFiscale.HITIAA_O_TE_RA,
@@ -90,9 +108,11 @@ COMMUNES_DES_ILES_DU_VENT = CommuneFiscale.encode(numpy.asarray([
     CommuneFiscale.TAIARAPU_EST,
     CommuneFiscale.TAIARAPU_OUEST,
     CommuneFiscale.TEVA_I_UTA
-    ]))
+    )
 
-COMMUNES_DES_ILES_SOUS_LE_VENT = CommuneFiscale.encode(numpy.asarray([
+
+COMMUNES_DES_ILES_SOUS_LE_VENT = enum_set(
+    CommuneFiscale,
     CommuneFiscale.BORA_BORA,
     CommuneFiscale.HUAHINE,
     CommuneFiscale.MAUPITI,
@@ -100,18 +120,22 @@ COMMUNES_DES_ILES_SOUS_LE_VENT = CommuneFiscale.encode(numpy.asarray([
     CommuneFiscale.TAPUTAPUATEA,
     CommuneFiscale.TUMARAA,
     CommuneFiscale.UTUROA
-    ]))
+    )
 
-COMMUNES_DES_MARQUISES = CommuneFiscale.encode(numpy.asarray([
+
+COMMUNES_DES_MARQUISES = enum_set(
+    CommuneFiscale,
     CommuneFiscale.FATU_HIVA,
     CommuneFiscale.HIVA_OA,
     CommuneFiscale.NUKU_HIVA,
     CommuneFiscale.TAHUATA,
     CommuneFiscale.UA_HUKA,
     CommuneFiscale.UA_POU
-    ]))
+    )
 
-COMMUNES_DES_TUAMOTUS = CommuneFiscale.encode(numpy.asarray([
+
+COMMUNES_DES_TUAMOTUS = enum_set(
+    CommuneFiscale,
     CommuneFiscale.ANAA,
     CommuneFiscale.ARUTUA,
     CommuneFiscale.FAKARAVA,
@@ -128,4 +152,4 @@ COMMUNES_DES_TUAMOTUS = CommuneFiscale.encode(numpy.asarray([
     CommuneFiscale.TAKAROA,
     CommuneFiscale.TATAKOTO,
     CommuneFiscale.TUREIA
-    ]))
+    )

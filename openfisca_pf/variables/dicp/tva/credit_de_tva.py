@@ -1,8 +1,17 @@
 # -*- coding: utf-8 -*-
 
+
+from numpy import where
+from openfisca_pf.base import (
+    ArrayLike,
+    MONTH,
+    Parameters,
+    Period,
+    set_input_dispatch_by_period,
+    Variable
+    )
 from openfisca_pf.constants import units
-from openfisca_pf.base import *
-from openfisca_pf.entities import *
+from openfisca_pf.entities import Personne
 
 
 class rib_renseigne(Variable):
@@ -10,7 +19,7 @@ class rib_renseigne(Variable):
     entity = Personne
     definition_period = MONTH
     set_input = set_input_dispatch_by_period
-    label = u"""
+    label = """
     Boolean indiquant si une personne physique a renseigné son relevé d'identité banquaire
     sur son profil adhérent aux téléservice de la Direction de l'Impot et des Contributions Publiques.
     """
@@ -25,15 +34,13 @@ class credit_tva_minimum_ce_mois(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"""
-    Montant requis au mois de la déclaration nécésaire pour prétendre à un remboursement de crédit de TVA
-    """
+    label = "Montant requis au mois de la déclaration nécésaire pour prétendre à un remboursement de crédit de TVA"
     unit = units.XPF_PER_MONTH
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
         ]
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         minimum_par_mois = parameters(period).dicp.tva.seuils.credit_tva.minimum_par_mois
         return minimum_par_mois["{:02d}".format(period.start.month)]
 
@@ -42,7 +49,7 @@ class remboursement_credit_tva_possible_car_rib_rensigne(Variable):
     value_type = bool
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Boolean indiquant si une personne physique a renseigné son relevé d'identité banquaire
     sur son profil adhérent aux téléservice de la Direction de l'Impot et des Contributions Publiques
     et peut donc demander un remboursement de crédit de TVA.
@@ -52,7 +59,7 @@ class remboursement_credit_tva_possible_car_rib_rensigne(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne('rib_renseigne', period, parameters)
 
 
@@ -60,7 +67,7 @@ class remboursement_credit_tva_possible_ce_mois(Variable):
     value_type = bool
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Boolean indiquant si une personne peut demander un remboursement de crédit de TVA
     pour le mois de la déclaration de TVA.
     """
@@ -69,7 +76,7 @@ class remboursement_credit_tva_possible_ce_mois(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         remboursement_possible_par_mois = parameters(period).dicp.tva.seuils.credit_tva.remboursement_possible_par_mois
         return remboursement_possible_par_mois["{:02d}".format(period.start.month)]
 
@@ -78,7 +85,7 @@ class remboursement_credit_tva_possible_car_montant_suffisant(Variable):
     value_type = bool
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Boolean indiquant si une personne peut demander un remboursement de crédit de TVA
     en fonction du montant de credit de tva dont elle bénéficie le mois de la déclaration de TVA.
     """
@@ -87,17 +94,17 @@ class remboursement_credit_tva_possible_car_montant_suffisant(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         credit_tva = personne('credit_tva', period, parameters)
         credit_tva_minimum_ce_mois = personne('credit_tva_minimum_ce_mois', period, parameters)
-        return numpy.greater_equal(credit_tva, credit_tva_minimum_ce_mois)
+        return credit_tva >= credit_tva_minimum_ce_mois
 
 
 class remboursement_credit_tva_possible(Variable):
     value_type = bool
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Boolean indiquant si une personne peut demander un remboursement de crédit de TVA
     en fonction du mois de la déclaration, du montant de credit de tva dont elle bénéficie, et de si son rib est reseigné.
     """
@@ -106,22 +113,20 @@ class remboursement_credit_tva_possible(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         remboursement_credit_tva_possible_car_rib_rensigne = personne('remboursement_credit_tva_possible_car_rib_rensigne', period, parameters)
         remboursement_credit_tva_possible_ce_mois = personne('remboursement_credit_tva_possible_ce_mois', period, parameters)
         remboursement_credit_tva_possible_car_montant_suffisant = personne('remboursement_credit_tva_possible_car_montant_suffisant', period, parameters)
-        return numpy.logical_and.reduce([
-            remboursement_credit_tva_possible_car_rib_rensigne,
-            remboursement_credit_tva_possible_ce_mois,
-            remboursement_credit_tva_possible_car_montant_suffisant
-            ])
+        return remboursement_credit_tva_possible_car_rib_rensigne\
+            and remboursement_credit_tva_possible_ce_mois\
+            and remboursement_credit_tva_possible_car_montant_suffisant
 
 
 class demande_remboursement_credit_tva(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Montant demandé de remboursement de credit de TVA.
     """
     reference = [
@@ -135,7 +140,7 @@ class demande_rembousement_credit_tva_valide(Variable):
     value_type = bool
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Boolean indiquant si une la demande de remboursement de crédit de TVA est valide.
     La demande est valide lorsqu'elle est possible (celon le mois de la déclaration et celon le montant de montant du crédit de TVA)
     et lorque le montant de remboursement demandé n'exède pas le montant du crédit de TVA.
@@ -145,39 +150,36 @@ class demande_rembousement_credit_tva_valide(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         remboursement_credit_tva_possible = personne('remboursement_credit_tva_possible', period, parameters)
         credit_tva = personne('credit_tva', period, parameters)
         demande_remboursement_credit_tva = personne('demande_remboursement_credit_tva', period, parameters)
         credit_tva_minimum_ce_mois = personne('credit_tva_minimum_ce_mois', period, parameters)
-        return numpy.logical_and.reduce([
-            remboursement_credit_tva_possible,
-            numpy.greater_equal(demande_remboursement_credit_tva, credit_tva_minimum_ce_mois),
-            numpy.less_equal(demande_remboursement_credit_tva, credit_tva)
-            ])
+        return remboursement_credit_tva_possible\
+            and credit_tva_minimum_ce_mois <= demande_remboursement_credit_tva <= credit_tva
 
 
 class remboursement_credit_tva(Variable):
     value_type = float
     entity = Personne
     definition_period = MONTH
-    label = u"Montant du remboursement de credit de TVA."
+    label = "Montant du remboursement de credit de TVA."
     reference = [
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
         ]
     unit = units.XPF
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         demande_remboursement_credit_tva = personne('demande_remboursement_credit_tva', period, parameters)
         demande_rembousement_credit_tva_valide = personne('demande_rembousement_credit_tva_valide', period, parameters)
-        return numpy.where(demande_rembousement_credit_tva_valide, demande_remboursement_credit_tva, 0)
+        return where(demande_rembousement_credit_tva_valide, demande_remboursement_credit_tva, 0)
 
 
 class credit_tva_a_reporter(Variable):
     value_type = int
     entity = Personne
     definition_period = MONTH
-    label = u"""
+    label = """
     Montant de credit de TVA retant après remboursement et qui peut être repporter sur la prochaine déclaration de TVA.
     """
     reference = [
@@ -185,7 +187,7 @@ class credit_tva_a_reporter(Variable):
         ]
     unit = "Currency-XPF"
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         credit_tva = personne('credit_tva', period, parameters)
         remboursement_credit_tva = personne('remboursement_credit_tva', period, parameters)
-        return numpy.subtract(credit_tva, remboursement_credit_tva)
+        return credit_tva - remboursement_credit_tva

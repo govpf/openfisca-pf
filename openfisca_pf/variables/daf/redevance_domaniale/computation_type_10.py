@@ -1,117 +1,153 @@
 # -*- coding: utf-8 -*-
 
-# This file defines the computation for occupation on private domain using the market value defined for each area of each cities in the law DAF1620009AC-1.
-# See https://openfisca.org/doc/key-concepts/variables.html
 
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# # Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums.enums_localisations import *
-from openfisca_pf.base import *
-from openfisca_pf.variables.daf.redevance_domaniale.input_parameters import *
+from openfisca_pf.base import (
+    ArrayLike,
+    DAY,
+    Enum,
+    max_,
+    Parameters,
+    Period,
+    select,
+    Variable,
+    where
+    )
+from openfisca_pf.constants.time import (
+    NOMBRE_DE_JOURS_PAR_SEMAINE,
+    NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS,
+    NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS
+    )
+from openfisca_pf.constants.units import BOOLEAN, XPF
+from openfisca_pf.entities import Personne
+from openfisca_pf.enums.domaine import Temporalite
+from openfisca_pf.functions.currency import arrondi_superieur
+from openfisca_pf.functions.domaine import figer_emprise, indexer_zone_commune
+
+
+class type_calcul_redevance_domaniale_est_type_10(Variable):
+    entity = Personne
+    definition_period = DAY
+    value_type = bool
+    default_value = False
+    unit = BOOLEAN
+    label = "Determine si le calcul de redevance domaniale est de type 10"
+
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return personne('type_calcul_redevance_domaniale', period, parameters) == '10'
 
 
 class montant_base_redevance_domaniale_type_10(Variable):
-    value_type = float
     entity = Personne
     definition_period = DAY
+    value_type = float
+    default_value = 0.
+    unit = XPF
     label = "Montant annuel de la redevance domaniale sur les lotissements agricoles"
     reference = "Arrêté NOR DAF1620009AC-1"
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         # Variables
-        type_calcul = personne('type_calcul_redevance_domaniale', period)
-        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
-        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '10', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ag_priv_06_lot_agricole')
-        variable_redevance_domaniale = personne('variable_redevance_domaniale', period)
-        code_commune = personne('commune_redevance_domaniale', period)
-        zone_lot_agricole = personne('zone_lot_agricole', period)
+        type_calcul_est_10 = personne('type_calcul_redevance_domaniale_est_type_10', period, parameters)
+        emprise = personne('nature_emprise_occupation_redevance_domaniale', period, parameters)
+        variable = personne('variable_redevance_domaniale', period, parameters)
+        commune = personne('commune_redevance_domaniale', period, parameters)
+        zone = personne('zone_lot_agricole', period, parameters)
+
+        # Lors de demandes multiples avec des types de calculs différents,
+        # il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
+        emprise = figer_emprise(
+            type_calcul_est_10,
+            emprise,
+            'ag_priv_06_lot_agricole'
+            )
 
         # Parametres
-        montant_minimum = parameters(period).daf.redevance_domaniale.type_10[nature_emprise_occupation_redevance_domaniale].montant_minimum
-        part_variable = parameters(period).daf.redevance_domaniale.type_10[nature_emprise_occupation_redevance_domaniale].part_variable
-
-        tempValue = []
-        index = 0
-        for item in code_commune.decode():
-            value = parameters(period).daf.redevance_domaniale.lot_agricole[item.name][zone_lot_agricole.decode()[index].name].loyer
-            index = index + 1
-            tempValue.append(value)
-        loyer = numpy.array(tempValue)
+        montant_minimum = parameters(period).daf.redevance_domaniale.type_10[emprise].montant_minimum
+        part_variable = parameters(period).daf.redevance_domaniale.type_10[emprise].part_variable
+        loyer = indexer_zone_commune(
+            parameters(period).daf.redevance_domaniale.lot_agricole,
+            commune,
+            zone,
+            'loyer'
+            )
 
         # Calcul du montant
-        montant_intermediaire = part_variable / 100 * loyer * variable_redevance_domaniale
-        # Comparaison avec le minmum
-        montant_base = max_(arrondiSup(montant_intermediaire), montant_minimum)
-
-        return where(type_calcul == '10', montant_base, 0)
+        montant_intermediaire = arrondi_superieur(part_variable / 100. * loyer * variable)
+        montant_base = max_(montant_intermediaire, montant_minimum)
+        return where(type_calcul_est_10, montant_base, 0.)
 
 
 class montant_total_redevance_domaniale_type_10(Variable):
-    value_type = float
     entity = Personne
     definition_period = DAY
+    value_type = float
+    default_value = 0.
+    unit = XPF
     label = "Montant total de la redevance domaniale dûe sur les lotissements agricoles"
     reference = "Arrêté NOR DAF2120267AC-3"
-    unit = 'currency-XPF'
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         # Variables
-        type_calcul = personne('type_calcul_redevance_domaniale', period)
-        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
-        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '10', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ag_priv_06_lot_agricole')
-        duree_occupation_redevance_domaniale_jour = personne('duree_occupation_redevance_domaniale_jour', period)
+        type_calcul_est_10 = personne('type_calcul_redevance_domaniale_est_type_10', period, parameters)
+        emprise = personne('nature_emprise_occupation_redevance_domaniale', period, parameters)
+        duree = personne('duree_occupation_redevance_domaniale_jour', period, parameters)
+        base = personne('montant_base_redevance_domaniale_type_10', period, parameters)
 
-        montant_base = personne('montant_base_redevance_domaniale_type_10', period)
+        # Lors de demandes multiples avec des types de calculs différents,
+        # il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
+        emprise = figer_emprise(
+            type_calcul_est_10,
+            emprise,
+            'ag_priv_06_lot_agricole'
+            )
 
         # Parametres
-        base_calcul_jour = parameters(period).daf.redevance_domaniale.type_10[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
-        montant_minimum = parameters(period).daf.redevance_domaniale.type_10[nature_emprise_occupation_redevance_domaniale].montant_minimum
+        base_calcul_jour = parameters(period).daf.redevance_domaniale.type_10[emprise].base_calcul_jour
+        montant_minimum = parameters(period).daf.redevance_domaniale.type_10[emprise].montant_minimum
 
-        # Calcul sur la durée complète
-        montant_intermediaire = max_(montant_base * duree_occupation_redevance_domaniale_jour / base_calcul_jour, montant_minimum)
-
-        # Application de l'arrondis
-        montant_total = arrondiSup(montant_intermediaire)
-        return where(type_calcul == '10', montant_total, 0)
+        # Calcul
+        montant = arrondi_superieur(max_(base * duree / base_calcul_jour, montant_minimum))
+        return where(type_calcul_est_10, montant, 0.)
 
 
 class temporalite_redevance_domaniale_type_10(Variable):
+    entity = Personne
+    definition_period = DAY
     value_type = Enum
     possible_values = Temporalite
     default_value = Temporalite.Non_Applicable
-    entity = Personne
-    definition_period = DAY
     label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         # Variables
-        type_calcul = personne('type_calcul_redevance_domaniale', period)
-        # Lors de demandes multiples avec des types de calculs différents, il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
-        nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
-        nature_emprise_occupation_redevance_domaniale = where(type_calcul == '10', nature_emprise_occupation_redevance_domaniale.decode_to_str(), 'ag_priv_06_lot_agricole')
+        type_calcul_est_10 = personne('type_calcul_redevance_domaniale_est_type_10', period, parameters)
+        emprise = personne('nature_emprise_occupation_redevance_domaniale', period, parameters)
+
+        # Lors de demandes multiples avec des types de calculs différents,
+        # il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
+        emprise = figer_emprise(
+            type_calcul_est_10,
+            emprise,
+            'ag_priv_06_lot_agricole'
+            )
+
         # Parameters
-        base_calcul_jour = parameters(period).daf.redevance_domaniale.type_10[nature_emprise_occupation_redevance_domaniale].base_calcul_jour
-        # Constantes
-        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
-        nombre_jour_par_mois = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_mois_rd
-        nombre_jour_par_semaine = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_semaine_rd
+        base_calcul_jour = parameters(period).daf.redevance_domaniale.type_10[emprise].base_calcul_jour
+
         # Transformation
-        temporalite = select([
-            base_calcul_jour == 1,
-            base_calcul_jour == nombre_jour_par_semaine,
-            base_calcul_jour == nombre_jour_par_mois,
-            base_calcul_jour == nombre_jour_par_an
-            ], [
+        temporalite = select(
+            [
+                base_calcul_jour == 1,
+                base_calcul_jour == NOMBRE_DE_JOURS_PAR_SEMAINE,
+                base_calcul_jour == NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS,
+                base_calcul_jour == NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS
+                ],
+            [
                 Temporalite.Journalier,
                 Temporalite.Hebdomadaire,
                 Temporalite.Mensuel,
                 Temporalite.Annuel
-                ])
-
-        return where(type_calcul == '10', temporalite, Temporalite.Non_Applicable)
+                ]
+            )
+        return where(type_calcul_est_10, temporalite, Temporalite.Non_Applicable)

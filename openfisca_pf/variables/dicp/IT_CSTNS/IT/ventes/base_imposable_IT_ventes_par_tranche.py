@@ -1,155 +1,157 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
 
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.base import *
+from openfisca_pf.base import (
+    ArrayLike,
+    Parameters,
+    Period,
+    Variable,
+    YEAR
+    )
+from openfisca_pf.constants.units import XPF
+from openfisca_pf.entities import Personne
+from openfisca_pf.functions.tranches import calculer_base_imposable_ventes_tranche
 
 
 class base_imposable_it_ventes_tranche_1(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 1 de l'IT : \n\n"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 1"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 1
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 1, 'it')
 
 
 class base_imposable_it_ventes_tranche_2(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 2 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 2"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 2
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 2, 'it')
 
 
 class base_imposable_it_ventes_tranche_3(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 3 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 3"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 3
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 3, 'it')
 
 
 class base_imposable_it_ventes_tranche_4(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 4 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 4"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 4
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 4, 'it')
 
 
 class base_imposable_it_ventes_tranche_5(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 5 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 5"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 5
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 5, 'it')
 
 
 class base_imposable_it_ventes_tranche_6(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 6 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 6"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 6
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 6, 'it')
 
 
 class base_imposable_it_ventes_tranche_7(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 7 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 7"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 7
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 7, 'it')
 
 
 class base_imposable_it_ventes_tranche_8(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 8 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 8"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 8
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 8, 'it')
 
 
 class base_imposable_it_ventes_tranche_9(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 9 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 9"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 9
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 9, 'it')
 
 
 class base_imposable_it_ventes_tranche_10(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 9 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 10 [simulation]"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 10
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 10, 'it')
 
 
 class base_imposable_it_ventes_tranche_11(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 9 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 11 [simulation]"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 11
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 11, 'it')
 
 
 class base_imposable_it_ventes_tranche_12(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
-    label = u"Base imposable de ventes sur la tranche 9 de l'IT"
-    reference = "https://law.gov.example/income_tax"  # Always use the most official source
+    label = "Base imposable de l'impôt sur les transactions de ventes pour la tranche 12 [simulation]"
+    reference = []
+    unit = XPF
 
-    def formula(personne, period, parameters):
-        tranche = 9
-        return calculerBaseImposableVentesTranche(personne, period, tranche, 'it')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 12, 'it')
