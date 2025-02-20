@@ -1,6 +1,0 @@
-REFERENCE_CODE_LP_TAUX_CSTS = "Code des impots, Titre 1, chapitre 4, LP 193-15"
-REFERENCE_LIEN_CODE = "https://www.impot-polynesie.gov.pf/sites/default/files/2021-09/20210101CDI%20Rouge%20Partie%201.pdf"
-REFERENCE_CODE_LP_BASE_ASSIETTE_CSTS = "Code des impots, Titre 1, chapitre 4, LP 193-1 et LP 193-5"
-REFERENCE_LIEN_BASE_CSTS = "https://www.impot-polynesie.gov.pf/code/10-section-i-bases-et-personnes-imposables"
-REFERENCE_LIEN_ASSIETTE_COTISATION_CSTS = "https://www.impot-polynesie.gov.pf/code/20-section-ii-assiette-de-la-contribution"
-REFERENCE_LIEN_TAUX = "https://www.impot-polynesie.gov.pf/code/40-section-iv-taux"
