@@ -1,0 +1,55 @@
+description: "Taux permettant de calculer l'impôt des sociétés en fonction de l'activité"
+metadata:
+  type: float
+  unit: /1
+
+NORMALE:
+  values:
+    2018-12-31:
+      value: 0.27
+    2022-12-31:
+      value: 0.25
+
+SOCIETES_MINIERES:
+  values:
+    2017-01-01:
+      value: 0.35
+    2023-12-31:
+      value: 0.33
+    2024-12-31:
+      value: 0.31
+    2025-12-31:
+      value: 0.29
+    2026-12-31:
+      value: 0.27
+    2027-12-31:
+      value: 0.25
+
+ETABLISSEMENTS_FINANCIERS_CREDIT_BAIL:
+  values:
+    2017-01-01:
+      value: 0.35
+
+ENERGIES_RENOUVELABLES:
+  values:
+    2017-01-01:
+      value: 0.20
+
+SECTEUR_NUMERIQUE:
+  values:
+    2021-12-27:
+      value: 0.27
+    2022-12-31:
+      value: 0.20
+
+SECTEUR_RECHERCHE_DEVELOPPEMENT:
+  values:
+    2021-12-27:
+      value: 0.27
+    2022-12-31:
+      value: 0.20
+
+ZONE_REVITALISATION_ZRAE:
+  values:
+    2021-12-27:
+      value: 0.15
