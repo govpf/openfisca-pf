@@ -1,0 +1,16 @@
+- name: 1 - Overflow int32 - valeur égale de int32 max (int32 max = 2 147 483 647)
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Baux
+    valeur_locative_bien: 2147483647
+    duree_bail_mois: 1
+  output:
+    montant_droit_enregistrement: 21474836
+- name: 2 - Overflow int32 - valeur au dessus de int32 max (int32 max = 2 147 483 647)
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Baux
+    valeur_locative_bien: 2147483899
+    duree_bail_mois: 1
+  output:
+    montant_droit_enregistrement: 21474839
