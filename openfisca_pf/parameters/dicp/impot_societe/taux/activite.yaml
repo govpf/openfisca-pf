@@ -9,7 +9,6 @@ NORMALE:
       value: 0.27
     2022-12-31:
       value: 0.25
-
 SOCIETES_MINIERES:
   values:
     2017-01-01:
@@ -24,32 +23,28 @@ SOCIETES_MINIERES:
       value: 0.27
     2027-12-31:
       value: 0.25
-
 ETABLISSEMENTS_FINANCIERS_CREDIT_BAIL:
   values:
     2017-01-01:
       value: 0.35
-
 ENERGIES_RENOUVELABLES:
   values:
     2017-01-01:
       value: 0.20
-
 SECTEUR_NUMERIQUE:
   values:
     2021-12-27:
       value: 0.27
     2022-12-31:
       value: 0.20
-
 SECTEUR_RECHERCHE_DEVELOPPEMENT:
   values:
     2021-12-27:
       value: 0.27
     2022-12-31:
       value: 0.20
-
-ZONE_REVITALISATION_ZRAE:
+zone_revitalisation_zrae:
+  description: Taux à appliquer en plus du taux normal ou spécifique pour les ZRAE
   values:
     2021-12-27:
       value: 0.15

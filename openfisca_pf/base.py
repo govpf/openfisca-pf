@@ -49,6 +49,9 @@ def arrondiSup(valeur):
 def arrondiInf(valeur):
     return numpy.rint(numpy.nextafter(valeur, valeur - 1))
 
+# This function round a number down to the nearest thousand
+def round_down_to_nearest_thousand(value):
+    return (value // 1000) * 1000
 
 # Calculations are grouped per date, so we know the parameters for each entry is the same, thus we can create only one scale for all of them
 def creerBareme(personne, period, impot, type):

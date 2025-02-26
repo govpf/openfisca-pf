@@ -1,0 +1,134 @@
+description: "Taux d'exonération permettant de calculer l'impôt des sociétés en fonction de l'activité"
+metadata:
+  reference: https://www.impot-polynesie.gov.pf/code/14-section-v-calcul-de-limpot
+SOCIETES_EXPORTATRICES:
+  description: Exoneration des sociétés exportatrices
+  type:
+    values:
+      2017-01-01: 'SAISIE'
+CROISIERE_MIXTE:
+  description: Exoneration des sociétés de croisière mixte
+  type:
+    values:
+      2017-01-01: 'SAISIE'
+SOCIETES_GESTION_FONDS_GARANTIE:
+  description: Exoneration des sociétés de gestion de fonds de garantie
+  type:
+    values:
+      2017-01-01: 'ASSIETTE'
+  1:
+    values:
+      2017-01-01: 0.90
+  2:
+    values:
+      2017-01-01: 0.80
+  3:
+    values:
+      2017-01-01: 0.70
+  4:
+    values:
+      2017-01-01: 0.60
+  5:
+    values:
+      2017-01-01: 0.50
+  6:
+    values:
+      2017-01-01: 0.40
+  7:
+    values:
+      2017-01-01: 0.30
+  8:
+    values:
+      2017-01-01: 0.20
+  9:
+    values:
+      2017-01-01: 0.10
+  defaut:
+    values:
+      2017-01-01: 0
+ACTIVITES_CROISIERE:
+  description: Exoneration des activités de croisière
+  type:
+    values:
+      2017-01-01: 'FIXE'
+  taux:
+    values:
+      2017-01-01: 1
+CONCESSIONS_MINIERES:
+  description: Exoneration pour les concessions minières
+  type:
+    values:
+      2017-01-01: 'ASSIETTE'
+  1:
+    values:
+      2020-12-31: 1
+  2:
+    values:
+      2020-12-31: 1
+  3:
+    values:
+      2020-12-31: 1
+  4:
+    values:
+      2020-12-31: 1
+  5:
+    values:
+      2020-12-31: 1
+  6:
+    values:
+      2020-12-31: 1
+  7:
+    values:
+      2020-12-31: 1
+  8:
+    values:
+      2020-12-31: 1
+  9:
+    values:
+      2020-12-31: 1
+  10:
+    values:
+      2020-12-31: 1
+  defaut:
+    values:
+      2017-01-01: 0
+MEMBRE_GROUPE_FISCAL:
+  description: Exoneration pour les membres d'un groupe fiscal
+  type:
+    values:
+      2022-12-31: 'FIXE'
+  taux:
+    values:
+      2022-12-31: 1
+GIE:
+  description: Exoneration pour GIE (Groupement d'intérêt économique)
+  type:
+    values:
+      2017-01-01: 'FIXE'
+  taux:
+    values:
+      2017-01-01: 1
+SCPR:
+  description: Exoneration pour SCPR (Société civile professionnelle)
+  type:
+    values:
+      2017-01-01: 'FIXE'
+  taux:
+    values:
+      2017-01-01: 1
+SCM:
+  description: Exoneration pour SCM (Société Civile de Moyens)
+  type:
+    values:
+      2017-01-01: 'FIXE'
+  taux:
+    values:
+      2017-01-01: 1
+OBNL:
+  description: Exoneration pour OBNL (Organisme à but non lucratif)
+  type:
+    values:
+      2022-01-01: 'FIXE'
+  taux:
+    values:
+      2022-01-01: 1
