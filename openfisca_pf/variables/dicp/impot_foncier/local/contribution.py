@@ -15,6 +15,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.functions.enum import enum_set
+from openfisca_pf.variables.constants import NOMBRE_DE_MOIS_PAR_AN
 
 
 class TypeLocation(Enum):
@@ -246,7 +247,7 @@ class valeur_locative_loyers(Variable):
 
     def formula(local: Personne, period: Period, parameters: Parameters):
         loyer_janvier = local('loyer_janvier', period, parameters)
-        return loyer_janvier * 12
+        return loyer_janvier * NOMBRE_DE_MOIS_PAR_AN
 
 
 class valeur_locative_direct(Variable):
