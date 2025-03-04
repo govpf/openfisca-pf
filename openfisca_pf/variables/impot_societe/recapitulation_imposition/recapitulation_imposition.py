@@ -2,6 +2,7 @@
 from openfisca_pf.entities import Personne
 from openfisca_pf.base import (YEAR, Variable)
 
+
 class is_element_imposition_benefice_imposable(Variable):
     value_type = int
     entity = Personne
