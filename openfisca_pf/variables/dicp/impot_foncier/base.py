@@ -9,7 +9,7 @@ from openfisca_pf.base import (
     where,
     YEAR
 )
-from openfisca_pf.entities import Pays, Personne
+from openfisca_pf.entities import Personne
 
 
 class base_imposable_apres_exoneration_temporaire_huit_ans(Variable):
