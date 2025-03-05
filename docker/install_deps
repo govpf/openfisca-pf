@@ -18,6 +18,7 @@ then
 fi
 
 cd openfisca-core
+sed -i s/int32/int64/ openfisca_core/variables/config.py
 sed -i s/float32/float64/ openfisca_core/variables/config.py
 sed -i s/float32/float64/ openfisca_core/tools/__init__.py
 sed -i s/float32/float64/ tests/core/tools/test_runner/test_yaml_runner.py

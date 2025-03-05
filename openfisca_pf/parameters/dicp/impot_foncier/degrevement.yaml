@@ -1,8 +1,0 @@
-pour_baisse_de_revenus_loue_en_meuble_de_tourisme:
-  description: "Dégrèvement sur demande dans le cas d'une baisse de revenus d'un local loué en meublé de tourisme"
-  metadata:
-    type: float
-    unit: /1
-  values:
-    2021-12-27:
-      value: 0.5

@@ -1,31 +1,39 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
 
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# # Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
-from openfisca_pf.base import *
+from openfisca_pf.base import (
+    ArrayLike,
+    DAY,
+    Enum,
+    Parameters,
+    Period,
+    Variable
+    )
+from openfisca_pf.constants.time import NOMBRE_D_HEURE_PAR_JOUR
+from openfisca_pf.constants.units import XPF_PER_DAY
+from openfisca_pf.enums.domaine import (
+    Temporalite,
+    UnitesDuree
+    )
+from openfisca_pf.entities import Dossier, Personne
+from openfisca_pf.functions.domaine import aggreger_variables
 
 
 class type_calcul_redevance_domaniale(Variable):
-    value_type = str
     entity = Personne
     definition_period = DAY
-    label = "Type de calcul utilisé"
+    value_type = str
+    label = 'Type de calcul utilisé pour calculer la redevance domaniale'
+    reference = []
 
-    def formula(personne, period, parameters):
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         # Variables
         nature_emprise_occupation_redevance_domaniale = personne('nature_emprise_occupation_redevance_domaniale', period)
         unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
         duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
+
+        # Paramètres
         type_calcul = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale]
-        # Constantes
-        nombre_heure_par_jour = parameters(period).daf.redevance_domaniale.constantes.nombre_heure_par_jour_rd
 
         # Selection selon un tarif horaire ou journalier
         # Pour les tarifs du SPJP, le mode de calcul pour une même emprise change si la durée est
@@ -33,68 +41,77 @@ class type_calcul_redevance_domaniale(Variable):
         # Pour distinguer le type de calcul horaire (et sélectionner donc le bon calcul), on ajoute arbitrairement 20 au type de calcul journalier.
         # Cet ajout de 20, permet de créer des nouveaux types de calculs dans le futur.
         # L'ensemble des tarifs spéciaux du SPJP sont de type = 3
-        unite_est_heure = unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures
-        duree_inferieur_jour = duree_occupation_redevance_domaniale <= nombre_heure_par_jour
-        tarif_spjp = type_calcul == 3
-        type_calcul_inter = parameters(period).daf.redevance_domaniale.type_calcul[nature_emprise_occupation_redevance_domaniale] + 20 * unite_est_heure * duree_inferieur_jour * tarif_spjp
+        unite_est_heure = (unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures)
+        duree_inferieur_jour = (duree_occupation_redevance_domaniale <= NOMBRE_D_HEURE_PAR_JOUR)
+        tarif_spjp = (type_calcul == 3)
 
-        # Transformation en entier et en string
-        type_calcul = type_calcul_inter.astype(int).astype(str)
-        return type_calcul
+        # Calcul du type de calcul
+        type_calcul_inter = type_calcul + (20 * unite_est_heure * duree_inferieur_jour * tarif_spjp)
+
+        # Transformation en entier, puis en string (enum)
+        return type_calcul_inter.astype(int).astype(str)
 
 
 class montant_base_redevance_domaniale(Variable):
-    value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant de base la redevance domaniale dûe"
+    value_type = float
+    default_value = 0.
+    unit = XPF_PER_DAY
+    label = 'Montant de base la redevance domaniale dûe'
 
-    def formula(personne, period, parameters):
-        type_calcul = personne('type_calcul_redevance_domaniale', period)
-        return aggregateVariables(personne, period, 'montant_base_redevance_domaniale_type_', type_calcul)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        type_calcul = personne('type_calcul_redevance_domaniale', period, parameters)
+        return aggreger_variables(personne, period, parameters, 'montant_base_redevance_domaniale_type_', type_calcul)
 
 
 class montant_total_redevance_domaniale(Variable):
-    value_type = float
     entity = Personne
     definition_period = DAY
-    label = "Montant de la redevance domaniale dûe"
+    value_type = float
+    default_value = 0.
+    unit = XPF_PER_DAY
+    label = 'Montant de la redevance domaniale dûe'
 
-    def formula(personne, period, parameters):
-        type_calcul = personne('type_calcul_redevance_domaniale', period)
-        return aggregateVariables(personne, period, 'montant_total_redevance_domaniale_type_', type_calcul)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        type_calcul = personne('type_calcul_redevance_domaniale', period, parameters)
+        return aggreger_variables(personne, period, parameters, 'montant_total_redevance_domaniale_type_', type_calcul)
 
 
 class temporalite_redevance_domaniale(Variable):
+    entity = Personne
+    definition_period = DAY
     value_type = Enum
     possible_values = Temporalite
     default_value = Temporalite.Non_Applicable
-    entity = Personne
-    definition_period = DAY
-    label = "Temporalite du tarif"
+    label = 'Temporalite du tarif de la redevance domaniale'
 
-    def formula(personne, period, parameters):
-        type_calcul = personne('type_calcul_redevance_domaniale', period)
-        return aggregateVariables(personne, period, 'temporalite_redevance_domaniale_type_', type_calcul)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        type_calcul = personne('type_calcul_redevance_domaniale', period, parameters)
+        return aggreger_variables(personne, period, parameters, 'temporalite_redevance_domaniale_type_', type_calcul)
 
 
 class montant_base_redevance_domaniale_dossier(Variable):
-    value_type = float
     entity = Dossier
     definition_period = DAY
-    label = u"Montant de base de redevance domaniale de toutes les demandes du dossier"
+    value_type = float
+    default_value = 0.
+    unit = XPF_PER_DAY
+    label = 'Montant de base de redevance domaniale de toutes les demandes du dossier'
 
-    def formula(dossier, period, parameters):
-        montant_base_redevance_domaniale = dossier.members('montant_base_redevance_domaniale', period)
+    def formula(dossier: Dossier, period: Period, parameters: Parameters) -> ArrayLike:
+        montant_base_redevance_domaniale = dossier.members('montant_base_redevance_domaniale', period, parameters)
         return dossier.sum(montant_base_redevance_domaniale)
 
 
 class montant_total_redevance_domaniale_dossier(Variable):
-    value_type = float
     entity = Dossier
     definition_period = DAY
-    label = u"Montant total de redevance domaniale de toutes les demandes du dossier"
+    value_type = float
+    default_value = 0.
+    unit = XPF_PER_DAY
+    label = 'Montant total de redevance domaniale de toutes les demandes du dossier'
 
-    def formula(dossier, period, parameters):
-        montant_total_redevance_domaniale = dossier.members('montant_total_redevance_domaniale', period)
+    def formula(dossier: Dossier, period: Period, parameters: Parameters) -> ArrayLike:
+        montant_total_redevance_domaniale = dossier.members('montant_total_redevance_domaniale', period, parameters)
         return dossier.sum(montant_total_redevance_domaniale)

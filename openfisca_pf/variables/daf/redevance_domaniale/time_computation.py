@@ -1,96 +1,116 @@
 # -*- coding: utf-8 -*-
 
-# This file defines variables for the modelled legislation.
-# A variable is a property of an Entity such as a Person, a Household…
-# See https://openfisca.org/doc/key-concepts/variables.html
-
-# Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
-from openfisca_core.model_api import *
-# # Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import *
-from openfisca_pf.variables.daf.redevance_domaniale.enums.enums import *
-from openfisca_pf.base import *
-from numpy import logical_or, logical_and
-from dateutil.relativedelta import relativedelta
+from openfisca_pf.base import (
+    ArrayLike,
+    date,
+    DAY,
+    Parameters,
+    Period,
+    select,
+    Variable
+    )
+from openfisca_pf.constants.time import (
+    NOMBRE_D_HEURE_PAR_JOUR,
+    NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS,
+    NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS,
+    NOMBRE_DE_MOIS_PAR_AN
+    )
+from openfisca_pf.constants.units import DAYS, YEARS, MONTHS
+from openfisca_pf.enums.domaine import (
+    UnitesDuree
+    )
+from openfisca_pf.entities import Personne
+from openfisca_pf.functions.time import (
+    annee_de_la_date,
+    as_date,
+    as_duration,
+    jour_de_la_date,
+    mois_de_la_date,
+    pro_rata_temporis_jours_dans_le_mois,
+    relative_delta_days,
+    relative_delta_months,
+    relative_delta_years
+    )
 
 
 class duree_occupation_redevance_domaniale_annee(Variable):
-    value_type = float
     entity = Personne
     definition_period = DAY
+    value_type = float
+    default_value = 0.
+    unit = YEARS
     label = "La durée d'occupation en année"
 
-    def formula(personne, period, parameters):
-        # Variables
-        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
-        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period, parameters)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period, parameters)
 
-        # Constantes
-        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
-        nombre_mois_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_mois_par_an_rd
-        nombre_heure_par_jour = parameters(period).daf.redevance_domaniale.constantes.nombre_heure_par_jour_rd
-
-        value = select(
-            [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
-            unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
-            unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours,
-            unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures],
-            [duree_occupation_redevance_domaniale,
-            duree_occupation_redevance_domaniale / nombre_mois_par_an,
-            duree_occupation_redevance_domaniale / nombre_jour_par_an,
-            duree_occupation_redevance_domaniale / (nombre_jour_par_an * nombre_heure_par_jour)],
+        return select(
+            [
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours,
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures
+                ],
+            [
+                duree_occupation_redevance_domaniale,
+                duree_occupation_redevance_domaniale / NOMBRE_DE_MOIS_PAR_AN,
+                duree_occupation_redevance_domaniale / NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS,
+                duree_occupation_redevance_domaniale / (NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS * NOMBRE_D_HEURE_PAR_JOUR)
+                ],
             )
-        return value
 
 
 class duree_occupation_redevance_domaniale_jour(Variable):
-    value_type = float
     entity = Personne
     definition_period = DAY
+    value_type = float
+    default_value = 0.
+    unit = DAYS
     label = "La durée d'occupation en jour"
 
-    def formula(personne, period, parameters):
-        # Variables
-        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
-        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
-        # Constantes
-        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
-        nombre_jour_par_mois = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_mois_rd
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period, parameters)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period, parameters)
 
-        value = select(
-            [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
-            unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
-            unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale * nombre_jour_par_an,
-            duree_occupation_redevance_domaniale * nombre_jour_par_mois,
-            duree_occupation_redevance_domaniale],
+        return select(
+            [
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours
+                ],
+            [
+                duree_occupation_redevance_domaniale * NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS,
+                duree_occupation_redevance_domaniale * NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS,
+                duree_occupation_redevance_domaniale
+                ]
             )
-        return value
 
 
 class duree_occupation_redevance_domaniale_mois(Variable):
-    value_type = float
     entity = Personne
     definition_period = DAY
+    value_type = float
+    default_value = 0.
+    unit = MONTHS
     label = "La durée d'occupation en mois"
 
-    def formula(personne, period, parameters):
-        # Variables
-        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
-        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
-        # Constantes
-        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
-        nombre_jour_par_mois = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_mois_rd
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period, parameters)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period, parameters)
 
-        value = select(
-            [unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
-            unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
-            unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours],
-            [duree_occupation_redevance_domaniale * nombre_jour_par_mois / nombre_jour_par_an,
-            duree_occupation_redevance_domaniale,
-            duree_occupation_redevance_domaniale / nombre_jour_par_mois],
+        return select(
+            [
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Annees,
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Mois,
+                unite_duree_occupation_redevance_domaniale == UnitesDuree.Jours
+                ],
+            [
+                duree_occupation_redevance_domaniale * NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS / NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS,
+                duree_occupation_redevance_domaniale,
+                duree_occupation_redevance_domaniale / NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS
+                ],
             )
-        return value
 
 
 class duree_comptable_entre_deux_dates(Variable):
@@ -99,78 +119,74 @@ class duree_comptable_entre_deux_dates(Variable):
     definition_period = DAY
     label = "Calcul d'une durée comptable en jours entre deux dates"
 
-    def formula(personne, period, parameters):
-        # Variables
-        date_debut_occupation = personne('date_debut_occupation', period).astype('datetime64[D]')
-        date_fin_occupation = personne('date_fin_occupation', period).astype('datetime64[D]')
-        # Constantes
-        nombre_jour_par_an = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_an_rd
-        nombre_jour_par_mois = parameters(period).daf.redevance_domaniale.constantes.nombre_jour_par_mois_rd
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        date_debut_occupation = personne('date_debut_occupation', period, parameters)
+        date_fin_occupation = personne('date_fin_occupation', period, parameters)
 
-        # Extraction of the month integer
-        mois_debut_occupation = (date_debut_occupation.astype('datetime64[M]') - date_debut_occupation.astype('datetime64[Y]')).astype('timedelta64[M]').astype(int) + 1
-        mois_fin_occupation = (date_fin_occupation.astype('datetime64[M]') - date_fin_occupation.astype('datetime64[Y]')).astype('timedelta64[M]').astype(int) + 1
+        # On converti les dates en nombres de jours
+        date_debut_occupation = as_date(date_debut_occupation, 'D')
+        date_fin_occupation = as_date(date_fin_occupation, 'D')
 
-        # Extraction of the day integer
-        jour_debut_occupation = (date_debut_occupation.astype('datetime64[D]') - date_debut_occupation.astype('datetime64[M]')).astype('timedelta64[D]').astype(int) + 1
-        jour_fin_occupation = (date_fin_occupation.astype('datetime64[D]') - date_fin_occupation.astype('datetime64[M]')).astype('timedelta64[D]').astype(int) + 1
+        # Calculs des mois de debut et mois de fin d'occupation
+        mois_debut_occupation = mois_de_la_date(date_debut_occupation)
+        mois_fin_occupation = mois_de_la_date(date_fin_occupation)
+
+        # Calculs des jours de debut et jours de fin d'occupation
+        jour_debut_occupation = jour_de_la_date(date_debut_occupation)
+        jour_fin_occupation = jour_de_la_date(date_fin_occupation)
 
         # Dans le contexte comptable, la règle est d'homogénéiser les durées des mois à 30 jours (et donc les années à 360)
-        jour_debut = where(logical_or(jour_debut_occupation == 31, logical_and(logical_or(jour_debut_occupation == 28, jour_debut_occupation == 29), mois_debut_occupation == 2)), 30, jour_debut_occupation)
-        jour_fin = where(logical_or(jour_fin_occupation == 31, logical_and(logical_or(jour_fin_occupation == 28, jour_fin_occupation == 29), mois_fin_occupation == 2)), 30, jour_fin_occupation)
+        jour_debut = pro_rata_temporis_jours_dans_le_mois(jour_debut_occupation, mois_debut_occupation)
+        jour_fin = pro_rata_temporis_jours_dans_le_mois(jour_fin_occupation, mois_fin_occupation)
+        nombre_jours = jour_fin - jour_debut
 
         # Calcul de la durée en jours
-        nombre_annees = date_fin_occupation.astype('datetime64[Y]').astype(int) - date_debut_occupation.astype('datetime64[Y]').astype(int)
-        nombre_mois = mois_fin_occupation - mois_debut_occupation
-        nombre_jours = jour_fin - jour_debut
-        duree_comptable = nombre_annees * nombre_jour_par_an + nombre_mois * nombre_jour_par_mois + nombre_jours + 1
+        nombre_d_annees = annee_de_la_date(date_fin_occupation) - annee_de_la_date(date_debut_occupation)
+        nombre_de_mois = mois_fin_occupation - mois_debut_occupation
 
-        return duree_comptable
+        return nombre_d_annees * NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS \
+            + nombre_de_mois * NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS \
+            + nombre_jours + 1
 
 
 class duree_calendaire_entre_deux_dates(Variable):
-    value_type = int
     entity = Personne
     definition_period = DAY
+    value_type = int
+    default_value = 0
+    unit = DAYS
     label = "Calcul d'une durée calendaire en jours entre deux dates"
 
-    def formula(personne, period, parameters):
-        # Variables
-        date_debut_occupation = personne('date_debut_occupation', period).astype('datetime64[D]')
-        date_fin_occupation = personne('date_fin_occupation', period).astype('datetime64[D]')
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        date_debut_occupation = personne('date_debut_occupation', period, parameters)
+        date_fin_occupation = personne('date_fin_occupation', period, parameters)
 
-        duree_calendaire = (date_fin_occupation.astype('datetime64[D]') - date_debut_occupation.astype('datetime64[D]')).astype('timedelta64[D]').astype(int) + 1
-
-        return duree_calendaire
+        return as_duration(
+            as_date(date_fin_occupation, 'D') - as_date(date_debut_occupation, 'D'),
+            'D'
+            ) + 1
 
 
 class date_fin_occupation(Variable):
     value_type = date
     entity = Personne
     definition_period = DAY
-    label = "Calcul de la date de fin à partir de la durée"
+    label = "Calcul de la date de fin d'occupation en jours à partir de la date de début en jours, de la durée et de l'unité de durée"
 
-    def formula(personne, period, parameters):
-        # Variables
-        date_debut_occupation = personne('date_debut_occupation', period)
-        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
-        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        debut = personne('date_debut_occupation', period, parameters).astype(date)
+        duree = personne('duree_occupation_redevance_domaniale', period, parameters).astype(float)
+        unite = personne('unite_duree_occupation_redevance_domaniale', period, parameters)
 
-        # Adding the duration at the beginning date minus one day (the occupation ended at 23:59)
-        tempValue = []
-        index = 0
-        for item in date_debut_occupation:
-            item = item.astype(date)
-            value = select(
-                [unite_duree_occupation_redevance_domaniale.decode()[index] == UnitesDuree.Annees,
-                unite_duree_occupation_redevance_domaniale.decode()[index] == UnitesDuree.Mois,
-                unite_duree_occupation_redevance_domaniale.decode()[index] == UnitesDuree.Jours],
-                [item + relativedelta(years = duree_occupation_redevance_domaniale[index].astype(float), days = -1),
-                item + relativedelta(months = duree_occupation_redevance_domaniale[index].astype(float), days = -1),
-                item + relativedelta(days = duree_occupation_redevance_domaniale[index].astype(float) - 1)],
-                )
-            index = index + 1
-            tempValue.append(numpy.datetime64(str(value)))
-        date_fin = numpy.asarray(tempValue, dtype = numpy.datetime64)
-
-        return date_fin
+        return as_date(select(
+            [
+                unite == UnitesDuree.Annees,
+                unite == UnitesDuree.Mois,
+                unite == UnitesDuree.Jours
+                ],
+            [
+                debut + relative_delta_years(duree),
+                debut + relative_delta_months(duree),
+                debut + relative_delta_days(duree)
+                ],
+            ), 'D')

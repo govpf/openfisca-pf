@@ -1,0 +1,22 @@
+- name: "Habitation principale avec seconde exemption temporaire"
+  period: 2031
+  input:
+    loue: false
+    habitation_principale: true
+    commune_fiscale: PAPEETE
+    valeur_venale: 15000000
+    date_certificat_conformite: 2023-12-12
+    date_permis_construire: 2021-12-12
+  output:
+    duree_exemption_temporaire_restante: 0
+    acces_exemption_temporaire_exceptionnelle: False
+    valeur_locative: 600000
+    base_imposable_apres_exemption: 300000
+    premier_abattement: 75000
+    base_imposable_apres_premier_abattement: 225000
+    second_abattement: 0
+    base_imposable: 225000
+    contribution_fonciere_part_pays: 22500
+    contribution_fonciere_part_commune: 11250
+    contribution_fonciere: 33750
+

@@ -1,0 +1,18 @@
+description: Calcul du droit d'enregistrement pour les baux
+metadata:
+  type: single_amount
+  unit: year
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1
+brackets:
+  - amount:
+      2024-12-10:
+        value: 0.01
+    threshold:
+      2024-12-10:
+        value: 0
+  - amount:
+      2024-12-10:
+        value: 0.01
+    threshold:
+      2024-12-10:
+        value: 216

@@ -1,0 +1,53 @@
+- name: Test croisé type 1 et 7
+  input:
+    personnes:
+      personne_1:
+        nature_emprise_occupation_redevance_domaniale:
+          2018-01-01: if_pr_02_ancrage_sans_droit
+        duree_occupation_redevance_domaniale:
+          2018-01-01: 6
+        unite_duree_occupation_redevance_domaniale:
+          2018-01-01: Annees
+        zone_occupation_redevance_domaniale:
+          2018-01-01: zone_1
+        nombre_unite_redevance_domaniale:
+          2018-01-01: 0
+        variable_redevance_domaniale:
+          2018-01-01:  1000
+        nombre_participant_redevance_domaniale:
+          2018-01-01: 0
+        commune_redevance_domaniale:
+          2018-01-01: com471
+        zone_domaine_prive:
+          2018-01-01: zone_plaines_et_basses_montagnes
+      personne_2:
+        nature_emprise_occupation_redevance_domaniale:
+          2019-01-01: ex_eco_04_dpm_pour_entite_publique
+        duree_occupation_redevance_domaniale:
+          2019-01-01: 6
+        unite_duree_occupation_redevance_domaniale:
+          2019-01-01: Jours
+        zone_occupation_redevance_domaniale:
+          2019-01-01: zone_2
+        nombre_unite_redevance_domaniale:
+          2019-01-01: 0
+        variable_redevance_domaniale:
+          2019-01-01:  10
+        nombre_participant_redevance_domaniale:
+          2019-01-01: 0
+        commune_redevance_domaniale:
+          2018-01-01: com471
+        zone_domaine_prive:
+          2018-01-01: zone_plaines_et_basses_montagnes
+  output:
+    personnes:
+      personne_1:
+        montant_total_redevance_domaniale:
+          2018-01-01: 324000000
+        montant_base_redevance_domaniale:
+          2018-01-01: 150000
+      personne_2:
+        montant_total_redevance_domaniale:
+          2019-01-01: 3000
+        montant_base_redevance_domaniale:
+          2019-01-01: 3000
