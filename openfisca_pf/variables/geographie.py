@@ -34,8 +34,8 @@ class archipel(Variable):
     label = 'Archipel auquel le local appartient'
     reference = 'https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595'
 
-    def formula(local: Personne, period: Period, parameters: Parameters):
-        commune_fiscale = local('commune_fiscale', period, parameters)
+    def formula(personne: Personne, period: Period, parameters: Parameters):
+        commune_fiscale = personne('commune_fiscale', period, parameters)
         return select(
             [
                 isin(commune_fiscale, COMMUNES_DES_AUSTRALES),

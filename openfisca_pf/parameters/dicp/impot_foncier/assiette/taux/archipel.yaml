@@ -3,32 +3,39 @@ metadata:
   type: float
   unit: /1
 
-AUSTRALES:
+australes:
   values:
-    2021-12-27:
+    2011-09-27:
       value: 0.02
 
-GAMBIERS:
+gambiers:
   values:
-    2021-12-27:
+    2011-09-27:
       value: 0.02
 
-ILES_DU_VENT:
+iles_du_vent:
   values:
-    2021-12-27:
+    2001-11-13:
       value: 0.04
 
-ILES_SOUS_LE_VENT:
+iles_sous_le_vent:
   values:
-    2021-12-27:
+    2011-09-27:
       value: 0.03
 
-MARQUISES:
+marquises:
   values:
-    2021-12-27:
+    2011-09-27:
       value: 0.02
 
-TUAMOTUS:
+tuamotus:
   values:
-    2021-12-27:
+    2011-09-27:
       value: 0.02
+
+autres:
+  values:
+    2001-11-13:
+      value: 0.03
+    2011-09-27:
+      value: null

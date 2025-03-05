@@ -2,9 +2,10 @@
 
 
 __all__ = [
+    'ANNEE_EPOCH_UNIX',
     'EPSILON_TIMEDELTA',
     'NOMBRE_D_HEURES_PAR_DEMI_JOURNEE_AU_PRO_RATA_TEMPORIS',
-    'NOMBRE_D_HEURE_PAR_JOUR',
+    'NOMBRE_D_HEURES_PAR_JOUR',
     'NOMBRE_DE_JOURS_PAR_SEMAINE',
     'NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS',
     'NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS',
@@ -14,6 +15,13 @@ __all__ = [
 
 from openfisca_pf.base import timedelta64
 
+
+ANNEE_EPOCH_UNIX: int = 1970
+"""
+Annee zero des dates manipulé dans Openfisca
+
+https://numpy.org/doc/2.2/reference/arrays.datetime.html
+"""
 
 EPSILON_TIMEDELTA = timedelta64(1)
 """
@@ -25,7 +33,7 @@ NOMBRE_D_HEURES_PAR_DEMI_JOURNEE_AU_PRO_RATA_TEMPORIS: int = 8
 Nombre d'heures pour une demi-journée au pro rata temporis
 """
 
-NOMBRE_D_HEURE_PAR_JOUR: int = 24
+NOMBRE_D_HEURES_PAR_JOUR: int = 24
 """
 Nombre d'heures par jour
 """

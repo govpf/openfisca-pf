@@ -1,0 +1,36 @@
+
+- name: "base_imposable_apres_exoneration_temporaire_huit_ans est egale à valeur_locative_brute si le bien n'est pas eligible"
+  period: 1951
+  input:
+    age_du_bien: 1
+    valeur_locative_brute: 10
+    eligible_exoneration_temporaire_nouvelle_construction_huit_ans: false
+    age_intermediare_exoneration_temporaire_nouvelle_construction_huit_ans: 1
+    age_max_exoneration_temporaire_nouvelle_construction_huit_ans: 8
+    taux_exoneration_temporaire_nouvelle_construction_huit_ans: 1
+  output:
+    base_imposable_apres_exoneration_temporaire_huit_ans: 10
+
+- name: "base_imposable_apres_exoneration_temporaire_huit_ans est egale à valeur_locative_brute si le bien est eligible mais que l'age_du_bien est comprit entre 1 et 5"
+  period: 1951
+  input:
+    age_du_bien: 4
+    valeur_locative_brute: 10
+    eligible_exoneration_temporaire_nouvelle_construction_huit_ans: true
+    age_intermediare_exoneration_temporaire_nouvelle_construction_huit_ans: 6
+    age_max_exoneration_temporaire_nouvelle_construction_huit_ans: 8
+    taux_exoneration_temporaire_nouvelle_construction_huit_ans: 1
+  output:
+    base_imposable_apres_exoneration_temporaire_huit_ans: 10
+
+- name: "base_imposable_apres_exoneration_temporaire_huit_ans est egale à valeur_locative_brute multiplié par un moins taux si le bien est eligible est que l'age_du_bien est comprit entre 6 et 8"
+  period: 1951
+  input:
+    age_du_bien: 7
+    valeur_locative_brute: 10
+    eligible_exoneration_temporaire_nouvelle_construction_huit_ans: true
+    age_intermediare_exoneration_temporaire_nouvelle_construction_huit_ans: 6
+    age_max_exoneration_temporaire_nouvelle_construction_huit_ans: 8
+    taux_exoneration_temporaire_nouvelle_construction_huit_ans: 0.2
+  output:
+    base_imposable_apres_exoneration_temporaire_huit_ans: 8
