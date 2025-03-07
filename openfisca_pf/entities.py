@@ -19,6 +19,7 @@ Dossier = build_entity(
         ]
     )
 
+
 Employes = build_entity(
     key = "employes",
     plural = "employes",
@@ -33,6 +34,7 @@ Employes = build_entity(
         }
         ]
     )
+
 
 Pays = build_entity(
     key = "pays",
@@ -55,6 +57,7 @@ Pays = build_entity(
     ]
 )
 
+
 Personne = build_entity(
     key = "personne",
     plural = "personnes",
@@ -62,4 +65,5 @@ Personne = build_entity(
     is_person = True,
     )
 
-entities = [Dossier, Employes, Pays, Personne]
+
+ENTITIES = [Dossier, Employes, Pays, Personne]

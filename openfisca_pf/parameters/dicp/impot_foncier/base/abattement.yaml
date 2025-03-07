@@ -1,0 +1,68 @@
+premier:
+  description: "Paramètres concernant le premire abattement de 25%"
+
+  taux:
+    description: "Taux du premier abattement appliqué à la valeur locative pour calculer la base imposable de l'impôt foncier"
+    metadata:
+      type: float
+      unit: /1
+    values:
+      1950-11-16:
+        value: 0.25
+
+second:
+  description: "Paramètres concernant le second abattement en fonction du type de location"
+
+  location_meuble:
+    description: "Paramètres concernant le second abattement pour les bien en location meublé"
+
+    taux:
+      description: "Taux du second abattement appliqué pour calculer la base imposable de l'impôt foncier si le bien est en location meublé"
+      metadata:
+        type: float
+        unit: /1
+      values:
+        1950-11-16:
+          value: 0.30
+
+  location_non_meuble:
+    description: "Paramètres concernant le second abattement pour les bien en location non-meublé"
+
+    taux:
+      description: "Taux du second abattement appliqué pour calculer la base imposable de l'impôt foncier si le bien est en location non-meublé"
+      metadata:
+        type: float
+        unit: /1
+      values:
+        1950-11-16:
+          value: 0.25
+
+nouvelle_construction:
+  description: "Paramètres d'abattement pour les nouvelles construction dans la phase de 6 à 8 ans"
+
+  age_min:
+    description: "Age minimum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
+    metadata:
+      type: int
+      unit: years
+    values:
+      1999-01-01:
+        value: 6
+
+  age_max:
+    description: "Age maximum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
+    metadata:
+      type: int
+      unit: years
+    values:
+      1999-01-01:
+        value: 8
+
+  taux:
+    description: "Taux d'abattement pour les nouvelles constructions dans la phase de 6 à 8 ans"
+    metadata:
+      type: float
+      unit: /1
+    values:
+      1999-01-01:
+        value: 0.5

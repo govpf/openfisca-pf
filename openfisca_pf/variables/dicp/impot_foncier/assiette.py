@@ -10,6 +10,7 @@ from openfisca_pf.base import (
     Period,
     select,
     Variable,
+    where,
     YEAR
 )
 from openfisca_pf.constants.time import NOMBRE_DE_MOIS_PAR_AN
@@ -173,9 +174,22 @@ class valeur_locative_loyers(Variable):
     label = "Valeur locative calculer grace au loyer perçut pour la location du bien immobilier au mois de janvier"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         loyer_de_janvier = personne('loyer_de_janvier', period, parameters)
         return loyer_de_janvier * NOMBRE_DE_MOIS_PAR_AN
+
+
+class taux_autres_archipel_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0.
+    label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et d'un archipel autre que les iles du vent"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+    end = "2011-09-27"
+
+    def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+        return parameters(period).dicp.impot_foncier.assiette.taux.archipel.autres # 0.03
 
 
 class taux_archipel_australes_pays(Variable):
@@ -185,9 +199,6 @@ class taux_archipel_australes_pays(Variable):
     default_value = 0.
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel des Australes"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_2001_11_13(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.assiette.taux.archipel.autres # 0.03
 
     def formula_2011_09_27(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.assiette.taux.archipel.australes # 0.02
@@ -201,9 +212,6 @@ class taux_archipel_gambiers_pays(Variable):
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et des archipels des Gambiers"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_2001_11_13(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.assiette.taux.archipel.autres # 0.03
-
     def formula_2011_09_27(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.assiette.taux.archipel.gambiers # 0.02
 
@@ -216,7 +224,7 @@ class taux_archipel_iles_du_vent_pays(Variable):
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel des Îles du vent"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_2001_11_13(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.assiette.taux.archipel.iles_du_vent # 0.04
 
 
@@ -227,9 +235,6 @@ class taux_archipel_iles_sous_le_vent_pays(Variable):
     default_value = 0.
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel des Îles sous le vent"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_2001_11_13(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.assiette.taux.archipel.autres # 0.03
 
     def formula_2011_09_27(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.assiette.taux.archipel.iles_sous_le_vent # 0.03
@@ -243,9 +248,6 @@ class taux_archipel_marquises_pays(Variable):
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel des Marquises"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_2001_11_13(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.assiette.taux.archipel.autres # 0.03
-
     def formula_2011_09_27(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.assiette.taux.archipel.marquises # 0.02
 
@@ -258,11 +260,21 @@ class taux_archipel_tuamotus_pays(Variable):
     label = "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et des archipels des Touamotus"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_2001_11_13(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.assiette.taux.archipel.autres # 0.03
-
     def formula_2011_09_27(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.assiette.taux.archipel.tuamotus # 0.02
+
+
+class taux_autres_archipel(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0.
+    label = "Taux permettant de calculer la valeur locative direct d'un bien en fonction de la valeur venale et d'un archipel autre que les iles du vent"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+    end = "2011-09-27"
+
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return personne.pays('taux_autres_archipel_pays', period, parameters) # 0.03
 
 
 class taux_archipel_australes(Variable):
@@ -273,7 +285,7 @@ class taux_archipel_australes(Variable):
     label = "Taux permettant de calculer la valeur locative direct d'un bien en fonction de la valeur venale et de l'archipel des Australes"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_2011_09_27(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_archipel_australes_pays', period, parameters)
 
 
@@ -285,7 +297,7 @@ class taux_archipel_gambiers(Variable):
     label = "Taux permettant de calculer la valeur locative direct d'un bien en fonction de la valeur venale et des archipels des Gambiers"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_2011_09_27(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_archipel_gambiers_pays', period, parameters)
 
 
@@ -297,7 +309,7 @@ class taux_archipel_iles_du_vent(Variable):
     label = "Taux permettant de calculer la valeur locative direct d'un bien en fonction de la valeur venale et de l'archipel des Îles du vent"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_archipel_iles_du_vent_pays', period, parameters)
 
 
@@ -309,7 +321,7 @@ class taux_archipel_iles_sous_le_vent(Variable):
     label = "Taux permettant de calculer la valeur locative direct d'un bien en fonction de la valeur venale et de l'archipel des Îles sous le vent"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_2011_09_27(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_archipel_iles_sous_le_vent_pays', period, parameters)
 
 
@@ -321,7 +333,7 @@ class taux_archipel_marquises(Variable):
     label = "Taux permettant de calculer la valeur locative direct d'un bien en fonction de la valeur venale et de l'archipel des Marquises"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_2011_09_27(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_archipel_marquises_pays', period, parameters)
 
 
@@ -333,7 +345,7 @@ class taux_archipel_tuamotus(Variable):
     label = "Taux permettant de calculer la valeur locative direct d'un bien en fonction de la valeur venale et des archipels des Touamotus"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_2011_09_27(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_archipel_tuamotus_pays', period, parameters)
 
 
@@ -345,7 +357,17 @@ class taux_archipel(Variable):
     label = "Taux permettant de calculer la valeur locative direct d'un bien en fonction de la valeur venale et de l'archipel du local"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        archipel = personne('archipel', period, parameters)
+        taux_archipel_iles_du_vent = personne('taux_archipel_iles_du_vent', period, parameters)
+        taux_autres_archipel = personne('taux_autres_archipel', period, parameters)
+        return where(
+            archipel == Archipel.ILES_DU_VENT,
+            taux_archipel_iles_du_vent,
+            taux_autres_archipel
+        )
+
+    def formula_2011_09_27(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         archipel = personne('archipel', period, parameters)
         taux_archipel_australes = personne('taux_archipel_australes', period, parameters)
         taux_archipel_gambiers = personne('taux_archipel_gambiers', period, parameters)
@@ -387,7 +409,7 @@ class valeur_locative_direct(Variable):
     label = "Valeur locative direct d'un bien immobilier calculer grace à la valeur vénale et le taux archipel"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         valeur_venale = personne('valeur_venale', period, parameters)
         taux_archipel = personne('taux_archipel', period, parameters)
         return valeur_venale * taux_archipel
@@ -413,7 +435,7 @@ class taux_logement_social(Variable):
     label = "Taux permettant de calculer la valeur locative d'un logement social"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_2001_11_13(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_logement_social_pays', period, parameters)
 
 
@@ -425,7 +447,7 @@ class valeur_locative_sociale(Variable):
     label = "Valeur locative direct d'un logement social possédée et occupée par le propriétaire. Et non pas loué par l'OPH."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_2001_11_13(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         valeur_venale = personne('valeur_venale', period, parameters)
         taux_logement_social = personne('taux_logement_social', period, parameters)
         return valeur_venale * taux_logement_social
@@ -439,8 +461,7 @@ class taux_meuble_de_tourisme_pays(Variable):
     label = "Taux permettant de calculer la valeur locative d'un bien loué en meuble de tourisme en fonction de sa valeur vénale"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    # TODO HISTORIQUE DES TAUX
-    def formula_1970_01_01(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.assiette.taux.meuble_de_tourisme
 
 
@@ -452,7 +473,7 @@ class taux_meuble_de_tourisme(Variable):
     label = "Taux permettant de calculer la valeur locative d'un bien loué en meuble de tourisme en fonction de sa valeur vénale"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_meuble_de_tourisme_pays', period, parameters)
 
 
@@ -464,7 +485,7 @@ class valeur_locative_meuble_de_tourisme(Variable):
     label = "Valeur locative d'un bien loué en meuble de tourisme"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         valeur_venale = personne('valeur_venale', period, parameters)
         taux_meuble_de_tourisme = personne('taux_meuble_de_tourisme', period, parameters)
         return taux_meuble_de_tourisme * valeur_venale
@@ -478,8 +499,7 @@ class taux_villa_de_luxe_pays(Variable):
     label = "Taux permettant de calculer la valeur locative d'un loué loué en villa de luxe en fonction de sa valeur vénale"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    # TODO HISTORIQUE DES TAUX
-    def formula_1970_01_01(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.assiette.taux.villa_de_luxe
 
 
@@ -491,7 +511,7 @@ class taux_villa_de_luxe(Variable):
     label = "Taux permettant de calculer la valeur locative d'un loué loué en villa de luxe en fonction de sa valeur vénale"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('taux_villa_de_luxe_pays', period, parameters)
 
 
@@ -503,7 +523,7 @@ class valeur_locative_villa_de_luxe(Variable):
     label = "Valeur locative d'un bien loué en villa de luxe"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         valeur_venale = personne('valeur_venale', period, parameters)
         taux_villa_de_luxe = personne('taux_villa_de_luxe', period, parameters)
         return taux_villa_de_luxe * valeur_venale
@@ -517,12 +537,42 @@ class valeur_locative_brute(Variable):
     label = "Valeur locative d'un bien immobilier"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        # Variables utilisé comme conditions
+        location_simple = personne('location_simple', period, parameters)
+        location_meuble_de_tourisme = personne('location_meuble_de_tourisme', period, parameters)
+        location_villa_de_luxe = personne('location_villa_de_luxe', period, parameters)
+        non_loue = personne('non_loue', period, parameters)
+
+        # Differents calculs de la valeur locative
+        valeur_locative_loyers = personne('valeur_locative_loyers', period, parameters)
+        valeur_locative_meuble_de_tourisme = personne('valeur_locative_meuble_de_tourisme', period, parameters)
+        valeur_locative_villa_de_luxe = personne('valeur_locative_villa_de_luxe', period, parameters)
+        valeur_locative_direct = personne('valeur_locative_direct', period, parameters)
+
+        # On choisit le calcul approprié en fonction de la situation du bien immobilier
+        return select(
+            [
+                location_simple,
+                location_meuble_de_tourisme,
+                location_villa_de_luxe,
+                non_loue
+            ],
+            [
+                valeur_locative_loyers,
+                valeur_locative_meuble_de_tourisme,
+                valeur_locative_villa_de_luxe,
+                valeur_locative_direct
+            ]
+        )
+
+    def formula_2001_11_13(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         # Variables utilisé comme conditions
         location_simple = personne('location_simple', period, parameters)
         location_meuble_de_tourisme = personne('location_meuble_de_tourisme', period, parameters)
         location_villa_de_luxe = personne('location_villa_de_luxe', period, parameters)
         logement_social = personne('logement_social', period, parameters)
+        non_loue = personne('non_loue', period, parameters)
 
         # Differents calculs de la valeur locative
         valeur_locative_loyers = personne('valeur_locative_loyers', period, parameters)
@@ -537,13 +587,14 @@ class valeur_locative_brute(Variable):
                 location_simple,
                 location_meuble_de_tourisme,
                 location_villa_de_luxe,
-                logement_social
+                logement_social,
+                non_loue
             ],
             [
                 valeur_locative_loyers,
                 valeur_locative_meuble_de_tourisme,
                 valeur_locative_villa_de_luxe,
-                valeur_locative_sociale
-            ],
-            valeur_locative_direct
+                valeur_locative_sociale,
+                valeur_locative_direct
+            ]
         )
