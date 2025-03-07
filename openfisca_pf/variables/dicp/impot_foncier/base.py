@@ -8,7 +8,6 @@ from openfisca_pf.base import (
     Period,
     select,
     Variable,
-    where,
     YEAR
 )
 from openfisca_pf.entities import Pays, Personne
