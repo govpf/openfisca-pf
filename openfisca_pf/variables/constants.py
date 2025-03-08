@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-description: définition de l'ensemble des constantes utilisées dans l'application
+Définition de l'ensemble des constantes utilisées dans l'application
 """
+
 
 from openfisca_core.model_api import Variable, ETERNITY
 from openfisca_pf.constants.time import *
 from openfisca_pf.entities import Personne
+
 
 # TODO: RENAME nombre_de_jours_par_semaine
 class nombre_de_jour_par_semaine(Variable):

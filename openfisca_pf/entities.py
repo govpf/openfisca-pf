@@ -15,7 +15,7 @@ Dossier = build_entity(
             "plural": "demandes",
             "label": "Demandes",
             "doc": "Les demandes du dossier"
-        }
+            }
         ]
     )
 
@@ -31,7 +31,7 @@ Employes = build_entity(
             "plural": "employes",
             "label": "Employés",
             "doc": "La liste des employés"
-        }
+            }
         ]
     )
 
@@ -47,15 +47,15 @@ Pays = build_entity(
             "plural": "contribuables",
             "label": "Contribuables",
             "doc": "Les contribuables du pays"
-        },
+            },
         {
             "key": "bien",
             "plural": "biens",
             "label": "Bien immobilier",
             "doc": "Les biens immboliers du pays"
-        }
-    ]
-)
+            }
+        ]
+    )
 
 
 Personne = build_entity(

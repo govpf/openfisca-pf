@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+"""
+Calcul de la base de l'impôt foncier en Polynésie Française.
+Aussi appelé "valeur locative nette".
+"""
 
 from openfisca_pf.base import (
     ArrayLike,
@@ -9,163 +13,178 @@ from openfisca_pf.base import (
     select,
     Variable,
     YEAR
-)
+    )
 from openfisca_pf.entities import Pays, Personne
 from openfisca_pf.functions.currency import arrondi_inferieur
 
 
-class taux_premier_abattement_pays(Variable):
+# ##################################################
+# ###            ABATTEMENT D'OFFICE             ###
+# ##################################################
+
+
+class taux_abattement_office_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
     default_value = 0.
-    label = "Taux du première abattement de 25%"
+    label = "Taux du première abattement d'office de 25%"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.premier.taux
+        return parameters(period).dicp.impot_foncier.base.abattement.office.taux  # 0.25
 
 
-class taux_premier_abattement(Variable):
+class taux_abattement_office(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Taux du première abattement de 25%"
+    label = "Taux du première abattement d'office de 25%"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('taux_premier_abattement_pays', period, parameters)
+        return personne.pays('taux_abattement_office_pays', period, parameters)  # 0.25
 
 
-class montant_premier_abattement(Variable):
+class montant_abattement_office(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Montant du première abattement de 25%"
+    label = "Montant du première abattement d'office de 25%"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base = personne('valeur_locative_brute', period, parameters)
-        taux = personne('taux_premier_abattement', period, parameters)
+        taux = personne('taux_abattement_office', period, parameters)  # 0.25
         return base * taux
 
 
-class base_imposable_apres_premier_abattement(Variable):
+class base_imposable_apres_abattement_office(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Base imposable intermédiaire après application du première abattement de 25%"
+    label = "Base imposable intermédiaire après application du première abattement d'office de 25%"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base = personne('valeur_locative_brute', period, parameters)
-        montant = personne('montant_premier_abattement', period, parameters)
+        montant = personne('montant_abattement_office', period, parameters)
         return base - montant
 
 
-class taux_second_abattement_location_meuble_pays(Variable):
+# ##################################################
+# ###             ABATTEMENT LOCATIF             ###
+# ##################################################
+
+
+class taux_abattement_locatif_location_meuble_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
     default_value = 0.
-    label = "Taux du second abattement quand le bien est loué en meublé"
+    label = "Taux de l'abattement locatif quand le bien est loué en meublé"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.second.location_meuble.taux
+        return parameters(period).dicp.impot_foncier.base.abattement.locatif.location_meuble.taux
 
 
-class taux_second_abattement_location_non_meuble_pays(Variable):
+class taux_abattement_locatif_location_non_meuble_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
     default_value = 0.
-    label = "Taux du second abattement quand le bien est loué en non meublé"
+    label = "Taux de l'abattement locatif quand le bien est loué en non meublé"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.second.location_non_meuble.taux
+        return parameters(period).dicp.impot_foncier.base.abattement.locatif.location_non_meuble.taux
 
 
-class taux_second_abattement_location_meuble(Variable):
+class taux_abattement_locatif_location_meuble(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Taux du second abattement quand le bien est loué en meublé"
+    label = "Taux de l'abattement locatif quand le bien est loué en meublé"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('taux_second_abattement_location_meuble_pays', period, parameters)
+        return personne.pays('taux_abattement_locatif_location_meuble_pays', period, parameters)
 
 
-class taux_second_abattement_location_non_meuble(Variable):
+class taux_abattement_locatif_location_non_meuble(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Taux du second abattement quand le bien est loué en non meublé"
+    label = "Taux de l'abattement locatif quand le bien est loué en non meublé"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('taux_second_abattement_location_non_meuble_pays', period, parameters)
+        return personne.pays('taux_abattement_locatif_location_non_meuble_pays', period, parameters)
 
 
-class taux_second_abattement(Variable):
+class taux_abattement_locatif(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Taux du second abattement en fonction de comment le bien est loué"
+    label = "Taux de l'abattement locatif en fonction de comment le bien est loué"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         location_meuble = personne('location_meuble', period, parameters)
         location_non_meuble = personne('location_non_meuble', period, parameters)
-        taux_location_meuble = personne('taux_second_abattement_location_meuble', period, parameters)
-        taux_location_non_meuble = personne('taux_second_abattement_location_non_meuble', period, parameters)
+        taux_location_meuble = personne('taux_abattement_locatif_location_meuble', period, parameters)
+        taux_location_non_meuble = personne('taux_abattement_locatif_location_non_meuble', period, parameters)
         return select(
             [
                 location_meuble,
                 location_non_meuble
-            ],
+                ],
             [
                 taux_location_meuble,
                 taux_location_non_meuble
-            ],
+                ],
             0.
-        )
+            )
 
 
-class montant_second_abattement(Variable):
+class montant_abattement_locatif(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Base imposable intermédiaire après application du second abattement qui est fonction du type de location"
+    label = "Montant de l'abattement locatif"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base = personne('base_imposable_apres_premier_abattement', period, parameters)
-        taux = personne('taux_second_abattement', period, parameters)
+        base = personne('base_imposable_apres_abattement_office', period, parameters)
+        taux = personne('taux_abattement_locatif', period, parameters)
         return base * taux
 
 
-class base_imposable_apres_second_abattement(Variable):
+class base_imposable_apres_abattement_locatif(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Base imposable intermédiaire après application du second abattement qui est fonction du type de location"
+    label = "Base imposable intermédiaire après application de l'abattement locatif"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base = personne('base_imposable_apres_premier_abattement', period, parameters)
-        montant = personne('montant_second_abattement', period, parameters)
+        base = personne('base_imposable_apres_abattement_office', period, parameters)
+        montant = personne('montant_abattement_locatif', period, parameters)
         return base - montant
+
+
+# ##################################################
+# ###      ABATTEMENT NOUVELLE CONSTRUCTION      ###
+# ##################################################
 
 
 class age_min_abattement_nouvelle_construction_pays(Variable):
@@ -265,7 +284,7 @@ class montant_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base = personne('base_imposable_apres_second_abattement', period, parameters)
+        base = personne('base_imposable_apres_abattement_locatif', period, parameters)
         eligible = personne('eligible_abattement_nouvelle_construction', period, parameters)
         taux = personne('taux_abattement_nouvelle_construction', period, parameters)
         return select(
@@ -284,9 +303,14 @@ class base_imposable_apres_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base = personne('base_imposable_apres_second_abattement', period, parameters)
+        base = personne('base_imposable_apres_abattement_locatif', period, parameters)
         montant = personne('montant_abattement_nouvelle_construction', period, parameters)
         return base - montant
+
+
+# ##################################################
+# ###            VALEUR LOCATIVE NETTE           ###
+# ##################################################
 
 
 class valeur_locative_nette(Variable):
@@ -298,7 +322,7 @@ class valeur_locative_nette(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base = personne('base_imposable_apres_second_abattement', period, parameters)
+        base = personne('base_imposable_apres_abattement_locatif', period, parameters)
         return arrondi_inferieur(base)
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:

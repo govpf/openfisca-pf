@@ -1,1 +1,1 @@
-openfisca test --country-package openfisca_pf openfisca_pf/tests/dicp/impot_foncier/unitaires/base.yaml
+openfisca test --country-package openfisca_pf openfisca_pf/tests

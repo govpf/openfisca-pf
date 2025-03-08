@@ -1,0 +1,599 @@
+
+- name: "age_min_exoneration_temporaire_nouvelle_construction est égale à 0 ans avant 1951"
+  period: 1950
+  output:
+    age_min_exoneration_temporaire_nouvelle_construction: 0
+
+- name: "age_min_exoneration_temporaire_nouvelle_construction est égale à 1 ans a partir de 1951"
+  period: 1951
+  output:
+    age_min_exoneration_temporaire_nouvelle_construction: 1
+
+
+
+
+- name: "age_max_exoneration_temporaire_nouvelle_construction est égale à 0 ans avant 1951"
+  period: 1950
+  output:
+    age_max_exoneration_temporaire_nouvelle_construction: 0
+
+- name: "age_max_exoneration_temporaire_nouvelle_construction est égale à 8 ans a partir de 1951"
+  period: 1951
+  output:
+    age_max_exoneration_temporaire_nouvelle_construction: 5
+
+
+
+
+- name: "eligible_exoneration_temporaire_nouvelle_construction est Faux ans avant 1951"
+  period: 1950
+  input:
+    terrain: false
+    age_du_bien: 1
+  output:
+    eligible_exoneration_temporaire_nouvelle_construction: false
+
+- name: "eligible_exoneration_temporaire_nouvelle_construction est Faux si le bien est un terrain peu importe son age"
+  period: 1951
+  input:
+    terrain: true
+    age_du_bien: 1
+  output:
+    eligible_exoneration_temporaire_nouvelle_construction: false
+
+- name: "eligible_exoneration_temporaire_nouvelle_construction est Faux si le bien n'est pas un terrain mais que son age est 0"
+  period: 1951
+  input:
+    terrain: false
+    age_du_bien: 0
+  output:
+    eligible_exoneration_temporaire_nouvelle_construction: false
+
+- name: "eligible_exoneration_temporaire_nouvelle_construction est True si le bien n'est pas un terrain et que son age est assez élevé"
+  period: 1951
+  input:
+    terrain: false
+    age_du_bien: 1
+  output:
+    eligible_exoneration_temporaire_nouvelle_construction: true
+
+- name: "eligible_exoneration_temporaire_nouvelle_construction est Faux si le bien n'est pas un terrain mais que son age est trop élevé"
+  period: 1951
+  input:
+    terrain: false
+    age_du_bien: 6
+  output:
+    eligible_exoneration_temporaire_nouvelle_construction: false
+
+
+
+
+- name: "taux_exoneration_temporaire_nouvelle_construction est égale à 0 avant 1951"
+  period: 1950
+  output:
+    taux_exoneration_temporaire_nouvelle_construction: 0
+
+- name: "taux_exoneration_temporaire_nouvelle_construction est égale à partir de 19511"
+  period: 1951
+  output:
+    taux_exoneration_temporaire_nouvelle_construction: 1
+
+
+
+
+- name: "montant_exoneration_temporaire_nouvelle_construction est égale à 0 avant 1951"
+  period: 1950
+  input:
+    impot_foncier_part_pays_brute: 100
+    taux_exoneration_temporaire_nouvelle_construction: 0.5
+  output:
+    montant_exoneration_temporaire_nouvelle_construction: 0
+
+- name: "montant_exoneration_temporaire_nouvelle_construction est égale à impot_foncier_part_pays_brute multiplié par taux_exoneration_temporaire_nouvelle_construction à partir de 1951"
+  period: 1952
+  input:
+    impot_foncier_part_pays_brute: 100.5
+    taux_exoneration_temporaire_nouvelle_construction: 0.5
+  output:
+    montant_exoneration_temporaire_nouvelle_construction: 50
+
+
+
+
+- name: "age_min_exoneration_temporaire_habitation_principale est égale à 0 avant 2023"
+  period: 2022
+  output:
+    age_min_exoneration_temporaire_habitation_principale: 0
+
+- name: "age_min_exoneration_temporaire_habitation_principale est égale à 1 à partir de 2023"
+  period: 2023
+  output:
+    age_min_exoneration_temporaire_habitation_principale: 1
+
+
+
+
+- name: "age_max_exoneration_temporaire_habitation_principale est égale à 0 avant 2023"
+  period: 2022
+  output:
+    age_max_exoneration_temporaire_habitation_principale: 0
+
+- name: "age_max_exoneration_temporaire_habitation_principale est égale à 1 à partir de 2023"
+  period: 2023
+  output:
+    age_max_exoneration_temporaire_habitation_principale: 10
+
+
+
+
+- name: "date_limite_permis_de_construire_exoneration_temporaire_habitation_principale est égale à 1970-01-01 avant 2023"
+  period: 2022
+  output:
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "1970-01-01"
+
+- name: "date_limite_permis_de_construire_exoneration_temporaire_habitation_principale est égale à 2022-12-31 à partir de 2023"
+  period: 2023
+  output:
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+
+
+
+
+- name: "date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale est égale à 1970-01-01 avant 2023"
+  period: 2022
+  output:
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "1970-01-01"
+
+- name: "date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale est égale à 2025-12-31 à partir de 2023"
+  period: 2023
+  output:
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+
+
+
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à Faux avant 2023"
+  period: 2022
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2012-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2011-12-31"
+    date_du_certificat_de_conformite: "2012-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2015-12-31"
+    loue:
+      2013: false
+      2014: false
+      2015: false
+      2016: false
+      2017: false
+      2018: false
+      2019: false
+      2020: false
+      2021: false
+      2022: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 0
+    age_max_exoneration_temporaire_habitation_principale: 0
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à True si les conditions sont réunis"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: true
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien à 11 ans"
+  period: 2034
+  input:
+    terrain: true
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+      2034: false
+  output:
+    age_du_bien: 11
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est un terrain"
+  period: 2033
+  input:
+    terrain: true
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien n'est pas une habitation principale"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: false
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien à été occupé avant la fin des travaux"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: true
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: true
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-1"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: true
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-2"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: true
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-3"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: true
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-4"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: true
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-5"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: false
+      2028: true
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-6"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: false
+      2027: true
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-7"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: false
+      2026: true
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-8"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: false
+      2025: true
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à False si le bien est loue l'année n-9"
+  period: 2033
+  input:
+    terrain: false
+    habitation_principale: true
+    bien_occupe_avant_la_fin_des_travaux: false
+    date_du_permis_de_construire: "2023-01-01"
+    date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2022-12-31"
+    date_du_certificat_de_conformite: "2023-12-31"
+    date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2025-12-31"
+    loue:
+      2024: true
+      2025: false
+      2026: false
+      2027: false
+      2028: false
+      2029: false
+      2030: false
+      2031: false
+      2032: false
+      2033: false
+  output:
+    age_du_bien: 10
+    age_min_exoneration_temporaire_habitation_principale: 1
+    age_max_exoneration_temporaire_habitation_principale: 10
+    eligible_exoneration_temporaire_habitation_principale: false
+
+
+
+
+- name: "taux_exoneration_temporaire_habitation_principale est égale à 0 avant 2023"
+  period: 2022
+  output:
+    taux_exoneration_temporaire_habitation_principale: 0
+
+- name: "taux_exoneration_temporaire_habitation_principale est égale à 1 à partir de 2023"
+  period: 2023
+  output:
+    taux_exoneration_temporaire_habitation_principale: 1

@@ -1,0 +1,44 @@
+
+- name: "taux_part_pays_pays est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  output:
+    taux_part_pays_pays: 0
+
+- name: "taux_part_pays_pays est égale à 0.1 à partir de 1951"
+  period: 1951
+  output:
+    taux_part_pays_pays: 0.1
+
+
+
+
+- name: "taux_part_pays est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    taux_part_pays_pays: 0.1
+  output:
+    taux_part_pays: 0
+
+- name: "taux_part_pays est égale à taux_part_pays_pays à partir de 1951"
+  period: 1951
+  input:
+    taux_part_pays_pays: 10
+  output:
+    taux_part_pays: 10
+
+
+- name: "impot_foncier_part_pays_brute est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    valeur_locative_nette: 100
+    taux_part_pays: 0.3
+  output:
+    impot_foncier_part_pays_brute: 0
+
+- name: "impot_foncier_part_pays_brute est égale à valeur_locative_nette multiplié par taux_part_pays à partir de 1951"
+  period: 1951
+  input:
+    valeur_locative_nette: 100.5
+    taux_part_pays: 0.33
+  output:
+    impot_foncier_part_pays_brute: 33

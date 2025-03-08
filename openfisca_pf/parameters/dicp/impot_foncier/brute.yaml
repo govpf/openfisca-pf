@@ -1,0 +1,5 @@
+taux:
+  description: "Taux utilisé pour calculer l'impot brut de l'impôt foncier revenant au pays"
+  values:
+    1950-11-16:
+      value: 0.1

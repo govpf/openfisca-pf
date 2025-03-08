@@ -1,203 +1,209 @@
 
-- name: "taux_premier_abattement_pays est égale à 0 avant 1951 car il n'existait pas"
+- name: "taux_abattement_office_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
-    taux_premier_abattement_pays: 0
+    taux_abattement_office_pays: 0
 
-- name: "taux_premier_abattement_pays est égale à 0.25 à partir de 1951"
+- name: "taux_abattement_office_pays est égale à 0.25 à partir de 1951"
   period: 1951
   output:
-    taux_premier_abattement_pays: 0.25
+    taux_abattement_office_pays: 0.25
 
 
 
 
-- name: "taux_premier_abattement est égale à 0 avant 1951 car il n'existait pas"
-  period: 1950
-  output:
-    taux_premier_abattement: 0
-
-- name: "taux_premier_abattement est égale à taux_premier_abattement_pays à partir de 1951"
-  period: 1951
-  input:
-    taux_premier_abattement_pays: 10.5
-  output:
-    taux_premier_abattement: 10.5
-
-
-
-
-- name: "montant_premier_abattement est egale à 0 avant 1951 car il n'existait pas"
+- name: "taux_abattement_office est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   input:
-    valeur_locative_brute: 101
-    taux_premier_abattement: 0.5
+    taux_abattement_office_pays: 10.5
   output:
-    montant_premier_abattement: 0
+    taux_abattement_office: 0
 
-- name: "montant_premier_abattement est egale à la valeur_locative_brute multiplié par la taux_premier_abattement a partir de 1951"
+- name: "taux_abattement_office est égale à taux_abattement_office_pays à partir de 1951"
   period: 1951
   input:
-    valeur_locative_brute: 101
-    taux_premier_abattement: 0.5
+    taux_abattement_office_pays: 10.5
   output:
-    montant_premier_abattement: 50.5
+    taux_abattement_office: 10.5
 
 
 
 
-- name: "base_imposable_apres_premier_abattement est egale à 0 avant 1951 car il n'existait pas"
+- name: "montant_abattement_office est egale à 0 avant 1951 car il n'existait pas"
   period: 1950
   input:
     valeur_locative_brute: 101
-    montant_premier_abattement: 10.5
+    taux_abattement_office: 0.5
   output:
-    base_imposable_apres_premier_abattement: 0
+    montant_abattement_office: 0
 
-- name: "base_imposable_apres_premier_abattement est egale à la valeur_locative_brute moins le montant_premier_abattement a partir de 1951"
+- name: "montant_abattement_office est egale à la valeur_locative_brute multiplié par la taux_premier_abattement a partir de 1951"
   period: 1951
   input:
     valeur_locative_brute: 101
-    montant_premier_abattement: 10.5
+    taux_abattement_office: 0.5
   output:
-    base_imposable_apres_premier_abattement: 90.5
+    montant_abattement_office: 50.5
 
 
 
 
-- name: "taux_second_abattement_location_meuble_pays est égale à 0 avant 1951 car il n'existait pas"
+- name: "base_imposable_apres_abattement_office est egale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    valeur_locative_brute: 101
+    montant_abattement_office: 10.5
+  output:
+    base_imposable_apres_abattement_office: 0
+
+- name: "base_imposable_apres_abattement_office est egale à la valeur_locative_brute moins le montant_premier_abattement a partir de 1951"
+  period: 1951
+  input:
+    valeur_locative_brute: 101
+    montant_abattement_office: 10.5
+  output:
+    base_imposable_apres_abattement_office: 90.5
+
+
+
+
+- name: "taux_abattement_locatif_location_meuble_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
-    taux_second_abattement_location_meuble_pays: 0
+    taux_abattement_locatif_location_meuble_pays: 0
 
-- name: "taux_second_abattement_location_meuble_pays est égale à 0.3 à partir de 1951"
+- name: "taux_abattement_locatif_location_meuble_pays est égale à 0.3 à partir de 1951"
   period: 1951
   output:
-    taux_second_abattement_location_meuble_pays: 0.3
+    taux_abattement_locatif_location_meuble_pays: 0.3
 
 
 
 
-- name: "taux_second_abattement_location_non_meuble_pays est égale à 0 avant 1951 car il n'existait pas"
+- name: "taux_abattement_locatif_location_non_meuble_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
-    taux_second_abattement_location_non_meuble_pays: 0
+    taux_abattement_locatif_location_non_meuble_pays: 0
 
-- name: "taux_second_abattement_location_non_meuble_pays est égale à 0.25 à partir de 1951"
+- name: "taux_abattement_locatif_location_non_meuble_pays est égale à 0.25 à partir de 1951"
   period: 1951
   output:
-    taux_second_abattement_location_non_meuble_pays: 0.25
+    taux_abattement_locatif_location_non_meuble_pays: 0.25
 
 
 
 
 - name: "taux_second_abattement_location_meuble est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
+  input:
+    taux_abattement_locatif_location_meuble_pays: 10.5
   output:
-    taux_second_abattement_location_meuble: 0
+    taux_abattement_locatif_location_meuble: 0
 
 - name: "taux_second_abattement_location_meuble est égale à taux_second_abattement_location_meuble_pays à partir de 1951"
   period: 1951
   input:
-    taux_second_abattement_location_meuble_pays: 10.5
+    taux_abattement_locatif_location_meuble_pays: 10.5
   output:
-    taux_second_abattement_location_meuble: 10.5
+    taux_abattement_locatif_location_meuble: 10.5
 
 
 
 
 - name: "taux_second_abattement_location_non_meuble est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
+  input:
+    taux_abattement_locatif_location_non_meuble_pays: 10.5
   output:
-    taux_second_abattement_location_non_meuble: 0
+    taux_abattement_locatif_location_non_meuble: 0
 
 - name: "taux_second_abattement_location_non_meuble est égale à taux_second_abattement_location_non_meuble_pays à partir de 1951"
   period: 1951
   input:
-    taux_second_abattement_location_non_meuble_pays: 10.5
+    taux_abattement_locatif_location_non_meuble_pays: 10.5
   output:
-    taux_second_abattement_location_non_meuble: 10.5
+    taux_abattement_locatif_location_non_meuble: 10.5
 
 
 
 
-- name: "taux_second_abattement est égale à 0 avant 1951 car il n'existait pas"
+- name: "taux_abattement_locatif est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   input:
     location_meuble: true
     location_non_meuble: false
-    taux_second_abattement_location_meuble: 1
-    taux_second_abattement_location_non_meuble: 2
+    taux_abattement_locatif_location_meuble: 1
+    taux_abattement_locatif_location_non_meuble: 2
   output:
-    taux_second_abattement: 0
+    taux_abattement_locatif: 0
 
-- name: "taux_second_abattement est égale à taux_second_abattement_location_meuble à partir 1951 si le bien est en location_meuble"
+- name: "taux_second_abattement est égale à taux_abattement_locatif_location_meuble à partir 1951 si le bien est en location_meuble"
   period: 1951
   input:
     location_meuble: true
     location_non_meuble: false
-    taux_second_abattement_location_meuble: 1
-    taux_second_abattement_location_non_meuble: 2
+    taux_abattement_locatif_location_meuble: 1
+    taux_abattement_locatif_location_non_meuble: 2
   output:
-    taux_second_abattement: 1
+    taux_abattement_locatif: 1
 
-- name: "taux_second_abattement est égale à taux_second_abattement_location_non_meuble à partir 1951 si le bien est en location_non_meuble"
+- name: "taux_abattement_locatif est égale à taux_abattement_locatif_location_non_meuble à partir 1951 si le bien est en location_non_meuble"
   period: 1951
   input:
     location_meuble: false
     location_non_meuble: true
-    taux_second_abattement_location_meuble: 1
-    taux_second_abattement_location_non_meuble: 2
+    taux_abattement_locatif_location_meuble: 1
+    taux_abattement_locatif_location_non_meuble: 2
   output:
-    taux_second_abattement: 2
+    taux_abattement_locatif: 2
 
-- name: "taux_second_abattement est égale à 0 à partir 1951 si le bien n'est ni en location_meuble ni en location_non_meuble"
+- name: "taux_abattement_locatif est égale à 0 à partir 1951 si le bien n'est ni en location_meuble ni en location_non_meuble"
   period: 1951
   input:
     location_meuble: false
     location_non_meuble: false
-    taux_second_abattement_location_meuble: 1
-    taux_second_abattement_location_non_meuble: 2
+    taux_abattement_locatif_location_meuble: 1
+    taux_abattement_locatif_location_non_meuble: 2
   output:
-    taux_second_abattement: 0
+    taux_abattement_locatif: 0
 
 
 
 
-- name: "montant_second_abattement est égale à 0 avant 1951 car il n'existait pas"
+- name: "montant_abattement_locatif est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   input:
-    base_imposable_apres_premier_abattement: 11
-    taux_second_abattement: 0.5
+    base_imposable_apres_abattement_office: 11
+    taux_abattement_locatif: 0.5
   output:
-    montant_second_abattement: 0
+    montant_abattement_locatif: 0
 
-- name: "montant_second_abattement est égale à la base_imposable_apres_premier_abattement multiplié par le taux_second_abattement à partir de 1951"
+- name: "montant_abattement_locatif est égale à la base_imposable_apres_abattement_office multiplié par le taux_abattement_locatif à partir de 1951"
   period: 1951
   input:
-    base_imposable_apres_premier_abattement: 11
-    taux_second_abattement: 0.5
+    base_imposable_apres_abattement_office: 11
+    taux_abattement_locatif: 0.5
   output:
-    montant_second_abattement: 5.5
+    montant_abattement_locatif: 5.5
 
 
 
 
-- name: "base_imposable_apres_second_abattement est égale à 0 avant 1951 car il n'existait pas"
+- name: "base_imposable_apres_abattement_locatif est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   input:
-    base_imposable_apres_premier_abattement: 11
-    montant_second_abattement: 5.5
+    base_imposable_apres_abattement_office: 11
+    montant_abattement_locatif: 5.5
   output:
-    base_imposable_apres_second_abattement: 0
+    base_imposable_apres_abattement_locatif: 0
 
-- name: "base_imposable_apres_second_abattement est égale à la base_imposable_apres_premier_abattement moins le montant_second_abattement à partir de 1951"
+- name: "base_imposable_apres_abattement_locatif est égale à la base_imposable_apres_premier_abattement moins le montant_abattement_locatif à partir de 1951"
   period: 1951
   input:
-    base_imposable_apres_premier_abattement: 11
-    montant_second_abattement: 6.5
+    base_imposable_apres_abattement_office: 11
+    montant_abattement_locatif: 6.5
   output:
-    base_imposable_apres_second_abattement: 4.5
+    base_imposable_apres_abattement_locatif: 4.5
 
 
 
@@ -348,16 +354,16 @@
 - name: "montant_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
   period: 1998
   input:
-    base_imposable_apres_second_abattement: 11
+    base_imposable_apres_abattement_locatif: 11
     eligible_abattement_nouvelle_construction: true
     taux_abattement_nouvelle_construction: 0.5
   output:
     montant_abattement_nouvelle_construction: 0
 
-- name: "montant_abattement_nouvelle_construction est égale à la base_imposable_apres_second_abattement multiplié par le taux_abattement_nouvelle_construction si le bien est eligible à partir de 1999"
+- name: "montant_abattement_nouvelle_construction est égale à la base_imposable_apres_abattement_locatif multiplié par le taux_abattement_nouvelle_construction si le bien est eligible à partir de 1999"
   period: 1999
   input:
-    base_imposable_apres_second_abattement: 11
+    base_imposable_apres_abattement_locatif: 11
     eligible_abattement_nouvelle_construction: true
     taux_abattement_nouvelle_construction: 0.5
   output:
@@ -366,7 +372,7 @@
 - name: "montant_abattement_nouvelle_construction est égale à la 0 si le bien n'est pas eligible à partir de 1999"
   period: 1999
   input:
-    base_imposable_apres_second_abattement: 11
+    base_imposable_apres_abattement_locatif: 11
     eligible_abattement_nouvelle_construction: false
     taux_abattement_nouvelle_construction: 0.5
   output:
@@ -378,15 +384,15 @@
 - name: "base_imposable_apres_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
   period: 1998
   input:
-    base_imposable_apres_second_abattement: 11
+    base_imposable_apres_abattement_locatif: 11
     montant_abattement_nouvelle_construction: 5.5
   output:
     base_imposable_apres_abattement_nouvelle_construction: 0
 
-- name: "base_imposable_apres_abattement_nouvelle_construction est égale à la base_imposable_apres_second_abattement moins le montant_abattement_nouvelle_construction à partir de 1999"
+- name: "base_imposable_apres_abattement_nouvelle_construction est égale à la base_imposable_apres_abattement_locatif moins le montant_abattement_nouvelle_construction à partir de 1999"
   period: 1999
   input:
-    base_imposable_apres_second_abattement: 11
+    base_imposable_apres_abattement_locatif: 11
     montant_abattement_nouvelle_construction: 6.5
   output:
     base_imposable_apres_abattement_nouvelle_construction: 4.5
@@ -397,15 +403,15 @@
 - name: "valeur_locative_nette est égale à 0 avant 1951 car elle n'existait pas"
   period: 1950
   input:
-    base_imposable_apres_second_abattement: 1.5
+    base_imposable_apres_abattement_locatif: 1.5
     base_imposable_apres_abattement_nouvelle_construction: 2.5
   output:
     valeur_locative_nette: 0
 
-- name: "valeur_locative_nette est égale à base_imposable_apres_second_abattement arrondi a l'entier inférieur à partir de 1951"
+- name: "valeur_locative_nette est égale à base_imposable_apres_abattement_locatif arrondi a l'entier inférieur à partir de 1951"
   period: 1951
   input:
-    base_imposable_apres_second_abattement: 1.5
+    base_imposable_apres_abattement_locatif: 1.5
     base_imposable_apres_abattement_nouvelle_construction: 2.5
   output:
     valeur_locative_nette: 1
@@ -413,7 +419,7 @@
 - name: "valeur_locative_nette est égale à base_imposable_apres_abattement_nouvelle_construction arrondi a l'entier inférieur à partir de 1999"
   period: 1999
   input:
-    base_imposable_apres_second_abattement: 1.5
+    base_imposable_apres_abattement_locatif: 1.5
     base_imposable_apres_abattement_nouvelle_construction: 2.5
   output:
     valeur_locative_nette: 2
