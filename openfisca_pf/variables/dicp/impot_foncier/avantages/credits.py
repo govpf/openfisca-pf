@@ -16,7 +16,7 @@ from openfisca_pf.enums.impot_foncier import CategoryBien
 from openfisca_pf.functions.currency import arrondi_inferieur
 
 
-class date_de_mise_en_service_installation_photovoltaic(Variable):
+class date_de_mise_en_service_installation_photovoltaique(Variable):
     value_type = date
     entity = Personne
     definition_period = YEAR
@@ -25,7 +25,7 @@ class date_de_mise_en_service_installation_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
 
-class date_limite_de_mise_en_service_installation_photovoltaic_pays(Variable):
+class date_limite_de_mise_en_service_installation_photovoltaique_pays(Variable):
     value_type = date
     entity = Pays
     definition_period = YEAR
@@ -34,13 +34,13 @@ class date_limite_de_mise_en_service_installation_photovoltaic_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        anne = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaic.date_limite_de_mise_en_service.annee
-        mois = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaic.date_limite_de_mise_en_service.mois
-        jour = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaic.date_limite_de_mise_en_service.jour
+        anne = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaique.date_limite_de_mise_en_service.annee
+        mois = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaique.date_limite_de_mise_en_service.mois
+        jour = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaique.date_limite_de_mise_en_service.jour
         return date(anne, mois, jour)  # 2023-01-01
 
 
-class date_limite_de_mise_en_service_installation_photovoltaic(Variable):
+class date_limite_de_mise_en_service_installation_photovoltaique(Variable):
     value_type = date
     entity = Personne
     definition_period = YEAR
@@ -49,10 +49,10 @@ class date_limite_de_mise_en_service_installation_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('date_limite_de_mise_en_service_installation_photovoltaic_pays', period, parameters)  # 2023-01-01
+        return personne.pays('date_limite_de_mise_en_service_installation_photovoltaique_pays', period, parameters)  # 2023-01-01
 
 
-class eligible_credit_photovoltaic(Variable):
+class eligible_credit_photovoltaique(Variable):
     value_type = bool
     entity = Personne
     definition_period = YEAR
@@ -63,14 +63,14 @@ class eligible_credit_photovoltaic(Variable):
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         categorie = personne('categorie_du_bien', period, parameters)
         habitation_principale = personne('habitation_principale', period, parameters)
-        date_limite_de_mise_en_service_installation_photovoltaic = personne('date_limite_de_mise_en_service_installation_photovoltaic', period, parameters)
-        date_de_mise_en_service_installation_photovoltaic = personne('date_de_mise_en_service_installation_photovoltaic', period, parameters)
+        date_limite_de_mise_en_service_installation_photovoltaique = personne('date_limite_de_mise_en_service_installation_photovoltaique', period, parameters)
+        date_de_mise_en_service_installation_photovoltaique = personne('date_de_mise_en_service_installation_photovoltaique', period, parameters)
         return (categorie == CategoryBien.LOGEMENT) \
             * habitation_principale \
-            * (date_limite_de_mise_en_service_installation_photovoltaic <= date_de_mise_en_service_installation_photovoltaic)
+            * (date_limite_de_mise_en_service_installation_photovoltaique <= date_de_mise_en_service_installation_photovoltaique)
 
 
-class cout_installation_photovoltaic(Variable):
+class cout_installation_photovoltaique(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -79,7 +79,7 @@ class cout_installation_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
 
-class maximum_credit_photovoltaic_pays(Variable):
+class maximum_credit_photovoltaique_pays(Variable):
     value_type = int
     entity = Pays
     definition_period = YEAR
@@ -88,10 +88,10 @@ class maximum_credit_photovoltaic_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.avantages.credits.photovoltaic.maximum  # 1 000 000
+        return parameters(period).dicp.impot_foncier.avantages.credits.photovoltaique.maximum  # 1 000 000
 
 
-class maximum_credit_photovoltaic(Variable):
+class maximum_credit_photovoltaique(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -100,32 +100,22 @@ class maximum_credit_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('maximum_credit_photovoltaic_pays', period, parameters)  # 1 000 000
+        return personne.pays('maximum_credit_photovoltaique_pays', period, parameters)  # 1 000 000
 
 
-class montant_assiette_credit_photovoltaic(Variable):
-    value_type = int
-    entity = Personne
+class taux_credit_photovoltaique_pays(Variable):
+    value_type = float
+    entity = Pays
     definition_period = YEAR
-    default_value = 0
-    label = "Montant d'assiette du crédit d'impôt suite à l'installation de matériel photovoltaïc"
+    default_value = 0.
+    label = "Taux utilisé pour calculer le montant de base du crédit d'impôt suite à l'installation de matériel photovoltaïc"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_credit_photovoltaic', period, parameters)
-        cout = personne('cout_installation_photovoltaic', period, parameters)
-        maximum = personne('maximum_credit_photovoltaic', period, parameters)
-
-        assiette = min_(cout, maximum)
-
-        return select(
-            [eligible],
-            [assiette],
-            0
-            )
+    def formula_2023(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+        return parameters(period).dicp.impot_foncier.avantages.credits.photovoltaique.taux  # 0.3
 
 
-class taux_credit_photovoltaic_pays(Variable):
+class taux_credit_photovoltaique(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
@@ -134,22 +124,10 @@ class taux_credit_photovoltaic_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.avantages.credits.photovoltaic.taux  # 0.3
+        return personne.pays('taux_credit_photovoltaique_pays', period, parameters)  # 0.3
 
 
-class taux_credit_photovoltaic(Variable):
-    value_type = float
-    entity = Personne
-    definition_period = YEAR
-    default_value = 0.
-    label = "Taux utilisé pour calculer le montant de base du crédit d'impôt suite à l'installation de matériel photovoltaïc"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('taux_credit_photovoltaic_pays', period, parameters)  # 0.3
-
-
-class montant_base_credit_photovoltaic(Variable):
+class montant_base_credit_photovoltaique(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -158,11 +136,12 @@ class montant_base_credit_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_credit_photovoltaic', period, parameters)
-        assiette = personne('montant_assiette_credit_photovoltaic', period, parameters)
-        taux = personne('taux_credit_photovoltaic', period, parameters)
+        eligible = personne('eligible_credit_photovoltaique', period, parameters)
+        cout = personne('cout_installation_photovoltaique', period, parameters)
+        maximum = personne('maximum_credit_photovoltaique', period, parameters)
+        taux = personne('taux_credit_photovoltaique', period, parameters)
 
-        base = arrondi_inferieur(assiette * taux)
+        base = arrondi_inferieur(min_(cout, maximum) * taux)
 
         return select(
             [eligible],
@@ -171,7 +150,7 @@ class montant_base_credit_photovoltaic(Variable):
             )
 
 
-class enveloppe_credit_photovoltaic(Variable):
+class enveloppe_credit_photovoltaique(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -180,8 +159,8 @@ class enveloppe_credit_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_credit_photovoltaic', period, parameters)
-        reste = personne('reste_credit_photovoltaic', period.offset(-1, 'year'), parameters)
+        eligible = personne('eligible_credit_photovoltaique', period, parameters)
+        reste = personne('reste_credit_photovoltaique', period.offset(-1, 'year'), parameters)
         return select(
             [eligible],
             [reste],
@@ -189,7 +168,7 @@ class enveloppe_credit_photovoltaic(Variable):
             )
 
 
-class montant_credit_photovoltaic(Variable):
+class montant_credit_photovoltaique(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -198,9 +177,9 @@ class montant_credit_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_credit_photovoltaic', period, parameters)
+        eligible = personne('eligible_credit_photovoltaique', period, parameters)
         brute = personne('impot_foncier_part_pays_brute', period, parameters)
-        enveloppe = personne('enveloppe_credit_photovoltaic', period, parameters)
+        enveloppe = personne('enveloppe_credit_photovoltaique', period, parameters)
 
         montant = min_(brute, enveloppe)
 
@@ -211,7 +190,7 @@ class montant_credit_photovoltaic(Variable):
             )
 
 
-class reste_credit_photovoltaic(Variable):
+class reste_credit_photovoltaique(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -220,6 +199,6 @@ class reste_credit_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        enveloppe = personne('enveloppe_credit_photovoltaic', period, parameters)
-        montant = personne('montant_credit_photovoltaic', period, parameters)
+        enveloppe = personne('enveloppe_credit_photovoltaique', period, parameters)
+        montant = personne('montant_credit_photovoltaique', period, parameters)
         return enveloppe - montant
