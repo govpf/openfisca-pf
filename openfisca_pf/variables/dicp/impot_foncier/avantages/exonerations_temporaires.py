@@ -7,6 +7,7 @@ from openfisca_pf.base import (
     not_,
     Parameters,
     Period,
+    select,
     Variable,
     YEAR
     )
@@ -82,9 +83,14 @@ class montant_exoneration_temporaire_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        eligible = personne('eligible_exoneration_temporaire_nouvelle_construction', period, parameters)
         base = personne('impot_foncier_part_pays_brute', period, parameters)
         taux = personne('taux_exoneration_temporaire_nouvelle_construction', period, parameters)
-        return arrondi_inferieur(base * taux)
+        return select(
+            [eligible],
+            [arrondi_inferieur(base * taux)],
+            0
+            )
 
 
 # ##################################################
@@ -173,16 +179,16 @@ class eligible_exoneration_temporaire_habitation_principale(Variable):
             * not_(bien_occupe) \
             * (AGE_MIN_EXONERATION_TEMPORAIRE_HABITATION_PRINCIPALE <= age <= AGE_MAX_EXONERATION_TEMPORAIRE_HABITATION_PRINCIPALE) \
             * (limit_pc <= date_pc) * (date_cc <= limit_cc) \
-            * not_((age <= 0) + personne('loue', period.offset(-0, 'year'), parameters)) \
-            * not_((age <= 1) + personne('loue', period.offset(-1, 'year'), parameters)) \
-            * not_((age <= 2) + personne('loue', period.offset(-2, 'year'), parameters)) \
-            * not_((age <= 3) + personne('loue', period.offset(-3, 'year'), parameters)) \
-            * not_((age <= 4) + personne('loue', period.offset(-4, 'year'), parameters)) \
-            * not_((age <= 5) + personne('loue', period.offset(-5, 'year'), parameters)) \
-            * not_((age <= 6) + personne('loue', period.offset(-6, 'year'), parameters)) \
-            * not_((age <= 7) + personne('loue', period.offset(-7, 'year'), parameters)) \
-            * not_((age <= 8) + personne('loue', period.offset(-8, 'year'), parameters)) \
-            * not_((age <= 9) + personne('loue', period.offset(-9, 'year'), parameters))
+            * not_(personne('loue', period.offset(-0, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-1, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-2, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-3, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-4, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-5, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-6, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-7, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-8, 'year'), parameters)) \
+            * not_(personne('loue', period.offset(-9, 'year'), parameters))
 
 
 class taux_exoneration_temporaire_habitation_principale(Variable):

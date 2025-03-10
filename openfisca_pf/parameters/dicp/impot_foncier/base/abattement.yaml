@@ -40,24 +40,6 @@ locatif:
 nouvelle_construction:
   description: "Paramètres d'abattement pour les nouvelles construction dans la phase de 6 à 8 ans"
 
-  age_min:
-    description: "Age minimum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
-    metadata:
-      type: int
-      unit: years
-    values:
-      1999-01-01:
-        value: 6
-
-  age_max:
-    description: "Age maximum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
-    metadata:
-      type: int
-      unit: years
-    values:
-      1999-01-01:
-        value: 8
-
   taux:
     description: "Taux d'abattement pour les nouvelles constructions dans la phase de 6 à 8 ans"
     metadata:

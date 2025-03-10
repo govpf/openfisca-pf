@@ -34,8 +34,9 @@ class eligible_exoneration_permanente_bien_public(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        non_loue = personne('non_loue', period, parameters)
         forme_legale = personne('forme_legale', period, parameters)
-        return forme_legale == FormeLegale.ADM
+        return (forme_legale == FormeLegale.ADM) * non_loue
 
 
 class montant_exoneration_permanente_bien_public(Variable):
@@ -77,7 +78,8 @@ class eligible_exoneration_permanente_lieu_de_culte(Variable):
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         forme_legale = personne('forme_legale', period, parameters)
         categorie = personne('categorie_du_bien', period, parameters)
-        return (forme_legale == FormeLegale.EGL) * (categorie == CategoryBien.CULTE)
+        non_loue = personne('non_loue', period, parameters)
+        return (forme_legale == FormeLegale.EGL) * (categorie == CategoryBien.CULTE) * non_loue
 
 
 class montant_exoneration_permanente_lieu_de_culte(Variable):
@@ -99,7 +101,7 @@ class montant_exoneration_permanente_lieu_de_culte(Variable):
 
 
 # ##################################################
-# ###              ECOLES PUBLIQUES              ###
+# ###            BÂTIMENTS SCOLAIRES             ###
 # ##################################################
 
 
@@ -119,7 +121,8 @@ class eligible_exoneration_permanente_batiment_scolaire(Variable):
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         forme_legale = personne('forme_legale', period, parameters)
         categorie = personne('categorie_du_bien', period, parameters)
-        return (forme_legale == FormeLegale.ADM) * (categorie == CategoryBien.ECOLE)
+        non_loue = personne('non_loue', period, parameters)
+        return (forme_legale == FormeLegale.ADM) * (categorie == CategoryBien.ECOLE) * non_loue
 
 
 class montant_exoneration_permanente_batiment_scolaire(Variable):
@@ -289,7 +292,7 @@ class eligible_exoneration_permanente_habitation_principale(Variable):
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         categorie = personne('categorie_du_bien', period, parameters)
-        habitation_principale = personne('habitation_principale.yaml', period, parameters)
+        habitation_principale = personne('habitation_principale', period, parameters)
         valeur_venale = personne('valeur_venale', period, parameters)
         return (categorie == CategoryBien.LOGEMENT) * habitation_principale * (valeur_venale <= 500_000)
 

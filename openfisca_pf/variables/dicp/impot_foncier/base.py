@@ -187,6 +187,18 @@ class base_imposable_apres_abattement_locatif(Variable):
 # ##################################################
 
 
+AGE_MIN_ABATTEMENT_NOUVELLE_CONSTRUCTION: int = 6
+"""
+Age minimum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions
+"""
+
+
+AGE_MAX_ABATTEMENT_NOUVELLE_CONSTRUCTION: int = 8
+"""
+Age maximum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions
+"""
+
+
 class age_min_abattement_nouvelle_construction_pays(Variable):
     value_type = int
     entity = Pays
@@ -196,7 +208,19 @@ class age_min_abattement_nouvelle_construction_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.nouvelle_construction.age_min
+        return AGE_MIN_ABATTEMENT_NOUVELLE_CONSTRUCTION
+
+
+class age_max_abattement_nouvelle_construction_pays(Variable):
+    value_type = int
+    entity = Pays
+    definition_period = YEAR
+    default_value = 0
+    label = "Age maximum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1999_01_01(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+        return AGE_MAX_ABATTEMENT_NOUVELLE_CONSTRUCTION
 
 
 class age_min_abattement_nouvelle_construction(Variable):
@@ -209,18 +233,6 @@ class age_min_abattement_nouvelle_construction(Variable):
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         return personne.pays('age_min_abattement_nouvelle_construction_pays', period, parameters)
-
-
-class age_max_abattement_nouvelle_construction_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Age maximum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1999_01_01(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.nouvelle_construction.age_max
 
 
 class age_max_abattement_nouvelle_construction(Variable):

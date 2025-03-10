@@ -84,14 +84,26 @@
 - name: "montant_exoneration_temporaire_nouvelle_construction est égale à 0 avant 1951"
   period: 1950
   input:
+    eligible_exoneration_temporaire_nouvelle_construction: true
     impot_foncier_part_pays_brute: 100
     taux_exoneration_temporaire_nouvelle_construction: 0.5
   output:
     montant_exoneration_temporaire_nouvelle_construction: 0
 
-- name: "montant_exoneration_temporaire_nouvelle_construction est égale à impot_foncier_part_pays_brute multiplié par taux_exoneration_temporaire_nouvelle_construction à partir de 1951"
+- name: "montant_exoneration_temporaire_nouvelle_construction est égale à 0 si le bien n'est pas eligible à partir de 1951"
   period: 1952
   input:
+    eligible_exoneration_temporaire_nouvelle_construction: false
+    impot_foncier_part_pays_brute: 100.5
+    taux_exoneration_temporaire_nouvelle_construction: 0.5
+  output:
+    montant_exoneration_temporaire_nouvelle_construction: 0
+
+
+- name: "montant_exoneration_temporaire_nouvelle_construction est égale à impot_foncier_part_pays_brute multiplié par taux_exoneration_temporaire_nouvelle_construction si le bien est eligible à partir de 1951"
+  period: 1952
+  input:
+    eligible_exoneration_temporaire_nouvelle_construction: true
     impot_foncier_part_pays_brute: 100.5
     taux_exoneration_temporaire_nouvelle_construction: 0.5
   output:
