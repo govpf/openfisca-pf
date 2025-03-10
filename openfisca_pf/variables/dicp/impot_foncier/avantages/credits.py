@@ -171,7 +171,7 @@ class montant_base_credit_photovoltaic(Variable):
             )
 
 
-class envelope_credit_photovoltaic(Variable):
+class enveloppe_credit_photovoltaic(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -200,9 +200,9 @@ class montant_credit_photovoltaic(Variable):
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         eligible = personne('eligible_credit_photovoltaic', period, parameters)
         brute = personne('impot_foncier_part_pays_brute', period, parameters)
-        envelope = personne('envelope_credit_photovoltaic', period, parameters)
+        enveloppe = personne('enveloppe_credit_photovoltaic', period, parameters)
 
-        montant = min_(brute, envelope)
+        montant = min_(brute, enveloppe)
 
         return select(
             [eligible],
@@ -220,6 +220,6 @@ class reste_credit_photovoltaic(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        envelope = personne('envelope_credit_photovoltaic', period, parameters)
+        enveloppe = personne('enveloppe_credit_photovoltaic', period, parameters)
         montant = personne('montant_credit_photovoltaic', period, parameters)
-        return envelope - montant
+        return enveloppe - montant
