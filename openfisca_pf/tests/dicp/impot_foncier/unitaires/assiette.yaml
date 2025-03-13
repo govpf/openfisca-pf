@@ -1,10 +1,10 @@
 
-- name: "valeur_locative_loyers est egale à 0 avant 1951 car elle n'existait pas"
+- name: "valeur_locative_loyers est égale à 0 avant 1951 car elle n'existait pas"
   period: 1950
   output:
     valeur_locative_loyers: 0
 
-- name: "valeur_locative_loyers est egale à douze fois le loyer_de_janvier à partir de 1951"
+- name: "valeur_locative_loyers est égale à douze fois le loyer_de_janvier à partir de 1951"
   period: 1951
   input:
     loyer_de_janvier: 100
@@ -14,17 +14,17 @@
 
 
 
-- name: "taux_autres_archipel_pays est egale à 0 avant 1951 car il n'existait pas"
+- name: "taux_autres_archipel_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
     taux_autres_archipel_pays: 0
 
-- name: "taux_autres_archipel_pays est egale à 0.03 à partir de 1951"
+- name: "taux_autres_archipel_pays est égale à 0.03 à partir de 1951"
   period: 1951
   output:
     taux_autres_archipel_pays: 0.03
 
-- name: "taux_autres_archipel_pays est egale à 0 à partir de 2012 car il ne s'applique plus"
+- name: "taux_autres_archipel_pays est égale à 0 à partir de 2012 car il ne s'applique plus"
   period: 2012
   output:
     taux_autres_archipel_pays: 0
@@ -32,12 +32,12 @@
 
 
 
-- name: "taux_archipel_australes_pays est egale à 0 avant 2012 car il n'existait pas"
+- name: "taux_archipel_australes_pays est égale à 0 avant 2012 car il n'existait pas"
   period: 2011
   output:
     taux_archipel_australes_pays: 0
 
-- name: "taux_archipel_australes_pays est egale à 0.03 à partir de 2012"
+- name: "taux_archipel_australes_pays est égale à 0.03 à partir de 2012"
   period: 2012
   output:
     taux_archipel_australes_pays: 0.02
@@ -45,12 +45,12 @@
 
 
 
-- name: "taux_archipel_gambiers_pays est egale à 0 avant 2012 car il n'existait pas"
+- name: "taux_archipel_gambiers_pays est égale à 0 avant 2012 car il n'existait pas"
   period: 2011
   output:
     taux_archipel_gambiers_pays: 0
 
-- name: "taux_archipel_gambiers_pays est egale à 0.02 à partir de 2012"
+- name: "taux_archipel_gambiers_pays est égale à 0.02 à partir de 2012"
   period: 2012
   output:
     taux_archipel_gambiers_pays: 0.02
@@ -58,31 +58,25 @@
 
 
 
-
-- name: "taux_archipel_iles_du_vent_pays est egale à 0 avant 1951 car il n'existait pas"
+- name: "taux_archipel_iles_du_vent_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
     taux_archipel_iles_du_vent_pays: 0
 
-- name: "taux_archipel_iles_du_vent_pays est egale à 0.04 a partir de 1951"
+- name: "taux_archipel_iles_du_vent_pays est égale à 0.04 à partir de 1951"
   period: 1951
   output:
     taux_archipel_iles_du_vent_pays: 0.04
 
-- name: "taux_archipel_iles_du_vent_pays est toujours egale à 0.04 à partir de 2012"
-  period: 2012
-  output:
-    taux_archipel_iles_du_vent_pays: 0.04
 
 
 
-
-- name: "taux_archipel_iles_sous_le_vent_pays est egale à 0 avant 2012 car il n'existait pas"
+- name: "taux_archipel_iles_sous_le_vent_pays est égale à 0 avant 2012 car il n'existait pas"
   period: 2011
   output:
     taux_archipel_iles_sous_le_vent_pays: 0
 
-- name: "taux_archipel_iles_sous_le_vent_pays est egale à 0.03 à partir de 2012"
+- name: "taux_archipel_iles_sous_le_vent_pays est égale à 0.03 à partir de 2012"
   period: 2012
   output:
     taux_archipel_iles_sous_le_vent_pays: 0.03
@@ -90,12 +84,12 @@
 
 
 
-- name: "taux_archipel_marquises_pays est egale à 0 avant 2012 car il n'existait pas"
+- name: "taux_archipel_marquises_pays est égale à 0 avant 2012 car il n'existait pas"
   period: 2011
   output:
     taux_archipel_marquises_pays: 0
 
-- name: "taux_archipel_marquises_pays est egale à 0.02 à partir de 2012"
+- name: "taux_archipel_marquises_pays est égale à 0.02 à partir de 2012"
   period: 2012
   output:
     taux_archipel_marquises_pays: 0.02
@@ -103,12 +97,12 @@
 
 
 
-- name: "taux_archipel_tuamotus_pays est egale à 0 avant 2012 car il n'existait pas"
+- name: "taux_archipel_tuamotus_pays est égale à 0 avant 2012 car il n'existait pas"
   period: 2011
   output:
     taux_archipel_tuamotus_pays: 0
 
-- name: "taux_archipel_tuamotus_pays est egale à 0.02 à partir 2012"
+- name: "taux_archipel_tuamotus_pays est égale à 0.02 à partir 2012"
   period: 2012
   output:
     taux_archipel_tuamotus_pays: 0.02
@@ -116,21 +110,21 @@
 
 
 
-- name: "taux_autres_archipel est egale 0 en 1950 car il n'existait pas"
+- name: "taux_autres_archipel est égale 0 en 1950 car il n'existait pas"
   period: 1950
   input:
     taux_autres_archipel_pays: 10
   output:
     taux_autres_archipel: 0
 
-- name: "taux_autres_archipel est egale taux_autres_archipel_pays à partir de 1951"
+- name: "taux_autres_archipel est égale taux_autres_archipel_pays à partir de 1951"
   period: 1951
   input:
     taux_autres_archipel_pays: 10
   output:
     taux_autres_archipel: 10
 
-- name: "taux_autres_archipel est egale 0 en 2012 car il ne s'applique plus"
+- name: "taux_autres_archipel est égale 0 en 2012 car il ne s'applique plus"
   period: 2012
   input:
     taux_autres_archipel_pays: 10
@@ -139,12 +133,12 @@
 
 
 
-- name: "taux_archipel_australes est egale à 0 avant 2012 car il n'existait pas"
+- name: "taux_archipel_australes est égale à 0 avant 2012 car il n'existait pas"
   period: 2011
   output:
     taux_archipel_australes: 0
 
-- name: "taux_archipel_australes est egale à taux_archipel_australes_pays à partir de 2012"
+- name: "taux_archipel_australes est égale à taux_archipel_australes_pays à partir de 2012"
   period: 2012
   input:
     taux_archipel_australes_pays: 10
@@ -153,12 +147,12 @@
 
 
 
-- name: "taux_archipel_gambiers est egale à 0 avant 2012 car il n'existait pas"
+- name: "taux_archipel_gambiers est égale à 0 avant 2012 car il n'existait pas"
   period: 2011
   output:
     taux_archipel_gambiers: 0
 
-- name: "taux_archipel_gambiers est egale à taux_archipel_gambiers_pays à partir de 2012"
+- name: "taux_archipel_gambiers est égale à taux_archipel_gambiers_pays à partir de 2012"
   period: 2012
   input:
     taux_archipel_gambiers_pays: 10
@@ -224,12 +218,12 @@
 
 
 
-- name: "taux_archipel est egale à 0 avant 1951 car il n'existait pas"
+- name: "taux_archipel est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
     taux_archipel: 0
 
-- name: "taux_archipel est egale à taux_archipel_iles_du_vent si archipel est ILES_DU_VENT à partir de 1951"
+- name: "taux_archipel est égale à taux_archipel_iles_du_vent si archipel est ILES_DU_VENT à partir de 1951"
   period: 1951
   input:
     archipel: ILES_DU_VENT
@@ -238,7 +232,7 @@
   output:
     taux_archipel: 1
 
-- name: "taux_archipel est egale à taux_autres_archipel si archipel est AUSTRALES à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipel si archipel est AUSTRALES à partir de 1951"
   period: 1951
   input:
     archipel: AUSTRALES
@@ -247,7 +241,7 @@
   output:
     taux_archipel: 2
 
-- name: "taux_archipel est egale à taux_autres_archipel si archipel est GAMBIERS à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipel si archipel est GAMBIERS à partir de 1951"
   period: 1951
   input:
     archipel: GAMBIERS
@@ -256,7 +250,7 @@
   output:
     taux_archipel: 2
 
-- name: "taux_archipel est egale à taux_autres_archipel si archipel est MARQUISES à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipel si archipel est MARQUISES à partir de 1951"
   period: 1951
   input:
     archipel: MARQUISES
@@ -265,7 +259,7 @@
   output:
     taux_archipel: 2
 
-- name: "taux_archipel est egale à taux_autres_archipel si archipel est TUAMOTUS à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipel si archipel est TUAMOTUS à partir de 1951"
   period: 1951
   input:
     archipel: TUAMOTUS
@@ -275,7 +269,7 @@
     taux_archipel: 2
 
 
-- name: "taux_archipel est egale à taux_autres_archipel si archipel est ILES_SOUS_LE_VENT à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipel si archipel est ILES_SOUS_LE_VENT à partir de 1951"
   period: 1951
   input:
     archipel: ILES_SOUS_LE_VENT
@@ -284,7 +278,7 @@
   output:
     taux_archipel: 2
 
-- name: "taux_archipel est egale à taux_archipel_australes si archipel est AUSTRALES à partir de 2012"
+- name: "taux_archipel est égale à taux_archipel_australes si archipel est AUSTRALES à partir de 2012"
   period: 2012
   input:
     taux_archipel_australes: 1
@@ -297,7 +291,7 @@
   output:
     taux_archipel: 1
 
-- name: "taux_archipel est egale à taux_archipel_gambiers si archipel est GAMBIERS à partir de 2012"
+- name: "taux_archipel est égale à taux_archipel_gambiers si archipel est GAMBIERS à partir de 2012"
   period: 2012
   input:
     taux_archipel_australes: 1
@@ -310,7 +304,7 @@
   output:
     taux_archipel: 2
 
-- name: "taux_archipel est toujours egale à taux_archipel_iles_du_vent si archipel est ILES_DU_VENT à partir de 2012"
+- name: "taux_archipel est toujours égale à taux_archipel_iles_du_vent si archipel est ILES_DU_VENT à partir de 2012"
   period: 2012
   input:
     taux_archipel_australes: 1
@@ -323,7 +317,7 @@
   output:
     taux_archipel: 3
 
-- name: "taux_archipel est egale à taux_archipel_iles_sous_le_vent si archipel est ILES_SOUS_LE_VENT à partir de 2012"
+- name: "taux_archipel est égale à taux_archipel_iles_sous_le_vent si archipel est ILES_SOUS_LE_VENT à partir de 2012"
   period: 2012
   input:
     taux_archipel_australes: 1
@@ -336,7 +330,7 @@
   output:
     taux_archipel: 4
 
-- name: "taux_archipel est egale à taux_archipel_marquises si archipel est MARQUISES à partir de 2012"
+- name: "taux_archipel est égale à taux_archipel_marquises si archipel est MARQUISES à partir de 2012"
   period: 2012
   input:
     taux_archipel_australes: 1
@@ -349,7 +343,7 @@
   output:
     taux_archipel: 5
 
-- name: "taux_archipel est egale à taux_archipel_tuamotus si archipel est TUAMOTUS à partir de 2012"
+- name: "taux_archipel est égale à taux_archipel_tuamotus si archipel est TUAMOTUS à partir de 2012"
   period: 2012
   input:
     taux_archipel_australes: 1
@@ -365,7 +359,7 @@
 
 
 
-- name: "valeur_locative_direct est egale à 0 avant 1951 car elle n'existait pas"
+- name: "valeur_locative_direct est égale à 0 avant 1951 car elle n'existait pas"
   period: 1950
   input:
     valeur_venale: 100
@@ -373,7 +367,7 @@
   output:
     valeur_locative_direct: 0
 
-- name: "valeur_locative_direct est egale à valeur_venale multiplié par le taux_archipel à partir de 1951"
+- name: "valeur_locative_direct est égale à valeur_venale multiplié par le taux_archipel à partir de 1951"
   period: 1951
   input:
     valeur_venale: 100
@@ -384,12 +378,12 @@
 
 
 
-- name: "taux_logement_social_pays est egale à 0 avant 2002 car il n'existait pas"
+- name: "taux_logement_social_pays est égale à 0 avant 2002 car il n'existait pas"
   period: 2001
   output:
     taux_logement_social_pays: 0
 
-- name: "taux_logement_social_pays est egale à 0.02 à partir de 2002"
+- name: "taux_logement_social_pays est égale à 0.02 à partir de 2002"
   period: 2002
   output:
     taux_logement_social_pays: 0.02
@@ -397,14 +391,14 @@
 
 
 
-- name: "taux_logement_social est egale à 0 avant 2002 car il n'existait pas"
+- name: "taux_logement_social est égale à 0 avant 2002 car il n'existait pas"
   period: 2001
   input:
     taux_logement_social_pays: 10
   output:
     taux_logement_social: 0
 
-- name: "taux_logement_social est egale à taux_logement_social_pays à partir de 2002"
+- name: "taux_logement_social est égale à taux_logement_social_pays à partir de 2002"
   period: 2002
   input:
     taux_logement_social_pays: 10
@@ -414,7 +408,7 @@
 
 
 
-- name: "valeur_locative_sociale est egale à 0 avant 2002 car elle n'existait pas"
+- name: "valeur_locative_sociale est égale à 0 avant 2002 car elle n'existait pas"
   period: 2001
   input:
     valeur_venale: 100
@@ -422,7 +416,7 @@
   output:
     valeur_locative_sociale: 0
 
-- name: "valeur_locative_sociale est egale à valeur_venale multiplié par le taux_logement_social à partir de 2002"
+- name: "valeur_locative_sociale est égale à valeur_venale multiplié par le taux_logement_social à partir de 2002"
   period: 2002
   input:
     valeur_venale: 100
@@ -433,12 +427,12 @@
 
 
 
-- name: "taux_meuble_de_tourisme_pays est egale à 0 avant 1951 car il n'existait pas"
+- name: "taux_meuble_de_tourisme_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
     taux_meuble_de_tourisme_pays: 0
 
-- name: "taux_meuble_de_tourisme_pays est egale à 0.12 à partir de 1951"
+- name: "taux_meuble_de_tourisme_pays est égale à 0.12 à partir de 1951"
   period: 1951
   output:
     taux_meuble_de_tourisme_pays: 0.12
@@ -447,14 +441,14 @@
 
 
 
-- name: "taux_meuble_de_tourisme est egale à 0 avant 1951 car il n'existait pas"
+- name: "taux_meuble_de_tourisme est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   input:
     taux_meuble_de_tourisme_pays: 10
   output:
     taux_meuble_de_tourisme: 0
 
-- name: "taux_meuble_de_tourisme est egale à taux_meuble_de_tourisme_pays à partir de 1951"
+- name: "taux_meuble_de_tourisme est égale à taux_meuble_de_tourisme_pays à partir de 1951"
   period: 1951
   input:
     taux_meuble_de_tourisme_pays: 10
@@ -464,7 +458,7 @@
 
 
 
-- name: "valeur_locative_meuble_de_tourisme est egale à 0 avant 1951 car elle n'existait pas"
+- name: "valeur_locative_meuble_de_tourisme est égale à 0 avant 1951 car elle n'existait pas"
   period: 1950
   input:
     valeur_venale: 100
@@ -472,7 +466,7 @@
   output:
     valeur_locative_meuble_de_tourisme: 0
 
-- name: "valeur_locative_meuble_de_tourisme est egale à valeur_venale multiplié par le taux_meuble_de_tourisme à partir de 1951"
+- name: "valeur_locative_meuble_de_tourisme est égale à valeur_venale multiplié par le taux_meuble_de_tourisme à partir de 1951"
   period: 1951
   input:
     valeur_venale: 100
@@ -483,12 +477,12 @@
 
 
 
-- name: "taux_villa_de_luxe_pays est egale à 0 avant 1951 car il n'existait pas"
+- name: "taux_villa_de_luxe_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
     taux_villa_de_luxe_pays: 0
 
-- name: "taux_villa_de_luxe_pays est egale à 0.12 à partir de 1951"
+- name: "taux_villa_de_luxe_pays est égale à 0.12 à partir de 1951"
   period: 1951
   output:
     taux_meuble_de_tourisme_pays: 0.12
@@ -496,14 +490,14 @@
 
 
 
-- name: "taux_villa_de_luxe est egale à 0 avant 1951 car il n'existait pas"
+- name: "taux_villa_de_luxe est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   input:
     taux_villa_de_luxe_pays: 10
   output:
     taux_villa_de_luxe: 0
 
-- name: "taux_villa_de_luxe est egale à taux_villa_de_luxe_pays à partir de 1951"
+- name: "taux_villa_de_luxe est égale à taux_villa_de_luxe_pays à partir de 1951"
   period: 1951
   input:
     taux_villa_de_luxe_pays: 10
@@ -513,7 +507,7 @@
 
 
 
-- name: "valeur_locative_villa_de_luxe est egale à 0 avant 1951 car elle n'existait pas"
+- name: "valeur_locative_villa_de_luxe est égale à 0 avant 1951 car elle n'existait pas"
   period: 1950
   input:
     valeur_venale: 100
@@ -521,7 +515,7 @@
   output:
     valeur_locative_villa_de_luxe: 0
 
-- name: "valeur_locative_villa_de_luxe est egale à valeur_venale multiplié par le taux_villa_de_luxe à partir de 1951"
+- name: "valeur_locative_villa_de_luxe est égale à valeur_venale multiplié par le taux_villa_de_luxe à partir de 1951"
   period: 1951
   input:
     valeur_venale: 100
@@ -532,7 +526,7 @@
 
 
 
-- name: "valeur_locative_brute est egale à 0 avant 1951 car elle n'existait pas"
+- name: "valeur_locative_brute est égale à 0 avant 1951 car elle n'existait pas"
   period: 1950
   input:
     location_simple: true
@@ -547,7 +541,7 @@
   output:
     valeur_locative_brute: 0
 
-- name: "valeur_locative_brute est egale à valeur_locative_loyers si le bien est en location_simple à partir de 1951"
+- name: "valeur_locative_brute est égale à valeur_locative_loyers si le bien est en location_simple à partir de 1951"
   period: 1951
   input:
     location_simple: true
@@ -561,7 +555,7 @@
   output:
     valeur_locative_brute: 1
 
-- name: "valeur_locative_brute est egale à valeur_locative_meuble_de_tourisme si le bien est en location_meuble_de_tourisme à partir de 1951"
+- name: "valeur_locative_brute est égale à valeur_locative_meuble_de_tourisme si le bien est en location_meuble_de_tourisme à partir de 1951"
   period: 1951
   input:
     location_simple: false
@@ -575,7 +569,7 @@
   output:
     valeur_locative_brute: 2
 
-- name: "valeur_locative_brute est egale à valeur_locative_villa_de_luxe si le bien est en location_villa_de_luxe à partir de 1951"
+- name: "valeur_locative_brute est égale à valeur_locative_villa_de_luxe si le bien est en location_villa_de_luxe à partir de 1951"
   period: 1951
   input:
     location_simple: false
@@ -589,7 +583,7 @@
   output:
     valeur_locative_brute: 3
 
-- name: "valeur_locative_brute est egale à valeur_locative_direct si le bien n'est pas loué à partir de 1951"
+- name: "valeur_locative_brute est égale à valeur_locative_direct si le bien n'est pas loué à partir de 1951"
   period: 1951
   input:
     location_simple: false
@@ -603,7 +597,7 @@
   output:
     valeur_locative_brute: 4
 
-- name: "valeur_locative_brute est egale à valeur_locative_direct si le bien n'est pas loué et si c'est un logement social à partir de 1951"
+- name: "valeur_locative_brute est égale à valeur_locative_direct si le bien n'est pas loué et si c'est un logement social à partir de 1951"
   period: 1951
   input:
     location_simple: false
@@ -619,7 +613,7 @@
     valeur_locative_brute: 4
 
 
-- name: "valeur_locative_brute est toujours egale à valeur_locative_loyers si le bien est en location_simple à partir de 2002"
+- name: "valeur_locative_brute est toujours égale à valeur_locative_loyers si le bien est en location_simple à partir de 2002"
   period: 2002
   input:
     location_simple: true
@@ -635,7 +629,7 @@
   output:
     valeur_locative_brute: 1
 
-- name: "valeur_locative_brute est toujours egale à valeur_locative_meuble_de_tourisme si le bien est en location_meuble_de_tourisme à partir de 2002"
+- name: "valeur_locative_brute est toujours égale à valeur_locative_meuble_de_tourisme si le bien est en location_meuble_de_tourisme à partir de 2002"
   period: 2002
   input:
     location_simple: false
@@ -651,7 +645,7 @@
   output:
     valeur_locative_brute: 2
 
-- name: "valeur_locative_brute est toujours egale à valeur_locative_villa_de_luxe si le bien est en location_villa_de_luxe à partir de 2002"
+- name: "valeur_locative_brute est toujours égale à valeur_locative_villa_de_luxe si le bien est en location_villa_de_luxe à partir de 2002"
   period: 2002
   input:
     location_simple: false
@@ -667,7 +661,7 @@
   output:
     valeur_locative_brute: 3
 
-- name: "valeur_locative_brute est egale à valeur_locative_sociale si le bien est un logement social non loué à partir de 2002"
+- name: "valeur_locative_brute est égale à valeur_locative_sociale si le bien est un logement social non loué à partir de 2002"
   period: 2002
   input:
     location_simple: false
@@ -683,7 +677,7 @@
   output:
     valeur_locative_brute: 4
 
-- name: "valeur_locative_brute est toujours egale à valeur_locative_direct si le bien n'est pas loué à partir de 2002"
+- name: "valeur_locative_brute est toujours égale à valeur_locative_direct si le bien n'est pas loué à partir de 2002"
   period: 2002
   input:
     location_simple: false

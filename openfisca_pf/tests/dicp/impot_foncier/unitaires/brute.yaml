@@ -1,4 +1,7 @@
 
+
+# taux_part_pays_pays
+
 - name: "taux_part_pays_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
@@ -10,7 +13,7 @@
     taux_part_pays_pays: 0.1
 
 
-
+# taux_part_pays
 
 - name: "taux_part_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
@@ -26,6 +29,8 @@
   output:
     taux_part_pays: 10
 
+
+# impot_foncier_part_pays_brute
 
 - name: "impot_foncier_part_pays_brute est égale à 0 avant 1951 car il n'existait pas"
   period: 1950

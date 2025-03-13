@@ -24,6 +24,44 @@ from openfisca_pf.functions.currency import arrondi_inferieur
 # ##################################################
 
 
+class eligible_abattement_office(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce que le bien est éligible à l'abattement d'office"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return True
+
+
+class abattement_office_applique(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce que le bien est éligible à l'abattement d'office"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return personne('eligible_abattement_office', period, parameters)
+
+
+class abattement_office_eligible_et_applique(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce que le bien est éligible à l'abattement d'office"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        eligible = personne('eligible_abattement_office', period, parameters)
+        applique = personne('abattement_office_applique', period, parameters)
+        return eligible * applique
+
+
 class taux_abattement_office_pays(Variable):
     value_type = float
     entity = Pays
@@ -32,7 +70,7 @@ class taux_abattement_office_pays(Variable):
     label = "Taux du première abattement d'office de 25%"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.base.abattement.office.taux  # 0.25
 
 
@@ -57,9 +95,14 @@ class montant_abattement_office(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        eligible_et_applique = personne('abattement_office_eligible_et_applique', period, parameters)
         base = personne('valeur_locative_brute', period, parameters)
         taux = personne('taux_abattement_office', period, parameters)  # 0.25
-        return base * taux
+        return select(
+            [eligible_et_applique],
+            [base * taux],
+            0.
+            )
 
 
 class base_imposable_apres_abattement_office(Variable):
@@ -322,7 +365,7 @@ class abattement_nouvelle_construction_applique(Variable):
         age_max = personne('age_max_abattement_nouvelle_construction', period, parameters)
         return not_(exonere_dix_ans) \
             * eligible \
-            * age_min <= age_du_bien <= age_max
+            * (age_min <= age_du_bien <= age_max)
 
 
 class abattement_nouvelle_construction_eligible_et_applique(Variable):
@@ -348,7 +391,7 @@ class taux_abattement_nouvelle_construction_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.nouvelle_construction.taux
+        return parameters(period).dicp.impot_foncier.base.abattement.nouvelle_construction.taux  # 0.5
 
 
 class taux_abattement_nouvelle_construction(Variable):
@@ -360,7 +403,7 @@ class taux_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('taux_abattement_nouvelle_construction_pays', period, parameters)
+        return personne.pays('taux_abattement_nouvelle_construction_pays', period, parameters)  # 0.5
 
 
 class montant_abattement_nouvelle_construction(Variable):

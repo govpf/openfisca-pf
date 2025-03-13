@@ -21,7 +21,7 @@ class taux_part_pays_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.brute.taux
+        return parameters(period).dicp.impot_foncier.brute.taux  # 0.1
 
 
 class taux_part_pays(Variable):
@@ -33,7 +33,7 @@ class taux_part_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('taux_part_pays_pays', period, parameters)
+        return personne.pays('taux_part_pays_pays', period, parameters)  # 0.1
 
 
 class impot_foncier_part_pays_brute(Variable):
@@ -46,5 +46,5 @@ class impot_foncier_part_pays_brute(Variable):
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         base = personne('valeur_locative_nette', period, parameters)
-        taux = personne('taux_part_pays', period, parameters)
+        taux = personne('taux_part_pays', period, parameters)  # 0.1
         return arrondi_inferieur(base * taux)
