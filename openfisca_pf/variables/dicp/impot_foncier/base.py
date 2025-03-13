@@ -7,6 +7,7 @@ Aussi appelé "valeur locative nette".
 
 from openfisca_pf.base import (
     ArrayLike,
+    min_,
     not_,
     Parameters,
     Period,
@@ -145,13 +146,53 @@ class taux_abattement_locatif(Variable):
             [
                 location_meuble,
                 location_non_meuble
-                ],
+            ],
             [
                 taux_location_meuble,
                 taux_location_non_meuble
-                ],
+            ],
             0.
-            )
+        )
+
+
+class eligible_abattement_locatif(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce que le bien est éligible à un abatement locatif"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        location_meuble = personne('location_meuble', period, parameters)
+        location_non_meuble = personne('location_non_meuble', period, parameters)
+        return location_meuble + location_non_meuble
+
+
+class abattement_locatif_applique(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce que l'abatement locatif s'applique pour ce bien"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return personne('eligible_abattement_locatif', period, parameters)
+
+
+class abattement_locatif_eligible_et_applique(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce que l'abatement locatif s'applique pour ce bien"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        eligible = personne('eligible_abattement_locatif', period, parameters)
+        applique = personne('abattement_locatif_applique', period, parameters)
+        return eligible * applique
 
 
 class montant_abattement_locatif(Variable):
@@ -163,9 +204,14 @@ class montant_abattement_locatif(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        eligible_et_applique = personne('abattement_locatif_eligible_et_applique', period, parameters)
         base = personne('base_imposable_apres_abattement_office', period, parameters)
         taux = personne('taux_abattement_locatif', period, parameters)
-        return base * taux
+        return select(
+            [eligible_et_applique],
+            [base * taux],
+            0.
+            )
 
 
 class base_imposable_apres_abattement_locatif(Variable):
@@ -252,15 +298,45 @@ class eligible_abattement_nouvelle_construction(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = False
-    label = "Est-ce que le bien est elligible à l'abattement de 50% les trois années qui suivent l'exonération temporaire de cinq ans pour les noubelles constructions"
+    label = "Est-ce que le bien est eligible à l'abattement de 50% les trois années qui suivent l'exonération temporaire de cinq ans pour les nouvelles constructions"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         terrain = personne('terrain', period, parameters)
+        return not_(terrain)
+
+
+class abattement_nouvelle_construction_applique(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce que l'abattement de 50% les trois années qui suivent l'exonération temporaire de cinq ans pour les nouvelles constructions s'applique à ce bien"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        exonere_dix_ans = personne('exoneration_temporaire_habitation_principale_eligible_et_appliquee', period, parameters)
+        eligible = personne('eligible_abattement_nouvelle_construction', period, parameters)
         age_du_bien = personne('age_du_bien', period, parameters)
         age_min = personne('age_min_abattement_nouvelle_construction', period, parameters)
         age_max = personne('age_max_abattement_nouvelle_construction', period, parameters)
-        return not_(terrain) * (age_min <= age_du_bien <= age_max)
+        return not_(exonere_dix_ans) \
+            * eligible \
+            * age_min <= age_du_bien <= age_max
+
+
+class abattement_nouvelle_construction_eligible_et_applique(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce que le bien est eligible à l'abattement de 50% les trois années qui suivent l'exonération temporaire de cinq ans pour les nouvelles constructions et cet abattement s'applique"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        eligible = personne('eligible_abattement_nouvelle_construction', period, parameters)
+        applique = personne('abattement_nouvelle_construction_applique', period, parameters)
+        return eligible * applique
 
 
 class taux_abattement_nouvelle_construction_pays(Variable):
@@ -296,12 +372,33 @@ class montant_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        eligible_et_applique = personne('abattement_nouvelle_construction_eligible_et_applique', period, parameters)
         base = personne('base_imposable_apres_abattement_locatif', period, parameters)
-        eligible = personne('eligible_abattement_nouvelle_construction', period, parameters)
         taux = personne('taux_abattement_nouvelle_construction', period, parameters)
         return select(
-            [eligible],
+            [eligible_et_applique],
             [base * taux],
+            0
+            )
+
+
+class duree_restante_abattement_nouvelle_construction(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Durée restante de l'abattement pour les nouvelles constructions"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_2022_12_13(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        eligible = personne('eligible_abattement_nouvelle_construction', period, parameters)
+        age_du_bien = personne('age_du_bien', period, parameters)
+        age_min = personne('age_min_abattement_nouvelle_construction', period, parameters)
+        age_max = personne('age_max_abattement_nouvelle_construction', period, parameters)
+
+        return select(
+            [eligible],
+            [min_(age_max - age_du_bien, age_max - age_min + 1)],
             0
             )
 

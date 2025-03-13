@@ -7,13 +7,13 @@ from openfisca_pf.base import (
     YEAR
     )
 from openfisca_pf.entities import Personne
-from openfisca_pf.enums.impots import TypePersonne
+from openfisca_pf.enums.impots import FormeLegale
 
 
 class forme_legale(Variable):
     value_type = Enum
-    possible_values = TypePersonne
+    possible_values = FormeLegale
     entity = Personne
     definition_period = YEAR
-    default_value = TypePersonne.M
-    label = "Forme legale de la personne"
+    default_value = FormeLegale.MR
+    label = "Forme légale de la personne"

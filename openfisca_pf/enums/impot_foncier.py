@@ -42,12 +42,17 @@ class CategoryBien(Enum):
     Le bien est un commerce
     """
 
+    CONSULAT = 'CONSULAT'
+    """
+    Le bien est un consulat
+    """
+
     CULTE = 'CULTE'
     """
     Le bien est utilisé comme lieu de culte
     """
 
-    ECOLE = 'ECOLE'
+    ENSEIGNEMENT = 'ENSEIGNEMENT'
     """
     Le bien est une ecole, un collège, un lycé ou une université
     """
