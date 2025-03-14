@@ -1,0 +1,118 @@
+- name: is_immobilisations_total_corporelles_brute_debut_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_terrains_brute_debut_exercice: 100
+    is_immobilisations_corporelles_constructions_sur_sol_propre_brute_debut_exercice: 200
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_debut_exercice: 300
+    is_immobilisations_corporelles_constructions_installations_amenagements_brute_debut_exercice: 400
+    is_immobilisations_corporelles_installations_materiel_industriel_brute_debut_exercice: 500
+    is_immobilisations_corporelles_autres_installations_amenagements_brute_debut_exercice: 600
+    is_immobilisations_corporelles_autres_materiel_transport_brute_debut_exercice: 700
+    is_immobilisations_corporelles_autres_materiel_bureau_brute_debut_exercice: 800
+    is_immobilisations_corporelles_autres_emballages_brute_debut_exercice: 900
+    is_immobilisations_corporelles_en_cours_brute_debut_exercice: 101
+    is_immobilisations_corporelles_avances_brute_debut_exercice: 202
+  output:
+    is_immobilisations_total_corporelles_brute_debut_exercice: 4803
+
+- name: is_immobilisations_total_corporelles_augmentation_reevaluation
+  period: 2024
+  input:
+    is_immobilisations_corporelles_terrains_augmentation_reevaluation: 100
+    is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_reevaluation: 200
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_reevaluation: 400
+    is_immobilisations_corporelles_installations_materiel_industriel_augmentation_reevaluation: 500
+    is_immobilisations_corporelles_autres_installations_amenagements_augmentation_reevaluation: 600
+    is_immobilisations_corporelles_autres_materiel_transport_augmentation_reevaluation: 700
+    is_immobilisations_corporelles_autres_materiel_bureau_augmentation_reevaluation: 800
+    is_immobilisations_corporelles_autres_emballages_augmentation_reevaluation: 900
+    is_immobilisations_corporelles_en_cours_augmentation_reevaluation: 101
+    is_immobilisations_corporelles_avances_augmentation_reevaluation: 202
+  output:
+    is_immobilisations_total_corporelles_augmentation_reevaluation: 4803
+
+- name: is_immobilisations_total_corporelles_augmentation_nouveaux
+  period: 2024
+  input:
+    is_immobilisations_corporelles_terrains_augmentation_nouveaux: 100
+    is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_nouveaux: 200
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_nouveaux: 300
+    is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_nouveaux: 400
+    is_immobilisations_corporelles_installations_materiel_industriel_augmentation_nouveaux: 500
+    is_immobilisations_corporelles_autres_installations_amenagements_augmentation_nouveaux: 600
+    is_immobilisations_corporelles_autres_materiel_transport_augmentation_nouveaux: 700
+    is_immobilisations_corporelles_autres_materiel_bureau_augmentation_nouveaux: 800
+    is_immobilisations_corporelles_autres_emballages_augmentation_nouveaux: 900
+    is_immobilisations_corporelles_en_cours_augmentation_nouveaux: 101
+    is_immobilisations_corporelles_avances_augmentation_nouveaux: 202
+  output:
+    is_immobilisations_total_corporelles_augmentation_nouveaux: 4803
+
+- name: is_immobilisations_total_corporelles_diminution_poste_a_poste
+  period: 2024
+  input:
+    is_immobilisations_corporelles_terrains_diminution_poste_a_poste: 100
+    is_immobilisations_corporelles_constructions_sur_sol_propre_diminution_poste_a_poste: 200
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_diminution_poste_a_poste: 300
+    is_immobilisations_corporelles_constructions_installations_amenagements_diminution_poste_a_poste: 400
+    is_immobilisations_corporelles_installations_materiel_industriel_diminution_poste_a_poste: 500
+    is_immobilisations_corporelles_autres_installations_amenagements_diminution_poste_a_poste: 600
+    is_immobilisations_corporelles_autres_materiel_transport_diminution_poste_a_poste: 700
+    is_immobilisations_corporelles_autres_materiel_bureau_diminution_poste_a_poste: 800
+    is_immobilisations_corporelles_autres_emballages_diminution_poste_a_poste: 900
+    is_immobilisations_corporelles_en_cours_diminution_poste_a_poste: 101
+    is_immobilisations_corporelles_avances_diminution_poste_a_poste: 202
+  output:
+    is_immobilisations_total_corporelles_diminution_poste_a_poste: 4803
+
+- name: is_immobilisations_total_corporelles_diminution_cession_hors_services
+  period: 2024
+  input:
+    is_immobilisations_corporelles_terrains_diminution_cession_hors_services: 100
+    is_immobilisations_corporelles_constructions_sur_sol_propre_diminution_cession_hors_services: 200
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_diminution_cession_hors_services: 300
+    is_immobilisations_corporelles_constructions_installations_amenagements_diminution_cession_hors_services: 400
+    is_immobilisations_corporelles_installations_materiel_industriel_diminution_cession_hors_services: 500
+    is_immobilisations_corporelles_autres_installations_amenagements_diminution_cession_hors_services: 600
+    is_immobilisations_corporelles_autres_materiel_transport_diminution_cession_hors_services: 700
+    is_immobilisations_corporelles_autres_materiel_bureau_diminution_cession_hors_services: 800
+    is_immobilisations_corporelles_autres_emballages_diminution_cession_hors_services: 900
+    is_immobilisations_corporelles_en_cours_diminution_cession_hors_services: 101
+    is_immobilisations_corporelles_avances_diminution_cession_hors_services: 202
+  output:
+    is_immobilisations_total_corporelles_diminution_cession_hors_services: 4803
+
+- name: is_immobilisations_total_corporelles_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_terrains_brute_fin_exercice: 100
+    is_immobilisations_corporelles_constructions_sur_sol_propre_brute_fin_exercice: 200
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_fin_exercice: 300
+    is_immobilisations_corporelles_constructions_installations_amenagements_brute_fin_exercice: 400
+    is_immobilisations_corporelles_installations_materiel_industriel_brute_fin_exercice: 500
+    is_immobilisations_corporelles_autres_installations_amenagements_brute_fin_exercice: 600
+    is_immobilisations_corporelles_autres_materiel_transport_brute_fin_exercice: 700
+    is_immobilisations_corporelles_autres_materiel_bureau_brute_fin_exercice: 800
+    is_immobilisations_corporelles_autres_emballages_brute_fin_exercice: 900
+    is_immobilisations_corporelles_en_cours_brute_fin_exercice: 101
+    is_immobilisations_corporelles_avances_brute_fin_exercice: 202
+  output:
+    is_immobilisations_total_corporelles_brute_fin_exercice: 4803
+
+- name: is_immobilisations_total_corporelles_origine_reevaluees_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_terrains_origine_reevaluees_fin_exercice: 100
+    is_immobilisations_corporelles_constructions_sur_sol_propre_origine_reevaluees_fin_exercice: 200
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_origine_reevaluees_fin_exercice: 300
+    is_immobilisations_corporelles_constructions_installations_amenagements_origine_reevaluees_fin_exercice: 400
+    is_immobilisations_corporelles_installations_materiel_industriel_origine_reevaluees_fin_exercice: 500
+    is_immobilisations_corporelles_autres_installations_amenagements_origine_reevaluees_fin_exercice: 600
+    is_immobilisations_corporelles_autres_materiel_transport_origine_reevaluees_fin_exercice: 700
+    is_immobilisations_corporelles_autres_materiel_bureau_origine_reevaluees_fin_exercice: 800
+    is_immobilisations_corporelles_autres_emballages_origine_reevaluees_fin_exercice: 900
+    is_immobilisations_corporelles_en_cours_origine_reevaluees_fin_exercice: 101
+    is_immobilisations_corporelles_avances_origine_reevaluees_fin_exercice: 202
+  output:
+    is_immobilisations_total_corporelles_origine_reevaluees_fin_exercice: 4803

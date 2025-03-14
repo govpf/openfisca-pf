@@ -1,0 +1,104 @@
+- name: "Taux brut activé Normale 2024"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "NORMALE"
+  output:
+    is_brut_taux_activite: 0.25
+    is_brut_taux: 0.25
+
+- name: "Taux brut activé Sociétés Minères 2025"
+  period: 2025-01-01
+  input:
+    is_activite_principale: "SOCIETES_MINIERES"
+  output:
+    is_brut_taux: 0.31
+
+- name: "Quotient Zrae"
+  period: 2024-01-01
+  input:
+    is_element_imposition_zrae_ca: 100
+    is_element_imposition_ca: 200
+  output:
+    is_quotient_zrae: 0.5
+
+- name: "Quotient Zrae 0"
+  period: 2024-01-01
+  input:
+    is_element_imposition_zrae_ca: 100
+  output:
+    is_quotient_zrae: 0.0
+
+- name: "Taux brut activé Zrae"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "SOCIETES_MINIERES"
+    is_element_imposition_zrae_ca: 100
+    is_element_imposition_ca: 200
+    is_est_zrae: true
+  output:
+    is_quotient_zrae: 0.5
+    is_brut_taux: 0.24
+
+- name: "Pas d'abattement"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "ENERGIES_RENOUVELABLES"
+    is_brut_abattement_taux_saisie: 0.5
+  output:
+    is_brut_abattement_taux_est_a_saisir: False
+    is_brut_abattement_taux: 0.0
+
+- name: "Taux abattement OBNL"
+  period: 2024-01-01
+  input:
+    is_nombre_exercices: 0
+    is_activite_principale: "OBNL"
+    is_brut_abattement_taux_saisie : 0.5
+  output:
+    is_brut_abattement_taux_est_a_saisir: False
+    is_brut_abattement_taux: 1.0
+
+- name: "Taux abattement SOCIETES_GESTION_FONDS_GARANTIE"
+  period: 2024-01-01
+  input:
+    is_nombre_exercices: 2
+    is_activite_principale: "SOCIETES_GESTION_FONDS_GARANTIE"
+    is_brut_abattement_taux_saisie: 0.5
+  output:
+    is_brut_abattement_taux_est_a_saisir: False
+    is_brut_abattement_taux: 0.8
+
+- name: "Taux abattement SOCIETES_EXPORTATRICES"
+  period: 2024-01-01
+  input:
+    is_nombre_exercices: 0
+    is_activite_principale: "SOCIETES_EXPORTATRICES"
+    is_brut_abattement_taux_saisie: 0.5
+  output:
+    is_brut_abattement_taux_est_a_saisir: True
+    is_brut_abattement_taux: 0.5
+
+- name: "Impots Bruts Dues"
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 2456
+    is_brut_abattement_taux: 0.4
+    is_activite_principale: "SOCIETES_EXPORTATRICES"
+    is_brut_taux: 0.6
+  output:
+    is_brut_due: 720
+
+- name: "is_activite_principale_possede_taux_is vrai"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "SOCIETES_MINIERES"
+  output:
+    is_activite_principale_possede_taux_is: true
+
+- name: "is_activite_principale_possede_taux_is faux"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "GIE"
+  output:
+    is_activite_principale_possede_taux_is: false
+
