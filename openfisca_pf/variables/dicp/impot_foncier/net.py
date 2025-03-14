@@ -27,7 +27,7 @@ class duree_restante_exoneration_temporaire_et_abattements(Variable):
         return max_(
             duree_restante_exoneration_temporaire_nouvelle_construction + duree_restante_abattement_nouvelle_construction,
             duree_restante_exoneration_temporaire_habitation_principale
-        )
+            )
 
 
 class total_des_avantages_impot_foncier(Variable):

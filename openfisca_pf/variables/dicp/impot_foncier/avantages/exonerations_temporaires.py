@@ -469,6 +469,7 @@ class exoneration_temporaire_appliquee(Variable):
         return exoneration_temporaire_nouvelle_construction_eligible_et_appliquee \
             + exoneration_temporaire_habitation_principale_eligible_et_appliquee
 
+
 class montant_exoneration_temporaire(Variable):
     value_type = int
     entity = Personne

@@ -189,13 +189,13 @@ class taux_abattement_locatif(Variable):
             [
                 location_meuble,
                 location_non_meuble
-            ],
+                ],
             [
                 taux_location_meuble,
                 taux_location_non_meuble
-            ],
+                ],
             0.
-        )
+            )
 
 
 class eligible_abattement_locatif(Variable):
