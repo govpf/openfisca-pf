@@ -10,7 +10,7 @@ from openfisca_pf.base import (
     Variable
     )
 from openfisca_pf.constants.time import (
-    NOMBRE_D_HEURE_PAR_JOUR,
+    NOMBRE_D_HEURES_PAR_JOUR,
     NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS,
     NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS,
     NOMBRE_DE_MOIS_PAR_AN
@@ -56,7 +56,7 @@ class duree_occupation_redevance_domaniale_annee(Variable):
                 duree_occupation_redevance_domaniale,
                 duree_occupation_redevance_domaniale / NOMBRE_DE_MOIS_PAR_AN,
                 duree_occupation_redevance_domaniale / NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS,
-                duree_occupation_redevance_domaniale / (NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS * NOMBRE_D_HEURE_PAR_JOUR)
+                duree_occupation_redevance_domaniale / (NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS * NOMBRE_D_HEURES_PAR_JOUR)
                 ],
             )
 

@@ -1,0 +1,8 @@
+taux:
+  description: "Taux d'exonération temporaraire pour les nouvelles constructions"
+  metadata:
+    type: float
+    unit: /1
+  values:
+    1950-11-16:
+      value: 1.0

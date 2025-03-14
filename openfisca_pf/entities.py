@@ -10,9 +10,15 @@ Dossier = build_entity(
     label = "Un dossier",
     doc = "Un dossier regroupe plusieurs demandes, représentés dans openfisca par plusieurs personnes",
     roles = [
-        {"key": "demande", "plural": "demandes", "label": "Demandes", "doc": "Les demandes du dossier"}
+        {
+            "key": "demande",
+            "plural": "demandes",
+            "label": "Demandes",
+            "doc": "Les demandes du dossier"
+            }
         ]
     )
+
 
 Employes = build_entity(
     key = "employes",
@@ -20,9 +26,37 @@ Employes = build_entity(
     label = "Un groupe d'employés",
     doc = "",
     roles = [
-        {"key": "Employe", "plural": "employes", "label": "Employés", "doc": "La liste des employés"}
+        {
+            "key": "employe",
+            "plural": "employes",
+            "label": "Employés",
+            "doc": "La liste des employés"
+            }
         ]
     )
+
+
+Pays = build_entity(
+    key = "pays",
+    plural = "pays",
+    label = "Le pays",
+    doc = "",
+    roles = [
+        {
+            "key": "contribuable",
+            "plural": "contribuables",
+            "label": "Contribuables",
+            "doc": "Les contribuables du pays"
+            },
+        {
+            "key": "bien",
+            "plural": "biens",
+            "label": "Bien immobilier",
+            "doc": "Les biens immboliers du pays"
+            }
+        ]
+    )
+
 
 Personne = build_entity(
     key = "personne",
@@ -31,14 +65,5 @@ Personne = build_entity(
     is_person = True,
     )
 
-Pays = build_entity(
-    key = "pays",
-    plural = "pays",
-    label = "Le pays",
-    doc = "",
-    roles = [
-        {"key": "Contribuables", "plural": "contribuables", "label": "Contribuables", "doc": "Les contribuables du pays"}
-        ]
-    )
 
-entities = [Pays, Personne, Employes, Dossier]
+ENTITIES = [Dossier, Employes, Pays, Personne]

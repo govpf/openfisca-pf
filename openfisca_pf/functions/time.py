@@ -21,7 +21,7 @@ from openfisca_pf.base import (
     vectorize,
     where
     )
-from openfisca_pf.constants.time import NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS
+from openfisca_pf.constants.time import NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS, ANNEE_EPOCH_UNIX
 
 
 def as_date(a: ndarray, unit: str) -> ndarray:
@@ -54,7 +54,7 @@ def annee_de_la_date(d: ndarray) -> ndarray:
     :param d: Date dont on veut l'année.
     :return: Année de la date donnée.
     """
-    return as_date(d, 'Y')
+    return as_date(d, 'Y').astype(int) + ANNEE_EPOCH_UNIX
 
 
 def jour_de_la_date(d: ndarray) -> ndarray:
