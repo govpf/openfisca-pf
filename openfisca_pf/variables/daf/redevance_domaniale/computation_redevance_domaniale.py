@@ -9,7 +9,7 @@ from openfisca_pf.base import (
     Period,
     Variable
     )
-from openfisca_pf.constants.time import NOMBRE_D_HEURE_PAR_JOUR
+from openfisca_pf.constants.time import NOMBRE_D_HEURES_PAR_JOUR
 from openfisca_pf.constants.units import XPF_PER_DAY
 from openfisca_pf.enums.domaine import (
     Temporalite,
@@ -42,7 +42,7 @@ class type_calcul_redevance_domaniale(Variable):
         # Cet ajout de 20, permet de créer des nouveaux types de calculs dans le futur.
         # L'ensemble des tarifs spéciaux du SPJP sont de type = 3
         unite_est_heure = (unite_duree_occupation_redevance_domaniale == UnitesDuree.Heures)
-        duree_inferieur_jour = (duree_occupation_redevance_domaniale <= NOMBRE_D_HEURE_PAR_JOUR)
+        duree_inferieur_jour = (duree_occupation_redevance_domaniale <= NOMBRE_D_HEURES_PAR_JOUR)
         tarif_spjp = (type_calcul == 3)
 
         # Calcul du type de calcul

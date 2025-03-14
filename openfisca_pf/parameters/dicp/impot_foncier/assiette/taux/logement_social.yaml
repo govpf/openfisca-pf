@@ -1,0 +1,7 @@
+description: "Taux permettant de calculer la valeur locative social d'un logement social"
+metadata:
+  type: float
+  unit: /1
+values:
+  2001-11-13:
+    value: 0.02
