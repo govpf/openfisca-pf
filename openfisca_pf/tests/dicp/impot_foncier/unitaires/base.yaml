@@ -682,6 +682,49 @@
     montant_abattement_nouvelle_construction: 0
 
 
+# duree_restante_abattement_nouvelle_construction
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 7
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 0
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à la durée totale avant l'age minimum"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 5
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 3
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à la durée restante à partir de l'age minimum"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 6
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 2
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à 0 si le bien n'est pas éligible"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: false
+    age_du_bien: 6
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 0
+
+
 # base_imposable_apres_abattement_nouvelle_construction
 
 - name: "base_imposable_apres_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
