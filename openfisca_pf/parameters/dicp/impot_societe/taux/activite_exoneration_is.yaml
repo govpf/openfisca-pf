@@ -6,6 +6,7 @@ SOCIETES_GESTION_FONDS_GARANTIE:
   description: Exoneration des sociétés de gestion de fonds de garantie
   metadata:
     type: single_amount
+    threshold_unit: exercice
     amount_unit: /1
   brackets:
     - amount:
@@ -58,10 +59,12 @@ SOCIETES_GESTION_FONDS_GARANTIE:
       threshold:
         2020-01-01:
           value: 10
+
 CONCESSIONS_MINIERES:
   description: Exoneration pour les concessions minières
   metadata:
     type: single_amount
+    threshold_unit: exercice
     amount_unit: /1
   brackets:
     - amount:
@@ -69,6 +72,7 @@ CONCESSIONS_MINIERES:
       threshold:
         2020-12-31:
           value: 0
+
 HOTEL_RESIDENCE_INTERNATIONAL:
   description: Exoneration pour les concessions minières
   metadata:
@@ -80,10 +84,12 @@ HOTEL_RESIDENCE_INTERNATIONAL:
       threshold:
         2020-12-31:
           value: 0
+
 MEMBRE_GROUPE_FISCAL:
   description: Exoneration pour les membres d'un groupe fiscal
   metadata:
     type: single_amount
+    threshold_unit: exercice
     amount_unit: /1
   brackets:
     - amount:
@@ -91,10 +97,12 @@ MEMBRE_GROUPE_FISCAL:
       threshold:
         2020-12-31:
           value: 0
+
 GIE:
   description: Exoneration pour GIE (Groupement d'intérêt économique)
   metadata:
     type: single_amount
+    threshold_unit: exercice
     amount_unit: /1
   brackets:
     - amount:
@@ -102,10 +110,12 @@ GIE:
       threshold:
         2020-12-31:
           value: 0
+
 SCPR:
   description: Exoneration pour SCPR (Société civile professionnelle)
   metadata:
     type: single_amount
+    threshold_unit: exercice
     amount_unit: /1
   brackets:
     - amount:
@@ -113,10 +123,12 @@ SCPR:
       threshold:
         2020-12-31:
           value: 0
+
 SCM:
   description: Exoneration pour SCM (Société Civile de Moyens)
   metadata:
     type: single_amount
+    threshold_unit: exercice
     amount_unit: /1
   brackets:
     - amount:
@@ -124,10 +136,12 @@ SCM:
       threshold:
         2020-12-31:
           value: 0
+
 OBNL:
   description: Taux de la CST-NS pour les ventes
   metadata:
     type: single_amount
+    threshold_unit: exercice
     amount_unit: /1
   brackets:
     - amount:
@@ -136,4 +150,3 @@ OBNL:
       threshold:
         2020-01-01:
           value: 0
-

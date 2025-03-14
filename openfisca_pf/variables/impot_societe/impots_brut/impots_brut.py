@@ -1,8 +1,9 @@
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_pf.entities import Personne
-from openfisca_pf.enums.impot_societe.activity import Activite, ACTIVITE_TAUX_IS, ACTIVITE_EXONERATRICE, ACTIVITE_EXONERATRICE_TAUX_A_SAISIR
-from openfisca_pf.functions.currency import arrondi_millier_inferieur
 from openfisca_pf.base import (Period, DAY, Enum, select, Variable, where, isin, Parameters)
+from openfisca_pf.entities import Personne
+from openfisca_pf.enums.impot_societe.activity import Activite, ACTIVITE_TAUX_IS, ACTIVITE_EXONERATRICE, \
+    ACTIVITE_EXONERATRICE_TAUX_A_SAISIR
+from openfisca_pf.functions.currency import arrondi_millier_inferieur
 
 
 class is_activite_principale(Variable):
@@ -56,8 +57,8 @@ class is_brut_taux_activite(Variable):
 
     def formula(person: Personne, period, parameters):
         activite_principale = person('is_activite_principale', period)
-        has_taux = person('is_activite_principale_possede_taux_is', period)
-        activite_taux = where(has_taux, activite_principale.decode_to_str(), 'NORMALE')
+        possede_taux_is = person('is_activite_principale_possede_taux_is', period)
+        activite_taux = where(possede_taux_is, activite_principale.decode_to_str(), 'NORMALE')
         taux_principal = parameters(period).dicp.impot_societe.taux.activite[activite_taux]
         return taux_principal
 
@@ -123,7 +124,7 @@ class is_brut_abattement_taux(Variable):
     def formula(person: Personne, period, parameters):
         activite_principale = person('is_activite_principale', period)
         possede_abattement = person('is_activite_principale_possede_abattement', period)
-        has_abattement_saisie = person('is_brut_abattement_taux_est_a_saisir', period)
+        abattement_taux_est_a_saisir = person('is_brut_abattement_taux_est_a_saisir', period)
         abattement_saisie = person('is_brut_abattement_taux_saisie', period)
 
         nbr_exercice = person('is_nombre_exercices', period)
@@ -161,7 +162,7 @@ class is_brut_abattement_taux(Variable):
             0.0
             ])
 
-        abattement = where(has_abattement_saisie, abattement_saisie, abattement)
+        abattement = where(abattement_taux_est_a_saisir, abattement_saisie, abattement)
         abattement = where(possede_abattement, abattement, 0)
 
         return abattement
