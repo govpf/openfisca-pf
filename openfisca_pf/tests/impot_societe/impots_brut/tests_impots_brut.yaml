@@ -78,6 +78,16 @@
     is_brut_abattement_taux_est_a_saisir: True
     is_brut_abattement_taux: 0.5
 
+- name: "Taux abattement SECTEUR_RECHERCHE_DEVELOPPEMENT"
+  period: 2024-01-01
+  input:
+    is_nombre_exercices: 1
+    is_activite_principale: "SECTEUR_RECHERCHE_DEVELOPPEMENT"
+    is_brut_abattement_taux_saisie: 0.5
+  output:
+    is_brut_abattement_taux_est_a_saisir: False
+    is_brut_abattement_taux: 0
+
 - name: "Impots Bruts Dues"
   period: 2024-01-01
   input:

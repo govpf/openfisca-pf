@@ -127,8 +127,8 @@ class is_brut_abattement_taux(Variable):
         abattement_taux_est_a_saisir = person('is_brut_abattement_taux_est_a_saisir', period)
         abattement_saisie = person('is_brut_abattement_taux_saisie', period)
 
-        nbr_exercice = person('is_nombre_exercices', period)
-        nbr_exercice = where(nbr_exercice > 0, nbr_exercice, 999)
+        nombre_exercices = person('is_nombre_exercices', period)
+        nombre_exercices = where(nombre_exercices > 0, nombre_exercices, 999)
 
         # NotImplementedError returned by "parameters(period).dicp.impot_societe.taux.activite_exoneration_is[activite_principale]"
         societes_gestion_fonds_garantie = parameters(period).dicp.impot_societe.taux.activite_exoneration_is.SOCIETES_GESTION_FONDS_GARANTIE
@@ -148,19 +148,17 @@ class is_brut_abattement_taux(Variable):
             activite_principale == Activite.GIE,
             activite_principale == Activite.SCPR,
             activite_principale == Activite.SCM,
-            activite_principale == Activite.OBNL,
-            True
+            activite_principale == Activite.OBNL
             ], [
-            societes_gestion_fonds_garantie.calc(nbr_exercice),
-            hotel_residence_international.calc(nbr_exercice),
-            concessions_minieres.calc(nbr_exercice),
-            membre_groupe_fiscal.calc(nbr_exercice),
-            gie.calc(nbr_exercice),
-            scpr.calc(nbr_exercice),
-            scm.calc(nbr_exercice),
-            obnl.calc(nbr_exercice),
-            0.0
-            ])
+            societes_gestion_fonds_garantie.calc(nombre_exercices),
+            hotel_residence_international.calc(nombre_exercices),
+            concessions_minieres.calc(nombre_exercices),
+            membre_groupe_fiscal.calc(nombre_exercices),
+            gie.calc(nombre_exercices),
+            scpr.calc(nombre_exercices),
+            scm.calc(nombre_exercices),
+            obnl.calc(nombre_exercices)
+            ], 0)
 
         abattement = where(abattement_taux_est_a_saisir, abattement_saisie, abattement)
         abattement = where(possede_abattement, abattement, 0)
