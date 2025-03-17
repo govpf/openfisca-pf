@@ -373,6 +373,747 @@
   output:
     montant_exoneration_permanente_batiment_scolaire: 0
 
+
 # ##################################################
 # ###                 CONSULATS                  ###
 # ##################################################
+
+# eligible_exoneration_permanente_consulat
+
+- name: "eligible_exoneration_permanente_consulat est égale à false avant 1951"
+  period: 1950
+  input:
+    forme_legale: CONSULAT
+    categorie_du_bien: CONSULAT
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_consulat: false
+
+- name: "eligible_exoneration_permanente_consulat est égale à true à partir de 1951 si les conditions sont réunies (CONSULAT)"
+  period: 1951
+  input:
+    forme_legale: CONSULAT
+    categorie_du_bien: CONSULAT
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_consulat: true
+
+- name: "eligible_exoneration_permanente_consulat est égale à true à partir de 1951 si les conditions sont réunies (ADM)"
+  period: 1951
+  input:
+    forme_legale: ADM
+    categorie_du_bien: CONSULAT
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_consulat: true
+
+- name: "eligible_exoneration_permanente_consulat est égale à false si les conditions ne sont pas réunies (forme légale)"
+  period: 1951
+  input:
+    forme_legale: MR
+    categorie_du_bien: CONSULAT
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_consulat: false
+
+- name: "eligible_exoneration_permanente_consulat est égale à false si les conditions ne sont pas réunies (catégorie)"
+  period: 1951
+  input:
+    forme_legale: CONSULAT
+    categorie_du_bien: LOGEMENT
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_consulat: false
+
+- name: "eligible_exoneration_permanente_consulat est égale à false si les conditions ne sont pas réunies (loué)"
+  period: 1951
+  input:
+    forme_legale: CONSULAT
+    categorie_du_bien: CONSULAT
+    non_loue: false
+  output:
+    eligible_exoneration_permanente_consulat: false
+
+
+# exoneration_permanente_consulat_eligible_et_appliquee
+
+- name: "exoneration_permanente_consulat_eligible_et_appliquee est égale à false avant 1951"
+  period: 1950
+  input:
+    eligible_exoneration_permanente_consulat: true
+    exoneration_permanente_consulat_appliquee: true
+  output:
+    exoneration_permanente_consulat_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_consulat_eligible_et_appliquee est égale à true si les conditions sont remplies"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_consulat: true
+    exoneration_permanente_consulat_appliquee: true
+  output:
+    exoneration_permanente_consulat_eligible_et_appliquee: true
+
+- name: "exoneration_permanente_consulat_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_consulat: false
+    exoneration_permanente_consulat_appliquee: true
+  output:
+    exoneration_permanente_consulat_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_consulat_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_consulat: true
+    exoneration_permanente_consulat_appliquee: false
+  output:
+    exoneration_permanente_consulat_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_consulat_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible et pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_consulat: false
+    exoneration_permanente_consulat_appliquee: false
+  output:
+    exoneration_permanente_consulat_eligible_et_appliquee: false
+
+
+# montant_exoneration_permanente_consulat
+
+- name: "montant_exoneration_permanente_consulat est égale à 0 avant 1951"
+  period: 1950
+  input:
+    exoneration_permanente_consulat_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_consulat: 0
+
+- name: "montant_exoneration_permanente_consulat est égale à impot_foncier_part_pays_brute si le bien est éligible et que l'exonération est appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_consulat_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_consulat: 100
+
+- name: "montant_exoneration_permanente_consulat est égale à 0 si le bien n'est pas éligible ou que l'exonération n'est pas appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_consulat_eligible_et_appliquee: false
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_consulat: 0
+
+
+# ##################################################
+# ###             BÂTIMENTS AGRICOLES            ###
+# ##################################################
+
+
+# eligible_exoneration_permanente_consulat
+
+- name: "eligible_exoneration_permanente_batiment_agricole est égale à false avant 1951"
+  period: 1950
+  input:
+    categorie_du_bien: AGRICOLE
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_batiment_agricole: false
+
+- name: "eligible_exoneration_permanente_batiment_agricole est égale à true à partir de 1951 si les conditions sont réunies"
+  period: 1951
+  input:
+    categorie_du_bien: AGRICOLE
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_batiment_agricole: true
+
+- name: "eligible_exoneration_permanente_batiment_agricole est égale à false si les conditions ne sont pas réunies (catégorie)"
+  period: 1951
+  input:
+    categorie_du_bien: LOGEMENT
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_batiment_agricole: false
+
+- name: "eligible_exoneration_permanente_batiment_agricole est égale à false si les conditions ne sont pas réunies (loué)"
+  period: 1951
+  input:
+    categorie_du_bien: AGRICOLE
+    non_loue: false
+  output:
+    eligible_exoneration_permanente_batiment_agricole: false
+
+
+# exoneration_permanente_batiment_agricole_eligible_et_appliquee
+
+- name: "exoneration_permanente_batiment_agricole_eligible_et_appliquee est égale à false avant 1951"
+  period: 1950
+  input:
+    eligible_exoneration_permanente_batiment_agricole: true
+    exoneration_permanente_batiment_agricole_appliquee: true
+  output:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_batiment_agricole_eligible_et_appliquee est égale à true si les conditions sont remplies"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_batiment_agricole: true
+    exoneration_permanente_batiment_agricole_appliquee: true
+  output:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: true
+
+- name: "exoneration_permanente_batiment_agricole_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_batiment_agricole: false
+    exoneration_permanente_batiment_agricole_appliquee: true
+  output:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_batiment_agricole_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_batiment_agricole: true
+    exoneration_permanente_batiment_agricole_appliquee: false
+  output:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_batiment_agricole_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible et pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_batiment_agricole: false
+    exoneration_permanente_batiment_agricole_appliquee: false
+  output:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: false
+
+
+# montant_exoneration_permanente_batiment_agricole
+
+- name: "montant_exoneration_permanente_batiment_agricole est égale à 0 avant 1951"
+  period: 1950
+  input:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_batiment_agricole: 0
+
+- name: "montant_exoneration_permanente_batiment_agricole est égale à impot_foncier_part_pays_brute si le bien est éligible et que l'exonération est appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_batiment_agricole: 100
+
+- name: "montant_exoneration_permanente_batiment_agricole est égale à 0 si le bien n'est pas éligible ou que l'exonération n'est pas appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: false
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_batiment_agricole: 0
+
+
+# ##################################################
+# ###            BÂTIMENTS ASSOCIATIFS           ###
+# ##################################################
+
+
+# eligible_exoneration_permanente_batiment_associatif
+
+- name: "eligible_exoneration_permanente_batiment_associatif est égale à false avant 1951"
+  period: 1950
+  input:
+    forme_legale: ASSO
+    categorie_du_bien: ASSOCIATIF
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_batiment_associatif: false
+
+- name: "eligible_exoneration_permanente_batiment_associatif est égale à true à partir de 1951 si les conditions sont réunies"
+  period: 1951
+  input:
+    forme_legale: ASSO
+    categorie_du_bien: ASSOCIATIF
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_batiment_associatif: true
+
+- name: "eligible_exoneration_permanente_batiment_associatif est égale à false si les conditions ne sont pas réunies (forme légale)"
+  period: 1951
+  input:
+    forme_legale: MR
+    categorie_du_bien: ASSOCIATIF
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_batiment_associatif: false
+
+- name: "eligible_exoneration_permanente_batiment_associatif est égale à false si les conditions ne sont pas réunies (catégorie)"
+  period: 1951
+  input:
+    forme_legale: ASSO
+    categorie_du_bien: LOGEMENT
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_batiment_associatif: false
+
+- name: "eligible_exoneration_permanente_batiment_associatif est égale à false si les conditions ne sont pas réunies (loué)"
+  period: 1951
+  input:
+    forme_legale: ASSO
+    categorie_du_bien: ASSOCIATIF
+    non_loue: false
+  output:
+    eligible_exoneration_permanente_batiment_associatif: false
+
+
+# exoneration_permanente_batiment_associatif_eligible_et_appliquee
+
+- name: "exoneration_permanente_batiment_associatif_eligible_et_appliquee est égale à false avant 1951"
+  period: 1950
+  input:
+    eligible_exoneration_permanente_batiment_associatif: true
+    exoneration_permanente_batiment_associatif_appliquee: true
+  output:
+    exoneration_permanente_batiment_associatif_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_batiment_associatif_eligible_et_appliquee est égale à true si les conditions sont remplies"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_batiment_associatif: true
+    exoneration_permanente_batiment_associatif_appliquee: true
+  output:
+    exoneration_permanente_batiment_associatif_eligible_et_appliquee: true
+
+- name: "exoneration_permanente_batiment_associatif_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_batiment_associatif: false
+    exoneration_permanente_batiment_associatif_appliquee: true
+  output:
+    exoneration_permanente_batiment_associatif_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_batiment_associatif_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_batiment_associatif: true
+    exoneration_permanente_batiment_associatif_appliquee: false
+  output:
+    exoneration_permanente_batiment_associatif_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_batiment_associatif_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible et pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_batiment_associatif: false
+    exoneration_permanente_batiment_associatif_appliquee: false
+  output:
+    exoneration_permanente_batiment_associatif_eligible_et_appliquee: false
+
+
+# montant_exoneration_permanente_batiment_agricole
+
+- name: "montant_exoneration_permanente_batiment_agricole est égale à 0 avant 1951"
+  period: 1950
+  input:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_batiment_agricole: 0
+
+- name: "montant_exoneration_permanente_batiment_agricole est égale à impot_foncier_part_pays_brute si le bien est éligible et que l'exonération est appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_batiment_agricole: 100
+
+- name: "montant_exoneration_permanente_batiment_agricole est égale à 0 si le bien n'est pas éligible ou que l'exonération n'est pas appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_batiment_agricole_eligible_et_appliquee: false
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_batiment_agricole: 0
+
+
+# ##################################################
+# ###        HABITATIONS À FAIBLE VALEUR         ###
+# ##################################################
+
+
+# eligible_exoneration_permanente_habitation_principale
+
+- name: "eligible_exoneration_permanente_habitation_principale est égale à false avant 1951"
+  period: 1950
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: true
+    valeur_venale: 500000
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_habitation_principale: false
+
+- name: "eligible_exoneration_permanente_habitation_principale est égale à true à partir de 1951 si les conditions sont réunies"
+  period: 1951
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: true
+    valeur_venale: 500000
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_habitation_principale: true
+
+- name: "eligible_exoneration_permanente_habitation_principale est égale à false si les conditions ne sont pas réunies (catégorie)"
+  period: 1951
+  input:
+    categorie_du_bien: ENSEIGNEMENT
+    habitation_principale: true
+    valeur_venale: 500000
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_habitation_principale: false
+
+- name: "eligible_exoneration_permanente_habitation_principale est égale à false si les conditions ne sont pas réunies (habitation secondaire)"
+  period: 1951
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: false
+    valeur_venale: 500000
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_habitation_principale: false
+
+- name: "eligible_exoneration_permanente_habitation_principale est égale à false si les conditions ne sont pas réunies (valeur vénale)"
+  period: 1951
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: true
+    valeur_venale: 500001
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_habitation_principale: false
+
+- name: "eligible_exoneration_permanente_habitation_principale est égale à false si les conditions ne sont pas réunies (loué)"
+  period: 1951
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: true
+    valeur_venale: 500000
+    non_loue: false
+  output:
+    eligible_exoneration_permanente_habitation_principale: false
+
+
+# exoneration_permanente_habitation_principale_eligible_et_appliquee
+
+- name: "exoneration_permanente_habitation_principale_eligible_et_appliquee est égale à false avant 1951"
+  period: 1950
+  input:
+    eligible_exoneration_permanente_habitation_principale: true
+    exoneration_permanente_habitation_principale_appliquee: true
+  output:
+    exoneration_permanente_habitation_principale_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_habitation_principale_eligible_et_appliquee est égale à true si les conditions sont remplies"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_habitation_principale: true
+    exoneration_permanente_habitation_principale_appliquee: true
+  output:
+    exoneration_permanente_habitation_principale_eligible_et_appliquee: true
+
+- name: "exoneration_permanente_habitation_principale_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_habitation_principale: false
+    exoneration_permanente_habitation_principale_appliquee: true
+  output:
+    exoneration_permanente_habitation_principale_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_habitation_principale_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_habitation_principale: true
+    exoneration_permanente_habitation_principale_appliquee: false
+  output:
+    exoneration_permanente_habitation_principale_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_habitation_principale_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible et pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_habitation_principale: false
+    exoneration_permanente_habitation_principale_appliquee: false
+  output:
+    exoneration_permanente_habitation_principale_eligible_et_appliquee: false
+
+
+# montant_exoneration_permanente_habitation_principale
+
+- name: "montant_exoneration_permanente_habitation_principale est égale à 0 avant 1951"
+  period: 1950
+  input:
+    exoneration_permanente_habitation_principale_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_habitation_principale: 0
+
+- name: "montant_exoneration_permanente_habitation_principale est égale à impot_foncier_part_pays_brute si le bien est éligible et que l'exonération est appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_habitation_principale_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_habitation_principale: 100
+
+- name: "montant_exoneration_permanente_habitation_principale est égale à 0 si le bien n'est pas éligible ou que l'exonération n'est pas appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_habitation_principale_eligible_et_appliquee: false
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_habitation_principale: 0
+
+
+# ##################################################
+# ###              HALLES ET MARCHÉS             ###
+# ##################################################
+
+
+# eligible_exoneration_permanente_halle_et_marche
+
+- name: "eligible_exoneration_permanente_halle_et_marche est égale à false avant 1951"
+  period: 1950
+  input:
+    forme_legale: ADM
+    categorie_du_bien: COMMERCE
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_halle_et_marche: false
+
+- name: "eligible_exoneration_permanente_halle_et_marche est égale à true à partir de 1951 si les conditions sont réunies"
+  period: 1951
+  input:
+    forme_legale: ADM
+    categorie_du_bien: COMMERCE
+    non_loue: true
+  output:
+    eligible_exoneration_permanente_halle_et_marche: true
+
+
+# exoneration_permanente_halle_et_marche_eligible_et_appliquee
+
+- name: "exoneration_permanente_halle_et_marche_eligible_et_appliquee est égale à false avant 1951"
+  period: 1950
+  input:
+    eligible_exoneration_permanente_halle_et_marche: true
+    exoneration_permanente_halle_et_marche_appliquee: true
+  output:
+    exoneration_permanente_halle_et_marche_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_halle_et_marche_eligible_et_appliquee est égale à true si les conditions sont remplies"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_halle_et_marche: true
+    exoneration_permanente_halle_et_marche_appliquee: true
+  output:
+    exoneration_permanente_halle_et_marche_eligible_et_appliquee: true
+
+- name: "exoneration_permanente_halle_et_marche_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_halle_et_marche: false
+    exoneration_permanente_halle_et_marche_appliquee: true
+  output:
+    exoneration_permanente_halle_et_marche_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_halle_et_marche_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_halle_et_marche: true
+    exoneration_permanente_halle_et_marche_appliquee: false
+  output:
+    exoneration_permanente_halle_et_marche_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_halle_et_marche_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible et pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_halle_et_marche: false
+    exoneration_permanente_halle_et_marche_appliquee: false
+  output:
+    exoneration_permanente_halle_et_marche_eligible_et_appliquee: false
+
+
+# montant_exoneration_permanente_habitation_principale
+
+- name: "montant_exoneration_permanente_halle_et_marche est égale à 0 avant 1951"
+  period: 1950
+  input:
+    exoneration_permanente_halle_et_marche_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_halle_et_marche: 0
+
+- name: "montant_exoneration_permanente_halle_et_marche est égale à impot_foncier_part_pays_brute si le bien est éligible et que l'exonération est appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_halle_et_marche_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_halle_et_marche: 100
+
+- name: "montant_exoneration_permanente_halle_et_marche est égale à 0 si le bien n'est pas éligible ou que l'exonération n'est pas appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_halle_et_marche_eligible_et_appliquee: false
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_halle_et_marche: 0
+
+
+# ##################################################
+# ###            LOGEMENTS SOCIAUX OPH           ###
+# ##################################################
+
+# eligible_exoneration_permanente_logement_social
+
+- name: "eligible_exoneration_permanente_logement_social est égale à false avant 1951"
+  period: 1950
+  input:
+    forme_legale: ADM
+    categorie_du_bien: LOGEMENT
+    logement_social: true
+    loue: true
+  output:
+    eligible_exoneration_permanente_logement_social: false
+
+- name: "eligible_exoneration_permanente_logement_social est égale à true à partir de 1951 si les conditions sont réunies (ADM)"
+  period: 1951
+  input:
+    forme_legale: ADM
+    categorie_du_bien: LOGEMENT
+    logement_social: true
+    loue: true
+  output:
+    eligible_exoneration_permanente_logement_social: true
+
+- name: "eligible_exoneration_permanente_logement_social est égale à true à partir de 1951 si les conditions sont réunies (EPIC)"
+  period: 1951
+  input:
+    forme_legale: EPIC
+    categorie_du_bien: LOGEMENT
+    logement_social: true
+    loue: true
+  output:
+    eligible_exoneration_permanente_logement_social: true
+
+- name: "eligible_exoneration_permanente_logement_social est égale à false si les conditions ne sont pas réunies (forme légale)"
+  period: 1951
+  input:
+    forme_legale: MR
+    categorie_du_bien: LOGEMENT
+    logement_social: true
+    loue: true
+  output:
+    eligible_exoneration_permanente_logement_social: false
+
+- name: "eligible_exoneration_permanente_logement_social est égale à false si les conditions ne sont pas réunies (catégorie)"
+  period: 1951
+  input:
+    forme_legale: ADM
+    categorie_du_bien: ENSEIGNEMENT
+    logement_social: true
+    loue: true
+  output:
+    eligible_exoneration_permanente_logement_social: false
+
+- name: "eligible_exoneration_permanente_logement_social est égale à false si les conditions ne sont pas réunies (logement non social)"
+  period: 1951
+  input:
+    forme_legale: ADM
+    categorie_du_bien: LOGEMENT
+    logement_social: false
+    loue: true
+  output:
+    eligible_exoneration_permanente_logement_social: false
+
+- name: "eligible_exoneration_permanente_logement_social est égale à false si les conditions ne sont pas réunies (non loué)"
+  period: 1951
+  input:
+    forme_legale: ADM
+    categorie_du_bien: LOGEMENT
+    logement_social: true
+    loue: false
+  output:
+    eligible_exoneration_permanente_logement_social: false
+
+
+# exoneration_permanente_logement_social_eligible_et_appliquee
+
+- name: "exoneration_permanente_logement_social_eligible_et_appliquee est égale à false avant 1951"
+  period: 1950
+  input:
+    eligible_exoneration_permanente_logement_social: true
+    exoneration_permanente_logement_social_appliquee: true
+  output:
+    exoneration_permanente_logement_social_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_logement_social_eligible_et_appliquee est égale à true si les conditions sont remplies"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_logement_social: true
+    exoneration_permanente_logement_social_appliquee: true
+  output:
+    exoneration_permanente_logement_social_eligible_et_appliquee: true
+
+- name: "exoneration_permanente_logement_social_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_logement_social: false
+    exoneration_permanente_logement_social_appliquee: true
+  output:
+    exoneration_permanente_logement_social_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_logement_social_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_logement_social: true
+    exoneration_permanente_logement_social_appliquee: false
+  output:
+    exoneration_permanente_logement_social_eligible_et_appliquee: false
+
+- name: "exoneration_permanente_logement_social_eligible_et_appliquee est égale à true si les conditions ne sont pas remplies (pas éligible et pas appliquée)"
+  period: 1951
+  input:
+    eligible_exoneration_permanente_logement_social: false
+    exoneration_permanente_logement_social_appliquee: false
+  output:
+    exoneration_permanente_logement_social_eligible_et_appliquee: false
+
+
+# montant_exoneration_permanente_habitation_principale
+
+- name: "montant_exoneration_permanente_logement_social est égale à 0 avant 1951"
+  period: 1950
+  input:
+    exoneration_permanente_logement_social_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_logement_social: 0
+
+- name: "montant_exoneration_permanente_logement_social est égale à impot_foncier_part_pays_brute si le bien est éligible et que l'exonération est appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_logement_social_eligible_et_appliquee: true
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_logement_social: 100
+
+- name: "montant_exoneration_permanente_logement_social est égale à 0 si le bien n'est pas éligible ou que l'exonération n'est pas appliquée"
+  period: 1951
+  input:
+    exoneration_permanente_logement_social_eligible_et_appliquee: false
+    impot_foncier_part_pays_brute: 100
+  output:
+    montant_exoneration_permanente_logement_social: 0
