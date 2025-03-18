@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
 
 
+import numpy
 from openfisca_pf.base import (
     ArrayLike,
     date,
+    ETERNITY,
+    floor_divide,
+    max_,
+    mod,
     min_,
     not_,
     Parameters,
@@ -15,15 +20,32 @@ from openfisca_pf.base import (
 from openfisca_pf.entities import Pays, Personne
 from openfisca_pf.enums.impot_foncier import CategoryBien
 from openfisca_pf.functions.currency import arrondi_inferieur
+from openfisca_pf.functions.time import annee_de_la_date
 
 
 class date_de_mise_en_service_installation_photovoltaique(Variable):
     value_type = date
     entity = Personne
-    definition_period = YEAR
+    definition_period = ETERNITY
     default_value = date(1970, 1, 1)
     label = "De de mise en service de installation photovoltaïc"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+
+class age_installation_photovoltaique(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Nombre d'année d'impôsition au foncier depuis la mise en service de l'installation photovoltaique"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        date_installation = personne('date_de_mise_en_service_installation_photovoltaique', period, parameters)
+        return max_(
+            period.start.year - annee_de_la_date(date_installation),
+            0
+            )
 
 
 class date_limite_de_mise_en_service_installation_photovoltaique_pays(Variable):
@@ -74,7 +96,7 @@ class eligible_credit_photovoltaique(Variable):
 class cout_installation_photovoltaique(Variable):
     value_type = int
     entity = Personne
-    definition_period = YEAR
+    definition_period = ETERNITY
     default_value = 0
     label = "Coût totale de l'installation photovoltaïc incluant l'achat du matériel et la pose"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
@@ -160,11 +182,17 @@ class enveloppe_credit_photovoltaique(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2023_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        age = personne('age_installation_photovoltaique', period, parameters)
         eligible = personne('eligible_credit_photovoltaique', period, parameters)
-        reste = personne('reste_credit_photovoltaique', period.offset(-1, 'year'), parameters)
+        enveloppe = numpy.zeros_like(age)
+        for i in range(age.size):
+            if age[i] == 1:
+                enveloppe[i] = personne('montant_base_credit_photovoltaique', period, parameters)
+            elif age[i] > 1:
+                enveloppe[i] = personne('reste_credit_photovoltaique', period.last_year, parameters)
         return select(
             [eligible],
-            [reste],
+            [enveloppe],
             0
             )
 
@@ -215,14 +243,11 @@ class montant_credit_photovoltaique(Variable):
 
     def formula_2023_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         eligible_et_applique = personne('credit_photovoltaique_eligible_et_applique', period, parameters)
-        brute = personne('impot_foncier_part_pays_apres_exonerations_temporaires', period, parameters)
+        impot = personne('impot_foncier_part_pays_apres_exonerations_temporaires', period, parameters)
         enveloppe = personne('enveloppe_credit_photovoltaique', period, parameters)
-
-        montant = min_(brute, enveloppe)
-
         return select(
             [eligible_et_applique],
-            [montant],
+            [min_(impot, enveloppe)],
             0
             )
 
@@ -239,6 +264,29 @@ class reste_credit_photovoltaique(Variable):
         enveloppe = personne('enveloppe_credit_photovoltaique', period, parameters)
         montant = personne('montant_credit_photovoltaique', period, parameters)
         return enveloppe - montant
+
+
+class duree_credit_photovoltaique(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Durée d'imputation du crédit photovoltaïque calculé à partir de montant brute de l'impôt foncier part pays et du montant de base du crédit photovoltaïque"
+    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
+
+    def formula_2023_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        impot_brut = personne('impot_foncier_part_pays_brute', period, parameters).astype(numpy.float64)
+        base = personne('montant_base_credit_photovoltaique', period, parameters).astype(numpy.float64)
+
+        positif = base > 0
+        duree = floor_divide(impot_brut, base, where = positif) \
+            + (mod(impot_brut, base, where = positif) > 0)
+
+        return select(
+            positif,
+            [duree],
+            0
+            )
 
 
 # ##################################################

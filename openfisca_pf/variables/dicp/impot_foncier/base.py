@@ -437,9 +437,8 @@ class duree_restante_abattement_nouvelle_construction(Variable):
         age = personne('age_du_bien', period, parameters)
         age_min = personne('age_min_abattement_nouvelle_construction', period, parameters)
         age_max = personne('age_max_abattement_nouvelle_construction', period, parameters)
-
         return select(
-            [eligible * (age < age_min), eligible * (age_min <= age <= age_max)],
+            [eligible * (age < age_min), eligible * (age_min <= age) * (age <= age_max)],
             [age_max - age_min + 1, age_max - age],
             0
             )

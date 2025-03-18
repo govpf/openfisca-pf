@@ -184,7 +184,7 @@ class duree_restante_exoneration_temporaire_nouvelle_construction(Variable):
         age_max = personne('age_max_exoneration_temporaire_nouvelle_construction', period, parameters)
 
         return select(
-            [eligible * (age < age_min), eligible * (age_min <= age <= age_max)],
+            [eligible * (age < age_min), eligible * (age_min <= age) * (age <= age_max)],
             [age_max - age_min + 1, age_max - age],
             0
             )
@@ -429,7 +429,7 @@ class duree_restante_exoneration_temporaire_habitation_principale(Variable):
         age = personne('age_du_bien', period, parameters)
 
         return select(
-            [eligible * (age < age_min), eligible * (age_min <= age <= age_max)],
+            [eligible * (age < age_min), eligible * (age_min <= age) * (age <= age_max)],
             [age_max - age_min + 1, age_max - age],
             0
             )
