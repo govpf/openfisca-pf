@@ -1,0 +1,37 @@
+- name: is_resultat_courant_avant_impots
+  period: 2024-01-01
+  input:
+    is_resultat_exploitation: 100
+    is_resultat_financier: 200
+  output:
+    is_resultat_courant_avant_impots: 300
+
+
+- name: is_resultat_total_produits
+  period: 2024-01-01
+  input:
+    is_resultat_exploitation_total_produits: 100
+    is_resultat_financier_total_produits: 200
+    is_resultat_exceptionnel_total_produits: 300
+  output:
+    is_resultat_total_produits: 600
+
+
+- name: is_resultat_total_charges
+  period: 2024-01-01
+  input:
+    is_resultat_exploitation_total_charges: 100
+    is_resultat_financier_total_charges: 200
+    is_resultat_exceptionnel_total_charges: 300
+    is_resultat_impots_benefices: 400
+  output:
+    is_resultat_total_charges: 1000
+
+
+- name: is_resultat_benefice_ou_perte
+  period: 2024-01-01
+  input:
+    is_resultat_total_produits: 1000
+    is_resultat_total_charges: 200
+  output:
+    is_resultat_benefice_ou_perte: 800

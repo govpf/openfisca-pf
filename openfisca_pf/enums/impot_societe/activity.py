@@ -39,7 +39,6 @@ ACTIVITE_EXONERATRICE = Activite.encode(numpy.asarray([
     Activite.CROISIERE_MIXTE,
     Activite.SOCIETES_GESTION_FONDS_GARANTIE,
     Activite.ACTIVITES_CROISIERE,
-    Activite.HOTEL_RESIDENCE_INTERNATIONAL,
     Activite.CONCESSIONS_MINIERES,
     Activite.MEMBRE_GROUPE_FISCAL,
     Activite.GIE,
@@ -50,7 +49,6 @@ ACTIVITE_EXONERATRICE = Activite.encode(numpy.asarray([
 
 
 ACTIVITE_EXONERATRICE_TAUX_A_SAISIR = Activite.encode(numpy.asarray([
-    Activite.ACTIVITES_CROISIERE,
     Activite.SOCIETES_EXPORTATRICES,
     Activite.CROISIERE_MIXTE
     ]))

@@ -66,6 +66,7 @@
     is_brut_abattement_taux_saisie: 0.5
   output:
     is_brut_abattement_taux_est_a_saisir: False
+    is_activite_principale_possede_abattement: True
     is_brut_abattement_taux: 0.8
 
 - name: "Taux abattement SOCIETES_EXPORTATRICES"
@@ -76,6 +77,7 @@
     is_brut_abattement_taux_saisie: 0.5
   output:
     is_brut_abattement_taux_est_a_saisir: True
+    is_activite_principale_possede_abattement: True
     is_brut_abattement_taux: 0.5
 
 - name: "Taux abattement SECTEUR_RECHERCHE_DEVELOPPEMENT"
@@ -92,6 +94,7 @@
   period: 2024-01-01
   input:
     is_resultat_fiscal_benefice_apres_report_deficitaire: 2456
+    is_activite_principale_possede_abattement: True
     is_brut_abattement_taux: 0.4
     is_activite_principale: "SOCIETES_EXPORTATRICES"
     is_brut_taux: 0.6
@@ -110,5 +113,32 @@
   input:
     is_activite_principale: "GIE"
   output:
-    is_activite_principale_possede_taux_is: false
+    is_activite_principale_possede_taux_is: False
 
+
+- name: "HOTEL_RESIDENCE_INTERNATIONAL"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "HOTEL_RESIDENCE_INTERNATIONAL"
+  output:
+    is_activite_principale_possede_taux_is: False
+    is_activite_principale_possede_abattement: False
+    is_brut_taux_activite: 0.25
+    is_brut_taux: 0.25
+    is_brut_abattement_taux: 0
+    is_brut_abattement_taux_est_a_saisir: False
+    is_activite_principale: "HOTEL_RESIDENCE_INTERNATIONAL"
+
+
+- name: "HOTEL_RESIDENCE_INTERNATIONAL"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "HOTEL_RESIDENCE_INTERNATIONAL"
+  output:
+    is_activite_principale_possede_taux_is: False
+    is_activite_principale_possede_abattement: False
+    is_brut_taux_activite: 0.25
+    is_brut_taux: 0.25
+    is_brut_abattement_taux: 0
+    is_brut_abattement_taux_est_a_saisir: False
+    is_activite_principale: "HOTEL_RESIDENCE_INTERNATIONAL"

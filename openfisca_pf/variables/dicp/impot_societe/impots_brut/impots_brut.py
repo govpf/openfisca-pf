@@ -82,7 +82,7 @@ class is_activite_principale_possede_abattement(Variable):
     entity = Personne
     definition_period = DAY
     default_value = False
-    label = "Activite taux IS ?"
+    label = "Activité possède un abattement IS ?"
 
     def formula(local: Personne, period: Period, parameters: Parameters):
         activite_principale = local('is_activite_principale', period, parameters)
@@ -132,7 +132,7 @@ class is_brut_abattement_taux(Variable):
 
         # NotImplementedError returned by "parameters(period).dicp.impot_societe.taux.activite_exoneration_is[activite_principale]"
         societes_gestion_fonds_garantie = parameters(period).dicp.impot_societe.taux.activite_exoneration_is.SOCIETES_GESTION_FONDS_GARANTIE
-        hotel_residence_international = parameters(period).dicp.impot_societe.taux.activite_exoneration_is.HOTEL_RESIDENCE_INTERNATIONAL
+        activites_croisieres = parameters(period).dicp.impot_societe.taux.activite_exoneration_is.ACTIVITES_CROISIERE
         concessions_minieres = parameters(period).dicp.impot_societe.taux.activite_exoneration_is.CONCESSIONS_MINIERES
         membre_groupe_fiscal = parameters(period).dicp.impot_societe.taux.activite_exoneration_is.MEMBRE_GROUPE_FISCAL
         gie = parameters(period).dicp.impot_societe.taux.activite_exoneration_is.GIE
@@ -142,23 +142,25 @@ class is_brut_abattement_taux(Variable):
 
         abattement = select([
             activite_principale == Activite.SOCIETES_GESTION_FONDS_GARANTIE,
-            activite_principale == Activite.HOTEL_RESIDENCE_INTERNATIONAL,
+            activite_principale == Activite.ACTIVITES_CROISIERE,
             activite_principale == Activite.CONCESSIONS_MINIERES,
             activite_principale == Activite.MEMBRE_GROUPE_FISCAL,
             activite_principale == Activite.GIE,
             activite_principale == Activite.SCPR,
             activite_principale == Activite.SCM,
-            activite_principale == Activite.OBNL
+            activite_principale == Activite.OBNL,
+            True
             ], [
             societes_gestion_fonds_garantie.calc(nombre_exercices),
-            hotel_residence_international.calc(nombre_exercices),
+            activites_croisieres.calc(nombre_exercices),
             concessions_minieres.calc(nombre_exercices),
             membre_groupe_fiscal.calc(nombre_exercices),
             gie.calc(nombre_exercices),
             scpr.calc(nombre_exercices),
             scm.calc(nombre_exercices),
-            obnl.calc(nombre_exercices)
-            ], 0)
+            obnl.calc(nombre_exercices),
+            0.0
+            ])
 
         abattement = where(abattement_taux_est_a_saisir, abattement_saisie, abattement)
         abattement = where(possede_abattement, abattement, 0)

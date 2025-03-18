@@ -2,6 +2,7 @@ description: "Taux d'IS en fonction de l'activité"
 metadata:
   type: float
   unit: /1
+
 NORMALE:
   values:
     2018-12-31:

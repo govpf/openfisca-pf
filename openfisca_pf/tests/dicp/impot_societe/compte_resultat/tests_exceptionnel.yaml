@@ -1,0 +1,27 @@
+- name: is_resultat_exceptionnel_total_produits
+  period: 2024-01-01
+  input:
+    is_resultat_exceptionnel_produits_gestion: 100
+    is_resultat_exceptionnel_produits_capital: 200
+    is_resultat_exceptionnel_reprises_provisions_transfert_charges: 300
+  output:
+    is_resultat_exceptionnel_total_produits: 600
+
+
+- name: is_resultat_exceptionnel_total_charges
+  period: 2024-01-01
+  input:
+    is_resultat_exceptionnel_charges_gestion: 100
+    is_resultat_exceptionnel_charges_capital: 200
+    is_resultat_exceptionnel_dotations_ammortissements_provisions: 300
+  output:
+    is_resultat_exceptionnel_total_charges: 600
+
+
+- name: is_resultat_exceptionnel
+  period: 2024-01-01
+  input:
+    is_resultat_exceptionnel_total_produits: 1000
+    is_resultat_exceptionnel_total_charges: 200
+  output:
+    is_resultat_exceptionnel: 800
