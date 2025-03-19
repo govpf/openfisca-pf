@@ -714,6 +714,16 @@
   output:
     duree_restante_abattement_nouvelle_construction: 2
 
+- name: "duree_restante_abattement_nouvelle_construction est égale à 0 une fois l'age maximum passé"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 11
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 0
+
 - name: "duree_restante_abattement_nouvelle_construction est égale à 0 si le bien n'est pas éligible"
   period: 1999
   input:

@@ -12,7 +12,7 @@ from openfisca_pf.entities import Personne
 from openfisca_pf.functions.currency import arrondi_inferieur
 
 
-class duree_restante_exoneration_temporaire_et_abattements(Variable):
+class duree_restante_exonerations_temporaires_abattements_et_credits(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
@@ -21,12 +21,13 @@ class duree_restante_exoneration_temporaire_et_abattements(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        duree_restante_abattement_nouvelle_construction = personne('duree_restante_abattement_nouvelle_construction', period, parameters)
         duree_restante_exoneration_temporaire_nouvelle_construction = personne('duree_restante_exoneration_temporaire_nouvelle_construction', period, parameters)
+        duree_restante_abattement_nouvelle_construction = personne('duree_restante_abattement_nouvelle_construction', period, parameters)
         duree_restante_exoneration_temporaire_habitation_principale = personne('duree_restante_exoneration_temporaire_habitation_principale', period, parameters)
+        duree_credit_photovoltaique = personne('duree_credit_photovoltaique', period, parameters)
         return max_(
-            duree_restante_exoneration_temporaire_nouvelle_construction + duree_restante_abattement_nouvelle_construction,
-            duree_restante_exoneration_temporaire_habitation_principale
+            duree_restante_exoneration_temporaire_nouvelle_construction + max_(duree_restante_abattement_nouvelle_construction, duree_credit_photovoltaique),
+            duree_restante_exoneration_temporaire_habitation_principale + duree_credit_photovoltaique
             )
 
 
