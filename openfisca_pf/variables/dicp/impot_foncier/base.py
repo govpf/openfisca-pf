@@ -7,7 +7,6 @@ Aussi appelé "valeur locative nette".
 
 from openfisca_pf.base import (
     ArrayLike,
-    min_,
     not_,
     Parameters,
     Period,
@@ -433,15 +432,14 @@ class duree_restante_abattement_nouvelle_construction(Variable):
     label = "Durée restante de l'abattement pour les nouvelles constructions"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_2022_12_13(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         eligible = personne('eligible_abattement_nouvelle_construction', period, parameters)
-        age_du_bien = personne('age_du_bien', period, parameters)
+        age = personne('age_du_bien', period, parameters)
         age_min = personne('age_min_abattement_nouvelle_construction', period, parameters)
         age_max = personne('age_max_abattement_nouvelle_construction', period, parameters)
-
         return select(
-            [eligible],
-            [min_(age_max - age_du_bien, age_max - age_min + 1)],
+            [eligible * (age < age_min), eligible * (age_min <= age) * (age <= age_max)],
+            [age_max - age_min + 1, age_max - age],
             0
             )
 
