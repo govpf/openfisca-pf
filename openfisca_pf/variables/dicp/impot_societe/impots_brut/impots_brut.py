@@ -56,10 +56,10 @@ class is_quotient_zrae(Variable):
     definition_period = DAY
     label = "Quotient ZRAE"
 
-    def formula(person: Personne, period):
-        ca_zrae = person('is_element_imposition_zrae_ca', period)
-        ca_imposition = person('is_element_imposition_ca', period)
-        ca_net = person('is_resultat_exploitation_chiffre_affaires_net_total', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        ca_zrae = personne('is_element_imposition_zrae_ca', period)
+        ca_imposition = personne('is_element_imposition_ca', period)
+        ca_net = personne('is_resultat_exploitation_chiffre_affaires_net_total', period)
         ca = where((ca_imposition > 0), ca_imposition, ca_net)
         possede_quotient = (ca_zrae > 0) * (ca > 0)
         quotient_zrae = ca_zrae / where((ca > 0), ca, -1)
