@@ -1,0 +1,77 @@
+- name: is_imf_base
+  period: 2024-01-01
+  input:
+    is_resultat_exploitation_total_produits: 300
+    is_resultat_exploitation_resprises_amortissements_provisions_transfert_charges: 100
+    is_resultat_financier_total_produits: 500
+    is_resultat_financier_transfert_charges: 200
+  output:
+    is_imf_base: 500
+
+- name: is_imf_taux_et_limites_montants
+  period: 2024-01-01
+  input:
+    is_imf_base: 10000
+  output:
+    is_imf_taux_benefice: 0.05
+    is_imf_taux_deficit: 0.025
+    is_imf_montant_minimum: 50000
+    is_imf_montant_maximum: 4000000
+
+- name: is_imf_limite_montants_6_mois
+  period: 2024-01-01
+  input:
+    is_nombre_mois_exercice: 6
+  output:
+    is_imf_montant_minimum: 25000
+    is_imf_montant_maximum: 2000000
+
+- name: is_imf_montants
+  period: 2024-01-01
+  input:
+    is_imf_base: 2000000
+  output:
+    is_imf_taux: 0.05
+    is_imf_abattement_taux: 0
+    is_imf_montant: 100000
+
+- name: is_imf_montant_minimum
+  period: 2024-01-01
+  input:
+    is_imf_base: 900000
+  output:
+    is_imf_taux: 0.05
+    is_imf_abattement_taux: 0
+    is_imf_montant: 50000
+
+- name: is_imf_montant_maximum
+  period: 2024-01-01
+  input:
+    is_imf_base: 90000000
+  output:
+    is_imf_taux: 0.05
+    is_imf_abattement_taux: 0
+    is_imf_montant: 4000000
+
+- name: "Impots IMF Abattement"
+  period: 2024-01-01
+  input:
+    is_imf_base: 2000000
+    is_activite_principale: "CONCESSIONS_MINIERES"
+    is_nombre_exercices: 1
+  output:
+    is_imf_taux: 0.05
+    is_imf_abattement_taux: 1
+    is_imf_montant: 50000
+
+
+- name: "Impots IMF Abattement Saisie"
+  period: 2024-01-01
+  input:
+    is_imf_base: 2000000
+    is_activite_principale: "SOCIETES_EXPORTATRICES"
+    is_imf_abattement_taux_saisie: 0.1
+  output:
+    is_imf_taux: 0.05
+    is_imf_abattement_taux: 0.1
+    is_imf_montant: 90000

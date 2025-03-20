@@ -43,10 +43,12 @@ class is_quotient_zrae(Variable):
 
     def formula(person: Personne, period):
         ca_zrae = person('is_element_imposition_zrae_ca', period)
-        ca = person('is_element_imposition_ca', period)
-        is_zrae = (ca_zrae > 0) * (ca > 0)
+        ca_imposition = person('is_element_imposition_ca', period)
+        ca_net = person('is_resultat_exploitation_chiffre_affaires_net_total', period)
+        ca = where((ca_imposition > 0), ca_imposition, ca_net)
+        possede_quotient = (ca_zrae > 0) * (ca > 0)
         quotient_zrae = ca_zrae / where((ca > 0), ca, -1)
-        return is_zrae * quotient_zrae
+        return possede_quotient * quotient_zrae
 
 
 class is_brut_taux_activite(Variable):
