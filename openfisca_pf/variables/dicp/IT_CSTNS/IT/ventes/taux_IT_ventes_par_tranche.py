@@ -3,7 +3,8 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    GroupPopulation,
+    ParameterNode,
     Period,
     Variable,
     where,
@@ -28,7 +29,7 @@ class nombre_tranches_it_ventes(Variable):
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return len(parameters(period).dicp.it.taux_ventes.rates)
 
 
@@ -43,7 +44,7 @@ class taux_it_ventes_tranche_1(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 0
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -61,7 +62,7 @@ class taux_it_ventes_tranche_2(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 1
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -79,7 +80,7 @@ class taux_it_ventes_tranche_3(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 2
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -97,7 +98,7 @@ class taux_it_ventes_tranche_4(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 3
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -115,7 +116,7 @@ class taux_it_ventes_tranche_5(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 4
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -133,7 +134,7 @@ class taux_it_ventes_tranche_6(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 5
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -151,7 +152,7 @@ class taux_it_ventes_tranche_7(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 6
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -169,7 +170,7 @@ class taux_it_ventes_tranche_8(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 7
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -187,7 +188,7 @@ class taux_it_ventes_tranche_9(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 8
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -206,7 +207,7 @@ class taux_it_ventes_tranche_10(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 9
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -225,7 +226,7 @@ class taux_it_ventes_tranche_11(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 10
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0
@@ -244,7 +245,7 @@ class taux_it_ventes_tranche_12(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         tranche = 11
         nombre_tranches_it_ventes = pays(f'nombre_tranches_it_ventes', period)
         rate = parameters(period).dicp.it.taux_ventes.rates[tranche] if len(parameters(period).dicp.it.taux_ventes.rates) > tranche else 0

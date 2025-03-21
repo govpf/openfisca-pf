@@ -5,8 +5,9 @@ from openfisca_pf.base import (
     ArrayLike,
     floor,
     not_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     round_,
     Variable,
     where,
@@ -26,13 +27,13 @@ class base_imposable_it_ventes(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         total = 0.
         for activite in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
             cca = str(parameters(period).dicp.abattements_it_cstns.activites_ventes[activite].cca)
             coeff_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
-            chiffre_d_affaire = personne(f'chiffre_affaire_{activite}', period, parameters)
+            chiffre_d_affaire = personne(f'chiffre_affaire_{activite}', period)
             chiffre_d_affaire = floor(chiffre_d_affaire / 1000.) * 1000.
 
             # If ca is below seuil_abattement_assiette there is no reduction, otherwise the reduction is on the part above seuil_abattement_assiette
@@ -52,11 +53,11 @@ class base_imposable_it_ventes_sans_abattement_droits(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        charges_superieures_50_pourcents = personne('total_charges_releve_detaille', period, parameters) >= (personne('chiffre_affaire_total_ventes', period, parameters) / 2)
-        releve_de_charges_fourni = personne('releve_de_charges_fourni', period, parameters) == OuiNon.O
-        est_personne_physique = personne('type_personne', period, parameters) == TypePersonne.P
-        annexes_it_fournies = personne('annexes_it_fournies', period, parameters) == OuiNon.O
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        charges_superieures_50_pourcents = personne('total_charges_releve_detaille', period,) >= (personne('chiffre_affaire_total_ventes', period) / 2)
+        releve_de_charges_fourni = personne('releve_de_charges_fourni', period) == OuiNon.O
+        est_personne_physique = personne('type_personne', period) == TypePersonne.P
+        annexes_it_fournies = personne('annexes_it_fournies', period) == OuiNon.O
 
         total = 0.
         for activite in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
@@ -69,7 +70,7 @@ class base_imposable_it_ventes_sans_abattement_droits(Variable):
             abattement_droits_charges = parameters(period).dicp.abattements_it_cstns.cca[cca].abattement_de_droit_avec_condition_de_charges
             seuil_annexe = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_justificatifs_a_fournir_abattement_de_droit_avec_condition_de_charges
 
-            chiffre_d_affaire = personne(f'chiffre_affaire_{activite}', period, parameters)
+            chiffre_d_affaire = personne(f'chiffre_affaire_{activite}', period)
             chiffre_d_affaire = floor(chiffre_d_affaire / 1000.) * 1000.
 
             ca_apres_abattement_assiette = where(

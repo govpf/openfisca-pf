@@ -4,9 +4,11 @@
 from openfisca_pf.base import (
     ArrayLike,
     Enum,
+    GroupPopulation,
     not_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     where,
     YEAR
@@ -29,9 +31,9 @@ class montant_it_du(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        it_ventes = personne('it_ventes', period, parameters)
-        it_prestations = personne('it_prestations', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        it_ventes = personne('it_ventes', period)
+        it_prestations = personne('it_prestations', period)
         return arrondi_inferieur(it_ventes + it_prestations)
 
 
@@ -46,7 +48,7 @@ class it_a_payer(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         montant_it_du = personne('montant_it_du', period)
         return where(montant_it_du < 6000, 0, montant_it_du)
 
@@ -62,10 +64,10 @@ class montant_it_total_a_payer(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_it_du = personne('montant_it_du', period, parameters)
-        montant_total_deductions_it = personne('montant_total_deductions_it', period, parameters)
-        montant_total_penalites_it = personne('montant_total_penalites_it', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_it_du = personne('montant_it_du', period)
+        montant_total_deductions_it = personne('montant_total_deductions_it', period)
+        montant_total_penalites_it = personne('montant_total_penalites_it', period)
         return montant_it_du - montant_total_deductions_it + montant_total_penalites_it
 
 
@@ -80,8 +82,8 @@ class montant_it_total_pays(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_it_du = pays.members('montant_it_du', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_it_du = pays.members('montant_it_du', period)
         return pays.sum(montant_it_du)
 
 
@@ -96,11 +98,11 @@ class redevable_it(Variable):
         ]
     unit = BOOLEAN
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        redevable_tpe = personne('redevable_tpe', period, parameters)
-        type_societe = personne('type_societe', period, parameters)
-        option_is = personne('option_is', period, parameters) == OuiNon.O
-        option_it = personne('option_it', period, parameters) == OuiNon.O
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        redevable_tpe = personne('redevable_tpe', period)
+        type_societe = personne('type_societe', period)
+        option_is = personne('option_is', period) == OuiNon.O
+        option_it = personne('option_it', period) == OuiNon.O
         snc_sans_option_is = (type_societe == TypeSociete.SNC) * not_(option_is)
         ei_non_redevable_tpe = not_(redevable_tpe) * (type_societe == TypeSociete.EI)
         eurl_avec_option_it = (type_societe == TypeSociete.EURL) * option_it
@@ -134,6 +136,6 @@ class option_it_possible(Variable):
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        type_societe = personne('type_societe', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        type_societe = personne('type_societe', period)
         return type_societe == TypeSociete.EURL

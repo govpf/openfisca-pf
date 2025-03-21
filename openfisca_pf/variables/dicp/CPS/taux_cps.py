@@ -2,6 +2,7 @@
 
 
 from openfisca_pf.base import (
+    ArrayLike,
     GroupPopulation,
     MONTH,
     ParameterNode,
@@ -29,7 +30,7 @@ class taux_cps(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode):
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         taux_annee = pays('taux_cps_annee', period.this_year)
         return where(taux_annee, taux_annee, parameters(period).dicp.cps.taux)
 
@@ -48,5 +49,5 @@ class taux_cps_annee(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode):
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cps.taux

@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     round_,
     Variable,
     YEAR
@@ -43,9 +44,9 @@ class montant_majoration_it(Variable):
     definition_period = YEAR
     label = "Montant de la majoration appliquée a l'impôt sur les transactions"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        taux_majoration_it = personne('taux_majoration_it', period, parameters)
-        it_a_payer = personne('it_a_payer', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        taux_majoration_it = personne('taux_majoration_it', period)
+        it_a_payer = personne('it_a_payer', period)
         return round_(it_a_payer * taux_majoration_it / 100.)
 
 
@@ -55,8 +56,8 @@ class montant_total_penalites_it(Variable):
     definition_period = YEAR
     label = "Montant total des penalités impôt sur les transactions"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_amendes_it = personne('montant_amendes_it', period, parameters)
-        montant_majoration_it = personne('montant_majoration_it', period, parameters)
-        montant_penalites_it = personne('montant_penalites_it', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_amendes_it = personne('montant_amendes_it', period)
+        montant_majoration_it = personne('montant_majoration_it', period)
+        montant_penalites_it = personne('montant_penalites_it', period)
         return round_(montant_amendes_it + montant_majoration_it + montant_penalites_it)

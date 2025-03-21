@@ -3,7 +3,8 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    GroupPopulation,
+    ParameterNode,
     Period,
     Variable,
     YEAR
@@ -17,8 +18,8 @@ class nombre_entreprises_redevables_IT_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        redevable_it = pays.members('redevable_it', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        redevable_it = pays.members('redevable_it', period)
         return pays.sum(redevable_it * 1)
 
 
@@ -28,8 +29,8 @@ class nombre_entreprises_redevables_it_tranche_1_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 1"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_1 = pays.members('montant_du_it_tranche_1', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_1 = pays.members('montant_du_it_tranche_1', period)
         return pays.sum((montant_du_it_tranche_1 > 0) * 1)
 
 
@@ -39,8 +40,8 @@ class nombre_entreprises_redevables_it_tranche_2_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 2"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_2 = pays.members('montant_du_it_tranche_2', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_2 = pays.members('montant_du_it_tranche_2', period)
         return pays.sum((montant_du_it_tranche_2 > 0) * 1)
 
 
@@ -50,8 +51,8 @@ class nombre_entreprises_redevables_it_tranche_3_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 3"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_3 = pays.members('montant_du_it_tranche_3', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_3 = pays.members('montant_du_it_tranche_3', period)
         return pays.sum((montant_du_it_tranche_3 > 0) * 1)
 
 
@@ -61,8 +62,8 @@ class nombre_entreprises_redevables_it_tranche_4_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 4"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_4 = pays.members('montant_du_it_tranche_4', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_4 = pays.members('montant_du_it_tranche_4', period)
         return pays.sum((montant_du_it_tranche_4 > 0) * 1)
 
 
@@ -72,8 +73,8 @@ class nombre_entreprises_redevables_it_tranche_5_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 5"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_5 = pays.members('montant_du_it_tranche_5', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_5 = pays.members('montant_du_it_tranche_5', period)
         return pays.sum((montant_du_it_tranche_5 > 0) * 1)
 
 
@@ -83,8 +84,8 @@ class nombre_entreprises_redevables_it_tranche_6_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 6"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_6 = pays.members('montant_du_it_tranche_6', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_6 = pays.members('montant_du_it_tranche_6', period)
         return pays.sum((montant_du_it_tranche_6 > 0) * 1)
 
 
@@ -94,8 +95,8 @@ class nombre_entreprises_redevables_it_tranche_7_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 7"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_7 = pays.members('montant_du_it_tranche_7', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_7 = pays.members('montant_du_it_tranche_7', period)
         return pays.sum((montant_du_it_tranche_7 > 0) * 1)
 
 
@@ -105,8 +106,8 @@ class nombre_entreprises_redevables_it_tranche_8_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 8"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_8 = pays.members('montant_du_it_tranche_8', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_8 = pays.members('montant_du_it_tranche_8', period)
         return pays.sum((montant_du_it_tranche_8 > 0) * 1)
 
 
@@ -116,8 +117,8 @@ class nombre_entreprises_redevables_it_tranche_9_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 9"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_9 = pays.members('montant_du_it_tranche_9', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_9 = pays.members('montant_du_it_tranche_9', period)
         return pays.sum((montant_du_it_tranche_9 > 0) * 1)
 
 
@@ -127,8 +128,8 @@ class nombre_entreprises_redevables_it_tranche_10_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 10"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_10 = pays.members('montant_du_it_tranche_10', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_10 = pays.members('montant_du_it_tranche_10', period)
         return pays.sum((montant_du_it_tranche_10 > 0) * 1)
 
 
@@ -138,8 +139,8 @@ class nombre_entreprises_redevables_it_tranche_11_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 11"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_11 = pays.members('montant_du_it_tranche_11', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_11 = pays.members('montant_du_it_tranche_11', period)
         return pays.sum((montant_du_it_tranche_11 > 0) * 1)
 
 
@@ -149,6 +150,6 @@ class nombre_entreprises_redevables_it_tranche_12_pays(Variable):
     definition_period = YEAR
     label = "Nombre d'entreprises du pays redevables de l'impôt sur les transactions dont les revenus sont imposables à la tranche 12"
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_du_it_tranche_12 = pays.members('montant_du_it_tranche_12', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_du_it_tranche_12 = pays.members('montant_du_it_tranche_12', period)
         return pays.sum((montant_du_it_tranche_12 > 0) * 1)

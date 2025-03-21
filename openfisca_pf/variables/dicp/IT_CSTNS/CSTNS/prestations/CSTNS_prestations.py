@@ -22,7 +22,7 @@ class cstns_prestations_avant_abattement_droits(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         total = 0.
-        nombre_tranches_cstns_prestations = personne.pays('nombre_tranches_cstns_prestations', period, parameters)[0]
+        nombre_tranches_cstns_prestations = personne.pays('nombre_tranches_cstns_prestations', period)[0]
         for i in range(1, nombre_tranches_cstns_prestations + 1):
             total += personne(f'montant_cstns_prestations_du_tranche_{i}', period)
         return total
@@ -38,7 +38,7 @@ class cstns_prestations_sans_abattement_droits(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_cstns_ventes = personne('base_imposable_cstns_ventes', period) / 4
         chiffre_d_affaire = personne('base_imposable_cstns_prestations_sans_abattement_droits', period)
-        bareme = creer_bareme(personne.pays, period, parameters, 'cstns', 'prestations')
+        bareme = creer_bareme(personne.pays, period, 'cstns', 'prestations')
         return bareme.calc(base_imposable_cstns_ventes + chiffre_d_affaire) - bareme.calc(base_imposable_cstns_ventes)
 
 
