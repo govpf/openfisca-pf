@@ -4,8 +4,9 @@
 from openfisca_pf.base import (
     ArrayLike,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     set_input_divide_by_period,
     Variable
     )
@@ -96,17 +97,17 @@ class sous_total_base_imposable(Variable):
     label = 'Somme des bases imposables'
     unit = units.XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
-        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
-        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period)
+        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period)
+        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period)
         return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
 
-    def formula_2025(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period, parameters)
-        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period, parameters)
-        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period, parameters)
-        base_imposable_tva_taux_livraisons_immeubles_et_cession_parts = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period, parameters)
+    def formula_2025(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period)
+        base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period)
+        base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period)
+        base_imposable_tva_taux_livraisons_immeubles_et_cession_parts = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period)
         return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal + base_imposable_tva_taux_livraisons_immeubles_et_cession_parts
 
 
@@ -117,9 +118,9 @@ class sous_total_operations(Variable):
     label = 'Somme des opérations'
     unit = units.XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_prestations_services_hors_taxes = personne('montant_prestations_services_hors_taxes', period, parameters)
-        montant_ventes_hors_taxes = personne('montant_ventes_hors_taxes', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_prestations_services_hors_taxes = personne('montant_prestations_services_hors_taxes', period)
+        montant_ventes_hors_taxes = personne('montant_ventes_hors_taxes', period)
         return montant_ventes_hors_taxes + montant_prestations_services_hors_taxes
 
 
@@ -133,7 +134,7 @@ class entrants_tva_valides(Variable):
     """
     unit = units.BOOLEAN
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        sous_total_base_imposable = personne('sous_total_base_imposable', period, parameters)
-        sous_total_operations = personne('sous_total_operations', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        sous_total_base_imposable = personne('sous_total_base_imposable', period)
+        sous_total_operations = personne('sous_total_operations', period)
         return sous_total_base_imposable == sous_total_operations

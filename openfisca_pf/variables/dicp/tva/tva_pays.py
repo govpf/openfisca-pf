@@ -4,8 +4,9 @@
 from openfisca_core.populations import ADD
 from openfisca_pf.base import (
     ArrayLike,
+    GroupPopulation,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
     YEAR,
     Variable
@@ -21,8 +22,8 @@ class tva_nette_due_total_pays(Variable):
     label = "Montant total de TVA nette due par les entreprises du pays"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        tva_nette_due = pays.members('tva_nette_due', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_nette_due = pays.members('tva_nette_due', period)
         return pays.sum(tva_nette_due)
 
 
@@ -33,8 +34,8 @@ class credit_tva_total_pays(Variable):
     label = "Montant total de crédit de TVA à à rembourser aux entreprises du pays"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        credit_tva = pays.members('credit_tva', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        credit_tva = pays.members('credit_tva', period)
         return pays.sum(credit_tva)
 
 
@@ -45,8 +46,8 @@ class tva_due_taux_reduit_pays(Variable):
     label = "Montant total de TVA due en taux réduit par les entreprises du pays"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        tva_due_taux_reduit_pays = pays.members('tva_due_taux_reduit', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_due_taux_reduit_pays = pays.members('tva_due_taux_reduit', period)
         return pays.sum(tva_due_taux_reduit_pays)
 
 
@@ -57,8 +58,8 @@ class tva_due_taux_intermediaire_pays(Variable):
     label = "Montant total de TVA due en taux intermediaire par les entreprises du pays"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        tva_due_taux_intermediaire_pays = pays.members('tva_due_taux_intermediaire', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_due_taux_intermediaire_pays = pays.members('tva_due_taux_intermediaire', period)
         return pays.sum(tva_due_taux_intermediaire_pays)
 
 
@@ -69,8 +70,8 @@ class tva_due_taux_livraisons_immeubles_et_cession_parts_pays(Variable):
     label = u"Montant total de TVA due en taux livraisons d'immeubles et cession de parts par les entreprises du pays"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        tva_due_taux_livraisons_immeubles_et_cession_parts_pays = pays.members('tva_due_taux_livraisons_immeubles_et_cession_parts', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_due_taux_livraisons_immeubles_et_cession_parts_pays = pays.members('tva_due_taux_livraisons_immeubles_et_cession_parts', period)
         return pays.sum(tva_due_taux_livraisons_immeubles_et_cession_parts_pays)
 
 
@@ -81,8 +82,8 @@ class tva_due_taux_normal_pays(Variable):
     label = "Montant total de TVA due en taux normal par les entreprises du pays"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        tva_due_taux_normal_pays = pays.members('tva_due_taux_normal', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_due_taux_normal_pays = pays.members('tva_due_taux_normal', period)
         return pays.sum(tva_due_taux_normal_pays)
 
 
@@ -93,8 +94,8 @@ class tva_nette_due_total_pays_annee(Variable):
     label = "Montant total de TVA nette due par les entreprises du pays sur l'année"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return pays('tva_nette_due_total_pays', period, parameters, options = [ADD])
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return pays('tva_nette_due_total_pays', period, options = [ADD])
 
 
 class credit_tva_total_pays_annee(Variable):
@@ -104,8 +105,8 @@ class credit_tva_total_pays_annee(Variable):
     label = "Montant total de crédit de TVA à à rembourser aux entreprises du pays sur l'année"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return pays('credit_tva_total_pays', period, parameters, options = [ADD])
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return pays('credit_tva_total_pays', period, options = [ADD])
 
 
 class tva_due_taux_reduit_pays_annee(Variable):
@@ -115,8 +116,8 @@ class tva_due_taux_reduit_pays_annee(Variable):
     label = "Montant total de TVA due en taux réduit par les entreprises du pays sur l'année"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return pays('tva_due_taux_reduit_pays', period, parameters, options = [ADD])
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return pays('tva_due_taux_reduit_pays', period, options = [ADD])
 
 
 class tva_due_taux_intermediaire_pays_annee(Variable):
@@ -126,8 +127,8 @@ class tva_due_taux_intermediaire_pays_annee(Variable):
     label = "Montant total de TVA due en taux intermediaire par les entreprises du pays sur l'année"
     unit = units.XPF
 
-    def formula(pays: Pays, period, parameters: Parameters) -> ArrayLike:
-        return pays('tva_due_taux_intermediaire_pays', period, parameters, options = [ADD])
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return pays('tva_due_taux_intermediaire_pays', period, options = [ADD])
 
 
 class tva_due_taux_normal_pays_annee(Variable):
@@ -137,8 +138,8 @@ class tva_due_taux_normal_pays_annee(Variable):
     label = "Montant total de TVA due en taux normal par les entreprises du pays sur l'année"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return pays('tva_due_taux_normal_pays', period, parameters, options = [ADD])
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return pays('tva_due_taux_normal_pays', period, options = [ADD])
 
 
 class tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee(Variable):
@@ -148,6 +149,6 @@ class tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee(Variable):
     label = u"Montant total de TVA due en taux livraisons d'immeubles et cession de parts par les entreprises du pays sur l'année"
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee = pays('tva_due_taux_livraisons_immeubles_et_cession_parts_pays', period, parameters, options = [ADD])
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee = pays('tva_due_taux_livraisons_immeubles_et_cession_parts_pays', period, options = [ADD])
         return tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee

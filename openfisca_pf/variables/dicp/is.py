@@ -4,9 +4,11 @@
 from openfisca_pf.base import (
     ArrayLike,
     Enum,
+    GroupPopulation,
     not_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -32,9 +34,9 @@ class option_is_possible(Variable):
     label = "Indique que l'entreprise peut opter pour l'impôt sur les sociétés plutot que l'impôt sur les transactions"
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        type_societe = personne('type_societe', period, parameters)
-        return (type_societe == TypeSociete.SNC)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        type_societe = personne('type_societe', period)
+        return type_societe == TypeSociete.SNC
 
 
 class redevable_is(Variable):
@@ -44,9 +46,9 @@ class redevable_is(Variable):
     label = "Défini si l'entreprise est éligible à l'impôt sur les sociétés"
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        redevable_tpe = personne('redevable_tpe', period, parameters)
-        redevable_it = personne('redevable_it', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        redevable_tpe = personne('redevable_tpe', period)
+        redevable_it = personne('redevable_it', period)
         return not_(redevable_tpe + redevable_it)
 
 
@@ -57,6 +59,6 @@ class nombre_entreprises_redevables_is_pays(Variable):
     label = "Nombre d'entreprises du pays redevable de l'impôt sur les sociétés"
     reference = []
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        redevable_is = pays.members('redevable_is', period, parameters)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        redevable_is = pays.members('redevable_is', period)
         return pays.sum(redevable_is * 1)

@@ -5,8 +5,9 @@ from openfisca_pf.base import (
     ArrayLike,
     DAY,
     Enum,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     select,
     Variable,
     where
@@ -26,8 +27,8 @@ class type_calcul_redevance_domaniale_est_type_4(Variable):
     unit = BOOLEAN
     label = "Determine si le calcul de redevance domaniale est de type 4"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('type_calcul_redevance_domaniale', period, parameters) == '4'
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('type_calcul_redevance_domaniale', period) == '4'
 
 
 class montant_base_redevance_domaniale_type_4(Variable):
@@ -39,8 +40,8 @@ class montant_base_redevance_domaniale_type_4(Variable):
     label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier et les paramètres dépendant de la zone géographique"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('montant_total_redevance_domaniale_type_4', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('montant_total_redevance_domaniale_type_4', period)
 
 
 class montant_total_redevance_domaniale_type_4(Variable):
@@ -52,14 +53,14 @@ class montant_total_redevance_domaniale_type_4(Variable):
     label = "Montant de la redevance domaniale dûe avec un calcul dont le taux journalier évolue par palier et les paramètres dépendant de la zone géographique"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         # Variables
-        type_calcul = personne('type_calcul_redevance_domaniale_est_type_4', period, parameters)
-        emprise = personne('nature_emprise_occupation_redevance_domaniale', period, parameters)
-        duree = personne('duree_occupation_redevance_domaniale_jour', period, parameters)
-        zone = personne('zone_occupation_redevance_domaniale', period, parameters)
-        majoration = personne('majoration_redevance_domaniale', period, parameters)
-        exonere = personne('activite_cultuelle', period, parameters)
+        type_calcul = personne('type_calcul_redevance_domaniale_est_type_4', period)
+        emprise = personne('nature_emprise_occupation_redevance_domaniale', period)
+        duree = personne('duree_occupation_redevance_domaniale_jour', period)
+        zone = personne('zone_occupation_redevance_domaniale', period)
+        majoration = personne('majoration_redevance_domaniale', period)
+        exonere = personne('activite_cultuelle', period)
 
         # Lors de demandes multiples avec des types de calculs différents,
         # il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.

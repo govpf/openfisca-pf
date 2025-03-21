@@ -13,8 +13,9 @@ from openfisca_pf.base import (
     ArrayLike,
     MONTH,
     not_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     select,
     set_input_dispatch_by_period,
     Variable,
@@ -61,15 +62,12 @@ class eligible_cis(Variable):
         ]
     unit = BOOLEAN
 
-    def formula_2021_02(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        regime_cps_valide = personne('regime_cps', period, parameters) == RegimeCPS.RSPF
-        age = personne('age', period, parameters)
+    def formula_2021_02(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        regime_cps_valide = personne('regime_cps', period) == RegimeCPS.RSPF
+        age = personne('age', period)
         age_min = parameters(period).sefi.cis.age_minimum
         age_max = parameters(period).sefi.cis.age_maximum
         return regime_cps_valide * (age <= age_max) * (age >= age_min)
-
-    def formula(personne: Personne) -> ArrayLike:
-        return False
 
 
 class eligible_cis_annee(Variable):
@@ -85,10 +83,10 @@ class eligible_cis_annee(Variable):
         ]
     unit = BOOLEAN
 
-    def formula_2021_02(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('eligible_cis', period, parameters, options = [ADD])
+    def formula_2021_02(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('eligible_cis', period, options = [ADD])
 
-    def formula(personne: Personne) -> ArrayLike:
+    def formula(personne: Population) -> ArrayLike:
         return False
 
 
@@ -105,9 +103,9 @@ class montant_cis(Variable):
         ]
     unit = XPF_PER_MONTH
 
-    def formula_2021_02(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_cis = personne('eligible_cis', period, parameters)
-        nombre_heures_interet_general = personne('nombre_heures_interet_general', period.last_month, parameters)
+    def formula_2021_02(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_cis = personne('eligible_cis', period)
+        nombre_heures_interet_general = personne('nombre_heures_interet_general', period.last_month)
         signature_convention_1_mois = personne('convention_cis_signee', period.last_month)
         signature_convention_2_mois = personne('convention_cis_signee', period.last_month.last_month)
         signature_convention_3_mois = personne('convention_cis_signee', period.last_month.last_month.last_month)
@@ -128,6 +126,3 @@ class montant_cis(Variable):
                 0
                 ]
             )
-
-    def formula(personne: Personne) -> ArrayLike:
-        return 0.

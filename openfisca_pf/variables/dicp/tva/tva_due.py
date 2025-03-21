@@ -5,8 +5,9 @@ from openfisca_pf.base import (
     ArrayLike,
     MONTH,
     set_input_dispatch_by_period,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable
     )
 from openfisca_pf.constants.units import XPF
@@ -22,9 +23,9 @@ class tva_due_taux_reduit(Variable):
     set_input = set_input_dispatch_by_period
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_tva_taux_reduit', period, parameters)
-        taux = personne.pays('taux_tva_reduit', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_tva_taux_reduit', period)
+        taux = personne.pays('taux_tva_reduit', period)
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -36,9 +37,9 @@ class tva_due_taux_intermediaire(Variable):
     set_input = set_input_dispatch_by_period
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_tva_taux_intermediaire', period, parameters)
-        taux = personne.pays('taux_tva_intermediaire', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_tva_taux_intermediaire', period)
+        taux = personne.pays('taux_tva_intermediaire', period)
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -50,9 +51,9 @@ class tva_due_taux_normal(Variable):
     set_input = set_input_dispatch_by_period
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_tva_taux_normal', period, parameters)
-        taux = personne.pays('taux_tva_normal', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_tva_taux_normal', period)
+        taux = personne.pays('taux_tva_normal', period)
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -64,7 +65,7 @@ class tva_due_taux_livraisons_immeubles_et_cession_parts(Variable):
     set_input = set_input_dispatch_by_period
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period)
         taux = personne.pays('taux_tva_livraisons_immeubles_et_cession_parts', period)
         return arrondi_superieur(base_imposable * taux)

@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
+    GroupPopulation,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
     Variable
     )
@@ -29,7 +30,7 @@ class seuil_cst_s_tranche_1(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[0]
 
 
@@ -45,7 +46,7 @@ class seuil_cst_s_tranche_2(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[1]
 
 
@@ -61,7 +62,7 @@ class seuil_cst_s_tranche_3(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[2]
 
 
@@ -77,7 +78,7 @@ class seuil_cst_s_tranche_4(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[3]
 
 
@@ -93,7 +94,7 @@ class seuil_cst_s_tranche_5(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[4]
 
 
@@ -109,7 +110,7 @@ class seuil_cst_s_tranche_6(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[5]
 
 
@@ -125,7 +126,7 @@ class seuil_cst_s_tranche_7(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[6]
 
 
@@ -141,7 +142,7 @@ class seuil_cst_s_tranche_8(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[7]
 
 
@@ -157,7 +158,7 @@ class seuil_cst_s_tranche_9(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[8]
 
 
@@ -173,7 +174,7 @@ class seuil_cst_s_tranche_10(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[9]
 
 
@@ -189,7 +190,7 @@ class seuil_cst_s_tranche_11(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[10]
 
 
@@ -205,5 +206,5 @@ class seuil_cst_s_tranche_12(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.thresholds[11]

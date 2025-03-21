@@ -14,20 +14,20 @@
 
 
 
-- name: "taux_autres_archipel_pays est égale à 0 avant 1951 car il n'existait pas"
+- name: "taux_autres_archipels_pays est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
   output:
-    taux_autres_archipel_pays: 0
+    taux_autres_archipels_pays: 0
 
-- name: "taux_autres_archipel_pays est égale à 0.03 à partir de 1951"
+- name: "taux_autres_archipels_pays est égale à 0.03 à partir de 1951"
   period: 1951
   output:
-    taux_autres_archipel_pays: 0.03
+    taux_autres_archipels_pays: 0.03
 
-- name: "taux_autres_archipel_pays est égale à 0 à partir de 2012 car il ne s'applique plus"
+- name: "taux_autres_archipels_pays est égale à 0 à partir de 2012 car il ne s'applique plus"
   period: 2012
   output:
-    taux_autres_archipel_pays: 0
+    taux_autres_archipels_pays: 0
 
 
 
@@ -110,26 +110,26 @@
 
 
 
-- name: "taux_autres_archipel est égale 0 en 1950 car il n'existait pas"
+- name: "taux_autres_archipels est égale 0 en 1950 car il n'existait pas"
   period: 1950
   input:
-    taux_autres_archipel_pays: 10
+    taux_autres_archipels_pays: 10
   output:
-    taux_autres_archipel: 0
+    taux_autres_archipels: 0
 
-- name: "taux_autres_archipel est égale taux_autres_archipel_pays à partir de 1951"
+- name: "taux_autres_archipels est égale taux_autres_archipels_pays à partir de 1951"
   period: 1951
   input:
-    taux_autres_archipel_pays: 10
+    taux_autres_archipels_pays: 10
   output:
-    taux_autres_archipel: 10
+    taux_autres_archipels: 10
 
-- name: "taux_autres_archipel est égale 0 en 2012 car il ne s'applique plus"
+- name: "taux_autres_archipels est égale 0 en 2012 car il ne s'applique plus"
   period: 2012
   input:
-    taux_autres_archipel_pays: 10
+    taux_autres_archipels_pays: 10
   output:
-    taux_autres_archipel: 0
+    taux_autres_archipels: 0
 
 
 
@@ -228,53 +228,53 @@
   input:
     archipel: ILES_DU_VENT
     taux_archipel_iles_du_vent: 1
-    taux_autres_archipel: 2
+    taux_autres_archipels: 2
   output:
     taux_archipel: 1
 
-- name: "taux_archipel est égale à taux_autres_archipel si archipel est AUSTRALES à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipels si archipel est AUSTRALES à partir de 1951"
   period: 1951
   input:
     archipel: AUSTRALES
     taux_archipel_iles_du_vent: 1
-    taux_autres_archipel: 2
+    taux_autres_archipels: 2
   output:
     taux_archipel: 2
 
-- name: "taux_archipel est égale à taux_autres_archipel si archipel est GAMBIERS à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipels si archipel est GAMBIERS à partir de 1951"
   period: 1951
   input:
     archipel: GAMBIERS
     taux_archipel_iles_du_vent: 1
-    taux_autres_archipel: 2
+    taux_autres_archipels: 2
   output:
     taux_archipel: 2
 
-- name: "taux_archipel est égale à taux_autres_archipel si archipel est MARQUISES à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipels si archipel est MARQUISES à partir de 1951"
   period: 1951
   input:
     archipel: MARQUISES
     taux_archipel_iles_du_vent: 1
-    taux_autres_archipel: 2
+    taux_autres_archipels: 2
   output:
     taux_archipel: 2
 
-- name: "taux_archipel est égale à taux_autres_archipel si archipel est TUAMOTUS à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipels si archipel est TUAMOTUS à partir de 1951"
   period: 1951
   input:
     archipel: TUAMOTUS
     taux_archipel_iles_du_vent: 1
-    taux_autres_archipel: 2
+    taux_autres_archipels: 2
   output:
     taux_archipel: 2
 
 
-- name: "taux_archipel est égale à taux_autres_archipel si archipel est ILES_SOUS_LE_VENT à partir de 1951"
+- name: "taux_archipel est égale à taux_autres_archipels si archipel est ILES_SOUS_LE_VENT à partir de 1951"
   period: 1951
   input:
     archipel: ILES_SOUS_LE_VENT
     taux_archipel_iles_du_vent: 1
-    taux_autres_archipel: 2
+    taux_autres_archipels: 2
   output:
     taux_archipel: 2
 

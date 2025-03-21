@@ -8,8 +8,9 @@ from openfisca_pf.base import (
     ETERNITY,
     Enum,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     set_input_dispatch_by_period,
     timedelta64,
     Variable
@@ -88,8 +89,8 @@ class en_activite_salariee(Variable):
     label = 'Indique si la personne exerce une activité (stage ou emploi)'
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        type_contrat = personne('type_contrat', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        type_contrat = personne('type_contrat', period)
         return type_contrat != TypeContrat.Aucun
 
 
@@ -102,9 +103,9 @@ class perte_emploi(Variable):
     label = 'Indique si la personne a perdu son emploi'
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        type_contrat_actuel = personne('type_contrat', period, parameters)
-        type_contrat_precedent = personne('type_contrat', period.last_month, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        type_contrat_actuel = personne('type_contrat', period)
+        type_contrat_precedent = personne('type_contrat', period.last_month)
         return (type_contrat_actuel == TypeContrat.Aucun) \
             * (type_contrat_precedent != TypeContrat.Aucun)
 
@@ -119,18 +120,18 @@ class age(Variable):
     is_period_size_independent = True
     set_input = set_input_dispatch_by_period
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
 
         date_de_naissance_connue = personne.get_holder('date_naissance').get_known_periods()
 
         if date_de_naissance_connue:
-            date_naissance = personne('date_naissance', period, parameters)
+            date_naissance = personne('date_naissance', period)
             return (datetime64(period.start) - date_naissance + EPSILON_TIMEDELTA).astype('timedelta64[Y]')
 
         else:
             age_en_mois_connue = bool(personne.get_holder('age_en_mois').get_known_periods())
             if age_en_mois_connue:
-                return personne('age_en_mois', period, parameters) // NOMBRE_DE_MOIS_PAR_AN
+                return personne('age_en_mois', period) // NOMBRE_DE_MOIS_PAR_AN
 
             # Si on connait l'age de la personne lors d'une autre année, on peut le calculer
             age_a_d_autres_periodes = personne.get_holder('age')
@@ -157,8 +158,8 @@ class age_en_mois(Variable):
     is_period_size_independent = True
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        # Si l'age_en_mois de la personne est connu un jour d'un autre mois, on peut calculer l'age en mois ce mois ci
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        # Si l'age_en_mois de la personne est connu un jour d'un autre mois, on peut calculer l'age en mois ce mois-ci
         debut_de_la_periode_courrante = period.start
         age_en_mois_connus = personne.get_holder('age_en_mois')
         periodes_ou_l_age_en_mois_est_connu = age_en_mois_connus.get_known_periods()

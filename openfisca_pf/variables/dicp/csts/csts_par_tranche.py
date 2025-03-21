@@ -6,8 +6,9 @@ from openfisca_pf.base import (
     floor,
     max_,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable
     )
 from openfisca_pf.constants.dicp.references_csts import (
@@ -31,9 +32,9 @@ class cst_s_due_tranche_1(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_1 = personne('revenus_tranche_1', period, parameters)
-        taux_tranche_1 = personne.pays('taux_cst_s_tranche_1', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_1 = personne('revenus_tranche_1', period)
+        taux_tranche_1 = personne.pays('taux_cst_s_tranche_1', period)
         cst_s_tranche_1 = taux_tranche_1 * max_(revenus_tranche_1, 0)
         return floor(cst_s_tranche_1)
 
@@ -50,9 +51,9 @@ class cst_s_due_tranche_2(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_2 = personne('revenus_tranche_2', period, parameters)
-        taux_tranche_2 = personne.pays('taux_cst_s_tranche_2', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_2 = personne('revenus_tranche_2', period)
+        taux_tranche_2 = personne.pays('taux_cst_s_tranche_2', period)
         cst_s_tranche_2 = taux_tranche_2 * max_(revenus_tranche_2, 0)
         return floor(cst_s_tranche_2)
 
@@ -69,9 +70,9 @@ class cst_s_due_tranche_3(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_3 = personne('revenus_tranche_3', period, parameters)
-        taux_tranche_3 = personne.pays('taux_cst_s_tranche_3', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_3 = personne('revenus_tranche_3', period)
+        taux_tranche_3 = personne.pays('taux_cst_s_tranche_3', period)
         cst_s_tranche_3 = taux_tranche_3 * max_(revenus_tranche_3, 0)
         return floor(cst_s_tranche_3)
 
@@ -88,9 +89,9 @@ class cst_s_due_tranche_4(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_4 = personne('revenus_tranche_4', period, parameters)
-        taux_tranche_4 = personne.pays('taux_cst_s_tranche_4', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_4 = personne('revenus_tranche_4', period)
+        taux_tranche_4 = personne.pays('taux_cst_s_tranche_4', period)
         cst_s_tranche_4 = taux_tranche_4 * max_(revenus_tranche_4, 0)
         return floor(cst_s_tranche_4)
 
@@ -107,9 +108,9 @@ class cst_s_due_tranche_5(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_5 = personne('revenus_tranche_5', period, parameters)
-        taux_tranche_5 = personne.pays('taux_cst_s_tranche_5', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_5 = personne('revenus_tranche_5', period)
+        taux_tranche_5 = personne.pays('taux_cst_s_tranche_5', period)
         cst_s_tranche_5 = taux_tranche_5 * max_(revenus_tranche_5, 0)
         return floor(cst_s_tranche_5)
 
@@ -126,9 +127,9 @@ class cst_s_due_tranche_6(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_6 = personne('revenus_tranche_6', period, parameters)
-        taux_tranche_6 = personne.pays('taux_cst_s_tranche_6', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_6 = personne('revenus_tranche_6', period)
+        taux_tranche_6 = personne.pays('taux_cst_s_tranche_6', period)
         cst_s_tranche_6 = taux_tranche_6 * max_(revenus_tranche_6, 0)
         return floor(cst_s_tranche_6)
 
@@ -145,9 +146,9 @@ class cst_s_due_tranche_7(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_7 = personne('revenus_tranche_7', period, parameters)
-        taux_tranche_7 = personne.pays('taux_cst_s_tranche_7', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_7 = personne('revenus_tranche_7', period)
+        taux_tranche_7 = personne.pays('taux_cst_s_tranche_7', period)
         cst_s_tranche_7 = taux_tranche_7 * max_(revenus_tranche_7, 0)
         return floor(cst_s_tranche_7)
 
@@ -164,9 +165,9 @@ class cst_s_due_tranche_8(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_8 = personne('revenus_tranche_8', period, parameters)
-        taux_tranche_8 = personne.pays('taux_cst_s_tranche_8', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_8 = personne('revenus_tranche_8', period)
+        taux_tranche_8 = personne.pays('taux_cst_s_tranche_8', period)
         cst_s_tranche_8 = taux_tranche_8 * max_(revenus_tranche_8, 0)
         return floor(cst_s_tranche_8)
 
@@ -183,9 +184,9 @@ class cst_s_due_tranche_9(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_9 = personne('revenus_tranche_9', period, parameters)
-        taux_tranche_9 = personne.pays('taux_cst_s_tranche_9', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_9 = personne('revenus_tranche_9', period)
+        taux_tranche_9 = personne.pays('taux_cst_s_tranche_9', period)
         cst_s_tranche_9 = taux_tranche_9 * max_(revenus_tranche_9, 0)
         return floor(cst_s_tranche_9)
 
@@ -202,9 +203,9 @@ class cst_s_due_tranche_10(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_10 = personne('revenus_tranche_10', period, parameters)
-        taux_tranche_10 = personne.pays('taux_cst_s_tranche_10', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_10 = personne('revenus_tranche_10', period)
+        taux_tranche_10 = personne.pays('taux_cst_s_tranche_10', period)
         cst_s_tranche_10 = taux_tranche_10 * max_(revenus_tranche_10, 0)
         return floor(cst_s_tranche_10)
 
@@ -221,9 +222,9 @@ class cst_s_due_tranche_11(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_11 = personne('revenus_tranche_11', period, parameters)
-        taux_tranche_11 = personne.pays('taux_cst_s_tranche_11', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_11 = personne('revenus_tranche_11', period)
+        taux_tranche_11 = personne.pays('taux_cst_s_tranche_11', period)
         cst_s_tranche_11 = taux_tranche_11 * max_(revenus_tranche_11, 0)
         return floor(cst_s_tranche_11)
 
@@ -240,8 +241,8 @@ class cst_s_due_tranche_12(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        revenus_tranche_12 = personne('revenus_tranche_12', period, parameters)
-        taux_tranche_12 = personne.pays('taux_cst_s_tranche_12', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        revenus_tranche_12 = personne('revenus_tranche_12', period)
+        taux_tranche_12 = personne.pays('taux_cst_s_tranche_12', period)
         cst_s_tranche_12 = taux_tranche_12 * max_(revenus_tranche_12, 0)
         return floor(cst_s_tranche_12)
