@@ -1,5 +1,12 @@
-from openfisca_core.model_api import DAY, Variable
 # Import the Entities specifically defined for this tax and benefit system
+from openfisca_pf.base import (
+    ArrayLike,
+    DAY,
+    ParameterNode,
+    Period,
+    Population,
+    Variable
+    )
 from openfisca_pf.entities import Personne
 
 
@@ -31,10 +38,10 @@ class is_resultat_exceptionnel_total_produits(Variable):
     definition_period = DAY
     label = "Total des produits exceptionnels (HD)"
 
-    def formula(person, period):
-        gestion = person('is_resultat_exceptionnel_produits_gestion', period)
-        capital = person('is_resultat_exceptionnel_produits_capital', period)
-        transfert = person('is_resultat_exceptionnel_reprises_provisions_transfert_charges', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        gestion = personne('is_resultat_exceptionnel_produits_gestion', period)
+        capital = personne('is_resultat_exceptionnel_produits_capital', period)
+        transfert = personne('is_resultat_exceptionnel_reprises_provisions_transfert_charges', period)
         return gestion + capital + transfert
 
 
@@ -66,10 +73,10 @@ class is_resultat_exceptionnel_total_charges(Variable):
     definition_period = DAY
     label = "Total des charges exceptionnels (HH)"
 
-    def formula(person, period):
-        gestion = person('is_resultat_exceptionnel_charges_gestion', period)
-        capital = person('is_resultat_exceptionnel_charges_capital', period)
-        dotation = person('is_resultat_exceptionnel_dotations_ammortissements_provisions', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        gestion = personne('is_resultat_exceptionnel_charges_gestion', period)
+        capital = personne('is_resultat_exceptionnel_charges_capital', period)
+        dotation = personne('is_resultat_exceptionnel_dotations_ammortissements_provisions', period)
         return gestion + capital + dotation
 
 
@@ -80,7 +87,7 @@ class is_resultat_exceptionnel(Variable):
     definition_period = DAY
     label = "Résultat Exceptionnel (HI)"
 
-    def formula(person, period):
-        produits = person('is_resultat_exceptionnel_total_produits', period)
-        charges = person('is_resultat_exceptionnel_total_charges', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        produits = personne('is_resultat_exceptionnel_total_produits', period)
+        charges = personne('is_resultat_exceptionnel_total_charges', period)
         return produits - charges

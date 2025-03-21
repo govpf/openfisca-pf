@@ -1,5 +1,12 @@
-from openfisca_core.model_api import DAY, Variable
 # Import the Entities specifically defined for this tax and benefit system
+from openfisca_pf.base import (
+    ArrayLike,
+    DAY,
+    ParameterNode,
+    Period,
+    Population,
+    Variable
+    )
 from openfisca_pf.entities import Personne
 
 
@@ -45,12 +52,12 @@ class is_resultat_financier_total_produits(Variable):
     definition_period = DAY
     label = "Total des produits financiers (GP)"
 
-    def formula(person, period):
-        participation = person('is_resultat_financier_participations', period)
-        immobilier = person('is_resultat_financier_valeurs_mobilieres', period)
-        interets = person('is_resultat_financier_autres_interets', period)
-        charges = person('is_resultat_financier_transfert_charges', period)
-        change = person('is_resultat_financier_differences_positives_change', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        participation = personne('is_resultat_financier_participations', period)
+        immobilier = personne('is_resultat_financier_valeurs_mobilieres', period)
+        interets = personne('is_resultat_financier_autres_interets', period)
+        charges = personne('is_resultat_financier_transfert_charges', period)
+        change = personne('is_resultat_financier_differences_positives_change', period)
         return participation + immobilier + interets + charges + change
 
 
@@ -75,9 +82,9 @@ class is_resultat_financier_total_charges(Variable):
     definition_period = DAY
     label = "Total des charges financières (GU)"
 
-    def formula(person, period):
-        interets = person('is_resultat_financier_charges_interets', period)
-        change = person('is_resultat_financier_differences_negative_change', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        interets = personne('is_resultat_financier_charges_interets', period)
+        change = personne('is_resultat_financier_differences_negative_change', period)
         return interets + change
 
 
@@ -88,7 +95,7 @@ class is_resultat_financier(Variable):
     definition_period = DAY
     label = "Total des charges financières (GV)"
 
-    def formula(person, period):
-        produits = person('is_resultat_financier_total_produits', period)
-        charges = person('is_resultat_financier_total_charges', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        produits = personne('is_resultat_financier_total_produits', period)
+        charges = personne('is_resultat_financier_total_charges', period)
         return produits - charges

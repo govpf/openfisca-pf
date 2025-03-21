@@ -1,5 +1,12 @@
-from openfisca_core.model_api import YEAR, Variable
 # Import the Entities specifically defined for this tax and benefit system
+from openfisca_pf.base import (
+    ArrayLike,
+    ParameterNode,
+    Period,
+    Population,
+    Variable,
+    YEAR
+    )
 from openfisca_pf.entities import Personne
 
 
@@ -560,18 +567,18 @@ class is_immobilisations_total_corporelles_brute_debut_exercice(Variable):
     definition_period = YEAR
     label = "Total immobilisations corporelles, Valeur brute des immobilisations au début de l'exercice (LN)"
 
-    def formula(person, period):
-        immo_terrains = person('is_immobilisations_corporelles_terrains_brute_debut_exercice', period)
-        immo_sol_propre = person('is_immobilisations_corporelles_constructions_sur_sol_propre_brute_debut_exercice', period)
-        immo_sol_autrui = person('is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_debut_exercice', period)
-        immo_installations = person('is_immobilisations_corporelles_constructions_installations_amenagements_brute_debut_exercice', period)
-        immo_materiel_industriel = person('is_immobilisations_corporelles_installations_materiel_industriel_brute_debut_exercice', period)
-        immo_autres_installations = person('is_immobilisations_corporelles_autres_installations_amenagements_brute_debut_exercice', period)
-        immo_autres_transport = person('is_immobilisations_corporelles_autres_materiel_transport_brute_debut_exercice', period)
-        immo_autres_bureau = person('is_immobilisations_corporelles_autres_materiel_bureau_brute_debut_exercice', period)
-        immo_autres_emballage = person('is_immobilisations_corporelles_autres_emballages_brute_debut_exercice', period)
-        immo_en_cours = person('is_immobilisations_corporelles_en_cours_brute_debut_exercice', period)
-        immo_avances = person('is_immobilisations_corporelles_avances_brute_debut_exercice', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_terrains = personne('is_immobilisations_corporelles_terrains_brute_debut_exercice', period)
+        immo_sol_propre = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_brute_debut_exercice', period)
+        immo_sol_autrui = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_debut_exercice', period)
+        immo_installations = personne('is_immobilisations_corporelles_constructions_installations_amenagements_brute_debut_exercice', period)
+        immo_materiel_industriel = personne('is_immobilisations_corporelles_installations_materiel_industriel_brute_debut_exercice', period)
+        immo_autres_installations = personne('is_immobilisations_corporelles_autres_installations_amenagements_brute_debut_exercice', period)
+        immo_autres_transport = personne('is_immobilisations_corporelles_autres_materiel_transport_brute_debut_exercice', period)
+        immo_autres_bureau = personne('is_immobilisations_corporelles_autres_materiel_bureau_brute_debut_exercice', period)
+        immo_autres_emballage = personne('is_immobilisations_corporelles_autres_emballages_brute_debut_exercice', period)
+        immo_en_cours = personne('is_immobilisations_corporelles_en_cours_brute_debut_exercice', period)
+        immo_avances = personne('is_immobilisations_corporelles_avances_brute_debut_exercice', period)
         return immo_terrains + immo_sol_propre + immo_sol_autrui + immo_installations + immo_materiel_industriel + immo_autres_installations + immo_autres_transport + immo_autres_bureau + immo_autres_emballage + immo_en_cours + immo_avances
 
 
@@ -581,18 +588,18 @@ class is_immobilisations_total_corporelles_augmentation_reevaluation(Variable):
     definition_period = YEAR
     label = "Total immobilisations corporelles, Augmentations Consécutives à une réévaluation pratiquée au cours de l'exercice (LO)"
 
-    def formula(person, period):
-        immo_terrains = person('is_immobilisations_corporelles_terrains_augmentation_reevaluation', period)
-        immo_sol_propre = person('is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_reevaluation', period)
-        immo_sol_autrui = person('is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_reevaluation', period)
-        immo_installations = person('is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_reevaluation', period)
-        immo_materiel_industriel = person('is_immobilisations_corporelles_installations_materiel_industriel_augmentation_reevaluation', period)
-        immo_autres_installations = person('is_immobilisations_corporelles_autres_installations_amenagements_augmentation_reevaluation', period)
-        immo_autres_transport = person('is_immobilisations_corporelles_autres_materiel_transport_augmentation_reevaluation', period)
-        immo_autres_bureau = person('is_immobilisations_corporelles_autres_materiel_bureau_augmentation_reevaluation', period)
-        immo_autres_emballage = person('is_immobilisations_corporelles_autres_emballages_augmentation_reevaluation', period)
-        immo_en_cours = person('is_immobilisations_corporelles_en_cours_augmentation_reevaluation', period)
-        immo_avances = person('is_immobilisations_corporelles_avances_augmentation_reevaluation', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_terrains = personne('is_immobilisations_corporelles_terrains_augmentation_reevaluation', period)
+        immo_sol_propre = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_reevaluation', period)
+        immo_sol_autrui = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_reevaluation', period)
+        immo_installations = personne('is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_reevaluation', period)
+        immo_materiel_industriel = personne('is_immobilisations_corporelles_installations_materiel_industriel_augmentation_reevaluation', period)
+        immo_autres_installations = personne('is_immobilisations_corporelles_autres_installations_amenagements_augmentation_reevaluation', period)
+        immo_autres_transport = personne('is_immobilisations_corporelles_autres_materiel_transport_augmentation_reevaluation', period)
+        immo_autres_bureau = personne('is_immobilisations_corporelles_autres_materiel_bureau_augmentation_reevaluation', period)
+        immo_autres_emballage = personne('is_immobilisations_corporelles_autres_emballages_augmentation_reevaluation', period)
+        immo_en_cours = personne('is_immobilisations_corporelles_en_cours_augmentation_reevaluation', period)
+        immo_avances = personne('is_immobilisations_corporelles_avances_augmentation_reevaluation', period)
         return immo_terrains + immo_sol_propre + immo_sol_autrui + immo_installations + immo_materiel_industriel + immo_autres_installations + immo_autres_transport + immo_autres_bureau + immo_autres_emballage + immo_en_cours + immo_avances
 
 
@@ -602,18 +609,18 @@ class is_immobilisations_total_corporelles_augmentation_nouveaux(Variable):
     definition_period = YEAR
     label = "Total immobilisations corporelles, Augmentations Acquisitions, créations, apports et virements de poste à poste (LP)"
 
-    def formula(person, period):
-        immo_terrains = person('is_immobilisations_corporelles_terrains_augmentation_nouveaux', period)
-        immo_sol_propre = person('is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_nouveaux', period)
-        immo_sol_autrui = person('is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_nouveaux', period)
-        immo_installations = person('is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_nouveaux', period)
-        immo_materiel_industriel = person('is_immobilisations_corporelles_installations_materiel_industriel_augmentation_nouveaux', period)
-        immo_autres_installations = person('is_immobilisations_corporelles_autres_installations_amenagements_augmentation_nouveaux', period)
-        immo_autres_transport = person('is_immobilisations_corporelles_autres_materiel_transport_augmentation_nouveaux', period)
-        immo_autres_bureau = person('is_immobilisations_corporelles_autres_materiel_bureau_augmentation_nouveaux', period)
-        immo_autres_emballage = person('is_immobilisations_corporelles_autres_emballages_augmentation_nouveaux', period)
-        immo_en_cours = person('is_immobilisations_corporelles_en_cours_augmentation_nouveaux', period)
-        immo_avances = person('is_immobilisations_corporelles_avances_augmentation_nouveaux', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_terrains = personne('is_immobilisations_corporelles_terrains_augmentation_nouveaux', period)
+        immo_sol_propre = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_nouveaux', period)
+        immo_sol_autrui = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_nouveaux', period)
+        immo_installations = personne('is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_nouveaux', period)
+        immo_materiel_industriel = personne('is_immobilisations_corporelles_installations_materiel_industriel_augmentation_nouveaux', period)
+        immo_autres_installations = personne('is_immobilisations_corporelles_autres_installations_amenagements_augmentation_nouveaux', period)
+        immo_autres_transport = personne('is_immobilisations_corporelles_autres_materiel_transport_augmentation_nouveaux', period)
+        immo_autres_bureau = personne('is_immobilisations_corporelles_autres_materiel_bureau_augmentation_nouveaux', period)
+        immo_autres_emballage = personne('is_immobilisations_corporelles_autres_emballages_augmentation_nouveaux', period)
+        immo_en_cours = personne('is_immobilisations_corporelles_en_cours_augmentation_nouveaux', period)
+        immo_avances = personne('is_immobilisations_corporelles_avances_augmentation_nouveaux', period)
         return immo_terrains + immo_sol_propre + immo_sol_autrui + immo_installations + immo_materiel_industriel + immo_autres_installations + immo_autres_transport + immo_autres_bureau + immo_autres_emballage + immo_en_cours + immo_avances
 
 
@@ -623,18 +630,18 @@ class is_immobilisations_total_corporelles_diminution_poste_a_poste(Variable):
     definition_period = YEAR
     label = "Total immobilisations corporelles, Diminutions par virement de poste à poste (IY)"
 
-    def formula(person, period):
-        immo_terrains = person('is_immobilisations_corporelles_terrains_diminution_poste_a_poste', period)
-        immo_sol_propre = person('is_immobilisations_corporelles_constructions_sur_sol_propre_diminution_poste_a_poste', period)
-        immo_sol_autrui = person('is_immobilisations_corporelles_constructions_sur_sol_autrui_diminution_poste_a_poste', period)
-        immo_installations = person('is_immobilisations_corporelles_constructions_installations_amenagements_diminution_poste_a_poste', period)
-        immo_materiel_industriel = person('is_immobilisations_corporelles_installations_materiel_industriel_diminution_poste_a_poste', period)
-        immo_autres_installations = person('is_immobilisations_corporelles_autres_installations_amenagements_diminution_poste_a_poste', period)
-        immo_autres_transport = person('is_immobilisations_corporelles_autres_materiel_transport_diminution_poste_a_poste', period)
-        immo_autres_bureau = person('is_immobilisations_corporelles_autres_materiel_bureau_diminution_poste_a_poste', period)
-        immo_autres_emballage = person('is_immobilisations_corporelles_autres_emballages_diminution_poste_a_poste', period)
-        immo_en_cours = person('is_immobilisations_corporelles_en_cours_diminution_poste_a_poste', period)
-        immo_avances = person('is_immobilisations_corporelles_avances_diminution_poste_a_poste', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_terrains = personne('is_immobilisations_corporelles_terrains_diminution_poste_a_poste', period)
+        immo_sol_propre = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_diminution_poste_a_poste', period)
+        immo_sol_autrui = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_diminution_poste_a_poste', period)
+        immo_installations = personne('is_immobilisations_corporelles_constructions_installations_amenagements_diminution_poste_a_poste', period)
+        immo_materiel_industriel = personne('is_immobilisations_corporelles_installations_materiel_industriel_diminution_poste_a_poste', period)
+        immo_autres_installations = personne('is_immobilisations_corporelles_autres_installations_amenagements_diminution_poste_a_poste', period)
+        immo_autres_transport = personne('is_immobilisations_corporelles_autres_materiel_transport_diminution_poste_a_poste', period)
+        immo_autres_bureau = personne('is_immobilisations_corporelles_autres_materiel_bureau_diminution_poste_a_poste', period)
+        immo_autres_emballage = personne('is_immobilisations_corporelles_autres_emballages_diminution_poste_a_poste', period)
+        immo_en_cours = personne('is_immobilisations_corporelles_en_cours_diminution_poste_a_poste', period)
+        immo_avances = personne('is_immobilisations_corporelles_avances_diminution_poste_a_poste', period)
         return immo_terrains + immo_sol_propre + immo_sol_autrui + immo_installations + immo_materiel_industriel + immo_autres_installations + immo_autres_transport + immo_autres_bureau + immo_autres_emballage + immo_en_cours + immo_avances
 
 
@@ -644,18 +651,18 @@ class is_immobilisations_total_corporelles_diminution_cession_hors_services(Vari
     definition_period = YEAR
     label = "Total immobilisations corporelles, Diminutions par cession à des tiers ou mises hors services (NG)"
 
-    def formula(person, period):
-        immo_terrains = person('is_immobilisations_corporelles_terrains_diminution_cession_hors_services', period)
-        immo_sol_propre = person('is_immobilisations_corporelles_constructions_sur_sol_propre_diminution_cession_hors_services', period)
-        immo_sol_autrui = person('is_immobilisations_corporelles_constructions_sur_sol_autrui_diminution_cession_hors_services', period)
-        immo_installations = person('is_immobilisations_corporelles_constructions_installations_amenagements_diminution_cession_hors_services', period)
-        immo_materiel_industriel = person('is_immobilisations_corporelles_installations_materiel_industriel_diminution_cession_hors_services', period)
-        immo_autres_installations = person('is_immobilisations_corporelles_autres_installations_amenagements_diminution_cession_hors_services', period)
-        immo_autres_transport = person('is_immobilisations_corporelles_autres_materiel_transport_diminution_cession_hors_services', period)
-        immo_autres_bureau = person('is_immobilisations_corporelles_autres_materiel_bureau_diminution_cession_hors_services', period)
-        immo_autres_emballage = person('is_immobilisations_corporelles_autres_emballages_diminution_cession_hors_services', period)
-        immo_en_cours = person('is_immobilisations_corporelles_en_cours_diminution_cession_hors_services', period)
-        immo_avances = person('is_immobilisations_corporelles_avances_diminution_cession_hors_services', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_terrains = personne('is_immobilisations_corporelles_terrains_diminution_cession_hors_services', period)
+        immo_sol_propre = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_diminution_cession_hors_services', period)
+        immo_sol_autrui = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_diminution_cession_hors_services', period)
+        immo_installations = personne('is_immobilisations_corporelles_constructions_installations_amenagements_diminution_cession_hors_services', period)
+        immo_materiel_industriel = personne('is_immobilisations_corporelles_installations_materiel_industriel_diminution_cession_hors_services', period)
+        immo_autres_installations = personne('is_immobilisations_corporelles_autres_installations_amenagements_diminution_cession_hors_services', period)
+        immo_autres_transport = personne('is_immobilisations_corporelles_autres_materiel_transport_diminution_cession_hors_services', period)
+        immo_autres_bureau = personne('is_immobilisations_corporelles_autres_materiel_bureau_diminution_cession_hors_services', period)
+        immo_autres_emballage = personne('is_immobilisations_corporelles_autres_emballages_diminution_cession_hors_services', period)
+        immo_en_cours = personne('is_immobilisations_corporelles_en_cours_diminution_cession_hors_services', period)
+        immo_avances = personne('is_immobilisations_corporelles_avances_diminution_cession_hors_services', period)
         return immo_terrains + immo_sol_propre + immo_sol_autrui + immo_installations + immo_materiel_industriel + immo_autres_installations + immo_autres_transport + immo_autres_bureau + immo_autres_emballage + immo_en_cours + immo_avances
 
 
@@ -665,18 +672,18 @@ class is_immobilisations_total_corporelles_brute_fin_exercice(Variable):
     definition_period = YEAR
     label = "Total immobilisations corporelles, Valeur brute des immobilisations à la fin de l'exercice (NH)"
 
-    def formula(person, period):
-        immo_terrains = person('is_immobilisations_corporelles_terrains_brute_fin_exercice', period)
-        immo_sol_propre = person('is_immobilisations_corporelles_constructions_sur_sol_propre_brute_fin_exercice', period)
-        immo_sol_autrui = person('is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_fin_exercice', period)
-        immo_installations = person('is_immobilisations_corporelles_constructions_installations_amenagements_brute_fin_exercice', period)
-        immo_materiel_industriel = person('is_immobilisations_corporelles_installations_materiel_industriel_brute_fin_exercice', period)
-        immo_autres_installations = person('is_immobilisations_corporelles_autres_installations_amenagements_brute_fin_exercice', period)
-        immo_autres_transport = person('is_immobilisations_corporelles_autres_materiel_transport_brute_fin_exercice', period)
-        immo_autres_bureau = person('is_immobilisations_corporelles_autres_materiel_bureau_brute_fin_exercice', period)
-        immo_autres_emballage = person('is_immobilisations_corporelles_autres_emballages_brute_fin_exercice', period)
-        immo_en_cours = person('is_immobilisations_corporelles_en_cours_brute_fin_exercice', period)
-        immo_avances = person('is_immobilisations_corporelles_avances_brute_fin_exercice', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_terrains = personne('is_immobilisations_corporelles_terrains_brute_fin_exercice', period)
+        immo_sol_propre = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_brute_fin_exercice', period)
+        immo_sol_autrui = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_fin_exercice', period)
+        immo_installations = personne('is_immobilisations_corporelles_constructions_installations_amenagements_brute_fin_exercice', period)
+        immo_materiel_industriel = personne('is_immobilisations_corporelles_installations_materiel_industriel_brute_fin_exercice', period)
+        immo_autres_installations = personne('is_immobilisations_corporelles_autres_installations_amenagements_brute_fin_exercice', period)
+        immo_autres_transport = personne('is_immobilisations_corporelles_autres_materiel_transport_brute_fin_exercice', period)
+        immo_autres_bureau = personne('is_immobilisations_corporelles_autres_materiel_bureau_brute_fin_exercice', period)
+        immo_autres_emballage = personne('is_immobilisations_corporelles_autres_emballages_brute_fin_exercice', period)
+        immo_en_cours = personne('is_immobilisations_corporelles_en_cours_brute_fin_exercice', period)
+        immo_avances = personne('is_immobilisations_corporelles_avances_brute_fin_exercice', period)
         return immo_terrains + immo_sol_propre + immo_sol_autrui + immo_installations + immo_materiel_industriel + immo_autres_installations + immo_autres_transport + immo_autres_bureau + immo_autres_emballage + immo_en_cours + immo_avances
 
 
@@ -686,16 +693,16 @@ class is_immobilisations_total_corporelles_origine_reevaluees_fin_exercice(Varia
     definition_period = YEAR
     label = "Total immobilisations corporelles, Valeur d'origine des immobilisations réévaluées en fin d'exercice (NI)"
 
-    def formula(person, period):
-        immo_terrains = person('is_immobilisations_corporelles_terrains_origine_reevaluees_fin_exercice', period)
-        immo_sol_propre = person('is_immobilisations_corporelles_constructions_sur_sol_propre_origine_reevaluees_fin_exercice', period)
-        immo_sol_autrui = person('is_immobilisations_corporelles_constructions_sur_sol_autrui_origine_reevaluees_fin_exercice', period)
-        immo_installations = person('is_immobilisations_corporelles_constructions_installations_amenagements_origine_reevaluees_fin_exercice', period)
-        immo_materiel_industriel = person('is_immobilisations_corporelles_installations_materiel_industriel_origine_reevaluees_fin_exercice', period)
-        immo_autres_installations = person('is_immobilisations_corporelles_autres_installations_amenagements_origine_reevaluees_fin_exercice', period)
-        immo_autres_transport = person('is_immobilisations_corporelles_autres_materiel_transport_origine_reevaluees_fin_exercice', period)
-        immo_autres_bureau = person('is_immobilisations_corporelles_autres_materiel_bureau_origine_reevaluees_fin_exercice', period)
-        immo_autres_emballage = person('is_immobilisations_corporelles_autres_emballages_origine_reevaluees_fin_exercice', period)
-        immo_en_cours = person('is_immobilisations_corporelles_en_cours_origine_reevaluees_fin_exercice', period)
-        immo_avances = person('is_immobilisations_corporelles_avances_origine_reevaluees_fin_exercice', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_terrains = personne('is_immobilisations_corporelles_terrains_origine_reevaluees_fin_exercice', period)
+        immo_sol_propre = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_origine_reevaluees_fin_exercice', period)
+        immo_sol_autrui = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_origine_reevaluees_fin_exercice', period)
+        immo_installations = personne('is_immobilisations_corporelles_constructions_installations_amenagements_origine_reevaluees_fin_exercice', period)
+        immo_materiel_industriel = personne('is_immobilisations_corporelles_installations_materiel_industriel_origine_reevaluees_fin_exercice', period)
+        immo_autres_installations = personne('is_immobilisations_corporelles_autres_installations_amenagements_origine_reevaluees_fin_exercice', period)
+        immo_autres_transport = personne('is_immobilisations_corporelles_autres_materiel_transport_origine_reevaluees_fin_exercice', period)
+        immo_autres_bureau = personne('is_immobilisations_corporelles_autres_materiel_bureau_origine_reevaluees_fin_exercice', period)
+        immo_autres_emballage = personne('is_immobilisations_corporelles_autres_emballages_origine_reevaluees_fin_exercice', period)
+        immo_en_cours = personne('is_immobilisations_corporelles_en_cours_origine_reevaluees_fin_exercice', period)
+        immo_avances = personne('is_immobilisations_corporelles_avances_origine_reevaluees_fin_exercice', period)
         return immo_terrains + immo_sol_propre + immo_sol_autrui + immo_installations + immo_materiel_industriel + immo_autres_installations + immo_autres_transport + immo_autres_bureau + immo_autres_emballage + immo_en_cours + immo_avances

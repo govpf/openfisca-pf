@@ -1,6 +1,13 @@
 # Import the Entities specifically defined for this tax and benefit system
+from openfisca_pf.base import (
+    ArrayLike,
+    DAY,
+    ParameterNode,
+    Period,
+    Population,
+    Variable
+    )
 from openfisca_pf.entities import Personne
-from openfisca_pf.base import (DAY, Variable)
 
 
 class is_resultat_fiscal_reintegrations_benefice_net_comptable(Variable):
@@ -89,18 +96,17 @@ class is_resultat_fiscal_reintegrations_total(Variable):
     definition_period = DAY
     label = "Total réintégrations (A11)"
 
-    def formula(person, period):
-        reintegrations = (person('is_resultat_fiscal_reintegrations_benefice_net_comptable', period)
-                 + person('is_resultat_fiscal_reintegrations_contribution_supplementaire', period)
-                 + person('is_resultat_fiscal_reintegrations_impot_sur_les_societes', period)
-                 + person('is_resultat_fiscal_reintegrations_amortissements_non_deductibles', period)
-                 + person('is_resultat_fiscal_reintegrations_interets_non_deductibles', period)
-                 + person('is_resultat_fiscal_reintegrations_renumerations_non_deductibles', period)
-                 + person('is_resultat_fiscal_reintegrations_provisions_non_deductibles', period)
-                 + person('is_resultat_fiscal_reintegrations_amortissements_reputes_differes', period)
-                 + person('is_resultat_fiscal_reintegrations_depenses_relatives_au_logement_du_personnel', period)
-                 + person('is_resultat_fiscal_reintegrations_autres', period))
-        return reintegrations
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('is_resultat_fiscal_reintegrations_benefice_net_comptable', period) \
+            + personne('is_resultat_fiscal_reintegrations_contribution_supplementaire', period) \
+            + personne('is_resultat_fiscal_reintegrations_impot_sur_les_societes', period) \
+            + personne('is_resultat_fiscal_reintegrations_amortissements_non_deductibles', period) \
+            + personne('is_resultat_fiscal_reintegrations_interets_non_deductibles', period) \
+            + personne('is_resultat_fiscal_reintegrations_renumerations_non_deductibles', period) \
+            + personne('is_resultat_fiscal_reintegrations_provisions_non_deductibles', period) \
+            + personne('is_resultat_fiscal_reintegrations_amortissements_reputes_differes', period) \
+            + personne('is_resultat_fiscal_reintegrations_depenses_relatives_au_logement_du_personnel', period) \
+            + personne('is_resultat_fiscal_reintegrations_autres', period)
 
 
 class is_resultat_fiscal_deductions_plus_values_non_imposables(Variable):
@@ -141,13 +147,12 @@ class is_resultat_fiscal_deductions_total(Variable):
     definition_period = DAY
     label = "Total déductions (A16)"
 
-    def formula(person, period):
-        deductions = (person('is_resultat_fiscal_deductions_perte_nette_comptable', period)
-                 + person('is_resultat_fiscal_deductions_plus_values_non_imposables', period)
-                 + person('is_resultat_fiscal_deductions_plus_values_exonerees_sous_conditions_de_remploi', period)
-                 + person('is_resultat_fiscal_deductions_revenu_net_valeurs_et_capitaux_mobiliers', period)
-                 + person('is_resultat_fiscal_deductions_autres', period))
-        return deductions
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('is_resultat_fiscal_deductions_perte_nette_comptable', period) \
+            + personne('is_resultat_fiscal_deductions_plus_values_non_imposables', period) \
+            + personne('is_resultat_fiscal_deductions_plus_values_exonerees_sous_conditions_de_remploi', period) \
+            + personne('is_resultat_fiscal_deductions_revenu_net_valeurs_et_capitaux_mobiliers', period) \
+            + personne('is_resultat_fiscal_deductions_autres', period)
 
 
 class is_resultat_fiscal_benefice_avant_report_deficitaire(Variable):
@@ -156,11 +161,10 @@ class is_resultat_fiscal_benefice_avant_report_deficitaire(Variable):
     definition_period = DAY
     label = "Bénéfice avant report déficitaire (B1)"
 
-    def formula(person, period):
-        benefice = (person('is_resultat_fiscal_reintegrations_total', period)
-            - person('is_resultat_fiscal_deductions_total', period))
-        is_benefice = benefice > 0
-        return benefice * is_benefice
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        benefice = personne('is_resultat_fiscal_reintegrations_total', period) \
+            - personne('is_resultat_fiscal_deductions_total', period)
+        return benefice * (benefice > 0)
 
 
 class is_resultat_fiscal_deficit_total(Variable):
@@ -169,11 +173,10 @@ class is_resultat_fiscal_deficit_total(Variable):
     definition_period = DAY
     label = "Déficit (B2)"
 
-    def formula(person, period):
-        deficit = (person('is_resultat_fiscal_deductions_total', period)
-            - person('is_resultat_fiscal_reintegrations_total', period))
-        is_deficit = deficit > 0
-        return deficit * is_deficit
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        deficit = personne('is_resultat_fiscal_deductions_total', period) \
+            - personne('is_resultat_fiscal_reintegrations_total', period)
+        return deficit * (deficit > 0)
 
 
 class is_resultat_fiscal_montant_deficits_anterieurs_reportables_effectivement_imputes(Variable):
@@ -198,12 +201,11 @@ class is_resultat_fiscal_benefice_apres_report_deficitaire(Variable):
     definition_period = DAY
     label = "Bénéfice après report déficitaire (B5)"
 
-    def formula(person, period):
-        benefice = (person('is_resultat_fiscal_benefice_avant_report_deficitaire', period)
-                    - person('is_resultat_fiscal_montant_deficits_anterieurs_reportables_effectivement_imputes', period)
-                    - person('is_resultat_fiscal_montant_amortissements_anterieurs_reportables_effectivement_imputes', period))
-        is_benefice = benefice > 0
-        return benefice * is_benefice
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        benefice = personne('is_resultat_fiscal_benefice_avant_report_deficitaire', period) \
+            - personne('is_resultat_fiscal_montant_deficits_anterieurs_reportables_effectivement_imputes', period) \
+            - personne('is_resultat_fiscal_montant_amortissements_anterieurs_reportables_effectivement_imputes', period)
+        return benefice * (benefice > 0)
 
 
 class is_resultat_fiscal_montant_deficits_restant_a_imputer(Variable):
