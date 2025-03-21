@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     round_,
     Variable,
     YEAR
@@ -24,9 +25,9 @@ class abattement_it(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        it_ventes_abattement_droits = personne('it_ventes_abattement_droits', period, parameters)
-        it_prestations_abattement_droits = personne('it_prestations_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        it_ventes_abattement_droits = personne('it_ventes_abattement_droits', period)
+        it_prestations_abattement_droits = personne('it_prestations_abattement_droits', period)
         return round_(it_prestations_abattement_droits + it_ventes_abattement_droits)
 
 

@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -24,11 +25,11 @@ class it_ventes_avant_abattement_droits(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         total = 0.
-        nombre_tranches_it_ventes = personne.pays('nombre_tranches_it_ventes', period, parameters)[0]
+        nombre_tranches_it_ventes = personne.pays('nombre_tranches_it_ventes', period)[0]
         for i in range(1, nombre_tranches_it_ventes + 1):
-            total += personne(f'montant_it_ventes_du_tranche_{i}', period, parameters)
+            total += personne(f'montant_it_ventes_du_tranche_{i}', period)
         return total
 
 
@@ -43,9 +44,9 @@ class it_ventes_sans_abattement_droits(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_it_ventes_sans_abattement_droits = personne('base_imposable_it_ventes_sans_abattement_droits', period)
-        bareme = creer_bareme(personne.pays, period, parameters, 'it', 'ventes')
+        bareme = creer_bareme(personne.pays, period, 'it', 'ventes')
         return bareme.calc(base_imposable_it_ventes_sans_abattement_droits)
 
 
@@ -60,9 +61,9 @@ class it_ventes(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        it_ventes_abattement_droits = personne('it_ventes_abattement_droits', period, parameters)
-        it_ventes_avant_abattement_droits = personne('it_ventes_avant_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        it_ventes_abattement_droits = personne('it_ventes_abattement_droits', period)
+        it_ventes_avant_abattement_droits = personne('it_ventes_avant_abattement_droits', period)
         return it_ventes_avant_abattement_droits - it_ventes_abattement_droits
 
 
@@ -77,7 +78,7 @@ class it_ventes_abattement_droits(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        it_ventes_avant_abattement_droits = personne('it_ventes_avant_abattement_droits', period, parameters)
-        it_ventes_sans_abattement_droits = personne('it_ventes_sans_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        it_ventes_avant_abattement_droits = personne('it_ventes_avant_abattement_droits', period)
+        it_ventes_sans_abattement_droits = personne('it_ventes_sans_abattement_droits', period)
         return (it_ventes_avant_abattement_droits - it_ventes_sans_abattement_droits) / 2

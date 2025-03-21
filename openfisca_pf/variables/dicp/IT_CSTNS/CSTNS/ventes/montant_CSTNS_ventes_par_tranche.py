@@ -90,7 +90,7 @@ class montant_cstns_ventes_du_tranche_5(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_cstns_ventes_tranche_5 = personne('base_imposable_cstns_ventes_tranche_5', period)
-        taux_cstns_ventes_tranche_5 = personne.pays('taux_cstns_ventes_tranche_5', period, parameters)
+        taux_cstns_ventes_tranche_5 = personne.pays('taux_cstns_ventes_tranche_5', period)
         return arrondi_inferieur(base_imposable_cstns_ventes_tranche_5 * taux_cstns_ventes_tranche_5)
 
 
@@ -186,7 +186,7 @@ class montant_cstns_ventes_du_tranche_11(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_cstns_ventes_tranche_11 = personne('base_imposable_cstns_ventes_tranche_11', period)
-        taux_cstns_ventes_tranche_11 = personne.pays('taux_cstns_ventes_tranche_11', period, parameters)
+        taux_cstns_ventes_tranche_11 = personne.pays('taux_cstns_ventes_tranche_11', period)
         return arrondi_inferieur(base_imposable_cstns_ventes_tranche_11 * taux_cstns_ventes_tranche_11)
 
 

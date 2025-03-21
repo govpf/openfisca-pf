@@ -2,6 +2,7 @@
 
 
 from openfisca_pf.base import (
+    ArrayLike,
     max_,
     MONTH,
     ParameterNode,
@@ -26,7 +27,7 @@ class cps_nette(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Population, period: Period, parameters: ParameterNode):
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         cps_due = personne('cps_due', period)
         cps_en_diminution = personne('cps_en_diminution', period)
         cps_a_reverser = personne('cps_a_reverser', period)
@@ -46,7 +47,7 @@ class cps_nette_due(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Population, period: Period, parameters: ParameterNode):
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         cps_nette = personne('cps_nette', period)
         return max_(cps_nette, 0)
 
@@ -64,7 +65,7 @@ class cps_a_reporter(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Population, period: Period, parameters: ParameterNode):
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         cps_nette = personne('cps_nette', period)
         return max_(-cps_nette, 0)
 
@@ -78,7 +79,7 @@ class tva_plus_cps_nette_due(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Population, period: Period, parameters: ParameterNode):
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         cps_nette_due = personne('cps_nette_due', period)
         tva_nette_due = personne('tva_nette_due', period)
         return cps_nette_due + tva_nette_due

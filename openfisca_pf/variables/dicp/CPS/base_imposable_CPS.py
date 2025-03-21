@@ -2,6 +2,7 @@
 
 
 from openfisca_pf.base import (
+    ArrayLike,
     MONTH,
     ParameterNode,
     Period,
@@ -27,7 +28,7 @@ class base_imposable_cps(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Population, period: Period, parameters: ParameterNode):
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period)
         base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period)
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period)

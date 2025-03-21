@@ -41,7 +41,7 @@ def aggreger_variables(entitee: Population, period: Period, prefix: str, variabl
     return array(result)
 
 
-def figer_emprise(mask: ndarray, emprise: EnumArray, default: str) -> ndarray:
+def figer_emprise(mask: ndarray, emprise: ArrayLike, default: str) -> ndarray:
     """
     Lors de demandes multiples avec des types de calculs différents,
     il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.

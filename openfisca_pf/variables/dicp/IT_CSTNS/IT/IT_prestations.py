@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -24,11 +25,11 @@ class it_prestations_avant_abattement_droits(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         total = 0.
-        nombre_tranches_it_prestations = personne.pays('nombre_tranches_it_prestations', period, parameters)[0]
+        nombre_tranches_it_prestations = personne.pays('nombre_tranches_it_prestations', period)[0]
         for i in range(1, nombre_tranches_it_prestations + 1):
-            total += personne(f'montant_it_prestations_du_tranche_{i}', period, parameters)
+            total += personne(f'montant_it_prestations_du_tranche_{i}', period)
         return total
 
 
@@ -43,10 +44,10 @@ class it_prestations_sans_abattement_droits(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes = personne('base_imposable_it_ventes', period, parameters) / 4
-        bareme = creer_bareme(personne.pays, period, parameters, 'it', 'prestations')
-        ca = personne('base_imposable_it_prestations_sans_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes = personne('base_imposable_it_ventes', period) / 4
+        bareme = creer_bareme(personne.pays, period, 'it', 'prestations')
+        ca = personne('base_imposable_it_prestations_sans_abattement_droits', period)
         return bareme.calc(base_imposable_it_ventes + ca) - bareme.calc(base_imposable_it_ventes)
 
 
@@ -61,9 +62,9 @@ class it_prestations(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        it_prestations_avant_abattement_droits = personne('it_prestations_avant_abattement_droits', period, parameters)
-        it_prestations_abattement_droits = personne('it_prestations_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        it_prestations_avant_abattement_droits = personne('it_prestations_avant_abattement_droits', period)
+        it_prestations_abattement_droits = personne('it_prestations_abattement_droits', period)
         return it_prestations_avant_abattement_droits - it_prestations_abattement_droits
 
 
@@ -78,7 +79,7 @@ class it_prestations_abattement_droits(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        it_prestations_avant_abattement_droits = personne('it_prestations_avant_abattement_droits', period, parameters)
-        it_prestations_sans_abattement_droits = personne('it_prestations_sans_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        it_prestations_avant_abattement_droits = personne('it_prestations_avant_abattement_droits', period)
+        it_prestations_sans_abattement_droits = personne('it_prestations_sans_abattement_droits', period)
         return (it_prestations_avant_abattement_droits - it_prestations_sans_abattement_droits) / 2

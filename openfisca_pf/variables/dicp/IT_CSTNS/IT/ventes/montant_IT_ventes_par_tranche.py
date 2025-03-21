@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -24,9 +25,9 @@ class montant_it_ventes_du_tranche_1(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_1 = personne('base_imposable_it_ventes_tranche_1', period, parameters)
-        taux_it_ventes_tranche_1 = personne.pays('taux_it_ventes_tranche_1', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_1 = personne('base_imposable_it_ventes_tranche_1', period)
+        taux_it_ventes_tranche_1 = personne.pays('taux_it_ventes_tranche_1', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_1 * taux_it_ventes_tranche_1)
 
 
@@ -41,9 +42,9 @@ class montant_it_ventes_du_tranche_2(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_2 = personne('base_imposable_it_ventes_tranche_2', period, parameters)
-        taux_it_ventes_tranche_2 = personne.pays('taux_it_ventes_tranche_2', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_2 = personne('base_imposable_it_ventes_tranche_2', period)
+        taux_it_ventes_tranche_2 = personne.pays('taux_it_ventes_tranche_2', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_2 * taux_it_ventes_tranche_2)
 
 
@@ -58,9 +59,9 @@ class montant_it_ventes_du_tranche_3(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_3 = personne('base_imposable_it_ventes_tranche_3', period, parameters)
-        taux_it_ventes_tranche_3 = personne.pays('taux_it_ventes_tranche_3', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_3 = personne('base_imposable_it_ventes_tranche_3', period)
+        taux_it_ventes_tranche_3 = personne.pays('taux_it_ventes_tranche_3', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_3 * taux_it_ventes_tranche_3)
 
 
@@ -75,9 +76,9 @@ class montant_it_ventes_du_tranche_4(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_4 = personne('base_imposable_it_ventes_tranche_4', period, parameters)
-        taux_it_ventes_tranche_4 = personne.pays('taux_it_ventes_tranche_4', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_4 = personne('base_imposable_it_ventes_tranche_4', period)
+        taux_it_ventes_tranche_4 = personne.pays('taux_it_ventes_tranche_4', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_4 * taux_it_ventes_tranche_4)
 
 
@@ -92,9 +93,9 @@ class montant_it_ventes_du_tranche_5(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_5 = personne('base_imposable_it_ventes_tranche_5', period, parameters)
-        taux_it_ventes_tranche_5 = personne.pays('taux_it_ventes_tranche_5', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_5 = personne('base_imposable_it_ventes_tranche_5', period)
+        taux_it_ventes_tranche_5 = personne.pays('taux_it_ventes_tranche_5', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_5 * taux_it_ventes_tranche_5)
 
 
@@ -109,9 +110,9 @@ class montant_it_ventes_du_tranche_6(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_6 = personne('base_imposable_it_ventes_tranche_6', period, parameters)
-        taux_it_ventes_tranche_6 = personne.pays('taux_it_ventes_tranche_6', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_6 = personne('base_imposable_it_ventes_tranche_6', period)
+        taux_it_ventes_tranche_6 = personne.pays('taux_it_ventes_tranche_6', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_6 * taux_it_ventes_tranche_6)
 
 
@@ -126,9 +127,9 @@ class montant_it_ventes_du_tranche_7(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_7 = personne('base_imposable_it_ventes_tranche_7', period, parameters)
-        taux_it_ventes_tranche_7 = personne.pays('taux_it_ventes_tranche_7', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_7 = personne('base_imposable_it_ventes_tranche_7', period)
+        taux_it_ventes_tranche_7 = personne.pays('taux_it_ventes_tranche_7', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_7 * taux_it_ventes_tranche_7)
 
 
@@ -143,9 +144,9 @@ class montant_it_ventes_du_tranche_8(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_8 = personne('base_imposable_it_ventes_tranche_8', period, parameters)
-        taux_it_ventes_tranche_8 = personne.pays('taux_it_ventes_tranche_8', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_8 = personne('base_imposable_it_ventes_tranche_8', period)
+        taux_it_ventes_tranche_8 = personne.pays('taux_it_ventes_tranche_8', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_8 * taux_it_ventes_tranche_8)
 
 
@@ -160,9 +161,9 @@ class montant_it_ventes_du_tranche_9(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_9 = personne('base_imposable_it_ventes_tranche_9', period, parameters)
-        taux_it_ventes_tranche_9 = personne.pays('taux_it_ventes_tranche_9', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_9 = personne('base_imposable_it_ventes_tranche_9', period)
+        taux_it_ventes_tranche_9 = personne.pays('taux_it_ventes_tranche_9', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_9 * taux_it_ventes_tranche_9)
 
 
@@ -177,9 +178,9 @@ class montant_it_ventes_du_tranche_10(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_10 = personne('base_imposable_it_ventes_tranche_10', period, parameters)
-        taux_it_ventes_tranche_10 = personne.pays('taux_it_ventes_tranche_10', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_10 = personne('base_imposable_it_ventes_tranche_10', period)
+        taux_it_ventes_tranche_10 = personne.pays('taux_it_ventes_tranche_10', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_10 * taux_it_ventes_tranche_10)
 
 
@@ -194,9 +195,9 @@ class montant_it_ventes_du_tranche_11(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_11 = personne('base_imposable_it_ventes_tranche_11', period, parameters)
-        taux_it_ventes_tranche_11 = personne.pays('taux_it_ventes_tranche_11', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_11 = personne('base_imposable_it_ventes_tranche_11', period)
+        taux_it_ventes_tranche_11 = personne.pays('taux_it_ventes_tranche_11', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_11 * taux_it_ventes_tranche_11)
 
 
@@ -211,7 +212,7 @@ class montant_it_ventes_du_tranche_12(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable_it_ventes_tranche_12 = personne('base_imposable_it_ventes_tranche_12', period, parameters)
-        taux_it_ventes_tranche_12 = personne.pays('taux_it_ventes_tranche_12', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable_it_ventes_tranche_12 = personne('base_imposable_it_ventes_tranche_12', period)
+        taux_it_ventes_tranche_12 = personne.pays('taux_it_ventes_tranche_12', period)
         return arrondi_inferieur(base_imposable_it_ventes_tranche_12 * taux_it_ventes_tranche_12)

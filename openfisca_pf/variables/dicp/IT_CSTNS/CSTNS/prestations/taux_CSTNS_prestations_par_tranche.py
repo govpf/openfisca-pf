@@ -39,7 +39,7 @@ class taux_cstns_prestations_tranche_1(Variable):
     unit = PER_ONE
 
     def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        # nombre_tranches_cstns_prestations = pays('nombre_tranches_cstns_prestations', period, parameters)
+        # nombre_tranches_cstns_prestations = pays('nombre_tranches_cstns_prestations', period)
         # rate = parameters(period).dicp.cstns.taux_prestations.rates[0] if len(parameters(period).dicp.cstns.taux_prestations.rates) > 0 else 0
         # return where(nombre_tranches_cstns_prestations > 0, rate, 0)
         return parameters(period).dicp.cstns.taux_prestations.rates[0]
