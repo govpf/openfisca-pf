@@ -1,5 +1,12 @@
-from openfisca_core.model_api import YEAR, Variable
 # Import the Entities specifically defined for this tax and benefit system
+from openfisca_pf.base import (
+    ArrayLike,
+    ParameterNode,
+    Period,
+    Population,
+    Variable,
+    YEAR
+    )
 from openfisca_pf.entities import Personne
 
 
@@ -112,9 +119,9 @@ class is_immobilisations_total_financieres_brute_debut_exercice(Variable):
     definition_period = YEAR
     label = "Total immobilisations financières, Valeur brute des immobilisations au début de l'exercice (LQ)"
 
-    def formula(person, period):
-        immo_participations = person('is_immobilisations_financieres_participations_et_creances_participation_brute_debut_exercice', period)
-        immo_autres = person('is_immobilisations_financieres_prets_et_autres_brute_debut_exercice', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_participations = personne('is_immobilisations_financieres_participations_et_creances_participation_brute_debut_exercice', period)
+        immo_autres = personne('is_immobilisations_financieres_prets_et_autres_brute_debut_exercice', period)
         return immo_participations + immo_autres
 
 
@@ -124,9 +131,9 @@ class is_immobilisations_total_financieres_augmentation_reevaluation(Variable):
     definition_period = YEAR
     label = "Total immobilisations financières, Augmentations Consécutives à une réévaluation pratiquée au cours de l'exercice (LR)"
 
-    def formula(person, period):
-        immo_participations = person('is_immobilisations_financieres_participations_et_creances_participation_augmentation_reevaluation', period)
-        immo_autres = person('is_immobilisations_financieres_prets_et_autres_augmentation_reevaluation', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_participations = personne('is_immobilisations_financieres_participations_et_creances_participation_augmentation_reevaluation', period)
+        immo_autres = personne('is_immobilisations_financieres_prets_et_autres_augmentation_reevaluation', period)
         return immo_participations + immo_autres
 
 
@@ -136,9 +143,9 @@ class is_immobilisations_total_financieres_augmentation_nouveaux(Variable):
     definition_period = YEAR
     label = "Total immobilisations financières, Augmentations Acquisitions, créations, apports et virements de poste à poste (LS)"
 
-    def formula(person, period):
-        immo_participations = person('is_immobilisations_financieres_participations_et_creances_participation_augmentation_nouveaux', period)
-        immo_autres = person('is_immobilisations_financieres_prets_et_autres_augmentation_nouveaux', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_participations = personne('is_immobilisations_financieres_participations_et_creances_participation_augmentation_nouveaux', period)
+        immo_autres = personne('is_immobilisations_financieres_prets_et_autres_augmentation_nouveaux', period)
         return immo_participations + immo_autres
 
 
@@ -148,9 +155,9 @@ class is_immobilisations_total_financieres_diminution_poste_a_poste(Variable):
     definition_period = YEAR
     label = "Total immobilisations financières, Diminutions par virement de poste à poste (I3)"
 
-    def formula(person, period):
-        immo_participations = person('is_immobilisations_financieres_participations_et_creances_participation_diminution_poste_a_poste', period)
-        immo_autres = person('is_immobilisations_financieres_prets_et_autres_diminution_poste_a_poste', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_participations = personne('is_immobilisations_financieres_participations_et_creances_participation_diminution_poste_a_poste', period)
+        immo_autres = personne('is_immobilisations_financieres_prets_et_autres_diminution_poste_a_poste', period)
         return immo_participations + immo_autres
 
 
@@ -160,9 +167,9 @@ class is_immobilisations_total_financieres_diminution_cession_hors_services(Vari
     definition_period = YEAR
     label = "Total immobilisations financières, Diminutions par cession à des tiers ou mises hors services (NJ)"
 
-    def formula(person, period):
-        immo_participations = person('is_immobilisations_financieres_participations_et_creances_participation_diminution_cession_hors_services', period)
-        immo_autres = person('is_immobilisations_financieres_prets_et_autres_diminution_cession_hors_services', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_participations = personne('is_immobilisations_financieres_participations_et_creances_participation_diminution_cession_hors_services', period)
+        immo_autres = personne('is_immobilisations_financieres_prets_et_autres_diminution_cession_hors_services', period)
         return immo_participations + immo_autres
 
 
@@ -172,9 +179,9 @@ class is_immobilisations_total_financieres_brute_fin_exercice(Variable):
     definition_period = YEAR
     label = "Total immobilisations financières, Valeur brute des immobilisations à la fin de l'exercice (NK)"
 
-    def formula(person, period):
-        immo_participations = person('is_immobilisations_financieres_participations_et_creances_participation_brute_fin_exercice', period)
-        immo_autres = person('is_immobilisations_financieres_prets_et_autres_brute_fin_exercice', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_participations = personne('is_immobilisations_financieres_participations_et_creances_participation_brute_fin_exercice', period)
+        immo_autres = personne('is_immobilisations_financieres_prets_et_autres_brute_fin_exercice', period)
         return immo_participations + immo_autres
 
 
@@ -184,7 +191,7 @@ class is_immobilisations_total_financieres_origine_reevaluees_fin_exercice(Varia
     definition_period = YEAR
     label = "Total immobilisations financières, Valeur d'origine des immobilisations réévaluées en fin d'exercice (2H)"
 
-    def formula(person, period):
-        immo_participations = person('is_immobilisations_financieres_participations_et_creances_participation_origine_reevaluees_fin_exercice', period)
-        immo_autres = person('is_immobilisations_financieres_prets_et_autres_origine_reevaluees_fin_exercice', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_participations = personne('is_immobilisations_financieres_participations_et_creances_participation_origine_reevaluees_fin_exercice', period)
+        immo_autres = personne('is_immobilisations_financieres_prets_et_autres_origine_reevaluees_fin_exercice', period)
         return immo_participations + immo_autres

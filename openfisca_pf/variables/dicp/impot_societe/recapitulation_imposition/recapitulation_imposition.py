@@ -1,6 +1,13 @@
 # Import the Entities specifically defined for this tax and benefit system
+from openfisca_pf.base import (
+    ArrayLike,
+    DAY,
+    ParameterNode,
+    Period,
+    Population,
+    Variable
+    )
 from openfisca_pf.entities import Personne
-from openfisca_pf.base import (DAY, Variable)
 
 
 class is_element_imposition_benefice_imposable(Variable):
@@ -9,8 +16,8 @@ class is_element_imposition_benefice_imposable(Variable):
     definition_period = DAY
     label = "Bénéfice imposable (C1)"
 
-    def formula(person, period):
-        benefice_default = person('is_resultat_fiscal_benefice_apres_report_deficitaire', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        benefice_default = personne('is_resultat_fiscal_benefice_apres_report_deficitaire', period)
         return benefice_default
 
 
@@ -20,8 +27,8 @@ class is_element_imposition_deficit(Variable):
     definition_period = DAY
     label = "Déficit (C2)"
 
-    def formula(person, period):
-        deficit_default = person('is_resultat_fiscal_deficit_total', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        deficit_default = personne('is_resultat_fiscal_deficit_total', period)
         return deficit_default
 
 
@@ -52,10 +59,9 @@ class is_element_imposition_calcul_due(Variable):
     definition_period = DAY
     label = "Montant de l’impôt sur les sociétés ou impôt minimum forfaitaire (C3)"
 
-    def formula(person, period):
-        calcul_impot = (person('is_element_imposition_benefice_imposable', period)
-            * person('is_element_imposition_calcul_taux', period))
-        return calcul_impot
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('is_element_imposition_benefice_imposable', period) \
+            * personne('is_element_imposition_calcul_taux', period)
 
 
 class is_element_imposition_deduction_cas_echeant(Variable):
@@ -71,10 +77,9 @@ class is_element_imposition_impot_du(Variable):
     definition_period = DAY
     label = "Impôt dû (C5)"
 
-    def formula(person, period):
-        impot_du = (person('is_element_imposition_calcul_due', period)
-            - person('is_element_imposition_deduction_cas_echeant', period))
-        return impot_du
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('is_element_imposition_calcul_due', period) \
+            - personne('is_element_imposition_deduction_cas_echeant', period)
 
 
 class is_element_imposition_impot_a_payer_accompte_1(Variable):
@@ -99,8 +104,7 @@ class is_element_imposition_solde_a_payer(Variable):
     definition_period = DAY
     label = "SOLDE A PAYER (C8)"
 
-    def formula(person, period):
-        impot_solde = (person('is_element_imposition_impot_du', period)
-            - person('is_element_imposition_impot_a_payer_accompte_1', period)
-            - person('is_element_imposition_impot_a_payer_accompte_2', period))
-        return impot_solde
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('is_element_imposition_impot_du', period) \
+            - personne('is_element_imposition_impot_a_payer_accompte_1', period) \
+            - personne('is_element_imposition_impot_a_payer_accompte_2', period)

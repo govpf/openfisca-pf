@@ -1,5 +1,8 @@
-from openfisca_core.model_api import YEAR, Variable
 # Import the Entities specifically defined for this tax and benefit system
+from openfisca_pf.base import (
+    Variable,
+    YEAR
+    )
 from openfisca_pf.entities import Personne
 
 
