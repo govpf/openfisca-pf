@@ -61,5 +61,5 @@ class nombre_entreprises_redevables_TPE_pays(Variable):
     reference = []
 
     def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        redevable_tpe = pays.members('redevable_tpe', period, parameters)
+        redevable_tpe = pays.members('redevable_tpe', period)
         return pays.sum(redevable_tpe * 1)

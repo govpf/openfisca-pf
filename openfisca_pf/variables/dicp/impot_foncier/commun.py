@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from openfisca_pf.base import (
     ArrayLike,
     date,
@@ -8,8 +9,9 @@ from openfisca_pf.base import (
     isin,
     max_,
     not_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -25,8 +27,8 @@ class age_du_bien(Variable):
     default_value = 0
     label = "Age du bien immobilier calculé à partir de la date de fin des travaux et la periode"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        date_de_fin_des_travaux = personne('date_de_fin_des_travaux', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        date_de_fin_des_travaux = personne('date_de_fin_des_travaux', period)
         return max_(
             period.date.year - annee_de_la_date(date_de_fin_des_travaux),
             0
@@ -40,7 +42,7 @@ class annee_actuelle(Variable):
     default_value = 0
     label = "Année à partir de laquelle le bien est soumis à l'impôt foncier"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return period.start.year
 
 
@@ -51,8 +53,8 @@ class annee_premiere_imposition(Variable):
     default_value = 0
     label = "Année à partir de laquelle le bien est soumis à l'impôt foncier"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        date_de_fin_des_travaux = personne('date_de_fin_des_travaux', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        date_de_fin_des_travaux = personne('date_de_fin_des_travaux', period)
         return annee_de_la_date(date_de_fin_des_travaux) + 1
 
 
@@ -88,8 +90,8 @@ class date_de_fin_des_travaux(Variable):
     default_value = date(1970, 1, 1)
     label = "Date de la fin des travaux de construction du bien immobilier. Elle est égale à la date du certificat de conformité si cette dernière est connue."
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('date_du_certificat_de_conformite', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('date_du_certificat_de_conformite', period)
 
 
 class habitation_principale(Variable):
@@ -108,9 +110,9 @@ class location_meuble(Variable):
     label = "True si le bien est loué en meublé, False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        loue = personne('loue', period, parameters)
-        type_de_location = personne('type_de_location', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        loue = personne('loue', period)
+        type_de_location = personne('type_de_location', period)
         return loue * (type_de_location == TypeLocation.MEUBLE)
 
 
@@ -122,9 +124,9 @@ class location_meuble_de_tourisme(Variable):
     label = "True si le bien est loué en meublé de tourisme (Air B&B par exemple), False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        loue = personne('loue', period, parameters)
-        type_de_location = personne('type_de_location', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        loue = personne('loue', period)
+        type_de_location = personne('type_de_location', period)
         return loue * (type_de_location == TypeLocation.MEUBLE_DE_TOURISME)
 
 
@@ -136,9 +138,9 @@ class location_non_meuble(Variable):
     label = "True si le bien est loué en non-meublé, False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters):
-        loue = personne('loue', period, parameters)
-        type_de_location = personne('type_de_location', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode):
+        loue = personne('loue', period)
+        type_de_location = personne('type_de_location', period)
         return loue * (type_de_location == TypeLocation.NON_MEUBLE)
 
 
@@ -150,9 +152,9 @@ class location_simple(Variable):
     label = "True si le bien est loué en meublé ou en non meublé mais pas en meublé de tourisme ni en villa de luxe, False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        loue = personne('loue', period, parameters)
-        type_de_location = personne('type_de_location', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        loue = personne('loue', period)
+        type_de_location = personne('type_de_location', period)
         return loue * isin(type_de_location, MEUBLE_OU_NON_MEUBLE)
 
 
@@ -164,9 +166,9 @@ class location_villa_de_luxe(Variable):
     label = "True si le bien est loué en villa de luxe, False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        loue = personne('loue', period, parameters)
-        type_de_location = personne('type_de_location', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        loue = personne('loue', period)
+        type_de_location = personne('type_de_location', period)
         return loue * (type_de_location == TypeLocation.VILLA_DE_LUXE)
 
 
@@ -187,8 +189,8 @@ class logement_non_social(Variable):
     label = "True si le bien n'est pas un logement social, False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        logement_social = personne('logement_social', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        logement_social = personne('logement_social', period)
         return not_(logement_social)
 
 
@@ -218,8 +220,8 @@ class non_loue(Variable):
     label = "True si le bien n'est pas loué, False sinon."
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        loue = personne('loue', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        loue = personne('loue', period)
         return not_(loue)
 
 

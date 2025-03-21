@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-
+from openfisca_core.populations import Population
 
 from openfisca_pf.base import (
     ArrayLike,
     isin,
-    Parameters,
+    ParameterNode,
     Period,
     select,
     Variable,
@@ -35,10 +35,10 @@ class eligible_exoneration_permanente_bien_public(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les biens public"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        non_loue = personne('non_loue', period, parameters)
-        forme_legale = personne('forme_legale', period, parameters)
-        categorie = personne('categorie_du_bien', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        non_loue = personne('non_loue', period)
+        forme_legale = personne('forme_legale', period)
+        categorie = personne('categorie_du_bien', period)
 
         return (forme_legale == FormeLegale.ADM) \
             * (categorie == CategoryBien.ADMINISTRATIF) \
@@ -62,9 +62,9 @@ class exoneration_permanente_bien_public_eligible_et_appliquee(Variable):
     label = "Est-ce le bien est éligible à l'exonération permanente pour les biens public et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_bien_public', period, parameters)
-        applique = personne('exoneration_permanente_bien_public_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_bien_public', period)
+        applique = personne('exoneration_permanente_bien_public_appliquee', period)
         return eligible * applique
 
 
@@ -76,9 +76,9 @@ class montant_exoneration_permanente_bien_public(Variable):
     label = "Montant de l'exonération permanente pour un bien public"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_et_appliquee = personne('exoneration_permanente_bien_public_eligible_et_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_et_appliquee = personne('exoneration_permanente_bien_public_eligible_et_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
 
         return select(
             [eligible_et_appliquee],
@@ -112,10 +112,10 @@ class eligible_exoneration_permanente_lieu_de_culte(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les lieux de cultes"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        forme_legale = personne('forme_legale', period, parameters)
-        categorie = personne('categorie_du_bien', period, parameters)
-        non_loue = personne('non_loue', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        forme_legale = personne('forme_legale', period)
+        categorie = personne('categorie_du_bien', period)
+        non_loue = personne('non_loue', period)
 
         return isin(forme_legale, FORMES_LEGALES_EGLISES) \
             * (categorie == CategoryBien.CULTE) \
@@ -139,9 +139,9 @@ class exoneration_permanente_lieu_de_culte_eligible_et_appliquee(Variable):
     label = "Est-ce le bien est éligible à l'exonération permanente pour les lieux de cultes et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_lieu_de_culte', period, parameters)
-        applique = personne('exoneration_permanente_lieu_de_culte_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_lieu_de_culte', period)
+        applique = personne('exoneration_permanente_lieu_de_culte_appliquee', period)
         return eligible * applique
 
 
@@ -153,9 +153,9 @@ class montant_exoneration_permanente_lieu_de_culte(Variable):
     label = "Montant de l'exonération permanente pour un lieu de culte"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_et_appliquee = personne('exoneration_permanente_lieu_de_culte_eligible_et_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_et_appliquee = personne('exoneration_permanente_lieu_de_culte_eligible_et_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
         return select(
             [eligible_et_appliquee],
             [brute],
@@ -181,10 +181,10 @@ class eligible_exoneration_permanente_batiment_scolaire(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les bâtiments scolaires français ou reconnus d'utilité publique"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        forme_legale = personne('forme_legale', period, parameters)
-        categorie = personne('categorie_du_bien', period, parameters)
-        non_loue = personne('non_loue', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        forme_legale = personne('forme_legale', period)
+        categorie = personne('categorie_du_bien', period)
+        non_loue = personne('non_loue', period)
 
         return (forme_legale == FormeLegale.ADM) \
             * (categorie == CategoryBien.ENSEIGNEMENT) \
@@ -208,9 +208,9 @@ class exoneration_permanente_batiment_scolaire_eligible_et_appliquee(Variable):
     label = "Est-ce le bien est éligible à l'exonération permanente pour les batiments scolaires et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_batiment_scolaire', period, parameters)
-        applique = personne('exoneration_permanente_batiment_scolaire_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_batiment_scolaire', period)
+        applique = personne('exoneration_permanente_batiment_scolaire_appliquee', period)
         return eligible * applique
 
 
@@ -222,9 +222,9 @@ class montant_exoneration_permanente_batiment_scolaire(Variable):
     label = "Montant de l'exonération permanente pour les bâtiments scolaires français ou reconnus d'utilité publique"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_et_appliquee = personne('exoneration_permanente_batiment_scolaire_eligible_et_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_et_appliquee = personne('exoneration_permanente_batiment_scolaire_eligible_et_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
 
         return select(
             [eligible_et_appliquee],
@@ -258,10 +258,10 @@ class eligible_exoneration_permanente_consulat(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les bâtiments affectés au service des consulats étrangers"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        forme_legale = personne('forme_legale', period, parameters)
-        categorie = personne('categorie_du_bien', period, parameters)
-        non_loue = personne('non_loue', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        forme_legale = personne('forme_legale', period)
+        categorie = personne('categorie_du_bien', period)
+        non_loue = personne('non_loue', period)
 
         return isin(forme_legale, FORMES_LEGALES_CONSULAT) \
             * (categorie == CategoryBien.CONSULAT) \
@@ -285,9 +285,9 @@ class exoneration_permanente_consulat_eligible_et_appliquee(Variable):
     label = "Est-ce le bien est éligible à l'exonération permanente pour les consulat et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_consulat', period, parameters)
-        applique = personne('exoneration_permanente_consulat_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_consulat', period)
+        applique = personne('exoneration_permanente_consulat_appliquee', period)
         return eligible * applique
 
 
@@ -299,9 +299,9 @@ class montant_exoneration_permanente_consulat(Variable):
     label = "Montant de l'exonération permanente pour les bâtiments affectés au service des consulats étrangers"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_et_appliquee = personne('exoneration_permanente_consulat_eligible_et_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_et_appliquee = personne('exoneration_permanente_consulat_eligible_et_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
 
         return select(
             [eligible_et_appliquee],
@@ -328,9 +328,9 @@ class eligible_exoneration_permanente_batiment_agricole(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les bâtiments agricoles"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        categorie = personne('categorie_du_bien', period, parameters)
-        non_loue = personne('non_loue', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        categorie = personne('categorie_du_bien', period)
+        non_loue = personne('non_loue', period)
 
         # note: les agriculteurs sont labellisés sous de diverses formes légales
         # ce qui ne nous permet pas de contraindre cette exonération à la forme légale du propriétaire
@@ -355,9 +355,9 @@ class exoneration_permanente_batiment_agricole_eligible_et_appliquee(Variable):
     label = "Est-ce le bien est éligible à l'exonération permanente pour les bâtiments agricoles et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_batiment_agricole', period, parameters)
-        applique = personne('exoneration_permanente_batiment_agricole_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_batiment_agricole', period)
+        applique = personne('exoneration_permanente_batiment_agricole_appliquee', period)
         return eligible * applique
 
 
@@ -369,9 +369,9 @@ class montant_exoneration_permanente_batiment_agricole(Variable):
     label = "Montant de l'exonération permanente pour les bâtiments agricoles"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_et_appliquee = personne('exoneration_permanente_batiment_agricole_eligible_et_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_et_appliquee = personne('exoneration_permanente_batiment_agricole_eligible_et_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
         return select(
             [eligible_et_appliquee],
             [brute],
@@ -399,10 +399,10 @@ class eligible_exoneration_permanente_batiment_associatif(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les bâtiments associatifs"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        forme_legale = personne('forme_legale', period, parameters)
-        categorie = personne('categorie_du_bien', period, parameters)
-        non_loue = personne('non_loue', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        forme_legale = personne('forme_legale', period)
+        categorie = personne('categorie_du_bien', period)
+        non_loue = personne('non_loue', period)
 
         return (forme_legale == FormeLegale.ASSO) \
             * (categorie == CategoryBien.ASSOCIATIF) \
@@ -426,9 +426,9 @@ class exoneration_permanente_batiment_associatif_eligible_et_appliquee(Variable)
     label = "Est-ce le bien est éligible à l'exonération permanente pour les bâtiments associatifs et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_batiment_associatif', period, parameters)
-        applique = personne('exoneration_permanente_batiment_associatif_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_batiment_associatif', period)
+        applique = personne('exoneration_permanente_batiment_associatif_appliquee', period)
         return eligible * applique
 
 
@@ -440,10 +440,10 @@ class montant_exoneration_permanente_batiment_associatif(Variable):
     label = "Montant de l'exonération permanente pour les bâtiments associatifs"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_batiment_associatif', period, parameters)
-        apliquee = personne('exoneration_permanente_batiment_associatif_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_batiment_associatif', period)
+        apliquee = personne('exoneration_permanente_batiment_associatif_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
 
         return select(
             [eligible * apliquee],
@@ -471,11 +471,11 @@ class eligible_exoneration_permanente_habitation_principale(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les habitations principales à faible valeur"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        categorie = personne('categorie_du_bien', period, parameters)
-        habitation_principale = personne('habitation_principale', period, parameters)
-        valeur_venale = personne('valeur_venale', period, parameters)
-        non_loue = personne('non_loue', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        categorie = personne('categorie_du_bien', period)
+        habitation_principale = personne('habitation_principale', period)
+        valeur_venale = personne('valeur_venale', period)
+        non_loue = personne('non_loue', period)
 
         return (categorie == CategoryBien.LOGEMENT) \
             * habitation_principale \
@@ -500,9 +500,9 @@ class exoneration_permanente_habitation_principale_eligible_et_appliquee(Variabl
     label = "Est-ce le bien est éligible à l'exonération permanente pour les habitations principales et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_habitation_principale', period, parameters)
-        applique = personne('exoneration_permanente_habitation_principale_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_habitation_principale', period)
+        applique = personne('exoneration_permanente_habitation_principale_appliquee', period)
         return eligible * applique
 
 
@@ -514,9 +514,9 @@ class montant_exoneration_permanente_habitation_principale(Variable):
     label = "Montant de l'exonération permanente pour une habitation principale à faible valeur"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_et_appliquee = personne('exoneration_permanente_habitation_principale_eligible_et_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_et_appliquee = personne('exoneration_permanente_habitation_principale_eligible_et_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
 
         return select(
             [eligible_et_appliquee],
@@ -543,10 +543,10 @@ class eligible_exoneration_permanente_halle_et_marche(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les bâtiments associatifs"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        forme_legale = personne('forme_legale', period, parameters)
-        categorie = personne('categorie_du_bien', period, parameters)
-        non_loue = personne('non_loue', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        forme_legale = personne('forme_legale', period)
+        categorie = personne('categorie_du_bien', period)
+        non_loue = personne('non_loue', period)
 
         return (forme_legale == FormeLegale.ADM) \
             * (categorie == CategoryBien.COMMERCE) \
@@ -570,9 +570,9 @@ class exoneration_permanente_halle_et_marche_eligible_et_appliquee(Variable):
     label = "Est-ce le bien est éligible à l'exonération permanente pour les halles et marchés et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_halle_et_marche', period, parameters)
-        applique = personne('exoneration_permanente_halle_et_marche_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_halle_et_marche', period)
+        applique = personne('exoneration_permanente_halle_et_marche_appliquee', period)
         return eligible * applique
 
 
@@ -584,9 +584,9 @@ class montant_exoneration_permanente_halle_et_marche(Variable):
     label = "Montant de l'exonération permanente pour les bâtiments associatifs"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_et_appliquee = personne('exoneration_permanente_halle_et_marche_eligible_et_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_et_appliquee = personne('exoneration_permanente_halle_et_marche_eligible_et_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
         return select(
             [eligible_et_appliquee],
             [brute],
@@ -621,11 +621,11 @@ class eligible_exoneration_permanente_logement_social(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente pour les logements sociaux de l'OPH"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        forme_legale = personne('forme_legale', period, parameters)
-        categorie = personne('categorie_du_bien', period, parameters)
-        logement_social = personne('logement_social', period, parameters)
-        loue = personne('loue', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        forme_legale = personne('forme_legale', period)
+        categorie = personne('categorie_du_bien', period)
+        logement_social = personne('logement_social', period)
+        loue = personne('loue', period)
 
         return isin(forme_legale, FORMES_LEGALES_OPH) \
             * (categorie == CategoryBien.LOGEMENT) \
@@ -650,9 +650,9 @@ class exoneration_permanente_logement_social_eligible_et_appliquee(Variable):
     label = "Est-ce le bien est éligible à l'exonération permanente pour les logements sociaux et est-ce que cette exonération s'applique à ce bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible = personne('eligible_exoneration_permanente_logement_social', period, parameters)
-        applique = personne('exoneration_permanente_logement_social_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible = personne('eligible_exoneration_permanente_logement_social', period)
+        applique = personne('exoneration_permanente_logement_social_appliquee', period)
         return eligible * applique
 
 
@@ -664,9 +664,9 @@ class montant_exoneration_permanente_logement_social(Variable):
     label = "Montant de l'exonération permanente pour les logements sociaux de l'OPH"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_et_appliquee = personne('exoneration_permanente_logement_social_eligible_et_appliquee', period, parameters)
-        brute = personne('impot_foncier_part_pays_brute', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_et_appliquee = personne('exoneration_permanente_logement_social_eligible_et_appliquee', period)
+        brute = personne('impot_foncier_part_pays_brute', period)
 
         return select(
             [eligible_et_appliquee],
@@ -688,16 +688,16 @@ class eligible_exoneration_permanente(Variable):
     label = "Est-ce que le bien est eligible à une exonération permanente"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_exoneration_permanente_bien_public = personne('eligible_exoneration_permanente_bien_public', period, parameters)
-        eligible_exoneration_permanente_lieu_de_culte = personne('eligible_exoneration_permanente_lieu_de_culte', period, parameters)
-        eligible_exoneration_permanente_batiment_scolaire = personne('eligible_exoneration_permanente_batiment_scolaire', period, parameters)
-        eligible_exoneration_permanente_consulat = personne('eligible_exoneration_permanente_consulat', period, parameters)
-        eligible_exoneration_permanente_batiment_agricole = personne('eligible_exoneration_permanente_batiment_agricole', period, parameters)
-        eligible_exoneration_permanente_batiment_associatif = personne('eligible_exoneration_permanente_batiment_associatif', period, parameters)
-        eligible_exoneration_permanente_habitation_principale = personne('eligible_exoneration_permanente_habitation_principale', period, parameters)
-        eligible_exoneration_permanente_halle_et_marche = personne('eligible_exoneration_permanente_halle_et_marche', period, parameters)
-        eligible_exoneration_permanente_logement_social = personne('eligible_exoneration_permanente_logement_social', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_exoneration_permanente_bien_public = personne('eligible_exoneration_permanente_bien_public', period)
+        eligible_exoneration_permanente_lieu_de_culte = personne('eligible_exoneration_permanente_lieu_de_culte', period)
+        eligible_exoneration_permanente_batiment_scolaire = personne('eligible_exoneration_permanente_batiment_scolaire', period)
+        eligible_exoneration_permanente_consulat = personne('eligible_exoneration_permanente_consulat', period)
+        eligible_exoneration_permanente_batiment_agricole = personne('eligible_exoneration_permanente_batiment_agricole', period)
+        eligible_exoneration_permanente_batiment_associatif = personne('eligible_exoneration_permanente_batiment_associatif', period)
+        eligible_exoneration_permanente_habitation_principale = personne('eligible_exoneration_permanente_habitation_principale', period)
+        eligible_exoneration_permanente_halle_et_marche = personne('eligible_exoneration_permanente_halle_et_marche', period)
+        eligible_exoneration_permanente_logement_social = personne('eligible_exoneration_permanente_logement_social', period)
 
         return eligible_exoneration_permanente_bien_public \
             + eligible_exoneration_permanente_lieu_de_culte \
@@ -718,16 +718,16 @@ class exoneration_permanente_appliquee(Variable):
     label = "Est-ce qu'une exonération permanente s'applique au bien"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        exoneration_permanente_bien_public_eligible_et_appliquee = personne('exoneration_permanente_bien_public_eligible_et_appliquee', period, parameters)
-        exoneration_permanente_lieu_de_culte_eligible_et_appliquee = personne('exoneration_permanente_lieu_de_culte_eligible_et_appliquee', period, parameters)
-        exoneration_permanente_batiment_scolaire_eligible_et_appliquee = personne('exoneration_permanente_batiment_scolaire_eligible_et_appliquee', period, parameters)
-        exoneration_permanente_consulat_eligible_et_appliquee = personne('exoneration_permanente_consulat_eligible_et_appliquee', period, parameters)
-        exoneration_permanente_batiment_agricole_eligible_et_appliquee = personne('exoneration_permanente_batiment_agricole_eligible_et_appliquee', period, parameters)
-        exoneration_permanente_batiment_associatif_eligible_et_appliquee = personne('exoneration_permanente_batiment_associatif_eligible_et_appliquee', period, parameters)
-        exoneration_permanente_habitation_principale_eligible_et_appliquee = personne('exoneration_permanente_habitation_principale_eligible_et_appliquee', period, parameters)
-        exoneration_permanente_halle_et_marche_eligible_et_appliquee = personne('exoneration_permanente_halle_et_marche_eligible_et_appliquee', period, parameters)
-        exoneration_permanente_logement_social_eligible_et_appliquee = personne('exoneration_permanente_logement_social_eligible_et_appliquee', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        exoneration_permanente_bien_public_eligible_et_appliquee = personne('exoneration_permanente_bien_public_eligible_et_appliquee', period)
+        exoneration_permanente_lieu_de_culte_eligible_et_appliquee = personne('exoneration_permanente_lieu_de_culte_eligible_et_appliquee', period)
+        exoneration_permanente_batiment_scolaire_eligible_et_appliquee = personne('exoneration_permanente_batiment_scolaire_eligible_et_appliquee', period)
+        exoneration_permanente_consulat_eligible_et_appliquee = personne('exoneration_permanente_consulat_eligible_et_appliquee', period)
+        exoneration_permanente_batiment_agricole_eligible_et_appliquee = personne('exoneration_permanente_batiment_agricole_eligible_et_appliquee', period)
+        exoneration_permanente_batiment_associatif_eligible_et_appliquee = personne('exoneration_permanente_batiment_associatif_eligible_et_appliquee', period)
+        exoneration_permanente_habitation_principale_eligible_et_appliquee = personne('exoneration_permanente_habitation_principale_eligible_et_appliquee', period)
+        exoneration_permanente_halle_et_marche_eligible_et_appliquee = personne('exoneration_permanente_halle_et_marche_eligible_et_appliquee', period)
+        exoneration_permanente_logement_social_eligible_et_appliquee = personne('exoneration_permanente_logement_social_eligible_et_appliquee', period)
 
         return exoneration_permanente_bien_public_eligible_et_appliquee \
             + exoneration_permanente_lieu_de_culte_eligible_et_appliquee \
@@ -748,16 +748,16 @@ class montant_exoneration_permanente(Variable):
     label = "Montant d'exonération permanente"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_exoneration_permanente_bien_public = personne('montant_exoneration_permanente_bien_public', period, parameters)
-        montant_exoneration_permanente_lieu_de_culte = personne('montant_exoneration_permanente_lieu_de_culte', period, parameters)
-        montant_exoneration_permanente_batiment_scolaire = personne('montant_exoneration_permanente_batiment_scolaire', period, parameters)
-        montant_exoneration_permanente_consulat = personne('montant_exoneration_permanente_consulat', period, parameters)
-        montant_exoneration_permanente_batiment_agricole = personne('montant_exoneration_permanente_batiment_agricole', period, parameters)
-        montant_exoneration_permanente_batiment_associatif = personne('montant_exoneration_permanente_batiment_associatif', period, parameters)
-        montant_exoneration_permanente_habitation_principale = personne('montant_exoneration_permanente_habitation_principale', period, parameters)
-        montant_exoneration_permanente_halle_et_marche = personne('montant_exoneration_permanente_halle_et_marche', period, parameters)
-        montant_exoneration_permanente_logement_social = personne('montant_exoneration_permanente_logement_social', period, parameters)
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_exoneration_permanente_bien_public = personne('montant_exoneration_permanente_bien_public', period)
+        montant_exoneration_permanente_lieu_de_culte = personne('montant_exoneration_permanente_lieu_de_culte', period)
+        montant_exoneration_permanente_batiment_scolaire = personne('montant_exoneration_permanente_batiment_scolaire', period)
+        montant_exoneration_permanente_consulat = personne('montant_exoneration_permanente_consulat', period)
+        montant_exoneration_permanente_batiment_agricole = personne('montant_exoneration_permanente_batiment_agricole', period)
+        montant_exoneration_permanente_batiment_associatif = personne('montant_exoneration_permanente_batiment_associatif', period)
+        montant_exoneration_permanente_habitation_principale = personne('montant_exoneration_permanente_habitation_principale', period)
+        montant_exoneration_permanente_halle_et_marche = personne('montant_exoneration_permanente_halle_et_marche', period)
+        montant_exoneration_permanente_logement_social = personne('montant_exoneration_permanente_logement_social', period)
         return montant_exoneration_permanente_bien_public \
             + montant_exoneration_permanente_lieu_de_culte \
             + montant_exoneration_permanente_batiment_scolaire \

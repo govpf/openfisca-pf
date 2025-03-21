@@ -102,7 +102,7 @@ class montant_base_redevance_domaniale_dossier(Variable):
     label = 'Montant de base de redevance domaniale de toutes les demandes du dossier'
 
     def formula(dossier: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        montant_base_redevance_domaniale = dossier.members('montant_base_redevance_domaniale', period, parameters)
+        montant_base_redevance_domaniale = dossier.members('montant_base_redevance_domaniale', period)
         return dossier.sum(montant_base_redevance_domaniale)
 
 
@@ -115,5 +115,5 @@ class montant_total_redevance_domaniale_dossier(Variable):
     label = 'Montant total de redevance domaniale de toutes les demandes du dossier'
 
     def formula(dossier: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        montant_total_redevance_domaniale = dossier.members('montant_total_redevance_domaniale', period, parameters)
+        montant_total_redevance_domaniale = dossier.members('montant_total_redevance_domaniale', period)
         return dossier.sum(montant_total_redevance_domaniale)

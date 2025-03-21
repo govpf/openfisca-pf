@@ -31,7 +31,7 @@ class cst_s_due_totale_par_employes(Variable):
     unit = XPF
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        cst_s = personne.members('cst_s', period, parameters)
+        cst_s = personne.members('cst_s', period)
         return personne.sum(cst_s)
 
 

@@ -5,8 +5,9 @@ from numpy import where
 from openfisca_pf.base import (
     ArrayLike,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     set_input_dispatch_by_period,
     Variable
     )
@@ -40,7 +41,7 @@ class credit_tva_minimum_ce_mois(Variable):
         "https://www.impot-polynesie.gov.pf/code/4-section-iv-remboursement-de-credit-de-taxe-deductible"
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         minimum_par_mois = parameters(period).dicp.tva.seuils.credit_tva.minimum_par_mois
         return minimum_par_mois["{:02d}".format(period.start.month)]
 
@@ -59,8 +60,8 @@ class remboursement_credit_tva_possible_car_rib_rensigne(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('rib_renseigne', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('rib_renseigne', period)
 
 
 class remboursement_credit_tva_possible_ce_mois(Variable):
@@ -76,7 +77,7 @@ class remboursement_credit_tva_possible_ce_mois(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         remboursement_possible_par_mois = parameters(period).dicp.tva.seuils.credit_tva.remboursement_possible_par_mois
         return remboursement_possible_par_mois["{:02d}".format(period.start.month)]
 
@@ -94,9 +95,9 @@ class remboursement_credit_tva_possible_car_montant_suffisant(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        credit_tva = personne('credit_tva', period, parameters)
-        credit_tva_minimum_ce_mois = personne('credit_tva_minimum_ce_mois', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        credit_tva = personne('credit_tva', period)
+        credit_tva_minimum_ce_mois = personne('credit_tva_minimum_ce_mois', period)
         return credit_tva >= credit_tva_minimum_ce_mois
 
 
@@ -113,10 +114,10 @@ class remboursement_credit_tva_possible(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        remboursement_credit_tva_possible_car_rib_rensigne = personne('remboursement_credit_tva_possible_car_rib_rensigne', period, parameters)
-        remboursement_credit_tva_possible_ce_mois = personne('remboursement_credit_tva_possible_ce_mois', period, parameters)
-        remboursement_credit_tva_possible_car_montant_suffisant = personne('remboursement_credit_tva_possible_car_montant_suffisant', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        remboursement_credit_tva_possible_car_rib_rensigne = personne('remboursement_credit_tva_possible_car_rib_rensigne', period)
+        remboursement_credit_tva_possible_ce_mois = personne('remboursement_credit_tva_possible_ce_mois', period)
+        remboursement_credit_tva_possible_car_montant_suffisant = personne('remboursement_credit_tva_possible_car_montant_suffisant', period)
         return remboursement_credit_tva_possible_car_rib_rensigne\
             and remboursement_credit_tva_possible_ce_mois\
             and remboursement_credit_tva_possible_car_montant_suffisant
@@ -150,11 +151,11 @@ class demande_rembousement_credit_tva_valide(Variable):
         ]
     unit = units.BOOLEAN
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        remboursement_credit_tva_possible = personne('remboursement_credit_tva_possible', period, parameters)
-        credit_tva = personne('credit_tva', period, parameters)
-        demande_remboursement_credit_tva = personne('demande_remboursement_credit_tva', period, parameters)
-        credit_tva_minimum_ce_mois = personne('credit_tva_minimum_ce_mois', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        remboursement_credit_tva_possible = personne('remboursement_credit_tva_possible', period)
+        credit_tva = personne('credit_tva', period)
+        demande_remboursement_credit_tva = personne('demande_remboursement_credit_tva', period)
+        credit_tva_minimum_ce_mois = personne('credit_tva_minimum_ce_mois', period)
         return remboursement_credit_tva_possible\
             and credit_tva_minimum_ce_mois <= demande_remboursement_credit_tva <= credit_tva
 
@@ -169,9 +170,9 @@ class remboursement_credit_tva(Variable):
         ]
     unit = units.XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        demande_remboursement_credit_tva = personne('demande_remboursement_credit_tva', period, parameters)
-        demande_rembousement_credit_tva_valide = personne('demande_rembousement_credit_tva_valide', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        demande_remboursement_credit_tva = personne('demande_remboursement_credit_tva', period)
+        demande_rembousement_credit_tva_valide = personne('demande_rembousement_credit_tva_valide', period)
         return where(demande_rembousement_credit_tva_valide, demande_remboursement_credit_tva, 0)
 
 
@@ -187,7 +188,7 @@ class credit_tva_a_reporter(Variable):
         ]
     unit = "Currency-XPF"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        credit_tva = personne('credit_tva', period, parameters)
-        remboursement_credit_tva = personne('remboursement_credit_tva', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        credit_tva = personne('credit_tva', period)
+        remboursement_credit_tva = personne('remboursement_credit_tva', period)
         return credit_tva - remboursement_credit_tva
