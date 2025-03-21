@@ -55,7 +55,7 @@ class valeur_locative_loyers(Variable):
         return loyer_de_janvier * NOMBRE_DE_MOIS_PAR_AN
 
 
-class taux_autres_archipel_pays(Variable):
+class taux_autres_archipels_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
@@ -140,7 +140,7 @@ class taux_archipel_tuamotus_pays(Variable):
         return parameters(period).dicp.impot_foncier.assiette.taux.archipel.tuamotus  # 0.02
 
 
-class taux_autres_archipel(Variable):
+class taux_autres_archipels(Variable):
     value_type = float
     entity = Personne
     definition_period = YEAR
@@ -150,7 +150,7 @@ class taux_autres_archipel(Variable):
     end = "2011-09-27"
 
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('taux_autres_archipel_pays', period, parameters)  # 0.03
+        return personne.pays('taux_autres_archipels_pays', period, parameters)  # 0.03
 
 
 class taux_archipel_australes(Variable):
@@ -236,11 +236,11 @@ class taux_archipel(Variable):
     def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
         archipel = personne('archipel', period, parameters)
         taux_archipel_iles_du_vent = personne('taux_archipel_iles_du_vent', period, parameters)
-        taux_autres_archipel = personne('taux_autres_archipel', period, parameters)
+        taux_autres_archipels = personne('taux_autres_archipels', period, parameters)
         return where(
             archipel == Archipel.ILES_DU_VENT,
             taux_archipel_iles_du_vent,
-            taux_autres_archipel
+            taux_autres_archipels
             )
 
     def formula_2011_09_27(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:

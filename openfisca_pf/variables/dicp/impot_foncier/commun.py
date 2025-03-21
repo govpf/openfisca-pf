@@ -33,6 +33,29 @@ class age_du_bien(Variable):
             )
 
 
+class annee_actuelle(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Année à partir de laquelle le bien est soumis à l'impôt foncier"
+
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        return period.start.year
+
+
+class annee_premiere_imposition(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Année à partir de laquelle le bien est soumis à l'impôt foncier"
+
+    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+        date_de_fin_des_travaux = personne('date_de_fin_des_travaux', period, parameters)
+        return annee_de_la_date(date_de_fin_des_travaux) + 1
+
+
 class categorie_du_bien(Variable):
     value_type = Enum
     possible_values = CategoryBien

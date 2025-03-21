@@ -14,22 +14,20 @@ from openfisca_pf.base import (
     ArrayLike,
     EnumArray,
     ndarray,
-    Parameter,
-    Parameters,
+    ParameterNodeAtInstant,
     Period,
+    Population,
     where
     )
-from openfisca_pf.entities import Personne
 
 
-def aggreger_variables(entitee: Personne, period: Period, parameters: Parameters, prefix: str, variables: List[str] | ArrayLike) -> ArrayLike:
+def aggreger_variables(entitee: Population, period: Period, prefix: str, variables: List[str] | ArrayLike) -> ArrayLike:
     """
     Calcule et aggrège les valeurs des variables demandés dans un vecteur.
     Par exemple étant donné les variables `['x', 'y', 'z']`, le préfix `'a_'` la fonction calcule `[entitee('a_x', period)[0], entitee('a_y', period)[1], entitee('a_z', period)[2]]`
 
     :param entitee:   Entitée sur laquelle réaliser l'aggrégation des variables.
     :param period:    Periode durant laquelle réaliser les calculs.
-    :param parameters Paramètres utilisés pour calculer les variables.
     :param prefix:    Prefix à ajouter devant les noms des variables.
     :param variables: Noms des variables à aggréger.
     :return:          Vecteur contenant les valeurs aggrégées des variables.
@@ -37,7 +35,7 @@ def aggreger_variables(entitee: Personne, period: Period, parameters: Parameters
     result = []
     index = 0
     for identifiant in variables:
-        value = entitee(prefix + identifiant, period, parameters)[index]
+        value = entitee(prefix + identifiant, period)[index]
         result.append(value)
         index = index + 1
     return array(result)
@@ -50,7 +48,7 @@ def figer_emprise(mask: ndarray, emprise: EnumArray, default: str) -> ndarray:
 
     :param mask: Masque binaire contenant des 1 et des 0
     :param emprise: Array de valeur d'emprise dont les valeurs seront utilisé là ou le masque est égale à 1.
-    :param default: Emprise attendu là ou le masque est egale 0
+    :param default: Emprise attendue là où le masque est égale 0
     :return: Array de valeurs d'emprise sous forme de texte.
     """
     return where(
@@ -60,7 +58,7 @@ def figer_emprise(mask: ndarray, emprise: EnumArray, default: str) -> ndarray:
         )
 
 
-def indexer_zone_commune(parameter: Parameter, commune: EnumArray, zone: EnumArray, valeur: str) -> ArrayLike:
+def indexer_zone_commune(parameter: ParameterNodeAtInstant, commune: EnumArray, zone: EnumArray, valeur: str) -> ArrayLike:
     """
     Index le parametre donnée avec le nom de la commune, puis avec le nom de la zone et enfin avec la valeur souhaitée.
 

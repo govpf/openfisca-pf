@@ -4,8 +4,9 @@
 from openfisca_pf.base import (
     ArrayLike,
     floor,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -21,7 +22,7 @@ class chiffre_affaire_total_prestations(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         value = 0.
         for activite in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
             chiffre_d_affaire_activite = personne(f'chiffre_affaire_{activite}', period)
@@ -148,9 +149,9 @@ class chiffre_affaire_location_meublee(Variable):
     label = "Chiffre d'affaire dans la catégorie Location meublée"
     unit = PER_ONE
 
-    def formula(personne: Personne, period: Period, parameters: Parameters):
+    def formula(personne: Population, period: Period, parameters: ParameterNode):
         # We return something not 0 if the flag activite_location is set (for TPE evaluation)
-        activite_location = personne('activite_location', period, parameters)
+        activite_location = personne('activite_location', period)
         return activite_location * 1
 
 

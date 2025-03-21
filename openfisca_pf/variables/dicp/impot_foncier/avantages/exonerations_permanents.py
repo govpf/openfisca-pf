@@ -99,8 +99,8 @@ Les édifices servant à l'exercice public des cultes, églises, temples, maison
 
 FORMES_LEGALES_EGLISES = enum_set(
     FormeLegale,
-    FormeLegale.EGL,
-    FormeLegale.ASSO
+    FormeLegale.ASSO,
+    FormeLegale.EGL
     )
 
 

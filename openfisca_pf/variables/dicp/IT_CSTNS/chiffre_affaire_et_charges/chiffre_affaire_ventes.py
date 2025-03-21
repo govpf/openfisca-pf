@@ -4,8 +4,9 @@
 from openfisca_pf.base import (
     ArrayLike,
     floor,
-    Parameters,
+    Parameter,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -22,10 +23,10 @@ class chiffre_affaire_total_ventes(Variable):
     unit = XPF
     default_value = 0.
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: Parameter) -> ArrayLike:
         total = 0.
         for activite in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
-            chiffre_d_affaire_activite = personne(f'chiffre_affaire_{activite}', period, parameters)
+            chiffre_d_affaire_activite = personne(f'chiffre_affaire_{activite}', period)
             total += floor(chiffre_d_affaire_activite / 1000.) * 1000.
         return total
 

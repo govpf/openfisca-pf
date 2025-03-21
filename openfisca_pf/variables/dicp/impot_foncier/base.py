@@ -296,7 +296,7 @@ class age_min_abattement_nouvelle_construction_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return AGE_MIN_ABATTEMENT_NOUVELLE_CONSTRUCTION
+        return AGE_MIN_ABATTEMENT_NOUVELLE_CONSTRUCTION  # 6
 
 
 class age_max_abattement_nouvelle_construction_pays(Variable):
@@ -308,7 +308,7 @@ class age_max_abattement_nouvelle_construction_pays(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return AGE_MAX_ABATTEMENT_NOUVELLE_CONSTRUCTION
+        return AGE_MAX_ABATTEMENT_NOUVELLE_CONSTRUCTION  # 8
 
 
 class age_min_abattement_nouvelle_construction(Variable):
@@ -320,7 +320,7 @@ class age_min_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('age_min_abattement_nouvelle_construction_pays', period, parameters)
+        return personne.pays('age_min_abattement_nouvelle_construction_pays', period, parameters)  # 6
 
 
 class age_max_abattement_nouvelle_construction(Variable):
@@ -332,7 +332,7 @@ class age_max_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('age_max_abattement_nouvelle_construction_pays', period, parameters)
+        return personne.pays('age_max_abattement_nouvelle_construction_pays', period, parameters)  # 8
 
 
 class eligible_abattement_nouvelle_construction(Variable):
@@ -364,7 +364,8 @@ class abattement_nouvelle_construction_applique(Variable):
         age_max = personne('age_max_abattement_nouvelle_construction', period, parameters)
         return not_(exonere_dix_ans) \
             * eligible \
-            * (age_min <= age_du_bien <= age_max)
+            * (age_min <= age_du_bien) \
+            * (age_du_bien <= age_max)
 
 
 class abattement_nouvelle_construction_eligible_et_applique(Variable):
