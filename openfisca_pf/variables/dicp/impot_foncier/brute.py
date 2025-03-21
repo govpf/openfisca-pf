@@ -3,8 +3,10 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    GroupPopulation,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -20,7 +22,7 @@ class taux_part_pays_pays(Variable):
     label = "Taux utilisé pour calculer l'impot brut de l'impôt foncier revenant au pays"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula_1950_11_16(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_foncier.brute.taux  # 0.1
 
 
@@ -32,8 +34,8 @@ class taux_part_pays(Variable):
     label = "Taux utilisé pour calculer l'impot brut de l'impôt foncier revenant au pays"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne.pays('taux_part_pays_pays', period, parameters)  # 0.1
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne.pays('taux_part_pays_pays', period)  # 0.1
 
 
 class impot_foncier_part_pays_brute(Variable):
@@ -44,7 +46,7 @@ class impot_foncier_part_pays_brute(Variable):
     label = "Montant d'impôt foncier brute revenant au pays"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_1950_11_16(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base = personne('valeur_locative_nette', period, parameters)
-        taux = personne('taux_part_pays', period, parameters)  # 0.1
+    def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base = personne('valeur_locative_nette', period)
+        taux = personne('taux_part_pays', period)  # 0.1
         return arrondi_inferieur(base * taux)

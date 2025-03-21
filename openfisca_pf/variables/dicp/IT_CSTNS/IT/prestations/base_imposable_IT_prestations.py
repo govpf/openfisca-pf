@@ -6,8 +6,9 @@ from openfisca_pf.base import (
     Enum,
     floor,
     not_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     round_,
     Variable,
     where,
@@ -49,17 +50,17 @@ class base_imposable_it_prestations(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         total = 0.
         for activite in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
             cca = str(parameters(period).dicp.abattements_it_cstns.activites_prestations[activite].cca)
             coeff_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
-            chiffre_d_affaire = personne(f'chiffre_affaire_{activite}', period, parameters)
+            chiffre_d_affaire = personne(f'chiffre_affaire_{activite}', period)
             chiffre_d_affaire = floor(chiffre_d_affaire / 1000.) * 1000.
 
-            # Si le chiffre d'affaire est sous un certian seuil, il n'y a pas de réduction
-            # Sinon il y a une réduction sur la partie au dessus du seui
+            # Si le chiffre d'affaires est sous un certain seuil, il n'y a pas de réduction
+            # Sinon il y a une réduction sur la partie au-dessus du seuil.
             total += where(
                 chiffre_d_affaire <= seuil_abattement_assiette,
                 chiffre_d_affaire,
@@ -76,7 +77,7 @@ class base_imposable_it_prestations_sans_abattement_droits(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         total = 0.
         charges_superieures_50_pourcents = personne('total_charges_releve_detaille', period) >= (personne('chiffre_affaire_total_prestations', period) / 2)
         releve_de_charges_fourni = personne('releve_de_charges_fourni', period) == OuiNon.O
@@ -85,7 +86,7 @@ class base_imposable_it_prestations_sans_abattement_droits(Variable):
 
         for activite in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
             cca = str(parameters(period).dicp.abattements_it_cstns.activites_prestations[activite].cca)
-            chiffre_d_affaire = personne(f'chiffre_affaire_{activite}', period, parameters)
+            chiffre_d_affaire = personne(f'chiffre_affaire_{activite}', period)
             chiffre_d_affaire = floor(chiffre_d_affaire / 1000.) * 1000.
             coeff_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].coeff_assiette
             seuil_abattement_assiette = parameters(period).dicp.abattements_it_cstns.cca[cca].seuil_abattement_d_assiette
@@ -101,7 +102,7 @@ class base_imposable_it_prestations_sans_abattement_droits(Variable):
                 seuil_abattement_assiette + (chiffre_d_affaire - seuil_abattement_assiette) * (1 - coeff_assiette)
                 )
 
-            # Ici nous ne tenons compte que du chiffre d'affaire sans abattements de droit
+            # Ici nous ne tenons compte que du chiffre d'affaires sans abattements de droit
             abattement_de_droit_applicable = abattement_droits * (
                 not_(abattement_droits_charges)
                 + (est_personne_physique * not_(seuils_abattement_de_droit_applicable_aux_personnes_physiques))

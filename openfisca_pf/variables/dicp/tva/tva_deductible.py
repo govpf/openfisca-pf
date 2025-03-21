@@ -4,8 +4,9 @@
 from openfisca_pf.base import (
     ArrayLike,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable
     )
 from openfisca_pf.constants import units
@@ -59,9 +60,9 @@ class tva_deductible(Variable):
     label = "Montant de TVA déductible"
     unit = units.XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        tva_immobilisation_deductible = personne('tva_immobilisation_deductible', period, parameters)
-        tva_autres_biens_deductibles = personne('tva_autres_biens_deductibles', period, parameters)
-        regularisation_tva_deductible = personne('regularisation_tva_deductible', period, parameters)
-        report_credit_tva_deductible = personne('report_credit_tva_deductible', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_immobilisation_deductible = personne('tva_immobilisation_deductible', period)
+        tva_autres_biens_deductibles = personne('tva_autres_biens_deductibles', period)
+        regularisation_tva_deductible = personne('regularisation_tva_deductible', period)
+        report_credit_tva_deductible = personne('report_credit_tva_deductible', period)
         return tva_immobilisation_deductible + tva_autres_biens_deductibles + regularisation_tva_deductible + report_credit_tva_deductible

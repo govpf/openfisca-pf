@@ -3,7 +3,8 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    GroupPopulation,
+    ParameterNode,
     Period,
     YEAR,
     Variable
@@ -23,8 +24,8 @@ class seuil_tva_regime_franchise_en_base(Variable):
         ]
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return (parameters(period).dicp.tva.seuils.regime.franchise_en_base)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return parameters(period).dicp.tva.seuils.regime.franchise_en_base
 
 
 class seuil_tva_regime_simplifiee_activite_commerciale(Variable):
@@ -38,8 +39,8 @@ class seuil_tva_regime_simplifiee_activite_commerciale(Variable):
         ]
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return (parameters(period).dicp.tva.seuils.regime.simplifie.activite_commerciale)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return parameters(period).dicp.tva.seuils.regime.simplifie.activite_commerciale
 
 
 class seuil_tva_regime_simplifiee_activite_prestation(Variable):
@@ -53,8 +54,8 @@ class seuil_tva_regime_simplifiee_activite_prestation(Variable):
         ]
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
-        return (parameters(period).dicp.tva.seuils.regime.simplifie.activite_prestation)
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return parameters(period).dicp.tva.seuils.regime.simplifie.activite_prestation
 
 
 class seuil_tva_regime_reel_trimestriel(Variable):
@@ -68,5 +69,5 @@ class seuil_tva_regime_reel_trimestriel(Variable):
         ]
     unit = units.XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.tva.seuils.regime.reel_trimestriel

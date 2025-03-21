@@ -11,14 +11,14 @@ __all__ = [
 from openfisca_core.taxscales import MarginalRateTaxScale
 from openfisca_pf.base import (
     ArrayLike,
-    ParameterNode,
+    GroupPopulation,
     Period,
+    Population,
     select
     )
-from openfisca_pf.entities import Pays, Personne
 
 
-def calculer_base_imposable_ventes_tranche(personne: Personne, period: Period, tranche: int, impot: str) -> ArrayLike:
+def calculer_base_imposable_ventes_tranche(personne: Population, period: Period, tranche: int, impot: str) -> ArrayLike:
     """
     Calcule le montant de la base imposable des ventes pour la tranche donnée.
 
@@ -59,13 +59,12 @@ def calculer_base_imposable_ventes_tranche(personne: Personne, period: Period, t
             )
 
 
-def calculer_base_imposable_prestations_tranche(personne: Personne, period: Period, tranche: int, impot: str) -> ArrayLike:
+def calculer_base_imposable_prestations_tranche(personne: Population, period: Period, tranche: int, impot: str) -> ArrayLike:
     """
     Calcule le montant de la base imposable de l'impôt sur les transactions de prestations pour la tranche donnée.
 
     :param personne:   Personne pour laquelle on souhaite calculer le montant de la base imposable.
     :param period:     Period durant laquelle on souhaite réaliser les calculs.
-    :param parameters: Parametres utilisés pour réaliser les calculs.
     :param tranche:    Tranche pour laquelle on souhaite calculer la base.
     :param impot:      Type de l'impot que l'on souhaite calculer.
     :return:           Montant de la base imposable sur les prestations pour la tranche donnée.
@@ -105,7 +104,7 @@ def calculer_base_imposable_prestations_tranche(personne: Personne, period: Peri
             )
 
 
-def creer_bareme(pays: Pays, period: Period, parameters: ParameterNode, impot: str, type: str, nom: str = "barème") -> MarginalRateTaxScale:
+def creer_bareme(pays: GroupPopulation, period: Period, impot: str, type: str, nom: str = "barème") -> MarginalRateTaxScale:
     """
     Créer un barème pour un impôt calculé en plusieurs tranches.
     Une variable définissant le nombre de tranches doit exister dans le `Pays` et suivre la convention de nommage `nombre_tranches_[impot]_[type]`.
@@ -115,18 +114,17 @@ def creer_bareme(pays: Pays, period: Period, parameters: ParameterNode, impot: s
 
     :param pays:       Pays pour lequel sont définies les règles de calculs du barème.
     :param period:     Period durant laquelle le barème sera calculé.
-    :param parameters: Paramètres utilisés lors des calculs du barème.
     :param impot:      Code de l'impôt.
     :param type:       Type de l'impôt.
     :param nom:        Nom du barème.
     :return:           Le nouveau barème.
     """
     # Calculations are grouped per date, so we know the parameters for each entry is the same, thus we can create only one scale for all of them
-    nombre_de_tranches = pays(f'nombre_tranches_{impot}_{type}', period, parameters)[0]
+    nombre_de_tranches = pays(f'nombre_tranches_{impot}_{type}', period)[0]
     bareme = MarginalRateTaxScale(nom)
     for tranche in range(1, nombre_de_tranches + 1):
         bareme.add_bracket(
-            pays(f'seuil_{impot}_{type}_tranche_{tranche}', period, parameters)[0],
-            pays(f'taux_{impot}_{type}_tranche_{tranche}', period, parameters)[0]
+            pays(f'seuil_{impot}_{type}_tranche_{tranche}', period)[0],
+            pays(f'taux_{impot}_{type}_tranche_{tranche}', period)[0]
             )
     return bareme
