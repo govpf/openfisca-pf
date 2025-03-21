@@ -58,7 +58,7 @@ def figer_emprise(mask: ndarray, emprise: ArrayLike, default: str) -> ndarray:
         )
 
 
-def indexer_zone_commune(parameter: ParameterNodeAtInstant, commune: EnumArray, zone: EnumArray, valeur: str) -> ArrayLike:
+def indexer_zone_commune(parameter: ParameterNodeAtInstant, commune: ArrayLike, zone: ArrayLike, valeur: str) -> ArrayLike:
     """
     Index le parametre donnée avec le nom de la commune, puis avec le nom de la zone et enfin avec la valeur souhaitée.
 
