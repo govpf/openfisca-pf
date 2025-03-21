@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     where,
     YEAR
@@ -24,9 +25,9 @@ class montant_cstns_du(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_ventes = personne('cstns_ventes', period, parameters)
-        cstns_prestations = personne('cstns_prestations', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_ventes = personne('cstns_ventes', period)
+        cstns_prestations = personne('cstns_prestations', period)
         return arrondi_inferieur(cstns_ventes + cstns_prestations)
 
 
@@ -40,8 +41,8 @@ class cstns_a_payer(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_cstns_du = personne('montant_cstns_du', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_cstns_du = personne('montant_cstns_du', period)
         return where(montant_cstns_du < 6000, 0, montant_cstns_du)
 
 
@@ -55,8 +56,8 @@ class montant_cstns_total_a_payer(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('montant_cstns_du', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('montant_cstns_du', period)
 
 
 class redevable_cstns(Variable):
@@ -68,5 +69,5 @@ class redevable_cstns(Variable):
         'https://www.impot-polynesie.gov.pf/code/section-i-bases-et-personnes-imposables'
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('redevable_it', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('redevable_it', period)

@@ -3,7 +3,8 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    GroupPopulation,
+    ParameterNode,
     Period,
     Variable,
     YEAR
@@ -21,7 +22,7 @@ class seuil_cstns_prestations_tranche_1(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[0]
 
 
@@ -35,7 +36,7 @@ class seuil_cstns_prestations_tranche_2(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[1]
 
 
@@ -49,7 +50,7 @@ class seuil_cstns_prestations_tranche_3(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[2]
 
 
@@ -63,7 +64,7 @@ class seuil_cstns_prestations_tranche_4(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[3]
 
 
@@ -77,7 +78,7 @@ class seuil_cstns_prestations_tranche_5(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[4]
 
 
@@ -91,7 +92,7 @@ class seuil_cstns_prestations_tranche_6(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[5]
 
 
@@ -105,7 +106,7 @@ class seuil_cstns_prestations_tranche_7(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[6]
 
 
@@ -119,7 +120,7 @@ class seuil_cstns_prestations_tranche_8(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[8]
 
 
@@ -133,7 +134,7 @@ class seuil_cstns_prestations_tranche_9(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[8]
 
 
@@ -147,7 +148,7 @@ class seuil_cstns_prestations_tranche_10(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[9]
 
 
@@ -161,7 +162,7 @@ class seuil_cstns_prestations_tranche_11(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[10]
 
 
@@ -175,5 +176,5 @@ class seuil_cstns_prestations_tranche_12(Variable):
         "https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47"
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_prestations.thresholds[11]

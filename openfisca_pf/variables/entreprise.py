@@ -4,8 +4,11 @@
 from openfisca_pf.base import (
     ArrayLike,
     Enum,
-    Parameters,
+    full,
+    GroupPopulation,
+    ParameterNode,
     Period,
+    Population,
     set_input_divide_by_period,
     Variable,
     where,
@@ -44,12 +47,12 @@ class type_personne(Variable):
     label = 'Un contribuable peut etre une personne physique(P) ou morale (M)'
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        type_societe = personne('type_societe', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        type_societe = personne('type_societe', period)
         return where(
             type_societe == TypeSociete.EI,
-            TypePersonne.P,
-            TypePersonne.M
+            full(personne.count, TypePersonne.P),
+            full(personne.count, TypePersonne.M)
             )
 
 
@@ -61,8 +64,8 @@ class activite_commerciale(Variable):
     label = "Indique si l'entreprise à une activité commerciale"
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        chiffre_affaire_total_ventes = personne('chiffre_affaire_total_ventes', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        chiffre_affaire_total_ventes = personne('chiffre_affaire_total_ventes', period)
         return chiffre_affaire_total_ventes > 0
 
 
@@ -74,8 +77,8 @@ class activite_prestations(Variable):
     label = "Indique si l'entreprise à une activité de prestations"
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        chiffre_affaire_total_prestations = personne('chiffre_affaire_total_prestations', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        chiffre_affaire_total_prestations = personne('chiffre_affaire_total_prestations', period)
         return chiffre_affaire_total_prestations > 0
 
 
@@ -87,7 +90,7 @@ class nombre_entreprises_contribuables_pays(Variable):
     label = "Nombre d'entreprises du pays"
     reference = []
 
-    def formula(pays: Pays) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return pays.nb_persons(Pays.CONTRIBUABLES)
 
 
@@ -99,7 +102,7 @@ class chiffre_affaire_prestations_contribuables_pays(Variable):
     label = "Chiffre d'affaire total en prestation des entreprises contribuables du pays"
     reference = []
 
-    def formula(pays: Pays, period: Period) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         chiffre_affaire_total_prestations = pays.members('chiffre_affaire_total_prestations', period)
         return pays.sum(chiffre_affaire_total_prestations)
 
@@ -112,7 +115,7 @@ class chiffre_affaire_ventes_contribuables_pays(Variable):
     label = "Chiffre d'affaire total en ventes des entreprises contribuables du pays"
     reference = []
 
-    def formula(pays: Pays, period: Period) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         chiffre_affaire_total_ventes = pays.members('chiffre_affaire_total_ventes', period)
         return pays.sum(chiffre_affaire_total_ventes)
 
@@ -125,7 +128,7 @@ class base_imposable_it_prestations_contribuables_pays(Variable):
     label = "Somme des bases imposables pour prestations de l'impôt sur les transactions de toutes les entreprises contribuables du pays"
     reference = []
 
-    def formula(pays: Pays, period: Period) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_it_prestations = pays.members('base_imposable_it_prestations', period)
         return pays.sum(base_imposable_it_prestations)
 
@@ -138,6 +141,6 @@ class base_imposable_it_ventes_contribuables_pays(Variable):
     label = "Somme des bases imposables pour ventes de l'impôt sur les transactions de toutes les entreprises contribuables du pays"
     reference = []
 
-    def formula(pays: Pays, period: Period) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_it_ventes = pays.members('base_imposable_it_ventes', period)
         return pays.sum(base_imposable_it_ventes)

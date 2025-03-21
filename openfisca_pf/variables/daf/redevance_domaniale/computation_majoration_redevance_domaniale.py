@@ -4,8 +4,9 @@
 from openfisca_pf.base import (
     ArrayLike,
     DAY,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     select,
     Variable
     )
@@ -20,7 +21,7 @@ class majoration_redevance_domaniale(Variable):
     label = "Majoration apportée à la tarification de base"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         # Variables
         nbr_participant = personne('nombre_participant_redevance_domaniale', period)
 
@@ -30,7 +31,7 @@ class majoration_redevance_domaniale(Variable):
         rate_participant_2 = parameters(period).daf.redevance_domaniale.majoration_redevance_domaniale.rate_participant_2
         threshold_participant_2 = parameters(period).daf.redevance_domaniale.majoration_redevance_domaniale.threshold_participant_2
 
-        # Calcul de la majoration liée au nombre de participant
+        # Calcul de la majoration liée au nombre de participants
         montant_intermediaire = select(
             [
                 nbr_participant < threshold_participant_1,

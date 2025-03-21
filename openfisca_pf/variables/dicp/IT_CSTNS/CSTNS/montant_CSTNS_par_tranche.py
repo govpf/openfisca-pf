@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -22,9 +23,9 @@ class montant_du_cstns_tranche_1(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_1 = personne('montant_cstns_prestations_du_tranche_1', period, parameters)
-        cstns_ventes_tranche_1 = personne('montant_cstns_ventes_du_tranche_1', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_1 = personne('montant_cstns_prestations_du_tranche_1', period)
+        cstns_ventes_tranche_1 = personne('montant_cstns_ventes_du_tranche_1', period)
         return cstns_prestations_tranche_1 + cstns_ventes_tranche_1
 
 
@@ -38,9 +39,9 @@ class montant_du_cstns_tranche_2(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_2 = personne('montant_cstns_prestations_du_tranche_2', period, parameters)
-        cstns_ventes_tranche_2 = personne('montant_cstns_ventes_du_tranche_2', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_2 = personne('montant_cstns_prestations_du_tranche_2', period)
+        cstns_ventes_tranche_2 = personne('montant_cstns_ventes_du_tranche_2', period)
         return cstns_prestations_tranche_2 + cstns_ventes_tranche_2
 
 
@@ -54,9 +55,9 @@ class montant_du_cstns_tranche_3(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_3 = personne('montant_cstns_prestations_du_tranche_3', period, parameters)
-        cstns_ventes_tranche_3 = personne('montant_cstns_ventes_du_tranche_3', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_3 = personne('montant_cstns_prestations_du_tranche_3', period)
+        cstns_ventes_tranche_3 = personne('montant_cstns_ventes_du_tranche_3', period)
         return cstns_prestations_tranche_3 + cstns_ventes_tranche_3
 
 
@@ -70,9 +71,9 @@ class montant_du_cstns_tranche_4(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_4 = personne('montant_cstns_prestations_du_tranche_4', period, parameters)
-        cstns_ventes_tranche_4 = personne('montant_cstns_ventes_du_tranche_4', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_4 = personne('montant_cstns_prestations_du_tranche_4', period)
+        cstns_ventes_tranche_4 = personne('montant_cstns_ventes_du_tranche_4', period)
         return cstns_prestations_tranche_4 + cstns_ventes_tranche_4
 
 
@@ -86,9 +87,9 @@ class montant_du_cstns_tranche_5(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_5 = personne('montant_cstns_prestations_du_tranche_5', period, parameters)
-        cstns_ventes_tranche_5 = personne('montant_cstns_ventes_du_tranche_5', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_5 = personne('montant_cstns_prestations_du_tranche_5', period)
+        cstns_ventes_tranche_5 = personne('montant_cstns_ventes_du_tranche_5', period)
         return cstns_prestations_tranche_5 + cstns_ventes_tranche_5
 
 
@@ -102,9 +103,9 @@ class montant_du_cstns_tranche_6(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_6 = personne('montant_cstns_prestations_du_tranche_6', period, parameters)
-        cstns_ventes_tranche_6 = personne('montant_cstns_ventes_du_tranche_6', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_6 = personne('montant_cstns_prestations_du_tranche_6', period)
+        cstns_ventes_tranche_6 = personne('montant_cstns_ventes_du_tranche_6', period)
         return cstns_prestations_tranche_6 + cstns_ventes_tranche_6
 
 
@@ -118,9 +119,9 @@ class montant_du_cstns_tranche_7(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_7 = personne('montant_cstns_prestations_du_tranche_7', period, parameters)
-        cstns_ventes_tranche_7 = personne('montant_cstns_ventes_du_tranche_7', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_7 = personne('montant_cstns_prestations_du_tranche_7', period)
+        cstns_ventes_tranche_7 = personne('montant_cstns_ventes_du_tranche_7', period)
         return cstns_prestations_tranche_7 + cstns_ventes_tranche_7
 
 
@@ -134,9 +135,9 @@ class montant_du_cstns_tranche_8(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_8 = personne('montant_cstns_prestations_du_tranche_8', period, parameters)
-        cstns_ventes_tranche_8 = personne('montant_cstns_ventes_du_tranche_8', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_8 = personne('montant_cstns_prestations_du_tranche_8', period)
+        cstns_ventes_tranche_8 = personne('montant_cstns_ventes_du_tranche_8', period)
         return cstns_prestations_tranche_8 + cstns_ventes_tranche_8
 
 
@@ -150,9 +151,9 @@ class montant_du_cstns_tranche_9(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_9 = personne('montant_cstns_prestations_du_tranche_9', period, parameters)
-        cstns_ventes_tranche_9 = personne('montant_cstns_ventes_du_tranche_9', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_9 = personne('montant_cstns_prestations_du_tranche_9', period)
+        cstns_ventes_tranche_9 = personne('montant_cstns_ventes_du_tranche_9', period)
         return cstns_prestations_tranche_9 + cstns_ventes_tranche_9
 
 
@@ -166,9 +167,9 @@ class montant_du_cstns_tranche_10(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_10 = personne('montant_cstns_prestations_du_tranche_10', period, parameters)
-        cstns_ventes_tranche_10 = personne('montant_cstns_ventes_du_tranche_10', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_10 = personne('montant_cstns_prestations_du_tranche_10', period)
+        cstns_ventes_tranche_10 = personne('montant_cstns_ventes_du_tranche_10', period)
         return cstns_prestations_tranche_10 + cstns_ventes_tranche_10
 
 
@@ -182,9 +183,9 @@ class montant_du_cstns_tranche_11(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_11 = personne('montant_cstns_prestations_du_tranche_11', period, parameters)
-        cstns_ventes_tranche_11 = personne('montant_cstns_ventes_du_tranche_11', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_11 = personne('montant_cstns_prestations_du_tranche_11', period)
+        cstns_ventes_tranche_11 = personne('montant_cstns_ventes_du_tranche_11', period)
         return cstns_prestations_tranche_11 + cstns_ventes_tranche_11
 
 
@@ -198,7 +199,7 @@ class montant_du_cstns_tranche_12(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_prestations_tranche_12 = personne('montant_cstns_prestations_du_tranche_12', period, parameters)
-        cstns_ventes_tranche_12 = personne('montant_cstns_ventes_du_tranche_12', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_prestations_tranche_12 = personne('montant_cstns_prestations_du_tranche_12', period)
+        cstns_ventes_tranche_12 = personne('montant_cstns_ventes_du_tranche_12', period)
         return cstns_prestations_tranche_12 + cstns_ventes_tranche_12

@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -19,9 +20,9 @@ class montant_cstns_prestations_du_tranche_1(Variable):
     label = "Montant de CST-NS de la tranche 1 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_1', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_1', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_1', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_1', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -32,9 +33,9 @@ class montant_cstns_prestations_du_tranche_2(Variable):
     label = "Montant de CST-NS de la tranche 2 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_2', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_2', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_2', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_2', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -45,9 +46,9 @@ class montant_cstns_prestations_du_tranche_3(Variable):
     label = "Montant de CST-NS de la tranche 3 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_3', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_3', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_3', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_3', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -58,9 +59,9 @@ class montant_cstns_prestations_du_tranche_4(Variable):
     label = u"Montant de CST-NS de la tranche 4 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_4', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_4', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_4', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_4', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -71,9 +72,9 @@ class montant_cstns_prestations_du_tranche_5(Variable):
     label = u"Montant de CST-NS de la tranche 5 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_5', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_5', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_5', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_5', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -84,9 +85,9 @@ class montant_cstns_prestations_du_tranche_6(Variable):
     label = u"Montant de CST-NS de la tranche 6 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_6', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_6', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_6', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_6', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -97,9 +98,9 @@ class montant_cstns_prestations_du_tranche_7(Variable):
     label = u"Montant de CST-NS de la tranche 7 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_7', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_7', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_7', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_7', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -110,9 +111,9 @@ class montant_cstns_prestations_du_tranche_8(Variable):
     label = "Montant de CST-NS de la tranche 8 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_8', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_8', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_8', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_8', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -123,9 +124,9 @@ class montant_cstns_prestations_du_tranche_9(Variable):
     label = "Montant de CST-NS de la tranche 9 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_9', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_9', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_9', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_9', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -136,9 +137,9 @@ class montant_cstns_prestations_du_tranche_10(Variable):
     label = "Montant de CST-NS de la tranche 10 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_10', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_10', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_10', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_10', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -149,9 +150,9 @@ class montant_cstns_prestations_du_tranche_11(Variable):
     label = "Montant de CST-NS de la tranche 11 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_11', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_11', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_11', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_11', period)
         return arrondi_inferieur(base_imposable * taux)
 
 
@@ -162,7 +163,7 @@ class montant_cstns_prestations_du_tranche_12(Variable):
     label = "Montant de CST-NS de la tranche 12 sur les prestations sans tenir compte de l'abattement de droits"
     reference = "https://www.impot-polynesie.gov.pf/code/section-ii-taux"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        base_imposable = personne('base_imposable_cstns_prestations_tranche_12', period, parameters)
-        taux = personne.pays('taux_cstns_prestations_tranche_12', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cstns_prestations_tranche_12', period)
+        taux = personne.pays('taux_cstns_prestations_tranche_12', period)
         return arrondi_inferieur(base_imposable * taux)

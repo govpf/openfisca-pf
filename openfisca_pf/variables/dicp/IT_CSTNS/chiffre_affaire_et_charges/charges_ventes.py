@@ -2,8 +2,9 @@
 
 
 from openfisca_pf.base import (
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -17,7 +18,7 @@ class charges_total_ventes(Variable):
     label = "Montant total des charges concernant des ventes avant abattement"
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters):
+    def formula(personne: Population, period: Period, parameters: ParameterNode):
         value = 0
         for activite in [*parameters(period).dicp.abattements_it_cstns.activites_ventes]:
             value += personne(f'charges_{activite}', period)

@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -24,8 +25,8 @@ class base_imposable_cstns_ventes_tranche_1(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 1, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 1, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_2(Variable):
@@ -36,8 +37,8 @@ class base_imposable_cstns_ventes_tranche_2(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 2, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 2, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_3(Variable):
@@ -48,8 +49,8 @@ class base_imposable_cstns_ventes_tranche_3(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 3, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 3, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_4(Variable):
@@ -60,8 +61,8 @@ class base_imposable_cstns_ventes_tranche_4(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 4, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 4, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_5(Variable):
@@ -72,8 +73,8 @@ class base_imposable_cstns_ventes_tranche_5(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 5, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 5, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_6(Variable):
@@ -84,8 +85,8 @@ class base_imposable_cstns_ventes_tranche_6(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 6, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 6, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_7(Variable):
@@ -96,8 +97,8 @@ class base_imposable_cstns_ventes_tranche_7(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 7, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 7, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_8(Variable):
@@ -108,8 +109,8 @@ class base_imposable_cstns_ventes_tranche_8(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 8, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 8, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_9(Variable):
@@ -120,8 +121,8 @@ class base_imposable_cstns_ventes_tranche_9(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 9, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 9, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_10(Variable):
@@ -132,8 +133,8 @@ class base_imposable_cstns_ventes_tranche_10(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 10, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 10, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_11(Variable):
@@ -144,8 +145,8 @@ class base_imposable_cstns_ventes_tranche_11(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 11, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 11, CSTNS)
 
 
 class base_imposable_cstns_ventes_tranche_12(Variable):
@@ -156,5 +157,5 @@ class base_imposable_cstns_ventes_tranche_12(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return calculer_base_imposable_ventes_tranche(personne, period, parameters, 12, CSTNS)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return calculer_base_imposable_ventes_tranche(personne, period, 12, CSTNS)

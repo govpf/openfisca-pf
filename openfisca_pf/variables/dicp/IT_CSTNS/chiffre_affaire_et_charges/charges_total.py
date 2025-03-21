@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -20,9 +21,9 @@ class charges_total(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        charges_total_ventes = personne('charges_total_ventes', period, parameters)
-        charges_total_prestations = personne('charges_total_prestations', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        charges_total_ventes = personne('charges_total_ventes', period)
+        charges_total_prestations = personne('charges_total_prestations', period)
         return charges_total_ventes + charges_total_prestations
 
 

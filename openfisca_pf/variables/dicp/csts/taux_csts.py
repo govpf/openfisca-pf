@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
+    GroupPopulation,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
     Variable
     )
@@ -33,7 +34,7 @@ class nombre_tranches_cst_s(Variable):
     A modifier avec une extrême précaution !
     """
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return len(parameters(period).dicp.cst_s.taux.rates)
 
 
@@ -49,7 +50,7 @@ class taux_cst_s_tranche_1(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[0]
 
 
@@ -65,7 +66,7 @@ class taux_cst_s_tranche_2(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[1]
 
 
@@ -81,7 +82,7 @@ class taux_cst_s_tranche_3(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[2]
 
 
@@ -97,7 +98,7 @@ class taux_cst_s_tranche_4(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[3]
 
 
@@ -113,7 +114,7 @@ class taux_cst_s_tranche_5(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[4]
 
 
@@ -129,7 +130,7 @@ class taux_cst_s_tranche_6(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[5]
 
 
@@ -145,7 +146,7 @@ class taux_cst_s_tranche_7(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[6]
 
 
@@ -161,7 +162,7 @@ class taux_cst_s_tranche_8(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[7]
 
 
@@ -177,7 +178,7 @@ class taux_cst_s_tranche_9(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[8]
 
 
@@ -193,7 +194,7 @@ class taux_cst_s_tranche_10(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[9]
 
 
@@ -209,7 +210,7 @@ class taux_cst_s_tranche_11(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[10]
 
 
@@ -225,5 +226,5 @@ class taux_cst_s_tranche_12(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cst_s.taux.rates[11]

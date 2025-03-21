@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     round_,
     Variable,
     YEAR
@@ -36,9 +37,9 @@ class montant_majoration_cstns(Variable):
     label = 'Montant de la majoration appliquée a la CST NS'
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        taux_majoration_cstns = personne('taux_majoration_cstns', period, parameters)
-        it_a_payer = personne('it_a_payer', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        taux_majoration_cstns = personne('taux_majoration_cstns', period)
+        it_a_payer = personne('it_a_payer', period)
         return round_(it_a_payer * taux_majoration_cstns / 100.)
 
 
@@ -57,8 +58,8 @@ class montant_total_penalites_cstns(Variable):
     label = 'Montant total des penalités CST NS'
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        montant_amendes_cstns = personne('montant_amendes_cstns', period, parameters)
-        montant_majoration_cstns = personne('montant_majoration_cstns', period, parameters)
-        montant_penalites_cstns = personne('montant_penalites_cstns', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_amendes_cstns = personne('montant_amendes_cstns', period)
+        montant_majoration_cstns = personne('montant_majoration_cstns', period)
+        montant_penalites_cstns = personne('montant_penalites_cstns', period)
         return round_(montant_amendes_cstns + montant_majoration_cstns + montant_penalites_cstns)

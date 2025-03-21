@@ -3,7 +3,8 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    GroupPopulation,
+    ParameterNode,
     Period,
     Variable,
     YEAR
@@ -23,7 +24,7 @@ class seuil_cstns_ventes_tranche_1(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[0]
 
 
@@ -38,7 +39,7 @@ class seuil_cstns_ventes_tranche_2(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[1]
 
 
@@ -53,7 +54,7 @@ class seuil_cstns_ventes_tranche_3(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[2]
 
 
@@ -68,7 +69,7 @@ class seuil_cstns_ventes_tranche_4(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[3]
 
 
@@ -83,7 +84,7 @@ class seuil_cstns_ventes_tranche_5(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[4]
 
 
@@ -98,7 +99,7 @@ class seuil_cstns_ventes_tranche_6(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[5]
 
 
@@ -113,7 +114,7 @@ class seuil_cstns_ventes_tranche_7(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[6]
 
 
@@ -128,7 +129,7 @@ class seuil_cstns_ventes_tranche_8(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[7]
 
 
@@ -143,7 +144,7 @@ class seuil_cstns_ventes_tranche_9(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[8]
 
 
@@ -158,7 +159,7 @@ class seuil_cstns_ventes_tranche_10(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[9]
 
 
@@ -173,7 +174,7 @@ class seuil_cstns_ventes_tranche_11(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[10]
 
 
@@ -188,5 +189,5 @@ class seuil_cstns_ventes_tranche_12(Variable):
         ]
     unit = XPF
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.thresholds[11]

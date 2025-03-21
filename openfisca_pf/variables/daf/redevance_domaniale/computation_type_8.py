@@ -5,9 +5,11 @@ from openfisca_pf.base import (
     ArrayLike,
     DAY,
     Enum,
+    full,
     max_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     select,
     Variable,
     where
@@ -32,8 +34,8 @@ class type_calcul_redevance_domaniale_est_type_8(Variable):
     unit = BOOLEAN
     label = "Determine si le calcul de redevance domaniale est de type 8"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('type_calcul_redevance_domaniale', period, parameters) == '8'
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('type_calcul_redevance_domaniale', period) == '8'
 
 
 class montant_base_redevance_domaniale_type_8(Variable):
@@ -45,13 +47,13 @@ class montant_base_redevance_domaniale_type_8(Variable):
     label = "Montant de base de la redevance domaniale avec un zonage par archipel (journalier, annuel, mensuel)"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         # Variables
-        type_calcul = personne('type_calcul_redevance_domaniale_est_type_8', period, parameters)
-        emprise = personne('nature_emprise_occupation_redevance_domaniale', period, parameters)
-        variable = personne('variable_redevance_domaniale', period, parameters)
-        nombre = personne('nombre_unite_redevance_domaniale', period, parameters)
-        zone = personne('zone_occupation_redevance_domaniale', period, parameters)
+        type_calcul = personne('type_calcul_redevance_domaniale_est_type_8', period)
+        emprise = personne('nature_emprise_occupation_redevance_domaniale', period)
+        variable = personne('variable_redevance_domaniale', period)
+        nombre = personne('nombre_unite_redevance_domaniale', period)
+        zone = personne('zone_occupation_redevance_domaniale', period)
 
         # Lors de demandes multiples avec des types de calculs différents,
         # il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
@@ -84,7 +86,7 @@ class montant_total_redevance_domaniale_type_8(Variable):
     label = "Montant total de la redevance domaniale avec un zonage par archipel"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         # Variables
         type_calcul = personne('type_calcul_redevance_domaniale_est_type_8', period)
         emprise = personne('nature_emprise_occupation_redevance_domaniale', period)
@@ -124,11 +126,11 @@ class temporalite_redevance_domaniale_type_8(Variable):
     label = "Temporalité (journalier, annuel, mensuel) pour la redevance domaniale"
     reference = "Arrêté NOR DAF2120267AC-3"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         # Variables
-        type_calcul = personne('type_calcul_redevance_domaniale_est_type_8', period, parameters)
-        emprise = personne('nature_emprise_occupation_redevance_domaniale', period, parameters)
-        zone = personne('zone_occupation_redevance_domaniale', period, parameters)
+        type_calcul = personne('type_calcul_redevance_domaniale_est_type_8', period)
+        emprise = personne('nature_emprise_occupation_redevance_domaniale', period)
+        zone = personne('zone_occupation_redevance_domaniale', period)
 
         # Lors de demandes multiples avec des types de calculs différents,
         # il est nécessaire de figer l'emprise sur une donnée existante pour le type associé.
@@ -150,10 +152,14 @@ class temporalite_redevance_domaniale_type_8(Variable):
                 base_calcul_jour == NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS
                 ],
             [
-                Temporalite.Journalier,
-                Temporalite.Hebdomadaire,
-                Temporalite.Mensuel,
-                Temporalite.Annuel
+                full(personne.count, Temporalite.Journalier),
+                full(personne.count, Temporalite.Hebdomadaire),
+                full(personne.count, Temporalite.Mensuel),
+                full(personne.count, Temporalite.Annuel)
                 ]
             )
-        return where(type_calcul, temporalite, Temporalite.Non_Applicable)
+        return where(
+            type_calcul,
+            temporalite,
+            full(personne.count, Temporalite.Non_Applicable)
+            )

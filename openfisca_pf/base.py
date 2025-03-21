@@ -12,6 +12,7 @@ __all__ = [
     'divide',
     'floor',
     'floor_divide',
+    'full',
     'isin',
     'max_',
     'min_',
@@ -34,17 +35,26 @@ __all__ = [
     'Enum',
     'EnumArray',
     # openfisca_core.periods
-    'ETERNITY',
-    'Period',
-    'YEAR',
-    'MONTH',
     'DAY',
+    'ETERNITY',
+    'Instant',
     'period',
+    'Period',  # Use this to type the period input of a formula
+    'MONTH',
+    'YEAR',
     # openfisca_core.parameters
     'Parameter',
-    'Parameters',
+    'ParameterAtInstant',
+    'ParameterNode',  # Use this to type the parameters input of a formula
+    'ParameterNodeAtInstant',
+    'ParameterScale',
+    'ParameterScaleBracket',
+    'VectorialParameterNodeAtInstant',
     # openfisca_core.populations
     'ADD',
+    'DIVIDE',
+    'GroupPopulation',  # Use this to type the first input of a formula defined for a group entity
+    'Population',  # Use this to type the first input of a formula defined for a person entity
     # openfisca_core.variables
     'Variable'
     ]
@@ -59,6 +69,7 @@ from numpy import (
     divide,
     floor,
     floor_divide,
+    full,
     isin,
     logical_not as not_,
     maximum as max_,
@@ -79,7 +90,28 @@ from openfisca_core.holders import (
     set_input_divide_by_period
     )
 from openfisca_core.indexed_enums import Enum, EnumArray
-from openfisca_core.parameters import Parameter, Parameter as Parameters
-from openfisca_core.periods import Period, YEAR, MONTH, DAY, ETERNITY, period
-from openfisca_core.populations import ADD
+from openfisca_core.parameters import (
+    Parameter,
+    ParameterAtInstant,
+    ParameterNode,  # Use this to type the parameters input of a formula
+    ParameterNodeAtInstant,
+    ParameterScale,
+    ParameterScaleBracket,
+    VectorialParameterNodeAtInstant,
+    )
+from openfisca_core.periods import (
+    DAY,
+    ETERNITY,
+    Instant,
+    period,
+    Period,  # Use this to type the period input of a formula
+    MONTH,
+    YEAR
+    )
+from openfisca_core.populations import (
+    ADD,
+    DIVIDE,
+    GroupPopulation,  # Use this to type the first input of a formula defined for a group entity
+    Population  # Use this to type the first input of a formula defined for a person entity
+    )
 from openfisca_core.variables import Variable

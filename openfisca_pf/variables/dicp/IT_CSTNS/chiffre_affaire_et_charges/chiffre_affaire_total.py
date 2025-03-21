@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -18,7 +19,7 @@ class chiffre_affaire_total(Variable):
     label = "Montant total du chiffre d'affaire"
     reference = []
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        chiffre_affaire_total_ventes = personne('chiffre_affaire_total_ventes', period, parameters)
-        chiffre_affaire_total_prestations = personne('chiffre_affaire_total_prestations', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        chiffre_affaire_total_ventes = personne('chiffre_affaire_total_ventes', period)
+        chiffre_affaire_total_prestations = personne('chiffre_affaire_total_prestations', period)
         return chiffre_affaire_total_ventes + chiffre_affaire_total_prestations

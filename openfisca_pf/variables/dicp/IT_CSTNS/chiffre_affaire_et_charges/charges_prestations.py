@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -20,10 +21,10 @@ class charges_total_prestations(Variable):
     reference = "https://law.gov.example/income_tax"
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         value = 0
         for activite in [*parameters(period).dicp.abattements_it_cstns.activites_prestations]:
-            value += personne(f'charges_{activite}', period, parameters)
+            value += personne(f'charges_{activite}', period)
         return value
 
 

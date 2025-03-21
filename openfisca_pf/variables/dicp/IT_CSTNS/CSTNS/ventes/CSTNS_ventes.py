@@ -3,8 +3,9 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable,
     YEAR
     )
@@ -21,11 +22,11 @@ class cstns_ventes_avant_abattement_droits(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         total = 0.
         nombre_tranches = personne.pays('nombre_tranches_cstns_ventes', period, parameters)[0]
         for i in range(1, nombre_tranches + 1):
-            total += personne(f'montant_cstns_ventes_du_tranche_{i}', period, parameters)
+            total += personne(f'montant_cstns_ventes_du_tranche_{i}', period)
         return total
 
 
@@ -37,8 +38,8 @@ class cstns_ventes_sans_abattement_droits(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        chiffre_d_affaire = personne('base_imposable_cstns_ventes_sans_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        chiffre_d_affaire = personne('base_imposable_cstns_ventes_sans_abattement_droits', period)
         bareme = creer_bareme(personne.pays, period, parameters, 'cstns', 'ventes')
         return bareme.calc(chiffre_d_affaire)
 
@@ -51,9 +52,9 @@ class cstns_ventes(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_ventes_abattement_droits = personne('cstns_ventes_abattement_droits', period, parameters)
-        cstns_ventes_avant_abattement_droits = personne('cstns_ventes_avant_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_ventes_abattement_droits = personne('cstns_ventes_abattement_droits', period)
+        cstns_ventes_avant_abattement_droits = personne('cstns_ventes_avant_abattement_droits', period)
         return cstns_ventes_avant_abattement_droits - cstns_ventes_abattement_droits
 
 
@@ -65,7 +66,7 @@ class cstns_ventes_abattement_droits(Variable):
     reference = []
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cstns_ventes_avant_abattement_droits = personne('cstns_ventes_avant_abattement_droits', period, parameters)
-        cstns_ventes_sans_abattement_droits = personne('cstns_ventes_sans_abattement_droits', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cstns_ventes_avant_abattement_droits = personne('cstns_ventes_avant_abattement_droits', period)
+        cstns_ventes_sans_abattement_droits = personne('cstns_ventes_sans_abattement_droits', period)
         return (cstns_ventes_avant_abattement_droits - cstns_ventes_sans_abattement_droits) / 2
