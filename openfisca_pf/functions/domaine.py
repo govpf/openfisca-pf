@@ -12,7 +12,6 @@ from typing import List
 from openfisca_pf.base import (
     array,
     ArrayLike,
-    EnumArray,
     ndarray,
     ParameterNodeAtInstant,
     Period,
