@@ -33,11 +33,30 @@ ACTIVITE_TAUX_IS = Activite.encode(numpy.asarray([
     Activite.SECTEUR_RECHERCHE_DEVELOPPEMENT
     ]))
 
+ACTIVITE_ABATTEMENT_IS = Activite.encode(numpy.asarray([
+    Activite.SOCIETES_GESTION_FONDS_GARANTIE
+    ]))
 
-ACTIVITE_EXONERATRICE = Activite.encode(numpy.asarray([
+ACTIVITE_ABATTEMENT_IMF = Activite.encode(numpy.asarray([
+    Activite.SOCIETES_GESTION_FONDS_GARANTIE
+    ]))
+
+ACTIVITE_ABATTEMENT_CSIS = Activite.encode(numpy.asarray([
+    ]))
+
+
+ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS = Activite.encode(numpy.asarray([
+    ]))
+
+ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IMF = Activite.encode(numpy.asarray([
+    ]))
+
+ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_CSIS = Activite.encode(numpy.asarray([
+    ]))
+
+ACTIVITE_REDUCTION_IS = Activite.encode(numpy.asarray([
     Activite.SOCIETES_EXPORTATRICES,
     Activite.CROISIERE_MIXTE,
-    Activite.SOCIETES_GESTION_FONDS_GARANTIE,
     Activite.ACTIVITES_CROISIERE,
     Activite.CONCESSIONS_MINIERES,
     Activite.MEMBRE_GROUPE_FISCAL,
@@ -47,8 +66,42 @@ ACTIVITE_EXONERATRICE = Activite.encode(numpy.asarray([
     Activite.OBNL
     ]))
 
+ACTIVITE_REDUCTION_IMF = Activite.encode(numpy.asarray([
+    Activite.SOCIETES_EXPORTATRICES,
+    Activite.CROISIERE_MIXTE,
+    Activite.ACTIVITES_CROISIERE,
+    Activite.CONCESSIONS_MINIERES,
+    Activite.MEMBRE_GROUPE_FISCAL,
+    Activite.GIE,
+    Activite.SCPR,
+    Activite.SCM,
+    Activite.OBNL
+    ]))
 
-ACTIVITE_EXONERATRICE_TAUX_A_SAISIR = Activite.encode(numpy.asarray([
+ACTIVITE_REDUCTION_CSIS = Activite.encode(numpy.asarray([
+    Activite.SOCIETES_EXPORTATRICES,
+    Activite.CROISIERE_MIXTE,
+    Activite.ACTIVITES_CROISIERE,
+    Activite.CONCESSIONS_MINIERES,
+    Activite.MEMBRE_GROUPE_FISCAL,
+    Activite.GIE,
+    Activite.SCPR,
+    Activite.SCM,
+    Activite.OBNL
+    ]))
+
+ACTIVITE_REDUCTION_TAUX_A_SAISIR_IS = Activite.encode(numpy.asarray([
+    Activite.SOCIETES_EXPORTATRICES,
+    Activite.CROISIERE_MIXTE
+    ]))
+
+
+ACTIVITE_REDUCTION_TAUX_A_SAISIR_IMF = Activite.encode(numpy.asarray([
+    Activite.SOCIETES_EXPORTATRICES,
+    Activite.CROISIERE_MIXTE
+    ]))
+
+ACTIVITE_REDUCTION_TAUX_A_SAISIR_CSIS = Activite.encode(numpy.asarray([
     Activite.SOCIETES_EXPORTATRICES,
     Activite.CROISIERE_MIXTE
     ]))
