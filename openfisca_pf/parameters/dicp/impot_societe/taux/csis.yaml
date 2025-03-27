@@ -1,0 +1,35 @@
+description: Taux de la CSIS
+metadata:
+  threshold_unit: currency-XPF
+  rate_unit: /1
+brackets:
+- rate:
+    2018-12-31:
+      value: 0.0
+  threshold:
+    2018-12-31:
+      value: 0
+- rate:
+    2018-12-31:
+      value: 0.07
+  threshold:
+    2018-12-31:
+      value: 49999999
+- rate:
+    2018-12-31:
+      value: 0.1
+  threshold:
+    2018-12-31:
+      value: 100000000
+- rate:
+    2018-12-31:
+      value: 0.12
+  threshold:
+    2018-12-31:
+      value: 200000000
+- rate:
+    2018-12-31:
+      value: 0.15
+  threshold:
+    2018-12-31:
+      value: 400000000

@@ -2,64 +2,6 @@ description: "Taux d'exonération permettant de calculer l'impôt des sociétés
 metadata:
   reference: https://www.impot-polynesie.gov.pf/code/14-section-v-calcul-de-limpot
 
-SOCIETES_GESTION_FONDS_GARANTIE:
-  description: Exoneration des sociétés de gestion de fonds de garantie
-  metadata:
-    type: single_amount
-    threshold_unit: exercice
-    amount_unit: /1
-  brackets:
-    - amount:
-        2017-01-01: 0.90
-      threshold:
-        2017-01-01:
-          value: 1
-    - amount:
-        2017-01-01: 0.80
-      threshold:
-        2017-01-01:
-          value: 2
-    - amount:
-        2017-01-01: 0.70
-      threshold:
-        2017-01-01:
-          value: 3
-    - amount:
-        2017-01-01: 0.60
-      threshold:
-        2017-01-01:
-          value: 4
-    - amount:
-        2017-01-01: 0.50
-      threshold:
-        2017-12-31:
-          value: 5
-    - amount:
-        2017-01-01: 0.40
-      threshold:
-        2017-01-01:
-          value: 6
-    - amount:
-        2017-01-01: 0.30
-      threshold:
-        2017-01-01:
-          value: 7
-    - amount:
-        2017-01-01: 0.20
-      threshold:
-        2017-01-01:
-          value: 8
-    - amount:
-        2017-01-01: 0.10
-      threshold:
-        2017-01-01:
-          value: 9
-    - amount:
-        2017-01-01: 0.0
-      threshold:
-        2017-01-01:
-          value: 10
-
 ACTIVITES_CROISIERE:
   description: Exoneration pour les activités de croisière
   metadata:
