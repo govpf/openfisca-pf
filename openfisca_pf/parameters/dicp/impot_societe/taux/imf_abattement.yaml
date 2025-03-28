@@ -3,7 +3,7 @@ metadata:
   reference: https://www.impot-polynesie.gov.pf/code/14-section-v-calcul-de-limpot
 
 SOCIETES_GESTION_FONDS_GARANTIE:
-  description: Exoneration des sociétés de gestion de fonds de garantie
+  description: Abattement assiette des sociétés de gestion de fonds de garantie
   metadata:
     type: single_amount
     threshold_unit: exercice
@@ -59,100 +59,3 @@ SOCIETES_GESTION_FONDS_GARANTIE:
       threshold:
         2017-01-01:
           value: 10
-
-ACTIVITES_CROISIERE:
-  description: Exoneration pour les activités de croisière
-  metadata:
-    type: single_amount
-    amount_unit: /1
-  brackets:
-    - amount:
-        2017-01-01: 1
-      threshold:
-        2017-01-01:
-          value: 0
-
-CONCESSIONS_MINIERES:
-  description: Exoneration pour les concessions minières
-  metadata:
-    type: single_amount
-    threshold_unit: exercice
-    amount_unit: /1
-  brackets:
-    - amount:
-        2017-01-01: 0
-        2020-12-31: 1
-      threshold:
-        2017-12-31:
-          value: 0
-    - amount:
-        2017-12-31: 0
-      threshold:
-        2017-12-31:
-          value: 11
-
-MEMBRE_GROUPE_FISCAL:
-  description: Exoneration pour les membres d'un groupe fiscal
-  metadata:
-    type: single_amount
-    threshold_unit: exercice
-    amount_unit: /1
-  brackets:
-    - amount:
-        2022-12-31: 1
-      threshold:
-        2022-12-31:
-          value: 0
-
-GIE:
-  description: Exoneration pour GIE (Groupement d'intérêt économique)
-  metadata:
-    type: single_amount
-    threshold_unit: exercice
-    amount_unit: /1
-  brackets:
-    - amount:
-        2017-01-01: 1
-      threshold:
-        2017-01-01:
-          value: 0
-
-SCPR:
-  description: Exoneration pour SCPR (Société civile professionnelle)
-  metadata:
-    type: single_amount
-    threshold_unit: exercice
-    amount_unit: /1
-  brackets:
-    - amount:
-        2017-01-01: 1
-      threshold:
-        2017-01-01:
-          value: 0
-
-SCM:
-  description: Exoneration pour SCM (Société Civile de Moyens)
-  metadata:
-    type: single_amount
-    threshold_unit: exercice
-    amount_unit: /1
-  brackets:
-    - amount:
-        2017-01-01: 1
-      threshold:
-        2017-01-01:
-          value: 0
-
-OBNL:
-  description: Exoneration pour OBNL (Organisme à but non lucratif)
-  metadata:
-    type: single_amount
-    threshold_unit: exercice
-    amount_unit: /1
-  brackets:
-    - amount:
-        2017-01-01:
-          value: 1
-      threshold:
-        2017-01-01:
-          value: 0
