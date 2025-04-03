@@ -1,0 +1,126 @@
+- name: is_bilan_actif_total_actif_immobilise_brut
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_incorporelles_frais_etablissement_brut: 100
+    is_bilan_actif_immobilisation_incorporelles_fonds_commercial_brut: 200
+    is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_brut: 300
+    is_bilan_actif_immobilisation_corporelles_terrains_brut: 400
+    is_bilan_actif_immobilisation_corporelles_constructions_brut: 500
+    is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_brut: 600
+    is_bilan_actif_immobilisation_corporelles_autres_immobilisations_corporelles_brut: 700
+    is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_brut: 800
+    is_bilan_actif_immobilisation_financieres_participations_brut: 900
+    is_bilan_actif_immobilisation_financieres_creance_rattachees_participations_brut: 1000
+    is_bilan_actif_immobilisation_financieres_autres_titres_immobilises_brut: 1100
+  output:
+    is_bilan_actif_total_actif_immobilise_brut: 6600
+
+- name: is_bilan_actif_total_actif_immobilise_amortissements_provisions
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_incorporelles_frais_etablissement_amortissements_provisions: 100
+    is_bilan_actif_immobilisation_incorporelles_fonds_commercial_amortissements_provisions: 200
+    is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_amortissements_provisions: 300
+    is_bilan_actif_immobilisation_corporelles_terrains_amortissements_provisions: 400
+    is_bilan_actif_immobilisation_corporelles_constructions_amortissements_provisions: 500
+    is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_amortissements_provisions: 600
+    is_bilan_actif_immobilisation_corporelles_autres_immobilisations_corporelles_amortissements_provisions: 700
+    is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_amortissements_provisions: 800
+    is_bilan_actif_immobilisation_financieres_participations_amortissements_provisions: 900
+    is_bilan_actif_immobilisation_financieres_creance_rattachees_participations_amortissements_provisions: 1000
+    is_bilan_actif_immobilisation_financieres_autres_titres_immobilises_amortissements_provisions: 1100
+  output:
+    is_bilan_actif_total_actif_immobilise_amortissements_provisions: 6600
+
+- name: is_bilan_actif_total_actif_circulant_brut
+  period: 2024
+  input:
+    is_bilan_actif_stocks_matieres_premieres_approvisionnements_brut: 100
+    is_bilan_actif_stocks_en_cours_production_biens_brut: 200
+    is_bilan_actif_stocks_en_cours_production_services_brut: 300
+    is_bilan_actif_stocks_produits_intermediaires_finis_brut: 400
+    is_bilan_actif_stocks_marchandises_brut: 500
+    is_bilan_actif_avances_acomptes_verses_commandes_brut: 600
+    is_bilan_actif_creances_clients_comptes_rattaches_brut: 700
+    is_bilan_actif_creances_autres_creances_brut: 800
+    is_bilan_actif_creances_capital_souscrit_appele_non_verse_brut: 900
+    is_bilan_actif_divers_disponibilites_brut: 1000
+    is_bilan_actif_comptes_regularation_charges_constatees_avance_brut: 1100
+  output:
+    is_bilan_actif_total_actif_circulant_brut: 6600
+
+- name: is_bilan_actif_total_actif_circulant_amortissements_provisions
+  period: 2024
+  input:
+    is_bilan_actif_stocks_matieres_premieres_approvisionnements_amortissements_provisions: 100
+    is_bilan_actif_stocks_en_cours_production_biens_amortissements_provisions: 200
+    is_bilan_actif_stocks_en_cours_production_services_amortissements_provisions: 300
+    is_bilan_actif_stocks_produits_intermediaires_finis_amortissements_provisions: 400
+    is_bilan_actif_stocks_marchandises_amortissements_provisions: 500
+    is_bilan_actif_avances_acomptes_verses_commandes_amortissements_provisions: 600
+    is_bilan_actif_creances_clients_comptes_rattaches_amortissements_provisions: 700
+    is_bilan_actif_creances_autres_creances_amortissements_provisions: 800
+    is_bilan_actif_creances_capital_souscrit_appele_non_verse_amortissements_provisions: 900
+    is_bilan_actif_divers_disponibilites_amortissements_provisions: 1000
+    is_bilan_actif_comptes_regularation_charges_constatees_avance_amortissements_provisions: 1100
+  output:
+        is_bilan_actif_total_actif_circulant_amortissements_provisions: 6600
+
+- name: is_bilan_actif_total_general_brut
+  period: 2024
+  input:
+    is_bilan_actif_capital_souscrit_non_appele_brut: 100
+    is_bilan_actif_comptes_regularation_charges_repartir_plusieurs_exercices_brut: 100
+    is_bilan_actif_immobilisation_incorporelles_frais_etablissement_brut: 100
+    is_bilan_actif_immobilisation_incorporelles_fonds_commercial_brut: 200
+    is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_brut: 300
+    is_bilan_actif_immobilisation_corporelles_terrains_brut: 400
+    is_bilan_actif_immobilisation_corporelles_constructions_brut: 500
+    is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_brut: 600
+    is_bilan_actif_immobilisation_corporelles_autres_immobilisations_corporelles_brut: 700
+    is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_brut: 800
+    is_bilan_actif_immobilisation_financieres_participations_brut: 900
+    is_bilan_actif_immobilisation_financieres_creance_rattachees_participations_brut: 1000
+    is_bilan_actif_immobilisation_financieres_autres_titres_immobilises_brut: 1100
+    is_bilan_actif_stocks_matieres_premieres_approvisionnements_brut: 100
+    is_bilan_actif_stocks_en_cours_production_biens_brut: 200
+    is_bilan_actif_stocks_en_cours_production_services_brut: 300
+    is_bilan_actif_stocks_produits_intermediaires_finis_brut: 400
+    is_bilan_actif_stocks_marchandises_brut: 500
+    is_bilan_actif_avances_acomptes_verses_commandes_brut: 600
+    is_bilan_actif_creances_clients_comptes_rattaches_brut: 700
+    is_bilan_actif_creances_autres_creances_brut: 800
+    is_bilan_actif_creances_capital_souscrit_appele_non_verse_brut: 900
+    is_bilan_actif_divers_disponibilites_brut: 1000
+    is_bilan_actif_comptes_regularation_charges_constatees_avance_brut: 1100
+  output:
+    is_bilan_actif_total_general_brut: 13400
+
+- name: is_bilan_actif_total_general_amortissements_provisions
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_incorporelles_frais_etablissement_amortissements_provisions: 100
+    is_bilan_actif_immobilisation_incorporelles_fonds_commercial_amortissements_provisions: 200
+    is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_amortissements_provisions: 300
+    is_bilan_actif_immobilisation_corporelles_terrains_amortissements_provisions: 400
+    is_bilan_actif_immobilisation_corporelles_constructions_amortissements_provisions: 500
+    is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_amortissements_provisions: 600
+    is_bilan_actif_immobilisation_corporelles_autres_immobilisations_corporelles_amortissements_provisions: 700
+    is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_amortissements_provisions: 800
+    is_bilan_actif_immobilisation_financieres_participations_amortissements_provisions: 900
+    is_bilan_actif_immobilisation_financieres_creance_rattachees_participations_amortissements_provisions: 1000
+    is_bilan_actif_immobilisation_financieres_autres_titres_immobilises_amortissements_provisions: 1100
+    is_bilan_actif_stocks_matieres_premieres_approvisionnements_amortissements_provisions: 100
+    is_bilan_actif_stocks_en_cours_production_biens_amortissements_provisions: 200
+    is_bilan_actif_stocks_en_cours_production_services_amortissements_provisions: 300
+    is_bilan_actif_stocks_produits_intermediaires_finis_amortissements_provisions: 400
+    is_bilan_actif_stocks_marchandises_amortissements_provisions: 500
+    is_bilan_actif_avances_acomptes_verses_commandes_amortissements_provisions: 600
+    is_bilan_actif_creances_clients_comptes_rattaches_amortissements_provisions: 700
+    is_bilan_actif_creances_autres_creances_amortissements_provisions: 800
+    is_bilan_actif_creances_capital_souscrit_appele_non_verse_amortissements_provisions: 900
+    is_bilan_actif_divers_disponibilites_amortissements_provisions: 1000
+    is_bilan_actif_comptes_regularation_charges_constatees_avance_amortissements_provisions: 1100
+  output:
+    is_bilan_actif_total_general_amortissements_provisions: 13200
+
