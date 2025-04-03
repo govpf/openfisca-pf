@@ -6,8 +6,9 @@ from openfisca_pf.base import (
     Population,
     Variable,
     YEAR
-    )
+)
 from openfisca_pf.entities import Personne
+
 
 class is_bilan_actif_capital_souscrit_non_appele_brut(Variable):
     value_type = int
