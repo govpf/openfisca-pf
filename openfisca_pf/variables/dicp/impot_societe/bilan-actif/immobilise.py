@@ -2,7 +2,7 @@
 from openfisca_pf.base import (
     Variable,
     YEAR
-)
+    )
 from openfisca_pf.entities import Personne
 
 
@@ -42,8 +42,7 @@ class is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorpo
     label = "Immobilisations incorporelles, autres immobilisations incorporelles brut (AJ)"
 
 
-class is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_amortissements_provisions(
-    Variable):
+class is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_amortissements_provisions(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
