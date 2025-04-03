@@ -85,8 +85,7 @@ class is_bilan_actif_immobilisation_corporelles_installations_techniques_materie
     label = "Immobilisations corporelles, installations techniques, matériel, outillage industriel brut (AR)"
 
 
-class is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_amortissements_provisions(
-    Variable):
+class is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_amortissements_provisions(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
