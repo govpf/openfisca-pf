@@ -217,6 +217,7 @@ class montant_taxe_publicite(Variable):
             return montant_taxe_publicite
         return max(montant_taxe_publicite, 1500)
 
+
 class montant_taxe_plus_value(Variable):
     value_type = int
     entity = Personne
