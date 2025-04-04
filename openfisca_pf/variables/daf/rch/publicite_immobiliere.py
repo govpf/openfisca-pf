@@ -165,7 +165,8 @@ class montant_droit_enregistrement(Variable):
                 navire_formula()
                 ]
             )
-        return arrondi_superieur(montant_droit_enregistrement)
+
+        return max(arrondi_superieur(montant_droit_enregistrement), 2500)
 
 
 class montant_taxe_publicite(Variable):
@@ -198,9 +199,10 @@ class montant_taxe_publicite(Variable):
 
         # On récupère le type de démarche
         type_demarche = personne('type_demarche_rch', period)
+        duree_bail_mois = personne('duree_bail_mois', period)
 
         # On applique la formule qui correspond au type de la démarche
-        return select(
+        montant_taxe_publicite = select(
             [
                 type_demarche == TypeDemarche.Acquisition,
                 type_demarche == TypeDemarche.Baux
@@ -211,6 +213,9 @@ class montant_taxe_publicite(Variable):
                 ]
             )
 
+        if type_demarche == TypeDemarche.Navire or (type_demarche == TypeDemarche.Baux and duree_bail_mois < 216):
+            return montant_taxe_publicite
+        return max(montant_taxe_publicite, 1500)
 
 class montant_taxe_plus_value(Variable):
     value_type = int
