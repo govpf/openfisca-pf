@@ -15,5 +15,5 @@ class forme_legale(Variable):
     possible_values = FormeLegale
     entity = Personne
     definition_period = YEAR
-    default_value = FormeLegale.MR
+    default_value = FormeLegale.M
     label = "Forme légale de la personne"
