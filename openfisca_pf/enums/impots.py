@@ -104,6 +104,11 @@ class FormeLegale(Enum):
     Titre inconnu (Personne morale)
     """
 
+    M = 'M'
+    """
+    Monsieur (Personne physique)
+    """
+
     ME = 'ME'
     """
     Maître (Personne physique)
@@ -117,11 +122,6 @@ class FormeLegale(Enum):
     MME = 'MME'
     """
     Madame (Personne physique)
-    """
-
-    MR = 'MR'
-    """
-    Monsieur (Personne physique)
     """
 
     REPRIS = 'REPRIS'
