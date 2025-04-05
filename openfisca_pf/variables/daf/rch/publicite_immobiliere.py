@@ -165,8 +165,8 @@ class montant_droit_enregistrement(Variable):
                 navire_formula()
                 ]
             )
-
-        return max(arrondi_superieur(montant_droit_enregistrement), 2500)
+        minimum_amount = parameters(period).daf.rch.minimum_amount.ENR.minimum_amount
+        return max(arrondi_superieur(montant_droit_enregistrement), minimum_amount)
 
 
 class montant_taxe_publicite(Variable):
@@ -186,7 +186,10 @@ class montant_taxe_publicite(Variable):
             # Ici, on convertit la valeur flottante en fraction pour éviter des erreurs de précision numérique
             # https://docs.python.org/3/tutorial/floatingpoint.html
             rate = Fraction.from_float(parameters(period).daf.rch.taxe_publicite_immobiliere.acquisition.rate)
-            return valeur_totale_bien_achat * rate
+            montant_taxe_publicite = valeur_totale_bien_achat * rate
+            minimum_amount = parameters(period).daf.rch.minimum_amount.TPI.minimum_amount
+
+            return max(montant_taxe_publicite, minimum_amount)
 
         def baux_formula():
             """
@@ -199,7 +202,6 @@ class montant_taxe_publicite(Variable):
 
         # On récupère le type de démarche
         type_demarche = personne('type_demarche_rch', period)
-        duree_bail_mois = personne('duree_bail_mois', period)
 
         # On applique la formule qui correspond au type de la démarche
         montant_taxe_publicite = select(
@@ -212,10 +214,7 @@ class montant_taxe_publicite(Variable):
                 baux_formula()
                 ]
             )
-
-        if type_demarche == TypeDemarche.Navire or (type_demarche == TypeDemarche.Baux and duree_bail_mois < 216):
-            return montant_taxe_publicite
-        return max(montant_taxe_publicite, 1500)
+        return montant_taxe_publicite
 
 
 class montant_taxe_plus_value(Variable):
