@@ -1,0 +1,71 @@
+- name: is_bilan_passif_total_capitaux_propres
+  period: 2024
+  input:
+    is_bilan_passif_capital_social_ou_individuel: 100
+    is_bilan_passif_primes_emission_de_fusion_apports: 200
+    is_bilan_passif_ecart_de_reevaluation: 300
+    is_bilan_passif_reserve_legal: 400
+    is_bilan_passif_reserve_statutaire_ou_contractuelles: 500
+    is_bilan_passif_autres_reserves: 600
+    is_bilan_passif_report_a_nouveau: 700
+    is_bilan_passif_resultat_de_l_exercice: 800
+    is_bilan_passif_subventions_d_investissement: 900
+    is_bilan_passif_provisions_reglementees: 1000
+  output:
+    is_bilan_passif_total_capitaux_propres: 5500
+
+- name: is_bilan_passif_total_autres_fonds_propres
+  period: 2024
+  input:
+    is_bilan_passif_avances_conditionnees: 100
+  output:
+    is_bilan_passif_total_autres_fonds_propres: 100
+
+- name: is_bilan_passif_total_provision_pour_risque_et_charges
+  period: 2024
+  input:
+    is_bilan_passif_provisions_pour_risques: 100
+    is_bilan_passif_provisions_pour_charges: 200
+  output:
+    is_bilan_passif_total_provision_pour_risque_et_charges: 300
+
+- name: is_bilan_passif_total_dettes_et_compte_regularisation
+  period: 2024
+  input:
+    is_bilan_passif_emprunts_et_dettes_aupres_des_etablissements_de_credit: 100
+    is_bilan_passif_emprunts_et_dettes_financieres_diverses: 200
+    is_bilan_passif_avances_et_acomptes_recus_sur_commandes_en_cours: 300
+    is_bilan_passif_dettes_fournisseurs_et_comptes_rattaches: 400
+    is_bilan_passif_dettes_fiscales_et_sociales: 500
+    is_bilan_passif_dettes_sur_immobilisations_et_comptes_rattaches: 600
+    is_bilan_passif_autres_dettes: 700
+    is_bilan_passif_produit_constates_avance : 800
+  output:
+    is_bilan_passif_total_dettes_et_compte_regularisation: 3600
+
+- name: is_bilan_passif_total_general
+  period: 2024
+  input:
+    is_bilan_passif_capital_social_ou_individuel: 100
+    is_bilan_passif_primes_emission_de_fusion_apports: 200
+    is_bilan_passif_ecart_de_reevaluation: 300
+    is_bilan_passif_reserve_legal: 400
+    is_bilan_passif_reserve_statutaire_ou_contractuelles: 500
+    is_bilan_passif_autres_reserves: 600
+    is_bilan_passif_report_a_nouveau: 700
+    is_bilan_passif_resultat_de_l_exercice: 800
+    is_bilan_passif_subventions_d_investissement: 900
+    is_bilan_passif_provisions_reglementees: 1000
+    is_bilan_passif_avances_conditionnees: 100
+    is_bilan_passif_provisions_pour_risques: 100
+    is_bilan_passif_provisions_pour_charges: 200
+    is_bilan_passif_emprunts_et_dettes_aupres_des_etablissements_de_credit: 100
+    is_bilan_passif_emprunts_et_dettes_financieres_diverses: 200
+    is_bilan_passif_avances_et_acomptes_recus_sur_commandes_en_cours: 300
+    is_bilan_passif_dettes_fournisseurs_et_comptes_rattaches: 400
+    is_bilan_passif_dettes_fiscales_et_sociales: 500
+    is_bilan_passif_dettes_sur_immobilisations_et_comptes_rattaches: 600
+    is_bilan_passif_autres_dettes: 700
+    is_bilan_passif_produit_constates_avance: 800
+  output:
+    is_bilan_passif_total_general: 9500
