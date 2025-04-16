@@ -1,0 +1,15 @@
+description: "Taux des pénalités du rôle foncier"
+majoration_fixe:
+  description: "Taux de la pénalité de majoration fixe du rôle foncier"
+  values:
+    1995-08-24:
+      value: 0.1
+interet_de_retard:
+  description: "Taux de la pénalité d'intérêt de retard du rôle foncier"
+  values:
+    1995-08-24:
+      value: 0.0075
+    2014-12-17:
+      value: 0.004
+    2018-12-11:
+      value: 0.002

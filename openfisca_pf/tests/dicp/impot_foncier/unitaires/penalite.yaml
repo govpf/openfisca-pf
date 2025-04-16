@@ -1,0 +1,55 @@
+- name: "Test majoration fixe 1 -  Déclaration dans les temps"
+  period: 2025-04-01
+  input:
+    date_changement_valeur_locative: 2025-04-01
+    date_declaration_modification_valeur_locative: 2025-04-15
+  output:
+    penalite_majoration_fixe_appliquee: false
+
+- name: "Test majoration fixe 2 - Déclaration tardive"
+  period: 2025-04-01
+  input:
+    date_changement_valeur_locative: 2025-04-01
+    date_declaration_modification_valeur_locative: 2025-07-01
+  output:
+    penalite_majoration_fixe_appliquee: true
+
+- name: "Test intérêts de retard 1 - Déclaration tardive, sans atteindre le premier jour du mois suivant la fin du délai imparti"
+  period: 2025-04-01
+  input:
+    date_changement_valeur_locative: 2025-04-15
+    date_declaration_modification_valeur_locative: 2025-07-22
+  output:
+    penalite_interet_de_retard_appliquee: false
+
+- name: "Test intérêts de retard 2 - Déclaration tardive, date d'effet avant le 1er janvier"
+  period: 2025-04-01
+  input:
+    date_changement_valeur_locative: 2025-11-01
+    date_declaration_modification_valeur_locative: 2026-02-02
+  output:
+    penalite_interet_de_retard_appliquee: true
+
+- name: "Test intérêts de retard 3 - Déclaration tardive, date d'effet après le 1er janvier"
+  period: 2025-04-15
+  input:
+    date_changement_valeur_locative: 2026-02-01
+    date_declaration_modification_valeur_locative: 2026-06-13
+  output:
+    penalite_interet_de_retard_appliquee: false
+
+- name: "Test total mois de retard 1"
+  period: 2025-04-14
+  input:
+    date_changement_valeur_locative: 2025-11-01
+    date_declaration_modification_valeur_locative: 2026-02-13
+  output:
+    total_mois_de_retard_declaration_modification_valeur_locative: 1
+
+- name: "Test total mois de retard 2"
+  period: 2025-04-14
+  input:
+    date_changement_valeur_locative: 2025-11-01
+    date_declaration_modification_valeur_locative: 2027-02-13
+  output:
+    total_mois_de_retard_declaration_modification_valeur_locative: 13
