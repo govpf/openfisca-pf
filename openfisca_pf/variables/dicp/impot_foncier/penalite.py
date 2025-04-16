@@ -5,6 +5,7 @@ from openfisca_pf.base import (
     ArrayLike,
     date,
     DAY,
+    datetime64,
     ParameterNode,
     Period,
     Population,
@@ -78,7 +79,7 @@ class penalite_interet_de_retard_appliquee(Variable):
         date_debut_decompte_interet_de_retard = personne('date_debut_decompte_interet_de_retard', period).astype(date)
         annee_changement = annee_de_la_date(date_de_changement)
         annee_declaration = annee_de_la_date(date_de_declaration)
-        return date_de_declaration >= date_debut_decompte_interet_de_retard * annee_changement != annee_declaration
+        return (date_de_declaration >= date_debut_decompte_interet_de_retard) * (annee_changement != annee_declaration)
 
 
 class montant_penalite_majoration_fixe(Variable):
