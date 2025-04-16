@@ -13,7 +13,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     container: python:3.11
     steps:
     -
@@ -30,7 +30,7 @@ jobs:
       run: make test
 
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     needs: test
     env:
       repo: "govpf/openfisca-pf"
@@ -78,7 +78,7 @@ jobs:
         tags: |
           ${{ env.repo }}:${{ steps.extract_tag.outputs.tag }}
     - name: Update repo description
-      uses: peter-evans/dockerhub-description@v4.0.0
+      uses: peter-evans/dockerhub-description@v4.0.2
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
