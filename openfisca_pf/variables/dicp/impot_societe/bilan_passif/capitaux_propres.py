@@ -2,8 +2,9 @@
 from openfisca_pf.base import (
     Variable,
     YEAR
-    )
+)
 from openfisca_pf.entities import Personne
+
 
 class is_bilan_passif_capital_social_ou_individuel(Variable):
     value_type = int
@@ -80,4 +81,3 @@ class is_bilan_passif_provisions_reglementees(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Provisions réglementées (DK)"
-

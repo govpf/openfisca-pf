@@ -2,8 +2,9 @@
 from openfisca_pf.base import (
     Variable,
     YEAR
-    )
+)
 from openfisca_pf.entities import Personne
+
 
 class is_bilan_passif_provisions_pour_risques(Variable):
     value_type = int
