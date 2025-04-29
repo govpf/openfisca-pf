@@ -77,5 +77,3 @@ class is_creances_total_a_plus_d_un_an(Variable):
         groupe_associes = personne('is_creances_groupe_et_associes_a_plus_d_un_an', period)
         debiteurs_divers = personne('is_creances_debiteurs_divers_a_plus_d_un_an', period)
         return creances_rattaches_a_des_participations + prets + autres_immobilisations_financieres + clients_douteux_ou_litigieux + autres_creances_clients + personnel_et_comptes_rattaches + securite_social_et_autres_organismes_sociaux + impots_benefice + taxe_valeur_ajoutee + autre_impots_taxes_versement_assimilies + divers + groupe_associes + debiteurs_divers
-
-

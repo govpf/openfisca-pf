@@ -47,6 +47,7 @@ class is_creances_autres_creances_clients_a_plus_d_un_an(Variable):
     definition_period = DAY
     label = "Autres créances clients à plus d'un an (7N)"
 
+
 class is_creances_personnel_et_comptes_rattaches_montant_brut(Variable):
     value_type = int
     entity = Personne
