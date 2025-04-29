@@ -1,0 +1,90 @@
+- name: is_dettes_total_montant_brut
+  period: 2024-01-01
+  input:
+    is_dettes_emprunts_obligatoires_convertibles_montant_brut: 100
+    is_dettes_autres_emprunts_obligatoires_montant_brut: 200
+    is_dettes_emprunts_et_dettes_aupres_des_etablissements_de_credit_a_deux_ans_maximum_a_l_origine_montant_brut: 300
+    is_dettes_emprunts_et_dettes_aupres_des_etablissements_de_credit_a_plus_de_deux_ans_a_l_origine_montant_brut: 400
+    is_dettes_emprunts_et_dettes_financieres_diverses_montant_brut: 500
+    is_dettes_fournisseurs_et_comptes_rattaches_montant_brut: 600
+    is_dettes_personnel_et_comptes_rattaches_montant_brut: 700
+    is_dettes_securite_sociale_et_autres_organismes_sociaux_montant_brut: 800
+    is_dettes_etat_et_autres_collectivites_publiques_impots_sur_les_benefices_montant_brut: 900
+    is_dettes_etat_et_autres_collectivites_publiques_taxe_sur_la_valeur_ajoutee_montant_brut: 1000
+    is_dettes_etat_et_autres_collectivites_publiques_obligations_cautionnees_montant_brut: 1100
+    is_dettes_etat_et_autres_collectivites_publiques_taxes_autres_impots_taxes_et_assimiles_montant_brut: 1200
+    is_dettes_dettes_sur_immobilisations_et_comptes_rattaches_montant_brut: 1300
+    is_dettes_groupe_et_associes_montant_brut: 1400
+    is_dettes_autres_dettes_montant_brut: 1500
+    is_dettes_produits_constates_d_avances_montant_brut: 1600
+  output:
+    is_dettes_total_montant_brut: 13600
+
+
+- name: is_dettes_total_a_un_an_au_plus
+  period: 2024-01-01
+  input:
+    is_dettes_emprunts_obligatoires_convertibles_a_un_an_au_plus: 100
+    is_dettes_autres_emprunts_obligatoires_a_un_an_au_plus: 200
+    is_dettes_emprunts_et_dettes_aupres_des_etablissements_de_credit_a_deux_ans_maximum_a_l_origine_a_un_an_au_plus: 300
+    is_dettes_emprunts_et_dettes_aupres_des_etablissements_de_credit_a_plus_de_deux_ans_a_l_origine_a_un_an_au_plus: 400
+    is_dettes_emprunts_et_dettes_financieres_diverses_a_un_an_au_plus: 500
+    is_dettes_fournisseurs_et_comptes_rattaches_a_un_an_au_plus: 600
+    is_dettes_personnel_et_comptes_rattaches_a_un_an_au_plus: 700
+    is_dettes_securite_sociale_et_autres_organismes_sociaux_a_un_an_au_plus: 800
+    is_dettes_etat_et_autres_collectivites_publiques_impots_sur_les_benefices_a_un_an_au_plus: 900
+    is_dettes_etat_et_autres_collectivites_publiques_taxe_sur_la_valeur_ajoutee_a_un_an_au_plus: 1000
+    is_dettes_etat_et_autres_collectivites_publiques_obligations_cautionnees_a_un_an_au_plus: 1100
+    is_dettes_etat_et_autres_collectivites_publiques_taxes_autres_impots_taxes_et_assimiles_a_un_an_au_plus: 1200
+    is_dettes_dettes_sur_immobilisations_et_comptes_rattaches_a_un_an_au_plus: 1300
+    is_dettes_groupe_et_associes_a_un_an_au_plus: 1400
+    is_dettes_autres_dettes_a_un_an_au_plus: 1500
+    is_dettes_produits_constates_d_avances_a_un_an_au_plus: 1600
+  output:
+    is_dettes_total_a_un_an_au_plus: 13600
+
+
+- name: is_dettes_total_a_plus_d_un_an_et_cinq_ans_au_plus
+  period: 2024-01-01
+  input:
+    is_dettes_emprunts_obligatoires_convertibles_a_plus_d_un_an_et_cinq_ans_au_plus: 100
+    is_dettes_autres_emprunts_obligatoires_a_plus_d_un_an_et_cinq_ans_au_plus: 200
+    is_dettes_emprunts_et_dettes_aupres_des_etablissements_de_credit_a_deux_ans_maximum_a_l_origine_a_plus_d_un_an_et_cinq_ans_au_plus: 300
+    is_dettes_emprunts_et_dettes_aupres_des_etablissements_de_credit_a_plus_de_deux_ans_a_l_origine_a_plus_d_un_an_et_cinq_ans_au_plus: 400
+    is_dettes_emprunts_et_dettes_financieres_diverses_a_plus_d_un_an_et_cinq_ans_au_plus: 500
+    is_dettes_fournisseurs_et_comptes_rattaches_a_plus_d_un_an_et_cinq_ans_au_plus: 600
+    is_dettes_personnel_et_comptes_rattaches_a_plus_d_un_an_et_cinq_ans_au_plus: 700
+    is_dettes_securite_sociale_et_autres_organismes_sociaux_a_plus_d_un_an_et_cinq_ans_au_plus: 800
+    is_dettes_etat_et_autres_collectivites_publiques_impots_sur_les_benefices_a_plus_d_un_an_et_cinq_ans_au_plus: 900
+    is_dettes_etat_et_autres_collectivites_publiques_taxe_sur_la_valeur_ajoutee_a_plus_d_un_an_et_cinq_ans_au_plus: 1000
+    is_dettes_etat_et_autres_collectivites_publiques_obligations_cautionnees_a_plus_d_un_an_et_cinq_ans_au_plus: 1100
+    is_dettes_etat_et_autres_collectivites_publiques_taxes_autres_impots_taxes_et_assimiles_a_plus_d_un_an_et_cinq_ans_au_plus: 1200
+    is_dettes_dettes_sur_immobilisations_et_comptes_rattaches_a_plus_d_un_an_et_cinq_ans_au_plus: 1300
+    is_dettes_groupe_et_associes_a_plus_d_un_an_et_cinq_ans_au_plus: 1400
+    is_dettes_autres_dettes_a_plus_d_un_an_et_cinq_ans_au_plus: 1500
+    is_dettes_produits_constates_d_avances_a_plus_d_un_an_et_cinq_ans_au_plus: 1600
+  output:
+    is_dettes_total_a_plus_d_un_an_et_cinq_ans_au_plus: 13600
+
+
+- name: is_dettes_total_a_plus_de_cinq_ans
+  period: 2024-01-01
+  input:
+    is_dettes_emprunts_obligatoires_convertibles_a_plus_de_cinq_ans: 100
+    is_dettes_autres_emprunts_obligatoires_a_plus_de_cinq_ans: 200
+    is_dettes_emprunts_et_dettes_aupres_des_etablissements_de_credit_a_deux_ans_maximum_a_l_origine_a_plus_de_cinq_ans: 300
+    is_dettes_emprunts_et_dettes_aupres_des_etablissements_de_credit_a_plus_de_deux_ans_a_l_origine_a_plus_de_cinq_ans: 400
+    is_dettes_emprunts_et_dettes_financieres_diverses_a_plus_de_cinq_ans: 500
+    is_dettes_fournisseurs_et_comptes_rattaches_a_plus_de_cinq_ans: 600
+    is_dettes_personnel_et_comptes_rattaches_a_plus_de_cinq_ans: 700
+    is_dettes_securite_sociale_et_autres_organismes_sociaux_a_plus_de_cinq_ans: 800
+    is_dettes_etat_et_autres_collectivites_publiques_impots_sur_les_benefices_a_plus_de_cinq_ans: 900
+    is_dettes_etat_et_autres_collectivites_publiques_taxe_sur_la_valeur_ajoutee_a_plus_de_cinq_ans: 1000
+    is_dettes_etat_et_autres_collectivites_publiques_obligations_cautionnees_a_plus_de_cinq_ans: 1100
+    is_dettes_etat_et_autres_collectivites_publiques_taxes_autres_impots_taxes_et_assimiles_a_plus_de_cinq_ans: 1200
+    is_dettes_dettes_sur_immobilisations_et_comptes_rattaches_a_plus_de_cinq_ans: 1300
+    is_dettes_groupe_et_associes_a_plus_de_cinq_ans: 1400
+    is_dettes_autres_dettes_a_plus_de_cinq_ans: 1500
+    is_dettes_produits_constates_d_avances_a_plus_de_cinq_ans: 1600
+  output:
+    is_dettes_total_a_plus_de_cinq_ans: 13600
