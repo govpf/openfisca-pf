@@ -1,7 +1,7 @@
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.base import (
     ArrayLike,
-    DAY,
+    YEAR,
     ParameterNode,
     Period,
     Population,
@@ -13,7 +13,7 @@ from openfisca_pf.entities import Personne
 class is_dettes_total_montant_brut(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = YEAR
     label = "Total (7X)"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
@@ -39,7 +39,7 @@ class is_dettes_total_montant_brut(Variable):
 class is_dettes_total_a_un_an_au_plus(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = YEAR
     label = "Total (7X) à un an au plus"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
@@ -65,7 +65,7 @@ class is_dettes_total_a_un_an_au_plus(Variable):
 class is_dettes_total_a_plus_d_un_an_et_cinq_ans_au_plus(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = YEAR
     label = "Total (7X) à plus d'un an et 5 ans au plus"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
@@ -91,7 +91,7 @@ class is_dettes_total_a_plus_d_un_an_et_cinq_ans_au_plus(Variable):
 class is_dettes_total_a_plus_de_cinq_ans(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = YEAR
     label = "Total (7X) à plus de 5 ans"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
