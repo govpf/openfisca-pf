@@ -1,7 +1,7 @@
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.base import (
     ArrayLike,
-    DAY,
+    YEAR,
     ParameterNode,
     Period,
     Population,
@@ -13,7 +13,7 @@ from openfisca_pf.entities import Personne
 class is_creances_total_montant_brut(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = YEAR
     label = "Total (7X)"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
@@ -30,13 +30,14 @@ class is_creances_total_montant_brut(Variable):
         divers = personne('is_creances_etat_et_autres_collectivites_publiques_divers_montant_brut', period)
         groupe_associes = personne('is_creances_groupe_et_associes_montant_brut', period)
         debiteurs_divers = personne('is_creances_debiteurs_divers_montant_brut', period)
-        return creances_rattaches_a_des_participations + prets + autres_immobilisations_financieres + clients_douteux_ou_litigieux + autres_creances_clients + personnel_et_comptes_rattaches + securite_social_et_autres_organismes_sociaux + impots_benefice + taxe_valeur_ajoutee + autre_impots_taxes_versement_assimilies + divers + groupe_associes + debiteurs_divers
+        charges_constate_d_avances = personne('is_creances_charges_constatees_d_avance_montant_brut', period)
+        return creances_rattaches_a_des_participations + prets + autres_immobilisations_financieres + clients_douteux_ou_litigieux + autres_creances_clients + personnel_et_comptes_rattaches + securite_social_et_autres_organismes_sociaux + impots_benefice + taxe_valeur_ajoutee + autre_impots_taxes_versement_assimilies + divers + groupe_associes + debiteurs_divers + charges_constate_d_avances
 
 
 class is_creances_total_a_un_an_au_plus(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = YEAR
     label = "Total à un an au plus (7X)"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
@@ -53,13 +54,14 @@ class is_creances_total_a_un_an_au_plus(Variable):
         divers = personne('is_creances_etat_et_autres_collectivites_publiques_divers_a_un_an_au_plus', period)
         groupe_associes = personne('is_creances_groupe_et_associes_a_un_an_au_plus', period)
         debiteurs_divers = personne('is_creances_debiteurs_divers_a_un_an_au_plus', period)
-        return creances_rattaches_a_des_participations + prets + autres_immobilisations_financieres + clients_douteux_ou_litigieux + autres_creances_clients + personnel_et_comptes_rattaches + securite_social_et_autres_organismes_sociaux + impots_benefice + taxe_valeur_ajoutee + autre_impots_taxes_versement_assimilies + divers + groupe_associes + debiteurs_divers
+        charges_constate_d_avances = personne('is_creances_charges_constatees_d_avance_a_un_an_au_plus', period)
+        return creances_rattaches_a_des_participations + prets + autres_immobilisations_financieres + clients_douteux_ou_litigieux + autres_creances_clients + personnel_et_comptes_rattaches + securite_social_et_autres_organismes_sociaux + impots_benefice + taxe_valeur_ajoutee + autre_impots_taxes_versement_assimilies + divers + groupe_associes + debiteurs_divers + charges_constate_d_avances
 
 
 class is_creances_total_a_plus_d_un_an(Variable):
     value_type = int
     entity = Personne
-    definition_period = DAY
+    definition_period = YEAR
     label = "Total à plus d'un an (7X)"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
@@ -76,4 +78,5 @@ class is_creances_total_a_plus_d_un_an(Variable):
         divers = personne('is_creances_etat_et_autres_collectivites_publiques_divers_a_plus_d_un_an', period)
         groupe_associes = personne('is_creances_groupe_et_associes_a_plus_d_un_an', period)
         debiteurs_divers = personne('is_creances_debiteurs_divers_a_plus_d_un_an', period)
-        return creances_rattaches_a_des_participations + prets + autres_immobilisations_financieres + clients_douteux_ou_litigieux + autres_creances_clients + personnel_et_comptes_rattaches + securite_social_et_autres_organismes_sociaux + impots_benefice + taxe_valeur_ajoutee + autre_impots_taxes_versement_assimilies + divers + groupe_associes + debiteurs_divers
+        charges_constate_d_avances = personne('is_creances_charges_constatees_d_avance_a_plus_d_un_an', period)
+        return creances_rattaches_a_des_participations + prets + autres_immobilisations_financieres + clients_douteux_ou_litigieux + autres_creances_clients + personnel_et_comptes_rattaches + securite_social_et_autres_organismes_sociaux + impots_benefice + taxe_valeur_ajoutee + autre_impots_taxes_versement_assimilies + divers + groupe_associes + debiteurs_divers + charges_constate_d_avances

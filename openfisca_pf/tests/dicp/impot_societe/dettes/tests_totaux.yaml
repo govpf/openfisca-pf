@@ -1,5 +1,5 @@
 - name: is_dettes_total_montant_brut
-  period: 2024-01-01
+  period: 2024
   input:
     is_dettes_emprunts_obligatoires_convertibles_montant_brut: 100
     is_dettes_autres_emprunts_obligatoires_montant_brut: 200
@@ -22,7 +22,7 @@
 
 
 - name: is_dettes_total_a_un_an_au_plus
-  period: 2024-01-01
+  period: 2024
   input:
     is_dettes_emprunts_obligatoires_convertibles_a_un_an_au_plus: 100
     is_dettes_autres_emprunts_obligatoires_a_un_an_au_plus: 200
@@ -45,7 +45,7 @@
 
 
 - name: is_dettes_total_a_plus_d_un_an_et_cinq_ans_au_plus
-  period: 2024-01-01
+  period: 2024
   input:
     is_dettes_emprunts_obligatoires_convertibles_a_plus_d_un_an_et_cinq_ans_au_plus: 100
     is_dettes_autres_emprunts_obligatoires_a_plus_d_un_an_et_cinq_ans_au_plus: 200
@@ -68,7 +68,7 @@
 
 
 - name: is_dettes_total_a_plus_de_cinq_ans
-  period: 2024-01-01
+  period: 2024
   input:
     is_dettes_emprunts_obligatoires_convertibles_a_plus_de_cinq_ans: 100
     is_dettes_autres_emprunts_obligatoires_a_plus_de_cinq_ans: 200
