@@ -1,55 +1,169 @@
-- name: "Test majoration fixe 1 -  Déclaration dans les temps"
-  period: 2025-04-01
+- name: "taux_penalite_majoration_fixe est égale à 0 avant 1996 car il n'existait pas"
+  period: 1995
   input:
+    penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee: false
+  output:
+    taux_penalite_majoration_fixe: 0
+
+- name: "taux_penalite_majoration_fixe est égale à 0.1 à partir de 1996"
+  period: 1996
+  input:
+    penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee: false
+  output:
+    taux_penalite_majoration_fixe: 0.1
+
+- name: "taux_penalite_interet_de_retard est égale à 0 avant 1996 car il n'existait pas"
+  period: 1995
+  output:
+    taux_penalite_interet_de_retard: 0
+
+- name: "taux_penalite_interet_de_retard est égale à 0.0075 à partir de 1996"
+  period: 1996
+  output:
+    taux_penalite_interet_de_retard: 0.0075
+
+- name: "taux_penalite_interet_de_retard est égale à 0.004 à partir de 2015"
+  period: 2015
+  output:
+    taux_penalite_interet_de_retard: 0.004
+
+- name: "taux_penalite_interet_de_retard est égale à 0.002 à partir de 2019"
+  period: 2019
+  output:
+    taux_penalite_interet_de_retard: 0.002
+
+- name: "La base de calcul des pénalités n'est jamais négative"
+  period: 2025
+  input:
+    impot_foncier_total_avant_modification: 50000
+    impot_foncier_total: 40000
+  output:
+    base_de_calcul_penalites: 0
+
+- name: "Aucune pénalité appliquée si la base de calcul n'est pas supérieur à 0"
+  period: 2025
+  input:
+    base_de_calcul_penalites: 0
+    date_de_changement: 2004-06-11
+    date_de_declaration: 2025-04-15
+  output:
+    penalite_majoration_fixe_appliquee: false
+    penalite_interet_de_retard_appliquee: false
+
+- name: "base_de_calcul_penalites est égale au delta entre impot_foncier_total et impot_foncier_total_avant_modification"
+  period: 2025
+  input:
+    impot_foncier_total: 110604
+    impot_foncier_total_avant_modification: 100604
+  output:
+    base_de_calcul_penalites: 10000
+
+- name: "Aucune pénalité appliquée car déclaration dans les temps"
+  period: 2025
+  input:
+    base_de_calcul_penalites: 10000
     date_de_changement: 2025-04-01
     date_de_declaration: 2025-04-15
   output:
     penalite_majoration_fixe_appliquee: false
+    penalite_interet_de_retard_appliquee: false
 
-- name: "Test majoration fixe 2 - Déclaration tardive"
-  period: 2025-04-01
+- name: "penalite_majoration_fixe_appliquee est True car déclaration tardive"
+  period: 2025
   input:
+    base_de_calcul_penalites: 10000
     date_de_changement: 2025-04-01
     date_de_declaration: 2025-07-01
   output:
     penalite_majoration_fixe_appliquee: true
 
-- name: "Test intérêts de retard 1 - Déclaration tardive, sans atteindre le premier jour du mois suivant la fin du délai imparti"
-  period: 2025-04-01
+- name: "penalite_interet_de_retard_appliquee est False car déclaration avant le décompte, même si déclaration tardive"
+  period: 2025
   input:
+    base_de_calcul_penalites: 10000
     date_de_changement: 2025-04-15
     date_de_declaration: 2025-07-22
   output:
+    date_debut_decompte_interet_de_retard: 2025-08-01
+    penalite_majoration_fixe_appliquee: true
     penalite_interet_de_retard_appliquee: false
 
-- name: "Test intérêts de retard 2 - Déclaration tardive, date d'effet avant le 1er janvier"
-  period: 2025-04-01
+- name: "penalite_interet_de_retard_appliquee est False car date d'effet avant le 1er janvier de l'année en cours, même si déclaration après le décompte"
+  period: 2025
   input:
-    date_de_changement: 2025-11-01
-    date_de_declaration: 2026-02-02
+    base_de_calcul_penalites: 10000
+    date_de_changement: 2024-06-11
+    date_de_declaration: 2024-11-01
   output:
+    date_debut_decompte_interet_de_retard: 2024-10-01
+    penalite_majoration_fixe_appliquee: true
+    penalite_interet_de_retard_appliquee: false
+
+- name: "penalite_interet_de_retard_appliquee est True car déclaration après le décompte et date d'effet après le 1er janvier de l'année en cours"
+  period: 2025
+  input:
+    base_de_calcul_penalites: 10000
+    date_de_changement: 2024-11-01
+    date_de_declaration: 2025-02-01
+  output:
+    date_debut_decompte_interet_de_retard: 2025-02-01
+    penalite_majoration_fixe_appliquee: true
     penalite_interet_de_retard_appliquee: true
 
-- name: "Test intérêts de retard 3 - Déclaration tardive, date d'effet après le 1er janvier"
-  period: 2025-04-15
+- name: "total_mois_de_retard_declaration_modification_valeur_locative est égale à 1"
+  period: 2025
   input:
-    date_de_changement: 2026-02-01
-    date_de_declaration: 2026-06-13
-  output:
-    penalite_interet_de_retard_appliquee: false
-
-- name: "Test total mois de retard 1"
-  period: 2025-04-14
-  input:
-    date_de_changement: 2025-11-01
-    date_de_declaration: 2026-02-13
+    date_de_changement: 2024-11-01
+    date_de_declaration: 2025-02-13
   output:
     total_mois_de_retard_declaration_modification_valeur_locative: 1
 
-- name: "Test total mois de retard 2"
-  period: 2025-04-14
+- name: "total_mois_de_retard_declaration_modification_valeur_locative est égale à 13"
+  period: 2025
   input:
-    date_de_changement: 2025-11-01
-    date_de_declaration: 2027-02-13
+    date_de_changement: 2023-11-01
+    date_de_declaration: 2025-02-13
   output:
     total_mois_de_retard_declaration_modification_valeur_locative: 13
+
+- name: "penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee est False car déclaration avant le délai des 30 jours suivant la première mise en demeure"
+  period: 2025
+  input:
+    base_de_calcul_penalites: 10000
+    date_de_changement: 2023-11-01
+    date_de_declaration: 2025-02-01
+    reception_premiere_mise_en_demeure: true
+    date_de_reception_premiere_mise_en_demeure: 2025-01-15
+  output:
+    penalite_majoration_fixe_appliquee: true
+    penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee: false
+    taux_penalite_majoration_fixe: 0.1
+    penalite_interet_de_retard_appliquee: true
+
+- name: "penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee est False car déclaration avant le délai des 30 jours suivant la première mise en demeure"
+  period: 2025
+  input:
+    base_de_calcul_penalites: 10000
+    date_de_changement: 2023-11-01
+    date_de_declaration: 2025-02-01
+    reception_premiere_mise_en_demeure: true
+    date_de_reception_premiere_mise_en_demeure: 2025-01-15
+  output:
+    penalite_majoration_fixe_appliquee: true
+    penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee: false
+    taux_penalite_majoration_fixe: 0.1
+    penalite_interet_de_retard_appliquee: true
+
+- name: "penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee est True car déclaration après le délai des 30 jours suivant la première mise en demeure"
+  period: 2025
+  input:
+    base_de_calcul_penalites: 10000
+    date_de_changement: 2023-11-01
+    date_de_declaration: 2025-03-01
+    reception_premiere_mise_en_demeure: true
+    date_de_reception_premiere_mise_en_demeure: 2025-01-15
+  output:
+    penalite_majoration_fixe_appliquee: true
+    penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee: true
+    taux_penalite_majoration_fixe: 0.4
+    penalite_interet_de_retard_appliquee: true
