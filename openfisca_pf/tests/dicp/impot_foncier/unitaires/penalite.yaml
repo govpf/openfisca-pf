@@ -32,7 +32,7 @@
   output:
     taux_penalite_interet_de_retard: 0.002
 
-- name: "La base de calcul des pénalités n'est jamais négative"
+- name: "base_de_calcul_penalites n'est jamais négative"
   period: 2025
   input:
     impot_foncier_total_avant_modification: 50000
@@ -40,7 +40,7 @@
   output:
     base_de_calcul_penalites: 0
 
-- name: "Aucune pénalité appliquée si la base de calcul n'est pas supérieur à 0"
+- name: "Aucune pénalité appliquée si base_de_calcul_penalites n'est pas supérieure à 0"
   period: 2025
   input:
     base_de_calcul_penalites: 0

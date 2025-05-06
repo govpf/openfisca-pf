@@ -92,9 +92,9 @@ class penalite_majoration_fixe_appliquee(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         date_dernier_delai_declaration = personne('date_de_dernier_delai_declaration', period).astype(date)
         date_de_declaration = personne('date_de_declaration', period).astype(date)
-        base_de_calul = personne('base_de_calcul_penalites', period)
+        base_de_calcul = personne('base_de_calcul_penalites', period)
         return (date_de_declaration > date_dernier_delai_declaration) \
-            * (base_de_calul > 0)
+            * (base_de_calcul > 0)
 
 
 class date_debut_decompte_interet_de_retard(Variable):
@@ -122,12 +122,12 @@ class penalite_interet_de_retard_appliquee(Variable):
         date_de_changement = personne('date_de_changement', period).astype(date)
         date_de_declaration = personne('date_de_declaration', period).astype(date)
         date_debut_decompte_interet_de_retard = personne('date_debut_decompte_interet_de_retard', period).astype(date)
-        base_de_calul = personne('base_de_calcul_penalites', period)
+        base_de_calcul = personne('base_de_calcul_penalites', period)
         annee_changement = annee_de_la_date(date_de_changement)
         annee_declaration = annee_de_la_date(date_de_declaration)
         return (date_de_declaration >= date_debut_decompte_interet_de_retard) \
             * (annee_changement != annee_declaration) \
-            * (base_de_calul > 0)
+            * (base_de_calcul > 0)
 
 
 class reception_premiere_mise_en_demeure(Variable):
@@ -183,9 +183,14 @@ class montant_penalite_majoration_fixe(Variable):
     label = "Montant de la pénalité de majoration fixe."
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        penalite_majoration_fixe_appliquee = personne('penalite_majoration_fixe_appliquee', period)
         base_de_calcul = personne('base_de_calcul_penalites', period)
         taux = personne('taux_penalite_majoration_fixe', period)
-        return base_de_calcul * taux
+        return where(
+            penalite_majoration_fixe_appliquee,
+            base_de_calcul * taux,
+            0
+            )
 
 
 class total_mois_de_retard_declaration_modification_valeur_locative(Variable):
@@ -226,4 +231,8 @@ class montant_penalite_interet_de_retard(Variable):
         total_mois_de_retard = personne('total_mois_de_retard_declaration_modification_valeur_locative', period)
         base_de_calcul = personne('base_de_calcul_penalites', period)
         taux = personne('taux_penalite_interet_de_retard', period)
-        return base_de_calcul * total_mois_de_retard * taux
+        return where(
+            penalite_interet_de_retard_appliquee,
+            base_de_calcul * total_mois_de_retard * taux,
+            0
+            )
