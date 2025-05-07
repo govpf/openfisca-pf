@@ -53,7 +53,7 @@ class impot_foncier_total_avant_modification(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "[ARBITRAIRE] Ancien impôt foncier avant modification du loyer."
+    label = "[TEMP] Ancien impôt foncier avant modification du loyer."
 
 
 class base_de_calcul_penalites(Variable):
