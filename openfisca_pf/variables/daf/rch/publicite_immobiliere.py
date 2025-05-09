@@ -20,6 +20,7 @@ from openfisca_pf.enums.rch import (
     TypeParente
     )
 from openfisca_pf.functions.currency import arrondi_superieur
+import numpy
 
 
 class type_demarche_rch(Variable):
@@ -165,7 +166,8 @@ class montant_droit_enregistrement(Variable):
                 navire_formula()
                 ]
             )
-        return arrondi_superieur(montant_droit_enregistrement)
+        minimum_amount = parameters(period).daf.rch.minimum_amount.ENR.minimum_amount
+        return max(arrondi_superieur(montant_droit_enregistrement), minimum_amount)
 
 
 class montant_taxe_publicite(Variable):
@@ -185,7 +187,10 @@ class montant_taxe_publicite(Variable):
             # Ici, on convertit la valeur flottante en fraction pour éviter des erreurs de précision numérique
             # https://docs.python.org/3/tutorial/floatingpoint.html
             rate = Fraction.from_float(parameters(period).daf.rch.taxe_publicite_immobiliere.acquisition.rate)
-            return valeur_totale_bien_achat * rate
+            montant_taxe_publicite = (valeur_totale_bien_achat * rate).astype(numpy.float64)
+            minimum_amount = parameters(period).daf.rch.minimum_amount.TPI.minimum_amount
+
+            return numpy.maximum(montant_taxe_publicite, minimum_amount)
 
         def baux_formula():
             """
@@ -194,13 +199,13 @@ class montant_taxe_publicite(Variable):
             valeur_locative_bien = personne('valeur_locative_bien', period)
             duree_bail_mois = personne('duree_bail_mois', period)
             rate = parameters(period).daf.rch.taxe_publicite_immobiliere.baux.calc(duree_bail_mois)
-            return arrondi_superieur(valeur_locative_bien * duree_bail_mois * rate)
+            return valeur_locative_bien * duree_bail_mois * rate
 
         # On récupère le type de démarche
         type_demarche = personne('type_demarche_rch', period)
 
         # On applique la formule qui correspond au type de la démarche
-        return select(
+        montant_taxe_publicite = select(
             [
                 type_demarche == TypeDemarche.Acquisition,
                 type_demarche == TypeDemarche.Baux
@@ -210,6 +215,7 @@ class montant_taxe_publicite(Variable):
                 baux_formula()
                 ]
             )
+        return arrondi_superieur(montant_taxe_publicite)
 
 
 class montant_taxe_plus_value(Variable):

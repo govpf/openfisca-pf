@@ -1,0 +1,10 @@
+
+description: Montant minimum "taux fixe" pour les droits d'enregistrement (ENR) et les taxes de publicité immobilière (TPI)
+metadata:
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1
+ENR:
+  minimum_amount:
+    2024-12-10: 2500
+TPI:
+  minimum_amount:
+    2024-12-10: 1500
