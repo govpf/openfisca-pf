@@ -14,3 +14,12 @@
     duree_bail_mois: 1
   output:
     montant_droit_enregistrement: 21474839
+- name: 3 - Round up - arrondir à l'entier supérieur
+  period: 2025-01-16
+  input:
+    type_demarche_rch: Acquisition
+    type_acheteur_rch: DroitCommun
+    valeur_totale_bien_achat: 2000900
+    duree_bail_mois: 12
+  output:
+    montant_taxe_publicite: 2001

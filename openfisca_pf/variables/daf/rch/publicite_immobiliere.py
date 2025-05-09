@@ -20,7 +20,7 @@ from openfisca_pf.enums.rch import (
     TypeParente
     )
 from openfisca_pf.functions.currency import arrondi_superieur
-
+import numpy
 
 class type_demarche_rch(Variable):
     value_type = Enum
@@ -186,10 +186,10 @@ class montant_taxe_publicite(Variable):
             # Ici, on convertit la valeur flottante en fraction pour éviter des erreurs de précision numérique
             # https://docs.python.org/3/tutorial/floatingpoint.html
             rate = Fraction.from_float(parameters(period).daf.rch.taxe_publicite_immobiliere.acquisition.rate)
-            montant_taxe_publicite = valeur_totale_bien_achat * rate
+            montant_taxe_publicite = (valeur_totale_bien_achat * rate).astype(numpy.float64)
             minimum_amount = parameters(period).daf.rch.minimum_amount.TPI.minimum_amount
 
-            return max(montant_taxe_publicite, minimum_amount)
+            return numpy.maximum(montant_taxe_publicite, minimum_amount)
 
         def baux_formula():
             """
@@ -198,7 +198,7 @@ class montant_taxe_publicite(Variable):
             valeur_locative_bien = personne('valeur_locative_bien', period)
             duree_bail_mois = personne('duree_bail_mois', period)
             rate = parameters(period).daf.rch.taxe_publicite_immobiliere.baux.calc(duree_bail_mois)
-            return arrondi_superieur(valeur_locative_bien * duree_bail_mois * rate)
+            return valeur_locative_bien * duree_bail_mois * rate
 
         # On récupère le type de démarche
         type_demarche = personne('type_demarche_rch', period)
@@ -214,7 +214,7 @@ class montant_taxe_publicite(Variable):
                 baux_formula()
                 ]
             )
-        return montant_taxe_publicite
+        return arrondi_superieur(montant_taxe_publicite)
 
 
 class montant_taxe_plus_value(Variable):
