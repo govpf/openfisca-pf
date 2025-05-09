@@ -22,6 +22,7 @@ from openfisca_pf.enums.rch import (
 from openfisca_pf.functions.currency import arrondi_superieur
 import numpy
 
+
 class type_demarche_rch(Variable):
     value_type = Enum
     possible_values = TypeDemarche
