@@ -26,6 +26,7 @@ class is_provision_pour_charges_sociales_et_fiscales_sur_conges_a_payer_diminuti
     definition_period = YEAR
     label = "Provision pour charges sociales et fiscales sur congés à payer diminution reprises de l'exercice (5T)"
 
+
 class is_provision_pour_charges_sociales_et_fiscales_sur_conges_a_payer_montant_a_la_fin_de_l_exercice(Variable):
     value_type = int
     entity = Personne

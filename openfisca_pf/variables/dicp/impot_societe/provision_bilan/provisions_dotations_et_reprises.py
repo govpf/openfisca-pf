@@ -46,5 +46,3 @@ class is_provision_dont_dotations_et_reprises_exceptionnelles_diminutions_repris
     entity = Personne
     definition_period = YEAR
     label = "Provision dont dotations et reprises exceptionnelles diminutions reprises de l'exercice (7J)"
-
-

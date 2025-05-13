@@ -9,6 +9,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 
+
 class is_provisions_reglementees_total_montant_au_debut_de_l_exercice(Variable):
     value_type = int
     entity = Personne
