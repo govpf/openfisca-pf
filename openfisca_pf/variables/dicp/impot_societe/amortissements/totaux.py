@@ -94,7 +94,7 @@ class is_amortissements_cadre_a_total_general_montant_au_debut_de_l_exercice(Var
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         frais_etablissement = personne('is_amortissements_frais_d_etablissements_de_recherche_et_de_developpement_total_montant_au_debut_de_l_exercice', period)
-        autre_immo_corpo = personne('is_amortissements_autres_immobilisations_incorporelles_montant_au_debut_de_l_exercice',period)
+        autre_immo_corpo = personne('is_amortissements_autres_immobilisations_incorporelles_montant_au_debut_de_l_exercice', period)
         total_iii = personne('is_amortissements_cadre_a_total_iii_montant_au_debut_de_l_exercice', period)
         return frais_etablissement + autre_immo_corpo + total_iii
 
@@ -193,6 +193,7 @@ class is_amortissements_cadre_b_total_iii_amortissements_exceptionnels_dont_amor
         autres_imo_materiel_bureau = personne('is_amortissements_autres_immobilisations_corporelles_materiel_bureau_et_informatique_mobilier_amortissements_exceptionnels_dont_amortissements_de_caducite', period)
         autres_imo_emballages = personne('is_amortissements_autres_immobilisations_corporelles_emballages_recuperables_et_divers_amortissements_exceptionnels_dont_amortissements_de_caducite', period)
         return terrains + constructions_sol_propre + constructions_sol_autrui + constructions_instal_gene + installations_industrielles + autre_immo_instal_general + autres_imo_materiel_transport + autres_imo_materiel_bureau + autres_imo_emballages
+
 
 class is_amortissements_cadre_b_total_general_amortissements_lineaires(Variable):
     value_type = int
