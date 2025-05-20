@@ -26,10 +26,10 @@ from openfisca_pf.constants.time import NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEM
 
 def as_date(a: ndarray, unit: str) -> ndarray:
     """
-    Converti un vercteur de dates en un vecteur de `datetime64[U]` où `U` est l'unité désirée.
+    Converti un vecteur de dates en un vecteur de `datetime64[U]` où `U` est l'unité désirée.
 
     :param a: Array of dates
-    :param unit: either `D`, `M` or `
+    :param unit: either `D`, `M` or `Y`
     :return: Vecteur converti
     """
     return a.astype(f'datetime64[{unit}]')
@@ -40,7 +40,7 @@ def as_duration(a: ndarray, unit: str) -> ndarray:
     Converti un vecteur en un vecteur de durée `timedelta64[U]` où `U` est l'unité désirée, puis en un vecteur d'entiers naturels.
 
     :param a: Array of dates
-    :param unit: either `D`, `M` or `
+    :param unit: either `D`, `M` or `Y`
     :return: Vecteur converti
     """
     # TODO remove as int ?
