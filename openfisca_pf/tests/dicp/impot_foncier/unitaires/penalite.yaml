@@ -35,7 +35,7 @@
 - name: "base_de_calcul_penalites n'est jamais négative"
   period: 2025
   input:
-    impot_foncier_total_avant_modification: 50000
+    impot_foncier_total_avant_changement: 50000
     impot_foncier_total: 40000
   output:
     base_de_calcul_penalites: 0
@@ -50,11 +50,11 @@
     penalite_majoration_fixe_appliquee: false
     penalite_interet_de_retard_appliquee: false
 
-- name: "base_de_calcul_penalites est égale au delta entre impot_foncier_total et impot_foncier_total_avant_modification"
+- name: "base_de_calcul_penalites est égale au delta entre impot_foncier_total et impot_foncier_total_avant_changement"
   period: 2025
   input:
     impot_foncier_total: 110604
-    impot_foncier_total_avant_modification: 100604
+    impot_foncier_total_avant_changement: 100604
   output:
     base_de_calcul_penalites: 10000
 
@@ -110,21 +110,21 @@
     penalite_majoration_fixe_appliquee: true
     penalite_interet_de_retard_appliquee: true
 
-- name: "total_mois_de_retard_declaration_modification_valeur_locative est égale à 1"
+- name: "nombre_de_mois_de_retard_de_la_declaration est égale à 1"
   period: 2025
   input:
     date_de_changement: 2024-11-01
     date_de_declaration: 2025-02-13
   output:
-    total_mois_de_retard_declaration_modification_valeur_locative: 1
+    nombre_de_mois_de_retard_de_la_declaration: 1
 
-- name: "total_mois_de_retard_declaration_modification_valeur_locative est égale à 13"
+- name: "nombre_de_mois_de_retard_de_la_declaration est égale à 13"
   period: 2025
   input:
     date_de_changement: 2023-11-01
     date_de_declaration: 2025-02-13
   output:
-    total_mois_de_retard_declaration_modification_valeur_locative: 13
+    nombre_de_mois_de_retard_de_la_declaration: 13
 
 - name: "penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee est False car déclaration avant le délai des 30 jours suivant la première mise en demeure"
   period: 2025

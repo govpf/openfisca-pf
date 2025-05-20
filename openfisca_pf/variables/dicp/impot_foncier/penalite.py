@@ -28,7 +28,7 @@ class date_de_changement(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = date(1970, 1, 1)
-    label = "Date à laquelle est effectué le changement de la valeur locative d'un bien."
+    label = "Date à laquelle est effectué le changement de la valeur locative d'un bien"
 
 
 class date_de_declaration(Variable):
@@ -36,7 +36,7 @@ class date_de_declaration(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = date(1970, 1, 1)
-    label = "Date de déclaration de la modification de la valeur locative d'un bien."
+    label = "Date de déclaration de la modification de la valeur locative d'un bien"
 
 
 class date_de_reception_premiere_mise_en_demeure(Variable):
@@ -44,16 +44,15 @@ class date_de_reception_premiere_mise_en_demeure(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = date(1970, 1, 1)
-    label = "Date de la réception de la première mise en demeure du foncier."
+    label = "Date de la réception de la première mise en demeure du foncier"
 
 
-# TODO : Calculer le delta entre l'ancien et le nouvel impôt foncier après une modification de la VL
-class impot_foncier_total_avant_modification(Variable):
+class impot_foncier_total_avant_changement(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "[TEMP] Ancien impôt foncier avant modification du loyer."
+    label = "Montant d'impôt foncier précédemment mis en recouvrement avant la saisie du changement"
 
 
 class base_de_calcul_penalites(Variable):
@@ -61,21 +60,21 @@ class base_de_calcul_penalites(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "Base de calcul des pénalités du foncier."
+    label = "Base de calcul des pénalités de retard à l'impôt foncier"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        avant = personne('impot_foncier_total_avant_modification', period)
+        avant = personne('impot_foncier_total_avant_changement', period)
         apres = personne('impot_foncier_total', period)
         base = apres - avant
         return max_(0, base)
 
 
-class date_de_dernier_delai_declaration(Variable):
+class date_limite_de_declaration(Variable):
     value_type = date
     entity = Personne
     definition_period = YEAR
     default_value = date(1970, 1, 1)
-    label = "Date à partir de laquelle la déclaration d'une modification d'un bien est en retard."
+    label = "Date à partir de laquelle un déclaration est en retard."
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         date_de_changement = personne('date_de_changement', period).astype(date)
@@ -87,10 +86,10 @@ class penalite_majoration_fixe_appliquee(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = False
-    label = "True s'il faut appliquer la pénalité de majoration fixe suite à une déclaration de modification de valeur locative tardive, False sinon."
+    label = "Indique si il faut appliquer la pénalité de majoration fixe suite à une déclaration"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        date_dernier_delai_declaration = personne('date_de_dernier_delai_declaration', period).astype(date)
+        date_dernier_delai_declaration = personne('date_limite_de_declaration', period).astype(date)
         date_de_declaration = personne('date_de_declaration', period).astype(date)
         base_de_calcul = personne('base_de_calcul_penalites', period)
         return (date_de_declaration > date_dernier_delai_declaration) \
@@ -102,10 +101,10 @@ class date_debut_decompte_interet_de_retard(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = date(1970, 1, 1)
-    label = "Date à partir de laquelle la pénalité d'intérêt de retard est appliquée à la déclaration de modification de valeur locative."
+    label = "Date à partir de laquelle la pénalité d'intérêt de retard est appliquée à la déclaration de modification de valeur locative"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        date_debut_decompte_interet_de_retard = personne('date_de_dernier_delai_declaration', period).astype(date)
+        date_debut_decompte_interet_de_retard = personne('date_limite_de_declaration', period).astype(date)
         date_debut_decompte_interet_de_retard += relative_delta_months(1)
         date_debut_decompte_interet_de_retard -= relative_delta_days(jour_de_la_date(date_debut_decompte_interet_de_retard))
         return date_debut_decompte_interet_de_retard
@@ -116,7 +115,7 @@ class penalite_interet_de_retard_appliquee(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = False
-    label = "True s'il faut appliquer la pénalité d'intérêt de retard suite à une déclaration de modification de valeur locative tardive, False sinon."
+    label = "Indique s'il faut appliquer la pénalité d'intérêt de retard suite à une déclaration"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         date_de_changement = personne('date_de_changement', period).astype(date)
@@ -135,7 +134,7 @@ class reception_premiere_mise_en_demeure(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = False
-    label = "True si une première mise en demeure a été réceptionnée, False sinon."
+    label = "Inidique si une première mise en demeure a été réceptionnée"
 
 
 class penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee(Variable):
@@ -143,19 +142,19 @@ class penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee(Variable
     entity = Personne
     definition_period = YEAR
     default_value = False
-    label = "True s'il faut appliquer la pénalité de majoration fixe suite à une déclaration de modification de valeur locative tardive après une première mise en demeure, False sinon."
+    label = "Indique si il faut appliquer la pénalité de majoration fixe suite à une déclaration tardive après une première mise en demeure"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        majoration_fixe_appliquee = personne('penalite_majoration_fixe_appliquee', period)
+        penalite_majoration_fixe_appliquee = personne('penalite_majoration_fixe_appliquee', period)
         reception_premiere_mise_en_demeure = personne('reception_premiere_mise_en_demeure', period)
         date_de_declaration = personne('date_de_declaration', period).astype(date)
-        date_dernier_delai_declaration = personne('date_de_dernier_delai_declaration', period).astype(date)
+        date_limite_de_declaration = personne('date_limite_de_declaration', period).astype(date)
         date_de_reception_premiere_mise_en_demeure = personne('date_de_reception_premiere_mise_en_demeure', period).astype(date)
 
         date_dernier_delai_declaration_premiere_mise_en_demeure = date_de_reception_premiere_mise_en_demeure + relative_delta_days(30)
-        return majoration_fixe_appliquee \
+        return penalite_majoration_fixe_appliquee \
             * reception_premiere_mise_en_demeure \
-            * (date_dernier_delai_declaration_premiere_mise_en_demeure >= date_dernier_delai_declaration) \
+            * (date_dernier_delai_declaration_premiere_mise_en_demeure >= date_limite_de_declaration) \
             * (date_de_declaration > date_dernier_delai_declaration_premiere_mise_en_demeure)
 
 
@@ -164,12 +163,12 @@ class taux_penalite_majoration_fixe(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Taux de la pénalité de majoration fixe du foncier."
+    label = "Taux de la majoration fixe d'une pénalité de retard à l'impôt foncier"
 
     def formula_1995_08_24(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        penalite_majoration_fixe_premiere_mise_en_demeure_appliquee = personne('penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee', period)
+        penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee = personne('penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee', period)
         return where(
-            penalite_majoration_fixe_premiere_mise_en_demeure_appliquee,
+            penalite_majoration_fixe_apres_premiere_mise_en_demeure_appliquee,
             parameters(period).dicp.impot_foncier.penalites.taux.majoration_fixe_premiere_mise_en_demeure,
             parameters(period).dicp.impot_foncier.penalites.taux.majoration_fixe
             )
@@ -180,7 +179,7 @@ class montant_penalite_majoration_fixe(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = 0.
-    label = "Montant de la pénalité de majoration fixe."
+    label = "Montant de la majoration fixe d'une pénalité de retard à l'impôt foncier"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         penalite_majoration_fixe_appliquee = personne('penalite_majoration_fixe_appliquee', period)
@@ -193,12 +192,12 @@ class montant_penalite_majoration_fixe(Variable):
             )
 
 
-class total_mois_de_retard_declaration_modification_valeur_locative(Variable):
+class nombre_de_mois_de_retard_de_la_declaration(Variable):
     value_type = int
     entity = Personne
     definition_period = YEAR
     default_value = 0
-    label = "Nombre de mois de retard accumulés avant la déclaration de la modification de la valeur locative."
+    label = "Nombre de mois de retard accumulés entre la date limite de declaration suite au changement et la date de declaration actuelle"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         date_debut_decompte_interet_de_retard = personne('date_debut_decompte_interet_de_retard', period).astype(date)
@@ -228,7 +227,8 @@ class montant_penalite_interet_de_retard(Variable):
     label = "Montant de la pénalité d'intérêt de retard du rôle foncier."
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        total_mois_de_retard = personne('total_mois_de_retard_declaration_modification_valeur_locative', period)
+        penalite_interet_de_retard_appliquee = personne('penalite_interet_de_retard_appliquee', period)
+        total_mois_de_retard = personne('nombre_de_mois_de_retard_de_la_declaration', period)
         base_de_calcul = personne('base_de_calcul_penalites', period)
         taux = personne('taux_penalite_interet_de_retard', period)
         return where(
