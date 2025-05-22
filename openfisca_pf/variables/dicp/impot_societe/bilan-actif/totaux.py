@@ -84,9 +84,10 @@ class is_bilan_actif_total_actif_immobilise_net(Variable):
     label = "Bilan actif, total des actifs immobilisés nets"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-       total_immo_brut = personne('is_bilan_actif_total_actif_immobilise_brut', period)
-       total_immo_amortissements_provisions = personne('is_bilan_actif_total_actif_immobilise_amortissements_provisions', period)
-       return total_immo_brut - total_immo_amortissements_provisions
+        total_immo_brut = personne('is_bilan_actif_total_actif_immobilise_brut', period)
+        total_immo_amortissements_provisions = personne('is_bilan_actif_total_actif_immobilise_amortissements_provisions', period)
+        return total_immo_brut - total_immo_amortissements_provisions
+
 
 class is_bilan_actif_total_actif_circulant_brut(Variable):
     value_type = int
@@ -149,6 +150,7 @@ class is_bilan_actif_total_actif_circulant_net(Variable):
         total_actif_circulant_brut = personne('is_bilan_actif_total_actif_circulant_brut', period)
         total_actif_circulant_amortissements_provisions = personne('is_bilan_actif_total_actif_circulant_amortissements_provisions', period)
         return total_actif_circulant_brut - total_actif_circulant_amortissements_provisions
+
 
 class is_bilan_actif_total_general_brut(Variable):
     value_type = int
