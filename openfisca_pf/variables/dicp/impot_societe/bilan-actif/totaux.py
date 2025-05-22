@@ -77,6 +77,17 @@ class is_bilan_actif_total_actif_immobilise_amortissements_provisions(Variable):
         return immo_incorporelles_frais_etablissement + immo_incorporelles_fonds_commercial + immo_incorporelles_autres + immo_corporelle_terrains + immo_corporelle_constructions + immo_corporelle_installations_techniques + immo_corporelle_autres + immo_corporelle_en_cours + immo_financieres_participations + immo_financieres_creance_rattache + immo_financieres_autres
 
 
+class is_bilan_actif_total_actif_immobilise_net(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    label = "Bilan actif, total des actifs immobilisés nets"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+       total_immo_brut = personne('is_bilan_actif_total_actif_immobilise_brut', period)
+       total_immo_amortissements_provisions = personne('is_bilan_actif_total_actif_immobilise_amortissements_provisions', period)
+       return total_immo_brut - total_immo_amortissements_provisions
+
 class is_bilan_actif_total_actif_circulant_brut(Variable):
     value_type = int
     entity = Personne
@@ -128,6 +139,17 @@ class is_bilan_actif_total_actif_circulant_amortissements_provisions(Variable):
         return stock + en_cous_production_biens + en_cous_production_services + produits_intermediaires + marchandises + avances_et_acomptes + comptes_rattaches + autres_creances + capital_souscrit + disponibilites + charges_constatees_avance
 
 
+class is_bilan_actif_total_actif_circulant_net(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    label = "Bilan actif, total des actifs circulants nets"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        total_actif_circulant_brut = personne('is_bilan_actif_total_actif_circulant_brut', period)
+        total_actif_circulant_amortissements_provisions = personne('is_bilan_actif_total_actif_circulant_amortissements_provisions', period)
+        return total_actif_circulant_brut - total_actif_circulant_amortissements_provisions
+
 class is_bilan_actif_total_general_brut(Variable):
     value_type = int
     entity = Personne
@@ -152,3 +174,15 @@ class is_bilan_actif_total_general_amortissements_provisions(Variable):
         actif_immobilise = personne('is_bilan_actif_total_actif_immobilise_amortissements_provisions', period)
         actif_circulant = personne('is_bilan_actif_total_actif_circulant_amortissements_provisions', period)
         return actif_immobilise + actif_circulant
+
+
+class is_bilan_actif_total_general_net(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    label = "Bilan actif, total général net"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        total_general_brut = personne('is_bilan_actif_total_general_brut', period)
+        total_general_amortissements_provisions = personne('is_bilan_actif_total_general_amortissements_provisions', period)
+        return total_general_brut - total_general_amortissements_provisions

@@ -32,6 +32,15 @@
   output:
     is_bilan_actif_total_actif_immobilise_amortissements_provisions: 6600
 
+
+- name : is_bilan_actif_total_actif_immobilise_net
+  period: 2024
+  input:
+    is_bilan_actif_total_actif_immobilise_brut: 200
+    is_bilan_actif_total_actif_immobilise_amortissements_provisions: 100
+  output:
+    is_bilan_actif_total_actif_immobilise_net: 100
+
 - name: is_bilan_actif_total_actif_circulant_brut
   period: 2024
   input:
@@ -65,6 +74,15 @@
     is_bilan_actif_comptes_regularation_charges_constatees_avance_amortissements_provisions: 1100
   output:
         is_bilan_actif_total_actif_circulant_amortissements_provisions: 6600
+
+
+- name: is_bilan_actif_total_actif_circulant_net
+  period: 2024
+  input:
+    is_bilan_actif_total_actif_circulant_brut: 200
+    is_bilan_actif_total_actif_circulant_amortissements_provisions: 100
+  output:
+    is_bilan_actif_total_actif_circulant_net: 100
 
 - name: is_bilan_actif_total_general_brut
   period: 2024
@@ -123,4 +141,13 @@
     is_bilan_actif_comptes_regularation_charges_constatees_avance_amortissements_provisions: 1100
   output:
     is_bilan_actif_total_general_amortissements_provisions: 13200
+
+
+- name: is_bilan_actif_total_general_net
+  period: 2024
+  input:
+    is_bilan_actif_total_general_brut: 200
+    is_bilan_actif_total_general_amortissements_provisions: 100
+  output:
+    is_bilan_actif_total_general_net: 100
 
