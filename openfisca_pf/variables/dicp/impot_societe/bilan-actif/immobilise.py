@@ -219,6 +219,7 @@ class is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_net(Var
         immobilisations_en_cours_amortissement_provisions = personne('is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_amortissements_provisions', period)
         return immobilisations_en_cours_brut - immobilisations_en_cours_amortissement_provisions
 
+
 # Immobilisations financières
 class is_bilan_actif_immobilisation_financieres_participations_brut(Variable):
     value_type = int

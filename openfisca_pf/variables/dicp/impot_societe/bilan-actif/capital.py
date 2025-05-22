@@ -24,5 +24,5 @@ class is_bilan_actif_capital_souscrit_non_appele_net(Variable):
     label = "Capital souscrit non appelé net"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-       captial_souscrit_non_appele_brut = personne('is_bilan_actif_capital_souscrit_non_appele_brut', period)
-       return captial_souscrit_non_appele_brut
+        captial_souscrit_non_appele_brut = personne('is_bilan_actif_capital_souscrit_non_appele_brut', period)
+        return captial_souscrit_non_appele_brut

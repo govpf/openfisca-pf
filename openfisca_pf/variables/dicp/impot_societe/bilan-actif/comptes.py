@@ -36,7 +36,6 @@ class is_bilan_actif_comptes_regularation_charges_constatees_avance_net(Variable
         return charges_constate_brut - charges_constate_amortissement_provsion
 
 
-
 class is_bilan_actif_comptes_regularation_charges_repartir_plusieurs_exercices_brut(Variable):
     value_type = int
     entity = Personne
