@@ -19,7 +19,8 @@ from openfisca_pf.functions.time import (
     as_duration,
     jour_de_la_date,
     relative_delta_months,
-    relative_delta_days
+    relative_delta_days,
+    relative_delta_years
     )
 
 
@@ -104,9 +105,11 @@ class date_debut_decompte_interet_de_retard(Variable):
     label = "Date à partir de laquelle la pénalité d'intérêt de retard est appliquée à la déclaration de modification de valeur locative"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        date_debut_decompte_interet_de_retard = personne('date_limite_de_declaration', period).astype(date)
-        date_debut_decompte_interet_de_retard += relative_delta_months(1)
-        date_debut_decompte_interet_de_retard -= relative_delta_days(jour_de_la_date(date_debut_decompte_interet_de_retard))
+        date_de_changement = personne('date_de_changement', period).astype(date)
+        annee_de_la_date_de_changement = int(annee_de_la_date(date_de_changement)) + 1
+        date_d_exigibilite_mois = parameters(period).dicp.impot_foncier.calendrier.date_d_exigibilite.mois
+        date_d_exigibilite_jour = parameters(period).dicp.impot_foncier.calendrier.date_d_exigibilite.jour
+        date_debut_decompte_interet_de_retard = date(annee_de_la_date_de_changement, date_d_exigibilite_mois, date_d_exigibilite_jour)
         return date_debut_decompte_interet_de_retard
 
 
