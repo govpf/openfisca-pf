@@ -4,8 +4,9 @@
 from openfisca_pf.base import (
     ArrayLike,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable
     )
 from openfisca_pf.constants.dicp.references_csts import (
@@ -29,8 +30,8 @@ class cst_s_due_totale_par_employes(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        cst_s = personne.members('cst_s', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cst_s = personne.members('cst_s', period)
         return personne.sum(cst_s)
 
 
@@ -46,8 +47,8 @@ class cst_s_due_totale(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         total = 0
         for i, taux in enumerate(parameters(period).dicp.cst_s.taux.rates):
-            total += personne(f'cst_s_due_tranche_{i + 1}', period, parameters)
+            total += personne(f'cst_s_due_tranche_{i + 1}', period)
         return total

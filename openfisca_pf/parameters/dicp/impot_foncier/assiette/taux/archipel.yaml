@@ -1,0 +1,41 @@
+description: "Taux permettant de calculer la valeur locative direct en fonction de la valeur venale et de l'archipel du local"
+metadata:
+  type: float
+  unit: /1
+
+australes:
+  values:
+    2011-09-27:
+      value: 0.02
+
+gambiers:
+  values:
+    2011-09-27:
+      value: 0.02
+
+iles_du_vent:
+  values:
+    1950-11-16:
+      value: 0.04
+
+iles_sous_le_vent:
+  values:
+    2011-09-27:
+      value: 0.03
+
+marquises:
+  values:
+    2011-09-27:
+      value: 0.02
+
+tuamotus:
+  values:
+    2011-09-27:
+      value: 0.02
+
+autres:
+  values:
+    1950-11-16:
+      value: 0.03
+    2011-09-27:
+      value: null

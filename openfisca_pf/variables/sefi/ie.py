@@ -26,8 +26,9 @@ from openfisca_pf.base import (
     Enum,
     MONTH,
     not_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     round_,
     select,
     Variable,
@@ -60,17 +61,17 @@ class eligible_ie(Variable):
         'https://www.actusefi.org/s/Arrete-n-209-CM-du-24_02_2021.pdf'
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        dispositif_percu = personne('dispositif_percu', period, parameters)
-        en_activite = personne('en_activite_salariee', period, parameters)
-        en_activite_mois_N_moins_1 = personne('en_activite_salariee', period.last_month, parameters)
-        en_activite_mois_N_moins_2 = personne('en_activite_salariee', period.last_month.last_month, parameters)
-        en_activite_mois_N_moins_3 = personne('en_activite_salariee', period.last_month.last_month.last_month, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        dispositif_percu = personne('dispositif_percu', period)
+        en_activite = personne('en_activite_salariee', period)
+        en_activite_mois_N_moins_1 = personne('en_activite_salariee', period.last_month)
+        en_activite_mois_N_moins_2 = personne('en_activite_salariee', period.last_month.last_month)
+        en_activite_mois_N_moins_3 = personne('en_activite_salariee', period.last_month.last_month.last_month)
 
         # Type de contrat des mois précédents
-        contrat_mois_N_moins_1 = personne('type_contrat', period.last_month, parameters)
-        contrat_mois_N_moins_2 = personne('type_contrat', period.last_month.last_month, parameters)
-        contrat_mois_N_moins_3 = personne('type_contrat', period.last_month.last_month.last_month, parameters)
+        contrat_mois_N_moins_1 = personne('type_contrat', period.last_month)
+        contrat_mois_N_moins_2 = personne('type_contrat', period.last_month.last_month)
+        contrat_mois_N_moins_3 = personne('type_contrat', period.last_month.last_month.last_month)
 
         # En fonction du type de contrat, l'IE est-il applicable
         applicabilite_ie_mois_N_moins_1 = parameters(period.last_month).sefi.ie.parametres.periodes[contrat_mois_N_moins_1]
@@ -100,8 +101,8 @@ class eligible_ie_annee(Variable):
         'https://www.actusefi.org/s/Arrete-n-209-CM-du-24_02_2021.pdf'
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        return personne('eligible_ie', period, parameters, options = [ADD])
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('eligible_ie', period, options = [ADD])
 
 
 class dernier_contrat_3_derniers_mois(Variable):
@@ -112,7 +113,7 @@ class dernier_contrat_3_derniers_mois(Variable):
     definition_period = MONTH
     label = 'Indique le type de contrat perdu lors des 3 derniers mois'
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         # Type de contrat des mois précédents
         contrat_mois_N_moins_1 = personne('type_contrat', period.last_month)
         contrat_mois_N_moins_2 = personne('type_contrat', period.last_month.last_month)
@@ -139,10 +140,10 @@ class dernier_salaire_percu_3_derniers_mois(Variable):
     unit = XPF_PER_MONTH
     label = 'Indique le dernier salaire du ou des contrats perdus lors des 3 derniers mois'
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        salaire_mois_N_moins_1 = personne('salaire', period.last_month, parameters)
-        salaire_mois_N_moins_2 = personne('salaire', period.last_month.last_month, parameters)
-        salaire_mois_N_moins_3 = personne('salaire', period.last_month.last_month.last_month, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        salaire_mois_N_moins_1 = personne('salaire', period.last_month)
+        salaire_mois_N_moins_2 = personne('salaire', period.last_month.last_month)
+        salaire_mois_N_moins_3 = personne('salaire', period.last_month.last_month.last_month)
         return select(
             [
                 salaire_mois_N_moins_1 > 0,
@@ -170,10 +171,10 @@ class montant_ie(Variable):
         'https://www.actusefi.org/s/Arrete-n-209-CM-du-24_02_2021.pdf'
         ]
 
-    def formula_2021_01(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_ie = personne('eligible_ie', period, parameters)
-        dernier_contrat_3_derniers_mois = personne('dernier_contrat_3_derniers_mois', period, parameters)
-        dernier_salaire_percu_3_derniers_mois = personne('dernier_salaire_percu_3_derniers_mois', period, parameters)
+    def formula_2021_01(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_ie = personne('eligible_ie', period)
+        dernier_contrat_3_derniers_mois = personne('dernier_contrat_3_derniers_mois', period)
+        dernier_salaire_percu_3_derniers_mois = personne('dernier_salaire_percu_3_derniers_mois', period)
         montant_smig = parameters(period).sefi.smig.mensuel
         echelle_cdi = parameters(period).sefi.ie.tranche_si_salaire_cdi_superieur_smig
         echelle_cdd_ou_extras = parameters(period).sefi.ie.tranche_si_cdd_ou_extras
@@ -203,6 +204,3 @@ class montant_ie(Variable):
                 montant_si_cdd_ou_extras
                 ]
             )
-
-    def formula(personne: Personne) -> ArrayLike:
-        return 0.

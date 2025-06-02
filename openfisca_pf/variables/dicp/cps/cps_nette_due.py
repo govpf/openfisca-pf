@@ -2,10 +2,12 @@
 
 
 from openfisca_pf.base import (
+    ArrayLike,
     max_,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable
     )
 from openfisca_pf.constants.units import XPF
@@ -25,10 +27,10 @@ class cps_nette(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameters):
-        cps_due = personne('cps_due', period, parameters)
-        cps_en_diminution = personne('cps_en_diminution', period, parameters)
-        cps_a_reverser = personne('cps_a_reverser', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cps_due = personne('cps_due', period)
+        cps_en_diminution = personne('cps_en_diminution', period)
+        cps_a_reverser = personne('cps_a_reverser', period)
         return cps_due - cps_en_diminution + cps_a_reverser
 
 
@@ -45,8 +47,8 @@ class cps_nette_due(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameters):
-        cps_nette = personne('cps_nette', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cps_nette = personne('cps_nette', period)
         return max_(cps_nette, 0)
 
 
@@ -63,8 +65,8 @@ class cps_a_reporter(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameters):
-        cps_nette = personne('cps_nette', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cps_nette = personne('cps_nette', period)
         return max_(-cps_nette, 0)
 
 
@@ -77,7 +79,7 @@ class tva_plus_cps_nette_due(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameters):
-        cps_nette_due = personne('cps_nette_due', period, parameters)
-        tva_nette_due = personne('tva_nette_due', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        cps_nette_due = personne('cps_nette_due', period)
+        tva_nette_due = personne('tva_nette_due', period)
         return cps_nette_due + tva_nette_due

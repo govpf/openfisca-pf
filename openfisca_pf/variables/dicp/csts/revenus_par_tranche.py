@@ -4,9 +4,10 @@
 from openfisca_pf.base import (
     ArrayLike,
     MONTH,
-    set_input_divide_by_period,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
+    set_input_divide_by_period,
     Variable
     )
 from openfisca_pf.constants.dicp.references_csts import (
@@ -224,6 +225,6 @@ class salaires_totaux(Variable):
         ]
     unit = XPF
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        salaires = personne.members('salaire', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        salaires = personne.members('salaire', period)
         return personne.sum(salaires)

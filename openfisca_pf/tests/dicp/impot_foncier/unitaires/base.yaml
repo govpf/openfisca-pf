@@ -1,0 +1,786 @@
+# ##################################################
+# ###            ABATTEMENT D'OFFICE             ###
+# ##################################################
+
+
+# eligible_abattement_office
+
+- name: "eligible_abattement_office est égale à false avant 1951 car il n'existait pas"
+  period: 1950
+  output:
+    eligible_abattement_office: false
+
+- name: "eligible_abattement_office est égale à true à partir de 1951"
+  period: 1951
+  output:
+    eligible_abattement_office: true
+
+
+# abattement_office_applique
+
+- name: "abattement_office_applique est égale à false avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    eligible_abattement_office: true
+  output:
+    abattement_office_applique: false
+
+- name: "abattement_office_applique est égale à eligible_abattement_office à partir de 1951 (true)"
+  period: 1951
+  input:
+    eligible_abattement_office: true
+  output:
+    abattement_office_applique: true
+
+- name: "abattement_office_applique est égale à eligible_abattement_office à partir de 1951 (false)"
+  period: 1951
+  input:
+    eligible_abattement_office: false
+  output:
+    abattement_office_applique: false
+
+
+# abattement_office_eligible_et_applique
+
+- name: "abattement_office_eligible_et_applique est égale à false avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    eligible_abattement_office: true
+    abattement_office_applique: true
+  output:
+    abattement_office_eligible_et_applique: false
+
+- name: "abattement_office_eligible_et_applique est égale à true à partir de 1951 si les conditions sont réunies"
+  period: 1951
+  input:
+    eligible_abattement_office: true
+    abattement_office_applique: true
+  output:
+    abattement_office_eligible_et_applique: true
+
+- name: "abattement_office_eligible_et_applique est égale à false à partir de 1951 si les conditions ne sont pas réunies (1)"
+  period: 1951
+  input:
+    eligible_abattement_office: false
+    abattement_office_applique: true
+  output:
+    abattement_office_eligible_et_applique: false
+
+- name: "abattement_office_eligible_et_applique est égale à false à partir de 1951 si les conditions ne sont pas réunies (2)"
+  period: 1951
+  input:
+    eligible_abattement_office: true
+    abattement_office_applique: false
+  output:
+    abattement_office_eligible_et_applique: false
+
+- name: "abattement_office_eligible_et_applique est égale à false à partir de 1951 si les conditions ne sont pas réunies (3)"
+  period: 1951
+  input:
+    eligible_abattement_office: false
+    abattement_office_applique: false
+  output:
+    abattement_office_eligible_et_applique: false
+
+
+# taux_abattement_office_pays
+
+- name: "taux_abattement_office_pays est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  output:
+    taux_abattement_office_pays: 0
+
+- name: "taux_abattement_office_pays est égale à 0.25 à partir de 1951"
+  period: 1951
+  output:
+    taux_abattement_office_pays: 0.25
+
+
+# taux_abattement_office
+
+- name: "taux_abattement_office est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    taux_abattement_office_pays: 10.5
+  output:
+    taux_abattement_office: 0
+
+- name: "taux_abattement_office est égale à taux_abattement_office_pays à partir de 1951"
+  period: 1951
+  input:
+    taux_abattement_office_pays: 10.5
+  output:
+    taux_abattement_office: 10.5
+
+
+# montant_abattement_office
+
+- name: "montant_abattement_office est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    abattement_office_eligible_et_applique: true
+    valeur_locative_brute: 101
+    taux_abattement_office: 0.5
+  output:
+    montant_abattement_office: 0
+
+- name: "montant_abattement_office est égale à la valeur_locative_brute multiplié par la taux_premier_abattement à partir de 1951 si le bien est eligible et la mesure appliquée"
+  period: 1951
+  input:
+    abattement_office_eligible_et_applique: true
+    valeur_locative_brute: 101
+    taux_abattement_office: 0.5
+  output:
+    montant_abattement_office: 50.5
+
+- name: "montant_abattement_office est égale à 0 à partir de 1951 si le bien n'est pas eligible ou la mesure n'est pas appliquée"
+  period: 1951
+  input:
+    abattement_office_eligible_et_applique: false
+    valeur_locative_brute: 101
+    taux_abattement_office: 0.5
+  output:
+    montant_abattement_office: 0
+
+
+# base_imposable_apres_abattement_office
+
+- name: "base_imposable_apres_abattement_office est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    valeur_locative_brute: 101
+    montant_abattement_office: 10.5
+  output:
+    base_imposable_apres_abattement_office: 0
+
+- name: "base_imposable_apres_abattement_office est égale à la valeur_locative_brute moins le montant_premier_abattement a partir de 1951"
+  period: 1951
+  input:
+    valeur_locative_brute: 101
+    montant_abattement_office: 10.5
+  output:
+    base_imposable_apres_abattement_office: 90.5
+
+
+# ##################################################
+# ###             ABATTEMENT LOCATIF             ###
+# ##################################################
+
+
+# taux_abattement_locatif_location_meuble_pays
+
+- name: "taux_abattement_locatif_location_meuble_pays est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  output:
+    taux_abattement_locatif_location_meuble_pays: 0
+
+- name: "taux_abattement_locatif_location_meuble_pays est égale à 0.3 à partir de 1951"
+  period: 1951
+  output:
+    taux_abattement_locatif_location_meuble_pays: 0.3
+
+
+# taux_abattement_locatif_location_non_meuble_pays
+
+- name: "taux_abattement_locatif_location_non_meuble_pays est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  output:
+    taux_abattement_locatif_location_non_meuble_pays: 0
+
+- name: "taux_abattement_locatif_location_non_meuble_pays est égale à 0.25 à partir de 1951"
+  period: 1951
+  output:
+    taux_abattement_locatif_location_non_meuble_pays: 0.25
+
+
+# taux_abattement_locatif_location_meuble
+
+- name: "taux_second_abattement_location_meuble est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    taux_abattement_locatif_location_meuble_pays: 10.5
+  output:
+    taux_abattement_locatif_location_meuble: 0
+
+- name: "taux_second_abattement_location_meuble est égale à taux_second_abattement_location_meuble_pays à partir de 1951"
+  period: 1951
+  input:
+    taux_abattement_locatif_location_meuble_pays: 10.5
+  output:
+    taux_abattement_locatif_location_meuble: 10.5
+
+
+# taux_abattement_locatif_location_non_meuble
+
+- name: "taux_second_abattement_location_non_meuble est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    taux_abattement_locatif_location_non_meuble_pays: 10.5
+  output:
+    taux_abattement_locatif_location_non_meuble: 0
+
+- name: "taux_second_abattement_location_non_meuble est égale à taux_second_abattement_location_non_meuble_pays à partir de 1951"
+  period: 1951
+  input:
+    taux_abattement_locatif_location_non_meuble_pays: 10.5
+  output:
+    taux_abattement_locatif_location_non_meuble: 10.5
+
+
+# taux_abattement_locatif
+
+- name: "taux_abattement_locatif est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    location_meuble: true
+    location_non_meuble: false
+    taux_abattement_locatif_location_meuble: 1
+    taux_abattement_locatif_location_non_meuble: 2
+  output:
+    taux_abattement_locatif: 0
+
+- name: "taux_second_abattement est égale à taux_abattement_locatif_location_meuble à partir 1951 si le bien est en location_meuble"
+  period: 1951
+  input:
+    location_meuble: true
+    location_non_meuble: false
+    taux_abattement_locatif_location_meuble: 1
+    taux_abattement_locatif_location_non_meuble: 2
+  output:
+    taux_abattement_locatif: 1
+
+- name: "taux_abattement_locatif est égale à taux_abattement_locatif_location_non_meuble à partir 1951 si le bien est en location_non_meuble"
+  period: 1951
+  input:
+    location_meuble: false
+    location_non_meuble: true
+    taux_abattement_locatif_location_meuble: 1
+    taux_abattement_locatif_location_non_meuble: 2
+  output:
+    taux_abattement_locatif: 2
+
+- name: "taux_abattement_locatif est égale à 0 à partir 1951 si le bien n'est ni en location_meuble ni en location_non_meuble"
+  period: 1951
+  input:
+    location_meuble: false
+    location_non_meuble: false
+    taux_abattement_locatif_location_meuble: 1
+    taux_abattement_locatif_location_non_meuble: 2
+  output:
+    taux_abattement_locatif: 0
+
+
+# eligible_abattement_locatif
+
+- name: "eligible_abattement_locatif est égale à false avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    location_meuble: true
+    location_non_meuble: true
+  output:
+    eligible_abattement_locatif: false
+
+- name: "eligible_abattement_locatif est égale à true à partir de 1951 si une des conditions est remplie (1)"
+  period: 1951
+  input:
+    location_meuble: false
+    location_non_meuble: true
+  output:
+    eligible_abattement_locatif: true
+
+- name: "eligible_abattement_locatif est égale à true à partir de 1951 si une des conditions est remplie (2)"
+  period: 1951
+  input:
+    location_meuble: true
+    location_non_meuble: false
+  output:
+    eligible_abattement_locatif: true
+
+- name: "eligible_abattement_locatif est égale à false à partir de 1951 si aucune des conditions n'est remplie"
+  period: 1951
+  input:
+    location_meuble: false
+    location_non_meuble: false
+  output:
+    eligible_abattement_locatif: false
+
+
+# abattement_locatif_applique
+
+- name: "abattement_locatif_applique est égale à false avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    eligible_abattement_locatif: true
+  output:
+    abattement_locatif_applique: false
+
+- name: "abattement_locatif_applique est égale à eligible_abattement_locatif à partir de 1951 (true)"
+  period: 1951
+  input:
+    eligible_abattement_locatif: true
+  output:
+    abattement_locatif_applique: true
+
+- name: "abattement_locatif_applique est égale à eligible_abattement_locatif à partir de 1951 (false)"
+  period: 1951
+  input:
+    eligible_abattement_locatif: false
+  output:
+    abattement_locatif_applique: false
+
+
+# abattement_locatif_eligible_et_applique
+
+- name: "abattement_locatif_eligible_et_applique est égale à false avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    eligible_abattement_locatif: true
+    abattement_locatif_applique: true
+  output:
+    abattement_locatif_eligible_et_applique: false
+
+- name: "abattement_locatif_eligible_et_applique est égale à true à partir de 1951 si les conditions sont réunies"
+  period: 1951
+  input:
+    eligible_abattement_locatif: true
+    abattement_locatif_applique: true
+  output:
+    abattement_locatif_eligible_et_applique: true
+
+- name: "abattement_locatif_eligible_et_applique est égale à false à partir de 1951 si une des conditions n'est pas remplie (1)"
+  period: 1951
+  input:
+    eligible_abattement_locatif: false
+    abattement_locatif_applique: true
+  output:
+    abattement_locatif_eligible_et_applique: false
+
+- name: "abattement_locatif_eligible_et_applique est égale à false à partir de 1951 si une des conditions n'est pas remplie (2)"
+  period: 1951
+  input:
+    eligible_abattement_locatif: true
+    abattement_locatif_applique: false
+  output:
+    abattement_locatif_eligible_et_applique: false
+
+- name: "abattement_locatif_eligible_et_applique est égale à false à partir de 1951 si une des conditions n'est pas remplie (3)"
+  period: 1951
+  input:
+    eligible_abattement_locatif: false
+    abattement_locatif_applique: false
+  output:
+    abattement_locatif_eligible_et_applique: false
+
+
+# montant_abattement_locatif
+
+- name: "montant_abattement_locatif est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    abattement_locatif_eligible_et_applique: true
+    base_imposable_apres_abattement_office: 11
+    taux_abattement_locatif: 0.5
+  output:
+    montant_abattement_locatif: 0
+
+- name: "montant_abattement_locatif est égale à la base_imposable_apres_abattement_office multiplié par le taux_abattement_locatif à partir de 1951 si le bien est éligible à l'abattement et que l'abattement s'applique au bien"
+  period: 1951
+  input:
+    abattement_locatif_eligible_et_applique: true
+    base_imposable_apres_abattement_office: 11
+    taux_abattement_locatif: 0.5
+  output:
+    montant_abattement_locatif: 5.5
+
+- name: "montant_abattement_locatif est égale à la 0 à partir de 1951 si le bien n'est pas éligible à l'abattement ou que l'abattement ne s'applique pas au bien"
+  period: 1951
+  input:
+    abattement_locatif_eligible_et_applique: false
+    base_imposable_apres_abattement_office: 11
+    taux_abattement_locatif: 0.5
+  output:
+    montant_abattement_locatif: 0
+
+
+# base_imposable_apres_abattement_locatif
+
+- name: "base_imposable_apres_abattement_locatif est égale à 0 avant 1951 car il n'existait pas"
+  period: 1950
+  input:
+    base_imposable_apres_abattement_office: 11
+    montant_abattement_locatif: 5.5
+  output:
+    base_imposable_apres_abattement_locatif: 0
+
+- name: "base_imposable_apres_abattement_locatif est égale à la base_imposable_apres_premier_abattement moins le montant_abattement_locatif à partir de 1951"
+  period: 1951
+  input:
+    base_imposable_apres_abattement_office: 11
+    montant_abattement_locatif: 6.5
+  output:
+    base_imposable_apres_abattement_locatif: 4.5
+
+
+# ##################################################
+# ###      ABATTEMENT NOUVELLE CONSTRUCTION      ###
+# ##################################################
+
+
+# age_min_abattement_nouvelle_construction_pays
+
+- name: "age_min_abattement_nouvelle_construction_pays est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  output:
+    age_min_abattement_nouvelle_construction_pays: 0
+
+- name: "age_min_abattement_nouvelle_construction_pays est égale à 6 à partir de 1999"
+  period: 1999
+  output:
+    age_min_abattement_nouvelle_construction_pays: 6
+
+
+# age_max_abattement_nouvelle_construction_pays
+
+- name: "age_max_abattement_nouvelle_construction_pays est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  output:
+    age_max_abattement_nouvelle_construction_pays: 0
+
+- name: "age_max_abattement_nouvelle_construction_pays est égale à 8 à partir de 1999"
+  period: 1999
+  output:
+    age_max_abattement_nouvelle_construction_pays: 8
+
+
+# age_min_abattement_nouvelle_construction
+
+- name: "age_min_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    age_min_abattement_nouvelle_construction_pays: 5
+  output:
+    age_min_abattement_nouvelle_construction: 0
+
+- name: "age_min_abattement_nouvelle_construction est égale à age_min_abattement_nouvelle_construction_pays à partir de 1999"
+  period: 1999
+  input:
+    age_min_abattement_nouvelle_construction_pays: 5
+  output:
+    age_min_abattement_nouvelle_construction: 5
+
+
+# age_max_abattement_nouvelle_construction
+
+- name: "age_max_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    age_max_abattement_nouvelle_construction_pays: 7
+  output:
+    age_max_abattement_nouvelle_construction: 0
+
+- name: "age_max_abattement_nouvelle_construction est égale à age_max_abattement_nouvelle_construction_pays à partir de 1999"
+  period: 1999
+  input:
+    age_max_abattement_nouvelle_construction_pays: 7
+  output:
+    age_max_abattement_nouvelle_construction: 7
+
+
+# eligible_abattement_nouvelle_construction
+
+- name: "eligible_abattement_nouvelle_construction est égale à false avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    terrain: true
+  output:
+    eligible_abattement_nouvelle_construction: false
+
+- name: "eligible_abattement_nouvelle_construction est égale à true à partir de 1999 si le bien n'est pas un terrain"
+  period: 1999
+  input:
+    terrain: false
+  output:
+    eligible_abattement_nouvelle_construction: true
+
+- name: "eligible_abattement_nouvelle_construction est égale à false à partir de 1999 si le bien est un terrain"
+  period: 1999
+  input:
+    terrain: true
+  output:
+    eligible_abattement_nouvelle_construction: false
+
+
+# abattement_nouvelle_construction_applique
+
+- name: "abattement_nouvelle_construction_applique est égale à false avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    exoneration_temporaire_habitation_principale_eligible_et_appliquee: false
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 12
+    age_min_abattement_nouvelle_construction: 10
+    age_max_abattement_nouvelle_construction: 15
+  output:
+    abattement_nouvelle_construction_applique: false
+
+- name: "abattement_nouvelle_construction_applique est égale à true à partir de 1999 si les conditions sont réunies"
+  period: 1999
+  input:
+    exoneration_temporaire_habitation_principale_eligible_et_appliquee: false
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 12
+    age_min_abattement_nouvelle_construction: 10
+    age_max_abattement_nouvelle_construction: 15
+  output:
+    abattement_nouvelle_construction_applique: true
+
+- name: "abattement_nouvelle_construction_applique est égale à false à partir de 1999 si les conditions ne sont pas réunies (exoneration)"
+  period: 1999
+  input:
+    exoneration_temporaire_habitation_principale_eligible_et_appliquee: true
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 12
+    age_min_abattement_nouvelle_construction: 10
+    age_max_abattement_nouvelle_construction: 15
+  output:
+    abattement_nouvelle_construction_applique: false
+
+- name: "abattement_nouvelle_construction_applique est égale à false à partir de 1999 si les conditions ne sont pas réunies (eligible)"
+  period: 1999
+  input:
+    exoneration_temporaire_habitation_principale_eligible_et_appliquee: false
+    eligible_abattement_nouvelle_construction: false
+    age_du_bien: 12
+    age_min_abattement_nouvelle_construction: 10
+    age_max_abattement_nouvelle_construction: 15
+  output:
+    abattement_nouvelle_construction_applique: false
+
+- name: "abattement_nouvelle_construction_applique est égale à false à partir de 1999 si les conditions ne sont pas réunies (age min)"
+  period: 1999
+  input:
+    exoneration_temporaire_habitation_principale_eligible_et_appliquee: false
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 9
+    age_min_abattement_nouvelle_construction: 10
+    age_max_abattement_nouvelle_construction: 15
+  output:
+    abattement_nouvelle_construction_applique: false
+
+- name: "abattement_nouvelle_construction_applique est égale à false à partir de 1999 si les conditions ne sont pas réunies (age max)"
+  period: 1999
+  input:
+    exoneration_temporaire_habitation_principale_eligible_et_appliquee: false
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 16
+    age_min_abattement_nouvelle_construction: 10
+    age_max_abattement_nouvelle_construction: 15
+  output:
+    abattement_nouvelle_construction_applique: false
+
+
+# abattement_nouvelle_construction_eligible_et_applique
+
+- name: "abattement_nouvelle_construction_eligible_et_applique est égale à false avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    eligible_abattement_nouvelle_construction: true
+    abattement_nouvelle_construction_applique: true
+  output:
+    abattement_nouvelle_construction_eligible_et_applique: false
+
+- name: "abattement_nouvelle_construction_eligible_et_applique est égale à true à partir de 1999 si le bien est eligible à l'abattement et que ce dernier s'applique au bien"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: true
+    abattement_nouvelle_construction_applique: true
+  output:
+    abattement_nouvelle_construction_eligible_et_applique: true
+
+- name: "abattement_nouvelle_construction_eligible_et_applique est égale à false à partir de 1999 si le bien n'est pas eligible à l'abattement et que ce dernier s'applique au bien"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: false
+    abattement_nouvelle_construction_applique: true
+  output:
+    abattement_nouvelle_construction_eligible_et_applique: false
+
+- name: "abattement_nouvelle_construction_eligible_et_applique est égale à false à partir de 1999 si le bien est eligible à l'abattement mais que ce dernier ne s'applique pas au bien"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: true
+    abattement_nouvelle_construction_applique: false
+  output:
+    abattement_nouvelle_construction_eligible_et_applique: false
+
+- name: "abattement_nouvelle_construction_eligible_et_applique est égale à false à partir de 1999 si le bien n'est pas eligible à l'abattement et que ce dernier ne s'applique pas au bien"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: false
+    abattement_nouvelle_construction_applique: false
+  output:
+    abattement_nouvelle_construction_eligible_et_applique: false
+
+
+# taux_abattement_nouvelle_construction_pays
+
+- name: "taux_abattement_nouvelle_construction_pays est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  output:
+    taux_abattement_nouvelle_construction_pays: 0
+
+- name: "taux_abattement_nouvelle_construction_pays est égale à 0.5 à partir de 1999"
+  period: 1999
+  output:
+    taux_abattement_nouvelle_construction_pays: 0.5
+
+
+# taux_abattement_nouvelle_construction
+
+- name: "taux_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    taux_abattement_nouvelle_construction_pays: 10.5
+  output:
+    taux_abattement_nouvelle_construction: 0
+
+- name: "taux_abattement_nouvelle_construction est égale à taux_abattement_nouvelle_construction_pays à partir de 1999"
+  period: 1999
+  input:
+    taux_abattement_nouvelle_construction_pays: 10.5
+  output:
+    taux_abattement_nouvelle_construction: 10.5
+
+
+# montant_abattement_nouvelle_construction
+
+- name: "montant_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    abattement_nouvelle_construction_eligible_et_applique: true
+    base_imposable_apres_abattement_locatif: 11
+    taux_abattement_nouvelle_construction: 0.5
+  output:
+    montant_abattement_nouvelle_construction: 0
+
+- name: "montant_abattement_nouvelle_construction est égale à la base_imposable_apres_abattement_locatif multiplié par le taux_abattement_nouvelle_construction si le bien est eligible à partir de 1999"
+  period: 1999
+  input:
+    abattement_nouvelle_construction_eligible_et_applique: true
+    base_imposable_apres_abattement_locatif: 11
+    taux_abattement_nouvelle_construction: 0.5
+  output:
+    montant_abattement_nouvelle_construction: 5.5
+
+- name: "montant_abattement_nouvelle_construction est égale à la 0 si le bien n'est pas eligible à partir de 1999"
+  period: 1999
+  input:
+    abattement_nouvelle_construction_eligible_et_applique: false
+    base_imposable_apres_abattement_locatif: 11
+    taux_abattement_nouvelle_construction: 0.5
+  output:
+    montant_abattement_nouvelle_construction: 0
+
+
+# duree_restante_abattement_nouvelle_construction
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 7
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 0
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à la durée totale avant l'age minimum"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 5
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 3
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à la durée restante à partir de l'age minimum"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 6
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 2
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à 0 une fois l'age maximum passé"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: true
+    age_du_bien: 11
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 0
+
+- name: "duree_restante_abattement_nouvelle_construction est égale à 0 si le bien n'est pas éligible"
+  period: 1999
+  input:
+    eligible_abattement_nouvelle_construction: false
+    age_du_bien: 6
+    age_min_abattement_nouvelle_construction: 6
+    age_max_abattement_nouvelle_construction: 8
+  output:
+    duree_restante_abattement_nouvelle_construction: 0
+
+
+# base_imposable_apres_abattement_nouvelle_construction
+
+- name: "base_imposable_apres_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
+  period: 1998
+  input:
+    base_imposable_apres_abattement_locatif: 11
+    montant_abattement_nouvelle_construction: 5.5
+  output:
+    base_imposable_apres_abattement_nouvelle_construction: 0
+
+- name: "base_imposable_apres_abattement_nouvelle_construction est égale à la base_imposable_apres_abattement_locatif moins le montant_abattement_nouvelle_construction à partir de 1999"
+  period: 1999
+  input:
+    base_imposable_apres_abattement_locatif: 11
+    montant_abattement_nouvelle_construction: 6.5
+  output:
+    base_imposable_apres_abattement_nouvelle_construction: 4.5
+
+
+# ##################################################
+# ###            VALEUR LOCATIVE NETTE           ###
+# ##################################################
+
+
+# valeur_locative_nette
+
+- name: "valeur_locative_nette est égale à 0 avant 1951 car elle n'existait pas"
+  period: 1950
+  input:
+    base_imposable_apres_abattement_locatif: 1.5
+    base_imposable_apres_abattement_nouvelle_construction: 2.5
+  output:
+    valeur_locative_nette: 0
+
+- name: "valeur_locative_nette est égale à base_imposable_apres_abattement_locatif arrondi a l'entier inférieur entre 1951 et 1999"
+  period: 1951
+  input:
+    base_imposable_apres_abattement_locatif: 1.5
+    base_imposable_apres_abattement_nouvelle_construction: 2.5
+  output:
+    valeur_locative_nette: 1
+
+- name: "valeur_locative_nette est égale à base_imposable_apres_abattement_nouvelle_construction arrondi a l'entier inférieur à partir de 1999"
+  period: 1999
+  input:
+    base_imposable_apres_abattement_locatif: 1.5
+    base_imposable_apres_abattement_nouvelle_construction: 2.5
+  output:
+    valeur_locative_nette: 2

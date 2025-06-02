@@ -1,0 +1,7 @@
+description: "Taux permettant de calculer la valeur locative d'un bien loué en meuble de tourisme en fonction de sa valeur vénale"
+metadata:
+  type: float
+  unit: /1
+values:
+  1950-11-16:
+    value: 0.12

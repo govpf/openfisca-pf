@@ -1,0 +1,307 @@
+description: "Taux permettant de calculer le montant des centimes additionels par commune fiscale en fonction de la part territorial"
+metadata:
+  type: float
+  unit: /1
+
+ANAA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.05
+
+ARUE:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+ARUTUA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.01
+
+BORA_BORA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.2
+      2016-01-01:
+        value: 0.3
+      2018-01-01:
+        value: 0.4
+
+FAAA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+FAKARAVA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.01
+
+FANGATAU:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.01
+
+FATU_HIVA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+
+GAMBIER:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.25
+      2018-01-01:
+        value: 0.5
+
+HAO:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+HIKUERU:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+HITIAA_O_TE_RA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+HIVA_OA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+HUAHINE:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.25
+      2017-01-01:
+        value: 0.50
+
+MAHINA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+MAKEMO:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+MANIHI:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.015
+
+MAUPITI:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+MOOREA_MAIAO:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+NAPUKA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+NUKU_HIVA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+NUKUTAVAKE:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.015
+
+PAEA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+PAPARA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+PAPEETE:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+PIRAE:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+PUKAPUKA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.05
+
+PUNAAUIA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+RAIVAVAE:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+RANGIROA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.1
+
+RAPA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+REAO:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.03
+
+RIMATARA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+RURUTU:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.1
+
+TAHAA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+TAHUATA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+TAIARAPU_EST:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.15
+      2017-01-01:
+        value: 0.2
+      2018-01-01:
+        value: 0.25
+
+TAIARAPU_OUEST:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+TAKAROA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.1
+
+TAPUTAPUATEA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+TATAKOTO:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.1
+
+TEVA_I_UTA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+TUBUAI:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.1
+
+TUMARAA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5
+
+TUREIA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.05
+      2018-01-01:
+        value: 0.3
+
+UA_HUKA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+UA_POU:
+  taux:
+    values:
+      2015-01-01:
+        value: 0
+
+UTUROA:
+  taux:
+    values:
+      2015-01-01:
+        value: 0.5

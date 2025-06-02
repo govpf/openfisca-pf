@@ -1,0 +1,41 @@
+
+- name: "duree_restante_exonerations_temporaires_abattements_et_credits (nouvelle construction)"
+  period: 2025
+  input:
+    duree_restante_exoneration_temporaire_nouvelle_construction: 5
+    duree_restante_abattement_nouvelle_construction: 3
+    duree_restante_exoneration_temporaire_habitation_principale: 0
+    duree_credit_photovoltaique: 0
+  output:
+    duree_restante_exonerations_temporaires_abattements_et_credits: 8
+
+- name: "duree_restante_exonerations_temporaires_abattements_et_credits (habitation principale)"
+  period: 2025
+  input:
+    duree_restante_exoneration_temporaire_nouvelle_construction: 0
+    duree_restante_abattement_nouvelle_construction: 0
+    duree_restante_exoneration_temporaire_habitation_principale: 10
+    duree_credit_photovoltaique: 0
+  output:
+    duree_restante_exonerations_temporaires_abattements_et_credits: 10
+
+- name: "duree_restante_exonerations_temporaires_abattements_et_credits (nouvelle construction + credit)"
+  period: 2025
+  input:
+    duree_restante_exoneration_temporaire_nouvelle_construction: 5
+    duree_restante_abattement_nouvelle_construction: 3
+    duree_restante_exoneration_temporaire_habitation_principale: 0
+    duree_credit_photovoltaique: 4
+  output:
+    duree_restante_exonerations_temporaires_abattements_et_credits: 9
+
+- name: "duree_restante_exonerations_temporaires_abattements_et_credits (habitation principale + credit)"
+  period: 2025
+  input:
+    duree_restante_exoneration_temporaire_nouvelle_construction: 0
+    duree_restante_abattement_nouvelle_construction: 0
+    duree_restante_exoneration_temporaire_habitation_principale: 10
+    duree_credit_photovoltaique: 2
+  output:
+    duree_restante_exonerations_temporaires_abattements_et_credits: 12
+

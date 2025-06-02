@@ -5,31 +5,31 @@
     valeur_totale_bien_achat: 50000000
   output:
     montant_droit_enregistrement: 3500000
-- name: 2 - ENR - Vente de terrain nu au dessus de l'assiette (25 000 000)
+- name: 2 - ENR - Vente de terrain nu au dessus de l'assiette (40 000 000)
   period: 2025-01-16
   input:
     type_acheteur_rch: PrimoAcquereur
     type_bien_rch: TerrainNu
     valeur_totale_bien_achat: 50000000
   output:
-    montant_droit_enregistrement: 2000000
-- name: 3 - ENR - Vente de terrain nu en dessous de l'assiette (25 000 000)
+    montant_droit_enregistrement: 1100000
+- name: 3 - ENR - Vente de terrain nu en dessous de l'assiette (40 000 000)
   period: 2025-01-16
   input:
     type_acheteur_rch: PrimoAcquereur
     type_bien_rch: TerrainNu
-    valeur_totale_bien_achat: 12000000
+    valeur_totale_bien_achat: 30000000
   output:
-    montant_droit_enregistrement: 120000
-- name: 4 - ENR - Vente de terrain bâti au dessus de l'assiette (40 000 000)
+    montant_droit_enregistrement: 300000
+- name: 4 - ENR - Vente de terrain bâti au dessus de l'assiette (25 000 000)
   period: 2025-01-16
   input:
     type_acheteur_rch: PrimoAcquereur
     type_bien_rch: TerrainBati
     valeur_totale_bien_achat: 50000000
   output:
-    montant_droit_enregistrement: 1100000
-- name: 5 - ENR - Vente de terrain bâti en dessous de l'assiette (40 000 000)
+    montant_droit_enregistrement: 2000000
+- name: 5 - ENR - Vente de terrain bâti en dessous de l'assiette (25 000 000)
   period: 2025-01-16
   input:
     type_acheteur_rch: PrimoAcquereur
@@ -60,3 +60,11 @@
     valeur_totale_bien_achat: 5000000
   output:
     montant_droit_enregistrement: 250000
+- name: 9 - ENR - Test minimum 2 500 XPF
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainNu
+    valeur_totale_bien_achat: 100000
+  output:
+    montant_droit_enregistrement: 2500

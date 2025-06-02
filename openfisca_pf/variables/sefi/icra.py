@@ -14,8 +14,9 @@ from openfisca_pf.base import (
     ArrayLike,
     MONTH,
     not_,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     set_input_dispatch_by_period,
     Variable
     )
@@ -47,13 +48,13 @@ class eligible_icra(Variable):
         'https://www.sefi.pf/SefiWeb/SefiPublic.nsf/Mesures/ICRA?OpenDocument'
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         nombre_annee_sans_icra = parameters(period).sefi.icra.nombre_annee_sans_icra
         nombre_mois_perte_emploi = parameters(period).sefi.icra.nombre_mois_perte_emploi
         age_minimum = parameters(period).sefi.icra.age_minimum
-        age = personne('age', period, parameters)
-        est_demandeur_emploi = personne('est_demandeur_emploi', period, parameters)
-        patente = personne('patente', period, parameters)
+        age = personne('age', period)
+        est_demandeur_emploi = personne('est_demandeur_emploi', period)
+        patente = personne('patente', period)
         perte_emploi = personne('perte_emploi', period.offset(-nombre_mois_perte_emploi, 'month').start.period('month', nombre_mois_perte_emploi), options = [ADD])
         beneficiaire_icra = personne('beneficiaire_icra', period.offset(-nombre_annee_sans_icra, 'year').start.period('year', nombre_annee_sans_icra), options = [ADD])
 
@@ -75,8 +76,8 @@ class montant_indemnite_icra(Variable):
         'https://www.sefi.pf/SefiWeb/SefiPublic.nsf/Mesures/ICRA?OpenDocument'
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_icra = personne('eligible_icra', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_icra = personne('eligible_icra', period)
         return parameters(period).sefi.icra.montant_indemnite * eligible_icra
 
 
@@ -91,8 +92,8 @@ class nombre_mois_indemnite_icra(Variable):
         'https://www.sefi.pf/SefiWeb/SefiPublic.nsf/Mesures/ICRA?OpenDocument'
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_icra = personne('eligible_icra', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_icra = personne('eligible_icra', period)
         return parameters(period).sefi.icra.nombre_mois_indemnite * eligible_icra
 
 
@@ -108,6 +109,6 @@ class montant_prime_demarrage_icra(Variable):
         'https://www.sefi.pf/SefiWeb/SefiPublic.nsf/Mesures/ICRA?OpenDocument'
         ]
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        eligible_icra = personne('eligible_icra', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        eligible_icra = personne('eligible_icra', period)
         return parameters(period).sefi.icra.montant_prime_demarrage * eligible_icra

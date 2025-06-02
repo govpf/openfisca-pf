@@ -68,3 +68,11 @@
     valeur_totale_bien_achat: 5000000
   output:
     montant_taxe_publicite: 0
+- name: 10 - TPI - Test minimum 1 500 XPF
+  period: 2025-01-16
+  input:
+    type_acheteur_rch: PrimoAcquereur
+    type_bien_rch: TerrainNu
+    valeur_totale_bien_achat: 100000
+  output:
+    montant_taxe_publicite: 1500

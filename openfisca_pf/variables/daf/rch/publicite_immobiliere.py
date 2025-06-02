@@ -6,8 +6,9 @@ from openfisca_pf.base import (
     ArrayLike,
     DAY,
     Enum,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     select,
     Variable
     )
@@ -19,6 +20,7 @@ from openfisca_pf.enums.rch import (
     TypeParente
     )
 from openfisca_pf.functions.currency import arrondi_superieur
+import numpy
 
 
 class type_demarche_rch(Variable):
@@ -108,15 +110,15 @@ class montant_droit_enregistrement(Variable):
     label = "Montant des droits d'enregistrement"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
 
         def acquisition_formula():
             """
             Formule qui s'applique dans le cas d'une acquisision.
             """
-            type_acheteur_rch = personne('type_acheteur_rch', period, parameters)
-            type_bien_rch = personne('type_bien_rch', period, parameters)
-            valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period, parameters)
+            type_acheteur_rch = personne('type_acheteur_rch', period)
+            type_bien_rch = personne('type_bien_rch', period)
+            valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
             return select(
                 [
                     (type_acheteur_rch == TypeAcheteur.DroitCommun),
@@ -134,7 +136,7 @@ class montant_droit_enregistrement(Variable):
             """
             Formule qui s'applique dans le cas de la session d'un navire.
             """
-            valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period, parameters)
+            valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
             scale = parameters(period).daf.rch.droit_enregistrement.vente_navire
             return scale.calc(valeur_totale_bien_achat)
 
@@ -142,14 +144,14 @@ class montant_droit_enregistrement(Variable):
             """
             Formule qui s'applique dans le cas d'une prise de bail.
             """
-            valeur_totale_bien_achat = personne('valeur_locative_bien', period, parameters)
-            duree_bail_mois = personne('duree_bail_mois', period, parameters)
+            valeur_totale_bien_achat = personne('valeur_locative_bien', period)
+            duree_bail_mois = personne('duree_bail_mois', period)
             scale = parameters(period).daf.rch.droit_enregistrement.baux
             rate = scale.calc(duree_bail_mois)
             return valeur_totale_bien_achat * duree_bail_mois * rate
 
         # On recupère le type de démarche
-        type_demarche = personne('type_demarche_rch', period, parameters)
+        type_demarche = personne('type_demarche_rch', period)
 
         # On applique la formule qui correspond au type de la démarche
         montant_droit_enregistrement = select(
@@ -164,7 +166,8 @@ class montant_droit_enregistrement(Variable):
                 navire_formula()
                 ]
             )
-        return arrondi_superieur(montant_droit_enregistrement)
+        minimum_amount = parameters(period).daf.rch.minimum_amount.ENR.minimum_amount
+        return max(arrondi_superieur(montant_droit_enregistrement), minimum_amount)
 
 
 class montant_taxe_publicite(Variable):
@@ -174,32 +177,35 @@ class montant_taxe_publicite(Variable):
     label = "Montant de la taxe de publicité immobilière"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
 
         def acquisition_formula():
             """
             Formule qui s'applique dans le cas d'une acquisision.
             """
-            valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period, parameters)
-            # Ici on converti la valeur florante en fraction pour eviter des erreurs de précision numérique
+            valeur_totale_bien_achat = personne('valeur_totale_bien_achat', period)
+            # Ici, on convertit la valeur flottante en fraction pour éviter des erreurs de précision numérique
             # https://docs.python.org/3/tutorial/floatingpoint.html
             rate = Fraction.from_float(parameters(period).daf.rch.taxe_publicite_immobiliere.acquisition.rate)
-            return valeur_totale_bien_achat * rate
+            montant_taxe_publicite = (valeur_totale_bien_achat * rate).astype(numpy.float64)
+            minimum_amount = parameters(period).daf.rch.minimum_amount.TPI.minimum_amount
+
+            return numpy.maximum(montant_taxe_publicite, minimum_amount)
 
         def baux_formula():
             """
             Formule qui s'applique dans le cas de la session d'un navire.
             """
-            valeur_locative_bien = personne('valeur_locative_bien', period, parameters)
-            duree_bail_mois = personne('duree_bail_mois', period, parameters)
+            valeur_locative_bien = personne('valeur_locative_bien', period)
+            duree_bail_mois = personne('duree_bail_mois', period)
             rate = parameters(period).daf.rch.taxe_publicite_immobiliere.baux.calc(duree_bail_mois)
-            return arrondi_superieur(valeur_locative_bien * duree_bail_mois * rate)
+            return valeur_locative_bien * duree_bail_mois * rate
 
-        # On recupère le type de démarche
-        type_demarche = personne('type_demarche_rch', period, parameters)
+        # On récupère le type de démarche
+        type_demarche = personne('type_demarche_rch', period)
 
         # On applique la formule qui correspond au type de la démarche
-        return select(
+        montant_taxe_publicite = select(
             [
                 type_demarche == TypeDemarche.Acquisition,
                 type_demarche == TypeDemarche.Baux
@@ -209,6 +215,7 @@ class montant_taxe_publicite(Variable):
                 baux_formula()
                 ]
             )
+        return arrondi_superieur(montant_taxe_publicite)
 
 
 class montant_taxe_plus_value(Variable):
@@ -218,8 +225,8 @@ class montant_taxe_plus_value(Variable):
     label = "Montant de la taxe sur la plus-value immobilière"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=521011&idr=208&np=1"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        valeur_plus_value_net = personne('valeur_plus_value_net', period, parameters)
-        duree_possession_annee = personne('duree_possession_annee', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        valeur_plus_value_net = personne('valeur_plus_value_net', period)
+        duree_possession_annee = personne('duree_possession_annee', period)
         rate = parameters(period).daf.rch.plus_values_immobiliere.calc(duree_possession_annee)
         return arrondi_superieur(valeur_plus_value_net * rate)

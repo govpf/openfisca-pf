@@ -1,0 +1,50 @@
+office:
+  description: "Paramètres concernant le premire abattement d'office de 25%"
+
+  taux:
+    description: "Taux du premier abattement d'office appliqué à la valeur locative pour calculer la base imposable de l'impôt foncier"
+    metadata:
+      type: float
+      unit: /1
+    values:
+      1950-11-16:
+        value: 0.25
+
+locatif:
+  description: "Paramètres concernant l'abattement locatif en fonction du type de location"
+
+  location_meuble:
+    description: "Paramètres concernant l'abattement locatif pour les bien en location meublé"
+
+    taux:
+      description: "Taux de l'battement locatif appliqué pour calculer la base imposable de l'impôt foncier si le bien est en location meublé"
+      metadata:
+        type: float
+        unit: /1
+      values:
+        1950-11-16:
+          value: 0.30
+
+  location_non_meuble:
+    description: "Paramètres concernant l'abattement locatif pour les bien en location non-meublé"
+
+    taux:
+      description: "Taux de l'abattement locatif appliqué pour calculer la base imposable de l'impôt foncier si le bien est en location non-meublé"
+      metadata:
+        type: float
+        unit: /1
+      values:
+        1950-11-16:
+          value: 0.25
+
+nouvelle_construction:
+  description: "Paramètres d'abattement pour les nouvelles construction dans la phase de 6 à 8 ans"
+
+  taux:
+    description: "Taux d'abattement pour les nouvelles constructions dans la phase de 6 à 8 ans"
+    metadata:
+      type: float
+      unit: /1
+    values:
+      1999-01-01:
+        value: 0.5

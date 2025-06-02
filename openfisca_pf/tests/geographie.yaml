@@ -1,0 +1,350 @@
+- name: "La commune de RAIVAVAE fait partie de l'archipel des AUSTRALES"
+  period: '2025'
+  input:
+    commune_fiscale: RAIVAVAE
+  output:
+    archipel: AUSTRALES
+
+- name: "La commune de RAPA fait partie de l'archipel des AUSTRALES"
+  period: '2025'
+  input:
+    commune_fiscale: RAPA
+  output:
+    archipel: AUSTRALES
+
+- name: "La commune de RIMATARA fait partie de l'archipel des AUSTRALES"
+  period: '2025'
+  input:
+    commune_fiscale: RIMATARA
+  output:
+    archipel: AUSTRALES
+
+- name: "La commune de RURUTU fait partie de l'archipel des AUSTRALES"
+  period: '2025'
+  input:
+    commune_fiscale: RURUTU
+  output:
+    archipel: AUSTRALES
+
+- name: "La commune de TUBUAI fait partie de l'archipel des AUSTRALES"
+  period: '2025'
+  input:
+    commune_fiscale: TUBUAI
+  output:
+    archipel: AUSTRALES
+
+
+
+
+- name: "La commune de GAMBIER fait partie de l'archipel des GAMBIERS"
+  period: '2025'
+  input:
+    commune_fiscale: GAMBIER
+  output:
+    archipel: GAMBIERS
+
+
+
+
+- name: "La commune de ARUE fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: ARUE
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de FAAA fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: FAAA
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de HITIAA_O_TE_RA fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: HITIAA_O_TE_RA
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de MAHINA fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: MAHINA
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de MOOREA_MAIAO fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: MOOREA_MAIAO
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de PAEA fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: PAEA
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de PAPARA fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: PAPARA
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de PAPEETE fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: PAPEETE
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de PIRAE fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: PIRAE
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de PUNAAUIA fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: PUNAAUIA
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de TAIARAPU_EST fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: TAIARAPU_EST
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de TAIARAPU_OUEST fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: TAIARAPU_OUEST
+  output:
+    archipel: ILES_DU_VENT
+
+- name: "La commune de TEVA_I_UTA fait partie de l'archipel des ILES_DU_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: TEVA_I_UTA
+  output:
+    archipel: ILES_DU_VENT
+
+
+
+
+- name: "La commune de BORA_BORA fait partie de l'archipel des ILES_SOUS_LE_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: BORA_BORA
+  output:
+    archipel: ILES_SOUS_LE_VENT
+
+- name: "La commune de HUAHINE fait partie de l'archipel des ILES_SOUS_LE_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: HUAHINE
+  output:
+    archipel: ILES_SOUS_LE_VENT
+
+- name: "La commune de MAUPITI fait partie de l'archipel des ILES_SOUS_LE_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: MAUPITI
+  output:
+    archipel: ILES_SOUS_LE_VENT
+
+- name: "La commune de TAHAA fait partie de l'archipel des ILES_SOUS_LE_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: TAHAA
+  output:
+    archipel: ILES_SOUS_LE_VENT
+
+- name: "La commune de TAPUTAPUATEA fait partie de l'archipel des ILES_SOUS_LE_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: TAPUTAPUATEA
+  output:
+    archipel: ILES_SOUS_LE_VENT
+
+- name: "La commune de TUMARAA fait partie de l'archipel des ILES_SOUS_LE_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: TUMARAA
+  output:
+    archipel: ILES_SOUS_LE_VENT
+
+- name: "La commune de UTUROA fait partie de l'archipel des ILES_SOUS_LE_VENT"
+  period: '2025'
+  input:
+    commune_fiscale: UTUROA
+  output:
+    archipel: ILES_SOUS_LE_VENT
+
+
+
+
+- name: "La commune de FATU_HIVA fait partie de l'archipel des MARQUISES"
+  period: '2025'
+  input:
+    commune_fiscale: FATU_HIVA
+  output:
+    archipel: MARQUISES
+
+- name: "La commune de HIVA_OA fait partie de l'archipel des MARQUISES"
+  period: '2025'
+  input:
+    commune_fiscale: HIVA_OA
+  output:
+    archipel: MARQUISES
+
+- name: "La commune de NUKU_HIVA fait partie de l'archipel des MARQUISES"
+  period: '2025'
+  input:
+    commune_fiscale: NUKU_HIVA
+  output:
+    archipel: MARQUISES
+
+- name: "La commune de TAHUATA fait partie de l'archipel des MARQUISES"
+  period: '2025'
+  input:
+    commune_fiscale: TAHUATA
+  output:
+    archipel: MARQUISES
+
+- name: "La commune de UA_HUKA fait partie de l'archipel des MARQUISES"
+  period: '2025'
+  input:
+    commune_fiscale: UA_HUKA
+  output:
+    archipel: MARQUISES
+
+- name: "La commune de UA_POU fait partie de l'archipel des MARQUISES"
+  period: '2025'
+  input:
+    commune_fiscale: UA_POU
+  output:
+    archipel: MARQUISES
+
+
+
+
+- name: "La commune de ANAA fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: ANAA
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de ARUTUA fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: ARUTUA
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de FAKARAVA fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: FAKARAVA
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de FANGATAU fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: FANGATAU
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de HAO fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: HAO
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de HIKUERU fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: HIKUERU
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de MAKEMO fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: MAKEMO
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de MANIHI fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: MANIHI
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de NAPUKA fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: NAPUKA
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de NUKUTAVAKE fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: NUKUTAVAKE
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de PUKAPUKA fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: PUKAPUKA
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de RANGIROA fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: RANGIROA
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de REAO fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: REAO
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de TAKAROA fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: TAKAROA
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de TATAKOTO fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: TATAKOTO
+  output:
+    archipel: TUAMOTUS
+
+- name: "La commune de TUREIA fait partie de l'archipel des TUAMOTUS"
+  period: '2025'
+  input:
+    commune_fiscale: TUREIA
+  output:
+    archipel: TUAMOTUS

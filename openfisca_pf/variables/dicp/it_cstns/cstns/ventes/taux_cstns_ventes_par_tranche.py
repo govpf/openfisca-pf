@@ -3,7 +3,8 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    Parameters,
+    GroupPopulation,
+    ParameterNode,
     Period,
     Variable,
     YEAR
@@ -27,7 +28,7 @@ class nombre_tranches_cstns_ventes(Variable):
         'https://www.impot-polynesie.gov.pf/sites/default/files/2018-03/20180315%20CDI%20v%20num%20SGG-DICP.pdf#page=47'
         ]
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return len(parameters(period).dicp.cstns.taux_ventes.rates)
 
 
@@ -42,7 +43,7 @@ class taux_cstns_ventes_tranche_1(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[0]
 
 
@@ -57,7 +58,7 @@ class taux_cstns_ventes_tranche_2(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[1]
 
 
@@ -72,7 +73,7 @@ class taux_cstns_ventes_tranche_3(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[2]
 
 
@@ -87,7 +88,7 @@ class taux_cstns_ventes_tranche_4(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[3]
 
 
@@ -102,7 +103,7 @@ class taux_cstns_ventes_tranche_5(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[4]
 
 
@@ -117,7 +118,7 @@ class taux_cstns_ventes_tranche_6(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[5]
 
 
@@ -132,7 +133,7 @@ class taux_cstns_ventes_tranche_7(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[6]
 
 
@@ -147,7 +148,7 @@ class taux_cstns_ventes_tranche_8(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[7]
 
 
@@ -162,7 +163,7 @@ class taux_cstns_ventes_tranche_9(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[8]
 
 
@@ -177,7 +178,7 @@ class taux_cstns_ventes_tranche_10(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[9]
 
 
@@ -192,7 +193,7 @@ class taux_cstns_ventes_tranche_11(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[10]
 
 
@@ -207,5 +208,5 @@ class taux_cstns_ventes_tranche_12(Variable):
         ]
     unit = PER_ONE
 
-    def formula(pays: Pays, period: Period, parameters: Parameters) -> ArrayLike:
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cstns.taux_ventes.rates[11]

@@ -4,8 +4,9 @@
 from openfisca_pf.base import (
     Enum,
     isin,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     select,
     Variable,
     YEAR
@@ -34,8 +35,8 @@ class archipel(Variable):
     label = 'Archipel auquel le local appartient'
     reference = 'https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595'
 
-    def formula(local: Personne, period: Period, parameters: Parameters):
-        commune_fiscale = local('commune_fiscale', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode):
+        commune_fiscale = personne('commune_fiscale', period)
         return select(
             [
                 isin(commune_fiscale, COMMUNES_DES_AUSTRALES),

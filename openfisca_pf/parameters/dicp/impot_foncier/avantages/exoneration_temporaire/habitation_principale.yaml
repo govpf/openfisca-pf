@@ -1,0 +1,64 @@
+
+date_limite_permis_de_construire:
+  description: "Date à partir de laquelle le permis de construire permet d'obtenir l'exonération de dix ans pour les habitations principale"
+  annee:
+    description: "Année à partir de laquelle le permis de construire permet d'obtenir l'exonération de dix ans pour les habitations principale"
+    metadata:
+      type: int
+      unit: year
+    values:
+      1950-11-16:
+        value: 2022
+  mois:
+    description: "Mois à partir de laquelle le permis de construire permet d'obtenir l'exonération de dix ans pour les habitations principale"
+    metadata:
+      type: int
+      unit: month
+    values:
+      1950-11-16:
+        value: 12
+  jour:
+    description: "Jour à partir de laquelle le permis de construire permet d'obtenir l'exonération de dix ans pour les habitations principale"
+    metadata:
+      type: int
+      unit: day
+    values:
+      1950-11-16:
+        value: 31
+
+date_limite_certificat_de_conformite:
+  description: "Date à partir de laquelle le certificat de construire ne permet plus d'obtenir l'exonération temporaire de dix ans pour les habitations principale"
+  annee:
+    description: "Année à partir de laquelle le certificat de construire ne permet plus d'obtenir l'exonération temporaire de dix ans pour les habitations principale"
+    metadata:
+      type: int
+      unit: year
+    values:
+      1950-11-16:
+        value: 2025
+  mois:
+    description: "Mois à partir de laquelle le certificat de construire ne permet plus d'obtenir l'exonération temporaire de dix ans pour les habitations principale"
+    metadata:
+      type: int
+      unit: month
+    values:
+      1950-11-16:
+        value: 12
+  jour:
+    description: "Jour à partir de laquelle le certificat de construire ne permet plus d'obtenir l'exonération temporaire de dix ans pour les habitations principale"
+    metadata:
+      type: int
+      unit: day
+    values:
+      1950-11-16:
+        value: 31
+
+taux:
+  description: "Taux d'exonération temporaire pour les habitations principales"
+  metadata:
+    type: float
+    unit: /1
+  values:
+    1950-11-16:
+      value: 1.0
+

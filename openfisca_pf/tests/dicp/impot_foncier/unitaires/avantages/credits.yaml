@@ -1,0 +1,462 @@
+# age_installation_photovoltaique
+
+- name: "age_installation_photovoltaique est bien calculé"
+  input:
+    date_de_mise_en_service_installation_photovoltaique:
+      2020: 2020-02-02
+  output:
+    age_installation_photovoltaique:
+      2020: 0
+      2021: 1
+      2022: 2
+      2023: 3
+      2024: 4
+
+
+
+
+# date_limite_de_mise_en_service_installation_photovoltaique_pays
+
+- name: "date_limite_de_mise_en_service_installation_photovoltaique_pays est égale à 1970-01-01 avant 2023"
+  period: 2022
+  output:
+    date_limite_de_mise_en_service_installation_photovoltaique_pays: 1970-01-01
+
+- name: "date_limite_de_mise_en_service_installation_photovoltaique_pays est égale à 2023-01-01 à partir de 2023"
+  period: 2023
+  output:
+    date_limite_de_mise_en_service_installation_photovoltaique_pays: 2023-01-01
+
+
+
+
+# date_limite_de_mise_en_service_installation_photovoltaique
+
+- name: "date_limite_de_mise_en_service_installation_photovoltaique est égale à 1970-01-01 avant 2023"
+  period: 2022
+  input:
+    date_limite_de_mise_en_service_installation_photovoltaique_pays: 2025-01-01
+  output:
+    date_limite_de_mise_en_service_installation_photovoltaique: 1970-01-01
+
+- name: "date_limite_de_mise_en_service_installation_photovoltaique_pays est égale à date_limite_de_mise_en_service_installation_photovoltaique_pays à partir de 2023"
+  period: 2023
+  input:
+    date_limite_de_mise_en_service_installation_photovoltaique_pays: 2025-01-01
+  output:
+    date_limite_de_mise_en_service_installation_photovoltaique: 2025-01-01
+
+
+
+
+# eligible_credit_photovoltaique
+
+- name: "eligible_credit_photovoltaique est égale à false avant 2023"
+  period: 2022
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: true
+    date_limite_de_mise_en_service_installation_photovoltaique: 2023-01-01
+    date_de_mise_en_service_installation_photovoltaique: 2024-01-01
+  output:
+    eligible_credit_photovoltaique: false
+
+- name: "eligible_credit_photovoltaique est égale à true à partir de 2023 si les conditions sont remplis"
+  period: 2023
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: true
+    date_limite_de_mise_en_service_installation_photovoltaique: 2023-01-01
+    date_de_mise_en_service_installation_photovoltaique: 2024-01-01
+  output:
+    eligible_credit_photovoltaique: true
+
+- name: "eligible_credit_photovoltaique est égale à false à partir de 2023 si le bien n'est pas un logement"
+  period: 2023
+  input:
+    categorie_du_bien: INDUSTRIEL
+    habitation_principale: true
+    date_limite_de_mise_en_service_installation_photovoltaique: 2023-01-01
+    date_de_mise_en_service_installation_photovoltaique: 2024-01-01
+  output:
+    eligible_credit_photovoltaique: false
+
+- name: "eligible_credit_photovoltaique est égale à false à partir de 2023 si le bien n'est pas une habitation principale"
+  period: 2023
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: false
+    date_limite_de_mise_en_service_installation_photovoltaique: 2023-01-01
+    date_de_mise_en_service_installation_photovoltaique: 2024-01-01
+  output:
+    eligible_credit_photovoltaique: false
+
+- name: "eligible_credit_photovoltaique est égale à false à partir de 2023 si la date de mise en service est avant la date_limite_de_mise_en_service_installation_photovoltaique"
+  period: 2023
+  input:
+    categorie_du_bien: LOGEMENT
+    habitation_principale: true
+    date_limite_de_mise_en_service_installation_photovoltaique: 2023-01-01
+    date_de_mise_en_service_installation_photovoltaique: 2022-01-01
+  output:
+    eligible_credit_photovoltaique: false
+
+
+
+
+# maximum_credit_photovoltaique_pays
+
+- name: "maximum_credit_photovoltaique_pays est égale à 0 avant 2023"
+  period: 2022
+  output:
+    maximum_credit_photovoltaique_pays: 0
+
+- name: "maximum_credit_photovoltaique_pays est égale à 1 000 000 à partir de 2023"
+  period: 2023
+  output:
+    maximum_credit_photovoltaique_pays: 1000000
+
+
+
+
+# maximum_credit_photovoltaique_pays
+
+- name: "maximum_credit_photovoltaique est égale à 0 avant 2023"
+  period: 2022
+  input:
+    maximum_credit_photovoltaique_pays: 10
+  output:
+    maximum_credit_photovoltaique: 0
+
+- name: "maximum_credit_photovoltaique est égale à maximum_credit_photovoltaique_pays à partir de 2023"
+  period: 2023
+  input:
+    maximum_credit_photovoltaique_pays: 10
+  output:
+    maximum_credit_photovoltaique: 10
+
+
+
+
+# taux_credit_photovoltaique_pays
+
+- name: "taux_credit_photovoltaique_pays est égale à 0 avant 2023"
+  period: 2022
+  output:
+    taux_credit_photovoltaique_pays: 0
+
+- name: "taux_credit_photovoltaique_pays est égale à 0.3 à partir de 2023"
+  period: 2023
+  output:
+    taux_credit_photovoltaique_pays: 0.3
+
+
+
+
+# taux_credit_photovoltaique
+
+- name: "taux_credit_photovoltaique est égale à 0 avant 2023"
+  period: 2022
+  input:
+    taux_credit_photovoltaique_pays: 10
+  output:
+    taux_credit_photovoltaique: 0
+
+- name: "taux_credit_photovoltaique est égale à taux_credit_photovoltaique_pays à partir de 2023"
+  period: 2023
+  input:
+    taux_credit_photovoltaique_pays: 10
+  output:
+    taux_credit_photovoltaique_pays: 10
+
+
+
+
+# montant_base_credit_photovoltaique
+
+- name: "montant_base_credit_photovoltaique est égale à 0 avant 2023"
+  period: 2022
+  input:
+    eligible_credit_photovoltaique: true
+    cout_installation_photovoltaique: 100
+    maximum_credit_photovoltaique: 10
+  output:
+    montant_base_credit_photovoltaique: 0
+
+- name: "montant_base_credit_photovoltaique est égale à cout_installation_photovoltaique multiplie par taux_credit_photovoltaique si il est inférieur à maximum_credit_photovoltaique à partir de 2023"
+  period: 2023
+  input:
+    eligible_credit_photovoltaique: true
+    cout_installation_photovoltaique: 100
+    maximum_credit_photovoltaique: 1000
+    taux_credit_photovoltaique: 0.4
+  output:
+    montant_base_credit_photovoltaique: 40
+
+- name: "montant_base_credit_photovoltaique est égale à maximum_credit_photovoltaique multiplie par taux_credit_photovoltaique si cout_installation_photovoltaique est supérieur à maximum_credit_photovoltaique à partir de 2023"
+  period: 2023
+  input:
+    eligible_credit_photovoltaique: true
+    cout_installation_photovoltaique: 1000
+    maximum_credit_photovoltaique: 200
+    taux_credit_photovoltaique: 0.5
+  output:
+    montant_base_credit_photovoltaique: 100
+
+- name: "montant_base_credit_photovoltaique est égale à 0 si le bien n'est pas eligible à partir de 2023"
+  period: 2023
+  input:
+    eligible_credit_photovoltaique: false
+    cout_installation_photovoltaique: 1000
+    maximum_credit_photovoltaique: 300
+    taux_credit_photovoltaique: 0.5
+  output:
+    montant_base_credit_photovoltaique: 0
+
+
+
+
+# enveloppe_credit_photovoltaique
+
+- name: "enveloppe_credit_photovoltaique est égale à 0 avant 2023"
+  input:
+    date_de_mise_en_service_installation_photovoltaique:
+      2020: 2020-01-01
+    montant_base_credit_photovoltaique:
+      2020: 200
+      2021: 200
+      2022: 200
+    reste_credit_photovoltaique:
+      2020: 0
+      2021: 0
+      2022: 100
+    eligible_credit_photovoltaique:
+      2020: true
+      2021: true
+      2022: true
+  output:
+    age_installation_photovoltaique:
+      2020: 0
+      2021: 1
+      2022: 2
+    enveloppe_credit_photovoltaique:
+      2020: 0
+      2021: 0
+      2022: 0
+
+- name: "enveloppe_credit_photovoltaique est égale à montant_base_credit_photovoltaique la première année d'imputation et reste_credit_photovoltaique la suivante"
+  input:
+    date_de_mise_en_service_installation_photovoltaique:
+      2023: 2023-01-01
+    montant_base_credit_photovoltaique:
+      2023: 200
+      2024: 200
+      2025: 200
+      2026: 200
+    reste_credit_photovoltaique:
+      2023: 0
+      2024: 100
+      2025: 0
+      2026: 0
+    eligible_credit_photovoltaique:
+      2023: true
+      2024: true
+      2025: true
+      2026: true
+  output:
+    age_installation_photovoltaique:
+      2023: 0
+      2024: 1
+      2025: 2
+      2026: 3
+    enveloppe_credit_photovoltaique:
+      2023: 0
+      2024: 200
+      2025: 100
+      2026: 0
+
+
+
+
+# credit_photovoltaique_applique
+
+- name: "credit_photovoltaique_applique est false avant 2023"
+  period: 2022
+  input:
+    exoneration_permanente_appliquee: false
+    exoneration_temporaire_appliquee: false
+    eligible_credit_photovoltaique: true
+  output:
+    credit_photovoltaique_applique: false
+
+- name: "credit_photovoltaique_applique est true si les conditions sont réunies"
+  period: 2023
+  input:
+    exoneration_permanente_appliquee: false
+    exoneration_temporaire_appliquee: false
+    eligible_credit_photovoltaique: true
+  output:
+    credit_photovoltaique_applique: true
+
+- name: "credit_photovoltaique_applique est false si les conditions ne sont pas réunies (exonération permanente)"
+  period: 2023
+  input:
+    exoneration_permanente_appliquee: true
+    exoneration_temporaire_appliquee: false
+    eligible_credit_photovoltaique: true
+  output:
+    credit_photovoltaique_applique: false
+
+- name: "credit_photovoltaique_applique est false si les conditions ne sont pas réunies (exonération temporaire)"
+  period: 2023
+  input:
+    exoneration_permanente_appliquee: false
+    exoneration_temporaire_appliquee: true
+    eligible_credit_photovoltaique: true
+  output:
+    credit_photovoltaique_applique: false
+
+- name: "credit_photovoltaique_applique est false si les conditions ne sont pas réunies pas éligible)"
+  period: 2023
+  input:
+    exoneration_permanente_appliquee: false
+    exoneration_temporaire_appliquee: false
+    eligible_credit_photovoltaique: false
+  output:
+    credit_photovoltaique_applique: false
+
+
+
+
+# credit_photovoltaique_eligible_et_applique
+
+- name: "credit_photovoltaique_eligible_et_applique est égale à false avant 2023"
+  period: 2022
+  input:
+    eligible_credit_photovoltaique: true
+    credit_photovoltaique_applique: true
+  output:
+    credit_photovoltaique_eligible_et_applique: false
+
+- name: "credit_photovoltaique_eligible_et_applique est égale à true si les conditions sont réunies"
+  period: 2023
+  input:
+    eligible_credit_photovoltaique: true
+    credit_photovoltaique_applique: true
+  output:
+    credit_photovoltaique_eligible_et_applique: true
+
+- name: "credit_photovoltaique_eligible_et_applique est égale à true si les conditions ne sont pas réunies (pas eligible)"
+  period: 2023
+  input:
+    eligible_credit_photovoltaique: false
+    credit_photovoltaique_applique: true
+  output:
+    credit_photovoltaique_eligible_et_applique: false
+
+- name: "credit_photovoltaique_eligible_et_applique est égale à true si les conditions ne sont pas réunies (pas appliqué)"
+  period: 2023
+  input:
+    eligible_credit_photovoltaique: true
+    credit_photovoltaique_applique: false
+  output:
+    credit_photovoltaique_eligible_et_applique: false
+
+
+
+
+# montant_credit_photovoltaique
+
+- name: "montant_credit_photovoltaique est égale à 0 avant 2023"
+  period: 2022
+  input:
+    credit_photovoltaique_eligible_et_applique: true
+    impot_foncier_part_pays_brute: 1000
+    enveloppe_credit_photovoltaique: 100
+  output:
+    montant_credit_photovoltaique: 0
+
+- name: "montant_credit_photovoltaique est égale à enveloppe_credit_photovoltaique si enveloppe_credit_photovoltaique est inférieur à impot_foncier_part_pays_brute"
+  period: 2023
+  input:
+    credit_photovoltaique_eligible_et_applique: true
+    impot_foncier_part_pays_brute: 1000
+    enveloppe_credit_photovoltaique: 100
+  output:
+    montant_credit_photovoltaique: 100
+
+- name: "montant_credit_photovoltaique est égale à impot_foncier_part_pays_brute si enveloppe_credit_photovoltaique est supérieur à impot_foncier_part_pays_brute"
+  period: 2023
+  input:
+    credit_photovoltaique_eligible_et_applique: true
+    impot_foncier_part_pays_brute: 200
+    enveloppe_credit_photovoltaique: 2000
+  output:
+    montant_credit_photovoltaique: 200
+
+- name: "montant_credit_photovoltaique est égale à 0 si le bien n'est pas eligible ou que le crédit ne s'applique pas"
+  period: 2023
+  input:
+    credit_photovoltaique_eligible_et_applique: false
+    impot_foncier_part_pays_brute: 300
+    enveloppe_credit_photovoltaique: 3000
+  output:
+    montant_credit_photovoltaique: 0
+
+
+
+
+# reste_credit_photovoltaique
+
+- name: "reste_credit_photovoltaique est égale à 0 avant 2023"
+  period: 2022
+  input:
+    enveloppe_credit_photovoltaique: 1000
+    montant_credit_photovoltaique: 100
+  output:
+    reste_credit_photovoltaique: 0
+
+- name: "reste_credit_photovoltaique est égale à envelope_credit_photovoltaique moins montant_credit_photovoltaique à partir de 2023"
+  period: 2023
+  input:
+    enveloppe_credit_photovoltaique: 1000
+    montant_credit_photovoltaique: 100
+  output:
+    reste_credit_photovoltaique: 900
+
+
+
+
+# duree_credit_photovoltaique
+
+- name: "duree_credit_photovoltaique est égale à 0 avant 2023"
+  period: 2022
+  input:
+    impot_foncier_part_pays_brute: 100
+    montant_base_credit_photovoltaique: 50
+  output:
+    duree_credit_photovoltaique: 0
+
+- name: "duree_credit_photovoltaique est égale à 0 à partir de 2023 si le montant de base du crédit est 0"
+  period: 2023
+  input:
+    impot_foncier_part_pays_brute: 100
+    montant_base_credit_photovoltaique: 0
+  output:
+    duree_credit_photovoltaique: 0
+
+- name: "duree_credit_photovoltaique est calculé à partir de 2023 (base multiple de l'impôt)"
+  period: 2023
+  input:
+    impot_foncier_part_pays_brute: 100
+    montant_base_credit_photovoltaique: 50
+  output:
+    duree_credit_photovoltaique: 2
+
+- name: "duree_credit_photovoltaique est calculé à partir de 2023 (base non multiple de l'impôt)"
+  period: 2023
+  input:
+    impot_foncier_part_pays_brute: 100
+    montant_base_credit_photovoltaique: 33
+  output:
+    duree_credit_photovoltaique: 4

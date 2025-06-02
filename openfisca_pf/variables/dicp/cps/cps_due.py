@@ -2,9 +2,11 @@
 
 
 from openfisca_pf.base import (
+    ArrayLike,
     MONTH,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     Variable
     )
 from openfisca_pf.constants.units import XPF
@@ -25,7 +27,7 @@ class cps_due(Variable):
         ]
     end = '2023-09-30'
 
-    def formula(personne: Personne, period: Period, parameters: Parameters):
-        base_imposable = personne('base_imposable_cps', period, parameters)
-        taux = personne.pays('taux_cps', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        base_imposable = personne('base_imposable_cps', period)
+        taux = personne.pays('taux_cps', period)
         return arrondi_superieur(base_imposable * taux)

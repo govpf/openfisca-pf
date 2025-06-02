@@ -4,13 +4,14 @@ from openfisca_pf.base import (
     ArrayLike,
     date,
     DAY,
-    Parameters,
+    ParameterNode,
     Period,
+    Population,
     select,
     Variable
     )
 from openfisca_pf.constants.time import (
-    NOMBRE_D_HEURE_PAR_JOUR,
+    NOMBRE_D_HEURES_PAR_JOUR,
     NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS,
     NOMBRE_DE_JOURS_PAR_MOIS_AU_PRO_RATA_TEMPORIS,
     NOMBRE_DE_MOIS_PAR_AN
@@ -41,9 +42,9 @@ class duree_occupation_redevance_domaniale_annee(Variable):
     unit = YEARS
     label = "La durée d'occupation en année"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period, parameters)
-        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
 
         return select(
             [
@@ -56,7 +57,7 @@ class duree_occupation_redevance_domaniale_annee(Variable):
                 duree_occupation_redevance_domaniale,
                 duree_occupation_redevance_domaniale / NOMBRE_DE_MOIS_PAR_AN,
                 duree_occupation_redevance_domaniale / NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS,
-                duree_occupation_redevance_domaniale / (NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS * NOMBRE_D_HEURE_PAR_JOUR)
+                duree_occupation_redevance_domaniale / (NOMBRE_DE_JOURS_PAR_AN_AU_PRO_RATA_TEMPORIS * NOMBRE_D_HEURES_PAR_JOUR)
                 ],
             )
 
@@ -69,9 +70,9 @@ class duree_occupation_redevance_domaniale_jour(Variable):
     unit = DAYS
     label = "La durée d'occupation en jour"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period, parameters)
-        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
 
         return select(
             [
@@ -95,9 +96,9 @@ class duree_occupation_redevance_domaniale_mois(Variable):
     unit = MONTHS
     label = "La durée d'occupation en mois"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period, parameters)
-        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        duree_occupation_redevance_domaniale = personne('duree_occupation_redevance_domaniale', period)
+        unite_duree_occupation_redevance_domaniale = personne('unite_duree_occupation_redevance_domaniale', period)
 
         return select(
             [
@@ -119,11 +120,11 @@ class duree_comptable_entre_deux_dates(Variable):
     definition_period = DAY
     label = "Calcul d'une durée comptable en jours entre deux dates"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        date_debut_occupation = personne('date_debut_occupation', period, parameters)
-        date_fin_occupation = personne('date_fin_occupation', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        date_debut_occupation = personne('date_debut_occupation', period)
+        date_fin_occupation = personne('date_fin_occupation', period)
 
-        # On converti les dates en nombres de jours
+        # On convertit les dates en nombre de jours
         date_debut_occupation = as_date(date_debut_occupation, 'D')
         date_fin_occupation = as_date(date_fin_occupation, 'D')
 
@@ -157,9 +158,9 @@ class duree_calendaire_entre_deux_dates(Variable):
     unit = DAYS
     label = "Calcul d'une durée calendaire en jours entre deux dates"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        date_debut_occupation = personne('date_debut_occupation', period, parameters)
-        date_fin_occupation = personne('date_fin_occupation', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        date_debut_occupation = personne('date_debut_occupation', period)
+        date_fin_occupation = personne('date_fin_occupation', period)
 
         return as_duration(
             as_date(date_fin_occupation, 'D') - as_date(date_debut_occupation, 'D'),
@@ -173,10 +174,10 @@ class date_fin_occupation(Variable):
     definition_period = DAY
     label = "Calcul de la date de fin d'occupation en jours à partir de la date de début en jours, de la durée et de l'unité de durée"
 
-    def formula(personne: Personne, period: Period, parameters: Parameters) -> ArrayLike:
-        debut = personne('date_debut_occupation', period, parameters).astype(date)
-        duree = personne('duree_occupation_redevance_domaniale', period, parameters).astype(float)
-        unite = personne('unite_duree_occupation_redevance_domaniale', period, parameters)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        debut = personne('date_debut_occupation', period).astype(date)
+        duree = personne('duree_occupation_redevance_domaniale', period).astype(float)
+        unite = personne('unite_duree_occupation_redevance_domaniale', period)
 
         return as_date(select(
             [
