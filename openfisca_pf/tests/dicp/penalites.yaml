@@ -1,0 +1,232 @@
+# --------------------------------------------------
+# ---         DATES ET MONTANTS D'IMPOTS         ---
+# --------------------------------------------------
+
+# date_limite_de_declaration
+
+- name: "'date_limite_de_declaration' est égale à la 'date_de_changement' plus 3 mois (début de mois)"
+  period: 2025
+  input:
+    date_de_changement: 2025-01-01
+  output:
+    date_limite_de_declaration: 2025-03-31
+
+- name: "'date_limite_de_declaration' est égale à la 'date_de_changement' plus 3 mois (fin de mois)"
+  period: 2025
+  input:
+    date_de_changement: 2025-01-31
+  output:
+    date_limite_de_declaration: 2025-04-29
+
+
+# date_limite_premiere_mise_en_demeure
+
+- name: "'date_limite_premiere_mise_en_demeure' est égale à la 'date_de_reception_premiere_mise_en_demeure' plus 30 jours (début de mois)"
+  period: 2025
+  input:
+    date_de_reception_premiere_mise_en_demeure: 2025-01-01
+  output:
+    date_limite_premiere_mise_en_demeure: 2025-01-30
+
+- name: "'date_limite_premiere_mise_en_demeure' est égale à la 'date_de_reception_premiere_mise_en_demeure' plus 30 jours (fin de mois)"
+  period: 2025
+  input:
+    date_de_reception_premiere_mise_en_demeure: 2025-01-31
+  output:
+    date_limite_premiere_mise_en_demeure: 2025-03-01
+
+
+# premiere_mise_en_demeure_depassee
+
+- name: "'premiere_mise_en_demeure_depassee' est égale à 'false' si la première mise en demeure n'a pas été envoyé ou reçu"
+  period: 2025
+  input:
+    premiere_mise_en_demeure_recue: false
+    date_de_declaration: 2025-01-01
+  output:
+    premiere_mise_en_demeure_depassee: false
+
+- name: "'premiere_mise_en_demeure_depassee' est égale à 'false' si la 'date_de_declaration' est dans les temps par rapport a la 'date_limite_premiere_mise_en_demeure'"
+  period: 2025
+  input:
+    premiere_mise_en_demeure_recue: true
+    date_de_declaration: 2025-01-01
+    date_limite_premiere_mise_en_demeure: 2025-01-01
+  output:
+    premiere_mise_en_demeure_depassee: false
+
+- name: "'premiere_mise_en_demeure_depassee' est égale à 'true' si la 'date_de_declaration' n'est pas dans les temps par rapport a la 'date_limite_premiere_mise_en_demeure'"
+  period: 2025
+  input:
+    premiere_mise_en_demeure_recue: true
+    date_de_declaration: 2025-01-02
+    date_limite_premiere_mise_en_demeure: 2025-01-01
+  output:
+    premiere_mise_en_demeure_depassee: true
+
+
+# date_limite_deuxieme_mise_en_demeure
+
+- name: "'date_limite_deuxieme_mise_en_demeure' est égale à la 'date_de_reception_deuxieme_mise_en_demeure' plus 30 jours (début de mois)"
+  period: 2025
+  input:
+    date_de_reception_deuxieme_mise_en_demeure: 2025-01-01
+  output:
+    date_limite_deuxieme_mise_en_demeure: 2025-01-30
+
+- name: "'date_limite_deuxieme_mise_en_demeure' est égale à la 'date_de_reception_deuxieme_mise_en_demeure' plus 30 jours (fin de mois)"
+  period: 2025
+  input:
+    date_de_reception_deuxieme_mise_en_demeure: 2025-01-31
+  output:
+    date_limite_deuxieme_mise_en_demeure: 2025-03-01
+
+
+# deuxieme_mise_en_demeure_depassee
+
+- name: "'deuxieme_mise_en_demeure_depassee' est égale à 'false' si la deuxième mise en demeure n'a pas été envoyé ou reçu"
+  period: 2025
+  input:
+    deuxieme_mise_en_demeure_recue: false
+    date_de_declaration: 2025-01-01
+  output:
+    deuxieme_mise_en_demeure_depassee: false
+
+- name: "'deuxieme_mise_en_demeure_depassee' est égale à 'false' si la 'date_de_declaration' est dans les temps par rapport a la 'date_limite_deuxieme_mise_en_demeure'"
+  period: 2025
+  input:
+    deuxieme_mise_en_demeure_recue: true
+    date_de_declaration: 2025-01-01
+    date_limite_deuxieme_mise_en_demeure: 2025-01-01
+  output:
+    deuxieme_mise_en_demeure_depassee: false
+
+- name: "'deuxieme_mise_en_demeure_depassee' est égale à 'true' si la 'date_de_declaration' n'est pas dans les temps par rapport a la 'date_limite_deuxieme_mise_en_demeure'"
+  period: 2025
+  input:
+    deuxieme_mise_en_demeure_recue: true
+    date_de_declaration: 2025-01-02
+    date_limite_deuxieme_mise_en_demeure: 2025-01-01
+  output:
+    deuxieme_mise_en_demeure_depassee: true
+
+
+# --------------------------------------------------
+# ---                    BASE                    ---
+# --------------------------------------------------
+
+
+# base_de_calcul_des_penalites
+
+- name: "'base_de_calcul_des_penalites' est égale à la différence entre 'impot_qui_aurait_du_etre_mis_en_recouvrement' et 'impot_qui_a_ete_mis_en_recouvrement'"
+  period: 2025
+  input:
+    impot_qui_aurait_du_etre_mis_en_recouvrement: 1000
+    impot_qui_a_ete_mis_en_recouvrement: 800
+  output:
+    base_de_calcul_des_penalites: 200
+
+- name: "'base_de_calcul_des_penalites' est égale à 0 si la différence entre 'impot_qui_aurait_du_etre_mis_en_recouvrement' et 'impot_qui_a_ete_mis_en_recouvrement' est négative"
+  period: 2025
+  input:
+    impot_qui_aurait_du_etre_mis_en_recouvrement: 800
+    impot_qui_a_ete_mis_en_recouvrement: 1000
+  output:
+    base_de_calcul_des_penalites: 0
+
+
+# penalites_applicables
+
+- name: "'penalites_applicables' est égale à 'true' si 'base_de_calcul_des_penalites' est positif"
+  period: 2025
+  input:
+    base_de_calcul_des_penalites: 1
+  output:
+    penalites_applicables: true
+
+- name: "'penalites_applicables' est égale à 'false' si 'base_de_calcul_des_penalites' est nulle"
+  period: 2025
+  input:
+    base_de_calcul_des_penalites: 0
+  output:
+    penalites_applicables: false
+
+
+# --------------------------------------------------
+# ---              MAJORATION FIXE               ---
+# --------------------------------------------------
+
+
+# penalite_majoration_fixe_appliquee
+
+- name: "'penalite_majoration_fixe_appliquee' est égale à 'false' si 'penalites_applicables' est 'false'"
+  period: 2025
+  input:
+    penalites_applicables: false
+  output:
+    penalite_majoration_fixe_appliquee: false
+
+- name: "'penalite_majoration_fixe_appliquee' est égale à 'false' si la 'date_de_declaration' est dans les temps par rapport à la 'date_limite_de_declaration'"
+  period: 2025
+  input:
+    penalites_applicables: true
+    date_limite_de_declaration: 2025-01-01
+    date_de_declaration: 2025-01-01
+  output:
+    penalite_majoration_fixe_appliquee: false
+
+- name: "'penalite_majoration_fixe_appliquee' est égale à 'true' si la 'date_de_declaration' n'est pas dans les temps par rapport à la 'date_limite_de_declaration'"
+  period: 2025
+  input:
+    penalites_applicables: true
+    date_limite_de_declaration: 2025-01-01
+    date_de_declaration: 2025-01-02
+  output:
+    penalite_majoration_fixe_appliquee: true
+
+
+# taux_penalite_majoration_fixe
+
+- name: "'taux_penalite_majoration_fixe' est égale à '0.1' si il n'y a eu aucune mise en demeures"
+  period: 2025
+  output:
+    taux_penalite_majoration_fixe: 0.1
+
+- name: "'taux_penalite_majoration_fixe' est égale à '0.4' si 'premiere_mise_en_demeure_depassee' est 'true'"
+  period: 2025
+  input:
+    premiere_mise_en_demeure_depassee: true
+  output:
+    taux_penalite_majoration_fixe: 0.4
+
+- name: "'taux_penalite_majoration_fixe' est égale à '0.8' si 'deuxieme_mise_en_demeure_depassee' est 'true'"
+  period: 2025
+  input:
+    deuxieme_mise_en_demeure_depassee: true
+  output:
+    taux_penalite_majoration_fixe: 0.8
+
+
+# montant_penalite_majoration_fixe
+
+- name: "'montant_penalite_majoration_fixe' est égale à 0 si 'penalite_majoration_fixe_appliquee' est égale à 'false'"
+  period: 2025
+  input:
+    penalite_majoration_fixe_appliquee: false
+    base_de_calcul_des_penalites: 100
+  output:
+    montant_penalite_majoration_fixe: 0
+
+- name: "'montant_penalite_majoration_fixe' est égale à 'base_de_calcul_des_penalites' fois le 'taux_penalite_majoration_fixe' si 'penalite_majoration_fixe_appliquee' est égale à 'true'"
+  period: 2025
+  input:
+    penalite_majoration_fixe_appliquee: true
+    base_de_calcul_des_penalites: 100
+    taux_penalite_majoration_fixe: 2
+  output:
+    montant_penalite_majoration_fixe: 200
+
+
+# --------------------------------------------------
+# ---             INTERETS DE RETARD             ---
+# --------------------------------------------------

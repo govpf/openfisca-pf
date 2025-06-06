@@ -29,7 +29,7 @@ def as_date(a: ndarray, unit: str) -> ndarray:
     Converti un vecteur de dates en un vecteur de `datetime64[U]` où `U` est l'unité désirée.
 
     :param a: Array of dates
-    :param unit: either `D`, `M` or `Y`
+    :param unit: either `D` (days), `M` (months) or `Y` (years)
     :return: Vecteur converti
     """
     return a.astype(f'datetime64[{unit}]')
