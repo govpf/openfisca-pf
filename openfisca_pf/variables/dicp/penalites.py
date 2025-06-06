@@ -15,13 +15,16 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.functions.time import (
+    as_date,
+    as_duration,
+    prochaine_date,
     relative_delta_months,
     relative_delta_days
     )
 
 
 # --------------------------------------------------
-# ---         DATES ET MONTANTS D'IMPOTS         ---
+# ---         DATES ET MONTANTS D'IMPÔTS         ---
 # --------------------------------------------------
 
 
@@ -247,11 +250,11 @@ class montant_penalite_majoration_fixe(Variable):
             )
 
 # --------------------------------------------------
-# ---             INTERETS DE RETARD             ---
+# ---             INTÉRÊTS DE RETARD             ---
 # --------------------------------------------------
 
 
-class date_debut_decompte_interet_de_retard(Variable):
+class date_de_debut_du_decompte_interet_de_retard(Variable):
     value_type = date
     entity = Personne
     definition_period = YEAR
@@ -260,7 +263,9 @@ class date_debut_decompte_interet_de_retard(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         date_de_changement = personne('date_de_changement', period).astype(date)
-        return date_de_changement
+        mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
+        jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
+        return prochaine_date(date_de_changement, mois, jour)
 
 
 class penalite_interet_de_retard_appliquee(Variable):
@@ -271,7 +276,31 @@ class penalite_interet_de_retard_appliquee(Variable):
     label = "Indique s'il faut appliquer la pénalité d'intérêt de retard suite à une déclaration"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return False
+        penalites_applicables = personne('penalites_applicables', period)
+        date_de_declaration = personne('date_de_declaration', period).astype(date)
+        date_de_debut_du_decompte_interet_de_retard = personne('date_de_debut_du_decompte_interet_de_retard', period).astype(date)
+        return penalites_applicables\
+            * (date_de_declaration >= date_de_debut_du_decompte_interet_de_retard)
+
+
+class nombre_de_mois_de_retard(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "nombre de mois de retard entre la date de déclaration et la date de début du décompte des intérêts de retard"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        date_de_declaration = personne('date_de_declaration', period).astype(date)
+        date_de_debut_du_decompte_interet_de_retard = personne('date_de_debut_du_decompte_interet_de_retard', period).astype(date)
+
+        return max_(
+            as_duration(
+                as_date(date_de_declaration, 'D') - as_date(date_de_debut_du_decompte_interet_de_retard, 'D'),
+                'M'
+                ) + 1,
+            0
+            )
 
 
 class taux_penalite_interet_de_retard(Variable):
@@ -282,7 +311,7 @@ class taux_penalite_interet_de_retard(Variable):
     label = "Taux de la pénalité d'intérêt de retard du foncier."
 
     def formula_1995_08_24(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.penalites.taux.interet_de_retard
+        return parameters(period).dicp.penalite.taux_interet_de_retard
 
 
 class montant_penalite_interet_de_retard(Variable):
@@ -295,10 +324,7 @@ class montant_penalite_interet_de_retard(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         penalite_interet_de_retard_appliquee = personne('penalite_interet_de_retard_appliquee', period)
         base_de_calcul_des_penalites = personne('base_de_calcul_des_penalites', period)
-        nombre_de_mois_de_retard_de_la_declaration = personne('nombre_de_mois_de_retard_de_la_declaration', period)
+        nombre_de_mois_de_retard = personne('nombre_de_mois_de_retard', period)
         taux_penalite_interet_de_retard = personne('taux_penalite_interet_de_retard', period)
-        return where(
-            penalite_interet_de_retard_appliquee,
-            base_de_calcul_des_penalites * nombre_de_mois_de_retard_de_la_declaration * taux_penalite_interet_de_retard,
-            0
-            )
+        return penalite_interet_de_retard_appliquee\
+            * base_de_calcul_des_penalites * nombre_de_mois_de_retard * taux_penalite_interet_de_retard

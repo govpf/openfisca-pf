@@ -1,7 +1,7 @@
 description: "Taux des pénalités du rôle foncier"
 
 
-interet_de_retard:
+taux_interet_de_retard:
   description: "Taux de la pénalité d'intérêt de retard du rôle foncier"
   values:
     1995-09-07:
