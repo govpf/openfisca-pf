@@ -10,8 +10,7 @@ from openfisca_pf.base import (
     Population,
     select,
     Variable,
-    YEAR,
-    where
+    YEAR
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.functions.time import (
@@ -243,11 +242,8 @@ class montant_penalite_majoration_fixe(Variable):
         penalite_majoration_fixe_appliquee = personne('penalite_majoration_fixe_appliquee', period)
         base_de_calcul_des_penalites = personne('base_de_calcul_des_penalites', period)
         taux_penalite_majoration_fixe = personne('taux_penalite_majoration_fixe', period)
-        return where(
-            penalite_majoration_fixe_appliquee,
-            base_de_calcul_des_penalites * taux_penalite_majoration_fixe,
-            0
-            )
+        return penalite_majoration_fixe_appliquee\
+            * base_de_calcul_des_penalites * taux_penalite_majoration_fixe
 
 # --------------------------------------------------
 # ---             INTÉRÊTS DE RETARD             ---

@@ -1,1 +1,1 @@
-openfisca test --country-package openfisca_pf openfisca_pf/tests/dicp/penalites.yaml
+openfisca test --country-package openfisca_pf openfisca_pf/tests/
