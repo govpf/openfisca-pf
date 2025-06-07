@@ -1,0 +1,76 @@
+- name: imf_base
+  period: 2024-01-01
+  input:
+    is_resultat_exploitation_total_produits: 300
+    is_resultat_exploitation_resprises_amortissements_provisions_transfert_charges: 100
+    is_resultat_financier_total_produits: 500
+    is_resultat_financier_transfert_charges: 200
+  output:
+    imf_brut_base: 500
+
+- name: imf_taux_et_limites_montants
+  period: 2024-01-01
+  input:
+    imf_brut_base: 10000
+  output:
+    imf_brut_taux_benefice: 0.05
+    imf_brut_taux_deficit: 0.025
+    imf_brut_montant_minimum: 50000
+    imf_brut_montant_maximum: 4000000
+
+- name: imf_limite_montants_6_mois
+  period: 2024-01-01
+  input:
+    is_nombre_mois_exercice: 6
+  output:
+    imf_brut_montant_minimum: 25000
+    imf_brut_montant_maximum: 2000000
+
+- name: imf_montants
+  period: 2024-01-01
+  input:
+    imf_brut_base: 2000000
+  output:
+    imf_brut_taux: 0.05
+    imf_brut_abattement_taux: 0
+    imf_brut_due: 100000
+
+- name: imf_montant_minimum
+  period: 2024-01-01
+  input:
+    imf_brut_base: 900000
+  output:
+    imf_brut_taux: 0.05
+    imf_brut_abattement_taux: 0
+    imf_brut_due: 50000
+
+- name: imf_montant_maximum
+  period: 2024-01-01
+  input:
+    imf_brut_base: 90000000
+  output:
+    imf_brut_taux: 0.05
+    imf_brut_abattement_taux: 0
+    imf_brut_due: 4000000
+
+- name: "Impots IMF Abattement"
+  period: 2024-01-01
+  input:
+    imf_brut_base: 2000000
+    is_activite_principale: "SOCIETES_GESTION_FONDS_GARANTIE"
+    is_nombre_exercices: 1
+  output:
+    imf_brut_taux: 0.05
+    imf_brut_abattement_taux: 0.9
+    imf_brut_due: 50000
+
+#- name: "Impots IMF Abattement Saisie"
+#  period: 2024-01-01
+#  input:
+#    imf_base: 2000000
+#    is_activite_principale: "SOCIETES_EXPORTATRICES"
+#    imf_abattement_taux_saisie: 0.1
+#  output:
+#    imf_taux: 0.05
+#    imf_abattement_taux: 0.1
+#    imf_montant: 90000

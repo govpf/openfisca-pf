@@ -25,3 +25,7 @@ def arrondi_superieur(valeur: ndarray) -> ndarray:
     :return:       Valeur ou vecteur de valeurs arrondis à l'entier supérieur.
     """
     return rint(nextafter(valeur, valeur + 1))
+
+
+def arrondi_millier_inferieur(value):
+    return (value // 1000) * 1000

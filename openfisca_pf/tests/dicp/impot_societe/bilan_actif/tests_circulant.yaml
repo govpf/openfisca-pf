@@ -1,0 +1,88 @@
+- name: is_bilan_actif_stocks_matieres_premieres_approvisionnements_net
+  period: 2024
+  input:
+    is_bilan_actif_stocks_matieres_premieres_approvisionnements_brut: 200
+    is_bilan_actif_stocks_matieres_premieres_approvisionnements_amortissements_provisions: 100
+  output:
+    is_bilan_actif_stocks_matieres_premieres_approvisionnements_net: 100
+
+
+- name: is_bilan_actif_stocks_en_cours_production_biens_net
+  period: 2024
+  input:
+    is_bilan_actif_stocks_en_cours_production_biens_brut: 200
+    is_bilan_actif_stocks_en_cours_production_biens_amortissements_provisions: 100
+  output:
+    is_bilan_actif_stocks_en_cours_production_biens_net: 100
+
+
+- name: is_bilan_actif_stocks_en_cours_production_services_net
+  period: 2024
+  input:
+    is_bilan_actif_stocks_en_cours_production_services_brut: 200
+    is_bilan_actif_stocks_en_cours_production_services_amortissements_provisions: 100
+  output:
+    is_bilan_actif_stocks_en_cours_production_services_net: 100
+
+
+- name: is_bilan_actif_stocks_produits_intermediaires_finis_net
+  period: 2024
+  input:
+    is_bilan_actif_stocks_produits_intermediaires_finis_brut: 200
+    is_bilan_actif_stocks_produits_intermediaires_finis_amortissements_provisions: 100
+  output:
+    is_bilan_actif_stocks_produits_intermediaires_finis_net: 100
+
+
+- name: is_bilan_actif_stocks_marchandises_net
+  period: 2024
+  input:
+    is_bilan_actif_stocks_marchandises_brut: 200
+    is_bilan_actif_stocks_marchandises_amortissements_provisions: 100
+  output:
+    is_bilan_actif_stocks_marchandises_net: 100
+
+
+- name: is_bilan_actif_avances_acomptes_verses_commandes_net
+  period: 2024
+  input:
+    is_bilan_actif_avances_acomptes_verses_commandes_brut: 200
+    is_bilan_actif_avances_acomptes_verses_commandes_amortissements_provisions: 100
+  output:
+    is_bilan_actif_avances_acomptes_verses_commandes_net: 100
+
+
+- name: is_bilan_actif_creances_clients_comptes_rattaches_net
+  period: 2024
+  input:
+    is_bilan_actif_creances_clients_comptes_rattaches_brut: 200
+    is_bilan_actif_creances_clients_comptes_rattaches_amortissements_provisions: 100
+  output:
+    is_bilan_actif_creances_clients_comptes_rattaches_net: 100
+
+
+- name: is_bilan_actif_creances_autres_creances_net
+  period: 2024
+  input:
+    is_bilan_actif_creances_autres_creances_brut: 200
+    is_bilan_actif_creances_autres_creances_amortissements_provisions: 100
+  output:
+    is_bilan_actif_creances_autres_creances_net: 100
+
+
+- name: is_bilan_actif_creances_capital_souscrit_appele_non_verse_net
+  period: 2024
+  input:
+    is_bilan_actif_creances_capital_souscrit_appele_non_verse_brut: 200
+    is_bilan_actif_creances_capital_souscrit_appele_non_verse_amortissements_provisions: 100
+  output:
+    is_bilan_actif_creances_capital_souscrit_appele_non_verse_net: 100
+
+
+- name: is_bilan_actif_divers_disponibilites_net
+  period: 2024
+  input:
+    is_bilan_actif_divers_disponibilites_brut: 200
+    is_bilan_actif_divers_disponibilites_amortissements_provisions: 100
+  output:
+    is_bilan_actif_divers_disponibilites_net: 100

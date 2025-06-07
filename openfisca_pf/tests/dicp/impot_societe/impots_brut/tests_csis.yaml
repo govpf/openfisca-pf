@@ -1,0 +1,114 @@
+- name: csis_brut_tranche_0
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 50000000
+  output:
+    csis_brut_base: 50000000
+    csis_brut_base_imposable: 50000000
+    csis_brut_base_imposable_tranche_0: 49999999
+    csis_brut_base_imposable_tranche_1: 1
+    csis_brut_base_imposable_tranche_2: 0
+    csis_brut_base_imposable_tranche_3: 0
+    csis_brut_base_imposable_tranche_4: 0
+    csis_brut_due_tranche_0: 0
+    csis_brut_due_tranche_1: 0
+    csis_brut_due_tranche_2: 0
+    csis_brut_due_tranche_3: 0
+    csis_brut_due_tranche_4: 0
+    csis_brut_due: 0
+
+- name: csis_brut_tranche_1
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 100000000
+  output:
+    csis_brut_base: 100000000
+    csis_brut_base_imposable: 100000000
+    csis_brut_base_imposable_tranche_0: 49999999
+    csis_brut_base_imposable_tranche_1: 50000001
+    csis_brut_base_imposable_tranche_2: 0
+    csis_brut_base_imposable_tranche_3: 0
+    csis_brut_base_imposable_tranche_4: 0
+    csis_brut_due_tranche_0: 0
+    csis_brut_due_tranche_1: 3500000
+    csis_brut_due_tranche_2: 0
+    csis_brut_due_tranche_3: 0
+    csis_brut_due_tranche_4: 0
+    csis_brut_due: 3500000
+
+- name: csis_brut_tranche2
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 200000000
+  output:
+    csis_brut_base: 200000000
+    csis_brut_base_imposable: 200000000
+    csis_brut_base_imposable_tranche_0: 49999999
+    csis_brut_base_imposable_tranche_1: 50000001
+    csis_brut_base_imposable_tranche_2: 100000000
+    csis_brut_base_imposable_tranche_3: 0
+    csis_brut_base_imposable_tranche_4: 0
+    csis_brut_due_tranche_0: 0
+    csis_brut_due_tranche_1: 3500000
+    csis_brut_due_tranche_2: 10000000
+    csis_brut_due_tranche_3: 0
+    csis_brut_due_tranche_4: 0
+    csis_brut_due: 13500000
+
+- name: csis_brut_tranche3
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 400000000
+  output:
+    csis_brut_base: 400000000
+    csis_brut_base_imposable: 400000000
+    csis_brut_base_imposable_tranche_0: 49999999
+    csis_brut_base_imposable_tranche_1: 50000001
+    csis_brut_base_imposable_tranche_2: 100000000
+    csis_brut_base_imposable_tranche_3: 200000000
+    csis_brut_base_imposable_tranche_4: 0
+    csis_brut_due_tranche_0: 0
+    csis_brut_due_tranche_1: 3500000
+    csis_brut_due_tranche_2: 10000000
+    csis_brut_due_tranche_3: 24000000
+    csis_brut_due_tranche_4: 0
+    csis_brut_due: 37500000
+
+- name: csis_brut_tranche4
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 900000000
+  output:
+    csis_brut_base: 900000000
+    csis_brut_base_imposable: 900000000
+    csis_brut_base_imposable_tranche_0: 49999999
+    csis_brut_base_imposable_tranche_1: 50000001
+    csis_brut_base_imposable_tranche_2: 100000000
+    csis_brut_base_imposable_tranche_3: 200000000
+    csis_brut_base_imposable_tranche_4: 500000000
+    csis_brut_due_tranche_0: 0
+    csis_brut_due_tranche_1: 3500000
+    csis_brut_due_tranche_2: 10000000
+    csis_brut_due_tranche_3: 24000000
+    csis_brut_due_tranche_4: 75000000
+    csis_brut_due: 112500000
+
+
+- name: csis_brut_exemple
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 250002100
+  output:
+    csis_brut_base: 250002100
+    csis_brut_base_imposable: 250002100
+    csis_brut_base_imposable_tranche_0: 49999999
+    csis_brut_base_imposable_tranche_1: 50000001
+    csis_brut_base_imposable_tranche_2: 100000000
+    csis_brut_base_imposable_tranche_3: 50002100
+    csis_brut_base_imposable_tranche_4: 0
+    csis_brut_due_tranche_0: 0
+    csis_brut_due_tranche_1: 3500000
+    csis_brut_due_tranche_2: 10000000
+    csis_brut_due_tranche_3: 6000252
+    csis_brut_due_tranche_4: 0
+    csis_brut_due: 19500252

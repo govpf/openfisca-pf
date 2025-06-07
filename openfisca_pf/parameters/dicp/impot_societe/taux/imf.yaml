@@ -1,0 +1,12 @@
+description: "Taux d'IMF bénéficiare et déficitaire"
+metadata:
+  type: float
+  unit: /1
+benefice:
+  values:
+    2017-01-01:
+      value: 0.05
+deficit:
+  values:
+    2017-01-01:
+      value: 0.025

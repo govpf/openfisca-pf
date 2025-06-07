@@ -1,0 +1,97 @@
+- name: is_bilan_actif_immobilisation_incorporelles_frais_etablissement_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_incorporelles_frais_etablissement_brut: 200
+    is_bilan_actif_immobilisation_incorporelles_frais_etablissement_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_incorporelles_frais_etablissement_net: 100
+
+
+- name: is_bilan_actif_immobilisation_incorporelles_fonds_commercial_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_incorporelles_fonds_commercial_brut: 200
+    is_bilan_actif_immobilisation_incorporelles_fonds_commercial_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_incorporelles_fonds_commercial_net: 100
+
+
+- name: is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_brut: 200
+    is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_incorporelles_autres_immobilisations_incorporelles_net: 100
+
+
+- name: is_bilan_actif_immobilisation_corporelles_terrains_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_corporelles_terrains_brut: 200
+    is_bilan_actif_immobilisation_corporelles_terrains_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_corporelles_terrains_net: 100
+
+
+- name: is_bilan_actif_immobilisation_corporelles_constructions_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_corporelles_constructions_brut: 200
+    is_bilan_actif_immobilisation_corporelles_constructions_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_corporelles_constructions_net: 100
+
+
+- name: is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_brut: 200
+    is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_corporelles_installations_techniques_materiel_outillage_industriel_net: 100
+
+
+- name: is_bilan_actif_immobilisation_corporelles_autres_immobilisations_corporelles_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_corporelles_autres_immobilisations_corporelles_brut: 200
+    is_bilan_actif_immobilisation_corporelles_autres_immobilisations_corporelles_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_corporelles_autres_immobilisations_corporelles_net: 100
+
+
+- name: is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_brut: 200
+    is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_corporelles_immobilisations_en_cours_net: 100
+
+
+- name: is_bilan_actif_immobilisation_financieres_participations_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_financieres_participations_brut: 200
+    is_bilan_actif_immobilisation_financieres_participations_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_financieres_participations_net: 100
+
+
+- name: is_bilan_actif_immobilisation_financieres_creance_rattachees_participations_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_financieres_creance_rattachees_participations_brut: 200
+    is_bilan_actif_immobilisation_financieres_creance_rattachees_participations_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_financieres_creance_rattachees_participations_net: 100
+
+
+- name: is_bilan_actif_immobilisation_financieres_autres_titres_immobilises_net
+  period: 2024
+  input:
+    is_bilan_actif_immobilisation_financieres_autres_titres_immobilises_brut: 200
+    is_bilan_actif_immobilisation_financieres_autres_titres_immobilises_amortissements_provisions: 100
+  output:
+    is_bilan_actif_immobilisation_financieres_autres_titres_immobilises_net: 100

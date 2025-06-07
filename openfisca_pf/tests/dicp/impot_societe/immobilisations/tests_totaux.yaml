@@ -1,0 +1,69 @@
+- name: is_immobilisations_total_general_brute_debut_exercice
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_debut_exercice: 100
+    is_immobilisations_incorporelles_autres_brute_debut_exercice: 200
+    is_immobilisations_total_corporelles_brute_debut_exercice: 300
+    is_immobilisations_total_financieres_brute_debut_exercice: 400
+  output:
+    is_immobilisations_total_general_brute_debut_exercice: 1000
+
+- name: is_immobilisations_total_general_augmentation_reevaluation
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_augmentation_reevaluation: 100
+    is_immobilisations_incorporelles_autres_augmentation_reevaluation: 200
+    is_immobilisations_total_corporelles_augmentation_reevaluation: 300
+    is_immobilisations_total_financieres_augmentation_reevaluation: 400
+  output:
+    is_immobilisations_total_general_augmentation_reevaluation: 1000
+
+- name: is_immobilisations_total_general_augmentation_nouveaux
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_augmentation_nouveaux: 100
+    is_immobilisations_incorporelles_autres_augmentation_nouveaux: 200
+    is_immobilisations_total_corporelles_augmentation_nouveaux: 300
+    is_immobilisations_total_financieres_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_total_general_augmentation_nouveaux: 1000
+
+- name: is_immobilisations_total_general_diminution_poste_a_poste
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_diminution_poste_a_poste: 100
+    is_immobilisations_incorporelles_autres_diminution_poste_a_poste: 200
+    is_immobilisations_total_corporelles_diminution_poste_a_poste: 300
+    is_immobilisations_total_financieres_diminution_poste_a_poste: 400
+  output:
+    is_immobilisations_total_general_diminution_poste_a_poste: 1000
+
+- name: is_immobilisations_total_general_diminution_cession_hors_services
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_diminution_cession_hors_services: 100
+    is_immobilisations_incorporelles_autres_diminution_cession_hors_services: 200
+    is_immobilisations_total_corporelles_diminution_cession_hors_services: 300
+    is_immobilisations_total_financieres_diminution_cession_hors_services: 400
+  output:
+    is_immobilisations_total_general_diminution_cession_hors_services: 1000
+
+- name: is_immobilisations_total_general_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_fin_exercice: 100
+    is_immobilisations_incorporelles_autres_brute_fin_exercice: 200
+    is_immobilisations_total_corporelles_brute_fin_exercice: 300
+    is_immobilisations_total_financieres_brute_fin_exercice: 400
+  output:
+    is_immobilisations_total_general_brute_fin_exercice: 1000
+
+- name: is_immobilisations_total_general_origine_reevaluees_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_origine_reevaluees_fin_exercice: 100
+    is_immobilisations_incorporelles_autres_origine_reevaluees_fin_exercice: 200
+    is_immobilisations_total_corporelles_origine_reevaluees_fin_exercice: 300
+    is_immobilisations_total_financieres_origine_reevaluees_fin_exercice: 400
+  output:
+    is_immobilisations_total_general_origine_reevaluees_fin_exercice: 1000

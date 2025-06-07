@@ -86,9 +86,6 @@ class eligible_cis_annee(Variable):
     def formula_2021_02(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return personne('eligible_cis', period, options = [ADD])
 
-    def formula(personne: Population) -> ArrayLike:
-        return False
-
 
 class montant_cis(Variable):
     entity = Personne
