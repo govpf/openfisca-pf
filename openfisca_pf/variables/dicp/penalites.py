@@ -333,6 +333,19 @@ class montant_penalite_interet_de_retard(Variable):
 # --------------------------------------------------
 
 
+class penalitee_appliquee(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce qu'une pénalitée de majoration fixe ou des intérêts de retard sont appliqués ?"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        penalite_majoration_fixe_appliquee = personne('penalite_majoration_fixe_appliquee', period)
+        penalite_interet_de_retard_appliquee = personne('penalite_interet_de_retard_appliquee', period)
+        return penalite_majoration_fixe_appliquee + penalite_interet_de_retard_appliquee
+
+
 class montant_total_des_penalites(Variable):
     value_type = int
     entity = Personne
