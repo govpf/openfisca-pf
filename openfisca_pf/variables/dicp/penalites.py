@@ -13,6 +13,7 @@ from openfisca_pf.base import (
     YEAR
     )
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.currency import arrondi_inferieur
 from openfisca_pf.functions.time import (
     as_date,
     as_duration,
@@ -243,7 +244,7 @@ class montant_penalite_majoration_fixe(Variable):
         base_de_calcul_des_penalites = personne('base_de_calcul_des_penalites', period)
         taux_penalite_majoration_fixe = personne('taux_penalite_majoration_fixe', period)
         return penalite_majoration_fixe_appliquee\
-            * base_de_calcul_des_penalites * taux_penalite_majoration_fixe
+            * arrondi_inferieur(base_de_calcul_des_penalites * taux_penalite_majoration_fixe)
 
 # --------------------------------------------------
 # ---             INTÉRÊTS DE RETARD             ---
@@ -292,7 +293,7 @@ class nombre_de_mois_de_retard(Variable):
 
         return max_(
             as_duration(
-                as_date(date_de_declaration, 'D') - as_date(date_de_debut_du_decompte_interet_de_retard, 'D'),
+                as_date(date_de_declaration, 'M') - as_date(date_de_debut_du_decompte_interet_de_retard, 'M'),
                 'M'
                 ) + 1,
             0
@@ -311,10 +312,10 @@ class taux_penalite_interet_de_retard(Variable):
 
 
 class montant_penalite_interet_de_retard(Variable):
-    value_type = float
+    value_type = int
     entity = Personne
     definition_period = YEAR
-    default_value = 0.
+    default_value = 0
     label = "Montant de la pénalité d'intérêt de retard du rôle foncier."
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
@@ -323,4 +324,20 @@ class montant_penalite_interet_de_retard(Variable):
         nombre_de_mois_de_retard = personne('nombre_de_mois_de_retard', period)
         taux_penalite_interet_de_retard = personne('taux_penalite_interet_de_retard', period)
         return penalite_interet_de_retard_appliquee\
-            * base_de_calcul_des_penalites * nombre_de_mois_de_retard * taux_penalite_interet_de_retard
+            * arrondi_inferieur(base_de_calcul_des_penalites * nombre_de_mois_de_retard * taux_penalite_interet_de_retard)
+
+# --------------------------------------------------
+# ---                   TOTAL                    ---
+# --------------------------------------------------
+
+class montant_total_des_penalites(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Montant total des pénalités."
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_penalite_majoration_fixe = personne('montant_penalite_majoration_fixe', period)
+        montant_penalite_interet_de_retard = personne('montant_penalite_interet_de_retard', period)
+        return montant_penalite_majoration_fixe + montant_penalite_interet_de_retard

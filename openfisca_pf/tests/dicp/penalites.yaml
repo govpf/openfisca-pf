@@ -346,6 +346,14 @@
   output:
     nombre_de_mois_de_retard: 2
 
+- name: "'nombre_de_mois_de_retard' est correctement calculé (2021-07-01, 2025-03-01, 30)"
+  period: 2025
+  input:
+    date_de_changement: 2021-07-01
+    date_de_declaration: 2025-03-01
+  output:
+    nombre_de_mois_de_retard: 30
+
 
 # taux_penalite_interet_de_retard
 
@@ -401,3 +409,19 @@
     taux_penalite_interet_de_retard: 0.002
   output:
     montant_penalite_interet_de_retard: 10000
+
+
+# --------------------------------------------------
+# ---                   TOTAL                    ---
+# --------------------------------------------------
+
+# montant_total_des_penalites
+
+- name: "'montant_total_des_penalites' est égale à la somme de 'montant_penalite_majoration_fixe' et 'montant_penalite_interet_de_retard'"
+  period: 2025
+  input:
+    montant_penalite_majoration_fixe: 11
+    montant_penalite_interet_de_retard: 22
+  output:
+    montant_total_des_penalites: 33
+
