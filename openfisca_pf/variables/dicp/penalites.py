@@ -246,6 +246,7 @@ class montant_penalite_majoration_fixe(Variable):
         return penalite_majoration_fixe_appliquee\
             * arrondi_inferieur(base_de_calcul_des_penalites * taux_penalite_majoration_fixe)
 
+
 # --------------------------------------------------
 # ---             INTÉRÊTS DE RETARD             ---
 # --------------------------------------------------
@@ -326,9 +327,11 @@ class montant_penalite_interet_de_retard(Variable):
         return penalite_interet_de_retard_appliquee\
             * arrondi_inferieur(base_de_calcul_des_penalites * nombre_de_mois_de_retard * taux_penalite_interet_de_retard)
 
+
 # --------------------------------------------------
 # ---                   TOTAL                    ---
 # --------------------------------------------------
+
 
 class montant_total_des_penalites(Variable):
     value_type = int
