@@ -15,6 +15,7 @@ from openfisca_pf.base import (
 from openfisca_pf.entities import Personne
 from openfisca_pf.functions.currency import arrondi_inferieur
 from openfisca_pf.functions.time import (
+    annee_de_la_date,
     as_date,
     as_duration,
     prochaine_date,
@@ -155,6 +156,9 @@ class impot_qui_aurait_du_etre_mis_en_recouvrement(Variable):
     default_value = 0
     label = "Montant d'impôt qui aurait dut être mis en recouvrement si la déclaration avait été recu dans les temps"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('impot_foncier_total', period)
+
 
 # --------------------------------------------------
 # ---                    BASE                    ---
@@ -185,8 +189,11 @@ class penalites_applicables(Variable):
     label = "Est-ce que des pénalités sont applicables compte tenu des dates et des montants d'impôt"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        date_de_declaration = personne('date_de_declaration', period).astype(date)
+        annee_de_declaration = annee_de_la_date(date_de_declaration)
+        anne_d_imposition = period.start.year
         base_de_calcul_des_penalites = personne('base_de_calcul_des_penalites', period)
-        return base_de_calcul_des_penalites > 0
+        return (base_de_calcul_des_penalites > 0) * (anne_d_imposition < annee_de_declaration)
 
 
 # --------------------------------------------------
@@ -263,7 +270,9 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
         date_de_changement = personne('date_de_changement', period).astype(date)
         mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
-        return prochaine_date(date_de_changement, mois, jour)
+        return personne.filled_array(
+            date(period.start.year, mois, jour)
+            )
 
 
 class penalite_interet_de_retard_appliquee(Variable):
