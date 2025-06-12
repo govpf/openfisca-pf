@@ -192,7 +192,7 @@ class penalites_applicables(Variable):
         annee_de_declaration = annee_de_la_date(date_de_declaration)
         anne_d_imposition = period.start.year
         base_de_calcul_des_penalites = personne('base_de_calcul_des_penalites', period)
-        return (base_de_calcul_des_penalites > 0) * (anne_d_imposition < annee_de_declaration)
+        return (base_de_calcul_des_penalites > 0) * (anne_d_imposition <= annee_de_declaration)
 
 
 # --------------------------------------------------
@@ -269,7 +269,7 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
         mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
         return personne.filled_array(
-            date(period.start.year + 1, mois, jour)
+            date(period.start.year, mois, jour)
             )
 
 
