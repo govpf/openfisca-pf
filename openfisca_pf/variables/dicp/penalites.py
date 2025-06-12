@@ -269,7 +269,7 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
         mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
         return personne.filled_array(
-            date(period.start.year, mois, jour)
+            date(period.start.year + 1, mois, jour)
             )
 
 
