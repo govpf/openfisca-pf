@@ -1,0 +1,28 @@
+- name: is_resultat_financier_total_produits
+  period: 2024-01-01
+  input:
+    is_resultat_financier_participations: 100
+    is_resultat_financier_valeurs_mobilieres: 200
+    is_resultat_financier_autres_interets: 300
+    is_resultat_financier_transfert_charges: 400
+    is_resultat_financier_differences_positives_change: 500
+  output:
+    is_resultat_financier_total_produits: 1500
+
+
+- name: is_resultat_financier_total_charges
+  period: 2024-01-01
+  input:
+    is_resultat_financier_charges_interets: 100
+    is_resultat_financier_differences_negative_change: 200
+  output:
+    is_resultat_financier_total_charges: 300
+
+
+- name: is_resultat_financier
+  period: 2024-01-01
+  input:
+    is_resultat_financier_total_produits: 1000
+    is_resultat_financier_total_charges: 200
+  output:
+    is_resultat_financier: 800

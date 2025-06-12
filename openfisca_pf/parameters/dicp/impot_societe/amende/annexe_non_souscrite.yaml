@@ -1,0 +1,6 @@
+description: Montant amende par annexe non souscrite
+metadata:
+    unit: 'currency-XPF'
+values:
+  2017-01-01:
+    value: 1800
