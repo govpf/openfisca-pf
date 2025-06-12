@@ -137,16 +137,34 @@
 
 # penalites_applicables
 
-- name: "'penalites_applicables' est égale à 'true' si 'base_de_calcul_des_penalites' est positif"
-  period: 2025
+- name: "'penalites_applicables' est égale à 'true' si 'base_de_calcul_des_penalites' est positif et si l'année de calcule est avant la 'date_de_declaration'"
+  period: 2024
   input:
+    date_de_declaration: 2025-01-01
     base_de_calcul_des_penalites: 1
   output:
     penalites_applicables: true
 
-- name: "'penalites_applicables' est égale à 'false' si 'base_de_calcul_des_penalites' est nulle"
+- name: "'penalites_applicables' est égale à 'true' si l'année de calcule est égale à la 'date_de_declaration'"
+  period: 2024
+  input:
+    date_de_declaration: 2024-01-01
+    base_de_calcul_des_penalites: 1
+  output:
+    penalites_applicables: true
+
+- name: "'penalites_applicables' est égale à 'false' si l'année de calcule est postérieur à la 'date_de_declaration'"
   period: 2025
   input:
+    date_de_declaration: 2024-01-01
+    base_de_calcul_des_penalites: 1
+  output:
+    penalites_applicables: false
+
+- name: "'penalites_applicables' est égale à 'false' si 'base_de_calcul_des_penalites' est égale à 0"
+  period: 2024
+  input:
+    date_de_declaration: 2025-01-01
     base_de_calcul_des_penalites: 0
   output:
     penalites_applicables: false
@@ -234,33 +252,15 @@
 
 # date_de_debut_du_decompte_interet_de_retard
 
-- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année qui suit la 'date_de_changement' (2025-01-01)"
-  period: 2025
-  input:
-    date_de_changement: 2025-01-01
+- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année du calcul (2024)"
+  period: 2024
   output:
-    date_de_debut_du_decompte_interet_de_retard: 2026-10-01
+    date_de_debut_du_decompte_interet_de_retard: 2024-10-01
 
-- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année qui suit la 'date_de_changement' (2025-12-31)"
+- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année du calcul (2025)"
   period: 2025
-  input:
-    date_de_changement: 2025-12-31
   output:
-    date_de_debut_du_decompte_interet_de_retard: 2026-10-01
-
-- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année qui suit la 'date_de_changement' (2026-01-01)"
-  period: 2025
-  input:
-    date_de_changement: 2026-01-01
-  output:
-    date_de_debut_du_decompte_interet_de_retard: 2027-10-01
-
-- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année qui suit la 'date_de_changement' (2026-12-31)"
-  period: 2025
-  input:
-    date_de_changement: 2026-12-31
-  output:
-    date_de_debut_du_decompte_interet_de_retard: 2027-10-01
+    date_de_debut_du_decompte_interet_de_retard: 2025-10-01
 
 
 # penalite_interet_de_retard_appliquee
@@ -272,7 +272,7 @@
     date_de_changement: 2025-01-01
     date_de_declaration: 2026-10-01
   output:
-    date_de_debut_du_decompte_interet_de_retard: 2026-10-01
+    date_de_debut_du_decompte_interet_de_retard: 2025-10-01
     penalite_interet_de_retard_appliquee: false
 
 - name: "'penalite_interet_de_retard_appliquee' est égale à 'false' si 'date_de_declaration' est dans les délais par rapport 'date_de_debut_du_decompte_interet_de_retard'"
@@ -280,9 +280,9 @@
   input:
     penalites_applicables: true
     date_de_changement: 2025-01-01
-    date_de_declaration: 2026-02-01
+    date_de_declaration: 2025-02-01
   output:
-    date_de_debut_du_decompte_interet_de_retard: 2026-10-01
+    date_de_debut_du_decompte_interet_de_retard: 2025-10-01
     penalite_interet_de_retard_appliquee: false
 
 - name: "'penalite_interet_de_retard_appliquee' est égale à 'true' si 'date_de_declaration' n'est pas dans les délais par rapport 'date_de_debut_du_decompte_interet_de_retard'"
@@ -292,59 +292,53 @@
     date_de_changement: 2025-01-01
     date_de_declaration: 2026-10-01
   output:
-    date_de_debut_du_decompte_interet_de_retard: 2026-10-01
+    date_de_debut_du_decompte_interet_de_retard: 2025-10-01
     penalite_interet_de_retard_appliquee: true
 
 
 # nombre_de_mois_de_retard
 
-- name: "'nombre_de_mois_de_retard' est correctement calculé (2025-01-01, 2026-09-30, 0)"
+- name: "'nombre_de_mois_de_retard' est correctement calculé (2025, 2025-09-30, 0)"
   period: 2025
   input:
-    date_de_changement: 2025-01-01
-    date_de_declaration: 2026-09-30
+    date_de_declaration: 2025-09-30
   output:
     nombre_de_mois_de_retard: 0
 
-- name: "'nombre_de_mois_de_retard' est correctement calculé (2025-12-31, 2026-09-30, 0)"
+- name: "'nombre_de_mois_de_retard' est correctement calculé (2025, 2025-10-01, 1)"
   period: 2025
   input:
-    date_de_changement: 2025-12-31
-    date_de_declaration: 2026-09-30
-  output:
-    nombre_de_mois_de_retard: 0
-
-- name: "'nombre_de_mois_de_retard' est correctement calculé (2025-01-01, 2026-10-01, 1)"
-  period: 2025
-  input:
-    date_de_changement: 2025-01-01
-    date_de_declaration: 2026-10-01
+    date_de_declaration: 2025-10-01
   output:
     nombre_de_mois_de_retard: 1
 
-- name: "'nombre_de_mois_de_retard' est correctement calculé (2025-01-01, 2026-10-31, 1)"
+- name: "'nombre_de_mois_de_retard' est correctement calculé (2025, 2025-10-31, 1)"
   period: 2025
   input:
-    date_de_changement: 2025-01-01
-    date_de_declaration: 2026-10-31
+    date_de_declaration: 2025-10-31
   output:
     nombre_de_mois_de_retard: 1
 
-- name: "'nombre_de_mois_de_retard' est correctement calculé (2025-01-01, 2026-11-01, 2)"
+- name: "'nombre_de_mois_de_retard' est correctement calculé (2025, 2025-11-01, 2)"
   period: 2025
   input:
-    date_de_changement: 2025-01-01
-    date_de_declaration: 2026-11-01
+    date_de_declaration: 2025-11-01
   output:
     nombre_de_mois_de_retard: 2
 
-- name: "'nombre_de_mois_de_retard' est correctement calculé (2025-01-01, 2026-11-30, 2)"
+- name: "'nombre_de_mois_de_retard' est correctement calculé (2025, 2025-11-30, 2)"
   period: 2025
   input:
-    date_de_changement: 2025-01-01
-    date_de_declaration: 2026-11-30
+    date_de_declaration: 2025-11-30
   output:
     nombre_de_mois_de_retard: 2
+
+- name: "'nombre_de_mois_de_retard' est correctement calculé (2022, 2025-03-01, 30)"
+  period: 2022
+  input:
+    date_de_declaration: 2025-03-01
+  output:
+    nombre_de_mois_de_retard: 30
 
 
 # taux_penalite_interet_de_retard
@@ -401,3 +395,19 @@
     taux_penalite_interet_de_retard: 0.002
   output:
     montant_penalite_interet_de_retard: 10000
+
+
+# --------------------------------------------------
+# ---                   TOTAL                    ---
+# --------------------------------------------------
+
+# montant_total_des_penalites
+
+- name: "'montant_total_des_penalites' est égale à la somme de 'montant_penalite_majoration_fixe' et 'montant_penalite_interet_de_retard'"
+  period: 2025
+  input:
+    montant_penalite_majoration_fixe: 11
+    montant_penalite_interet_de_retard: 22
+  output:
+    montant_total_des_penalites: 33
+

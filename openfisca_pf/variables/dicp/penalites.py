@@ -13,10 +13,11 @@ from openfisca_pf.base import (
     YEAR
     )
 from openfisca_pf.entities import Personne
+from openfisca_pf.functions.currency import arrondi_inferieur
 from openfisca_pf.functions.time import (
+    annee_de_la_date,
     as_date,
     as_duration,
-    prochaine_date,
     relative_delta_months,
     relative_delta_days
     )
@@ -154,6 +155,9 @@ class impot_qui_aurait_du_etre_mis_en_recouvrement(Variable):
     default_value = 0
     label = "Montant d'impôt qui aurait dut être mis en recouvrement si la déclaration avait été recu dans les temps"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('impot_foncier_total', period)
+
 
 # --------------------------------------------------
 # ---                    BASE                    ---
@@ -184,8 +188,11 @@ class penalites_applicables(Variable):
     label = "Est-ce que des pénalités sont applicables compte tenu des dates et des montants d'impôt"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        date_de_declaration = personne('date_de_declaration', period).astype(date)
+        annee_de_declaration = annee_de_la_date(date_de_declaration)
+        anne_d_imposition = period.start.year
         base_de_calcul_des_penalites = personne('base_de_calcul_des_penalites', period)
-        return base_de_calcul_des_penalites > 0
+        return (base_de_calcul_des_penalites > 0) * (anne_d_imposition <= annee_de_declaration)
 
 
 # --------------------------------------------------
@@ -243,7 +250,8 @@ class montant_penalite_majoration_fixe(Variable):
         base_de_calcul_des_penalites = personne('base_de_calcul_des_penalites', period)
         taux_penalite_majoration_fixe = personne('taux_penalite_majoration_fixe', period)
         return penalite_majoration_fixe_appliquee\
-            * base_de_calcul_des_penalites * taux_penalite_majoration_fixe
+            * arrondi_inferieur(base_de_calcul_des_penalites * taux_penalite_majoration_fixe)
+
 
 # --------------------------------------------------
 # ---             INTÉRÊTS DE RETARD             ---
@@ -258,10 +266,11 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
     label = "Date à partir de laquelle le décompte des intérêts de retard commence"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        date_de_changement = personne('date_de_changement', period).astype(date)
         mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
-        return prochaine_date(date_de_changement, mois, jour)
+        return personne.filled_array(
+            date(period.start.year, mois, jour)
+            )
 
 
 class penalite_interet_de_retard_appliquee(Variable):
@@ -292,7 +301,7 @@ class nombre_de_mois_de_retard(Variable):
 
         return max_(
             as_duration(
-                as_date(date_de_declaration, 'D') - as_date(date_de_debut_du_decompte_interet_de_retard, 'D'),
+                as_date(date_de_declaration, 'M') - as_date(date_de_debut_du_decompte_interet_de_retard, 'M'),
                 'M'
                 ) + 1,
             0
@@ -311,10 +320,10 @@ class taux_penalite_interet_de_retard(Variable):
 
 
 class montant_penalite_interet_de_retard(Variable):
-    value_type = float
+    value_type = int
     entity = Personne
     definition_period = YEAR
-    default_value = 0.
+    default_value = 0
     label = "Montant de la pénalité d'intérêt de retard du rôle foncier."
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
@@ -323,4 +332,35 @@ class montant_penalite_interet_de_retard(Variable):
         nombre_de_mois_de_retard = personne('nombre_de_mois_de_retard', period)
         taux_penalite_interet_de_retard = personne('taux_penalite_interet_de_retard', period)
         return penalite_interet_de_retard_appliquee\
-            * base_de_calcul_des_penalites * nombre_de_mois_de_retard * taux_penalite_interet_de_retard
+            * arrondi_inferieur(base_de_calcul_des_penalites * nombre_de_mois_de_retard * taux_penalite_interet_de_retard)
+
+
+# --------------------------------------------------
+# ---                   TOTAL                    ---
+# --------------------------------------------------
+
+
+class penalitee_appliquee(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "Est-ce qu'une pénalitée de majoration fixe ou des intérêts de retard sont appliqués ?"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        penalite_majoration_fixe_appliquee = personne('penalite_majoration_fixe_appliquee', period)
+        penalite_interet_de_retard_appliquee = personne('penalite_interet_de_retard_appliquee', period)
+        return penalite_majoration_fixe_appliquee + penalite_interet_de_retard_appliquee
+
+
+class montant_total_des_penalites(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = YEAR
+    default_value = 0
+    label = "Montant total des pénalités."
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        montant_penalite_majoration_fixe = personne('montant_penalite_majoration_fixe', period)
+        montant_penalite_interet_de_retard = personne('montant_penalite_interet_de_retard', period)
+        return montant_penalite_majoration_fixe + montant_penalite_interet_de_retard
