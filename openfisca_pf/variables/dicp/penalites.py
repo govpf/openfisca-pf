@@ -18,7 +18,6 @@ from openfisca_pf.functions.time import (
     annee_de_la_date,
     as_date,
     as_duration,
-    prochaine_date,
     relative_delta_months,
     relative_delta_days
     )
@@ -267,7 +266,6 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
     label = "Date à partir de laquelle le décompte des intérêts de retard commence"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        date_de_changement = personne('date_de_changement', period).astype(date)
         mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
         return personne.filled_array(
