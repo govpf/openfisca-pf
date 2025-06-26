@@ -24,9 +24,14 @@ class Activite(Enum):
     OBNL = "Organisme à but non lucratif"
 
 
-ACTIVITE_TAUX_IS = numpy.asarray([Activite.NORMALE, Activite.SOCIETES_MINIERES, Activite.ETABLISSEMENTS_FINANCIERS_CREDIT_BAIL,
-                         Activite.ENERGIES_RENOUVELABLES, Activite.SECTEUR_NUMERIQUE,
-                         Activite.SECTEUR_RECHERCHE_DEVELOPPEMENT])
+ACTIVITE_TAUX_IS = numpy.asarray([
+    Activite.NORMALE,
+    Activite.SOCIETES_MINIERES,
+    Activite.ETABLISSEMENTS_FINANCIERS_CREDIT_BAIL,
+    Activite.ENERGIES_RENOUVELABLES,
+    Activite.SECTEUR_NUMERIQUE,
+    Activite.SECTEUR_RECHERCHE_DEVELOPPEMENT
+    ])
 
 ACTIVITE_TAUX_IS_ENCODEE = Activite.encode(ACTIVITE_TAUX_IS)
 
@@ -62,9 +67,17 @@ ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_CSIS_ENCODEE = Activite.encode(numpy.asarray([
     ]))
 
 
-ACTIVITE_REDUCTION_IS = numpy.asarray([Activite.SOCIETES_EXPORTATRICES, Activite.CROISIERE_MIXTE, Activite.ACTIVITES_CROISIERE,
-                         Activite.CONCESSIONS_MINIERES, Activite.MEMBRE_GROUPE_FISCAL, Activite.GIE, Activite.SCPR,
-                         Activite.SCM, Activite.OBNL])
+ACTIVITE_REDUCTION_IS = numpy.asarray([
+    Activite.SOCIETES_EXPORTATRICES,
+    Activite.CROISIERE_MIXTE,
+    Activite.ACTIVITES_CROISIERE,
+    Activite.CONCESSIONS_MINIERES,
+    Activite.MEMBRE_GROUPE_FISCAL,
+    Activite.GIE,
+    Activite.SCPR,
+    Activite.SCM,
+    Activite.OBNL
+    ])
 
 ActiviteReductionIS = Enum(
     'ActiviteReductionIS',
