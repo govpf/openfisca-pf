@@ -13,8 +13,8 @@ from openfisca_pf.base import (
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.impot_societe.activity import (
     Activite,
-    ACTIVITE_REDUCTION_CSIS,
-    ACTIVITE_REDUCTION_TAUX_A_SAISIR_CSIS
+    ACTIVITE_REDUCTION_CSIS_ENCODEE,
+    ACTIVITE_REDUCTION_TAUX_A_SAISIR_CSIS_ENCODEE
     )
 
 
@@ -27,7 +27,7 @@ class csis_net_possede_reduction(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         activite_principale = personne('is_activite_principale', period, parameters)
-        return isin(activite_principale, ACTIVITE_REDUCTION_CSIS)
+        return isin(activite_principale, ACTIVITE_REDUCTION_CSIS_ENCODEE)
 
 
 class csis_net_reduction_taux_est_a_saisir(Variable):
@@ -38,7 +38,7 @@ class csis_net_reduction_taux_est_a_saisir(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         activite_principale = personne('is_activite_principale', period, parameters)
-        return isin(activite_principale, ACTIVITE_REDUCTION_TAUX_A_SAISIR_CSIS)
+        return isin(activite_principale, ACTIVITE_REDUCTION_TAUX_A_SAISIR_CSIS_ENCODEE)
 
 
 class csis_net_reduction_taux_saisie(Variable):

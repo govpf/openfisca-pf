@@ -1,7 +1,7 @@
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.base import (ArrayLike, Period, DAY, select, Variable, where, isin, not_, ParameterNode, Population)
 from openfisca_pf.entities import Personne
-from openfisca_pf.enums.impot_societe.activity import Activite, ACTIVITE_ABATTEMENT_IMF, ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IMF
+from openfisca_pf.enums.impot_societe.activity import Activite, ACTIVITE_ABATTEMENT_IMF_ENCODEE, ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IMF_ENCODEE
 
 
 class imf_brut_base(Variable):
@@ -117,7 +117,7 @@ class imf_brut_possede_abattement(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         activite_principale = personne('is_activite_principale', period, parameters)
-        return isin(activite_principale, ACTIVITE_ABATTEMENT_IMF)
+        return isin(activite_principale, ACTIVITE_ABATTEMENT_IMF_ENCODEE)
 
 
 class imf_brut_abattement_taux_saisie(Variable):
@@ -135,7 +135,7 @@ class imf_brut_abattement_taux_est_a_saisir(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         activite_principale = personne('is_activite_principale', period, parameters)
-        return isin(activite_principale, ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IMF)
+        return isin(activite_principale, ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IMF_ENCODEE)
 
 
 class imf_brut_abattement_taux(Variable):

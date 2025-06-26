@@ -1,8 +1,10 @@
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.base import (ArrayLike, Period, DAY, Enum, select, Variable, where, isin, ParameterNode, Population)
 from openfisca_pf.entities import Personne
-from openfisca_pf.enums.impot_societe.activity import Activite, ACTIVITE_TAUX_IS, ACTIVITE_ABATTEMENT_IS, \
-    ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS
+from openfisca_pf.enums.impot_societe.activity import Activite, ActiviteTauxIS, ACTIVITE_TAUX_IS_ENCODEE, \
+    ACTIVITE_ABATTEMENT_IS_ENCODEE, \
+    ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS_ENCODEE, ACTIVITE_REDUCTION_IS_ENCODEE, ActiviteAbattementIS, \
+    ActiviteReductionIS
 from openfisca_pf.functions.currency import arrondi_millier_inferieur
 
 
@@ -14,6 +16,32 @@ class is_activite_principale(Variable):
     default_value = Activite.NORMALE
     label = "Activité principale societe"
 
+class is_activite_avec_taux(Variable):
+    value_type = Enum
+    possible_values = ActiviteTauxIS
+    entity = Personne
+    definition_period = DAY
+    default_value = ActiviteTauxIS.NORMALE
+    label = "Activité avec taux IS"
+
+
+class is_activite_avec_abattement(Variable):
+    value_type = Enum
+    possible_values = ActiviteAbattementIS
+    entity = Personne
+    definition_period = DAY
+    default_value = ActiviteAbattementIS.SOCIETES_GESTION_FONDS_GARANTIE
+    label = "Activité avec abattement IS"
+
+
+class is_activite_avec_reduction(Variable):
+    value_type = Enum
+    possible_values = ActiviteReductionIS
+    entity = Personne
+    definition_period = DAY
+    default_value = ActiviteReductionIS.SOCIETES_EXPORTATRICES
+    label = "Activité avec réduction IS"
+
 
 class is_brut_possede_taux_is(Variable):
     value_type = bool
@@ -24,7 +52,7 @@ class is_brut_possede_taux_is(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         activite_principale = personne('is_activite_principale', period, parameters)
-        return isin(activite_principale, ACTIVITE_TAUX_IS)
+        return isin(activite_principale, ACTIVITE_TAUX_IS_ENCODEE)
 
 
 class is_est_zrae(Variable):
@@ -88,7 +116,7 @@ class is_brut_possede_abattement(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         activite_principale = personne('is_activite_principale', period, parameters)
-        return isin(activite_principale, ACTIVITE_ABATTEMENT_IS)
+        return isin(activite_principale, ACTIVITE_ABATTEMENT_IS_ENCODEE)
 
 
 class is_brut_abattement_taux_saisie(Variable):
@@ -114,7 +142,7 @@ class is_brut_abattement_taux_est_a_saisir(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         activite_principale = personne('is_activite_principale', period, parameters)
-        return isin(activite_principale, ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS)
+        return isin(activite_principale, ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS_ENCODEE)
 
 
 class is_brut_abattement_taux(Variable):
