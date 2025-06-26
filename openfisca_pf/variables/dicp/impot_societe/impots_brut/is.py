@@ -3,7 +3,7 @@ from openfisca_pf.base import (ArrayLike, Period, DAY, Enum, select, Variable, w
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.impot_societe.activity import Activite, ActiviteTauxIS, ACTIVITE_TAUX_IS_ENCODEE, \
     ACTIVITE_ABATTEMENT_IS_ENCODEE, \
-    ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS_ENCODEE, ACTIVITE_REDUCTION_IS_ENCODEE, ActiviteAbattementIS, \
+    ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS_ENCODEE, ActiviteAbattementIS, \
     ActiviteReductionIS
 from openfisca_pf.functions.currency import arrondi_millier_inferieur
 
@@ -15,6 +15,7 @@ class is_activite_principale(Variable):
     definition_period = DAY
     default_value = Activite.NORMALE
     label = "Activité principale societe"
+
 
 class is_activite_avec_taux(Variable):
     value_type = Enum

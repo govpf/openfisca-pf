@@ -38,26 +38,26 @@ ACTIVITE_TAUX_IS_ENCODEE = Activite.encode(ACTIVITE_TAUX_IS)
 ActiviteTauxIS = Enum(
     'ActiviteTauxIS',
     {act.name: act.value for act in ACTIVITE_TAUX_IS}
-)
+    )
 
 ACTIVITE_ABATTEMENT_IS = numpy.asarray([Activite.SOCIETES_GESTION_FONDS_GARANTIE])
 
 ActiviteAbattementIS = Enum(
     'ActiviteAbattementIS',
     {act.name: act.value for act in ACTIVITE_ABATTEMENT_IS}
-)
+    )
 
 ACTIVITE_ABATTEMENT_IS_ENCODEE = Activite.encode(ACTIVITE_ABATTEMENT_IS)
 
 ACTIVITE_ABATTEMENT_IMF_ENCODEE = Activite.encode(numpy.asarray([
     Activite.SOCIETES_GESTION_FONDS_GARANTIE
-]))
+    ]))
 
 ACTIVITE_ABATTEMENT_CSIS_ENCODEE = Activite.encode(numpy.asarray([
     ]))
 
 
-ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS_ENCODEE= Activite.encode(numpy.asarray([
+ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IS_ENCODEE = Activite.encode(numpy.asarray([
     ]))
 
 ACTIVITE_ABATTEMENT_TAUX_A_SAISIR_IMF_ENCODEE = Activite.encode(numpy.asarray([
@@ -82,7 +82,7 @@ ACTIVITE_REDUCTION_IS = numpy.asarray([
 ActiviteReductionIS = Enum(
     'ActiviteReductionIS',
     {act.name: act.value for act in ACTIVITE_REDUCTION_IS}
-)
+    )
 
 ACTIVITE_REDUCTION_IS_ENCODEE = Activite.encode(ACTIVITE_REDUCTION_IS)
 
