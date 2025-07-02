@@ -41,6 +41,7 @@ class is_avantage_ifed_multiple(Variable):
         duree = parameters(period).dicp.impot_societe.avantages.ifed.duree
         return augmentation / duree
 
+
 class is_avantage_ifed_taux_plafond(Variable):
     value_type = int
     entity = Personne
