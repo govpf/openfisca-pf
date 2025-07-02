@@ -8,6 +8,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 
+
 class is_avantage_ifed_valeur_augmentation(Variable):
     value_type = int
     entity = Personne
