@@ -20,16 +20,6 @@ class is_avantage_ifed_valeur_augmentation(Variable):
         return parameters(period).dicp.impot_societe.avantages.ifed.valeur_augmentation
 
 
-class is_avantage_ifed_libelle(Variable):
-    value_type = str
-    entity = Personne
-    definition_period = DAY
-    label = "Libellé"
-
-    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_societe.avantages.ifed.libelle[0]
-
-
 class is_avantage_ifed_duree(Variable):
     value_type = int
     entity = Personne
@@ -39,6 +29,17 @@ class is_avantage_ifed_duree(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.duree
 
+
+class is_avantage_ifed_multiple(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = DAY
+    label = "Multiple de la somme de l'avantage"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        augmentation = parameters(period).dicp.impot_societe.avantages.ifed.valeur_augmentation
+        duree = parameters(period).dicp.impot_societe.avantages.ifed.duree
+        return augmentation / duree
 
 class is_avantage_ifed_taux_plafond(Variable):
     value_type = int
@@ -59,12 +60,3 @@ class is_avantage_ifed_jour_exercice_imputation(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.jour_exercice_imputation
 
-
-class is_avantage_ifed_mois_exercice_imputation(Variable):
-    value_type = int
-    entity = Personne
-    definition_period = DAY
-    label = "Mois exercice imputation"
-
-    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_societe.avantages.ifed.mois_exercice_imputation
