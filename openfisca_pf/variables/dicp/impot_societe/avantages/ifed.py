@@ -1,7 +1,3 @@
-from typing import Union, Optional
-
-from openfisca_core.types import Instant, Formula
-
 from openfisca_pf.base import (
     ArrayLike,
     DAY,
@@ -9,7 +5,7 @@ from openfisca_pf.base import (
     Period,
     Population,
     Variable,
-)
+    )
 from openfisca_pf.entities import Personne
 
 class is_avantage_ifed_valeur_augmentation(Variable):
@@ -22,6 +18,7 @@ class is_avantage_ifed_valeur_augmentation(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.valeur_augmentation
 
+
 class is_avantage_ifed_libelle(Variable):
     value_type = str
     entity = Personne
@@ -30,6 +27,7 @@ class is_avantage_ifed_libelle(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.libelle[0]
+
 
 class is_avantage_ifed_duree(Variable):
     value_type = int
@@ -40,6 +38,7 @@ class is_avantage_ifed_duree(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.duree
 
+
 class is_avantage_ifed_taux_plafond(Variable):
     value_type = int
     entity = Personne
@@ -48,6 +47,7 @@ class is_avantage_ifed_taux_plafond(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.taux_plafond
+
 
 class is_avantage_ifed_jour_exercice_imputation(Variable):
     value_type = int
@@ -58,6 +58,7 @@ class is_avantage_ifed_jour_exercice_imputation(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.jour_exercice_imputation
 
+
 class is_avantage_ifed_mois_exercice_imputation(Variable):
     value_type = int
     entity = Personne
@@ -66,7 +67,3 @@ class is_avantage_ifed_mois_exercice_imputation(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.mois_exercice_imputation
-
-
-
-
