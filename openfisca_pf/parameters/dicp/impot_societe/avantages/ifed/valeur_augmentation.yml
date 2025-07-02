@@ -1,0 +1,6 @@
+description: Valeur d'augmentation FCFP
+metadata:
+  unit: 'currency-XPF'
+values:
+  2017-01-01:
+    value: 1_500_000
