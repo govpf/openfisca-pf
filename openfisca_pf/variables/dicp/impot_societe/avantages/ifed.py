@@ -59,4 +59,3 @@ class is_avantage_ifed_jour_exercice_imputation(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.ifed.jour_exercice_imputation
-
