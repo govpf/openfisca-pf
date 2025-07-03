@@ -20,7 +20,7 @@ from openfisca_pf.base import (
     select,
     Variable,
     YEAR
-)
+    )
 from openfisca_pf.entities import Pays, Personne
 from openfisca_pf.enums.impot_foncier import CategoryBien
 from openfisca_pf.functions.currency import arrondi_inferieur
