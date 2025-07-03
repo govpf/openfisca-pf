@@ -2,6 +2,7 @@
 
 
 import numpy
+
 from openfisca_pf.base import (
     ArrayLike,
     date,
@@ -19,7 +20,7 @@ from openfisca_pf.base import (
     select,
     Variable,
     YEAR
-    )
+)
 from openfisca_pf.entities import Pays, Personne
 from openfisca_pf.enums.impot_foncier import CategoryBien
 from openfisca_pf.functions.currency import arrondi_inferieur
@@ -190,9 +191,9 @@ class enveloppe_credit_photovoltaique(Variable):
         enveloppe = numpy.zeros_like(age)
         for i in range(age.size):
             if age[i] == 1:
-                enveloppe[i] = personne('montant_base_credit_photovoltaique', period)
+                enveloppe[i] = personne('montant_base_credit_photovoltaique', period)[i]
             elif age[i] > 1:
-                enveloppe[i] = personne('reste_credit_photovoltaique', period.last_year)
+                enveloppe[i] = personne('reste_credit_photovoltaique', period.last_year)[i]
         return select(
             [eligible],
             [enveloppe],
