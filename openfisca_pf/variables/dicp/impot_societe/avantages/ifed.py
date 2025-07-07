@@ -43,7 +43,7 @@ class is_avantage_ifed_multiple(Variable):
 
 
 class is_avantage_ifed_taux_plafond(Variable):
-    value_type = int
+    value_type = float
     entity = Personne
     definition_period = DAY
     label = "Taux plafond"
