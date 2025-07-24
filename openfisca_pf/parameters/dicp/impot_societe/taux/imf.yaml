@@ -5,8 +5,8 @@ metadata:
 benefice:
   values:
     2017-01-01:
-      value: 0.05
+      value: 0.005
 deficit:
   values:
     2017-01-01:
-      value: 0.025
+      value: 0.0025
