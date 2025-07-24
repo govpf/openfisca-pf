@@ -13,8 +13,8 @@
   input:
     imf_brut_base: 10000
   output:
-    imf_brut_taux_benefice: 0.05
-    imf_brut_taux_deficit: 0.025
+    imf_brut_taux_benefice: 0.005
+    imf_brut_taux_deficit: 0.0025
     imf_brut_montant_minimum: 50000
     imf_brut_montant_maximum: 4000000
 
@@ -31,16 +31,16 @@
   input:
     imf_brut_base: 2000000
   output:
-    imf_brut_taux: 0.05
+    imf_brut_taux: 0.005
     imf_brut_abattement_taux: 0
-    imf_brut_due: 100000
+    imf_brut_due: 50000
 
 - name: imf_montant_minimum
   period: 2024-01-01
   input:
     imf_brut_base: 900000
   output:
-    imf_brut_taux: 0.05
+    imf_brut_taux: 0.005
     imf_brut_abattement_taux: 0
     imf_brut_due: 50000
 
@@ -49,9 +49,9 @@
   input:
     imf_brut_base: 90000000
   output:
-    imf_brut_taux: 0.05
+    imf_brut_taux: 0.005
     imf_brut_abattement_taux: 0
-    imf_brut_due: 4000000
+    imf_brut_due: 450000
 
 - name: "Impots IMF Abattement"
   period: 2024-01-01
@@ -60,7 +60,7 @@
     is_activite_principale: "SOCIETES_GESTION_FONDS_GARANTIE"
     is_nombre_exercices: 1
   output:
-    imf_brut_taux: 0.05
+    imf_brut_taux: 0.005
     imf_brut_abattement_taux: 0.9
     imf_brut_due: 50000
 
