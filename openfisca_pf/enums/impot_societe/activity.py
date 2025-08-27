@@ -112,13 +112,16 @@ ACTIVITE_REDUCTION_CSIS_ENCODEE = Activite.encode(numpy.asarray([
 
 ACTIVITE_REDUCTION_TAUX_A_SAISIR_IS_ENCODEE = Activite.encode(numpy.asarray([
     Activite.SOCIETES_EXPORTATRICES,
+    Activite.CROISIERE_MIXTE
     ]))
 
 
 ACTIVITE_REDUCTION_TAUX_A_SAISIR_IMF_ENCODEE = Activite.encode(numpy.asarray([
     Activite.SOCIETES_EXPORTATRICES,
+    Activite.CROISIERE_MIXTE
     ]))
 
 ACTIVITE_REDUCTION_TAUX_A_SAISIR_CSIS_ENCODEE = Activite.encode(numpy.asarray([
     Activite.SOCIETES_EXPORTATRICES,
+    Activite.CROISIERE_MIXTE
     ]))
