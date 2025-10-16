@@ -482,6 +482,17 @@
           2020: true
           2021: true
           2022: true
+        habitation_principale_depuis_origine:
+          2013: true
+          2014: true
+          2015: true
+          2016: true
+          2017: true
+          2018: true
+          2019: true
+          2020: true
+          2021: true
+          2022: true
   output:
     personnes:
       bien:
@@ -504,6 +515,7 @@
         date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2015-12-31"
         demande_exoneration_temporaire_habitation_principale: true
         date_demande_exoneration_temporaire_habitation_principale: "2014-01-01"
+        habitation_principale_depuis_origine: true
         loue:
           2014: false
           2015: false
@@ -531,6 +543,51 @@
       bien:
         age_du_bien: 10
         eligible_exoneration_temporaire_habitation_principale: true
+
+- name: "eligible_exoneration_temporaire_habitation_principale est égale à false si le bien n'a pas toujours été une habitation principale"
+  period: 2023
+  input:
+    pays:
+      age_min_exoneration_temporaire_habitation_principale_pays: 1
+      age_max_exoneration_temporaire_habitation_principale_pays: 10
+    personnes:
+      bien:
+        terrain: false
+        bien_occupe_avant_la_fin_des_travaux: false
+        date_du_permis_de_construire: "2013-01-01"
+        date_du_certificat_de_conformite: "2013-12-31"
+        date_limite_permis_de_construire_exoneration_temporaire_habitation_principale: "2011-12-31"
+        date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale: "2015-12-31"
+        demande_exoneration_temporaire_habitation_principale: true
+        date_demande_exoneration_temporaire_habitation_principale: "2014-01-01"
+        habitation_principale_depuis_origine: false
+        loue:
+          2014: false
+          2015: false
+          2016: false
+          2017: false
+          2018: false
+          2019: false
+          2020: false
+          2021: false
+          2022: false
+          2023: false
+        habitation_principale:
+          2014: true
+          2015: true
+          2016: true
+          2017: true
+          2018: true
+          2019: true
+          2020: true
+          2021: true
+          2022: true
+          2023: true
+  output:
+    personnes:
+      bien:
+        age_du_bien: 10
+        eligible_exoneration_temporaire_habitation_principale: false
 
 - name: "eligible_exoneration_temporaire_habitation_principale est égale à false si une condition n'est pas remplie à partir de 2023 (terrain)"
   period: 2023
