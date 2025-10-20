@@ -2,7 +2,7 @@
 from openfisca_pf.base import (
     Variable,
     YEAR
-)
+    )
 from openfisca_pf.entities import Personne
 
 
