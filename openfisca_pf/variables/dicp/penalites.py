@@ -13,6 +13,7 @@ from openfisca_pf.base import (
     YEAR
     )
 from openfisca_pf.entities import Personne
+from openfisca_pf.enums.geographie import *
 from openfisca_pf.functions.currency import arrondi_inferieur
 from openfisca_pf.functions.time import (
     annee_de_la_date,
@@ -268,9 +269,16 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
-        return personne.filled_array(
-            date(period.start.year, mois, jour)
-            )
+
+        base = personne.filled_array(date(period.start.year, mois, jour))
+
+        archipel = personne('archipel', period)
+
+        est_societe = (archipel == Archipel.ILES_DU_VENT) + (archipel == Archipel.ILES_SOUS_LE_VENT)
+
+        delai_supp_mois = select([est_societe], [0], 1)
+
+        return base + relative_delta_months(delai_supp_mois)
 
 
 class penalite_interet_de_retard_appliquee(Variable):
