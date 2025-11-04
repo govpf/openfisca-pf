@@ -344,6 +344,7 @@ class eligible_exoneration_temporaire_habitation_principale(Variable):
         limit_cc = personne('date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale', period)
         demande = personne('demande_exoneration_temporaire_habitation_principale', period)
         date_demande = personne('date_demande_exoneration_temporaire_habitation_principale', period)
+        habitation_principale_depuis_origine = personne('habitation_principale_depuis_origine', period)
         annee_actuelle = period.start.year
 
         loue = personne.filled_array(False)
@@ -361,7 +362,7 @@ class eligible_exoneration_temporaire_habitation_principale(Variable):
                 loue = loue + personne('loue', periode_decalee)[i]
                 habitation_principale = habitation_principale * personne('habitation_principale', periode_decalee)[i]
 
-        # TODO LA DEMANDE DOIT ÊTRE REALISE DANS UN CERTAIN DÉLAIS
+    # TODO LA DEMANDE DOIT ÊTRE REALISE DANS UN CERTAIN DÉLAIS
         return not_(terrain) \
             * not_(bien_occupe) \
             * (date_pc >= limit_pc) \
@@ -369,6 +370,7 @@ class eligible_exoneration_temporaire_habitation_principale(Variable):
             * demande \
             * (annee_de_la_date(date_demande) < annee_actuelle) \
             * habitation_principale \
+            * habitation_principale_depuis_origine \
             * not_(loue)
 
 

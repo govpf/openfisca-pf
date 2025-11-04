@@ -1,0 +1,11 @@
+description: "Montants d'IMF minimum et maximum"
+metadata:
+  unit: 'currency-XPF'
+minimum:
+  values:
+    2017-01-01:
+      value: 50000
+maximum:
+  values:
+    2017-01-01:
+      value: 4000000

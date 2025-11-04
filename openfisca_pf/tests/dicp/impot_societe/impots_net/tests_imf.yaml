@@ -1,0 +1,30 @@
+- name: "Taux net activé Normale 2024"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "NORMALE"
+    is_nombre_exercices: 3
+  output:
+    imf_net_reduction_taux: 0
+    imf_net_possede_reduction: false
+    imf_net_reduction_taux_est_a_saisir: false
+
+- name: "Taux net activé CONCESSIONS_MINIERES 2024"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "CONCESSIONS_MINIERES"
+    is_nombre_exercices: 3
+  output:
+    imf_net_reduction_taux: 1
+    imf_net_possede_reduction: true
+    imf_net_reduction_taux_est_a_saisir: false
+
+- name: "Taux net activé CROISIERE_MIXTE 2024"
+  period: 2024-01-01
+  input:
+    is_activite_principale: "CROISIERE_MIXTE"
+    is_nombre_exercices: 3
+    imf_net_reduction_taux_saisie: 0.6
+  output:
+    imf_net_reduction_taux: 0.6
+    imf_net_possede_reduction: true
+    imf_net_reduction_taux_est_a_saisir: true

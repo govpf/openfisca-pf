@@ -1,0 +1,15 @@
+- name: is_bilan_actif_comptes_regularation_charges_constatees_avance_net
+  period: 2024
+  input:
+    is_bilan_actif_comptes_regularation_charges_constatees_avance_brut: 200
+    is_bilan_actif_comptes_regularation_charges_constatees_avance_amortissements_provisions: 100
+  output:
+    is_bilan_actif_comptes_regularation_charges_constatees_avance_net: 100
+
+
+- name: is_bilan_actif_comptes_regularation_charges_repartir_plusieurs_exercices_net
+  period: 2024
+  input:
+    is_bilan_actif_comptes_regularation_charges_repartir_plusieurs_exercices_brut: 200
+  output:
+    is_bilan_actif_comptes_regularation_charges_repartir_plusieurs_exercices_net: 200

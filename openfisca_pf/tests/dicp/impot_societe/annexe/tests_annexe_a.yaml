@@ -1,0 +1,28 @@
+- name: is_salaires_verses_hors_territoire_total
+  period: 2024
+  input:
+    is_salaires_verses_hors_territoire_dirigeant: 100
+    is_salaires_verses_hors_territoire_non_dirigeant: 1000
+    is_salaires_verses_dans_territoire_dirigeant: 200
+    is_salaires_verses_dans_territoire_non_dirigeant: 2000
+  output:
+    is_salaires_verses_hors_territoire_total: 1100
+    is_salaires_verses_dans_territoire_total: 2200
+    is_salaires_verses_dirigeant_total: 300
+    is_salaires_verses_non_dirigeant_total: 3000
+    is_salaires_verses_total: 3300
+
+- name: is_salaires_verses_hors_territoire_total
+  period: 2024
+  input:
+    is_charges_sociales_deductibles_verses_dans_territoire_dirigeant: 100
+    is_charges_sociales_deductibles_verses_dans_territoire_non_dirigeant: 1000
+    is_salaires_deductibles_verses_dans_territoire_dirigeant: 200
+    is_salaires_deductibles_verses_dans_territoire_non_dirigeant: 2000
+  output:
+    is_charges_sociales_deductibles_verses_dans_territoire_total: 1100
+    is_salaires_deductibles_verses_dans_territoire_total: 2200
+    is_deductibles_verses_dans_territoire_dirigeant: 300
+    is_deductibles_verses_dans_territoire_non_dirigeant: 3000
+    is_deductibles_verses_dans_territoire_total: 3300
+
