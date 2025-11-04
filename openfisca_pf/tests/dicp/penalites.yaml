@@ -252,10 +252,19 @@
 
 # date_de_debut_du_decompte_interet_de_retard
 
-- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année du calcul (2024)"
+- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année du calcul (2024) pour île de la société"
   period: 2024
+  input:
+    commune_fiscale: PAPEETE
   output:
     date_de_debut_du_decompte_interet_de_retard: 2024-10-01
+
+- name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année du calcul (2024) pour île différente de la société"
+  period: 2024
+  input:
+    commune_fiscale: ANAA
+  output:
+    date_de_debut_du_decompte_interet_de_retard: 2024-11-01
 
 - name: "'date_de_debut_du_decompte_interet_de_retard' est égale au premier octobre de l'année du calcul (2025)"
   period: 2025

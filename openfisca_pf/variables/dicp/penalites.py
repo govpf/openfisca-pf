@@ -15,6 +15,8 @@ from openfisca_pf.base import (
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import *
 from openfisca_pf.functions.currency import arrondi_inferieur
+from dateutil.relativedelta import relativedelta
+import numpy as np
 from openfisca_pf.functions.time import (
     annee_de_la_date,
     as_date,
@@ -267,18 +269,24 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
     label = "Date à partir de laquelle le décompte des intérêts de retard commence"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        # 1) base (scalaire) → broadcasté en array
         mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
-
         base = personne.filled_array(date(period.start.year, mois, jour))
 
+        # 2) archipel (array) → teste les 2 cas "Société"
         archipel = personne('archipel', period)
+        est_societe = (archipel == Archipel.ILES_DU_VENT) | (archipel == Archipel.ILES_SOUS_LE_VENT)
+        # Si Société → 0 mois, sinon → +1 mois
+        # On fabrique un array de relativedelta (objet) compatible avec l'addition OpenFisca
+        delta = np.where(
+            est_societe,
+            personne.filled_array(relativedelta()),                 # +0 mois
+            personne.filled_array(relativedelta(months=+1))         # +1 mois
+        )
 
-        est_societe = (archipel == Archipel.ILES_DU_VENT) + (archipel == Archipel.ILES_SOUS_LE_VENT)
-
-        delai_supp_mois = select([est_societe], [0], 1)
-
-        return base + relative_delta_months(delai_supp_mois)
+        # 3) on applique le décalage (gère correctement décembre → janvier+1)
+        return base + delta
 
 
 class penalite_interet_de_retard_appliquee(Variable):
