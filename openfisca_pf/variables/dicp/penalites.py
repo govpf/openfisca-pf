@@ -283,7 +283,7 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
             est_societe,
             personne.filled_array(relativedelta()),                 # +0 mois
             personne.filled_array(relativedelta(months=+1))         # +1 mois
-        )
+            )
 
         # 3) on applique le décalage (gère correctement décembre → janvier+1)
         return base + delta
