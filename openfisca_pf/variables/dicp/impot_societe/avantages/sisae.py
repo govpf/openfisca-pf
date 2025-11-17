@@ -8,12 +8,14 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 
+
 class is_avantage_sisae_montant(Variable):
     value_type = int
     entity = Personne
     definition_period = DAY
     unit = 'currency-XFP'
     label = "Montant attestation SISAE en FCFP"
+
 
 class is_avantage_sisae_taux_exoneration(Variable):
     value_type = float
@@ -23,7 +25,8 @@ class is_avantage_sisae_taux_exoneration(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.impot_societe.avantages.sisae.taux_exoneration
-    
+
+
 class is_avantage_sisae_credit_ouvert(Variable):
     value_type = int
     entity = Personne
@@ -35,4 +38,3 @@ class is_avantage_sisae_credit_ouvert(Variable):
         taux_exoneration = personne('is_avantage_sisae_taux_exoneration', period)
         montant = personne('is_avantage_sisae_montant', period)
         return montant * taux_exoneration
-
