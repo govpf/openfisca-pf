@@ -1,0 +1,24 @@
+- name: is_avantage_sisae_taux_exoneration_periode
+  period: 2024-12-31
+  output:
+    is_avantage_sisae_taux_exoneration: 0.5
+
+- name: is_avantage_sisae_taux_exoneration_hors_periode
+  period: 2024-01-01
+  output:
+    is_avantage_sisae_taux_exoneration: 0.0
+
+
+- name: is_avantage_sisae_credit_ouvert_calcul
+  period: 2024-12-31
+  input:
+    is_avantage_sisae_montant: 30000000
+  output:
+    is_avantage_sisae_credit_ouvert: 15000000
+
+- name: is_avantage_sisae_credit_ouvert_calcul_hors_periode
+  period: 2024-01-01
+  input:
+    is_avantage_sisae_montant: 30000000
+  output:
+    is_avantage_sisae_credit_ouvert: 0

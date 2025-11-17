@@ -36,5 +36,3 @@ class is_avantage_sisae_credit_ouvert(Variable):
         montant = personne('is_avantage_sisae_montant', period)
         return montant * taux_exoneration
 
-
-
