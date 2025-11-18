@@ -1,0 +1,7 @@
+- name: 1 - TPI - Acte vente
+  period: 2025-01-16
+  input:
+    nature_acte: Vente
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 2500
