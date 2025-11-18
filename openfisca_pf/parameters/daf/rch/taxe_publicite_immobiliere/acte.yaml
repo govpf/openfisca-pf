@@ -1,0 +1,6 @@
+description: Taux de la taxe de publicité immobilière pour les actes
+#metadata:
+#  reference: __
+rate:
+  values:
+    2024-12-10: 0.10

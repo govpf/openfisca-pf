@@ -43,3 +43,8 @@ class TypeParente(Enum):
     LigneDirecte = 'Mutations en ligne directe (époux/concubins, frères et soeurs)'
     ParentCollateral = 'Parents en ligne collatérale de 3eme degré'
     NonParent = 'Non parents et parents en ligne collatérale à partir du 4eme degré'
+
+
+class NatureActe(Enum):
+    Vente = 'Vente'
+    Donation = 'Donation'
