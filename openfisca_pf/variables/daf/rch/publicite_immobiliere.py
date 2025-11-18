@@ -105,9 +105,9 @@ class duree_possession_annee(Variable):
 
 
 class nature_acte(Variable):
-    value_type = NatureActe
+    value_type = Enum
     possible_values = NatureActe
-    default_value = None
+    default_value = NatureActe.Vente
     entity = Personne
     definition_period = DAY
     label = "Nature de l'acte"
@@ -116,7 +116,7 @@ class nature_acte(Variable):
 class montant_total_acte(Variable):
     value_type = int
     entity = Personne
-    definition_periode = DAY
+    definition_period = DAY
     label = "Montant total d'un acte"
 
 
