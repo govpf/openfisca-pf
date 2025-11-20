@@ -1,0 +1,7 @@
+description: Activation SISAE
+values:
+  # FIXME Passer au 31/12/2026 une fois les tests terminés
+  2024-12-31:
+    value: true
+  2017-01-01:
+    value: false

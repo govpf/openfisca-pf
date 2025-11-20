@@ -22,3 +22,14 @@
     is_avantage_sisae_montant: 30000000
   output:
     is_avantage_sisae_credit_ouvert: 0
+
+
+- name: is_avantage_sisae_activation_desactive
+  period: 2024-01-01
+  output:
+    is_avantage_sisae_activation: false
+
+- name: is_avantage_sisae_activation_active
+  period: 2025-01-01
+  output:
+    is_avantage_sisae_activation: true
