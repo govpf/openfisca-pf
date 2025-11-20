@@ -16,6 +16,9 @@ ip_eco_10_boutique_vente_tourisme:
 ip_eco_11_support_embarcation_legere:
   values:
     2018-01-01: 1
+ip_eco_12_equipement_peche_pays:
+  values:
+    2018-01-01: 1
 co_eco_01_bati:
   values:
     2018-01-01: 1
@@ -133,6 +136,9 @@ if_eco_22_captage_eau_surface_primaire:
 if_eco_23_captage_eau_surface_publique:
   values:
     2018-01-01: 1
+if_eco_24_tout_cablage:
+  values:
+    2018-01-01: 1
 if_pr_04_captage_eau_sousterraine_privee:
   values:
     2018-01-01: 1
@@ -240,7 +246,7 @@ em_pr_04_surface_mineral_sans_elec:
   values:
     2018-01-01: 3
 
-# Type 4 
+# Type 4
 im_eco_02_foire_produit_locaux:
   values:
     2018-01-01: 4

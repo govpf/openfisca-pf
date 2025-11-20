@@ -1,0 +1,16 @@
+description: Paramètres pour le calcul des équipements du Pays dédiés à la pêche
+part_fixe:
+  values:
+    2018-01-01: 0
+part_unitaire:
+  values:
+    2018-01-01: 0
+part_variable:
+  values:
+    2018-01-01: 110
+montant_minimum:
+  values:
+    2018-01-01: 15000
+base_calcul_jour:
+  values:
+    2018-01-01: 360
