@@ -49,16 +49,16 @@ class nombre_mois_retard_is(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
 
-        dateCloture = personne("date_cloture_exercice", period, parameters)[0].astype('M8[M]').astype(object)
-        dateDepot = personne("date_de_depot", period, parameters)[0].astype('M8[M]').astype(object)
-        if dateCloture.month < 2:
-           dlim = datetime.date(dateCloture.year, 7, 31)
+        date_cloture = personne("date_cloture_exercice", period, parameters)[0].astype('M8[M]').astype(object)
+        date_depot = personne("date_de_depot", period, parameters)[0].astype('M8[M]').astype(object)
+        if date_cloture.month < 2:
+           dlim = datetime.date(date_cloture.year, 7, 31)
         else:
-            if dateCloture.month < 8:
-                dlim = datetime.date(dateCloture.year + 1, 1, 31)
+            if date_cloture.month < 8:
+                dlim = datetime.date(date_cloture.year + 1, 1, 31)
             else:
-                dlim = datetime.date(dateCloture.year + 1, 7, 31)
+                dlim = datetime.date(date_cloture.year + 1, 7, 31)
         # Si Société → 0 mois, sinon → +1 mois
         delta = np.where(
           personne('est_societe', period), 0, 1)
-        return ( 12 - dlim.month + dateDepot.month + ((dateDepot.year - dlim.year) - 1 ) * 12 ) - delta
+        return ( 12 - dlim.month + date_depot.month + ((date_depot.year - dlim.year) - 1 ) * 12 ) - delta
