@@ -1,0 +1,73 @@
+- name: "nb_mois_retard_decla_is - dépôt le jour limite, aucun retard"
+  period: 2025
+  input:
+    commune_fiscale: MAHINA
+    date_de_depot: 2025-07-31
+    date_cloture_exercice: 2024-12-31
+  output:
+    nombre_mois_retard_is: 0
+
+- name: "nb_mois_retard_decla_is - retard de 3 mois pour exercice clos 31/12/2023"
+  period: 2024
+  input:
+    commune_fiscale: MAHINA
+    date_de_depot: 2024-10-31
+    date_cloture_exercice: 2023-12-31
+  output:
+    nombre_mois_retard_is: 3
+
+- name: "nb_mois_retard_decla_is - retard de 3 mois pour exercice clos 30/06/2023 (Tahiti)"
+  period: 2024
+  input:
+    commune_fiscale: MAHINA
+    date_de_depot: 2024-04-30
+    date_cloture_exercice: 2023-06-30
+  output:
+    nombre_mois_retard_is: 3
+
+- name: "nb_mois_retard_decla_is - aucun retard pour exercice clos 30/06/2023 (Tahiti)"
+  period: 2024
+  input:
+    commune_fiscale: MAHINA
+    date_de_depot: 2024-01-31
+    date_cloture_exercice: 2023-06-30
+  output:
+    nombre_mois_retard_is: 0
+
+#ARHCIPEL HORS SOCIETE
+- name: "nb_mois_retard_decla_is - 2 mois de retard (NUKU_HIVA - exercice 2023)"
+  period: 2024
+  input:
+    commune_fiscale: NUKU_HIVA
+    date_de_depot: 2024-10-30
+    date_cloture_exercice: 2023-12-31
+  output:
+    nombre_mois_retard_is: 2
+
+- name: "nb_mois_retard_decla_is - aucun retard (RURUTU - exercice 2024)"
+  period: 2025
+  input:
+    commune_fiscale: RURUTU
+    date_de_depot: 2025-08-31
+    date_cloture_exercice: 2024-12-31
+  output:
+    nombre_mois_retard_is: 0
+
+- name: "nb_mois_retard_decla_is - 2 mois de retard (HAO - exercice non calendaire)"
+  period: 2025
+  input:
+    commune_fiscale: HAO
+    date_de_depot: 2025-04-30
+    date_cloture_exercice: 2024-04-30
+  output:
+    nombre_mois_retard_is: 2
+
+- name: "nb_mois_retard_decla_is - aucun retard (RANGIROA - exercice non calendaire)"
+  period: 2025
+  input:
+    commune_fiscale: RANGIROA
+    date_de_depot: 2025-02-28
+    date_cloture_exercice: 2024-04-30
+  output:
+    nombre_mois_retard_is: 0
+

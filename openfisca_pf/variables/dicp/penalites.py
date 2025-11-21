@@ -260,6 +260,18 @@ class montant_penalite_majoration_fixe(Variable):
 # ---             INTÉRÊTS DE RETARD             ---
 # --------------------------------------------------
 
+class est_societe(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = True
+    label = "Indique si la personne fait partie de la societe Tahiti ou non"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        # 2) archipel (array) → teste les 2 cas "Société"
+        archipel = personne('archipel', period)
+        return (archipel == Archipel.ILES_DU_VENT) | (archipel == Archipel.ILES_SOUS_LE_VENT)
+
 
 class date_de_debut_du_decompte_interet_de_retard(Variable):
     value_type = date
@@ -274,13 +286,12 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
         base = personne.filled_array(date(period.start.year, mois, jour))
 
-        # 2) archipel (array) → teste les 2 cas "Société"
-        archipel = personne('archipel', period)
-        est_societe = (archipel == Archipel.ILES_DU_VENT) | (archipel == Archipel.ILES_SOUS_LE_VENT)
+
+
         # Si Société → 0 mois, sinon → +1 mois
         # On fabrique un array de relativedelta (objet) compatible avec l'addition OpenFisca
         delta = np.where(
-            est_societe,
+            personne('est_societe', period),
             personne.filled_array(relativedelta()),                 # +0 mois
             personne.filled_array(relativedelta(months=+1))         # +1 mois
             )
