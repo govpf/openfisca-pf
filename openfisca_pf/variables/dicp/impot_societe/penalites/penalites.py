@@ -49,22 +49,16 @@ class nombre_mois_retard_is(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
 
-        monthDateCloture = personne("date_cloture_exercice", period, parameters)[0].astype('M8[M]').astype(object).month
-        yearDateCloture = personne("date_cloture_exercice", period, parameters)[0].astype('M8[Y]').astype(object).year
-        monthDateDepot = personne("date_de_depot", period, parameters)[0].astype('M8[M]').astype(object).month
-        yearDateDepot = personne("date_de_depot", period, parameters)[0].astype('M8[M]').astype(object).year
-        if monthDateCloture < 2:
-           dlim = datetime.date(yearDateCloture, 7, 31)
+        dateCloture = personne("date_cloture_exercice", period, parameters)[0].astype('M8[M]').astype(object)
+        dateDepot = personne("date_de_depot", period, parameters)[0].astype('M8[M]').astype(object)
+        if dateCloture.month < 2:
+           dlim = datetime.date(dateCloture.year, 7, 31)
         else:
-            if monthDateCloture < 8:
-                dlim = datetime.date(yearDateCloture + 1, 1, 31)
+            if dateCloture.month < 8:
+                dlim = datetime.date(dateCloture.year + 1, 1, 31)
             else:
-                dlim = datetime.date(yearDateCloture + 1, 7, 31)
+                dlim = datetime.date(dateCloture.year + 1, 7, 31)
         # Si Société → 0 mois, sinon → +1 mois
-        # On fabrique un array de relativedelta (objet) compatible avec l'addition OpenFisca
         delta = np.where(
-          personne('est_societe', period),
-          0,  # +0 mois
-          1  # +1 mois
-          )
-        return ( 12 - dlim.month + monthDateDepot + ((yearDateDepot - dlim.year) - 1 ) * 12 ) - delta
+          personne('est_societe', period), 0, 1)
+        return ( 12 - dlim.month + dateDepot.month + ((dateDepot.year - dlim.year) - 1 ) * 12 ) - delta
