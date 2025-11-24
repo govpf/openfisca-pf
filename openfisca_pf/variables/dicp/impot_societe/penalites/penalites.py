@@ -8,7 +8,7 @@ from openfisca_pf.base import (
     Population,
     Variable,
     DAY
-)
+    )
 from openfisca_pf.entities import Personne
 import numpy as np
 

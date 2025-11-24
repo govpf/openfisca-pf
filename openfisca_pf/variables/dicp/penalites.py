@@ -11,7 +11,6 @@ from openfisca_pf.base import (
     select,
     Variable,
     YEAR,
-    DAY
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import *
@@ -286,9 +285,6 @@ class date_de_debut_du_decompte_interet_de_retard(Variable):
         mois = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.mois
         jour = parameters(period).dicp.impot_foncier.calendrier.date_de_debut_des_interets_de_retard.jour
         base = personne.filled_array(date(period.start.year, mois, jour))
-
-
-
         # Si Société → 0 mois, sinon → +1 mois
         # On fabrique un array de relativedelta (objet) compatible avec l'addition OpenFisca
         delta = np.where(
