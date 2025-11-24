@@ -10,7 +10,8 @@ from openfisca_pf.base import (
     Population,
     select,
     Variable,
-    YEAR
+    YEAR,
+    DAY
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.geographie import *
