@@ -31,7 +31,7 @@ class is_nombre_mois_retard(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
 
         date_cloture = period.date
-        date_depot = personne("date_de_depot", period, parameters)[0].astype('M8[M]').astype(object)
+        date_depot = personne("is_date_de_depot", period, parameters)[0].astype('M8[M]').astype(object)
         if date_cloture.month < 2:
             dlim = datetime.date(date_cloture.year, 7, 31)
         else:

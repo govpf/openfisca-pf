@@ -49,7 +49,7 @@
   input:
     commune_fiscale:
       2024: RURUTU
-    date_de_depot: 2025-08-31
+    is_date_de_depot: 2025-08-31
   output:
     is_nombre_mois_retard: 0
 
@@ -58,7 +58,7 @@
   input:
     commune_fiscale:
       2024: HAO
-    date_de_depot: 2025-04-30
+    is_date_de_depot: 2025-04-30
   output:
     is_nombre_mois_retard: 2
 
@@ -67,7 +67,7 @@
   input:
     commune_fiscale:
       2024: RANGIROA
-    date_de_depot: 2025-02-28
+    is_date_de_depot: 2025-02-28
   output:
     is_nombre_mois_retard: 0
 
