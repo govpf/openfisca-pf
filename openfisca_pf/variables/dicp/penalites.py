@@ -265,10 +265,10 @@ class est_societe(Variable):
     entity = Personne
     definition_period = YEAR
     default_value = True
-    label = "Indique si la personne fait partie de la societe Tahiti ou non"
+    label = "Indique si la personne fait partie des iles de la societe ou non"
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        # 2) archipel (array) → teste les 2 cas "Société"
+        # 2) archipel (array) → teste les 2 groupes des iles de la societe
         archipel = personne('archipel', period)
         return (archipel == Archipel.ILES_DU_VENT) | (archipel == Archipel.ILES_SOUS_LE_VENT)
 
