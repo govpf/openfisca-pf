@@ -233,7 +233,8 @@ class montant_taxe_publicite(Variable):
                 ]
             )
         return arrondi_superieur(montant_taxe_publicite)
-    
+
+
 class montant_tpi_acte(Variable):
     value_type = int
     entity = Personne
