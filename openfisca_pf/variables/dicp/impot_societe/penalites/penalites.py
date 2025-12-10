@@ -12,6 +12,7 @@ from openfisca_pf.base import (
 from openfisca_pf.entities import Personne
 import numpy as np
 
+
 class is_cessation_activite(Variable):
     value_type = bool
     entity = Personne
