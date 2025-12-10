@@ -80,3 +80,34 @@
   output:
     is_nombre_mois_retard: 0
 
+- name: "nb_mois_retard_decla_is (31/12) - dépôt dans les délais - cessation effective"
+  period: 2024-12-11
+  input:
+    is_cessation_activite: true
+    is_date_de_depot: 2025-04-30
+  output:
+    is_nombre_mois_retard: 0
+
+- name: "nb_mois_retard_decla_is - dépôt dans les délais - cessation effective"
+  period: 2025-03-26
+  input:
+    is_cessation_activite: true
+    is_date_de_depot: 2025-04-21
+  output:
+    is_nombre_mois_retard: 0
+
+- name: "nb_mois_retard_decla_is - dépôt tardif (1 mois) - cessation effective"
+  period: 2024-11-22
+  input:
+    is_cessation_activite: true
+    is_date_de_depot: 2025-04-30
+  output:
+    is_nombre_mois_retard: 1
+
+- name: "nb_mois_retard_decla_is - dépôt tardif (3 mois) - cessation effective"
+  period: 2025-03-26
+  input:
+    is_cessation_activite: true
+    is_date_de_depot: 2025-10-31
+  output:
+    is_nombre_mois_retard: 3
