@@ -1,7 +1,6 @@
 description: Taux d'exonération
 values:
-  # FIXME Passer au 31/12/2026 une fois les tests terminés
-  2023-12-31:
+  2026-12-31:
     value: 0.5
-  2017-01-01:
+  2000-01-01:
     value: 0.0
