@@ -1,0 +1,57 @@
+description: Montant du taux de la taxe de publicité immobilière pour les transcriptions
+#metadata:
+#  reference: __
+vente:
+  values:
+    2024-12-10: 0.1
+vente_sous_condition_suspensive:
+  values:
+    2024-12-10: 0.1
+vente_en_etat_futur_achevement:
+  values:
+    2024-12-10: 0.1
+convention_divorce:
+  values:
+    2024-12-10: 0.1
+jugement:
+  values:
+    2024-12-10: 0.1
+jugement_adjudication:
+  values:
+    2024-12-10: 0.1
+partage:
+  values:
+    2024-12-10: 0.1
+liquidation_partage:
+  values:
+    2024-12-10: 0.1
+bail:
+  values:
+    2024-12-10: 0.1
+bail_emphyteotique:
+  values:
+    2024-12-10: 0.1
+cession_bail:
+  values:
+    2024-12-10: 0.1
+attestation_immobiliere:
+  values:
+    2024-12-10: 0.1
+attestation_immobiliere_complementaire:
+  values:
+    2024-12-10: 0.1
+donation:
+  values:
+    2024-12-10: 0.1
+donation_partage:
+  values:
+    2024-12-10: 0.1
+autorisation_occupation_temporaire:
+  values:
+    2024-12-10: 0.1
+cession_droits:
+  values:
+    2024-12-10: 0.1
+acte_administratif:
+  values:
+    2024-12-10: 0

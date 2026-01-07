@@ -1,0 +1,18 @@
+description: Montant de la taxe de publicité immobilière pour les saisies immobilière
+#metadata:
+#  reference: __
+pouvoir_commandement_saisie_immobiliere:
+  values:
+    2024-12-10: 1500
+sommation_fins_saisie_immobiliere:
+  values:
+    2024-12-10: 1500
+ordonnance_valant_saisie_immobiliere:
+  values:
+    2024-12-10: 1500
+pouvoir_commandement_de_payer_delaisser:
+  values:
+    2024-12-10: 1500
+sommation_payer_delaisser:
+  values:
+    2024-12-10: 1500

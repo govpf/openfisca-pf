@@ -1,0 +1,24 @@
+description: Montant du taux de la taxe de publicité immobilière pour les inscriptions
+#metadata:
+#  reference: __
+hypotheque_legale:
+  values:
+    2024-12-10: 0.2
+hypotheque_conventionnelle:
+  values:
+    2024-12-10: 0.2
+hypotheque_judiciaire_provisoire:
+  values:
+    2024-12-10: 0.2
+privilege_vendeur_action_resolutoire:
+  values:
+    2024-12-10: 0.2
+inscription_rectificative:
+  values:
+    2024-12-10: 0.2
+hypotheque_judiciaire_definitive:
+  values:
+    2024-12-10: 0.2
+renouvellement_inscription:
+  values:
+    2024-12-10: 0.2
