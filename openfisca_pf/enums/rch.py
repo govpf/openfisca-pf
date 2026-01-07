@@ -45,6 +45,12 @@ class TypeParente(Enum):
     NonParent = 'Non parents et parents en ligne collatérale à partir du 4eme degré'
 
 
+class TypeActe(Enum):
+    Transcription = 'Transcription'
+    Inscription = 'Inscription'
+    Saisie = 'Saisie'
+
+
 class NatureActe(Enum):
     Vente = 'Vente'
     Donation = 'Donation'
