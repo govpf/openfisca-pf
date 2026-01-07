@@ -52,5 +52,68 @@ class TypeActe(Enum):
 
 
 class NatureActe(Enum):
-    Vente = 'Vente'
-    Donation = 'Donation'
+    #Transcription (Dispositions)
+    Rectification = 'rectification'
+    Renonciation = 'renonciation'
+    ActeComplementaire = 'acte_complementaire'
+    ConstitutionServitude = 'constitution_servitude'
+    DroitAcces = 'droit_acces'
+    DepotPiece = 'depot_piece'
+    PactePreference = 'pacte_preference'
+    EtatDescriptifDivisionReglementCopropriete = 'etat_descriptif_division_reglement_copropriete'
+    ModificationEtatDescriptifDivisionReglementCopropriete = 'modification_etat_descriptif_division_reglement_copropriete'
+    CahierCharges = 'cahier_charges'
+    ModificationCahierCharges = 'modification_cahier_charges'
+    Avenant = 'avenant'
+    Echange = 'echange'
+    RenouvellementAutorisationOccupationTemporaire = 'renouvellement_autorisation_occupation_temporaire'
+    ConstatationRealisationConditionSuspensive = 'constatation_realisation_condition_suspensive'
+    Constatation = 'constatation'
+    Remploi = 'remploi'
+    Convention = 'convention'
+    Certificat = 'certificat_conformite'
+    PacteTontinier = 'pacte_tontinier'
+    ReserveDroitUsageHabitation = 'reserve_droit_usage_habitation'
+    DecisionJustice = 'decision_justice'
+
+    DISPOSITION_ENDPOINT = 'Endpoint pour les dispositions'
+
+    # Transcription (Acte initial)
+    Vente = 'vente'
+    VenteSousConditionSuspensive = 'vente_sous_condition_suspensive'
+    VenteEnEtatFuturAchevement = 'vente_en_etat_futur_achevement'
+    ConventionDivorce = 'convention_divorce'
+    Jugement = 'jugement'
+    JugementAdjudication = 'jugement_adjudication'
+    Partage = 'partage'
+    LiquidationPartage = 'liquidation_partage'
+    Bail = 'bail'
+    BailEmphyteotique = 'bail_emphyteotique'
+    CessionBail = 'cession_bail'
+    AttestationImmobiliere = 'attestation_immobiliere'
+    AttestationImmobiliereComplementaire = 'attestation_immobiliere_complementaire'
+    Donation = 'donation'
+    DonationPartage = 'donation_partage'
+    AutorisationOccupationTemporaire = 'autorisation_occupation_temporaire'
+    CessionDroits = 'cession_droits'
+    ActeAdministratif = 'acte_administratif'
+
+    #Inscription
+    HypothequeLegale = 'hypotheque_legale'
+    HypothequeJudiciaire = 'hypotheque_judiciaire'
+    HypothequeConventionnelle = 'hypotheque_conventionnelle'
+    HypothequeJudiciaireProvisoire = 'hypotheque_judiciaire_provisoire'
+    PrivilegeVendeurActionResolutoire = 'privilege_vendeur_action_resolutoire'
+    InscriptionRectificative = 'inscription_rectificative'
+    HypothequeJudiciaireDefinitive = 'hypotheque_judiciaire_definitive'
+    RenouvellementInscription = 'renouvellement_inscription'
+
+    #Saisie-immobiliere
+    PouvoirCommandementSaisieImmobiliere = 'pouvoir_commandement_saisie_immobiliere'
+    SommationFinsSaisieImmobiliere = 'sommation_fins_saisie_immobiliere'
+    OrdonnanceValantSaisieImmobiliere = 'ordonnance_valant_saisie_immobiliere'
+    PouvoirCommandementDePayerDelaisser = 'pouvoir_commandement_de_payer_delaisser'
+    SommationPayerDelaisser = 'sommation_payer_delaisser'
+
+    def is_disposition(self):
+        return self.index < self.DISPOSITION_ENDPOINT.index
