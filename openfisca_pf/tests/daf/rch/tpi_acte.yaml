@@ -73,3 +73,12 @@
     montant_total_acte: 2000
   output:
     montant_tpi_acte: 1500
+- name: 11 - TPI - Acte Saisie immobilière classique
+  period: 2025-01-16
+  input:
+    type_acte: Saisie
+    nature_acte: OrdonnanceValantSaisieImmobiliere
+    montant_initial_acte: 2000
+    montant_total_acte: 2000
+  output:
+    montant_tpi_acte: 1500

@@ -188,7 +188,7 @@ class montant_tpi_acte(Variable):
             [
                 regime_de_faveur != RegimeFaveur.Aucun,
                 nature_acte == NatureActe.Echange,
-                is_disposition,
+                is_disposition | (type_acte == TypeActe.Saisie),
                 (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
                 True
             ],
