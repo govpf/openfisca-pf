@@ -1,7 +1,14 @@
-- name: 1 - TPI - Acte vente
+- name: 1 - TPI - Acte dispositions
   period: 2025-01-16
   input:
-    nature_acte: Vente
+    nature_acte: Rectification
     montant_total_acte: 25000
   output:
-    montant_tpi_acte: 2500
+    montant_tpi_acte: 1500
+- name: 2 - TPI - Acte dispositions Echange
+  period: 2025-01-16
+  input:
+    nature_acte: Echange
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 3000

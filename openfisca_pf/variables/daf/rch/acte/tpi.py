@@ -115,9 +115,11 @@ class montant_tpi_acte(Variable):
 
         montant_tpi = select(
             [
+                nature_acte == NatureActe.Echange,
                 is_disposition,
             ],
             [
+                disposition_default_value * 2,
                 disposition_default_value,
             ]
         )
