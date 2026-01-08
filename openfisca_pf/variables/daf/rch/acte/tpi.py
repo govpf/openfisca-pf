@@ -17,6 +17,7 @@ from openfisca_pf.entities import Personne
 from openfisca_pf.enums.rch import (
     NatureActe,
     TypeActe,
+    RegimeFaveur
     )
 from openfisca_pf.functions.currency import arrondi_superieur
 from openfisca_pf.constants.units import BOOLEAN
@@ -41,11 +42,12 @@ class nature_acte(Variable):
 
 
 class regime_de_faveur(Variable):
-    value_type = bool
+    value_type = Enum
+    possible_values = RegimeFaveur
+    default_value = RegimeFaveur.Aucun
     entity = Personne
     definition_period = DAY
-    label = "Indique si l'acte bénéficie d'un régime de faveur"
-    unit = BOOLEAN
+    label = "Indique un régime de faveur de l'acte"
 
 
 class montant_total_acte(Variable):
@@ -115,12 +117,15 @@ class montant_tpi_acte(Variable):
 
         montant_tpi = select(
             [
+                regime_de_faveur != RegimeFaveur.Aucun,
                 nature_acte == NatureActe.Echange,
                 is_disposition,
             ],
             [
+                0,
                 disposition_default_value * 2,
                 disposition_default_value,
+
             ]
         )
         

@@ -12,3 +12,11 @@
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 3000
+- name: 3 - TPI - Acte avec régime de faveur
+  period: 2025-01-16
+  input:
+    nature_acte: Vente
+    regime_de_faveur: Succesorale
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 0

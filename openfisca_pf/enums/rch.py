@@ -51,6 +51,18 @@ class TypeActe(Enum):
     Saisie = 'Saisie'
 
 
+class RegimeFaveur(Enum):
+    AideJuridictionnelle = 'Aide juridictionnelle'
+    ActeAdministratifExonere = "Acte administratif exonéré"
+    ProgrammeHabitatSocial = "Programme d'habitat social"
+    ComptablePublic = "Comptable public"
+    Succesorale = "Succesorale"
+    Collectivites = "Collectivités"
+    Titrement = "Titrement"
+    Autre = "Autre"
+    Aucun = "Aucun"
+
+
 class NatureActe(Enum):
     #Transcription (Dispositions)
     Rectification = 'rectification'
