@@ -14,7 +14,6 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.rch import (
-    NatureActe,
     TypeAcheteur,
     TypeBien,
     TypeDemarche,

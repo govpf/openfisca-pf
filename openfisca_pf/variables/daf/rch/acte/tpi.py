@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 
-from fractions import Fraction
 from openfisca_pf.base import (
     ArrayLike,
     DAY,
@@ -10,7 +9,6 @@ from openfisca_pf.base import (
     Period,
     Population,
     select,
-    where,
     Variable
     )
 from openfisca_pf.entities import Personne
@@ -20,7 +18,6 @@ from openfisca_pf.enums.rch import (
     RegimeFaveur
     )
 from openfisca_pf.functions.currency import arrondi_superieur
-from openfisca_pf.constants.units import BOOLEAN
 
 
 class type_acte(Variable):
@@ -73,30 +70,31 @@ class is_disposition(Variable):
     def formula(personne: Population, period: Period) -> ArrayLike:
         nature_acte = personne('nature_acte', period)
         return (
-            (nature_acte == NatureActe.Rectification) |
-            (nature_acte == NatureActe.Renonciation) |
-            (nature_acte == NatureActe.ActeComplementaire) |
-            (nature_acte == NatureActe.ConstitutionServitude) |
-            (nature_acte == NatureActe.DroitAcces) |
-            (nature_acte == NatureActe.DepotPiece) |
-            (nature_acte == NatureActe.PactePreference) |
-            (nature_acte == NatureActe.EtatDescriptifDivisionReglementCopropriete) |
-            (nature_acte == NatureActe.ModificationEtatDescriptifDivisionReglementCopropriete) |
-            (nature_acte == NatureActe.CahierCharges) |
-            (nature_acte == NatureActe.ModificationCahierCharges) |
-            (nature_acte == NatureActe.Avenant) |
-            (nature_acte == NatureActe.Echange) |
-            (nature_acte == NatureActe.RenouvellementAutorisationOccupationTemporaire) |
-            (nature_acte == NatureActe.ConstatationRealisationConditionSuspensive) |
-            (nature_acte == NatureActe.Constatation) |
-            (nature_acte == NatureActe.Remploi) |
-            (nature_acte == NatureActe.Convention) |
-            (nature_acte == NatureActe.Certificat) |
-            (nature_acte == NatureActe.PacteTontinier) |
-            (nature_acte == NatureActe.ReserveDroitUsageHabitation) |
-            (nature_acte == NatureActe.DecisionJustice)
-        )
-    
+            (nature_acte == NatureActe.Rectification)
+            | (nature_acte == NatureActe.Renonciation)
+            | (nature_acte == NatureActe.ActeComplementaire)
+            | (nature_acte == NatureActe.ConstitutionServitude)
+            | (nature_acte == NatureActe.DroitAcces)
+            | (nature_acte == NatureActe.DepotPiece)
+            | (nature_acte == NatureActe.PactePreference)
+            | (nature_acte == NatureActe.EtatDescriptifDivisionReglementCopropriete)
+            | (nature_acte == NatureActe.ModificationEtatDescriptifDivisionReglementCopropriete)
+            | (nature_acte == NatureActe.CahierCharges)
+            | (nature_acte == NatureActe.ModificationCahierCharges)
+            | (nature_acte == NatureActe.Avenant)
+            | (nature_acte == NatureActe.Echange)
+            | (nature_acte == NatureActe.RenouvellementAutorisationOccupationTemporaire)
+            | (nature_acte == NatureActe.ConstatationRealisationConditionSuspensive)
+            | (nature_acte == NatureActe.Constatation)
+            | (nature_acte == NatureActe.Remploi)
+            | (nature_acte == NatureActe.Convention)
+            | (nature_acte == NatureActe.Certificat)
+            | (nature_acte == NatureActe.PacteTontinier)
+            | (nature_acte == NatureActe.ReserveDroitUsageHabitation)
+            | (nature_acte == NatureActe.DecisionJustice)
+            )
+
+
 class taux_tpi(Variable):
     value_type = float
     entity = Personne
@@ -134,7 +132,7 @@ class taux_tpi(Variable):
                 nature_acte == NatureActe.InscriptionRectificative,
                 nature_acte == NatureActe.HypothequeJudiciaireDefinitive,
                 nature_acte == NatureActe.RenouvellementInscription
-            ],
+                ],
             [
                 # Transcription (Acte initial)
                 taux_parameters.vente,
@@ -162,8 +160,8 @@ class taux_tpi(Variable):
                 taux_parameters.inscription_rectificative,
                 taux_parameters.hypotheque_judiciaire_definitive,
                 taux_parameters.renouvellement_inscription
-            ]
-        )
+                ]
+            )
 
 
 class montant_tpi_acte(Variable):
@@ -171,7 +169,6 @@ class montant_tpi_acte(Variable):
     entity = Personne
     definition_period = DAY
     label = "Montant de la taxe de publicité immobilière selon la nature de l'acte"
-
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         type_acte = personne('type_acte', period)
@@ -191,14 +188,14 @@ class montant_tpi_acte(Variable):
                 is_disposition | (type_acte == TypeActe.Saisie),
                 (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
                 True
-            ],
+                ],
             [
                 0,
                 fixed_default_value * 2,
                 fixed_default_value,
                 fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi),
                 arrondi_superieur(montant_total_acte * taux_tpi),
-            ]
-        )
-        
+                ]
+            )
+
         return montant_tpi

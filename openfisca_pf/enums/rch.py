@@ -64,7 +64,7 @@ class RegimeFaveur(Enum):
 
 
 class NatureActe(Enum):
-    #Transcription (Dispositions)
+    # Transcription (Dispositions)
     Rectification = 'rectification'
     Renonciation = 'renonciation'
     ActeComplementaire = 'acte_complementaire'
@@ -107,7 +107,7 @@ class NatureActe(Enum):
     CessionDroits = 'cession_droits'
     ActeAdministratif = 'acte_administratif'
 
-    #Inscription
+    # Inscription
     HypothequeLegale = 'hypotheque_legale'
     HypothequeConventionnelle = 'hypotheque_conventionnelle'
     HypothequeJudiciaireProvisoire = 'hypotheque_judiciaire_provisoire'
@@ -116,10 +116,9 @@ class NatureActe(Enum):
     HypothequeJudiciaireDefinitive = 'hypotheque_judiciaire_definitive'
     RenouvellementInscription = 'renouvellement_inscription'
 
-    #Saisie-immobiliere
+    # Saisie-immobiliere
     PouvoirCommandementSaisieImmobiliere = 'pouvoir_commandement_saisie_immobiliere'
     SommationFinsSaisieImmobiliere = 'sommation_fins_saisie_immobiliere'
     OrdonnanceValantSaisieImmobiliere = 'ordonnance_valant_saisie_immobiliere'
     PouvoirCommandementDePayerDelaisser = 'pouvoir_commandement_de_payer_delaisser'
     SommationPayerDelaisser = 'sommation_payer_delaisser'
-    
