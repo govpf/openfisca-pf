@@ -96,6 +96,58 @@ class is_disposition(Variable):
             (nature_acte == NatureActe.ReserveDroitUsageHabitation) |
             (nature_acte == NatureActe.DecisionJustice)
         )
+    
+class taux_tpi(Variable):
+    value_type = float
+    entity = Personne
+    definition_period = DAY
+    label = "Taux de la taxe de publicité immobilière selon le type d'acte"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        nature_acte = personne('nature_acte', period)
+        taux_parameters = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.taux
+        return select(
+            [
+                nature_acte == NatureActe.Vente,
+                nature_acte == NatureActe.VenteSousConditionSuspensive,
+                nature_acte == NatureActe.VenteEnEtatFuturAchevement,
+                nature_acte == NatureActe.ConventionDivorce,
+                nature_acte == NatureActe.Jugement,
+                nature_acte == NatureActe.JugementAdjudication,
+                nature_acte == NatureActe.Partage,
+                nature_acte == NatureActe.LiquidationPartage,
+                nature_acte == NatureActe.Bail,
+                nature_acte == NatureActe.BailEmphyteotique,
+                nature_acte == NatureActe.CessionBail,
+                nature_acte == NatureActe.AttestationImmobiliere,
+                nature_acte == NatureActe.AttestationImmobiliereComplementaire,
+                nature_acte == NatureActe.Donation,
+                nature_acte == NatureActe.DonationPartage,
+                nature_acte == NatureActe.AutorisationOccupationTemporaire,
+                nature_acte == NatureActe.CessionDroits,
+                nature_acte == NatureActe.ActeAdministratif
+            ],
+            [
+                taux_parameters.vente,
+                taux_parameters.vente_sous_condition_suspensive,
+                taux_parameters.vente_en_etat_futur_achevement,
+                taux_parameters.convention_divorce,
+                taux_parameters.jugement,
+                taux_parameters.jugement_adjudication,
+                taux_parameters.partage,
+                taux_parameters.liquidation_partage,
+                taux_parameters.bail,
+                taux_parameters.bail_emphyteotique,
+                taux_parameters.cession_bail,
+                taux_parameters.attestation_immobiliere,
+                taux_parameters.attestation_immobiliere_complementaire,
+                taux_parameters.donation,
+                taux_parameters.donation_partage,
+                taux_parameters.autorisation_occupation_temporaire,
+                taux_parameters.cession_droits,
+                taux_parameters.acte_administratif
+            ]
+        )
 
 
 class montant_tpi_acte(Variable):
@@ -113,19 +165,21 @@ class montant_tpi_acte(Variable):
         montant_total_acte = personne('montant_total_acte', period)
         montant_initial_acte = personne('montant_initial_acte', period)
 
-        disposition_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.disposition.default
+        taux_tpi = personne('taux_tpi', period)
+        disposition_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
 
         montant_tpi = select(
             [
                 regime_de_faveur != RegimeFaveur.Aucun,
                 nature_acte == NatureActe.Echange,
                 is_disposition,
+                True
             ],
             [
                 0,
                 disposition_default_value * 2,
                 disposition_default_value,
-
+                montant_total_acte * taux_tpi,
             ]
         )
         

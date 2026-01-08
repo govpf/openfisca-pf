@@ -20,3 +20,17 @@
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 0
+- name: 4 - TPI - Acte transcription classique
+  period: 2025-01-16
+  input:
+    nature_acte: ConventionDivorce
+    montant_total_acte: 2500
+  output:
+    montant_tpi_acte: 250
+- name: 5 - TPI - Acte transcription administratif
+  period: 2025-01-16
+  input:
+    nature_acte: ActeAdministratif
+    montant_total_acte: 2500
+  output:
+    montant_tpi_acte: 0

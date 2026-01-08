@@ -1,0 +1,6 @@
+description: Montant fixe de la taxe de publicité immobilière
+#metadata:
+#  reference: __
+default:
+  values:
+    2024-12-10: 1500
