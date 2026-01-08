@@ -75,9 +75,6 @@ class NatureActe(Enum):
     PacteTontinier = 'pacte_tontinier'
     ReserveDroitUsageHabitation = 'reserve_droit_usage_habitation'
     DecisionJustice = 'decision_justice'
-
-    DISPOSITION_ENDPOINT = 'Endpoint pour les dispositions'
-
     # Transcription (Acte initial)
     Vente = 'vente'
     VenteSousConditionSuspensive = 'vente_sous_condition_suspensive'
@@ -114,6 +111,4 @@ class NatureActe(Enum):
     OrdonnanceValantSaisieImmobiliere = 'ordonnance_valant_saisie_immobiliere'
     PouvoirCommandementDePayerDelaisser = 'pouvoir_commandement_de_payer_delaisser'
     SommationPayerDelaisser = 'sommation_payer_delaisser'
-
-    def is_disposition(self):
-        return self.index < self.DISPOSITION_ENDPOINT.index
+    
