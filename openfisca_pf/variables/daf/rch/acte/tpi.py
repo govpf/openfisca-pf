@@ -108,6 +108,7 @@ class taux_tpi(Variable):
         taux_parameters = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.taux
         return select(
             [
+                # Transcription (Acte initial)
                 nature_acte == NatureActe.Vente,
                 nature_acte == NatureActe.VenteSousConditionSuspensive,
                 nature_acte == NatureActe.VenteEnEtatFuturAchevement,
@@ -125,9 +126,17 @@ class taux_tpi(Variable):
                 nature_acte == NatureActe.DonationPartage,
                 nature_acte == NatureActe.AutorisationOccupationTemporaire,
                 nature_acte == NatureActe.CessionDroits,
-                nature_acte == NatureActe.ActeAdministratif
+                nature_acte == NatureActe.ActeAdministratif,
+                # Inscription
+                nature_acte == NatureActe.HypothequeLegale,
+                nature_acte == NatureActe.HypothequeConventionnelle,
+                nature_acte == NatureActe.PrivilegeVendeurActionResolutoire,
+                nature_acte == NatureActe.InscriptionRectificative,
+                nature_acte == NatureActe.HypothequeJudiciaireDefinitive,
+                nature_acte == NatureActe.RenouvellementInscription
             ],
             [
+                # Transcription (Acte initial)
                 taux_parameters.vente,
                 taux_parameters.vente_sous_condition_suspensive,
                 taux_parameters.vente_en_etat_futur_achevement,
@@ -145,7 +154,14 @@ class taux_tpi(Variable):
                 taux_parameters.donation_partage,
                 taux_parameters.autorisation_occupation_temporaire,
                 taux_parameters.cession_droits,
-                taux_parameters.acte_administratif
+                taux_parameters.acte_administratif,
+                # Inscription
+                taux_parameters.hypotheque_legale,
+                taux_parameters.hypotheque_conventionnelle,
+                taux_parameters.privilege_vendeur_action_resolutoire,
+                taux_parameters.inscription_rectificative,
+                taux_parameters.hypotheque_judiciaire_definitive,
+                taux_parameters.renouvellement_inscription
             ]
         )
 
@@ -166,20 +182,22 @@ class montant_tpi_acte(Variable):
         montant_initial_acte = personne('montant_initial_acte', period)
 
         taux_tpi = personne('taux_tpi', period)
-        disposition_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
+        fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
 
         montant_tpi = select(
             [
                 regime_de_faveur != RegimeFaveur.Aucun,
                 nature_acte == NatureActe.Echange,
                 is_disposition,
+                (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
                 True
             ],
             [
                 0,
-                disposition_default_value * 2,
-                disposition_default_value,
-                montant_total_acte * taux_tpi,
+                fixed_default_value * 2,
+                fixed_default_value,
+                fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi),
+                arrondi_superieur(montant_total_acte * taux_tpi),
             ]
         )
         

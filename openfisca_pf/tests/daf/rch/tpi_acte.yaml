@@ -34,3 +34,42 @@
     montant_total_acte: 2500
   output:
     montant_tpi_acte: 0
+- name: 6 - TPI - Acte inscription classique
+  period: 2025-01-16
+  input:
+    nature_acte: PrivilegeVendeurActionResolutoire
+    montant_total_acte: 2500
+  output:
+    montant_tpi_acte: 500
+- name: 7 - TPI - Acte RenouvellementInscription montant_initial_acte < montant_total_acte
+  period: 2025-01-16
+  input:
+    nature_acte: RenouvellementInscription
+    montant_initial_acte: 2000
+    montant_total_acte: 4000
+  output:
+    montant_tpi_acte: 1900
+- name: 8 - TPI - Acte RenouvellementInscription montant_initial_acte = montant_total_acte
+  period: 2025-01-16
+  input:
+    nature_acte: RenouvellementInscription
+    montant_initial_acte: 2000
+    montant_total_acte: 2000
+  output:
+    montant_tpi_acte: 1500
+- name: 9 - TPI - Acte InscriptionRectificative montant_initial_acte < montant_total_acte
+  period: 2025-01-16
+  input:
+    nature_acte: InscriptionRectificative
+    montant_initial_acte: 2000
+    montant_total_acte: 4000
+  output:
+    montant_tpi_acte: 1900
+- name: 10 - TPI - Acte InscriptionRectificative montant_initial_acte = montant_total_acte
+  period: 2025-01-16
+  input:
+    nature_acte: InscriptionRectificative
+    montant_initial_acte: 2000
+    montant_total_acte: 2000
+  output:
+    montant_tpi_acte: 1500

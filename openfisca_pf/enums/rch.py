@@ -109,7 +109,6 @@ class NatureActe(Enum):
 
     #Inscription
     HypothequeLegale = 'hypotheque_legale'
-    HypothequeJudiciaire = 'hypotheque_judiciaire'
     HypothequeConventionnelle = 'hypotheque_conventionnelle'
     HypothequeJudiciaireProvisoire = 'hypotheque_judiciaire_provisoire'
     PrivilegeVendeurActionResolutoire = 'privilege_vendeur_action_resolutoire'
