@@ -81,7 +81,7 @@ class type_acte(Variable):
             )
 
 
-class regime_de_faveur(Variable):
+class regime_faveur(Variable):
     value_type = Enum
     possible_values = RegimeFaveur
     default_value = RegimeFaveur.Aucun
@@ -217,7 +217,7 @@ class montant_tpi_acte(Variable):
         type_acte = personne('type_acte', period)
         nature_acte = personne('nature_acte', period)
         is_disposition = personne('is_disposition', period)
-        regime_de_faveur = personne('regime_de_faveur', period)
+        regime_faveur = personne('regime_faveur', period)
         montant_total_acte = personne('montant_total_acte', period)
         montant_initial_acte = personne('montant_initial_acte', period)
 
@@ -226,7 +226,7 @@ class montant_tpi_acte(Variable):
 
         montant_tpi = select(
             [
-                regime_de_faveur != RegimeFaveur.Aucun,
+                regime_faveur != RegimeFaveur.Aucun,
                 nature_acte == NatureActe.Echange,
                 is_disposition | (type_acte == TypeActe.Saisie),
                 (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
