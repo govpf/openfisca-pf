@@ -5,6 +5,7 @@
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 1500
+    type_acte: Transcription
 - name: 2 - TPI - Acte dispositions Echange
   period: 2025-01-16
   input:
@@ -12,6 +13,7 @@
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 3000
+    type_acte: Transcription
 - name: 3 - TPI - Acte avec régime de faveur
   period: 2025-01-16
   input:
@@ -20,6 +22,7 @@
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 0
+    type_acte: Transcription
 - name: 4 - TPI - Acte transcription classique
   period: 2025-01-16
   input:
@@ -27,6 +30,7 @@
     montant_total_acte: 2500
   output:
     montant_tpi_acte: 250
+    type_acte: Transcription
 - name: 5 - TPI - Acte transcription administratif
   period: 2025-01-16
   input:
@@ -34,6 +38,7 @@
     montant_total_acte: 2500
   output:
     montant_tpi_acte: 0
+    type_acte: Transcription
 - name: 6 - TPI - Acte inscription classique
   period: 2025-01-16
   input:
@@ -41,6 +46,7 @@
     montant_total_acte: 2500
   output:
     montant_tpi_acte: 500
+    type_acte: Inscription
 - name: 7 - TPI - Acte RenouvellementInscription montant_initial_acte < montant_total_acte
   period: 2025-01-16
   input:
@@ -49,6 +55,7 @@
     montant_total_acte: 4000
   output:
     montant_tpi_acte: 1900
+    type_acte: Inscription
 - name: 8 - TPI - Acte RenouvellementInscription montant_initial_acte = montant_total_acte
   period: 2025-01-16
   input:
@@ -57,6 +64,7 @@
     montant_total_acte: 2000
   output:
     montant_tpi_acte: 1500
+    type_acte: Inscription
 - name: 9 - TPI - Acte InscriptionRectificative montant_initial_acte < montant_total_acte
   period: 2025-01-16
   input:
@@ -65,6 +73,7 @@
     montant_total_acte: 4000
   output:
     montant_tpi_acte: 1900
+    type_acte: Inscription
 - name: 10 - TPI - Acte InscriptionRectificative montant_initial_acte = montant_total_acte
   period: 2025-01-16
   input:
@@ -73,6 +82,7 @@
     montant_total_acte: 2000
   output:
     montant_tpi_acte: 1500
+    type_acte: Inscription
 - name: 11 - TPI - Acte Saisie immobilière classique
   period: 2025-01-16
   input:
@@ -81,3 +91,4 @@
     montant_total_acte: 2000
   output:
     montant_tpi_acte: 1500
+    type_acte: Saisie
