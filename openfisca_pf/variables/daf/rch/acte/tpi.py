@@ -20,6 +20,15 @@ from openfisca_pf.enums.rch import (
 from openfisca_pf.functions.currency import arrondi_superieur
 
 
+class nature_acte(Variable):
+    value_type = Enum
+    possible_values = NatureActe
+    default_value = NatureActe.Vente
+    entity = Personne
+    definition_period = DAY
+    label = "Nature de l'acte"
+
+
 class type_acte(Variable):
     value_type = Enum
     possible_values = TypeActe
@@ -28,14 +37,48 @@ class type_acte(Variable):
     definition_period = DAY
     label = "Type d'acte auprès de la RCH"
 
-
-class nature_acte(Variable):
-    value_type = Enum
-    possible_values = NatureActe
-    default_value = NatureActe.Vente
-    entity = Personne
-    definition_period = DAY
-    label = "Nature de l'acte"
+    def formula(personne: Population, period: Period) -> ArrayLike:
+        nature_acte = personne('nature_acte', period)
+        is_disposition = personne('is_disposition', period)
+        return select(
+            [
+                is_disposition
+                | (nature_acte == NatureActe.Vente)
+                | (nature_acte == NatureActe.VenteSousConditionSuspensive)
+                | (nature_acte == NatureActe.VenteEnEtatFuturAchevement)
+                | (nature_acte == NatureActe.ConventionDivorce)
+                | (nature_acte == NatureActe.Jugement)
+                | (nature_acte == NatureActe.JugementAdjudication)
+                | (nature_acte == NatureActe.Partage)
+                | (nature_acte == NatureActe.LiquidationPartage)
+                | (nature_acte == NatureActe.Bail)
+                | (nature_acte == NatureActe.BailEmphyteotique)
+                | (nature_acte == NatureActe.CessionBail)
+                | (nature_acte == NatureActe.AttestationImmobiliere)
+                | (nature_acte == NatureActe.AttestationImmobiliereComplementaire)
+                | (nature_acte == NatureActe.Donation)
+                | (nature_acte == NatureActe.DonationPartage)
+                | (nature_acte == NatureActe.AutorisationOccupationTemporaire)
+                | (nature_acte == NatureActe.CessionDroits)
+                | (nature_acte == NatureActe.ActeAdministratif),
+                (nature_acte == NatureActe.HypothequeLegale)
+                | (nature_acte == NatureActe.HypothequeConventionnelle)
+                | (nature_acte == NatureActe.PrivilegeVendeurActionResolutoire)
+                | (nature_acte == NatureActe.InscriptionRectificative)
+                | (nature_acte == NatureActe.HypothequeJudiciaireDefinitive)
+                | (nature_acte == NatureActe.RenouvellementInscription),
+                (nature_acte == NatureActe.PouvoirCommandementSaisieImmobiliere)
+                | (nature_acte == NatureActe.SommationFinsSaisieImmobiliere)
+                | (nature_acte == NatureActe.OrdonnanceValantSaisieImmobiliere)
+                | (nature_acte == NatureActe.PouvoirCommandementDePayerDelaisser)
+                | (nature_acte == NatureActe.SommationPayerDelaisser)
+                ],
+            [
+                TypeActe.Transcription,
+                TypeActe.Inscription,
+                TypeActe.Saisie
+                ]
+            )
 
 
 class regime_de_faveur(Variable):
