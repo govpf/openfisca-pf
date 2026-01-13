@@ -221,7 +221,7 @@ class montant_tpi_acte(Variable):
         montant_total_acte = personne('montant_total_acte', period)
         montant_initial_acte = personne('montant_initial_acte', period)
 
-        taux_tpi = personne('taux_tpi', period) / 100 # conversion pourcentage en décimal
+        taux_tpi = personne('taux_tpi', period) / 100  # conversion pourcentage en décimal
         fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
 
         montant_tpi = select(
