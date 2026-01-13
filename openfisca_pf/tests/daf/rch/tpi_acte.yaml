@@ -29,9 +29,17 @@
   period: 2025-01-16
   input:
     nature_acte: ConventionDivorce
+    montant_total_acte: 2500000
+  output:
+    montant_tpi_acte: 2500
+    type_acte: Transcription
+- name: 4.5 - TPI - Acte transcription classique < montant minimum (1500)
+  period: 2025-01-16
+  input:
+    nature_acte: ConventionDivorce
     montant_total_acte: 2500
   output:
-    montant_tpi_acte: 3
+    montant_tpi_acte: 1500
     type_acte: Transcription
 - name: 5 - TPI - Acte transcription administratif
   period: 2025-01-16
@@ -45,9 +53,17 @@
   period: 2025-01-16
   input:
     nature_acte: PrivilegeVendeurActionResolutoire
+    montant_total_acte: 2500000
+  output:
+    montant_tpi_acte: 5000
+    type_acte: Inscription
+- name: 6.5 - TPI - Acte inscription classique < montant minimum (1500)
+  period: 2025-01-16
+  input:
+    nature_acte: PrivilegeVendeurActionResolutoire
     montant_total_acte: 2500
   output:
-    montant_tpi_acte: 5
+    montant_tpi_acte: 1500
     type_acte: Inscription
 - name: 7 - TPI - Acte RenouvellementInscription montant_initial_acte < montant_total_acte
   period: 2025-01-16
