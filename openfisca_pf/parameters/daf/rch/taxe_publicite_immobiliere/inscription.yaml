@@ -1,6 +1,6 @@
 description: Montant du taux de la taxe de publicité immobilière pour les inscriptions
-#metadata:
-#  reference: __
+metadata:
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=536696&idr=1300&np=1
 hypotheque_legale:
   values:
     2024-12-10: 0.2

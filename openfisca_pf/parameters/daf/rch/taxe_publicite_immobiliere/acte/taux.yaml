@@ -1,6 +1,6 @@
 description: Taux de la taxe de publicité immobilière selon la nature de l'acte
-#metadata:
-#  reference: __
+metadata:
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=536696&idr=1300&np=1
 vente:
   values:
     2024-12-10: 0.1
