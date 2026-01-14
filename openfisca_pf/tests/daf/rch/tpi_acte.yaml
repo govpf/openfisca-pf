@@ -1,7 +1,112 @@
-- name: 1 - TPI - Acte vente
+- name: 1 - TPI - Acte dispositions
+  period: 2025-01-16
+  input:
+    nature_acte: Rectification
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 1500
+    type_acte: Transcription
+    is_disposition: True
+- name: 2 - TPI - Acte dispositions Echange
+  period: 2025-01-16
+  input:
+    nature_acte: Echange
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 3000
+    type_acte: Transcription
+    is_disposition: True
+- name: 3 - TPI - Acte avec régime de faveur
   period: 2025-01-16
   input:
     nature_acte: Vente
+    regime_faveur: Succesorale
     montant_total_acte: 25000
   output:
+    montant_tpi_acte: 0
+    type_acte: Transcription
+- name: 4 - TPI - Acte transcription classique
+  period: 2025-01-16
+  input:
+    nature_acte: ConventionDivorce
+    montant_total_acte: 2500000
+  output:
     montant_tpi_acte: 2500
+    type_acte: Transcription
+- name: 4.5 - TPI - Acte transcription classique < montant minimum (1500)
+  period: 2025-01-16
+  input:
+    nature_acte: ConventionDivorce
+    montant_total_acte: 2500
+  output:
+    montant_tpi_acte: 1500
+    type_acte: Transcription
+- name: 5 - TPI - Acte transcription administratif
+  period: 2025-01-16
+  input:
+    nature_acte: ActeAdministratif
+    montant_total_acte: 2500
+  output:
+    montant_tpi_acte: 0
+    type_acte: Transcription
+- name: 6 - TPI - Acte inscription classique
+  period: 2025-01-16
+  input:
+    nature_acte: PrivilegeVendeurActionResolutoire
+    montant_total_acte: 2500000
+  output:
+    montant_tpi_acte: 5000
+    type_acte: Inscription
+- name: 6.5 - TPI - Acte inscription classique < montant minimum (1500)
+  period: 2025-01-16
+  input:
+    nature_acte: PrivilegeVendeurActionResolutoire
+    montant_total_acte: 2500
+  output:
+    montant_tpi_acte: 1500
+    type_acte: Inscription
+- name: 7 - TPI - Acte RenouvellementInscription montant_initial_acte < montant_total_acte
+  period: 2025-01-16
+  input:
+    nature_acte: RenouvellementInscription
+    montant_initial_acte: 2000
+    montant_total_acte: 4000
+  output:
+    montant_tpi_acte: 1504
+    type_acte: Inscription
+- name: 8 - TPI - Acte RenouvellementInscription montant_initial_acte = montant_total_acte
+  period: 2025-01-16
+  input:
+    nature_acte: RenouvellementInscription
+    montant_initial_acte: 2000
+    montant_total_acte: 2000
+  output:
+    montant_tpi_acte: 1500
+    type_acte: Inscription
+- name: 9 - TPI - Acte InscriptionRectificative montant_initial_acte < montant_total_acte
+  period: 2025-01-16
+  input:
+    nature_acte: InscriptionRectificative
+    montant_initial_acte: 2000
+    montant_total_acte: 4000
+  output:
+    montant_tpi_acte: 1504
+    type_acte: Inscription
+- name: 10 - TPI - Acte InscriptionRectificative montant_initial_acte = montant_total_acte
+  period: 2025-01-16
+  input:
+    nature_acte: InscriptionRectificative
+    montant_initial_acte: 2000
+    montant_total_acte: 2000
+  output:
+    montant_tpi_acte: 1500
+    type_acte: Inscription
+- name: 11 - TPI - Acte Saisie immobilière classique
+  period: 2025-01-16
+  input:
+    nature_acte: OrdonnanceValantSaisieImmobiliere
+    montant_initial_acte: 2000
+    montant_total_acte: 2000
+  output:
+    montant_tpi_acte: 1500
+    type_acte: Saisie

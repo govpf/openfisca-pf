@@ -14,7 +14,6 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.rch import (
-    NatureActe,
     TypeAcheteur,
     TypeBien,
     TypeDemarche,
@@ -102,22 +101,6 @@ class duree_possession_annee(Variable):
     default_value = 3
     definition_period = DAY
     label = "Durée de possession en année"
-
-
-class nature_acte(Variable):
-    value_type = Enum
-    possible_values = NatureActe
-    default_value = NatureActe.Vente
-    entity = Personne
-    definition_period = DAY
-    label = "Nature de l'acte"
-
-
-class montant_total_acte(Variable):
-    value_type = int
-    entity = Personne
-    definition_period = DAY
-    label = "Montant total d'un acte"
 
 
 class montant_droit_enregistrement(Variable):
@@ -233,29 +216,6 @@ class montant_taxe_publicite(Variable):
                 ]
             )
         return arrondi_superieur(montant_taxe_publicite)
-
-
-class montant_tpi_acte(Variable):
-    value_type = int
-    entity = Personne
-    definition_period = DAY
-    label = "Montant de la taxe de publicité immobilière selon la nature de l'acte"
-
-    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        nature_acte = personne('nature_acte', period)
-        montant_total_acte = personne('montant_total_acte', period)
-        taux = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.rate
-
-        return select(
-            [
-                nature_acte == NatureActe.Vente,
-                nature_acte == NatureActe.Donation
-                ],
-            [
-                montant_total_acte * taux,
-                montant_total_acte / 2
-                ]
-            )
 
 
 class montant_taxe_plus_value(Variable):
