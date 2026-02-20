@@ -115,7 +115,7 @@ class taux_tva_normal_annee(Variable):
         return parameters(period).dicp.tva.taux.normal
 
 
-class taux_tva_livraisons_immeubles_et_cession_parts(Variable):
+class taux_tva_immeubles_hotelleries(Variable):
     value_type = float
     entity = Pays
     definition_period = MONTH
@@ -125,11 +125,11 @@ class taux_tva_livraisons_immeubles_et_cession_parts(Variable):
     reference = []
 
     def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        taux_annee = pays('taux_tva_livraisons_immeubles_et_cession_parts_annee', period.this_year)
-        return where(taux_annee, taux_annee, parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts)
+        taux_annee = pays('taux_tva_immeubles_hotelleries_annee', period.this_year)
+        return where(taux_annee, taux_annee, parameters(period).dicp.tva.taux.immeubles_hotelleries)
 
 
-class taux_tva_livraisons_immeubles_et_cession_parts_annee(Variable):
+class taux_tva_immeubles_hotelleries_annee(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
@@ -139,4 +139,16 @@ class taux_tva_livraisons_immeubles_et_cession_parts_annee(Variable):
     reference = []
 
     def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts
+        return parameters(period).dicp.tva.taux.immeubles_hotelleries
+
+
+class taux_tva_archipels(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = MONTH
+    label = "Taux de TVA archipels"
+    unit = units.PER_ONE
+    reference = []
+
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return parameters(period).dicp.tva.taux.archipels
