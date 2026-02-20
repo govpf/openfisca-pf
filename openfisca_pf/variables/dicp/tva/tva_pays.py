@@ -47,8 +47,8 @@ class tva_due_taux_reduit_pays(Variable):
     unit = units.XPF
 
     def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        tva_due_taux_reduit_pays = pays.members('tva_due_taux_reduit', period)
-        return pays.sum(tva_due_taux_reduit_pays)
+        tva_due_taux = pays.members('tva_due_taux_reduit', period)
+        return pays.sum(tva_due_taux)
 
 
 class tva_due_taux_intermediaire_pays(Variable):
@@ -59,11 +59,11 @@ class tva_due_taux_intermediaire_pays(Variable):
     unit = units.XPF
 
     def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        tva_due_taux_intermediaire_pays = pays.members('tva_due_taux_intermediaire', period)
-        return pays.sum(tva_due_taux_intermediaire_pays)
+        tva_due_taux = pays.members('tva_due_taux_intermediaire', period)
+        return pays.sum(tva_due_taux)
 
 
-class tva_due_taux_livraisons_immeubles_et_cession_parts_pays(Variable):
+class tva_due_taux_immeubles_hotelleries_pays(Variable):
     value_type = float
     entity = Pays
     definition_period = MONTH
@@ -71,8 +71,20 @@ class tva_due_taux_livraisons_immeubles_et_cession_parts_pays(Variable):
     unit = units.XPF
 
     def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        tva_due_taux_livraisons_immeubles_et_cession_parts_pays = pays.members('tva_due_taux_livraisons_immeubles_et_cession_parts', period)
-        return pays.sum(tva_due_taux_livraisons_immeubles_et_cession_parts_pays)
+        tva_due_taux = pays.members('tva_due_taux_immeubles_hotelleries', period)
+        return pays.sum(tva_due_taux)
+
+
+class tva_due_taux_archipels_pays(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = MONTH
+    label = u"Montant total de TVA due en taux d'archipels par les entreprises du pays"
+    unit = units.XPF
+
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_due_taux = pays.members('tva_due_taux_archipels', period)
+        return pays.sum(tva_due_taux)
 
 
 class tva_due_taux_normal_pays(Variable):
@@ -142,7 +154,7 @@ class tva_due_taux_normal_pays_annee(Variable):
         return pays('tva_due_taux_normal_pays', period, options = [ADD])
 
 
-class tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee(Variable):
+class tva_due_taux_immeubles_hotelleries_pays_annee(Variable):
     value_type = float
     entity = Pays
     definition_period = YEAR
@@ -150,5 +162,17 @@ class tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee(Variable):
     unit = units.XPF
 
     def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee = pays('tva_due_taux_livraisons_immeubles_et_cession_parts_pays', period, options = [ADD])
-        return tva_due_taux_livraisons_immeubles_et_cession_parts_pays_annee
+        tva_due_taux_immeubles_hotelleries_pays_annee = pays('tva_due_taux_immeubles_hotelleries_pays', period, options = [ADD])
+        return tva_due_taux_immeubles_hotelleries_pays_annee
+
+
+class tva_due_taux_archipels_pays_annee(Variable):
+    value_type = float
+    entity = Pays
+    definition_period = YEAR
+    label = u"Montant total de TVA due en taux d'archipels par les entreprises du pays sur l'année"
+    unit = units.XPF
+
+    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_due_taux_archipels_pays_annee = pays('tva_due_taux_archipels_pays', period, options = [ADD])
+        return tva_due_taux_archipels_pays_annee
