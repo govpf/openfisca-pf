@@ -44,13 +44,23 @@ class base_imposable_tva_taux_normal(Variable):
     reference = 'https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux'
 
 
-class base_imposable_tva_taux_livraisons_immeubles_et_cession_parts(Variable):
+class base_imposable_tva_taux_immeubles_hotelleries(Variable):
     value_type = float
     default_value = 0
     entity = Personne
     definition_period = MONTH
     set_input = set_input_divide_by_period
-    label = "Base imposable de la TVA à taux des livraisons d'immeubles et de cession de parts"
+    label = "Base imposable de la TVA à taux des livraisons d'immeubles et l'hôtellerie"
+    unit = units.XPF
+
+
+class base_imposable_tva_taux_archipels(Variable):
+    value_type = float
+    default_value = 0
+    entity = Personne
+    definition_period = MONTH
+    set_input = set_input_divide_by_period
+    label = "Base imposable de la TVA à taux des archipels"
     unit = units.XPF
 
 
@@ -107,8 +117,9 @@ class sous_total_base_imposable(Variable):
         base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period)
         base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period)
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period)
-        base_imposable_tva_taux_livraisons_immeubles_et_cession_parts = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period)
-        return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal + base_imposable_tva_taux_livraisons_immeubles_et_cession_parts
+        base_imposable_tva_taux_immeubles_hotelleries = personne('base_imposable_tva_taux_immeubles_hotelleries', period)
+        base_imposable_tva_taux_archipels = personne('base_imposable_tva_taux_archipels', period)
+        return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal + base_imposable_tva_taux_immeubles_hotelleries + base_imposable_tva_taux_archipels
 
 
 class sous_total_operations(Variable):

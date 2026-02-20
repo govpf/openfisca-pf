@@ -13,7 +13,13 @@ normal:
   description: Taux normal de TVA
   values:
     2001-12-11: 0.16
-livraisons_immeubles_et_cession_parts:
-  description: Taux livraisons d'immeubles et cession de parts
+immeubles_hotelleries:
+  description: Taux immeubles et hôtelleries
   values:
+    2020-01-01: 0
     2025-01-01: 0.09
+archipels:
+  description: Taux archipel
+  values:
+    2020-01-01: 0
+    2026-01-01: 0.01
