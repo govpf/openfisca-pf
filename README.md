@@ -69,10 +69,10 @@ python3 -m pip install --upgrade pip
 
 #### Install Openfisca Core.
 
-Pip install the openfisca core version 40.0.0 with the flask web api.
+Pip install the openfisca core version 43.5.0 with the flask web api.
 This will install the python package, and add the two scripts we mentioned above to the python scripts directory.
 ```bash
-pip3 install openfisca-core[web-api]==40.0.0
+pip3 install openfisca-core[web-api]==43.5.0
 ```
 
 #### Patch OpenFisca Core
@@ -83,21 +83,22 @@ For this reason when need to edit OpenFisca Core tu use 64-bit floating point nu
 > - Locate your `openfisca-core` install directory in the `site-package` directory.
 >   - On Windows it will be located at one of the two following path:
 >     - `%HOMEDRIVE%%HOMEPATH%\AppData\Roaming\Python\Python310\site-packages\openfisca_core`
->     - `%HOMEDRIVE%\Program Files\Python310\Lib\site-packages\openfisca_core`.
+>     - Or `%HOMEDRIVE%\Program Files\Python310\Lib\site-packages\openfisca_core`.
+>     - Or `%HOMEDRIVE%%HOMEPATH%\AppData\Local\Programs\Python\Python310\Lib\site-packages\openfisca_core`
 >   - On Windows WSL2 it will be located at:
 >     - `%HOMEDRIVE%%HOMEPATH%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\rootfs\usr\local\lib\python3.10\dist-packages\openfisca_core`
 >   - On Linux it will be located at:
 >     - `$HOMEBREW_PREFIX/lib/python3.10/site-packages/openfisca_core`
 > - Open the file `openfisca_core\variables\config.py`.
-> - At line `18` and `25`, replace `numpy.int32` to `numpy.int64` and `numpy.float32` to `numpy.float64` 
+> - At line `18` and `24`, replace `numpy.int32` to `numpy.int64` and `numpy.float32` to `numpy.float64` 
 > - Open the file `openfisca_core/tools/__init__.py`
-> - At lines `44` and `46`, replace `numpy.float32` to `numpy.float64`.
+> - At lines `43` and `45`, replace `numpy.float32` to `numpy.float64`.
 
 ### 1.3. Installing OpenFisca-PF
 
 Clone the OpenFisca-PF project:
 ```bash
-wget https://github.com/openfisca/openfisca-core/archive/refs/tags/40.0.0.zip
+wget https://github.com/openfisca/openfisca-core/archive/refs/tags/43.5.0.zip
 ```
 
 Go to the folder where you clone the Openfisca PF project
@@ -118,7 +119,6 @@ This way if you modify the openfisca-pf code, your changes will be taken into ac
 
 You can run tests of the OpenFisca PF country package using:
 ```bash
-cd openfisca-pf
 openfisca test --country-package openfisca_pf openfisca_pf/tests
 ```
 
@@ -126,7 +126,6 @@ openfisca test --country-package openfisca_pf openfisca_pf/tests
 
 And you can serve the Openfisca Web API locally (for more information visit the [documentation](https://openfisca.org/doc/openfisca-python-api/openfisca_serve.html)):
 ```bash
-cd openfisca-pf
 openfisca serve --reload -f config.py
 ```
 

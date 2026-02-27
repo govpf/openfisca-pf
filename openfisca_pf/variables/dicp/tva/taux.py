@@ -54,7 +54,7 @@ class taux_tva_normal(Variable):
     value_type = float
     entity = Pays
     definition_period = MONTH
-    label = "Taux de TVA réduit"
+    label = "Taux normal de TVA"
     unit = units.PER_ONE
     set_input = set_input_divide_by_period
     reference = [
