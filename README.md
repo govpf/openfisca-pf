@@ -1,18 +1,12 @@
 # OpenFisca PF
 
-This is the package modelling the French Polynesia tax system.
-What is currently modelled:
-> - CST-S
-> - IT
-> - CST-NS
-> - TVA & CPS
+This is the package modeling the French Polynesia rules from https://lexpol.cloud.pf/ :
 
-But this is a work in progress and none of those taxes are validated yet.
+* Tax system from DICP service (CST-S, IT, CST-NS, TVA, property tax)
+* Pricing for the French Polynesia estate management for the public domain and its own lands from DAF service.
+* Employees rule from SEFI service.
 
-It includes the pricing for the French Polynesia estate managment for the public domain and its own lands.
-
-See the Confluence documentation here:
-> https://doc.projet.gov.pf/pages/viewpage.action?pageId=40938529
+But this is a work in progress.
 
 ## 1. Installation for developers and maintainers
 
@@ -90,7 +84,7 @@ For this reason when need to edit OpenFisca Core tu use 64-bit floating point nu
 >   - On Linux it will be located at:
 >     - `$HOMEBREW_PREFIX/lib/python3.10/site-packages/openfisca_core`
 > - Open the file `openfisca_core\variables\config.py`.
-> - At line `18` and `24`, replace `numpy.int32` to `numpy.int64` and `numpy.float32` to `numpy.float64` 
+> - At line `17` and `24`, replace `numpy.int32` to `numpy.int64` and `numpy.float32` to `numpy.float64` 
 > - Open the file `openfisca_core/tools/__init__.py`
 > - At lines `43` and `45`, replace `numpy.float32` to `numpy.float64`.
 
