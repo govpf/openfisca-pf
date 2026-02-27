@@ -36,7 +36,6 @@ class FormeLegale(Enum):
     GIE = 'Groupement d intérêt économique (Personne morale)'
     INC = 'Titre inconnu (Personne morale)'
     M = 'Monsieur (Personne physique)'
-    MR = 'Mister (Personne physique)'
     ME = 'Maître (Personne physique)'
     MLE = 'Mademoiselle (Personne physique)'
     MME = 'Madame (Personne physique)'
