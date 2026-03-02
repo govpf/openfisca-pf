@@ -410,7 +410,7 @@
 - name: "eligible_exoneration_permanente_consulat est égale à false si les conditions ne sont pas réunies (forme légale)"
   period: 1951
   input:
-    forme_legale: MR
+    forme_legale: M
     categorie_du_bien: CONSULAT
     non_loue: true
   output:
@@ -643,7 +643,7 @@
 - name: "eligible_exoneration_permanente_batiment_associatif est égale à false si les conditions ne sont pas réunies (forme légale)"
   period: 1951
   input:
-    forme_legale: MR
+    forme_legale: M
     categorie_du_bien: ASSOCIATIF
     non_loue: true
   output:
@@ -1011,7 +1011,7 @@
 - name: "eligible_exoneration_permanente_logement_social est égale à false si les conditions ne sont pas réunies (forme légale)"
   period: 1951
   input:
-    forme_legale: MR
+    forme_legale: M
     categorie_du_bien: LOGEMENT
     logement_social: true
     loue: true

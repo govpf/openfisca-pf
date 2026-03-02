@@ -1,8 +1,17 @@
 # Changelog
 
+## 0.9.0
+
+* Property tax
+* Update openfisca-core 40.0.0 to 43.5.0
+
 ## 0.8.0
 
-- La CPS passe à 0 pour les activités à partir du 2023-10-01
+* The CPS rate is set at 0 for activities starting from 2023-10-01
+
+## 0.7.0
+
+* The CPS rate is set at 0.1 for activities starting from 2022-04-01
 
 ## 0.6.3
 
