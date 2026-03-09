@@ -15,12 +15,12 @@ But this is a work in progress.
 Serving the OpenFisca WEB API is not currently supported on Windows computer.
 It can only be run natively on macOS and Linux.
 Thus, on Windows computers a virtual machine is required (pyenv will not suffice).
-On Windows, we recommend install Linux on Windows using Microsoft WSL2:
+On Windows, we recommend installing Linux on Windows using Microsoft WSL2:
 https://learn.microsoft.com/fr-fr/windows/wsl/install
 
 In the rest of this README we assume that on Windows WSL2 is used.
 Any command we describe must thus be executed in a wsl terminal.
-To open a wsl terminal run CMD or PowerShell and run the command:
+To open a wsl terminal, run CMD or PowerShell and run the command:
 ```bash
 wsl
 ``` 
@@ -50,20 +50,20 @@ sudo apt-get install python3.10
 OpenFisca will install two python scripts to test and serve the API.
 So make sure that python scripts are in your path.
 This should be the case by default on `Linux` and `macOS`.
-On windows add `%USERPROFILE%\AppData\Roaming\Python\Python310\Scripts` to you `PATH`.
+On Windows add `%USERPROFILE%\AppData\Roaming\Python\Python310\Scripts` to you `PATH`.
 
 ### 1.2. Installing and Patching OpenFisca Core
 
 #### Update pip
 
-Make sure PIP is up-to-date
+Make sure PIP is up to date
 ```bash
 python3 -m pip install --upgrade pip
 ```
 
 #### Install Openfisca Core.
 
-Pip install the openfisca core version 43.5.0 with the flask web api.
+Pip installs the openfisca core version 43.5.0 with the flask web api.
 This will install the python package, and add the two scripts we mentioned above to the python scripts directory.
 ```bash
 pip3 install openfisca-core[web-api]==43.5.0
@@ -72,10 +72,10 @@ pip3 install openfisca-core[web-api]==43.5.0
 #### Patch OpenFisca Core
 
 In French Polynesia, amounts are expressed in Pacific Franc (XPF) and can become very large.
-Thus, they can reach large values that can lead to computation errors when using 32-bit floating point number.
+Thus, they can reach large values that can lead to computation errors when using a 32-bit floating point number.
 For this reason when need to edit OpenFisca Core tu use 64-bit floating point numbers instead of 32-bit ones.
 > - Locate your `openfisca-core` install directory in the `site-package` directory.
->   - On Windows it will be located at one of the two following path:
+>   - On Windows it will be located at one of the two following paths:
 >     - `%HOMEDRIVE%%HOMEPATH%\AppData\Roaming\Python\Python310\site-packages\openfisca_core`
 >     - Or `%HOMEDRIVE%\Program Files\Python310\Lib\site-packages\openfisca_core`.
 >     - Or `%HOMEDRIVE%%HOMEPATH%\AppData\Local\Programs\Python\Python310\Lib\site-packages\openfisca_core`
@@ -90,12 +90,12 @@ For this reason when need to edit OpenFisca Core tu use 64-bit floating point nu
 
 ### 1.3. Installing OpenFisca-PF
 
-Clone the OpenFisca-PF project:
+Clone openfisca-pf project:
 ```bash
-wget https://github.com/openfisca/openfisca-core/archive/refs/tags/43.5.0.zip
+git clone https://github.com/openfisca/openfisca-pf.git
 ```
 
-Go to the folder where you clone the Openfisca PF project
+Go to the folder where you clone the openfisca-pf project:
 ```bash
 cd openfisca-pf
 ```
@@ -104,6 +104,7 @@ Install the local project as a python package under development:
 ```bash
 pip3 install --editable .[dev]
 ```
+
 This command makes `pip` install a package bound to a local directory instead of downloading it from the web.
 This way if you modify the openfisca-pf code, your changes will be taken into account on the fly.
 
