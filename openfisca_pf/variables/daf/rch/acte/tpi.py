@@ -18,6 +18,7 @@ from openfisca_pf.enums.rch import (
     RegimeFaveur
     )
 from openfisca_pf.functions.currency import arrondi_superieur
+from numpy import maximum
 
 
 class nature_acte(Variable):
@@ -236,8 +237,8 @@ class montant_tpi_acte(Variable):
                 0,
                 fixed_default_value * 2,
                 fixed_default_value,
-                max(fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi), fixed_default_value),
-                max(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value),
+                maximum(fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi), fixed_default_value),
+                maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value),
                 ]
             )
 
