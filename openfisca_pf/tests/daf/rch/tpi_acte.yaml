@@ -1,21 +1,21 @@
 - name: 1 - TPI - Acte dispositions
   period: 2025-01-16
   input:
-    nature_acte: Rectification
+    nature_acte: Vente
+    disposition: Rectification
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 1500
     type_acte: Transcription
-    is_disposition: True
 - name: 2 - TPI - Acte dispositions Echange
   period: 2025-01-16
   input:
-    nature_acte: Echange
+    nature_acte: Vente
+    disposition: Echange
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 3000
     type_acte: Transcription
-    is_disposition: True
 - name: 3 - TPI - Acte avec régime de faveur
   period: 2025-01-16
   input:
