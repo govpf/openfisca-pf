@@ -13,11 +13,13 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.rch import (
+    Disposition,
     NatureActe,
     TypeActe,
     RegimeFaveur
     )
 from openfisca_pf.functions.currency import arrondi_superieur
+from numpy import maximum
 
 
 class nature_acte(Variable):
@@ -39,11 +41,9 @@ class type_acte(Variable):
 
     def formula(personne: Population, period: Period) -> ArrayLike:
         nature_acte = personne('nature_acte', period)
-        is_disposition = personne('is_disposition', period)
         return select(
             [
-                is_disposition
-                | (nature_acte == NatureActe.Vente)
+                (nature_acte == NatureActe.Vente)
                 | (nature_acte == NatureActe.VenteSousConditionSuspensive)
                 | (nature_acte == NatureActe.VenteEnEtatFuturAchevement)
                 | (nature_acte == NatureActe.ConventionDivorce)
@@ -104,38 +104,13 @@ class montant_initial_acte(Variable):
     label = "Montant de l'inscription initial d'un acte"
 
 
-class is_disposition(Variable):
-    value_type = bool
+class disposition(Variable):
+    value_type = Enum
+    possible_values = Disposition
+    default_value = Disposition.Aucun
     entity = Personne
     definition_period = DAY
-    label = "Indique si la nature de l'acte est une disposition"
-
-    def formula(personne: Population, period: Period) -> ArrayLike:
-        nature_acte = personne('nature_acte', period)
-        return (
-            (nature_acte == NatureActe.Rectification)
-            | (nature_acte == NatureActe.Renonciation)
-            | (nature_acte == NatureActe.ActeComplementaire)
-            | (nature_acte == NatureActe.ConstitutionServitude)
-            | (nature_acte == NatureActe.DroitAcces)
-            | (nature_acte == NatureActe.DepotPiece)
-            | (nature_acte == NatureActe.PactePreference)
-            | (nature_acte == NatureActe.EtatDescriptifDivisionReglementCopropriete)
-            | (nature_acte == NatureActe.ModificationEtatDescriptifDivisionReglementCopropriete)
-            | (nature_acte == NatureActe.CahierCharges)
-            | (nature_acte == NatureActe.ModificationCahierCharges)
-            | (nature_acte == NatureActe.Avenant)
-            | (nature_acte == NatureActe.Echange)
-            | (nature_acte == NatureActe.RenouvellementAutorisationOccupationTemporaire)
-            | (nature_acte == NatureActe.ConstatationRealisationConditionSuspensive)
-            | (nature_acte == NatureActe.Constatation)
-            | (nature_acte == NatureActe.Remploi)
-            | (nature_acte == NatureActe.Convention)
-            | (nature_acte == NatureActe.Certificat)
-            | (nature_acte == NatureActe.PacteTontinier)
-            | (nature_acte == NatureActe.ReserveDroitUsageHabitation)
-            | (nature_acte == NatureActe.DecisionJustice)
-            )
+    label = "Disposition(s) appliquée(s) à l'acte"
 
 
 class taux_tpi(Variable):
@@ -216,7 +191,7 @@ class montant_tpi_acte(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         type_acte = personne('type_acte', period)
         nature_acte = personne('nature_acte', period)
-        is_disposition = personne('is_disposition', period)
+        disposition = personne('disposition', period)
         regime_faveur = personne('regime_faveur', period)
         montant_total_acte = personne('montant_total_acte', period)
         montant_initial_acte = personne('montant_initial_acte', period)
@@ -227,8 +202,8 @@ class montant_tpi_acte(Variable):
         montant_tpi = select(
             [
                 (regime_faveur != RegimeFaveur.Aucun) | (nature_acte == NatureActe.ActeAdministratif),
-                nature_acte == NatureActe.Echange,
-                is_disposition | (type_acte == TypeActe.Saisie),
+                disposition == Disposition.Echange,
+                (disposition != Disposition.Aucun) | (type_acte == TypeActe.Saisie),
                 (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
                 True
                 ],
@@ -236,8 +211,8 @@ class montant_tpi_acte(Variable):
                 0,
                 fixed_default_value * 2,
                 fixed_default_value,
-                max(fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi), fixed_default_value),
-                max(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value),
+                maximum(fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi), fixed_default_value),
+                maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value),
                 ]
             )
 

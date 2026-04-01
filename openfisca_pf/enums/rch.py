@@ -63,8 +63,7 @@ class RegimeFaveur(Enum):
     Aucun = "Aucun"
 
 
-class NatureActe(Enum):
-    # Transcription (Dispositions)
+class Disposition(Enum):
     Rectification = 'rectification'
     Renonciation = 'renonciation'
     ActeComplementaire = 'acte_complementaire'
@@ -87,6 +86,10 @@ class NatureActe(Enum):
     PacteTontinier = 'pacte_tontinier'
     ReserveDroitUsageHabitation = 'reserve_droit_usage_habitation'
     DecisionJustice = 'decision_justice'
+    Aucun = 'aucun'
+
+
+class NatureActe(Enum):
     # Transcription (Acte initial)
     Vente = 'vente'
     VenteSousConditionSuspensive = 'vente_sous_condition_suspensive'
