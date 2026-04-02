@@ -1,17 +1,15 @@
-- name: 1 - TPI - Acte dispositions
+- name: 1 - TPI - Acte nature dispositions
   period: 2025-01-16
   input:
-    nature_acte: Vente
-    disposition: Rectification
+    nature_acte: Rectification
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 1500
     type_acte: Transcription
-- name: 2 - TPI - Acte dispositions Echange
+- name: 2 - TPI - Acte nature Echange
   period: 2025-01-16
   input:
-    nature_acte: Vente
-    disposition: Echange
+    nature_acte: Echange
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 3000
@@ -110,3 +108,49 @@
   output:
     montant_tpi_acte: 1500
     type_acte: Saisie
+- name: 12 - TPI - Acte nature + disposition
+  period: 2025-01-16
+  input:
+    nature_acte: Vente
+    disposition: Rectification
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 1525
+    type_acte: Transcription
+- name: 13 - TPI - Acte nature(disposition) + disposition
+  period: 2025-01-16
+  input:
+    nature_acte: Renonciation
+    disposition: Rectification
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 3000
+    type_acte: Transcription
+- name: 14 - TPI - Acte nature(disposition) + disposition (echange)
+  period: 2025-01-16
+  input:
+    nature_acte: Renonciation
+    disposition: Echange
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 4500
+    type_acte: Transcription
+- name: 15 - TPI - Acte transcription administratif + disposition
+  period: 2025-01-16
+  input:
+    nature_acte: ActeAdministratif
+    disposition: Rectification
+    montant_total_acte: 2500
+  output:
+    montant_tpi_acte: 1500
+    type_acte: Transcription
+- name: 16 - TPI - Acte nature(disposition) + disposition + régime de faveur
+  period: 2025-01-16
+  input:
+    nature_acte: Renonciation
+    disposition: Rectification
+    regime_faveur: Succesorale
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 0
+    type_acte: Transcription
