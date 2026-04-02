@@ -63,7 +63,7 @@ class RegimeFaveur(Enum):
     Aucun = "Aucun"
 
 
-class Disposition(Enum):
+class NatureDisposition(Enum):
     Rectification = 'rectification'
     Renonciation = 'renonciation'
     ActeComplementaire = 'acte_complementaire'
