@@ -90,6 +90,22 @@ class Disposition(Enum):
 
 
 class NatureActe(Enum):
+    # Transcription (Disposition)
+    ModificationEtatDescriptifDivisionReglementCopropriete = 'modification_etat_descriptif_division_reglement_copropriete'
+    CahierCharges = 'cahier_charges'
+    ModificationCahierCharges = 'modification_cahier_charges'
+    Avenant = 'avenant'
+    Echange = 'echange'
+    RenouvellementAutorisationOccupationTemporaire = 'renouvellement_autorisation_occupation_temporaire'
+    ConstatationRealisationConditionSuspensive = 'constatation_realisation_condition_suspensive'
+    Constatation = 'constatation'
+    Remploi = 'remploi'
+    Convention = 'convention'
+    Certificat = 'certificat_conformite'
+    PacteTontinier = 'pacte_tontinier'
+    ReserveDroitUsageHabitation = 'reserve_droit_usage_habitation'
+    DecisionJustice = 'decision_justice'
+
     # Transcription (Acte initial)
     Vente = 'vente'
     VenteSousConditionSuspensive = 'vente_sous_condition_suspensive'
