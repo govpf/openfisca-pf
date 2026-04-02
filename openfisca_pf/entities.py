@@ -66,4 +66,24 @@ Personne = build_entity(
     )
 
 
-ENTITIES = [Dossier, Employes, Pays, Personne]
+Disposition = build_entity(
+    key = "disposition",
+    plural = "dispositions",
+    label = "Disposition",
+    doc = "Une disposition rattachée à un acte",
+    is_person = True,
+)
+
+
+Acte = build_entity(
+    key = "acte",
+    plural = "actes",
+    label = "Un acte",
+    doc = """
+        Un acte est un document juridique qui formalise une transaction ou une démarche administrative.
+        """,
+    containing_entities  = [Disposition],
+    )
+
+
+ENTITIES = [Dossier, Employes, Pays, Personne, Disposition, Acte]
