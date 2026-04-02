@@ -19,7 +19,7 @@ from openfisca_pf.enums.rch import (
     RegimeFaveur
     )
 from openfisca_pf.functions.currency import arrondi_superieur
-from numpy import maximum
+from numpy import maximum, where
 
 
 class nature_acte(Variable):
@@ -238,12 +238,12 @@ class montant_tpi_acte(Variable):
 
         montant_disposition = select(
             [
-                (disposition != Disposition.Aucun),
-                (disposition == Disposition.Echange)
+                (disposition == Disposition.Echange),
+                (disposition != Disposition.Aucun)
                 ],
             [
-                fixed_default_value,
-                fixed_default_value * 2
+                fixed_default_value * 2,
+                fixed_default_value
                 ]
             )
 
@@ -259,9 +259,20 @@ class montant_tpi_acte(Variable):
                 0,
                 fixed_default_value * 2,
                 fixed_default_value,
-                maximum(fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi), fixed_default_value),
-                maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value),
+                fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi),
+                arrondi_superieur(montant_total_acte * taux_tpi),
                 ]
             )
 
-        return montant_tpi + montant_disposition
+        return select(
+            [
+                regime_faveur != RegimeFaveur.Aucun,
+                nature_acte == NatureActe.ActeAdministratif,
+                True
+                ],
+            [
+                0,
+                montant_tpi + montant_disposition,
+                maximum(montant_tpi + montant_disposition, fixed_default_value),
+                ]
+            )
