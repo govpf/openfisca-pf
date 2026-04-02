@@ -91,6 +91,14 @@ class Disposition(Enum):
 
 class NatureActe(Enum):
     # Transcription (Disposition)
+    Rectification = 'rectification'
+    Renonciation = 'renonciation'
+    ActeComplementaire = 'acte_complementaire'
+    ConstitutionServitude = 'constitution_servitude'
+    DroitAcces = 'droit_acces'
+    DepotPiece = 'depot_piece'
+    PactePreference = 'pacte_preference'
+    EtatDescriptifDivisionReglementCopropriete = 'etat_descriptif_division_reglement_copropriete'
     ModificationEtatDescriptifDivisionReglementCopropriete = 'modification_etat_descriptif_division_reglement_copropriete'
     CahierCharges = 'cahier_charges'
     ModificationCahierCharges = 'modification_cahier_charges'
