@@ -231,11 +231,13 @@ class montant_taxe_disposition(Variable):
         return select(
             [
                 (disposition == NatureDisposition.Echange),
-                (disposition != NatureDisposition.Aucun)
+                (disposition != NatureDisposition.Aucun),
+                True
                 ],
             [
                 fixed_default_value * 2,
-                fixed_default_value
+                fixed_default_value,
+                0
                 ]
             )
 
@@ -258,9 +260,7 @@ class montant_tpi_acte(Variable):
         fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
 
         list_montant_disposition = acte.members('montant_taxe_disposition', period)
-        print("list_montant_disposition", list_montant_disposition)
         montant_disposition = acte.sum(list_montant_disposition)
-        print("montant_disposition", montant_disposition)
         montant_tpi = select(
             [
                 (regime_faveur != RegimeFaveur.Aucun) | (nature_acte == NatureActe.ActeAdministratif),
