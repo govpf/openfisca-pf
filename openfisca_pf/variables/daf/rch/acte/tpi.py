@@ -11,7 +11,7 @@ from openfisca_pf.base import (
     select,
     Variable
     )
-from openfisca_pf.entities import Acte, Disposition
+from openfisca_pf.entities import Acte, Personne
 from openfisca_pf.enums.rch import (
     NatureDisposition,
     NatureActe,
@@ -144,7 +144,7 @@ class nature_disposition(Variable):
     value_type = Enum
     possible_values = NatureDisposition
     default_value = NatureDisposition.Aucun
-    entity = Disposition
+    entity = Personne
     definition_period = DAY
     label = "Disposition(s) appliquée(s) à l'acte"
 
@@ -218,25 +218,17 @@ class taux_tpi(Variable):
             )
 
 
-class montant_tpi_acte(Variable):
+class montant_taxe_disposition(Variable):
     value_type = int
-    entity = Acte
+    entity = Personne
     definition_period = DAY
-    label = "Montant de la taxe de publicité immobilière selon la nature de l'acte"
+    label = "Montant de la taxe de publicité immobilière liée à la disposition"
 
     def formula(acte: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        type_acte = acte('type_acte', period)
-        nature_acte = acte('nature_acte', period)
-        is_disposition = acte('is_disposition', period)
-        disposition = acte('disposition', period)
-        regime_faveur = acte('regime_faveur', period)
-        montant_total_acte = acte('montant_total_acte', period)
-        montant_initial_acte = acte('montant_initial_acte', period)
-
-        taux_tpi = acte('taux_tpi', period) / 100  # conversion pourcentage en décimal
+        disposition = acte('nature_disposition', period)
         fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
 
-        montant_disposition = select(
+        return select(
             [
                 (disposition == NatureDisposition.Echange),
                 (disposition != NatureDisposition.Aucun)
@@ -247,6 +239,28 @@ class montant_tpi_acte(Variable):
                 ]
             )
 
+
+class montant_tpi_acte(Variable):
+    value_type = int
+    entity = Acte
+    definition_period = DAY
+    label = "Montant de la taxe de publicité immobilière selon la nature de l'acte"
+
+    def formula(acte: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        type_acte = acte('type_acte', period)
+        nature_acte = acte('nature_acte', period)
+        is_disposition = acte('is_disposition', period)
+        regime_faveur = acte('regime_faveur', period)
+        montant_total_acte = acte('montant_total_acte', period)
+        montant_initial_acte = acte('montant_initial_acte', period)
+
+        taux_tpi = acte('taux_tpi', period) / 100  # conversion pourcentage en décimal
+        fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
+
+        list_montant_disposition = acte.members('montant_taxe_disposition', period)
+        print("list_montant_disposition", list_montant_disposition)
+        montant_disposition = acte.sum(list_montant_disposition)
+        print("montant_disposition", montant_disposition)
         montant_tpi = select(
             [
                 (regime_faveur != RegimeFaveur.Aucun) | (nature_acte == NatureActe.ActeAdministratif),

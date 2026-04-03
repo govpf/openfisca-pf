@@ -72,6 +72,7 @@ Disposition = build_entity(
     label = "Disposition",
     doc = "Une disposition rattachée à un acte",
     is_person = True,
+
 )
 
 
@@ -82,7 +83,14 @@ Acte = build_entity(
     doc = """
         Un acte est un document juridique qui formalise une transaction ou une démarche administrative.
         """,
-    containing_entities  = [Disposition],
+    roles = [
+        {
+            "key": "disposition",
+            "plural": "dispositions",
+            "label": "Dispositions",
+            "doc": "Les dispositions appliquées à l'acte"
+            },
+        ],
     )
 
 
