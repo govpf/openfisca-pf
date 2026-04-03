@@ -177,33 +177,61 @@ Requête :
 ```json
 {
   "personnes": {
-    "Acte disposition Rectification": {
-      "montant_tpi_acte": {
-        "2025-03-01": null
-      },
-      "disposition": {
-        "2025-03-01": "Rectification"
-      },
-      "nature_acte": {
-        "2025-03-01": "Vente"
-      },
-      "montant_total_acte": {
-        "2025-03-01": 3500
-      }
+    "acte1_disposition": {
+      "nature_disposition": { "2026-04-01": "Aucun" }
     },
-    "Acte disposition Renonciation": {
-      "montant_tpi_acte": {
-        "2025-03-01": null
-      },
-      "disposition": {
-        "2025-03-01": "Renonciation"
-      },
+    "acte2_disposition1": {
+      "nature_disposition": { "2026-04-01": "Echange" }
+    },
+    "acte2_disposition2": {
+      "nature_disposition": { "2026-04-01": "Rectification" }
+    },
+    "acte3_disposition1": {
+      "nature_disposition": { "2026-04-01": "Echange" }
+    },
+    "acte3_disposition2": {
+      "nature_disposition": { "2026-04-01": "Rectification" }
+    }
+  },
+  "actes": {
+    "acte1": {
       "nature_acte": {
-        "2025-03-01": "Vente"
+        "2026-04-01": "Vente"
+      },
+      "montant_tpi_acte": {
+        "2026-04-01": null
       },
       "montant_total_acte": {
-        "2025-03-01": 3500
-      }
+        "2026-04-01": 25000
+      },
+      "dispositions": ["acte1_disposition"]
+    },
+    "acte2": {
+      "nature_acte": {
+        "2026-04-01": "Vente"
+      },
+      "montant_tpi_acte": {
+        "2026-04-01": null
+      },
+      "montant_total_acte": {
+        "2026-04-01": 25000
+      },
+      "dispositions": ["acte2_disposition1", "acte2_disposition2"]
+    },
+    "acte3": {
+      "nature_acte": {
+        "2026-04-01": "Vente"
+      },
+      "montant_tpi_acte": {
+        "2026-04-01": null
+      },
+      "regime_faveur": {
+        "2026-04-01": "Succesorale"
+      },
+      "montant_total_acte": {
+        "2026-04-01": 25000
+      },
+      "dispositions": ["acte3_disposition1", "acte3_disposition2"]
     }
   }
 }
@@ -213,33 +241,71 @@ Réponse:
 
 ```json
 {
-  "personnes": {
-    "Acte disposition Rectification": {
+  "actes": {
+    "acte1": {
+      "dispositions": ["acte1_disposition"],
       "montant_total_acte": {
-        "2025-03-01": 3500
+        "2026-04-01": 25000
       },
       "montant_tpi_acte": {
-        "2025-03-01": 1500
-      },
-      "disposition": {
-        "2025-03-01": "Rectification"
+        "2026-04-01": 1500
       },
       "nature_acte": {
-        "2025-03-01": "Vente"
+        "2026-04-01": "Vente"
       }
     },
-    "Acte disposition Renonciation": {
+    "acte2": {
+      "dispositions": ["acte2_disposition1", "acte2_disposition2"],
       "montant_total_acte": {
-        "2025-03-01": 3500
+        "2026-04-01": 25000
       },
       "montant_tpi_acte": {
-        "2025-03-01": 1500
-      },
-      "disposition": {
-        "2025-03-01": "Rectification"
+        "2026-04-01": 4525
       },
       "nature_acte": {
-        "2025-03-01": "Vente"
+        "2026-04-01": "Vente"
+      }
+    },
+    "acte3": {
+      "dispositions": ["acte3_disposition1", "acte3_disposition2"],
+      "montant_total_acte": {
+        "2026-04-01": 25000
+      },
+      "montant_tpi_acte": {
+        "2026-04-01": 0
+      },
+      "nature_acte": {
+        "2026-04-01": "Vente"
+      },
+      "regime_faveur": {
+        "2026-04-01": "Succesorale"
+      }
+    }
+  },
+  "personnes": {
+    "acte1_disposition": {
+      "nature_disposition": {
+        "2026-04-01": "Aucun"
+      }
+    },
+    "acte2_disposition1": {
+      "nature_disposition": {
+        "2026-04-01": "Echange"
+      }
+    },
+    "acte2_disposition2": {
+      "nature_disposition": {
+        "2026-04-01": "Rectification"
+      }
+    },
+    "acte3_disposition1": {
+      "nature_disposition": {
+        "2026-04-01": "Echange"
+      }
+    },
+    "acte3_disposition2": {
+      "nature_disposition": {
+        "2026-04-01": "Rectification"
       }
     }
   }
