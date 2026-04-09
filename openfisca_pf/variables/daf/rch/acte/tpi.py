@@ -13,7 +13,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Acte, Personne
 from openfisca_pf.enums.rch import (
-    NatureDisposition,
+    DispositionVariables,
     NatureActe,
     TypeActe,
     RegimeFaveur
@@ -140,15 +140,6 @@ class montant_initial_acte(Variable):
     label = "Montant de l'inscription initial d'un acte"
 
 
-class nature_disposition(Variable):
-    value_type = Enum
-    possible_values = NatureDisposition
-    default_value = NatureDisposition.Aucun
-    entity = Personne
-    definition_period = DAY
-    label = "Disposition(s) appliquée(s) à l'acte"
-
-
 class taux_tpi(Variable):
     value_type = float
     entity = Acte
@@ -224,22 +215,24 @@ class montant_taxe_disposition(Variable):
     definition_period = DAY
     label = "Montant de la taxe de publicité immobilière liée à la disposition"
 
-    def formula(acte: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        disposition = acte('nature_disposition', period)
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
-
-        return select(
-            [
-                (disposition == NatureDisposition.Echange),
-                (disposition != NatureDisposition.Aucun),
-                True
+        list_disposition_enum = list(DispositionVariables)
+        montant_total_disposition = 0
+        for disposition_enum in list_disposition_enum:
+            disposition_count = personne(disposition_enum.value, period)
+            montant_total_disposition += select(
+                [
+                    disposition_enum == DispositionVariables.Echange,
                 ],
-            [
-                fixed_default_value * 2,
-                fixed_default_value,
-                0
-                ]
+                [
+                    fixed_default_value * 2 * disposition_count,
+                ],
+                default = fixed_default_value * disposition_count
             )
+
+
+        return montant_total_disposition
 
 
 class montant_tpi_acte(Variable):

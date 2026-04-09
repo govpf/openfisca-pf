@@ -63,7 +63,7 @@ class RegimeFaveur(Enum):
     Aucun = "Aucun"
 
 
-class NatureDisposition(Enum):
+class DispositionVariables(Enum):
     Rectification = 'rectification'
     Renonciation = 'renonciation'
     ActeComplementaire = 'acte_complementaire'
@@ -86,7 +86,7 @@ class NatureDisposition(Enum):
     PacteTontinier = 'pacte_tontinier'
     ReserveDroitUsageHabitation = 'reserve_droit_usage_habitation'
     DecisionJustice = 'decision_justice'
-    Aucun = 'aucun'
+    ConventionDivorce = 'convention_divorce'
 
 
 class NatureActe(Enum):
