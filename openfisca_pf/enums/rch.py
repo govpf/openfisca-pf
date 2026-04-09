@@ -52,15 +52,16 @@ class TypeActe(Enum):
 
 
 class RegimeFaveur(Enum):
-    AideJuridictionnelle = 'Aide juridictionnelle'
-    ActeAdministratifExonere = "Acte administratif exonéré"
-    ProgrammeHabitatSocial = "Programme d'habitat social"
-    ComptablePublic = "Comptable public"
-    Succesorale = "Succesorale"
-    Collectivites = "Collectivités"
-    Titrement = "Titrement"
-    Autre = "Autre"
-    Aucun = "Aucun"
+    AideJuridictionnelle = 'aide_juridictionnelle'
+    ActeAdministratifExonere = 'acte_administratif_exonere'
+    ProgrammeHabitatSocial = 'programme_habitat_social'
+    EtablissementPublic = 'etablissement_public'
+    AISI = 'aisi'
+    Succesorale = 'succesorale'
+    DefiscalisationOutreMer = 'defiscalisation_outre_mer'
+    Collectivites = 'collectivites'
+    ComptablePublic = 'comptable_public'
+    Autre = 'autre'
 
 
 class DispositionVariables(Enum):
