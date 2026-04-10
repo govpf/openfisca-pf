@@ -75,10 +75,10 @@ class type_acte(Variable):
 
     def formula(acte: Population, period: Period) -> ArrayLike:
         nature_acte = acte('nature_acte', period)
-        is_disposition = acte('is_disposition', period)
+        est_disposition = acte('est_disposition', period)
         return select(
             [
-                is_disposition
+                est_disposition
                 | (nature_acte == NatureActe.Vente)
                 | (nature_acte == NatureActe.VenteSousConditionSuspensive)
                 | (nature_acte == NatureActe.VenteEnEtatFuturAchevement)
@@ -115,15 +115,6 @@ class type_acte(Variable):
                 TypeActe.Saisie
                 ]
             )
-
-
-class regime_faveur(Variable):
-    value_type = Enum
-    possible_values = RegimeFaveur
-    default_value = RegimeFaveur.Aucun
-    entity = Personne
-    definition_period = DAY
-    label = "Indique un régime de faveur de l'acte"
 
 
 class montant_total_acte(Variable):
@@ -258,8 +249,8 @@ class montant_tpi_acte(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         type_acte = personne('type_acte', period)
         nature_acte = personne('nature_acte', period)
-        is_disposition = personne('est_disposition', period)
-        is_regime_faveur = personne('est_regime_faveur', period)
+        est_disposition = personne('est_disposition', period)
+        is_regime_faveur = personne('est_exonere', period)
         montant_total_acte = personne('montant_total_acte', period)
         montant_initial_acte = personne('montant_initial_acte', period)
         montant_disposition = personne('montant_taxe_disposition', period)
@@ -271,7 +262,7 @@ class montant_tpi_acte(Variable):
             [
                 (is_regime_faveur) | (nature_acte == NatureActe.ActeAdministratif),
                 nature_acte == NatureActe.Echange,
-                is_disposition | (type_acte == TypeActe.Saisie),
+                est_disposition | (type_acte == TypeActe.Saisie),
                 (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
                 True
                 ],

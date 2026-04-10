@@ -22,7 +22,7 @@ Type de l’acte, déduit automatiquement à partir de la nature de l’acte (`N
 
 ---
 
-### `is_disposition` _(bool)_
+### `est_disposition` _(bool)_
 
 Indique si la nature de l’acte correspond à une **disposition**.
 
