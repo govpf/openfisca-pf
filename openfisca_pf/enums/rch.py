@@ -56,7 +56,7 @@ class RegimeFaveur(Enum):
     ActeAdministratifExonere = 'acte_administratif_exonere'
     ProgrammeHabitatSocial = 'programme_habitat_social'
     EtablissementPublic = 'etablissement_public'
-    AISI = 'aisi'
+    AISI = 'AISI'
     Succesorale = 'succesorale'
     DefiscalisationOutreMer = 'defiscalisation_outre_mer'
     Collectivites = 'collectivites'
