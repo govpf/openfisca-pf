@@ -18,7 +18,7 @@
   period: 2025-01-16
   input:
     nature_acte: Vente
-    regime_faveur: Succesorale
+    succesorale: 1
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 0
@@ -112,7 +112,7 @@
   period: 2025-01-16
   input:
     nature_acte: Vente
-    disposition: Rectification
+    rectification: 1
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 1525
@@ -121,7 +121,7 @@
   period: 2025-01-16
   input:
     nature_acte: Renonciation
-    disposition: Rectification
+    rectification: 1
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 3000
@@ -130,7 +130,7 @@
   period: 2025-01-16
   input:
     nature_acte: Renonciation
-    disposition: Echange
+    echange: 1
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 4500
@@ -139,7 +139,7 @@
   period: 2025-01-16
   input:
     nature_acte: ActeAdministratif
-    disposition: Rectification
+    rectification: 1
     montant_total_acte: 2500
   output:
     montant_tpi_acte: 1500
@@ -148,9 +148,20 @@
   period: 2025-01-16
   input:
     nature_acte: Renonciation
-    disposition: Rectification
-    regime_faveur: Succesorale
+    rectification: 1
+    succesorale: 1
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 0
+    type_acte: Transcription
+- name: 17 - TPI - Acte nature + multiple disposition
+  period: 2025-01-16
+  input:
+    nature_acte: Vente
+    rectification: 1
+    renonciation: 1
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 3025
+    montant_taxe_disposition: 3000
     type_acte: Transcription
