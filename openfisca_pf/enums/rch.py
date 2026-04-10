@@ -142,6 +142,7 @@ class NatureActe(Enum):
     PrivilegeVendeurActionResolutoire = 'privilege_vendeur_action_resolutoire'
     InscriptionRectificative = 'inscription_rectificative'
     HypothequeJudiciaireDefinitive = 'hypotheque_judiciaire_definitive'
+    RenouvellementHypothequeJudiciaire = 'renouvellement_hypotheque_judiciaire'
     RenouvellementInscription = 'renouvellement_inscription'
 
     # Saisie-immobiliere

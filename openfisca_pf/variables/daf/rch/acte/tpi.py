@@ -231,7 +231,6 @@ class montant_taxe_disposition(Variable):
                 default = fixed_default_value * disposition_count
             )
 
-
         return montant_total_disposition
 
 
