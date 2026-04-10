@@ -166,6 +166,12 @@ Même principe que pour les disposition.
 
 ---
 
+### `est_exonere` _(bool)_
+
+Indique si l'acte est exonéré de la taxe de publicité immobilière.
+
+---
+
 ### `montant_initial_acte` _(int)_
 
 Montant d’inscription initial de l’acte.
