@@ -31,7 +31,7 @@ class nature_acte(Variable):
     label = "Nature de l'acte"
 
 
-class is_disposition(Variable):
+class est_disposition(Variable):
     value_type = bool
     entity = Personne
     definition_period = DAY
@@ -235,6 +235,21 @@ class montant_taxe_disposition(Variable):
         return montant_total_disposition
 
 
+class est_exonere(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = DAY
+    label = "Indique si l'acte est exonéré de la taxe de publicité immobilière"
+
+    def formula(personne: Population, period: Period) -> ArrayLike:
+        list_regime_faveur_enum = list(RegimeFaveur)
+        for regime_faveur_enum in list_regime_faveur_enum:
+            regime_faveur_count = personne(regime_faveur_enum.value, period)
+            if regime_faveur_count > 0:
+                return True
+        return False
+
+
 class montant_tpi_acte(Variable):
     value_type = int
     entity = Personne
@@ -244,8 +259,8 @@ class montant_tpi_acte(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         type_acte = personne('type_acte', period)
         nature_acte = personne('nature_acte', period)
-        is_disposition = personne('is_disposition', period)
-        regime_faveur = personne('regime_faveur', period)
+        is_disposition = personne('est_disposition', period)
+        is_regime_faveur = personne('est_regime_faveur', period)
         montant_total_acte = personne('montant_total_acte', period)
         montant_initial_acte = personne('montant_initial_acte', period)
         montant_disposition = personne('montant_taxe_disposition', period)
@@ -255,7 +270,7 @@ class montant_tpi_acte(Variable):
 
         montant_tpi = select(
             [
-                (regime_faveur != RegimeFaveur.Aucun) | (nature_acte == NatureActe.ActeAdministratif),
+                (is_regime_faveur) | (nature_acte == NatureActe.ActeAdministratif),
                 nature_acte == NatureActe.Echange,
                 is_disposition | (type_acte == TypeActe.Saisie),
                 (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
@@ -272,7 +287,7 @@ class montant_tpi_acte(Variable):
 
         return select(
             [
-                regime_faveur != RegimeFaveur.Aucun,
+                is_regime_faveur,
                 nature_acte == NatureActe.ActeAdministratif,
                 True
                 ],
