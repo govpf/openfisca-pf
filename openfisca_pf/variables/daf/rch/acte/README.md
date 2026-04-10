@@ -188,61 +188,63 @@ Requête :
 ```json
 {
   "personnes": {
-    "acte1_disposition": {
-      "nature_disposition": { "2026-04-01": "aucun" }
-    },
-    "acte2_disposition1": {
-      "nature_disposition": { "2026-04-01": "echange" }
-    },
-    "acte2_disposition2": {
-      "nature_disposition": { "2026-04-01": "rectification" }
-    },
-    "acte3_disposition1": {
-      "nature_disposition": { "2026-04-01": "echange" }
-    },
-    "acte3_disposition2": {
-      "nature_disposition": { "2026-04-01": "rectification" }
-    }
-  },
-  "actes": {
-    "acte1": {
-      "nature_acte": {
-        "2026-04-01": "Vente"
+    "Acte Rectification": {
+      "montant_taxe_disposition": {
+        "2025-03-01": null
+      },
+      "rectification": {
+        "2025-03-01": 1
       },
       "montant_tpi_acte": {
-        "2026-04-01": null
+        "2025-03-01": null
+      },
+      "nature_acte": {
+        "2025-03-01": "Vente"
       },
       "montant_total_acte": {
-        "2026-04-01": 25000
-      },
-      "dispositions": ["acte1_disposition"]
+        "2025-03-01": 3500
+      }
     },
-    "acte2": {
-      "nature_acte": {
-        "2026-04-01": "Vente"
+    "Acte rectification Renonciation": {
+      "montant_taxe_disposition": {
+        "2025-03-01": null
+      },
+      "rectification": {
+        "2025-03-01": 1
+      },
+
+      "renonciation": {
+        "2025-03-01": 1
       },
       "montant_tpi_acte": {
-        "2026-04-01": null
+        "2025-03-01": null
+      },
+      "nature_acte": {
+        "2025-03-01": "Vente"
       },
       "montant_total_acte": {
-        "2026-04-01": 25000
-      },
-      "dispositions": ["acte2_disposition1", "acte2_disposition2"]
+        "2025-03-01": 3500
+      }
     },
-    "acte3": {
-      "nature_acte": {
-        "2026-04-01": "Vente"
+    "Acte rectification x2 Renonciation": {
+      "montant_taxe_disposition": {
+        "2025-03-01": null
+      },
+      "rectification": {
+        "2025-03-01": 2
+      },
+      "renonciation": {
+        "2025-03-01": 1
       },
       "montant_tpi_acte": {
-        "2026-04-01": null
+        "2025-03-01": null
       },
-      "regime_faveur": {
-        "2026-04-01": "succesorale"
+      "nature_acte": {
+        "2025-03-01": "Vente"
       },
       "montant_total_acte": {
-        "2026-04-01": 25000
-      },
-      "dispositions": ["acte3_disposition1", "acte3_disposition2"]
+        "2025-03-01": 3500
+      }
     }
   }
 }
@@ -252,71 +254,62 @@ Réponse:
 
 ```json
 {
-  "actes": {
-    "acte1": {
-      "dispositions": ["acte1_disposition"],
-      "montant_total_acte": {
-        "2026-04-01": 25000
-      },
-      "montant_tpi_acte": {
-        "2026-04-01": 1500
-      },
-      "nature_acte": {
-        "2026-04-01": "Vente"
-      }
-    },
-    "acte2": {
-      "dispositions": ["acte2_disposition1", "acte2_disposition2"],
-      "montant_total_acte": {
-        "2026-04-01": 25000
-      },
-      "montant_tpi_acte": {
-        "2026-04-01": 4525
-      },
-      "nature_acte": {
-        "2026-04-01": "Vente"
-      }
-    },
-    "acte3": {
-      "dispositions": ["acte3_disposition1", "acte3_disposition2"],
-      "montant_total_acte": {
-        "2026-04-01": 25000
-      },
-      "montant_tpi_acte": {
-        "2026-04-01": 0
-      },
-      "nature_acte": {
-        "2026-04-01": "Vente"
-      },
-      "regime_faveur": {
-        "2026-04-01": "succesorale"
-      }
-    }
-  },
   "personnes": {
-    "acte1_disposition": {
-      "nature_disposition": {
-        "2026-04-01": "aucun"
+    "Acte Rectification": {
+      "montant_taxe_disposition": {
+        "2025-03-01": 1500
+      },
+      "montant_total_acte": {
+        "2025-03-01": 3500
+      },
+      "montant_tpi_acte": {
+        "2025-03-01": 1504
+      },
+      "nature_acte": {
+        "2025-03-01": "Vente"
+      },
+      "rectification": {
+        "2025-03-01": 1
       }
     },
-    "acte2_disposition1": {
-      "nature_disposition": {
-        "2026-04-01": "echange"
+    "Acte rectification Renonciation": {
+      "montant_taxe_disposition": {
+        "2025-03-01": 3000
+      },
+      "montant_total_acte": {
+        "2025-03-01": 3500
+      },
+      "montant_tpi_acte": {
+        "2025-03-01": 3004
+      },
+      "nature_acte": {
+        "2025-03-01": "Vente"
+      },
+      "rectification": {
+        "2025-03-01": 1
+      },
+      "renonciation": {
+        "2025-03-01": 1
       }
     },
-    "acte2_disposition2": {
-      "nature_disposition": {
-        "2026-04-01": "rectification"
-      }
-    },
-    "acte3_disposition1": {
-      "nature_disposition": {
-        "2026-04-01": "echange"
-      }
-    },
-    "acte3_disposition2": {
-      "nature_disposition": {
-        "2026-04-01": "rectification"
+    "Acte rectification x2 Renonciation": {
+      "montant_taxe_disposition": {
+        "2025-03-01": 4500
+      },
+      "montant_total_acte": {
+        "2025-03-01": 3500
+      },
+      "montant_tpi_acte": {
+        "2025-03-01": 4504
+      },
+      "nature_acte": {
+        "2025-03-01": "Vente"
+      },
+      "rectification": {
+        "2025-03-01": 2
+      },
+      "renonciation": {
+        "2025-03-01": 1
       }
     }
   }
