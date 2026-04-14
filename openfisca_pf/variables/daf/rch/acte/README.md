@@ -125,7 +125,7 @@ Même principe que pour les disposition.
 - `acte_administratif_exonere`
 - `programme_habitat_social`
 - `etablissement_public`
-- `AISI`
+- `aisi`
 - `succesorale`
 - `defiscalisation_outre_mer`
 - `collectivites`

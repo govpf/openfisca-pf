@@ -215,10 +215,10 @@ class montant_taxe_disposition(Variable):
             montant_total_disposition += select(
                 [
                     disposition_enum == DispositionVariables.Echange,
-                ],
+                    ],
                 [
                     fixed_default_value * 2 * disposition_count,
-                ],
+                    ],
                 default = fixed_default_value * disposition_count
             )
 
@@ -271,19 +271,16 @@ class montant_tpi_acte(Variable):
                 fixed_default_value * 2,
                 fixed_default_value,
                 fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi),
-                arrondi_superieur(montant_total_acte * taux_tpi),
+                maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value)
                 ]
             )
 
         return select(
             [
                 is_regime_faveur,
-                nature_acte == NatureActe.ActeAdministratif,
-                True
                 ],
             [
                 0,
-                montant_tpi + montant_disposition,
-                maximum(montant_tpi + montant_disposition, fixed_default_value),
-                ]
+                ],
+            default=montant_tpi + montant_disposition
             )

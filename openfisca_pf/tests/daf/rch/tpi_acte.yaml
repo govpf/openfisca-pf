@@ -115,7 +115,7 @@
     rectification: 1
     montant_total_acte: 25000
   output:
-    montant_tpi_acte: 1525
+    montant_tpi_acte: 3000
     type_acte: Transcription
 - name: 13 - TPI - Acte nature(disposition) + disposition
   period: 2025-01-16
@@ -162,6 +162,6 @@
     renonciation: 1
     montant_total_acte: 25000
   output:
-    montant_tpi_acte: 3025
+    montant_tpi_acte: 4500
     montant_taxe_disposition: 3000
     type_acte: Transcription
