@@ -39,14 +39,14 @@
   output:
     montant_tpi_acte: 1500
     type_acte: Transcription
-- name: 5 - TPI - Acte transcription administratif
+- name: 5 - TPI - Acte inscription hypothèque légale
   period: 2025-01-16
   input:
-    nature_acte: ActeAdministratif
-    montant_total_acte: 2500
+    nature_acte: HypothequeLegale
+    montant_total_acte: 2500000
   output:
-    montant_tpi_acte: 0
-    type_acte: Transcription
+    montant_tpi_acte: 5000
+    type_acte: Inscription
 - name: 6 - TPI - Acte inscription classique
   period: 2025-01-16
   input:
@@ -135,15 +135,15 @@
   output:
     montant_tpi_acte: 4500
     type_acte: Transcription
-- name: 15 - TPI - Acte transcription administratif + disposition
+- name: 15 - TPI - Acte transcription HypothequeLegale + disposition
   period: 2025-01-16
   input:
-    nature_acte: ActeAdministratif
+    nature_acte: HypothequeLegale
     rectification: 1
-    montant_total_acte: 2500
+    montant_total_acte: 2500000
   output:
-    montant_tpi_acte: 1500
-    type_acte: Transcription
+    montant_tpi_acte: 6500
+    type_acte: Inscription
 - name: 16 - TPI - Acte nature(disposition) + disposition + régime de faveur
   period: 2025-01-16
   input:

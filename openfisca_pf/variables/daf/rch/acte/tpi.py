@@ -260,27 +260,18 @@ class montant_tpi_acte(Variable):
 
         montant_tpi = select(
             [
-                (is_regime_faveur) | (nature_acte == NatureActe.ActeAdministratif),
+                is_regime_faveur,
                 nature_acte == NatureActe.Echange,
                 est_disposition | (type_acte == TypeActe.Saisie),
                 (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
-                True
                 ],
             [
                 0,
-                fixed_default_value * 2,
-                fixed_default_value,
-                fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi),
-                maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value)
-                ]
+                fixed_default_value * 2 + montant_disposition,
+                fixed_default_value + montant_disposition,
+                fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi) + montant_disposition,
+                ],
+            default=maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value) + montant_disposition
             )
 
-        return select(
-            [
-                is_regime_faveur,
-                ],
-            [
-                0,
-                ],
-            default=montant_tpi + montant_disposition
-            )
+        return montant_tpi
