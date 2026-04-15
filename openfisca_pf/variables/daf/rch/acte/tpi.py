@@ -13,7 +13,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 from openfisca_pf.enums.rch import (
-    Disposition,
+    DispositionVariables,
     NatureActe,
     TypeActe,
     RegimeFaveur
@@ -31,6 +31,40 @@ class nature_acte(Variable):
     label = "Nature de l'acte"
 
 
+class est_disposition(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = DAY
+    label = "Indique si la nature de l'acte est une disposition"
+
+    def formula(personne: Population, period: Period) -> ArrayLike:
+        nature_acte = personne('nature_acte', period)
+        return (
+            (nature_acte == NatureActe.Rectification)
+            | (nature_acte == NatureActe.Renonciation)
+            | (nature_acte == NatureActe.ActeComplementaire)
+            | (nature_acte == NatureActe.ConstitutionServitude)
+            | (nature_acte == NatureActe.DroitAcces)
+            | (nature_acte == NatureActe.DepotPiece)
+            | (nature_acte == NatureActe.PactePreference)
+            | (nature_acte == NatureActe.EtatDescriptifDivisionReglementCopropriete)
+            | (nature_acte == NatureActe.ModificationEtatDescriptifDivisionReglementCopropriete)
+            | (nature_acte == NatureActe.CahierCharges)
+            | (nature_acte == NatureActe.ModificationCahierCharges)
+            | (nature_acte == NatureActe.Avenant)
+            | (nature_acte == NatureActe.Echange)
+            | (nature_acte == NatureActe.RenouvellementAutorisationOccupationTemporaire)
+            | (nature_acte == NatureActe.ConstatationRealisationConditionSuspensive)
+            | (nature_acte == NatureActe.Constatation)
+            | (nature_acte == NatureActe.Remploi)
+            | (nature_acte == NatureActe.Convention)
+            | (nature_acte == NatureActe.Certificat)
+            | (nature_acte == NatureActe.PacteTontinier)
+            | (nature_acte == NatureActe.ReserveDroitUsageHabitation)
+            | (nature_acte == NatureActe.DecisionJustice)
+            )
+
+
 class type_acte(Variable):
     value_type = Enum
     possible_values = TypeActe
@@ -39,11 +73,13 @@ class type_acte(Variable):
     definition_period = DAY
     label = "Type d'acte auprès de la RCH"
 
-    def formula(personne: Population, period: Period) -> ArrayLike:
-        nature_acte = personne('nature_acte', period)
+    def formula(acte: Population, period: Period) -> ArrayLike:
+        nature_acte = acte('nature_acte', period)
+        est_disposition = acte('est_disposition', period)
         return select(
             [
-                (nature_acte == NatureActe.Vente)
+                est_disposition
+                | (nature_acte == NatureActe.Vente)
                 | (nature_acte == NatureActe.VenteSousConditionSuspensive)
                 | (nature_acte == NatureActe.VenteEnEtatFuturAchevement)
                 | (nature_acte == NatureActe.ConventionDivorce)
@@ -66,6 +102,7 @@ class type_acte(Variable):
                 | (nature_acte == NatureActe.PrivilegeVendeurActionResolutoire)
                 | (nature_acte == NatureActe.InscriptionRectificative)
                 | (nature_acte == NatureActe.HypothequeJudiciaireDefinitive)
+                | (nature_acte == NatureActe.RenouvellementHypothequeJudiciaire)
                 | (nature_acte == NatureActe.RenouvellementInscription),
                 (nature_acte == NatureActe.PouvoirCommandementSaisieImmobiliere)
                 | (nature_acte == NatureActe.SommationFinsSaisieImmobiliere)
@@ -79,15 +116,6 @@ class type_acte(Variable):
                 TypeActe.Saisie
                 ]
             )
-
-
-class regime_faveur(Variable):
-    value_type = Enum
-    possible_values = RegimeFaveur
-    default_value = RegimeFaveur.Aucun
-    entity = Personne
-    definition_period = DAY
-    label = "Indique un régime de faveur de l'acte"
 
 
 class montant_total_acte(Variable):
@@ -104,23 +132,14 @@ class montant_initial_acte(Variable):
     label = "Montant de l'inscription initial d'un acte"
 
 
-class disposition(Variable):
-    value_type = Enum
-    possible_values = Disposition
-    default_value = Disposition.Aucun
-    entity = Personne
-    definition_period = DAY
-    label = "Disposition(s) appliquée(s) à l'acte"
-
-
 class taux_tpi(Variable):
     value_type = float
     entity = Personne
     definition_period = DAY
     label = "Taux de la taxe de publicité immobilière selon le type d'acte"
 
-    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        nature_acte = personne('nature_acte', period)
+    def formula(acte: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        nature_acte = acte('nature_acte', period)
         taux_parameters = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.taux
         return select(
             [
@@ -149,6 +168,7 @@ class taux_tpi(Variable):
                 nature_acte == NatureActe.PrivilegeVendeurActionResolutoire,
                 nature_acte == NatureActe.InscriptionRectificative,
                 nature_acte == NatureActe.HypothequeJudiciaireDefinitive,
+                nature_acte == NatureActe.RenouvellementHypothequeJudiciaire,
                 nature_acte == NatureActe.RenouvellementInscription
                 ],
             [
@@ -177,9 +197,50 @@ class taux_tpi(Variable):
                 taux_parameters.privilege_vendeur_action_resolutoire,
                 taux_parameters.inscription_rectificative,
                 taux_parameters.hypotheque_judiciaire_definitive,
+                taux_parameters.renouvellement_hypotheque_judiciaire,
                 taux_parameters.renouvellement_inscription
                 ]
             )
+
+
+class montant_taxe_disposition(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = DAY
+    label = "Montant de la taxe de publicité immobilière liée à la disposition"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
+        list_disposition_enum = list(DispositionVariables)
+        montant_total_disposition = 0
+        for disposition_enum in list_disposition_enum:
+            disposition_count = personne(disposition_enum.value, period)
+            montant_total_disposition += select(
+                [
+                    disposition_enum == DispositionVariables.Echange,
+                    ],
+                [
+                    fixed_default_value * 2 * disposition_count,
+                    ],
+                default = fixed_default_value * disposition_count
+            )
+
+        return montant_total_disposition
+
+
+class est_exonere(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = DAY
+    label = "Indique si l'acte est exonéré de la taxe de publicité immobilière"
+
+    def formula(personne: Population, period: Period) -> ArrayLike:
+        list_regime_faveur_enum = list(RegimeFaveur)
+        for regime_faveur_enum in list_regime_faveur_enum:
+            regime_faveur_count = personne(regime_faveur_enum.value, period)
+            if regime_faveur_count > 0:
+                return True
+        return False
 
 
 class montant_tpi_acte(Variable):
@@ -191,29 +252,30 @@ class montant_tpi_acte(Variable):
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         type_acte = personne('type_acte', period)
         nature_acte = personne('nature_acte', period)
-        disposition = personne('disposition', period)
-        regime_faveur = personne('regime_faveur', period)
+        est_disposition = personne('est_disposition', period)
+        is_regime_faveur = personne('est_exonere', period)
         montant_total_acte = personne('montant_total_acte', period)
         montant_initial_acte = personne('montant_initial_acte', period)
+        montant_disposition = personne('montant_taxe_disposition', period)
 
         taux_tpi = personne('taux_tpi', period) / 100  # conversion pourcentage en décimal
         fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
 
         montant_tpi = select(
             [
-                (regime_faveur != RegimeFaveur.Aucun) | (nature_acte == NatureActe.ActeAdministratif),
-                disposition == Disposition.Echange,
-                (disposition != Disposition.Aucun) | (type_acte == TypeActe.Saisie),
-                (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
-                True
+                is_regime_faveur,
+                nature_acte == NatureActe.Echange,
+                est_disposition | (type_acte == TypeActe.Saisie),
+                (nature_acte == NatureActe.RenouvellementHypothequeJudiciaire) & (montant_initial_acte < montant_total_acte),
                 ],
             [
                 0,
-                fixed_default_value * 2,
-                fixed_default_value,
-                maximum(fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi), fixed_default_value),
-                maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value),
-                ]
+                fixed_default_value * 2 + montant_disposition,
+                fixed_default_value + montant_disposition,
+                fixed_default_value + maximum(arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi), fixed_default_value) + montant_disposition,
+                ],
+            default=maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value) + montant_disposition
             )
+
 
         return montant_tpi

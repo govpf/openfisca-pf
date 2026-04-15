@@ -52,18 +52,19 @@ class TypeActe(Enum):
 
 
 class RegimeFaveur(Enum):
-    AideJuridictionnelle = 'Aide juridictionnelle'
-    ActeAdministratifExonere = "Acte administratif exonéré"
-    ProgrammeHabitatSocial = "Programme d'habitat social"
-    ComptablePublic = "Comptable public"
-    Succesorale = "Succesorale"
-    Collectivites = "Collectivités"
-    Titrement = "Titrement"
-    Autre = "Autre"
-    Aucun = "Aucun"
+    AideJuridictionnelle = 'aide_juridictionnelle'
+    ActeAdministratifExonere = 'acte_administratif_exonere'
+    ProgrammeHabitatSocial = 'programme_habitat_social'
+    EtablissementPublic = 'etablissement_public'
+    AISI = 'aisi'
+    Succesorale = 'succesorale'
+    DefiscalisationOutreMer = 'defiscalisation_outre_mer'
+    Collectivites = 'collectivites'
+    ComptablePublic = 'comptable_public'
+    Autre = 'autre'
 
 
-class Disposition(Enum):
+class DispositionVariables(Enum):
     Rectification = 'rectification'
     Renonciation = 'renonciation'
     ActeComplementaire = 'acte_complementaire'
@@ -86,10 +87,34 @@ class Disposition(Enum):
     PacteTontinier = 'pacte_tontinier'
     ReserveDroitUsageHabitation = 'reserve_droit_usage_habitation'
     DecisionJustice = 'decision_justice'
-    Aucun = 'aucun'
+    ConventionDivorce = 'convention_divorce'
 
 
 class NatureActe(Enum):
+    # Transcription (Disposition)
+    Rectification = 'rectification'
+    Renonciation = 'renonciation'
+    ActeComplementaire = 'acte_complementaire'
+    ConstitutionServitude = 'constitution_servitude'
+    DroitAcces = 'droit_acces'
+    DepotPiece = 'depot_piece'
+    PactePreference = 'pacte_preference'
+    EtatDescriptifDivisionReglementCopropriete = 'etat_descriptif_division_reglement_copropriete'
+    ModificationEtatDescriptifDivisionReglementCopropriete = 'modification_etat_descriptif_division_reglement_copropriete'
+    CahierCharges = 'cahier_charges'
+    ModificationCahierCharges = 'modification_cahier_charges'
+    Avenant = 'avenant'
+    Echange = 'echange'
+    RenouvellementAutorisationOccupationTemporaire = 'renouvellement_autorisation_occupation_temporaire'
+    ConstatationRealisationConditionSuspensive = 'constatation_realisation_condition_suspensive'
+    Constatation = 'constatation'
+    Remploi = 'remploi'
+    Convention = 'convention'
+    Certificat = 'certificat_conformite'
+    PacteTontinier = 'pacte_tontinier'
+    ReserveDroitUsageHabitation = 'reserve_droit_usage_habitation'
+    DecisionJustice = 'decision_justice'
+
     # Transcription (Acte initial)
     Vente = 'vente'
     VenteSousConditionSuspensive = 'vente_sous_condition_suspensive'
@@ -117,6 +142,7 @@ class NatureActe(Enum):
     PrivilegeVendeurActionResolutoire = 'privilege_vendeur_action_resolutoire'
     InscriptionRectificative = 'inscription_rectificative'
     HypothequeJudiciaireDefinitive = 'hypotheque_judiciaire_definitive'
+    RenouvellementHypothequeJudiciaire = 'renouvellement_hypotheque_judiciaire'
     RenouvellementInscription = 'renouvellement_inscription'
 
     # Saisie-immobiliere
