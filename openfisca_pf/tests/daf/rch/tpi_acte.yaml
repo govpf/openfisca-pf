@@ -63,32 +63,32 @@
   output:
     montant_tpi_acte: 1500
     type_acte: Inscription
-- name: 7 - TPI - Acte RenouvellementInscription montant_initial_acte < montant_total_acte
+- name: 7 - TPI - Acte RenouvellementHypothequeJudiciaire montant_initial_acte < montant_total_acte
   period: 2025-01-16
   input:
-    nature_acte: RenouvellementInscription
+    nature_acte: RenouvellementHypothequeJudiciaire
     montant_initial_acte: 2000
     montant_total_acte: 4000
   output:
     montant_tpi_acte: 1504
     type_acte: Inscription
-- name: 8 - TPI - Acte RenouvellementInscription montant_initial_acte = montant_total_acte
+- name: 8 - TPI - Acte RenouvellementHypothequeJudiciaire montant_initial_acte = montant_total_acte
   period: 2025-01-16
   input:
-    nature_acte: RenouvellementInscription
+    nature_acte: RenouvellementHypothequeJudiciaire
     montant_initial_acte: 2000
     montant_total_acte: 2000
   output:
     montant_tpi_acte: 1500
     type_acte: Inscription
-- name: 9 - TPI - Acte InscriptionRectificative montant_initial_acte < montant_total_acte
+- name: 9 - TPI - Acte RenouvellementHypothequeJudiciaire montant_initial_acte > montant_total_acte
   period: 2025-01-16
   input:
-    nature_acte: InscriptionRectificative
-    montant_initial_acte: 2000
-    montant_total_acte: 4000
+    nature_acte: RenouvellementHypothequeJudiciaire
+    montant_initial_acte: 2000000
+    montant_total_acte: 1000000
   output:
-    montant_tpi_acte: 1504
+    montant_tpi_acte: 2000
     type_acte: Inscription
 - name: 10 - TPI - Acte InscriptionRectificative montant_initial_acte = montant_total_acte
   period: 2025-01-16

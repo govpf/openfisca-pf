@@ -102,6 +102,7 @@ class type_acte(Variable):
                 | (nature_acte == NatureActe.PrivilegeVendeurActionResolutoire)
                 | (nature_acte == NatureActe.InscriptionRectificative)
                 | (nature_acte == NatureActe.HypothequeJudiciaireDefinitive)
+                | (nature_acte == NatureActe.RenouvellementHypothequeJudiciaire)
                 | (nature_acte == NatureActe.RenouvellementInscription),
                 (nature_acte == NatureActe.PouvoirCommandementSaisieImmobiliere)
                 | (nature_acte == NatureActe.SommationFinsSaisieImmobiliere)
@@ -167,6 +168,7 @@ class taux_tpi(Variable):
                 nature_acte == NatureActe.PrivilegeVendeurActionResolutoire,
                 nature_acte == NatureActe.InscriptionRectificative,
                 nature_acte == NatureActe.HypothequeJudiciaireDefinitive,
+                nature_acte == NatureActe.RenouvellementHypothequeJudiciaire,
                 nature_acte == NatureActe.RenouvellementInscription
                 ],
             [
@@ -195,6 +197,7 @@ class taux_tpi(Variable):
                 taux_parameters.privilege_vendeur_action_resolutoire,
                 taux_parameters.inscription_rectificative,
                 taux_parameters.hypotheque_judiciaire_definitive,
+                taux_parameters.renouvellement_hypotheque_judiciaire,
                 taux_parameters.renouvellement_inscription
                 ]
             )
@@ -263,7 +266,7 @@ class montant_tpi_acte(Variable):
                 is_regime_faveur,
                 nature_acte == NatureActe.Echange,
                 est_disposition | (type_acte == TypeActe.Saisie),
-                (nature_acte == NatureActe.RenouvellementInscription) | (nature_acte == NatureActe.InscriptionRectificative),
+                (nature_acte == NatureActe.RenouvellementHypothequeJudiciaire) & (montant_initial_acte < montant_total_acte),
                 ],
             [
                 0,
@@ -273,5 +276,13 @@ class montant_tpi_acte(Variable):
                 ],
             default=maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value) + montant_disposition
             )
+        
+        print(f"nature_acte: {nature_acte}")
+        print(f"taux_tpi: {taux_tpi}")
+        print(f"montant_total_acte: {montant_total_acte}")        
+        print(f"montant_initial_acte: {montant_initial_acte}")
+        print(f"montant_disposition: {montant_disposition}")
+        print(f"montant_tpi: {montant_tpi}")
+
 
         return montant_tpi

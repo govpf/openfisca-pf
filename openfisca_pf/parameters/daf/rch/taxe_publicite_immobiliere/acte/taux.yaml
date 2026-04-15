@@ -74,6 +74,9 @@ inscription_rectificative:
 hypotheque_judiciaire_definitive:
   values:
     2024-12-10: 0.2
+renouvellement_hypotheque_judiciaire:
+  values:
+    2024-12-10: 0.2
 renouvellement_inscription:
   values:
     2024-12-10: 0.2

@@ -138,10 +138,9 @@ Même principe que pour les disposition.
 
 Montant d’inscription initial de l’acte.
 
-Ce champ est requis avec les natures d'acte suivante :
+Ce champ est requis avec la nature d'acte suivante :
 
-- `inscription_rectificative`
-- `renouvellement_inscription`
+- `renouvellement_hypotheque_judiciaire`
 
 Dans ces cas, `montant_total_acte` représente le montant de l’acte **pour l’inscription courante**.
 
