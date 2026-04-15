@@ -333,6 +333,14 @@ class ZoneDomPrive(Enum):
     bord_de_route = 'Bord de route'
     zone_de_lotissement = 'Zone de lotissement'
     zone_hors_lotissement = 'Zone hors lotissement'
+    centre_ville_zone_urbaine_forte_densite_de_population= 'Centre-ville - Zone urbaine à forte densité de population'
+    fare_ute_zone_industrielle_et_commerciale = 'Fare Ute - Zone industrielle et commerciale'
+    mission_zone_plaine = 'Mission - Zone plaine'
+    mission_zone_residentielle = 'Mission - Zone residentielle'
+    mission_zone_sociale = 'Mission - Zone sociale'
+    orovini_zone_plaine_moyenne_densite_de_population = 'Orovini - Zone plaine à moyenne densité de population'
+    orovini_zone_lotissement_social = 'Orovini - Zone de lotissement social'
+    fariipiti_patutoa_zone_urbaine_forte_densite_de_population = 'Fariipiti-Patutoa - Zone urbaine à forte densité de population'
 
 
 class ZoneLotAgricole(Enum):

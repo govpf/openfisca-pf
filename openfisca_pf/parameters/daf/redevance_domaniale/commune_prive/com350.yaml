@@ -75,7 +75,7 @@ orovini_zone_lotissement_social:
   valeur_venale:
     values:
       2016-01-01: 25000
-fariipiti-patutoa_zone_urbaine_forte_densite_de_population:
+fariipiti_patutoa_zone_urbaine_forte_densite_de_population:
   valeur_venale:
     values:
       2016-01-01: 50000
