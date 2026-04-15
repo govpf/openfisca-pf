@@ -70,7 +70,7 @@
     montant_initial_acte: 2000
     montant_total_acte: 4000
   output:
-    montant_tpi_acte: 1504
+    montant_tpi_acte: 3000
     type_acte: Inscription
 - name: 8 - TPI - Acte RenouvellementHypothequeJudiciaire montant_initial_acte = montant_total_acte
   period: 2025-01-16
@@ -164,4 +164,12 @@
   output:
     montant_tpi_acte: 4500
     montant_taxe_disposition: 3000
+    type_acte: Transcription
+- name: 18 - TPI - Acte administratif
+  period: 2025-01-16
+  input:
+    nature_acte: ActeAdministratif
+    montant_total_acte: 2500000
+  output:
+    montant_tpi_acte: 2500
     type_acte: Transcription

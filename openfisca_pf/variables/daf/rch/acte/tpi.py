@@ -272,17 +272,10 @@ class montant_tpi_acte(Variable):
                 0,
                 fixed_default_value * 2 + montant_disposition,
                 fixed_default_value + montant_disposition,
-                fixed_default_value + arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi) + montant_disposition,
+                fixed_default_value + maximum(arrondi_superieur((montant_total_acte - montant_initial_acte) * taux_tpi), fixed_default_value) + montant_disposition,
                 ],
             default=maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value) + montant_disposition
             )
-        
-        print(f"nature_acte: {nature_acte}")
-        print(f"taux_tpi: {taux_tpi}")
-        print(f"montant_total_acte: {montant_total_acte}")        
-        print(f"montant_initial_acte: {montant_initial_acte}")
-        print(f"montant_disposition: {montant_disposition}")
-        print(f"montant_tpi: {montant_tpi}")
 
 
         return montant_tpi
