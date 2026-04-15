@@ -223,7 +223,7 @@ class montant_taxe_disposition(Variable):
                     fixed_default_value * 2 * disposition_count,
                     ],
                 default = fixed_default_value * disposition_count
-            )
+                )
 
         return montant_total_disposition
 
@@ -276,6 +276,5 @@ class montant_tpi_acte(Variable):
                 ],
             default=maximum(arrondi_superieur(montant_total_acte * taux_tpi), fixed_default_value) + montant_disposition
             )
-
 
         return montant_tpi
