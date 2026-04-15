@@ -4,6 +4,7 @@ from openfisca_pf.base import (
     )
 from openfisca_pf.entities import Personne
 
+
 class rectification(Variable):
     value_type = int
     entity = Personne
