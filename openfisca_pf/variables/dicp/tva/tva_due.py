@@ -25,7 +25,7 @@ class tva_due_taux_reduit(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_reduit', period)
-        taux = personne.pays('taux_tva_reduit', period)
+        taux = parameters(period).dicp.tva.taux.reduit
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -39,7 +39,7 @@ class tva_due_taux_intermediaire(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_intermediaire', period)
-        taux = personne.pays('taux_tva_intermediaire', period)
+        taux = parameters(period).dicp.tva.taux.intermediaire
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -53,7 +53,7 @@ class tva_due_taux_normal(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_normal', period)
-        taux = personne.pays('taux_tva_normal', period)
+        taux = parameters(period).dicp.tva.taux.normal
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -67,5 +67,5 @@ class tva_due_taux_livraisons_immeubles_et_cession_parts(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_livraisons_immeubles_et_cession_parts', period)
-        taux = personne.pays('taux_tva_livraisons_immeubles_et_cession_parts', period)
+        taux = parameters(period).dicp.tva.taux.livraisons_immeubles_et_cession_parts
         return arrondi_superieur(base_imposable * taux)
