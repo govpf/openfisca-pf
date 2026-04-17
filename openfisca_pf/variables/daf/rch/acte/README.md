@@ -4,37 +4,43 @@ Documentation des paramètres et du calcul du montant de la **Taxe de Publicité
 
 ---
 
-## Paramètres calculés
+## Variables
 
-### `montant_tpi_acte` _(int)_
+### `montant_total_acte` _(int)_
 
-Montant de la taxe de publicité immobilière calculé pour l’acte.
-
----
-
-### `type_acte` _(enum)_
-
-Type de l’acte, déduit automatiquement à partir de la nature de l’acte (`NatureActe`).
-
-- `Transcription`
-- `Inscription`
-- `Saisie`
+Montant total de l’acte.
 
 ---
-
-### `is_disposition` _(bool)_
-
-Indique si la nature de l’acte correspond à une **disposition**.
-
----
-
-## Paramètres d’entrée
 
 ### `NatureActe` _(enum)_
 
 Liste exhaustive des valeurs possibles pour `NatureActe`.
 
----
+#### Transcription - Disposition
+
+- `Rectification`
+- `Renonciation`
+- `ActeComplementaire`
+- `ConstitutionServitude`
+- `DroitAcces`
+- `DepotPiece`
+- `PactePreference`
+- `EtatDescriptifDivisionReglementCopropriete`
+- `ModificationEtatDescriptifDivisionReglementCopropriete`
+- `CahierCharges`
+- `ModificationCahierCharges`
+- `Avenant`
+- `Echange`
+- `RenouvellementAutorisationOccupationTemporaire`
+- `ConstatationRealisationConditionSuspensive`
+- `Constatation`
+- `Remploi`
+- `Convention`
+- `ConventionDivorce`
+- `Certificat`
+- `PacteTontinier`
+- `ReserveDroitUsageHabitation`
+- `DecisionJustice`
 
 #### Transcription - Acte initial
 
@@ -81,55 +87,50 @@ Liste exhaustive des valeurs possibles pour `NatureActe`.
 
 ---
 
-### `montant_total_acte` _(int)_
+### Les dispositions
 
-Montant total de l’acte.
+Chaque disposition est modélisée sous forme de variable. Il suffit d’indiquer un nombre correspondant au nombre d’occurrences de cette disposition pour un acte.
 
----
-
-### `disposition` _(enum)_
-
-Disposition(s) appliquée.
-
-- `Rectification`
-- `Renonciation`
-- `ActeComplementaire`
-- `ConstitutionServitude`
-- `DroitAcces`
-- `DepotPiece`
-- `PactePreference`
-- `EtatDescriptifDivisionReglementCopropriete`
-- `ModificationEtatDescriptifDivisionReglementCopropriete`
-- `CahierCharges`
-- `ModificationCahierCharges`
-- `Avenant`
-- `Echange`
-- `RenouvellementAutorisationOccupationTemporaire`
-- `ConstatationRealisationConditionSuspensive`
-- `Constatation`
-- `Remploi`
-- `Convention`
-- `ConventionDivorce`
-- `Certificat`
-- `PacteTontinier`
-- `ReserveDroitUsageHabitation`
-- `DecisionJustice`
+- `rectification`
+- `renonciation`
+- `acte_complementaire`
+- `constitution_servitude`
+- `droit_acces`
+- `depot_piece`
+- `pacte_preference`
+- `etat_descriptif_division_reglement_copropriete`
+- `modification_etat_descriptif_division_reglement_copropriete`
+- `cahier_charges`
+- `modification_cahier_charges`
+- `avenant`
+- `echange`
+- `renouvellement_autorisation_occupation_temporaire`
+- `constatation_realisation_condition_suspensive`
+- `constatation`
+- `remploi`
+- `convention`
+- `convention_divorce`
+- `certificat_conformite`
+- `pacte_tontinier`
+- `reserve_droit_usage_habitation`
+- `decision_justice`
 
 ---
 
-### `regime_faveur` _(enum)_
+### Les régimes de faveur
 
-Régime de faveur appliqué.
+Même principe que pour les disposition.
 
-- `AideJuridictionnelle`
-- `ActeAdministratifExonere`
-- `ProgrammeHabitatSocial`
-- `ComptablePublic`
-- `Succesorale`
-- `Collectivites`
-- `Titrement`
-- `Autre`
-- `Aucun` _(par défaut)_
+- `aide_juridictionnelle`
+- `acte_administratif_exonere`
+- `programme_habitat_social`
+- `etablissement_public`
+- `aisi`
+- `succesorale`
+- `defiscalisation_outre_mer`
+- `collectivites`
+- `comptable_public`
+- `autre`
 
 ---
 
@@ -137,52 +138,66 @@ Régime de faveur appliqué.
 
 Montant d’inscription initial de l’acte.
 
-Ce champ est requis dans les cas suivants :
+Ce champ est requis avec la nature d'acte suivante :
 
-- `inscription_rectificative`
-- `renouvellement_inscription`
+- `renouvellement_hypotheque_judiciaire`
 
 Dans ces cas, `montant_total_acte` représente le montant de l’acte **pour l’inscription courante**.
 
 ---
 
-## Calcul
+## Variables calculables
 
-### Exemple standard
+### `montant_tpi_acte` _(int)_
 
-```json
-{
-  "personnes": {
-    "personne_1": {
-      "montant_tpi_acte": {
-        "2025-03-01": null
-      },
-      "nature_acte": {
-        "2025-03-01": "Vente"
-      },
-      "montant_total_acte": {
-        "2025-03-01": 25000
-      }
-    }
-  }
-}
-```
+Montant de la taxe de publicité immobilière calculé pour l’acte.
 
 ---
 
-### Exemple avec plusieurs dispositions pour un même acte
+### `type_acte` _(enum)_
+
+Type de l’acte, déduit automatiquement à partir de la nature de l’acte (`NatureActe`).
+
+- `Transcription`
+- `Inscription`
+- `Saisie`
+
+---
+
+### `est_exonere` _(bool)_
+
+Indique si l'acte est exonéré de la taxe de publicité immobilière.
+
+---
+
+### `est_disposition` _(bool)_
+
+Indique si la nature de l’acte correspond à une **disposition**.
+
+### `montant_taxe_disposition` _(int)_
+
+Montant correspondant à la somme des dispositions définient pour un acte.
+
+---
+
+## Calcul
+
+Les variables calculées que l’on souhaite faire évaluer par OpenFisca, comme `montant_tpi_acte`, doivent être renseignées avec la valeur `null`.
 
 Requête :
 
 ```json
 {
   "personnes": {
-    "Acte disposition Rectification": {
-      "montant_tpi_acte": {
+    "Acte Rectification": {
+      "montant_taxe_disposition": {
         "2025-03-01": null
       },
-      "disposition": {
-        "2025-03-01": "Rectification"
+      "rectification": {
+        "2025-03-01": 1
+      },
+      "montant_tpi_acte": {
+        "2025-03-01": null
       },
       "nature_acte": {
         "2025-03-01": "Vente"
@@ -191,12 +206,39 @@ Requête :
         "2025-03-01": 3500
       }
     },
-    "Acte disposition Renonciation": {
+    "Acte rectification Renonciation": {
+      "montant_taxe_disposition": {
+        "2025-03-01": null
+      },
+      "rectification": {
+        "2025-03-01": 1
+      },
+
+      "renonciation": {
+        "2025-03-01": 1
+      },
       "montant_tpi_acte": {
         "2025-03-01": null
       },
-      "disposition": {
-        "2025-03-01": "Renonciation"
+      "nature_acte": {
+        "2025-03-01": "Vente"
+      },
+      "montant_total_acte": {
+        "2025-03-01": 3500
+      }
+    },
+    "Acte rectification x2 Renonciation": {
+      "montant_taxe_disposition": {
+        "2025-03-01": null
+      },
+      "rectification": {
+        "2025-03-01": 2
+      },
+      "renonciation": {
+        "2025-03-01": 1
+      },
+      "montant_tpi_acte": {
+        "2025-03-01": null
       },
       "nature_acte": {
         "2025-03-01": "Vente"
@@ -214,32 +256,61 @@ Réponse:
 ```json
 {
   "personnes": {
-    "Acte disposition Rectification": {
+    "Acte Rectification": {
+      "montant_taxe_disposition": {
+        "2025-03-01": 1500
+      },
       "montant_total_acte": {
         "2025-03-01": 3500
       },
       "montant_tpi_acte": {
-        "2025-03-01": 1500
-      },
-      "disposition": {
-        "2025-03-01": "Rectification"
+        "2025-03-01": 1504
       },
       "nature_acte": {
         "2025-03-01": "Vente"
+      },
+      "rectification": {
+        "2025-03-01": 1
       }
     },
-    "Acte disposition Renonciation": {
+    "Acte rectification Renonciation": {
+      "montant_taxe_disposition": {
+        "2025-03-01": 3000
+      },
       "montant_total_acte": {
         "2025-03-01": 3500
       },
       "montant_tpi_acte": {
-        "2025-03-01": 1500
-      },
-      "disposition": {
-        "2025-03-01": "Rectification"
+        "2025-03-01": 3004
       },
       "nature_acte": {
         "2025-03-01": "Vente"
+      },
+      "rectification": {
+        "2025-03-01": 1
+      },
+      "renonciation": {
+        "2025-03-01": 1
+      }
+    },
+    "Acte rectification x2 Renonciation": {
+      "montant_taxe_disposition": {
+        "2025-03-01": 4500
+      },
+      "montant_total_acte": {
+        "2025-03-01": 3500
+      },
+      "montant_tpi_acte": {
+        "2025-03-01": 4504
+      },
+      "nature_acte": {
+        "2025-03-01": "Vente"
+      },
+      "rectification": {
+        "2025-03-01": 2
+      },
+      "renonciation": {
+        "2025-03-01": 1
       }
     }
   }
