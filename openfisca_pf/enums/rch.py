@@ -61,6 +61,7 @@ class RegimeFaveur(Enum):
     DefiscalisationOutreMer = 'defiscalisation_outre_mer'
     Collectivites = 'collectivites'
     ComptablePublic = 'comptable_public'
+    titrement = 'titrement'
     Autre = 'autre'
 
 
