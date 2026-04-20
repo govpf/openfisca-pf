@@ -173,3 +173,13 @@
   output:
     montant_tpi_acte: 2500
     type_acte: Transcription
+- name: 19 - TPI - Regime de faveur titrement
+  period: 2025-01-16
+  input:
+    nature_acte: ActeAdministratif
+    montant_total_acte: 2500000
+    titrement: 1
+  output:
+    montant_tpi_acte: 0
+    type_acte: Transcription
+    est_exonere: True

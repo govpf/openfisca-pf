@@ -77,6 +77,14 @@ class comptable_public(Variable):
     definition_period = DAY
 
 
+class titrement(Variable):
+    value_type = int
+    entity = Personne
+    default_value = 0
+    label = "L'acte est un titrement"
+    definition_period = DAY
+
+
 class autre(Variable):
     value_type = int
     entity = Personne
