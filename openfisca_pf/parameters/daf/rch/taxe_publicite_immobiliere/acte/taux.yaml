@@ -54,7 +54,7 @@ cession_droits:
     2024-12-10: 0.1
 acte_administratif:
   values:
-    2024-12-10: 0
+    2024-12-10: 0.1
 # Inscription
 hypotheque_legale:
   values:
@@ -72,6 +72,9 @@ inscription_rectificative:
   values:
     2024-12-10: 0.2
 hypotheque_judiciaire_definitive:
+  values:
+    2024-12-10: 0.2
+renouvellement_hypotheque_judiciaire:
   values:
     2024-12-10: 0.2
 renouvellement_inscription:

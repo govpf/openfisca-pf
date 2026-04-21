@@ -2,5 +2,3 @@ description: Taux d'exonération
 values:
   2026-12-31:
     value: 0.5
-  2000-01-01:
-    value: 0.0

@@ -1,17 +1,15 @@
-- name: 1 - TPI - Acte dispositions
+- name: 1 - TPI - Acte nature dispositions
   period: 2025-01-16
   input:
-    nature_acte: Vente
-    disposition: Rectification
+    nature_acte: Rectification
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 1500
     type_acte: Transcription
-- name: 2 - TPI - Acte dispositions Echange
+- name: 2 - TPI - Acte nature Echange
   period: 2025-01-16
   input:
-    nature_acte: Vente
-    disposition: Echange
+    nature_acte: Echange
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 3000
@@ -20,7 +18,7 @@
   period: 2025-01-16
   input:
     nature_acte: Vente
-    regime_faveur: Succesorale
+    succesorale: 1
     montant_total_acte: 25000
   output:
     montant_tpi_acte: 0
@@ -41,14 +39,14 @@
   output:
     montant_tpi_acte: 1500
     type_acte: Transcription
-- name: 5 - TPI - Acte transcription administratif
+- name: 5 - TPI - Acte inscription hypothèque légale
   period: 2025-01-16
   input:
-    nature_acte: ActeAdministratif
-    montant_total_acte: 2500
+    nature_acte: HypothequeLegale
+    montant_total_acte: 2500000
   output:
-    montant_tpi_acte: 0
-    type_acte: Transcription
+    montant_tpi_acte: 5000
+    type_acte: Inscription
 - name: 6 - TPI - Acte inscription classique
   period: 2025-01-16
   input:
@@ -65,32 +63,32 @@
   output:
     montant_tpi_acte: 1500
     type_acte: Inscription
-- name: 7 - TPI - Acte RenouvellementInscription montant_initial_acte < montant_total_acte
+- name: 7 - TPI - Acte RenouvellementHypothequeJudiciaire montant_initial_acte < montant_total_acte
   period: 2025-01-16
   input:
-    nature_acte: RenouvellementInscription
+    nature_acte: RenouvellementHypothequeJudiciaire
     montant_initial_acte: 2000
     montant_total_acte: 4000
   output:
-    montant_tpi_acte: 1504
+    montant_tpi_acte: 3000
     type_acte: Inscription
-- name: 8 - TPI - Acte RenouvellementInscription montant_initial_acte = montant_total_acte
+- name: 8 - TPI - Acte RenouvellementHypothequeJudiciaire montant_initial_acte = montant_total_acte
   period: 2025-01-16
   input:
-    nature_acte: RenouvellementInscription
+    nature_acte: RenouvellementHypothequeJudiciaire
     montant_initial_acte: 2000
     montant_total_acte: 2000
   output:
     montant_tpi_acte: 1500
     type_acte: Inscription
-- name: 9 - TPI - Acte InscriptionRectificative montant_initial_acte < montant_total_acte
+- name: 9 - TPI - Acte RenouvellementHypothequeJudiciaire montant_initial_acte > montant_total_acte
   period: 2025-01-16
   input:
-    nature_acte: InscriptionRectificative
-    montant_initial_acte: 2000
-    montant_total_acte: 4000
+    nature_acte: RenouvellementHypothequeJudiciaire
+    montant_initial_acte: 2000000
+    montant_total_acte: 1000000
   output:
-    montant_tpi_acte: 1504
+    montant_tpi_acte: 2000
     type_acte: Inscription
 - name: 10 - TPI - Acte InscriptionRectificative montant_initial_acte = montant_total_acte
   period: 2025-01-16
@@ -110,3 +108,78 @@
   output:
     montant_tpi_acte: 1500
     type_acte: Saisie
+- name: 12 - TPI - Acte nature + disposition
+  period: 2025-01-16
+  input:
+    nature_acte: Vente
+    rectification: 1
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 3000
+    type_acte: Transcription
+- name: 13 - TPI - Acte nature(disposition) + disposition
+  period: 2025-01-16
+  input:
+    nature_acte: Renonciation
+    rectification: 1
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 3000
+    type_acte: Transcription
+- name: 14 - TPI - Acte nature(disposition) + disposition (echange)
+  period: 2025-01-16
+  input:
+    nature_acte: Renonciation
+    echange: 1
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 4500
+    type_acte: Transcription
+- name: 15 - TPI - Acte transcription HypothequeLegale + disposition
+  period: 2025-01-16
+  input:
+    nature_acte: HypothequeLegale
+    rectification: 1
+    montant_total_acte: 2500000
+  output:
+    montant_tpi_acte: 6500
+    type_acte: Inscription
+- name: 16 - TPI - Acte nature(disposition) + disposition + régime de faveur
+  period: 2025-01-16
+  input:
+    nature_acte: Renonciation
+    rectification: 1
+    succesorale: 1
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 0
+    type_acte: Transcription
+- name: 17 - TPI - Acte nature + multiple disposition
+  period: 2025-01-16
+  input:
+    nature_acte: Vente
+    rectification: 1
+    renonciation: 1
+    montant_total_acte: 25000
+  output:
+    montant_tpi_acte: 4500
+    montant_taxe_disposition: 3000
+    type_acte: Transcription
+- name: 18 - TPI - Acte administratif
+  period: 2025-01-16
+  input:
+    nature_acte: ActeAdministratif
+    montant_total_acte: 2500000
+  output:
+    montant_tpi_acte: 2500
+    type_acte: Transcription
+- name: 19 - TPI - Regime de faveur titrement
+  period: 2025-01-16
+  input:
+    nature_acte: ActeAdministratif
+    montant_total_acte: 2500000
+    titrement: 1
+  output:
+    montant_tpi_acte: 0
+    type_acte: Transcription
+    est_exonere: True
