@@ -20,4 +20,4 @@ immeubles_hotelleries:
 archipels:
   description: Taux archipel
   values:
-    2025-12-01: 0.01 # FIXME changer en 2026-07-01 une fois les tests OK
+    2026-07-01: 0.01
