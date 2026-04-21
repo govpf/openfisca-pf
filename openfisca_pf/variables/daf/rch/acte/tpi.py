@@ -262,7 +262,7 @@ class montant_tpi_acte(Variable):
         fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
         montant_tpi = select(
             [
-                is_regime_faveur == True,
+                is_regime_faveur,
                 nature_acte == NatureActe.Echange,
                 est_disposition | (type_acte == TypeActe.Saisie),
                 (nature_acte == NatureActe.RenouvellementHypothequeJudiciaire) & (montant_initial_acte < montant_total_acte),
