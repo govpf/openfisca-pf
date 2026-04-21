@@ -236,11 +236,11 @@ class est_exonere(Variable):
 
     def formula(personne: Population, period: Period) -> ArrayLike:
         list_regime_faveur_enum = list(RegimeFaveur)
+        is_exonere = False
         for regime_faveur_enum in list_regime_faveur_enum:
             regime_faveur_count = personne(regime_faveur_enum.value, period)
-            if regime_faveur_count > 0:
-                return True
-        return False
+            is_exonere |= regime_faveur_count > 0
+        return is_exonere
 
 
 class montant_tpi_acte(Variable):
@@ -260,7 +260,6 @@ class montant_tpi_acte(Variable):
 
         taux_tpi = personne('taux_tpi', period) / 100  # conversion pourcentage en décimal
         fixed_default_value = parameters(period).daf.rch.taxe_publicite_immobiliere.acte.fixed.default
-
         montant_tpi = select(
             [
                 is_regime_faveur,
