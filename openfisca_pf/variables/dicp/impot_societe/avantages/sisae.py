@@ -38,13 +38,3 @@ class is_avantage_sisae_credit_ouvert(Variable):
         taux_exoneration = personne('is_avantage_sisae_taux_exoneration', period)
         montant = personne('is_avantage_sisae_montant', period)
         return montant * taux_exoneration
-
-
-class is_avantage_sisae_activation(Variable):
-    value_type = bool
-    entity = Personne
-    definition_period = DAY
-    label = "Activation SISAE"
-
-    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_societe.avantages.sisae.activation
