@@ -81,5 +81,5 @@ class tva_due_taux_archipels(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_archipels', period)
-        taux = personne.pays('taux_tva_archipels', period)
+        taux = parameters(period).dicp.tva.taux.archipels
         return arrondi_superieur(base_imposable * taux)
