@@ -17,7 +17,7 @@ locatif:
     description: "Paramètres concernant l'abattement locatif pour les bien en location meublé"
 
     taux:
-      description: "Taux de l'battement locatif appliqué pour calculer la base imposable de l'impôt foncier si le bien est en location meublé"
+      description: "Taux de l'abattement locatif appliqué pour calculer la base imposable de l'impôt foncier si le bien est en location meublé"
       metadata:
         type: float
         unit: /1
