@@ -58,7 +58,7 @@ class date_limite_de_mise_en_service_installation_photovoltaique(Variable):
     label = "Date limite à partir de laquelle l'installation photovoltaïc peut donner droit à un crédit"
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
-    def formula_2023_01_01(ersonne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+    def formula_2023_01_01(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         anne = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaique.date_limite_de_mise_en_service.annee
         mois = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaique.date_limite_de_mise_en_service.mois
         jour = parameters(period).dicp.impot_foncier.avantages.credits.photovoltaique.date_limite_de_mise_en_service.jour

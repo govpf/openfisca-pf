@@ -25,7 +25,7 @@ class tva_due_taux_reduit(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_reduit', period)
-        taux = parameters(period).dicp.tva.taux.reduit
+        taux = personne('taux_tva_reduit', period)
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -39,7 +39,7 @@ class tva_due_taux_intermediaire(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_intermediaire', period)
-        taux = parameters(period).dicp.tva.taux.intermediaire
+        taux = personne('taux_tva_intermediaire', period)
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -53,7 +53,7 @@ class tva_due_taux_normal(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_normal', period)
-        taux = parameters(period).dicp.tva.taux.normal
+        taux = personne('taux_tva_normal', period)
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -67,7 +67,7 @@ class tva_due_taux_immeubles_hotelleries(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_immeubles_hotelleries', period)
-        taux = parameters(period).dicp.tva.taux.immeubles_hotelleries
+        taux = personne('taux_tva_immeubles_hotelleries', period)
         return arrondi_superieur(base_imposable * taux)
 
 
@@ -81,5 +81,5 @@ class tva_due_taux_archipels(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_tva_taux_archipels', period)
-        taux = parameters(period).dicp.tva.taux.archipels
+        taux = personne('taux_tva_archipels', period)
         return arrondi_superieur(base_imposable * taux)

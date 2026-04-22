@@ -56,7 +56,6 @@ class valeur_locative_loyers(Variable):
         return loyer_de_janvier * NOMBRE_DE_MOIS_PAR_AN
 
 
-
 class taux_autres_archipels(Variable):
     value_type = float
     entity = Personne
