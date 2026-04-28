@@ -52,6 +52,12 @@ class is_immobilisations_corporelles_terrains_brute_fin_exercice(Variable):
     definition_period = YEAR
     label = "Terrains, Valeur brute des immobilisations à la fin de l'exercice (LY)"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_terrains_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_terrains_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_terrains_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
+
 
 class is_immobilisations_corporelles_terrains_origine_reevaluees_fin_exercice(Variable):
     value_type = int
@@ -101,6 +107,12 @@ class is_immobilisations_corporelles_constructions_sur_sol_propre_brute_fin_exer
     entity = Personne
     definition_period = YEAR
     label = "Constructions Sur sol propre, Valeur brute des immobilisations à la fin de l'exercice (MB)"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
 
 
 class is_immobilisations_corporelles_constructions_sur_sol_propre_origine_reevaluees_fin_exercice(Variable):
@@ -152,6 +164,12 @@ class is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_fin_exer
     definition_period = YEAR
     label = "Constructions Sur sol d'autrui, Valeur brute des immobilisations à la fin de l'exercice (ME)"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
+
 
 class is_immobilisations_corporelles_constructions_sur_sol_autrui_origine_reevaluees_fin_exercice(Variable):
     value_type = int
@@ -201,6 +219,12 @@ class is_immobilisations_corporelles_constructions_installations_amenagements_br
     entity = Personne
     definition_period = YEAR
     label = "Installations générales, agencements et aménagements des constructions, Valeur brute des immobilisations à la fin de l'exercice (MH)"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_constructions_installations_amenagements_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
 
 
 class is_immobilisations_corporelles_constructions_installations_amenagements_origine_reevaluees_fin_exercice(Variable):
@@ -252,6 +276,12 @@ class is_immobilisations_corporelles_installations_materiel_industriel_brute_fin
     definition_period = YEAR
     label = "Installations techniques, matériel et outillages industriels, Valeur brute des immobilisations à la fin de l'exercice (MK)"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_installations_materiel_industriel_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_installations_materiel_industriel_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_installations_materiel_industriel_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
+
 
 class is_immobilisations_corporelles_installations_materiel_industriel_origine_reevaluees_fin_exercice(Variable):
     value_type = int
@@ -301,6 +331,12 @@ class is_immobilisations_corporelles_autres_installations_amenagements_brute_fin
     entity = Personne
     definition_period = YEAR
     label = "Autres, Installations générales, agencements et aménagements divers, Valeur brute des immobilisations à la fin de l'exercice (MN)"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_autres_installations_amenagements_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_autres_installations_amenagements_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_autres_installations_amenagements_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
 
 
 class is_immobilisations_corporelles_autres_installations_amenagements_origine_reevaluees_fin_exercice(Variable):
@@ -352,6 +388,12 @@ class is_immobilisations_corporelles_autres_materiel_transport_brute_fin_exercic
     definition_period = YEAR
     label = "Autres, Matériel de transport, Valeur brute des immobilisations à la fin de l'exercice (MQ)"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_autres_materiel_transport_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_autres_materiel_transport_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_autres_materiel_transport_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
+
 
 class is_immobilisations_corporelles_autres_materiel_transport_origine_reevaluees_fin_exercice(Variable):
     value_type = int
@@ -401,6 +443,12 @@ class is_immobilisations_corporelles_autres_materiel_bureau_brute_fin_exercice(V
     entity = Personne
     definition_period = YEAR
     label = "Autres, Matériel de bureau et informatique, mobilier, Valeur brute des immobilisations à la fin de l'exercice (MT)"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_autres_materiel_bureau_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_autres_materiel_bureau_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_autres_materiel_bureau_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
 
 
 class is_immobilisations_corporelles_autres_materiel_bureau_origine_reevaluees_fin_exercice(Variable):
@@ -452,6 +500,12 @@ class is_immobilisations_corporelles_autres_emballages_brute_fin_exercice(Variab
     definition_period = YEAR
     label = "Autres, Emballages récupérables et divers, Valeur brute des immobilisations à la fin de l'exercice (MW)"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_autres_emballages_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_autres_emballages_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_autres_emballages_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
+
 
 class is_immobilisations_corporelles_autres_emballages_origine_reevaluees_fin_exercice(Variable):
     value_type = int
@@ -502,6 +556,12 @@ class is_immobilisations_corporelles_en_cours_brute_fin_exercice(Variable):
     definition_period = YEAR
     label = "Immobilisations corporelles en cours, Valeur brute des immobilisations à la fin de l'exercice (NA)"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_en_cours_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_en_cours_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_en_cours_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
+
 
 class is_immobilisations_corporelles_en_cours_origine_reevaluees_fin_exercice(Variable):
     value_type = int
@@ -551,6 +611,12 @@ class is_immobilisations_corporelles_avances_brute_fin_exercice(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Avances et acomptes, Valeur brute des immobilisations à la fin de l'exercice (NE)"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_corporelles_avances_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_corporelles_avances_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_corporelles_avances_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
 
 
 class is_immobilisations_corporelles_avances_origine_reevaluees_fin_exercice(Variable):

@@ -4,8 +4,6 @@
 from openfisca_pf.base import (
     ArrayLike,
     date,
-    full,
-    GroupPopulation,
     not_,
     ParameterNode,
     Period,
@@ -14,7 +12,7 @@ from openfisca_pf.base import (
     Variable,
     YEAR
     )
-from openfisca_pf.entities import Pays, Personne
+from openfisca_pf.entities import Personne
 from openfisca_pf.functions.currency import arrondi_inferieur
 from openfisca_pf.functions.time import annee_de_la_date
 
@@ -28,30 +26,6 @@ AGE_MIN_EXONERATION_TEMPORAIRE_NOUVELLE_CONSTRUCTION: int = 1
 AGE_MAX_EXONERATION_TEMPORAIRE_NOUVELLE_CONSTRUCTION: int = 5
 
 
-class age_min_exoneration_temporaire_nouvelle_construction_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Age minimum pour qu'une nouvelle construction soit eligible à une exonération temporaraire de cinq ans pour les nouvelles constructions [lecture seule]"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1950_11_16(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return AGE_MIN_EXONERATION_TEMPORAIRE_NOUVELLE_CONSTRUCTION
-
-
-class age_max_exoneration_temporaire_nouvelle_construction_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Age maximum pour qu'une nouvelle construction soit eligible à une exonération temporaraire de cinq ans pour les nouvelles constructions [lecture seule]"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1950_11_16(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return AGE_MAX_EXONERATION_TEMPORAIRE_NOUVELLE_CONSTRUCTION
-
-
 class age_min_exoneration_temporaire_nouvelle_construction(Variable):
     value_type = int
     entity = Personne
@@ -61,7 +35,7 @@ class age_min_exoneration_temporaire_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('age_min_exoneration_temporaire_nouvelle_construction_pays', period)
+        return AGE_MIN_EXONERATION_TEMPORAIRE_NOUVELLE_CONSTRUCTION
 
 
 class age_max_exoneration_temporaire_nouvelle_construction(Variable):
@@ -73,7 +47,7 @@ class age_max_exoneration_temporaire_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('age_max_exoneration_temporaire_nouvelle_construction_pays', period)
+        return AGE_MAX_EXONERATION_TEMPORAIRE_NOUVELLE_CONSTRUCTION
 
 
 class eligible_exoneration_temporaire_nouvelle_construction(Variable):
@@ -131,18 +105,6 @@ class exoneration_temporaire_nouvelle_construction_eligible_et_appliquee(Variabl
         return eligible * appliquee
 
 
-class taux_exoneration_temporaire_nouvelle_construction_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Taux d'exonération temporaraire de cinq ans pour les nouvelles constructions"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1950_11_16(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.nouvelle_construction.taux  # 1.0
-
-
 class taux_exoneration_temporaire_nouvelle_construction(Variable):
     value_type = float
     entity = Personne
@@ -152,7 +114,7 @@ class taux_exoneration_temporaire_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('taux_exoneration_temporaire_nouvelle_construction_pays', period)  # 1.0
+        return parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.nouvelle_construction.taux
 
 
 class montant_exoneration_temporaire_nouvelle_construction(Variable):
@@ -204,18 +166,6 @@ AGE_MIN_EXONERATION_TEMPORAIRE_HABITATION_PRINCIPALE: int = 1
 AGE_MAX_EXONERATION_TEMPORAIRE_HABITATION_PRINCIPALE: int = 10
 
 
-class age_min_exoneration_temporaire_habitation_principale_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Age minimum pour qu'une habitation principale soit eligible à l'exonération temporaire de dix ans"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_2022_12_13(personne: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return AGE_MIN_EXONERATION_TEMPORAIRE_HABITATION_PRINCIPALE  # 1
-
-
 class age_min_exoneration_temporaire_habitation_principale(Variable):
     value_type = int
     entity = Personne
@@ -225,19 +175,7 @@ class age_min_exoneration_temporaire_habitation_principale(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2022_12_13(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('age_min_exoneration_temporaire_habitation_principale_pays', period)  # 1
-
-
-class age_max_exoneration_temporaire_habitation_principale_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Age maximum pour qu'une habitation principale soit eligible à l'exonération temporaire de dix ans [lecture seule]"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_2022_12_13(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return AGE_MAX_EXONERATION_TEMPORAIRE_HABITATION_PRINCIPALE  # 10
+        return AGE_MIN_EXONERATION_TEMPORAIRE_HABITATION_PRINCIPALE
 
 
 class age_max_exoneration_temporaire_habitation_principale(Variable):
@@ -249,22 +187,7 @@ class age_max_exoneration_temporaire_habitation_principale(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2022_12_13(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('age_max_exoneration_temporaire_habitation_principale_pays', period)  # 10
-
-
-class date_limite_permis_de_construire_exoneration_temporaire_habitation_principale_pays(Variable):
-    value_type = date
-    entity = Pays
-    definition_period = YEAR
-    default_value = date(1970, 1, 1)
-    label = "Date à partir de laquelle le permis de construire permet d'obtenir l'exonération de dix ans pour les habitations principale"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_2022_12_13(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        annee = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_permis_de_construire.annee
-        mois = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_permis_de_construire.mois
-        jour = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_permis_de_construire.jour
-        return full(pays.count, date(annee, mois, jour))  # 2022-12-31
+        return AGE_MAX_EXONERATION_TEMPORAIRE_HABITATION_PRINCIPALE
 
 
 class date_limite_permis_de_construire_exoneration_temporaire_habitation_principale(Variable):
@@ -276,22 +199,10 @@ class date_limite_permis_de_construire_exoneration_temporaire_habitation_princip
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2022_12_13(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('date_limite_permis_de_construire_exoneration_temporaire_habitation_principale_pays', period)  # 2022-12-31
-
-
-class date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale_pays(Variable):
-    value_type = date
-    entity = Pays
-    definition_period = YEAR
-    default_value = date(1970, 1, 1)
-    label = "Date à partir de laquelle le certificat de conformité ne permet plus d'obtenir l'exonération temporaire de dix ans pour les habitations principale"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_2022_12_13(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        annee = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_certificat_de_conformite.annee
-        mois = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_certificat_de_conformite.mois
-        jour = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_certificat_de_conformite.jour
-        return full(pays.count, date(annee, mois, jour))  # 2025-12-31
+        annee = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_permis_de_construire.annee
+        mois = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_permis_de_construire.mois
+        jour = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_permis_de_construire.jour
+        return date(annee, mois, jour)
 
 
 class date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale(Variable):
@@ -303,7 +214,10 @@ class date_limite_certificat_de_conformite_exoneration_temporaire_habitation_pri
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2022_12_13(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('date_limite_certificat_de_conformite_exoneration_temporaire_habitation_principale_pays', period)  # 2025-12-31
+        annee = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_certificat_de_conformite.annee
+        mois = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_certificat_de_conformite.mois
+        jour = parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.date_limite_certificat_de_conformite.jour
+        return date(annee, mois, jour)
 
 
 class demande_exoneration_temporaire_habitation_principale(Variable):
@@ -412,18 +326,6 @@ class exoneration_temporaire_habitation_principale_eligible_et_appliquee(Variabl
         return eligible * appliquee
 
 
-class taux_exoneration_temporaire_habitation_principale_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Taux d'exonération temporaraire de dix ans pour cette habitation principale"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_2022_12_13(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.taux  # 1.0
-
-
 class taux_exoneration_temporaire_habitation_principale(Variable):
     value_type = float
     entity = Personne
@@ -433,7 +335,7 @@ class taux_exoneration_temporaire_habitation_principale(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2022_12_13(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('taux_exoneration_temporaire_habitation_principale_pays', period)
+        return parameters(period).dicp.impot_foncier.avantages.exoneration_temporaire.habitation_principale.taux
 
 
 class montant_exoneration_temporaire_habitation_principale(Variable):
@@ -465,8 +367,8 @@ class duree_restante_exoneration_temporaire_habitation_principale(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_2022_12_13(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        age_min = personne.pays('age_min_exoneration_temporaire_habitation_principale_pays', period)
-        age_max = personne.pays('age_max_exoneration_temporaire_habitation_principale_pays', period)
+        age_min = personne('age_min_exoneration_temporaire_habitation_principale', period)
+        age_max = personne('age_max_exoneration_temporaire_habitation_principale', period)
         eligible = personne('eligible_exoneration_temporaire_habitation_principale', period)
         age = personne('age_du_bien', period)
 

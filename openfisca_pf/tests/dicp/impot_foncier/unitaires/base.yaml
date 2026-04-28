@@ -83,34 +83,17 @@
     abattement_office_eligible_et_applique: false
 
 
-# taux_abattement_office_pays
-
-- name: "taux_abattement_office_pays est égale à 0 avant 1951 car il n'existait pas"
-  period: 1950
-  output:
-    taux_abattement_office_pays: 0
-
-- name: "taux_abattement_office_pays est égale à 0.25 à partir de 1951"
-  period: 1951
-  output:
-    taux_abattement_office_pays: 0.25
-
-
 # taux_abattement_office
 
 - name: "taux_abattement_office est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
-  input:
-    taux_abattement_office_pays: 10.5
   output:
     taux_abattement_office: 0
 
-- name: "taux_abattement_office est égale à taux_abattement_office_pays à partir de 1951"
+- name: "taux_abattement_office est égale à 0.25 à partir de 1951"
   period: 1951
-  input:
-    taux_abattement_office_pays: 10.5
   output:
-    taux_abattement_office: 10.5
+    taux_abattement_office: 0.25
 
 
 # montant_abattement_office
@@ -167,64 +150,30 @@
 # ##################################################
 
 
-# taux_abattement_locatif_location_meuble_pays
-
-- name: "taux_abattement_locatif_location_meuble_pays est égale à 0 avant 1951 car il n'existait pas"
-  period: 1950
-  output:
-    taux_abattement_locatif_location_meuble_pays: 0
-
-- name: "taux_abattement_locatif_location_meuble_pays est égale à 0.3 à partir de 1951"
-  period: 1951
-  output:
-    taux_abattement_locatif_location_meuble_pays: 0.3
-
-
-# taux_abattement_locatif_location_non_meuble_pays
-
-- name: "taux_abattement_locatif_location_non_meuble_pays est égale à 0 avant 1951 car il n'existait pas"
-  period: 1950
-  output:
-    taux_abattement_locatif_location_non_meuble_pays: 0
-
-- name: "taux_abattement_locatif_location_non_meuble_pays est égale à 0.25 à partir de 1951"
-  period: 1951
-  output:
-    taux_abattement_locatif_location_non_meuble_pays: 0.25
-
-
 # taux_abattement_locatif_location_meuble
 
 - name: "taux_second_abattement_location_meuble est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
-  input:
-    taux_abattement_locatif_location_meuble_pays: 10.5
   output:
     taux_abattement_locatif_location_meuble: 0
 
-- name: "taux_second_abattement_location_meuble est égale à taux_second_abattement_location_meuble_pays à partir de 1951"
+- name: "taux_second_abattement_location_meuble est égale à 0.30 à partir de 1951"
   period: 1951
-  input:
-    taux_abattement_locatif_location_meuble_pays: 10.5
   output:
-    taux_abattement_locatif_location_meuble: 10.5
+    taux_abattement_locatif_location_meuble: 0.30
 
 
 # taux_abattement_locatif_location_non_meuble
 
 - name: "taux_second_abattement_location_non_meuble est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
-  input:
-    taux_abattement_locatif_location_non_meuble_pays: 10.5
   output:
     taux_abattement_locatif_location_non_meuble: 0
 
-- name: "taux_second_abattement_location_non_meuble est égale à taux_second_abattement_location_non_meuble_pays à partir de 1951"
+- name: "taux_second_abattement_location_non_meuble est égale à 0.25 à partir de 1951"
   period: 1951
-  input:
-    taux_abattement_locatif_location_non_meuble_pays: 10.5
   output:
-    taux_abattement_locatif_location_non_meuble: 10.5
+    taux_abattement_locatif_location_non_meuble: 0.25
 
 
 # taux_abattement_locatif
@@ -426,64 +375,30 @@
 # ##################################################
 
 
-# age_min_abattement_nouvelle_construction_pays
-
-- name: "age_min_abattement_nouvelle_construction_pays est égale à 0 avant 1999 car il n'existait pas"
-  period: 1998
-  output:
-    age_min_abattement_nouvelle_construction_pays: 0
-
-- name: "age_min_abattement_nouvelle_construction_pays est égale à 6 à partir de 1999"
-  period: 1999
-  output:
-    age_min_abattement_nouvelle_construction_pays: 6
-
-
-# age_max_abattement_nouvelle_construction_pays
-
-- name: "age_max_abattement_nouvelle_construction_pays est égale à 0 avant 1999 car il n'existait pas"
-  period: 1998
-  output:
-    age_max_abattement_nouvelle_construction_pays: 0
-
-- name: "age_max_abattement_nouvelle_construction_pays est égale à 8 à partir de 1999"
-  period: 1999
-  output:
-    age_max_abattement_nouvelle_construction_pays: 8
-
-
 # age_min_abattement_nouvelle_construction
 
 - name: "age_min_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
   period: 1998
-  input:
-    age_min_abattement_nouvelle_construction_pays: 5
   output:
     age_min_abattement_nouvelle_construction: 0
 
-- name: "age_min_abattement_nouvelle_construction est égale à age_min_abattement_nouvelle_construction_pays à partir de 1999"
+- name: "age_min_abattement_nouvelle_construction est égale à 6 ans à partir de 1999"
   period: 1999
-  input:
-    age_min_abattement_nouvelle_construction_pays: 5
   output:
-    age_min_abattement_nouvelle_construction: 5
+    age_min_abattement_nouvelle_construction: 6
 
 
 # age_max_abattement_nouvelle_construction
 
 - name: "age_max_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
   period: 1998
-  input:
-    age_max_abattement_nouvelle_construction_pays: 7
   output:
     age_max_abattement_nouvelle_construction: 0
 
-- name: "age_max_abattement_nouvelle_construction est égale à age_max_abattement_nouvelle_construction_pays à partir de 1999"
+- name: "age_max_abattement_nouvelle_construction est égale à 8 ans à partir de 1999"
   period: 1999
-  input:
-    age_max_abattement_nouvelle_construction_pays: 7
   output:
-    age_max_abattement_nouvelle_construction: 7
+    age_max_abattement_nouvelle_construction: 8
 
 
 # eligible_abattement_nouvelle_construction
@@ -622,34 +537,17 @@
     abattement_nouvelle_construction_eligible_et_applique: false
 
 
-# taux_abattement_nouvelle_construction_pays
-
-- name: "taux_abattement_nouvelle_construction_pays est égale à 0 avant 1999 car il n'existait pas"
-  period: 1998
-  output:
-    taux_abattement_nouvelle_construction_pays: 0
-
-- name: "taux_abattement_nouvelle_construction_pays est égale à 0.5 à partir de 1999"
-  period: 1999
-  output:
-    taux_abattement_nouvelle_construction_pays: 0.5
-
-
 # taux_abattement_nouvelle_construction
 
 - name: "taux_abattement_nouvelle_construction est égale à 0 avant 1999 car il n'existait pas"
   period: 1998
-  input:
-    taux_abattement_nouvelle_construction_pays: 10.5
   output:
     taux_abattement_nouvelle_construction: 0
 
-- name: "taux_abattement_nouvelle_construction est égale à taux_abattement_nouvelle_construction_pays à partir de 1999"
+- name: "taux_abattement_nouvelle_construction est égale à 0.5 à partir de 1999"
   period: 1999
-  input:
-    taux_abattement_nouvelle_construction_pays: 10.5
   output:
-    taux_abattement_nouvelle_construction: 10.5
+    taux_abattement_nouvelle_construction: 0.5
 
 
 # montant_abattement_nouvelle_construction

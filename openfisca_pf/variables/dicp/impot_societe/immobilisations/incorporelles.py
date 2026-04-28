@@ -1,5 +1,9 @@
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_pf.base import (
+    ArrayLike,
+    ParameterNode,
+    Period,
+    Population,
     Variable,
     YEAR
     )
@@ -47,6 +51,12 @@ class is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_fin_exer
     entity = Personne
     definition_period = YEAR
     label = "Frais d'établissement, Valeur brute des immobilisations à la fin de l'exercice (LU)"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_incorporelles_frais_etablissement_r_et_d_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_incorporelles_frais_etablissement_r_et_d_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
 
 
 class is_immobilisations_incorporelles_frais_etablissement_r_et_d_origine_reevaluees_fin_exercice(Variable):
@@ -97,6 +107,12 @@ class is_immobilisations_incorporelles_autres_brute_fin_exercice(Variable):
     entity = Personne
     definition_period = YEAR
     label = "Autres postes d'immobilisations incorporelles, Valeur brute des immobilisations à la fin de l'exercice (LW)"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_incorporelles_autres_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_incorporelles_autres_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_incorporelles_autres_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
 
 
 class is_immobilisations_incorporelles_autres_origine_reevaluees_fin_exercice(Variable):

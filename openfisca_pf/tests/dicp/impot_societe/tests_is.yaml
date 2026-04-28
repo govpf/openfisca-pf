@@ -1,9 +1,0 @@
-- name: is_activation_desactive
-  period: 2023-12-30
-  output:
-    is_activation: false
-
-- name: is_activation_active
-  period: 2023-12-31
-  output:
-    is_activation: true

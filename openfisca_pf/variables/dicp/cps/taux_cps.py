@@ -3,7 +3,7 @@
 
 from openfisca_pf.base import (
     ArrayLike,
-    GroupPopulation,
+    Population,
     MONTH,
     ParameterNode,
     Period,
@@ -11,12 +11,12 @@ from openfisca_pf.base import (
     Variable
     )
 from openfisca_pf.constants.units import PER_ONE
-from openfisca_pf.entities import Pays
+from openfisca_pf.entities import Personne
 
 
 class taux_cps(Variable):
     value_type = float
-    entity = Pays
+    entity = Personne
     definition_period = MONTH
     label = 'Taux de CPS'
     set_input = set_input_divide_by_period
@@ -28,5 +28,5 @@ class taux_cps(Variable):
     default_value = 0
     end = '2023-09-30'
 
-    def formula(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         return parameters(period).dicp.cps.taux

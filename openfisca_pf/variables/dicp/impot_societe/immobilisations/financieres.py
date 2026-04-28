@@ -38,6 +38,12 @@ class is_immobilisations_financieres_participations_et_creances_participation_di
     definition_period = YEAR
     label = "Participations et créances attachées à des participations, Diminutions par virement de poste à poste (IZ)"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_financieres_participations_et_creances_participation_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_financieres_participations_et_creances_participation_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_financieres_participations_et_creances_participation_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
+
 
 class is_immobilisations_financieres_participations_et_creances_participation_diminution_cession_hors_services(Variable):
     value_type = int
@@ -103,6 +109,12 @@ class is_immobilisations_financieres_prets_et_autres_brute_fin_exercice(Variable
     entity = Personne
     definition_period = YEAR
     label = "Prêts et autres immobilisations financières, Valeur brute des immobilisations à la fin de l'exercice (2F)"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        immo_brut_debut_ex = personne('is_immobilisations_financieres_prets_et_autres_brute_debut_exercice', period)
+        immo_aug_reevaluation = personne('is_immobilisations_financieres_prets_et_autres_augmentation_reevaluation', period)
+        immo_aug_nouveaux = personne('is_immobilisations_financieres_prets_et_autres_augmentation_nouveaux', period)
+        return immo_brut_debut_ex + immo_aug_reevaluation + immo_aug_nouveaux
 
 
 class is_immobilisations_financieres_prets_et_autres_origine_reevaluees_fin_exercice(Variable):

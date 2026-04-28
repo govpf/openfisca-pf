@@ -15,18 +15,6 @@
 
 
 
-# date_limite_de_mise_en_service_installation_photovoltaique_pays
-
-- name: "date_limite_de_mise_en_service_installation_photovoltaique_pays est égale à 1970-01-01 avant 2023"
-  period: 2022
-  output:
-    date_limite_de_mise_en_service_installation_photovoltaique_pays: 1970-01-01
-
-- name: "date_limite_de_mise_en_service_installation_photovoltaique_pays est égale à 2023-01-01 à partir de 2023"
-  period: 2023
-  output:
-    date_limite_de_mise_en_service_installation_photovoltaique_pays: 2023-01-01
-
 
 
 
@@ -34,17 +22,13 @@
 
 - name: "date_limite_de_mise_en_service_installation_photovoltaique est égale à 1970-01-01 avant 2023"
   period: 2022
-  input:
-    date_limite_de_mise_en_service_installation_photovoltaique_pays: 2025-01-01
   output:
     date_limite_de_mise_en_service_installation_photovoltaique: 1970-01-01
 
-- name: "date_limite_de_mise_en_service_installation_photovoltaique_pays est égale à date_limite_de_mise_en_service_installation_photovoltaique_pays à partir de 2023"
+- name: "date_limite_de_mise_en_service_installation_photovoltaique est égale à 2023-01-01 à partir de 2023"
   period: 2023
-  input:
-    date_limite_de_mise_en_service_installation_photovoltaique_pays: 2025-01-01
   output:
-    date_limite_de_mise_en_service_installation_photovoltaique: 2025-01-01
+    date_limite_de_mise_en_service_installation_photovoltaique: 2023-01-01
 
 
 
@@ -104,52 +88,17 @@
 
 
 
-# maximum_credit_photovoltaique_pays
-
-- name: "maximum_credit_photovoltaique_pays est égale à 0 avant 2023"
-  period: 2022
-  output:
-    maximum_credit_photovoltaique_pays: 0
-
-- name: "maximum_credit_photovoltaique_pays est égale à 1 000 000 à partir de 2023"
-  period: 2023
-  output:
-    maximum_credit_photovoltaique_pays: 1000000
-
-
-
-
-# maximum_credit_photovoltaique_pays
+# maximum_credit_photovoltaique
 
 - name: "maximum_credit_photovoltaique est égale à 0 avant 2023"
   period: 2022
-  input:
-    maximum_credit_photovoltaique_pays: 10
   output:
     maximum_credit_photovoltaique: 0
 
-- name: "maximum_credit_photovoltaique est égale à maximum_credit_photovoltaique_pays à partir de 2023"
-  period: 2023
-  input:
-    maximum_credit_photovoltaique_pays: 10
-  output:
-    maximum_credit_photovoltaique: 10
-
-
-
-
-# taux_credit_photovoltaique_pays
-
-- name: "taux_credit_photovoltaique_pays est égale à 0 avant 2023"
-  period: 2022
-  output:
-    taux_credit_photovoltaique_pays: 0
-
-- name: "taux_credit_photovoltaique_pays est égale à 0.3 à partir de 2023"
+- name: "maximum_credit_photovoltaique est égale à 1000000 à partir de 2023"
   period: 2023
   output:
-    taux_credit_photovoltaique_pays: 0.3
-
+    maximum_credit_photovoltaique: 1000000
 
 
 
@@ -157,18 +106,13 @@
 
 - name: "taux_credit_photovoltaique est égale à 0 avant 2023"
   period: 2022
-  input:
-    taux_credit_photovoltaique_pays: 10
   output:
     taux_credit_photovoltaique: 0
 
-- name: "taux_credit_photovoltaique est égale à taux_credit_photovoltaique_pays à partir de 2023"
+- name: "taux_credit_photovoltaique est égale à 0.3 après 2023"
   period: 2023
-  input:
-    taux_credit_photovoltaique_pays: 10
   output:
-    taux_credit_photovoltaique_pays: 10
-
+    taux_credit_photovoltaique: 0.3
 
 
 

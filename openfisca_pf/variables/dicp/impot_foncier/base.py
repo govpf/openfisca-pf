@@ -4,7 +4,6 @@
 Calcul de la base de l'impôt foncier en Polynésie Française.
 Aussi appelé "valeur locative nette".
 """
-from openfisca_core.populations import GroupPopulation
 
 from openfisca_pf.base import (
     ArrayLike,
@@ -16,7 +15,7 @@ from openfisca_pf.base import (
     Variable,
     YEAR
     )
-from openfisca_pf.entities import Pays, Personne
+from openfisca_pf.entities import Personne
 from openfisca_pf.functions.currency import arrondi_inferieur
 
 
@@ -63,18 +62,6 @@ class abattement_office_eligible_et_applique(Variable):
         return eligible * applique
 
 
-class taux_abattement_office_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0.
-    label = "Taux du première abattement d'office de 25%"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1950_11_16(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.office.taux  # 0.25
-
-
 class taux_abattement_office(Variable):
     value_type = float
     entity = Personne
@@ -84,7 +71,7 @@ class taux_abattement_office(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('taux_abattement_office_pays', period)  # 0.25
+        return parameters(period).dicp.impot_foncier.base.abattement.office.taux
 
 
 class montant_abattement_office(Variable):
@@ -98,7 +85,7 @@ class montant_abattement_office(Variable):
     def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         eligible_et_applique = personne('abattement_office_eligible_et_applique', period)
         base = personne('valeur_locative_brute', period)
-        taux = personne('taux_abattement_office', period)  # 0.25
+        taux = personne('taux_abattement_office', period)
         return select(
             [eligible_et_applique],
             [base * taux],
@@ -125,30 +112,6 @@ class base_imposable_apres_abattement_office(Variable):
 # ##################################################
 
 
-class taux_abattement_locatif_location_meuble_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0.
-    label = "Taux de l'abattement locatif quand le bien est loué en meublé"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1950_11_16(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.locatif.location_meuble.taux
-
-
-class taux_abattement_locatif_location_non_meuble_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0.
-    label = "Taux de l'abattement locatif quand le bien est loué en non meublé"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1950_11_16(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.locatif.location_non_meuble.taux
-
-
 class taux_abattement_locatif_location_meuble(Variable):
     value_type = float
     entity = Personne
@@ -158,7 +121,7 @@ class taux_abattement_locatif_location_meuble(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('taux_abattement_locatif_location_meuble_pays', period)
+        return parameters(period).dicp.impot_foncier.base.abattement.locatif.location_meuble.taux
 
 
 class taux_abattement_locatif_location_non_meuble(Variable):
@@ -170,7 +133,7 @@ class taux_abattement_locatif_location_non_meuble(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1950_11_16(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('taux_abattement_locatif_location_non_meuble_pays', period)
+        return parameters(period).dicp.impot_foncier.base.abattement.locatif.location_non_meuble.taux
 
 
 class taux_abattement_locatif(Variable):
@@ -289,30 +252,6 @@ Age maximum pour qu'une nouvelle construction soit eligible à un abattement pou
 """
 
 
-class age_min_abattement_nouvelle_construction_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Age minimum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1999_01_01(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return AGE_MIN_ABATTEMENT_NOUVELLE_CONSTRUCTION  # 6
-
-
-class age_max_abattement_nouvelle_construction_pays(Variable):
-    value_type = int
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0
-    label = "Age maximum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1999_01_01(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return AGE_MAX_ABATTEMENT_NOUVELLE_CONSTRUCTION  # 8
-
-
 class age_min_abattement_nouvelle_construction(Variable):
     value_type = int
     entity = Personne
@@ -322,7 +261,7 @@ class age_min_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('age_min_abattement_nouvelle_construction_pays', period)  # 6
+        return AGE_MIN_ABATTEMENT_NOUVELLE_CONSTRUCTION
 
 
 class age_max_abattement_nouvelle_construction(Variable):
@@ -334,7 +273,7 @@ class age_max_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('age_max_abattement_nouvelle_construction_pays', period)  # 8
+        return AGE_MAX_ABATTEMENT_NOUVELLE_CONSTRUCTION
 
 
 class eligible_abattement_nouvelle_construction(Variable):
@@ -384,18 +323,6 @@ class abattement_nouvelle_construction_eligible_et_applique(Variable):
         return eligible * applique
 
 
-class taux_abattement_nouvelle_construction_pays(Variable):
-    value_type = float
-    entity = Pays
-    definition_period = YEAR
-    default_value = 0.
-    label = "Age maximum pour qu'une nouvelle construction soit eligible à un abattement pour les nouvelles constructions"
-    reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
-
-    def formula_1999_01_01(pays: GroupPopulation, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return parameters(period).dicp.impot_foncier.base.abattement.nouvelle_construction.taux  # 0.5
-
-
 class taux_abattement_nouvelle_construction(Variable):
     value_type = float
     entity = Personne
@@ -405,7 +332,7 @@ class taux_abattement_nouvelle_construction(Variable):
     reference = "https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=581595"
 
     def formula_1999_01_01(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
-        return personne.pays('taux_abattement_nouvelle_construction_pays', period)  # 0.5
+        return parameters(period).dicp.impot_foncier.base.abattement.nouvelle_construction.taux
 
 
 class montant_abattement_nouvelle_construction(Variable):
