@@ -1,6 +1,0 @@
-description: Activation IS - 1er exercice géré sur Openfisca
-values:
-  2023-12-31:
-    value: true
-  1900-01-01:
-    value: false
