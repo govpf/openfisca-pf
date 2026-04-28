@@ -14,120 +14,19 @@
 
 
 
-- name: "taux_autres_archipels_pays est égale à 0 avant 1951 car il n'existait pas"
-  period: 1950
-  output:
-    taux_autres_archipels_pays: 0
-
-- name: "taux_autres_archipels_pays est égale à 0.03 à partir de 1951"
-  period: 1951
-  output:
-    taux_autres_archipels_pays: 0.03
-
-- name: "taux_autres_archipels_pays est égale à 0 à partir de 2012 car il ne s'applique plus"
-  period: 2012
-  output:
-    taux_autres_archipels_pays: 0
-
-
-
-
-- name: "taux_archipel_australes_pays est égale à 0 avant 2012 car il n'existait pas"
-  period: 2011
-  output:
-    taux_archipel_australes_pays: 0
-
-- name: "taux_archipel_australes_pays est égale à 0.03 à partir de 2012"
-  period: 2012
-  output:
-    taux_archipel_australes_pays: 0.02
-
-
-
-
-- name: "taux_archipel_gambiers_pays est égale à 0 avant 2012 car il n'existait pas"
-  period: 2011
-  output:
-    taux_archipel_gambiers_pays: 0
-
-- name: "taux_archipel_gambiers_pays est égale à 0.02 à partir de 2012"
-  period: 2012
-  output:
-    taux_archipel_gambiers_pays: 0.02
-
-
-
-
-- name: "taux_archipel_iles_du_vent_pays est égale à 0 avant 1951 car il n'existait pas"
-  period: 1950
-  output:
-    taux_archipel_iles_du_vent_pays: 0
-
-- name: "taux_archipel_iles_du_vent_pays est égale à 0.04 à partir de 1951"
-  period: 1951
-  output:
-    taux_archipel_iles_du_vent_pays: 0.04
-
-
-
-
-- name: "taux_archipel_iles_sous_le_vent_pays est égale à 0 avant 2012 car il n'existait pas"
-  period: 2011
-  output:
-    taux_archipel_iles_sous_le_vent_pays: 0
-
-- name: "taux_archipel_iles_sous_le_vent_pays est égale à 0.03 à partir de 2012"
-  period: 2012
-  output:
-    taux_archipel_iles_sous_le_vent_pays: 0.03
-
-
-
-
-- name: "taux_archipel_marquises_pays est égale à 0 avant 2012 car il n'existait pas"
-  period: 2011
-  output:
-    taux_archipel_marquises_pays: 0
-
-- name: "taux_archipel_marquises_pays est égale à 0.02 à partir de 2012"
-  period: 2012
-  output:
-    taux_archipel_marquises_pays: 0.02
-
-
-
-
-- name: "taux_archipel_tuamotus_pays est égale à 0 avant 2012 car il n'existait pas"
-  period: 2011
-  output:
-    taux_archipel_tuamotus_pays: 0
-
-- name: "taux_archipel_tuamotus_pays est égale à 0.02 à partir 2012"
-  period: 2012
-  output:
-    taux_archipel_tuamotus_pays: 0.02
-
-
-
 
 - name: "taux_autres_archipels est égale 0 en 1950 car il n'existait pas"
   period: 1950
-  input:
-    taux_autres_archipels_pays: 10
   output:
     taux_autres_archipels: 0
 
-- name: "taux_autres_archipels est égale taux_autres_archipels_pays à partir de 1951"
+- name: "taux_autres_archipels est égale 0.03 à partir de 1951"
   period: 1951
-  input:
-    taux_autres_archipels_pays: 10
   output:
-    taux_autres_archipels: 10
+    taux_autres_archipels: 0.03
 
 - name: "taux_autres_archipels est égale 0 en 2012 car il ne s'applique plus"
   period: 2012
-  input:
-    taux_autres_archipels_pays: 10
   output:
     taux_autres_archipels: 0
 
@@ -138,12 +37,10 @@
   output:
     taux_archipel_australes: 0
 
-- name: "taux_archipel_australes est égale à taux_archipel_australes_pays à partir de 2012"
+- name: "taux_archipel_australes est égale à 0.02 à partir de 2012"
   period: 2012
-  input:
-    taux_archipel_australes_pays: 10
   output:
-    taux_archipel_australes: 10
+    taux_archipel_australes: 0.02
 
 
 
@@ -152,12 +49,10 @@
   output:
     taux_archipel_gambiers: 0
 
-- name: "taux_archipel_gambiers est égale à taux_archipel_gambiers_pays à partir de 2012"
+- name: "taux_archipel_gambiers est égale à 0.02 à partir de 2012"
   period: 2012
-  input:
-    taux_archipel_gambiers_pays: 10
   output:
-    taux_archipel_gambiers: 10
+    taux_archipel_gambiers: 0.02
 
 
 
@@ -166,12 +61,10 @@
   output:
     taux_archipel_iles_du_vent: 0
 
-- name: "taux_archipel_iles_du_vent est égale à taux_archipel_iles_du_vent_pays à partir de 1951"
+- name: "taux_archipel_iles_du_vent est égale à 0.04 à partir de 1951"
   period: 1951
-  input:
-    taux_archipel_iles_du_vent_pays: 10
   output:
-    taux_archipel_iles_du_vent: 10
+    taux_archipel_iles_du_vent: 0.04
 
 
 
@@ -180,12 +73,10 @@
   output:
     taux_archipel_iles_sous_le_vent: 0
 
-- name: "taux_archipel_iles_sous_le_vent est égale à taux_archipel_iles_sous_le_vent_pays à partir de 2012"
+- name: "taux_archipel_iles_sous_le_vent est égale à 0.03 à partir de 2012"
   period: 2012
-  input:
-    taux_archipel_iles_sous_le_vent_pays: 10
   output:
-    taux_archipel_iles_sous_le_vent: 10
+    taux_archipel_iles_sous_le_vent: 0.03
 
 
 
@@ -194,12 +85,10 @@
   output:
     taux_archipel_marquises: 0
 
-- name: "taux_archipel_marquises est égale à taux_archipel_marquises_pays à partir de 2012"
+- name: "taux_archipel_marquises est égale à 0.02 à partir de 2012"
   period: 2012
-  input:
-    taux_archipel_marquises_pays: 10
   output:
-    taux_archipel_marquises: 10
+    taux_archipel_marquises: 0.02
 
 
 
@@ -208,12 +97,10 @@
   output:
     taux_archipel_tuamotus: 0
 
-- name: "taux_archipel_tuamotus est égale à taux_archipel_tuamotus_pays à partir de 2012"
+- name: "taux_archipel_tuamotus est égale à 0.02 à partir de 2012"
   period: 2012
-  input:
-    taux_archipel_tuamotus_pays: 10
   output:
-    taux_archipel_tuamotus: 10
+    taux_archipel_tuamotus: 0.02
 
 
 
@@ -378,32 +265,20 @@
 
 
 
-- name: "taux_logement_social_pays est égale à 0 avant 2002 car il n'existait pas"
-  period: 2001
-  output:
-    taux_logement_social_pays: 0
 
-- name: "taux_logement_social_pays est égale à 0.02 à partir de 2002"
-  period: 2002
-  output:
-    taux_logement_social_pays: 0.02
 
 
 
 
 - name: "taux_logement_social est égale à 0 avant 2002 car il n'existait pas"
   period: 2001
-  input:
-    taux_logement_social_pays: 10
   output:
     taux_logement_social: 0
 
-- name: "taux_logement_social est égale à taux_logement_social_pays à partir de 2002"
+- name: "taux_logement_social est égale à 0.02 à partir de 2002"
   period: 2002
-  input:
-    taux_logement_social_pays: 10
   output:
-    taux_logement_social: 10
+    taux_logement_social: 0.02
 
 
 
@@ -427,33 +302,16 @@
 
 
 
-- name: "taux_meuble_de_tourisme_pays est égale à 0 avant 1951 car il n'existait pas"
-  period: 1950
-  output:
-    taux_meuble_de_tourisme_pays: 0
-
-- name: "taux_meuble_de_tourisme_pays est égale à 0.12 à partir de 1951"
-  period: 1951
-  output:
-    taux_meuble_de_tourisme_pays: 0.12
-
-
-
-
 
 - name: "taux_meuble_de_tourisme est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
-  input:
-    taux_meuble_de_tourisme_pays: 10
   output:
     taux_meuble_de_tourisme: 0
 
-- name: "taux_meuble_de_tourisme est égale à taux_meuble_de_tourisme_pays à partir de 1951"
+- name: "taux_meuble_de_tourisme est égale à 0.12 à partir de 1951"
   period: 1951
-  input:
-    taux_meuble_de_tourisme_pays: 10
   output:
-    taux_meuble_de_tourisme: 10
+    taux_meuble_de_tourisme: 0.12
 
 
 
@@ -477,32 +335,15 @@
 
 
 
-- name: "taux_villa_de_luxe_pays est égale à 0 avant 1951 car il n'existait pas"
-  period: 1950
-  output:
-    taux_villa_de_luxe_pays: 0
-
-- name: "taux_villa_de_luxe_pays est égale à 0.12 à partir de 1951"
-  period: 1951
-  output:
-    taux_meuble_de_tourisme_pays: 0.12
-
-
-
-
 - name: "taux_villa_de_luxe est égale à 0 avant 1951 car il n'existait pas"
   period: 1950
-  input:
-    taux_villa_de_luxe_pays: 10
   output:
     taux_villa_de_luxe: 0
 
-- name: "taux_villa_de_luxe est égale à taux_villa_de_luxe_pays à partir de 1951"
+- name: "taux_villa_de_luxe est égale à 0.12 à partir de 1951"
   period: 1951
-  input:
-    taux_villa_de_luxe_pays: 10
   output:
-    taux_villa_de_luxe: 10
+    taux_villa_de_luxe: 0.12
 
 
 
