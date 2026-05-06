@@ -29,5 +29,5 @@ class cps_due(Variable):
 
     def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable = personne('base_imposable_cps', period)
-        taux = personne('taux_cps', period)
+        taux = personne.pays('taux_cps', period)
         return arrondi_superieur(base_imposable * taux)
