@@ -185,14 +185,14 @@
   output:
     is_immobilisations_corporelles_avances_brute_fin_exercice: 900
 
-- name: is_immobilisations_financieres_participations_et_creances_participation_diminution_poste_a_poste
+- name: is_immobilisations_financieres_participations_et_creances_participation_brute_fin_exercice
   period: 2024
   input:
     is_immobilisations_financieres_participations_et_creances_participation_brute_debut_exercice: 200
     is_immobilisations_financieres_participations_et_creances_participation_augmentation_reevaluation: 300
     is_immobilisations_financieres_participations_et_creances_participation_augmentation_nouveaux: 400
   output:
-    is_immobilisations_financieres_participations_et_creances_participation_diminution_poste_a_poste: 900
+    is_immobilisations_financieres_participations_et_creances_participation_brute_fin_exercice: 900
 
 - name: is_immobilisations_financieres_prets_et_autres_brute_fin_exercice
   period: 2024
