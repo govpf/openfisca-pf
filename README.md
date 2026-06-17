@@ -25,15 +25,15 @@ To open a wsl terminal, run CMD or PowerShell and run the command:
 wsl
 ``` 
 
-### 1.1. Installing Python 3.10
+### 1.1. Installing Python 3.13
 
 #### macOS
 
-On `macOS` use `homebrew` to install python 3.10:
+On `macOS` use `homebrew` to install python 3.13:
 ```bash
-brew install python@3.10
+brew install python@3.13
 ```
-See https://formulae.brew.sh/formula/python@3.10 for more details.
+See https://formulae.brew.sh/formula/python@3.13 for more details.
 
 #### Windows WSL2 and Linux
 
@@ -41,7 +41,7 @@ On `Linux` or `Windows WSL2` Run the following command
 ```bash
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
-sudo apt-get install python3.10
+sudo apt-get install python3.13
 ```
 > See https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa for more details.
 
@@ -80,9 +80,9 @@ For this reason when need to edit OpenFisca Core tu use 64-bit floating point nu
 >     - Or `%HOMEDRIVE%\Program Files\Python310\Lib\site-packages\openfisca_core`.
 >     - Or `%HOMEDRIVE%%HOMEPATH%\AppData\Local\Programs\Python\Python310\Lib\site-packages\openfisca_core`
 >   - On Windows WSL2 it will be located at:
->     - `%HOMEDRIVE%%HOMEPATH%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\rootfs\usr\local\lib\python3.10\dist-packages\openfisca_core`
+>     - `%HOMEDRIVE%%HOMEPATH%\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\LocalState\rootfs\usr\local\lib\python3.13\dist-packages\openfisca_core`
 >   - On Linux it will be located at:
->     - `$HOMEBREW_PREFIX/lib/python3.10/site-packages/openfisca_core`
+>     - `$HOMEBREW_PREFIX/lib/python3.13/site-packages/openfisca_core`
 > - Open the file `openfisca_core\variables\config.py`.
 > - At line `17` and `24`, replace `numpy.int32` to `numpy.int64` and `numpy.float32` to `numpy.float64` 
 > - Open the file `openfisca_core/tools/__init__.py`
