@@ -113,15 +113,14 @@ class sous_total_base_imposable(Variable):
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period)
         return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal
 
-    def formula_2025_01(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+    def formula_2025(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period)
         base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period)
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period)
         base_imposable_tva_taux_immeubles_hotelleries = personne('base_imposable_tva_taux_immeubles_hotelleries', period)
         return base_imposable_tva_taux_reduit + base_imposable_tva_taux_intermediaire + base_imposable_tva_taux_normal + base_imposable_tva_taux_immeubles_hotelleries
 
-    # FIXME changer en 2026_07 une fois les tests OK
-    def formula_2025_12(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+    def formula_2026_07(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
         base_imposable_tva_taux_reduit = personne('base_imposable_tva_taux_reduit', period)
         base_imposable_tva_taux_intermediaire = personne('base_imposable_tva_taux_intermediaire', period)
         base_imposable_tva_taux_normal = personne('base_imposable_tva_taux_normal', period)
