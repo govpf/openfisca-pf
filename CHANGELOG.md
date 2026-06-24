@@ -1,9 +1,39 @@
 # Changelog
 
+## 0.9.5
+
+* Update TVA: Add taux archipel 1%
+* Update openfisca-core 40.0.0 to 43.5.0
+* Update impot société
+* Update property tax
+* Update daf tax
+
+## 0.9.4
+
+* Update daf tax
+* Update property tax: exoneration temporaire
+
+## 0.9.3
+
+* DAF tax : fix droit enregistrement terrain nu/bati
+
+## 0.9.2
+
+* Init impot société
+* Update daf tax
+* Update property tax
+
+## 0.9.1
+
+* Update python 12 to 13
+* Update jobs versions
+* Init daf tax
+
 ## 0.9.0
 
-* Property tax
-* Update openfisca-core 40.0.0 to 43.5.0
+* Init property tax
+* Update python 11 to 12
+* Update dockerfile
 
 ## 0.8.0
 
