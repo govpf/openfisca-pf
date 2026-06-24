@@ -1,0 +1,67 @@
+- name: is_resultat_fiscal_reintegrations_total
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_reintegrations_benefice_net_comptable: 100
+    is_resultat_fiscal_reintegrations_contribution_supplementaire: 200
+    is_resultat_fiscal_reintegrations_impot_sur_les_societes: 300
+    is_resultat_fiscal_reintegrations_amortissements_non_deductibles: 400
+    is_resultat_fiscal_reintegrations_interets_non_deductibles: 500
+    is_resultat_fiscal_reintegrations_renumerations_non_deductibles: 600
+    is_resultat_fiscal_reintegrations_provisions_non_deductibles: 700
+    is_resultat_fiscal_reintegrations_amortissements_reputes_differes: 800
+    is_resultat_fiscal_reintegrations_depenses_relatives_au_logement_du_personnel: 900
+    is_resultat_fiscal_reintegrations_autres: 101
+  output:
+    is_resultat_fiscal_reintegrations_total: 4601
+
+- name: is_resultat_fiscal_deductions_total
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_deductions_perte_nette_comptable: 100
+    is_resultat_fiscal_deductions_plus_values_non_imposables: 200
+    is_resultat_fiscal_deductions_plus_values_exonerees_sous_conditions_de_remploi: 300
+    is_resultat_fiscal_deductions_revenu_net_valeurs_et_capitaux_mobiliers: 400
+    is_resultat_fiscal_deductions_autres: 500
+  output:
+    is_resultat_fiscal_deductions_total: 1500
+
+- name: is_resultat_fiscal_benefice_avant_report_deficitaire_positif
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_reintegrations_total: 100
+    is_resultat_fiscal_deductions_total: 10
+  output:
+    is_resultat_fiscal_benefice_avant_report_deficitaire: 90
+
+- name: is_resultat_fiscal_benefice_avant_report_deficitaire_negatif
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_reintegrations_total: 100
+    is_resultat_fiscal_deductions_total: 101
+  output:
+    is_resultat_fiscal_benefice_avant_report_deficitaire: 0
+
+- name: is_resultat_fiscal_deficit_total_positif
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_reintegrations_total: 10
+    is_resultat_fiscal_deductions_total: 100
+  output:
+    is_resultat_fiscal_deficit_total: 90
+
+- name: is_resultat_fiscal_deficit_total_negatif
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_reintegrations_total: 101
+    is_resultat_fiscal_deductions_total: 100
+  output:
+    is_resultat_fiscal_deficit_total: 0
+
+- name: is_resultat_fiscal_benefice_apres_report_deficitaire
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_avant_report_deficitaire: 5140
+    is_resultat_fiscal_montant_deficits_anterieurs_reportables_effectivement_imputes: 300
+    is_resultat_fiscal_montant_amortissements_anterieurs_reportables_effectivement_imputes: 400
+  output:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 4440

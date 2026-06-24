@@ -1,0 +1,204 @@
+- name: is_immobilisations_total_general_brute_debut_exercice
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_debut_exercice: 100
+    is_immobilisations_incorporelles_autres_brute_debut_exercice: 200
+    is_immobilisations_total_corporelles_brute_debut_exercice: 300
+    is_immobilisations_total_financieres_brute_debut_exercice: 400
+  output:
+    is_immobilisations_total_general_brute_debut_exercice: 1000
+
+- name: is_immobilisations_total_general_augmentation_reevaluation
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_augmentation_reevaluation: 100
+    is_immobilisations_incorporelles_autres_augmentation_reevaluation: 200
+    is_immobilisations_total_corporelles_augmentation_reevaluation: 300
+    is_immobilisations_total_financieres_augmentation_reevaluation: 400
+  output:
+    is_immobilisations_total_general_augmentation_reevaluation: 1000
+
+- name: is_immobilisations_total_general_augmentation_nouveaux
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_augmentation_nouveaux: 100
+    is_immobilisations_incorporelles_autres_augmentation_nouveaux: 200
+    is_immobilisations_total_corporelles_augmentation_nouveaux: 300
+    is_immobilisations_total_financieres_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_total_general_augmentation_nouveaux: 1000
+
+- name: is_immobilisations_total_general_diminution_poste_a_poste
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_diminution_poste_a_poste: 100
+    is_immobilisations_incorporelles_autres_diminution_poste_a_poste: 200
+    is_immobilisations_total_corporelles_diminution_poste_a_poste: 300
+    is_immobilisations_total_financieres_diminution_poste_a_poste: 400
+  output:
+    is_immobilisations_total_general_diminution_poste_a_poste: 1000
+
+- name: is_immobilisations_total_general_diminution_cession_hors_services
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_diminution_cession_hors_services: 100
+    is_immobilisations_incorporelles_autres_diminution_cession_hors_services: 200
+    is_immobilisations_total_corporelles_diminution_cession_hors_services: 300
+    is_immobilisations_total_financieres_diminution_cession_hors_services: 400
+  output:
+    is_immobilisations_total_general_diminution_cession_hors_services: 1000
+
+- name: is_immobilisations_total_general_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_fin_exercice: 100
+    is_immobilisations_incorporelles_autres_brute_fin_exercice: 200
+    is_immobilisations_total_corporelles_brute_fin_exercice: 300
+    is_immobilisations_total_financieres_brute_fin_exercice: 400
+  output:
+    is_immobilisations_total_general_brute_fin_exercice: 1000
+
+- name: is_immobilisations_total_general_origine_reevaluees_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_origine_reevaluees_fin_exercice: 100
+    is_immobilisations_incorporelles_autres_origine_reevaluees_fin_exercice: 200
+    is_immobilisations_total_corporelles_origine_reevaluees_fin_exercice: 300
+    is_immobilisations_total_financieres_origine_reevaluees_fin_exercice: 400
+  output:
+    is_immobilisations_total_general_origine_reevaluees_fin_exercice: 1000
+
+- name: is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_debut_exercice: 200
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_augmentation_reevaluation: 300
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_incorporelles_frais_etablissement_r_et_d_brute_fin_exercice: 900
+
+- name: is_immobilisations_incorporelles_autres_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_incorporelles_autres_brute_debut_exercice: 200
+    is_immobilisations_incorporelles_autres_augmentation_reevaluation: 300
+    is_immobilisations_incorporelles_autres_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_incorporelles_autres_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_terrains_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_terrains_brute_debut_exercice: 200
+    is_immobilisations_corporelles_terrains_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_terrains_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_terrains_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_constructions_sur_sol_propre_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_constructions_sur_sol_propre_brute_debut_exercice: 200
+    is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_constructions_sur_sol_propre_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_constructions_sur_sol_propre_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_debut_exercice: 200
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_constructions_sur_sol_autrui_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_constructions_installations_amenagements_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_constructions_installations_amenagements_brute_debut_exercice: 200
+    is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_constructions_installations_amenagements_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_constructions_installations_amenagements_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_installations_materiel_industriel_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_installations_materiel_industriel_brute_debut_exercice: 200
+    is_immobilisations_corporelles_installations_materiel_industriel_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_installations_materiel_industriel_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_installations_materiel_industriel_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_autres_installations_amenagements_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_autres_installations_amenagements_brute_debut_exercice: 200
+    is_immobilisations_corporelles_autres_installations_amenagements_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_autres_installations_amenagements_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_autres_installations_amenagements_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_autres_materiel_transport_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_autres_materiel_transport_brute_debut_exercice: 200
+    is_immobilisations_corporelles_autres_materiel_transport_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_autres_materiel_transport_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_autres_materiel_transport_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_autres_materiel_bureau_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_autres_materiel_bureau_brute_debut_exercice: 200
+    is_immobilisations_corporelles_autres_materiel_bureau_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_autres_materiel_bureau_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_autres_materiel_bureau_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_autres_emballages_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_autres_emballages_brute_debut_exercice: 200
+    is_immobilisations_corporelles_autres_emballages_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_autres_emballages_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_autres_emballages_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_en_cours_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_en_cours_brute_debut_exercice: 200
+    is_immobilisations_corporelles_en_cours_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_en_cours_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_en_cours_brute_fin_exercice: 900
+
+- name: is_immobilisations_corporelles_avances_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_corporelles_avances_brute_debut_exercice: 200
+    is_immobilisations_corporelles_avances_augmentation_reevaluation: 300
+    is_immobilisations_corporelles_avances_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_corporelles_avances_brute_fin_exercice: 900
+
+- name: is_immobilisations_financieres_participations_et_creances_participation_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_financieres_participations_et_creances_participation_brute_debut_exercice: 200
+    is_immobilisations_financieres_participations_et_creances_participation_augmentation_reevaluation: 300
+    is_immobilisations_financieres_participations_et_creances_participation_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_financieres_participations_et_creances_participation_brute_fin_exercice: 900
+
+- name: is_immobilisations_financieres_prets_et_autres_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_financieres_prets_et_autres_brute_debut_exercice: 200
+    is_immobilisations_financieres_prets_et_autres_augmentation_reevaluation: 300
+    is_immobilisations_financieres_prets_et_autres_augmentation_nouveaux: 400
+  output:
+    is_immobilisations_financieres_prets_et_autres_brute_fin_exercice: 900

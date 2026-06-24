@@ -77,6 +77,11 @@ class CategoryBien(Enum):
     Le bien est utilisé professionnelement
     """
 
+    ETABLISSEMENT_HOTELIER = 'ETABLISSEMENT_HOTELIER'
+    """
+    Le bien est un établissement hôtelier
+    """
+
 
 class TypeLocation(Enum):
     NON_MEUBLE = "NON_MEUBLE"

@@ -1,0 +1,113 @@
+- name: "nb_mois_retard_decla_is - dépôt le lendemain de la fin de l'exercice, aucun retard"
+  period: 2024-12-31
+  input:
+    commune_fiscale:
+      2024: MAHINA
+    is_date_de_depot: 2025-01-01
+  output:
+    is_nombre_mois_retard: 0
+
+- name: "nb_mois_retard_decla_is - dépôt le jour limite, aucun retard"
+  period: 2024-12-31
+  input:
+    commune_fiscale:
+     2024: MAHINA
+    is_date_de_depot: 2025-07-31
+  output:
+    is_nombre_mois_retard: 0
+
+- name: "nb_mois_retard_decla_is - retard de 3 mois pour exercice clos 31/12/2023"
+  period: 2023-12-31
+  input:
+    commune_fiscale:
+      2023: MAHINA
+    is_date_de_depot: 2024-10-31
+  output:
+    is_nombre_mois_retard: 3
+
+- name: "nb_mois_retard_decla_is - retard de 3 mois pour exercice clos 30/06/2023 (Tahiti)"
+  period: 2023-06-30
+  input:
+    commune_fiscale:
+      2023: MAHINA
+    is_date_de_depot: 2024-04-30
+  output:
+    is_nombre_mois_retard: 3
+
+- name: "nb_mois_retard_decla_is - aucun retard pour exercice clos 30/06/2023 (Tahiti)"
+  period: 2023-06-30
+  input:
+    commune_fiscale:
+      2023: MAHINA
+    is_date_de_depot: 2024-01-31
+  output:
+    is_nombre_mois_retard: 0
+
+#ARHCIPEL HORS SOCIETE
+- name: "nb_mois_retard_decla_is - 2 mois de retard (NUKU_HIVA - exercice 2023)"
+  period: 2023-12-31
+  input:
+    commune_fiscale:
+      2023: NUKU_HIVA
+    is_date_de_depot: 2024-10-30
+  output:
+    is_nombre_mois_retard: 2
+
+- name: "nb_mois_retard_decla_is - aucun retard (RURUTU - exercice 2024)"
+  period: 2024-12-31
+  input:
+    commune_fiscale:
+      2024: RURUTU
+    is_date_de_depot: 2025-08-31
+  output:
+    is_nombre_mois_retard: 0
+
+- name: "nb_mois_retard_decla_is - 2 mois de retard (HAO - exercice non calendaire)"
+  period: 2024-04-30
+  input:
+    commune_fiscale:
+      2024: HAO
+    is_date_de_depot: 2025-04-30
+  output:
+    is_nombre_mois_retard: 2
+
+- name: "nb_mois_retard_decla_is - aucun retard (RANGIROA - exercice non calendaire)"
+  period: 2024-04-30
+  input:
+    commune_fiscale:
+      2024: RANGIROA
+    is_date_de_depot: 2025-02-28
+  output:
+    is_nombre_mois_retard: 0
+
+- name: "nb_mois_retard_decla_is (31/12) - dépôt dans les délais - cessation effective"
+  period: 2024-12-11
+  input:
+    is_cessation_activite: true
+    is_date_de_depot: 2025-04-30
+  output:
+    is_nombre_mois_retard: 0
+
+- name: "nb_mois_retard_decla_is - dépôt dans les délais - cessation effective"
+  period: 2025-03-26
+  input:
+    is_cessation_activite: true
+    is_date_de_depot: 2025-04-21
+  output:
+    is_nombre_mois_retard: 0
+
+- name: "nb_mois_retard_decla_is - dépôt tardif (1 mois) - cessation effective"
+  period: 2024-11-22
+  input:
+    is_cessation_activite: true
+    is_date_de_depot: 2025-04-30
+  output:
+    is_nombre_mois_retard: 1
+
+- name: "nb_mois_retard_decla_is - dépôt tardif (3 mois) - cessation effective"
+  period: 2025-03-26
+  input:
+    is_cessation_activite: true
+    is_date_de_depot: 2025-10-31
+  output:
+    is_nombre_mois_retard: 3

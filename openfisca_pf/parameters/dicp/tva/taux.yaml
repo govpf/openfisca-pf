@@ -1,6 +1,6 @@
 description: Taux de TVA
 metadata:
-  reference: https://www.impot-polynesie.gov.pf/code/3-chap-iii-taux
+  reference: LP 2025-38 du 9/12/2025 + arrêté d'application 232 CM du 19/02/2026 (https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=1036365&idr=297&np=1&lang=fr)
 reduit:
   description: Taux réduit de TVA
   values:
@@ -13,7 +13,11 @@ normal:
   description: Taux normal de TVA
   values:
     2001-12-11: 0.16
-livraisons_immeubles_et_cession_parts:
-  description: Taux livraisons d'immeubles et cession de parts
+immeubles_hotelleries:
+  description: Taux immeubles et hôtelleries
   values:
     2025-01-01: 0.09
+archipels:
+  description: Taux archipel
+  values:
+    2026-07-01: 0.01

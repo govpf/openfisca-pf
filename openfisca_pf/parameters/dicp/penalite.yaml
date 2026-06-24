@@ -1,0 +1,29 @@
+description: "Taux des pénalités du rôle foncier"
+
+
+taux_interet_de_retard:
+  description: "Taux de la pénalité d'intérêt de retard du rôle foncier"
+  values:
+    1995-09-07:
+      value: 0.0075
+    2014-12-17:
+      value: 0.004
+    2018-12-11:
+      value: 0.002
+
+taux_majoration_fixe:
+  normal:
+    description: "Taux de la pénalité de majoration fixe quand la déclaration est a l'intiative de l'usager"
+    values:
+      1995-09-07:
+        value: 0.1
+  apres_premiere_mise_en_demeure:
+    description: "Taux de la pénalité de majoration fixe quand la déclaration fait suite à une première mise en demeure"
+    values:
+      1995-09-07:
+        value: 0.4
+  apres_deuxieme_mise_en_demeure:
+    description: "Taux de la pénalité de majoration fixe quand la déclaration fait suite à une deuxième mise en demeure"
+    values:
+      1995-09-07:
+        value: 0.8

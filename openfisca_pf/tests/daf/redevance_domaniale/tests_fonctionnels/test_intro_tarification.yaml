@@ -11,7 +11,7 @@
       variable_redevance_domaniale: 153
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 140655
     montant_base_redevance_domaniale: 46885
@@ -28,7 +28,7 @@
       variable_redevance_domaniale: 1500
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 36875
     montant_base_redevance_domaniale: 147500
@@ -45,7 +45,7 @@
       variable_redevance_domaniale: 50
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 15000
     montant_base_redevance_domaniale: 15000
@@ -62,7 +62,7 @@
       variable_redevance_domaniale: 800
       nombre_participant_redevance_domaniale: 1000
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 558800
     montant_base_redevance_domaniale: 558800
@@ -79,7 +79,7 @@
       variable_redevance_domaniale: 1000
       nombre_participant_redevance_domaniale: 300
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 93300
     montant_base_redevance_domaniale: 93300
@@ -96,7 +96,7 @@
       variable_redevance_domaniale: 50
       nombre_participant_redevance_domaniale: 50
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 7500
     montant_base_redevance_domaniale: 7500
@@ -113,7 +113,7 @@
       variable_redevance_domaniale: 50
       nombre_participant_redevance_domaniale: 150
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 45000
     montant_base_redevance_domaniale: 45000
@@ -130,7 +130,7 @@
       variable_redevance_domaniale: 20
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 24000
     montant_base_redevance_domaniale: 12000
@@ -147,7 +147,7 @@
       variable_redevance_domaniale: 20
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 240000
     montant_base_redevance_domaniale: 60000
@@ -164,7 +164,7 @@
       variable_redevance_domaniale: 30
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 300000
     montant_base_redevance_domaniale: 60000
@@ -181,7 +181,7 @@
       variable_redevance_domaniale: 60
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 60000
     montant_base_redevance_domaniale: 12000
@@ -198,7 +198,7 @@
       variable_redevance_domaniale: 60
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 270000
     montant_base_redevance_domaniale: 90000
@@ -215,7 +215,7 @@
       variable_redevance_domaniale: 50
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 2400000
     montant_base_redevance_domaniale: 600000
@@ -232,7 +232,7 @@
       variable_redevance_domaniale: 100
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 300000
     montant_base_redevance_domaniale: 100000
@@ -249,7 +249,7 @@
       variable_redevance_domaniale: 2000
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 3400000
     montant_base_redevance_domaniale: 170000
@@ -266,7 +266,7 @@
       variable_redevance_domaniale: 148
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 651200
     montant_base_redevance_domaniale: 16280
@@ -283,7 +283,7 @@
       variable_redevance_domaniale: 12
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 0
     montant_base_redevance_domaniale: 0
@@ -300,7 +300,7 @@
       variable_redevance_domaniale: 120
       nombre_participant_redevance_domaniale: 0
       commune_redevance_domaniale: com350
-      zone_domaine_prive: sainte_amelie_quartier_des_institutions 
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
   output:
     montant_total_redevance_domaniale: 216000
     montant_base_redevance_domaniale: 24000
@@ -1154,3 +1154,71 @@
   output:
     montant_total_redevance_domaniale: 1350000
     montant_base_redevance_domaniale: 150000
+- name: 68 - IP_ECO_12 - Ponton de 56 m² (montant minimum)
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_12_equipement_peche_pays
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 56
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 15000
+    montant_base_redevance_domaniale: 15000
+- name: 69 - IP_ECO_12 - Remblai de 182 m²
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: ip_eco_12_equipement_peche_pays
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_1
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 182
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 20020
+    montant_base_redevance_domaniale: 20020
+- name: 70 - IF_ECO_24 - Cable 500m de long (montant minimum)
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_24_tout_cablage
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 10
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 15000
+    montant_base_redevance_domaniale: 15000
+- name: 71 - IF_ECO_24 - Cable 2400m de long
+  period: 2018-01-01
+  input:
+    personne:
+      nature_emprise_occupation_redevance_domaniale: if_eco_24_tout_cablage
+      duree_occupation_redevance_domaniale: 1
+      unite_duree_occupation_redevance_domaniale: Annees
+      zone_occupation_redevance_domaniale: zone_2
+      activite_cultuelle: false
+      nombre_unite_redevance_domaniale: 0
+      variable_redevance_domaniale: 2400
+      nombre_participant_redevance_domaniale: 0
+      commune_redevance_domaniale: com350
+      zone_domaine_prive: sainte_amelie_quartier_des_institutions
+  output:
+    montant_total_redevance_domaniale: 24000
+    montant_base_redevance_domaniale: 24000

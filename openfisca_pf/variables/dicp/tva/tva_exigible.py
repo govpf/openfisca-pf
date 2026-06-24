@@ -39,8 +39,16 @@ class sous_total_tva_exigible(Variable):
         tva_due_taux_reduit = personne('tva_due_taux_reduit', period)
         tva_due_taux_intermediaire = personne('tva_due_taux_intermediaire', period)
         tva_due_taux_normal = personne('tva_due_taux_normal', period)
-        tva_due_taux_livraisons_immeubles_et_cession_parts = personne('tva_due_taux_livraisons_immeubles_et_cession_parts', period)
-        return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal + tva_due_taux_livraisons_immeubles_et_cession_parts
+        tva_due_taux_immeubles_hotelleries = personne('tva_due_taux_immeubles_hotelleries', period)
+        return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal + tva_due_taux_immeubles_hotelleries
+
+    def formula_2026_07(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        tva_due_taux_reduit = personne('tva_due_taux_reduit', period)
+        tva_due_taux_intermediaire = personne('tva_due_taux_intermediaire', period)
+        tva_due_taux_normal = personne('tva_due_taux_normal', period)
+        tva_due_taux_immeubles_hotelleries = personne('tva_due_taux_immeubles_hotelleries', period)
+        tva_due_taux_archipels = personne('tva_due_taux_archipels', period)
+        return tva_due_taux_reduit + tva_due_taux_intermediaire + tva_due_taux_normal + tva_due_taux_immeubles_hotelleries + tva_due_taux_archipels
 
 
 class tva_exigible(Variable):

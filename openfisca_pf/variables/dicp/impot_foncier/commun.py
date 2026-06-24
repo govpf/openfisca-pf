@@ -102,6 +102,14 @@ class habitation_principale(Variable):
     label = "True si le bien est une habitation principale, False sinon."
 
 
+class habitation_principale_depuis_origine(Variable):
+    value_type = bool
+    entity = Personne
+    definition_period = YEAR
+    default_value = False
+    label = "True si le bien est une habitation principale depuis son origine, False sinon."
+
+
 class location_meuble(Variable):
     value_type = bool
     entity = Personne

@@ -1,0 +1,6 @@
+- name : is_bilan_actif_capital_souscrit_non_appele_net
+  period: 2024
+  input:
+    is_bilan_actif_capital_souscrit_non_appele_brut: 200
+  output:
+    is_bilan_actif_capital_souscrit_non_appele_net: 200

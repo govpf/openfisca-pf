@@ -47,3 +47,35 @@ titioro_zone_industrielle_et_commerciale:
   valeur_venale:
     values:
       2016-01-01: 38000
+centre_ville_zone_urbaine_forte_densite_de_population:
+  valeur_venale:
+    values:
+      2016-01-01: 130000
+fare_ute_zone_industrielle_et_commerciale:
+  valeur_venale:
+    values:
+      2016-01-01: 60000
+mission_zone_plaine:
+  valeur_venale:
+    values:
+      2016-01-01: 100000
+mission_zone_residentielle:
+  valeur_venale:
+    values:
+      2016-01-01: 15000
+mission_zone_sociale:
+  valeur_venale:
+    values:
+      2016-01-01: 8800
+orovini_zone_plaine_moyenne_densite_de_population:
+  valeur_venale:
+    values:
+      2016-01-01: 70000
+orovini_zone_lotissement_social:
+  valeur_venale:
+    values:
+      2016-01-01: 25000
+fariipiti_patutoa_zone_urbaine_forte_densite_de_population:
+  valeur_venale:
+    values:
+      2016-01-01: 50000

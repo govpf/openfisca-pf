@@ -754,8 +754,6 @@
     report_credit_tva_deductible: 0
     demande_remboursement_credit_tva: 0
     rib_renseigne: true
-    cps_en_diminution: 0
-    cps_a_reverser: 0
   output:
     entrants_tva_valides: true
     tva_due_taux_reduit: 0
@@ -774,10 +772,6 @@
     remboursement_credit_tva: 0
     credit_tva_a_reporter: 0
     base_imposable_cps: 0
-    cps_due: 0
-    cps_nette: 0
-    cps_nette_due: 0
-    cps_a_reporter: 0
 - name: "arrondis superieur"
   period: 2022-06
   input:

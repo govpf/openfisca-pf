@@ -1,0 +1,55 @@
+- name: is_immobilisations_total_financieres_brute_debut_exercice
+  period: 2024
+  input:
+    is_immobilisations_financieres_participations_et_creances_participation_brute_debut_exercice: 100
+    is_immobilisations_financieres_prets_et_autres_brute_debut_exercice: 200
+  output:
+    is_immobilisations_total_financieres_brute_debut_exercice: 300
+
+- name: is_immobilisations_total_financieres_augmentation_reevaluation
+  period: 2024
+  input:
+    is_immobilisations_financieres_participations_et_creances_participation_augmentation_reevaluation: 100
+    is_immobilisations_financieres_prets_et_autres_augmentation_reevaluation: 200
+  output:
+    is_immobilisations_total_financieres_augmentation_reevaluation: 300
+
+- name: is_immobilisations_total_financieres_augmentation_nouveaux
+  period: 2024
+  input:
+    is_immobilisations_financieres_participations_et_creances_participation_augmentation_nouveaux: 100
+    is_immobilisations_financieres_prets_et_autres_augmentation_nouveaux: 200
+  output:
+    is_immobilisations_total_financieres_augmentation_nouveaux: 300
+
+- name: is_immobilisations_total_financieres_diminution_poste_a_poste
+  period: 2024
+  input:
+    is_immobilisations_financieres_participations_et_creances_participation_diminution_poste_a_poste: 100
+    is_immobilisations_financieres_prets_et_autres_diminution_poste_a_poste: 200
+  output:
+    is_immobilisations_total_financieres_diminution_poste_a_poste: 300
+
+- name: is_immobilisations_total_financieres_diminution_cession_hors_services
+  period: 2024
+  input:
+    is_immobilisations_financieres_participations_et_creances_participation_diminution_cession_hors_services: 100
+    is_immobilisations_financieres_prets_et_autres_diminution_cession_hors_services: 200
+  output:
+    is_immobilisations_total_financieres_diminution_cession_hors_services: 300
+
+- name: is_immobilisations_total_financieres_brute_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_financieres_participations_et_creances_participation_brute_fin_exercice: 100
+    is_immobilisations_financieres_prets_et_autres_brute_fin_exercice: 200
+  output:
+    is_immobilisations_total_financieres_brute_fin_exercice: 300
+
+- name: is_immobilisations_total_financieres_origine_reevaluees_fin_exercice
+  period: 2024
+  input:
+    is_immobilisations_financieres_participations_et_creances_participation_origine_reevaluees_fin_exercice: 100
+    is_immobilisations_financieres_prets_et_autres_origine_reevaluees_fin_exercice: 200
+  output:
+    is_immobilisations_total_financieres_origine_reevaluees_fin_exercice: 300

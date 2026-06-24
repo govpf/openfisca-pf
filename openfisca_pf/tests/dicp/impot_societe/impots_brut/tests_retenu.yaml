@@ -1,0 +1,30 @@
+- name: "Retenu IS"
+  period: 2024-01-01
+  input:
+    is_brut_due: 100
+    imf_brut_due: 50
+    csis_brut_due: 9999
+  output:
+    impot_brut_due_retenu_type: "IS"
+    impot_brut_due_retenu: 100
+
+- name: "Retenu IMF"
+  period: 2024-01-01
+  input:
+    is_brut_due: 50
+    imf_brut_due: 100
+    csis_brut_due: 9999
+  output:
+    impot_brut_due_retenu_type: "IMF"
+    impot_brut_due_retenu: 100
+
+- name: "Retenu IS Egal"
+  period: 2024-01-01
+  input:
+    is_brut_due: 100
+    imf_brut_due: 100
+    csis_brut_due: 9999
+  output:
+    impot_brut_due_retenu_type: "IS"
+    impot_brut_due_retenu: 100
+

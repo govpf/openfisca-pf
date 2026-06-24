@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "OpenFisca-PF",
-    version = "0.8.0",
+    version = "0.9.0",
     author = "DSI",
     author_email = "matthieu.bosc@administraction.gov.pf;philippe.perezdesanroman@administraction.gov.pf",
     classifiers = [
@@ -23,7 +23,7 @@ setup(
         ("share/openfisca/openfisca-country-template", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
-        "OpenFisca-Core[web-api] ==40.0.0",
+        "OpenFisca-Core[web-api] ==43.5.0",
         ],
     extras_require = {
         "dev": [

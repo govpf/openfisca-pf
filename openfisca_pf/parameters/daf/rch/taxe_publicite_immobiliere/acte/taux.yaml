@@ -1,0 +1,82 @@
+description: Taux de la taxe de publicité immobilière selon la nature de l'acte
+metadata:
+  reference: https://lexpol.cloud.pf/LexpolAfficheTexte.php?texte=536696&idr=1300&np=1
+vente:
+  values:
+    2024-12-10: 0.1
+vente_sous_condition_suspensive:
+  values:
+    2024-12-10: 0.1
+vente_en_etat_futur_achevement:
+  values:
+    2024-12-10: 0.1
+convention_divorce:
+  values:
+    2024-12-10: 0.1
+jugement:
+  values:
+    2024-12-10: 0.1
+jugement_adjudication:
+  values:
+    2024-12-10: 0.1
+partage:
+  values:
+    2024-12-10: 0.1
+liquidation_partage:
+  values:
+    2024-12-10: 0.1
+bail:
+  values:
+    2024-12-10: 0.1
+bail_emphyteotique:
+  values:
+    2024-12-10: 0.1
+cession_bail:
+  values:
+    2024-12-10: 0.1
+attestation_immobiliere:
+  values:
+    2024-12-10: 0.1
+attestation_immobiliere_complementaire:
+  values:
+    2024-12-10: 0.1
+donation:
+  values:
+    2024-12-10: 0.1
+donation_partage:
+  values:
+    2024-12-10: 0.1
+autorisation_occupation_temporaire:
+  values:
+    2024-12-10: 0.1
+cession_droits:
+  values:
+    2024-12-10: 0.1
+acte_administratif:
+  values:
+    2024-12-10: 0.1
+# Inscription
+hypotheque_legale:
+  values:
+    2024-12-10: 0.2
+hypotheque_conventionnelle:
+  values:
+    2024-12-10: 0.2
+hypotheque_judiciaire_provisoire:
+  values:
+    2024-12-10: 0.2
+privilege_vendeur_action_resolutoire:
+  values:
+    2024-12-10: 0.2
+inscription_rectificative:
+  values:
+    2024-12-10: 0.2
+hypotheque_judiciaire_definitive:
+  values:
+    2024-12-10: 0.2
+renouvellement_hypotheque_judiciaire:
+  values:
+    2024-12-10: 0.2
+renouvellement_inscription:
+  values:
+    2024-12-10: 0.2

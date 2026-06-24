@@ -1,0 +1,59 @@
+- name: is_element_imposition_benefice_imposable_override
+  period: 2024-01-01
+  input:
+    is_element_imposition_benefice_imposable: 500
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 1000
+  output:
+    is_element_imposition_benefice_imposable: 500
+
+- name: is_element_imposition_benefice_imposable_default
+  period: 2024-01-01
+  input:
+    is_resultat_fiscal_benefice_apres_report_deficitaire: 1000
+  output:
+    is_element_imposition_benefice_imposable: 1000
+
+- name: is_element_imposition_calcul_due
+  period: 2024-01-01
+  input:
+    is_element_imposition_benefice_imposable: 1000
+    is_element_imposition_calcul_taux: 0.1
+  output:
+    is_element_imposition_calcul_due: 100
+
+- name: is_element_imposition_calcul_due_override
+  period: 2024-01-01
+  input:
+    is_element_imposition_benefice_imposable: 1000
+    is_element_imposition_calcul_taux: 0.1
+    is_element_imposition_calcul_due: 50
+  output:
+    is_element_imposition_calcul_due: 50
+
+- name: is_element_imposition_impot_du
+  period: 2024-01-01
+  input:
+    is_element_imposition_calcul_due: 100
+    is_element_imposition_deduction_cas_echeant: 10
+  output:
+    is_element_imposition_impot_du: 90
+
+- name: is_element_imposition_impot_du_via_due
+  period: 2024-01-01
+  input:
+    is_element_imposition_benefice_imposable: 1000
+    is_element_imposition_calcul_taux: 0.1
+    is_element_imposition_deduction_cas_echeant: 10
+  output:
+    is_element_imposition_impot_du: 90
+
+- name: is_element_imposition_impot_du_via_du_override
+  period: 2024-01-01
+  input:
+    is_element_imposition_benefice_imposable: 1000
+    is_element_imposition_calcul_taux: 0.1
+    is_element_imposition_calcul_due: 50
+    is_element_imposition_deduction_cas_echeant: 10
+  output:
+    is_element_imposition_calcul_due: 50
+    is_element_imposition_impot_du: 40

@@ -155,6 +155,7 @@ class TypesNatureEmprise(Enum):
     ip_eco_09_infra_restauration_tourisme = 'IP-ECO-09 Infrastructure de restauration (sites touristiques)'
     ip_eco_10_boutique_vente_tourisme = 'IP-ECO-10 Boutiques de vente (sites touristiques)'
     ip_eco_11_support_embarcation_legere = 'IP-ECO-11 Support pour embarcation légère'
+    ip_eco_12_equipement_peche_pays = 'IP-ECO-12 Equipements du Pays dédiés à la pêche'
     co_eco_01_bati = 'CO-ECO-01 Bâti (cas général)'
     co_eco_03_ouvrage_rehabilitation = 'CO-ECO-03 Ouvrage de réhabilitation'
     co_eco_04_bati_perli = 'CO-ECO-04 Bâti pour la perliculture et l aquaculture'
@@ -194,6 +195,7 @@ class TypesNatureEmprise(Enum):
     if_eco_21_captage_eau_surface_secondaire = 'IF_ECO_21 Captage deau de surface pour le secteur secondaire et tertiaire'
     if_eco_22_captage_eau_surface_primaire = 'IF_ECO_22 Captage d eau de surface pour le secteur primaire'
     if_eco_23_captage_eau_surface_publique = 'IF_ECO_23 Captage deau de surface pour une collectivité publiques'
+    if_eco_24_tout_cablage = 'IF_ECO_24 Câble souterrain, câble sous-marin et aérien (tout câblage)'
     if_pr_04_captage_eau_sousterraine_privee = 'IF_PR_04 Captage d eau souterraine pour habitation'
     if_pr_05_captage_eau_surface_privee = 'IF_PR_05 Captage d eau de surface pour habitation'
 
@@ -331,6 +333,14 @@ class ZoneDomPrive(Enum):
     bord_de_route = 'Bord de route'
     zone_de_lotissement = 'Zone de lotissement'
     zone_hors_lotissement = 'Zone hors lotissement'
+    centre_ville_zone_urbaine_forte_densite_de_population = 'Centre-ville - Zone urbaine à forte densité de population'
+    fare_ute_zone_industrielle_et_commerciale = 'Fare Ute - Zone industrielle et commerciale'
+    mission_zone_plaine = 'Mission - Zone plaine'
+    mission_zone_residentielle = 'Mission - Zone residentielle'
+    mission_zone_sociale = 'Mission - Zone sociale'
+    orovini_zone_plaine_moyenne_densite_de_population = 'Orovini - Zone plaine à moyenne densité de population'
+    orovini_zone_lotissement_social = 'Orovini - Zone de lotissement social'
+    fariipiti_patutoa_zone_urbaine_forte_densite_de_population = 'Fariipiti-Patutoa - Zone urbaine à forte densité de population'
 
 
 class ZoneLotAgricole(Enum):

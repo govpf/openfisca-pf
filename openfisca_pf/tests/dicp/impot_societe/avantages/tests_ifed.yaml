@@ -1,0 +1,31 @@
+- name: is_avantage_ifed_valeur_augmentation_param
+  period: 2025-01-01
+  output:
+    is_avantage_ifed_valeur_augmentation: 1_500_000
+
+- name: is_avantage_ifed_duree_param
+  period: 2025-01-01
+  output:
+    is_avantage_ifed_duree: 3
+
+- name: is_avantage_ifed_taux_plafond_param
+  period: 2025-01-01
+  output:
+    is_avantage_ifed_taux_plafond: 1.0
+
+
+- name: is_avantage_ifed_jour_exercice_imputation_param
+  period: 2025-01-01
+  output:
+    is_avantage_ifed_jour_exercice_imputation: 30
+
+
+- name: is_avantage_ifed_mois_exercice_imputation_param
+  period: 2025-01-01
+  output:
+    is_avantage_ifed_mois_exercice_imputation: 9
+
+- name: is_avantage_ifed_multiple_variable
+  period: 2025-01-01
+  output:
+    is_avantage_ifed_multiple: 500_000
