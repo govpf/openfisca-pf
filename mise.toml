@@ -1,0 +1,22 @@
+[tools]
+python = "3.13"
+
+[env]
+_.python.venv = { path = ".venv", create = true }
+
+[tasks.install]
+description = "Install dependencies and patch OpenFisca Core"
+run = ["uv pip install --editable '.[dev]'", "./patch_openfisca_core.sh"]
+
+[tasks.test]
+description = "Run OpenFisca PF tests"
+usage = 'arg "[path]" help="Tests file or folder" default="openfisca_pf/tests"'
+run = "openfisca test --country-package openfisca_pf ${usage_path}"
+
+[tasks.lint]
+description = "Check the code style of the files tracked by git"
+run = "flake8 $(git ls-files '*.py')"
+
+[tasks.serve]
+description = "Serve the OpenFisca Web API locally"
+run = "openfisca serve --reload -f config.py"
