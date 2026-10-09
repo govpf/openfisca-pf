@@ -28,6 +28,9 @@ class is_resultat_impots_benefices(Variable):
     definition_period = DAY
     label = "Impôts sur les bénéfices (HK)"
 
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        return personne('is_element_imposition_impot_du', period)
+
 
 class is_resultat_total_produits(Variable):
     value_type = int

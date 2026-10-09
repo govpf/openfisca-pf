@@ -35,3 +35,20 @@
     is_resultat_total_charges: 200
   output:
     is_resultat_benefice_ou_perte: 800
+
+
+- name: is_resultat_impots_benefices_defaut_impot_du
+  period: 2024-01-01
+  input:
+    is_element_imposition_impot_du: 90
+  output:
+    is_resultat_impots_benefices: 90
+
+
+- name: is_resultat_impots_benefices_override
+  period: 2024-01-01
+  input:
+    is_element_imposition_impot_du: 90
+    is_resultat_impots_benefices: 40
+  output:
+    is_resultat_impots_benefices: 40
