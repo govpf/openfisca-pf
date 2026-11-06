@@ -30,3 +30,17 @@ class is_annexes_non_souscrites_amende(Variable):
         nombre_annexes_non_souscrites = personne('is_nombre_annexes_non_souscrites', period)
         montant_ammende = parameters(period).dicp.impot_societe.amende.annexe_non_souscrite
         return nombre_annexes_non_souscrites * montant_ammende
+
+
+class is_annexes_non_souscrites_apres_mise_en_demeure_amende(Variable):
+    value_type = int
+    entity = Personne
+    definition_period = DAY
+    unit = 'currency-XPF'
+    label = "Montant amende pour annexes non souscrites dans les 30 jours après une mise en demeure"
+    reference = "https://www.impot-polynesie.gov.pf/code/2-sanctions-fiscales"
+
+    def formula(personne: Population, period: Period, parameters: ParameterNode) -> ArrayLike:
+        nombre_annexes_non_souscrites = personne('is_nombre_annexes_non_souscrites', period)
+        montant_amende = parameters(period).dicp.impot_societe.amende.annexe_non_souscrite_apres_mise_en_demeure
+        return nombre_annexes_non_souscrites * montant_amende
