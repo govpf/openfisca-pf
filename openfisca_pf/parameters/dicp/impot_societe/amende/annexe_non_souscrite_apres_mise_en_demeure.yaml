@@ -1,0 +1,6 @@
+description: Montant amende par annexe non souscrite dans les 30 jours après une mise en demeure
+metadata:
+    unit: 'currency-XPF'
+values:
+  2017-01-01:
+    value: 18000
